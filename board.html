@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <title>반별 게시판 - 블라썸잉글리쉬</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="https://cdn.jsdelivr.net/npm/pretendard/dist/web/variable/pretendardvariable.css" rel="stylesheet" />
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: "Pretendard Variable", -apple-system, BlinkMacSystemFont,
+        system-ui, "Apple SD Gothic Neo", "Noto Sans KR", sans-serif;
+    }
+
+    body {
+      background: #f4f6fb;
+      padding: 30px 0 60px;
+    }
+
+    .page {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    .title-big {
+      font-size: 28px;
+      font-weight: 900;
+      margin-bottom: 6px;
+    }
+
+    .subtitle {
+      font-size: 15px;
+      color: #6b7280;
+      margin-bottom: 24px;
+    }
+
+    .board-box {
+      background: #ffffff;
+      border-radius: 20px;
+      box-shadow: 0 12px 30px rgba(15, 23, 42, 0.08);
+      padding: 20px 24px;
+    }
+
+    .board-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 12px;
+    }
+
+    .board-title {
+      font-size: 18px;
+      font-weight: 700;
+    }
+
+    .class-filter {
+      font-size: 13px;
+      color: #6b7280;
+    }
+
+    .board-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 8px;
+    }
+
+    .board-table th,
+    .board-table td {
+      padding: 10px 8px;
+      font-size: 14px;
+      border-bottom: 1px solid #e5e7eb;
+    }
+
+    .board-table th {
+      text-align: left;
+      color: #6b7280;
+      font-weight: 600;
+    }
+
+    .board-table td.title-cell a {
+      color: #111827;
+      text-decoration: none;
+    }
+
+    .board-table td.title-cell a:hover {
+      text-decoration: underline;
+    }
+
+    .badge-class {
+      display: inline-block;
+      padding: 3px 8px;
+      border-radius: 999px;
+      font-size: 11px;
+      background: #eff6ff;
+      color: #1d4ed8;
+    }
+
+    .badge-class.green {
+      background: #ecfdf3;
+      color: #15803d;
+    }
+
+    .badge-class.pink {
+      background: #fdf2f8;
+      color: #be185d;
+    }
+
+    .badge-class.purple {
+      background: #f5f3ff;
+      color: #6d28d9;
+    }
+
+    .date-cell {
+      white-space: nowrap;
+      color: #6b7280;
+      font-size: 13px;
+    }
+
+    .footer-info {
+      margin-top: 10px;
+      font-size: 12px;
+      color: #9ca3af;
+    }
+
+    .back-link {
+      display: inline-block;
+      margin-bottom: 12px;
+      font-size: 13px;
+      color: #6b7280;
+      text-decoration: none;
+    }
+
+    .back-link:hover {
+      text-decoration: underline;
+    }
+
+    @media (max-width: 640px) {
+      .board-table th:nth-child(1),
+      .board-table td:nth-child(1) {
+        display: none; /* 번호 컬럼 모바일에서 숨기기 */
+      }
+    }
+  </style>
+</head>
+<body>
+<div class="page">
+
+  <a href="index.html" class="back-link">← 메인으로</a>
+
+  <div class="title-big">반별 게시판</div>
+  <div class="subtitle">각 반의 숙제 안내, 공지사항 등을 확인하세요.</div>
+
+  <div class="board-box">
+
+    <div class="board-header">
+      <div class="board-title">전체 공지</div>
+      <div class="class-filter">
+        <!-- 필요하면 나중에 "5-1반만 보기" 같은 필터로 바꿀 수도 있음 -->
+        선생님이 올린 글을 학생들이 읽기만 할 수 있어요.
+      </div>
+    </div>
+
+    <table class="board-table">
+      <thead>
+      <tr>
+        <th style="width: 50px;">번호</th>
+        <th>제목</th>
+        <th style="width: 90px;">반</th>
+        <th style="width: 110px;">작성일</th>
+      </tr>
+      </thead>
+      <tbody>
+      <!-- 여기에 글 10개 정도만 두고, 필요할 때 텍스트만 수정해서 사용하면 됨 -->
+
+      <tr>
+        <td>10</td>
+        <td class="title-cell">
+          <a href="post-10.html">겨울방학 숙제 및 안내</a>
+        </td>
+        <td><span class="badge-class purple">6-1반</span></td>
+        <td class="date-cell">2025-12-20</td>
+      </tr>
+
+      <tr>
+        <td>9</td>
+        <td class="title-cell">
+          <a href="post-9.html">12월 둘째 주 숙제 안내</a>
+        </td>
+        <td><span class="badge-class pink">5-2반</span></td>
+        <td class="date-cell">2025-12-08</td>
+      </tr>
+
+      <tr>
+        <td>8</td>
+        <td class="title-cell">
+          <a href="post-8.html">12월 첫째 주 단어 시험</a>
+        </td>
+        <td><span class="badge-class green">5-1반</span></td>
+        <td class="date-cell">2025-12-01</td>
+      </tr>
+
+      <tr>
+        <td>7</td>
+        <td class="title-cell">
+          <a href="post-7.html">11월 마지막 주 문장 익히기</a>
+        </td>
+        <td><span class="badge-class">4-1반</span></td>
+        <td class="date-cell">2025-11-25</td>
+      </tr>
+
+      <tr>
+        <td>6</td>
+        <td class="title-cell">
+          <a href="post-6.html">학부모 상담 안내</a>
+        </td>
+        <td><span class="badge-class pink">5-2반</span></td>
+        <td class="date-cell">2025-11-18</td>
+      </tr>
+
+      <tr>
+        <td>5</td>
+        <td class="title-cell">
+          <a href="post-5.html">11월 둘째 주 숙제 안내</a>
+        </td>
+        <td><span class="badge-class green">5-1반</span></td>
+        <td class="date-cell">2025-11-11</td>
+      </tr>
+
+      <tr>
+        <td>4</td>
+        <td class="title-cell">
+          <a href="post-4.html">단어 시험 범위 공지</a>
+        </td>
+        <td><span class="badge-class">4-1반</span></td>
+        <td class="date-cell">2025-11-04</td>
+      </tr>
+
+      <tr>
+        <td>3</td>
+        <td class="title-cell">
+          <a href="post-3.html">10월 마지막 주 숙제 안내</a>
+        </td>
+        <td><span class="badge-class green">5-1반</span></td>
+        <td class="date-cell">2025-10-28</td>
+      </tr>
+
+      <tr>
+        <td>2</td>
+        <td class="title-cell">
+          <a href="post-2.html">영어 공책 양식 안내</a>
+        </td>
+        <td><span class="badge-class pink">5-2반</span></td>
+        <td class="date-cell">2025-10-15</td>
+      </tr>
+
+      <tr>
+        <td>1</td>
+        <td class="title-cell">
+          <a href="post-1.html">블라썸잉글리쉬 수업 안내</a>
+        </td>
+        <td><span class="badge-class">전체</span></td>
+        <td class="date-cell">2025-10-01</td>
+      </tr>
+
+      </tbody>
+    </table>
+
+    <div class="footer-info">
+      ※ 이 게시판은 선생님만 글을 작성하고 수정할 수 있습니다.
+    </div>
+  </div>
+</div>
+</body>
+</html>
