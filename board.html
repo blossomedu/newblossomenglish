@@ -35,17 +35,17 @@
     .subtitle {
       font-size: 16px;
       color: #6b7280;
-      margin-bottom: 20px;
+      margin-bottom: 12px;
     }
 
-    /* 상단 필터 + 글쓰기 버튼 줄 */
+    /* 상단 필터 + 글쓰기/역할 버튼 줄 */
     .top-bar {
       display: flex;
       flex-wrap: wrap;
       justify-content: space-between;
       align-items: center;
       gap: 10px;
-      margin-bottom: 20px;
+      margin-bottom: 16px;
     }
 
     .filter-group {
@@ -62,6 +62,29 @@
       border: 1px solid #d1d5db;
       background: #ffffff;
       font-size: 14px;
+    }
+
+    .role-group {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 13px;
+      color: #6b7280;
+    }
+
+    .role-pill {
+      padding: 6px 12px;
+      border-radius: 999px;
+      border: 1px solid #d1d5db;
+      background: #ffffff;
+      font-size: 13px;
+      cursor: pointer;
+    }
+
+    .role-pill.active {
+      background: #2563eb;
+      color: #ffffff;
+      border-color: #2563eb;
     }
 
     .new-post-toggle {
@@ -242,7 +265,15 @@
       </select>
     </div>
 
-    <button id="toggleWriteBtn" class="new-post-toggle">✏️ 글 쓰기</button>
+    <div style="display:flex; align-items:center; gap:8px;">
+      <!-- 역할 전환 (임시 로그인 대용) -->
+      <div class="role-group">
+        <span>보기 모드</span>
+        <button class="role-pill" data-role="student" id="roleStudent">학생</button>
+        <button class="role-pill" data-role="teacher" id="roleTeacher">선생님</button>
+      </div>
+      <button id="toggleWriteBtn" class="new-post-toggle">✏️ 글 쓰기</button>
+    </div>
   </div>
 
   <!-- 글쓰기 폼 -->
@@ -286,6 +317,7 @@
 <script>
   // ====== 간단한 로컬 저장 키 ======
   const STORAGE_KEY = "blossom_board_posts_v1";
+  const ROLE_KEY    = "blossom_user_role"; // "teacher" or "student"
 
   // 기본 더미 데이터 (처음엔 이걸로 한두 개 채워 놓기)
   const defaultPosts = [
@@ -293,7 +325,7 @@
       id: Date.now() - 2000000,
       className: "1반",
       title: "이번 주 어휘 숙제 안내",
-      content: "Unit 1-1 ~ 1-3까지 학습하기\n퀴즈까지 꼭 완료해 주세요 :)",
+      content: "1단계 1세트 ~ 3세트까지 학습하기\n퀴즈까지 꼭 완료해 주세요 :)",
       author: "Stella쌤",
       createdAt: "2025-11-21 13:00"
     },
@@ -311,7 +343,6 @@
   function loadPosts() {
     const raw = localStorage.getItem(STORAGE_KEY);
     if (!raw) {
-      // 처음에는 기본 데이터 채워 넣기
       localStorage.setItem(STORAGE_KEY, JSON.stringify(defaultPosts));
       return defaultPosts.slice();
     }
@@ -325,7 +356,6 @@
     }
   }
 
-  // ====== 게시글 저장 ======
   function savePosts(posts) {
     localStorage.setItem(STORAGE_KEY, JSON.stringify(posts));
   }
@@ -344,7 +374,26 @@
   const writeTitleEl    = document.getElementById("writeTitle");
   const writeContentEl  = document.getElementById("writeContent");
 
-  // ====== 게시글 렌더링 ======
+  const roleStudentBtn  = document.getElementById("roleStudent");
+  const roleTeacherBtn  = document.getElementById("roleTeacher");
+
+  let currentRole = localStorage.getItem(ROLE_KEY) || "teacher"; // 기본: 선생님 모드
+
+  function applyRoleUI() {
+    const isTeacher = currentRole === "teacher";
+
+    // 버튼 스타일
+    roleStudentBtn.classList.toggle("active", currentRole === "student");
+    roleTeacherBtn.classList.toggle("active", currentRole === "teacher");
+
+    // 학생 모드에서는 글쓰기 버튼/폼 숨김
+    toggleWriteBtn.style.display = isTeacher ? "inline-block" : "none";
+    if (!isTeacher) {
+      writeBoxEl.style.display = "none";
+    }
+  }
+
+  // 게시글 렌더링
   function renderPosts() {
     const selectedClass = classFilterEl.value; // all, 1반, 2반 ...
     postListEl.innerHTML = "";
@@ -360,7 +409,6 @@
       emptyBoxEl.style.display = "none";
     }
 
-    // 최신 글이 위로 오도록 정렬
     filtered.sort((a, b) => b.id - a.id);
 
     for (const p of filtered) {
@@ -403,12 +451,15 @@
     }
   }
 
-  // ====== 글쓰기 폼 열기/닫기 ======
+  // 글쓰기 폼 열기/닫기
   toggleWriteBtn.onclick = () => {
+    if (currentRole !== "teacher") {
+      alert("선생님 모드에서만 글을 작성할 수 있어요.");
+      return;
+    }
     const visible = writeBoxEl.style.display !== "none";
     writeBoxEl.style.display = visible ? "none" : "block";
     if (!visible) {
-      // 열릴 때 폼 초기화
       writeTitleEl.value = "";
       writeAuthorEl.value = "";
       writeContentEl.value = "";
@@ -419,8 +470,13 @@
     writeBoxEl.style.display = "none";
   };
 
-  // ====== 글 등록 ======
+  // 글 등록
   submitWriteBtn.onclick = () => {
+    if (currentRole !== "teacher") {
+      alert("선생님 모드에서만 글을 작성할 수 있어요.");
+      return;
+    }
+
     const className = writeClassEl.value.trim();
     const author    = writeAuthorEl.value.trim() || "익명";
     const title     = writeTitleEl.value.trim();
@@ -432,8 +488,9 @@
     }
 
     const now = new Date();
-    const createdAt = `${now.getFullYear()}-${String(now.getMonth()+1).padStart(2,"0")}-${String(now.getDate()).padStart(2,"0")} ` +
-                      `${String(now.getHours()).padStart(2,"0")}:${String(now.getMinutes()).padStart(2,"0")}`;
+    const createdAt =
+      `${now.getFullYear()}-${String(now.getMonth()+1).padStart(2,"0")}-${String(now.getDate()).padStart(2,"0")} ` +
+      `${String(now.getHours()).padStart(2,"0")}:${String(now.getMinutes()).padStart(2,"0")}`;
 
     const newPost = {
       id: Date.now(),
@@ -450,10 +507,24 @@
     renderPosts();
   };
 
-  // ====== 반 필터 변경 시 ======
+  // 반 필터
   classFilterEl.onchange = renderPosts;
 
-  // 최초 렌더링
+  // 역할 전환
+  roleStudentBtn.onclick = () => {
+    currentRole = "student";
+    localStorage.setItem(ROLE_KEY, currentRole);
+    applyRoleUI();
+  };
+
+  roleTeacherBtn.onclick = () => {
+    currentRole = "teacher";
+    localStorage.setItem(ROLE_KEY, currentRole);
+    applyRoleUI();
+  };
+
+  // 초기 적용
+  applyRoleUI();
   renderPosts();
 </script>
 
