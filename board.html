@@ -21,258 +21,441 @@
     }
 
     .page {
-      max-width: 1000px;
+      max-width: 1100px;
       margin: 0 auto;
       padding: 0 20px;
     }
 
     .title-big {
-      font-size: 28px;
+      font-size: 34px;
       font-weight: 900;
       margin-bottom: 6px;
     }
 
     .subtitle {
-      font-size: 15px;
+      font-size: 16px;
       color: #6b7280;
-      margin-bottom: 24px;
+      margin-bottom: 20px;
     }
 
-    .board-box {
-      background: #ffffff;
-      border-radius: 20px;
-      box-shadow: 0 12px 30px rgba(15, 23, 42, 0.08);
-      padding: 20px 24px;
-    }
-
-    .board-header {
+    /* 상단 필터 + 글쓰기 버튼 줄 */
+    .top-bar {
       display: flex;
+      flex-wrap: wrap;
       justify-content: space-between;
       align-items: center;
-      margin-bottom: 12px;
+      gap: 10px;
+      margin-bottom: 20px;
     }
 
-    .board-title {
+    .filter-group {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 14px;
+      color: #4b5563;
+    }
+
+    .class-select {
+      padding: 8px 12px;
+      border-radius: 999px;
+      border: 1px solid #d1d5db;
+      background: #ffffff;
+      font-size: 14px;
+    }
+
+    .new-post-toggle {
+      padding: 8px 14px;
+      border-radius: 999px;
+      border: none;
+      background: #2563eb;
+      color: #ffffff;
+      font-size: 14px;
+      cursor: pointer;
+    }
+
+    /* 글쓰기 폼 */
+    .write-card {
+      background: #ffffff;
+      border-radius: 24px;
+      padding: 18px 20px 20px;
+      margin-bottom: 22px;
+      box-shadow: 0 15px 32px rgba(15, 23, 42, 0.08);
+    }
+
+    .write-title {
       font-size: 18px;
       font-weight: 700;
-    }
-
-    .class-filter {
-      font-size: 13px;
-      color: #6b7280;
-    }
-
-    .board-table {
-      width: 100%;
-      border-collapse: collapse;
-      margin-top: 8px;
-    }
-
-    .board-table th,
-    .board-table td {
-      padding: 10px 8px;
-      font-size: 14px;
-      border-bottom: 1px solid #e5e7eb;
-    }
-
-    .board-table th {
-      text-align: left;
-      color: #6b7280;
-      font-weight: 600;
-    }
-
-    .board-table td.title-cell a {
-      color: #111827;
-      text-decoration: none;
-    }
-
-    .board-table td.title-cell a:hover {
-      text-decoration: underline;
-    }
-
-    .badge-class {
-      display: inline-block;
-      padding: 3px 8px;
-      border-radius: 999px;
-      font-size: 11px;
-      background: #eff6ff;
-      color: #1d4ed8;
-    }
-
-    .badge-class.green {
-      background: #ecfdf3;
-      color: #15803d;
-    }
-
-    .badge-class.pink {
-      background: #fdf2f8;
-      color: #be185d;
-    }
-
-    .badge-class.purple {
-      background: #f5f3ff;
-      color: #6d28d9;
-    }
-
-    .date-cell {
-      white-space: nowrap;
-      color: #6b7280;
-      font-size: 13px;
-    }
-
-    .footer-info {
-      margin-top: 10px;
-      font-size: 12px;
-      color: #9ca3af;
-    }
-
-    .back-link {
-      display: inline-block;
       margin-bottom: 12px;
-      font-size: 13px;
-      color: #6b7280;
-      text-decoration: none;
     }
 
-    .back-link:hover {
-      text-decoration: underline;
+    .write-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 10px;
+    }
+
+    .write-row label {
+      font-size: 14px;
+      color: #4b5563;
+    }
+
+    .write-input,
+    .write-select {
+      padding: 8px 10px;
+      border-radius: 999px;
+      border: 1px solid #d1d5db;
+      font-size: 14px;
+      min-width: 120px;
+    }
+
+    .write-textarea {
+      width: 100%;
+      min-height: 80px;
+      padding: 10px 12px;
+      border-radius: 16px;
+      border: 1px solid #d1d5db;
+      font-size: 14px;
+      resize: vertical;
+      margin-bottom: 10px;
+    }
+
+    .write-actions {
+      display: flex;
+      justify-content: flex-end;
+      gap: 8px;
+    }
+
+    .btn {
+      padding: 8px 14px;
+      border-radius: 999px;
+      border: none;
+      font-size: 14px;
+      cursor: pointer;
+      white-space: nowrap;
+    }
+
+    .btn-cancel {
+      background: #e5e7eb;
+      color: #374151;
+    }
+
+    .btn-submit {
+      background: #10b981;
+      color: #ffffff;
+    }
+
+    /* 게시글 리스트 */
+    .post-list {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      margin-top: 10px;
+    }
+
+    .post-card {
+      background: #ffffff;
+      border-radius: 20px;
+      padding: 16px 18px;
+      box-shadow: 0 10px 26px rgba(15, 23, 42, 0.08);
+    }
+
+    .post-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 8px;
+      margin-bottom: 6px;
+    }
+
+    .post-title {
+      font-size: 16px;
+      font-weight: 700;
+      color: #111827;
+    }
+
+    .post-meta {
+      font-size: 12px;
+      color: #6b7280;
+      text-align: right;
+    }
+
+    .post-meta span + span::before {
+      content: "· ";
+      margin: 0 2px;
+    }
+
+    .post-class-badge {
+      display: inline-flex;
+      align-items: center;
+      padding: 2px 10px;
+      border-radius: 999px;
+      background: #eef2ff;
+      color: #3730a3;
+      font-size: 12px;
+      margin-bottom: 4px;
+    }
+
+    .post-content {
+      font-size: 14px;
+      color: #374151;
+      white-space: pre-wrap;
+      margin-top: 4px;
+    }
+
+    .empty-box {
+      margin-top: 30px;
+      padding: 16px 18px;
+      border-radius: 18px;
+      background: #e5e7eb;
+      font-size: 14px;
+      color: #4b5563;
+      text-align: center;
     }
 
     @media (max-width: 640px) {
-      .board-table th:nth-child(1),
-      .board-table td:nth-child(1) {
-        display: none; /* 번호 컬럼 모바일에서 숨기기 */
+      .post-header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .post-meta {
+        text-align: left;
       }
     }
   </style>
 </head>
 <body>
+
 <div class="page">
-
-  <a href="index.html" class="back-link">← 메인으로</a>
-
   <div class="title-big">반별 게시판</div>
-  <div class="subtitle">각 반의 숙제 안내, 공지사항 등을 확인하세요.</div>
+  <div class="subtitle">반을 선택하고 공지와 숙제를 확인하세요.</div>
 
-  <div class="board-box">
+  <div class="top-bar">
+    <div class="filter-group">
+      <span>반 선택</span>
+      <select id="classFilter" class="class-select">
+        <option value="all">전체</option>
+        <option value="1반">1반</option>
+        <option value="2반">2반</option>
+        <option value="3반">3반</option>
+      </select>
+    </div>
 
-    <div class="board-header">
-      <div class="board-title">전체 공지</div>
-      <div class="class-filter">
-        <!-- 필요하면 나중에 "5-1반만 보기" 같은 필터로 바꿀 수도 있음 -->
-        선생님이 올린 글을 학생들이 읽기만 할 수 있어요.
+    <button id="toggleWriteBtn" class="new-post-toggle">✏️ 글 쓰기</button>
+  </div>
+
+  <!-- 글쓰기 폼 -->
+  <div id="writeBox" class="write-card" style="display:none;">
+    <div class="write-title">새 글 쓰기</div>
+
+    <div class="write-row">
+      <div>
+        <label>반 선택</label><br />
+        <select id="writeClass" class="write-select">
+          <option value="1반">1반</option>
+          <option value="2반">2반</option>
+          <option value="3반">3반</option>
+        </select>
+      </div>
+      <div>
+        <label>작성자</label><br />
+        <input id="writeAuthor" class="write-input" placeholder="예: Stella쌤" />
+      </div>
+      <div style="flex:1; min-width:180px;">
+        <label>제목</label><br />
+        <input id="writeTitle" class="write-input" style="width:100%;" placeholder="제목을 입력하세요." />
       </div>
     </div>
 
-    <table class="board-table">
-      <thead>
-      <tr>
-        <th style="width: 50px;">번호</th>
-        <th>제목</th>
-        <th style="width: 90px;">반</th>
-        <th style="width: 110px;">작성일</th>
-      </tr>
-      </thead>
-      <tbody>
-      <!-- 여기에 글 10개 정도만 두고, 필요할 때 텍스트만 수정해서 사용하면 됨 -->
+    <textarea id="writeContent" class="write-textarea" placeholder="내용을 입력하세요. (숙제, 공지 등)"></textarea>
 
-      <tr>
-        <td>10</td>
-        <td class="title-cell">
-          <a href="post-10.html">겨울방학 숙제 및 안내</a>
-        </td>
-        <td><span class="badge-class purple">6-1반</span></td>
-        <td class="date-cell">2025-12-20</td>
-      </tr>
-
-      <tr>
-        <td>9</td>
-        <td class="title-cell">
-          <a href="post-9.html">12월 둘째 주 숙제 안내</a>
-        </td>
-        <td><span class="badge-class pink">5-2반</span></td>
-        <td class="date-cell">2025-12-08</td>
-      </tr>
-
-      <tr>
-        <td>8</td>
-        <td class="title-cell">
-          <a href="post-8.html">12월 첫째 주 단어 시험</a>
-        </td>
-        <td><span class="badge-class green">5-1반</span></td>
-        <td class="date-cell">2025-12-01</td>
-      </tr>
-
-      <tr>
-        <td>7</td>
-        <td class="title-cell">
-          <a href="post-7.html">11월 마지막 주 문장 익히기</a>
-        </td>
-        <td><span class="badge-class">4-1반</span></td>
-        <td class="date-cell">2025-11-25</td>
-      </tr>
-
-      <tr>
-        <td>6</td>
-        <td class="title-cell">
-          <a href="post-6.html">학부모 상담 안내</a>
-        </td>
-        <td><span class="badge-class pink">5-2반</span></td>
-        <td class="date-cell">2025-11-18</td>
-      </tr>
-
-      <tr>
-        <td>5</td>
-        <td class="title-cell">
-          <a href="post-5.html">11월 둘째 주 숙제 안내</a>
-        </td>
-        <td><span class="badge-class green">5-1반</span></td>
-        <td class="date-cell">2025-11-11</td>
-      </tr>
-
-      <tr>
-        <td>4</td>
-        <td class="title-cell">
-          <a href="post-4.html">단어 시험 범위 공지</a>
-        </td>
-        <td><span class="badge-class">4-1반</span></td>
-        <td class="date-cell">2025-11-04</td>
-      </tr>
-
-      <tr>
-        <td>3</td>
-        <td class="title-cell">
-          <a href="post-3.html">10월 마지막 주 숙제 안내</a>
-        </td>
-        <td><span class="badge-class green">5-1반</span></td>
-        <td class="date-cell">2025-10-28</td>
-      </tr>
-
-      <tr>
-        <td>2</td>
-        <td class="title-cell">
-          <a href="post-2.html">영어 공책 양식 안내</a>
-        </td>
-        <td><span class="badge-class pink">5-2반</span></td>
-        <td class="date-cell">2025-10-15</td>
-      </tr>
-
-      <tr>
-        <td>1</td>
-        <td class="title-cell">
-          <a href="post-1.html">블라썸잉글리쉬 수업 안내</a>
-        </td>
-        <td><span class="badge-class">전체</span></td>
-        <td class="date-cell">2025-10-01</td>
-      </tr>
-
-      </tbody>
-    </table>
-
-    <div class="footer-info">
-      ※ 이 게시판은 선생님만 글을 작성하고 수정할 수 있습니다.
+    <div class="write-actions">
+      <button class="btn btn-cancel" id="cancelWriteBtn">취소</button>
+      <button class="btn btn-submit" id="submitWriteBtn">등록</button>
     </div>
   </div>
+
+  <!-- 게시글 리스트 -->
+  <div id="postList" class="post-list"></div>
+  <div id="emptyBox" class="empty-box" style="display:none;">
+    선택된 반에 등록된 글이 아직 없어요.
+  </div>
 </div>
+
+<script>
+  // ====== 간단한 로컬 저장 키 ======
+  const STORAGE_KEY = "blossom_board_posts_v1";
+
+  // 기본 더미 데이터 (처음엔 이걸로 한두 개 채워 놓기)
+  const defaultPosts = [
+    {
+      id: Date.now() - 2000000,
+      className: "1반",
+      title: "이번 주 어휘 숙제 안내",
+      content: "Unit 1-1 ~ 1-3까지 학습하기\n퀴즈까지 꼭 완료해 주세요 :)",
+      author: "Stella쌤",
+      createdAt: "2025-11-21 13:00"
+    },
+    {
+      id: Date.now() - 1000000,
+      className: "2반",
+      title: "문장 학습 과제",
+      content: "문장 학습 2단계 3세트까지 풀어오기.",
+      author: "Stella쌤",
+      createdAt: "2025-11-21 13:10"
+    }
+  ];
+
+  // ====== localStorage에서 게시글 불러오기 ======
+  function loadPosts() {
+    const raw = localStorage.getItem(STORAGE_KEY);
+    if (!raw) {
+      // 처음에는 기본 데이터 채워 넣기
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(defaultPosts));
+      return defaultPosts.slice();
+    }
+    try {
+      const parsed = JSON.parse(raw);
+      if (Array.isArray(parsed)) return parsed;
+      return defaultPosts.slice();
+    } catch (e) {
+      console.error("게시글 불러오기 오류:", e);
+      return defaultPosts.slice();
+    }
+  }
+
+  // ====== 게시글 저장 ======
+  function savePosts(posts) {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(posts));
+  }
+
+  let posts = loadPosts();
+
+  const classFilterEl   = document.getElementById("classFilter");
+  const postListEl      = document.getElementById("postList");
+  const emptyBoxEl      = document.getElementById("emptyBox");
+  const writeBoxEl      = document.getElementById("writeBox");
+  const toggleWriteBtn  = document.getElementById("toggleWriteBtn");
+  const cancelWriteBtn  = document.getElementById("cancelWriteBtn");
+  const submitWriteBtn  = document.getElementById("submitWriteBtn");
+  const writeClassEl    = document.getElementById("writeClass");
+  const writeAuthorEl   = document.getElementById("writeAuthor");
+  const writeTitleEl    = document.getElementById("writeTitle");
+  const writeContentEl  = document.getElementById("writeContent");
+
+  // ====== 게시글 렌더링 ======
+  function renderPosts() {
+    const selectedClass = classFilterEl.value; // all, 1반, 2반 ...
+    postListEl.innerHTML = "";
+
+    const filtered = selectedClass === "all"
+      ? posts.slice()
+      : posts.filter(p => p.className === selectedClass);
+
+    if (filtered.length === 0) {
+      emptyBoxEl.style.display = "block";
+      return;
+    } else {
+      emptyBoxEl.style.display = "none";
+    }
+
+    // 최신 글이 위로 오도록 정렬
+    filtered.sort((a, b) => b.id - a.id);
+
+    for (const p of filtered) {
+      const card = document.createElement("div");
+      card.className = "post-card";
+
+      const header = document.createElement("div");
+      header.className = "post-header";
+
+      const left = document.createElement("div");
+      const badge = document.createElement("div");
+      badge.className = "post-class-badge";
+      badge.textContent = p.className;
+
+      const titleEl = document.createElement("div");
+      titleEl.className = "post-title";
+      titleEl.textContent = p.title;
+
+      left.appendChild(badge);
+      left.appendChild(titleEl);
+
+      const meta = document.createElement("div");
+      meta.className = "post-meta";
+      meta.innerHTML = `
+        <span>${p.author || "익명"}</span>
+        <span>${p.createdAt}</span>
+      `;
+
+      header.appendChild(left);
+      header.appendChild(meta);
+
+      const body = document.createElement("div");
+      body.className = "post-content";
+      body.textContent = p.content;
+
+      card.appendChild(header);
+      card.appendChild(body);
+
+      postListEl.appendChild(card);
+    }
+  }
+
+  // ====== 글쓰기 폼 열기/닫기 ======
+  toggleWriteBtn.onclick = () => {
+    const visible = writeBoxEl.style.display !== "none";
+    writeBoxEl.style.display = visible ? "none" : "block";
+    if (!visible) {
+      // 열릴 때 폼 초기화
+      writeTitleEl.value = "";
+      writeAuthorEl.value = "";
+      writeContentEl.value = "";
+    }
+  };
+
+  cancelWriteBtn.onclick = () => {
+    writeBoxEl.style.display = "none";
+  };
+
+  // ====== 글 등록 ======
+  submitWriteBtn.onclick = () => {
+    const className = writeClassEl.value.trim();
+    const author    = writeAuthorEl.value.trim() || "익명";
+    const title     = writeTitleEl.value.trim();
+    const content   = writeContentEl.value.trim();
+
+    if (!title || !content) {
+      alert("제목과 내용을 입력해 주세요.");
+      return;
+    }
+
+    const now = new Date();
+    const createdAt = `${now.getFullYear()}-${String(now.getMonth()+1).padStart(2,"0")}-${String(now.getDate()).padStart(2,"0")} ` +
+                      `${String(now.getHours()).padStart(2,"0")}:${String(now.getMinutes()).padStart(2,"0")}`;
+
+    const newPost = {
+      id: Date.now(),
+      className,
+      title,
+      content,
+      author,
+      createdAt
+    };
+
+    posts.push(newPost);
+    savePosts(posts);
+    writeBoxEl.style.display = "none";
+    renderPosts();
+  };
+
+  // ====== 반 필터 변경 시 ======
+  classFilterEl.onchange = renderPosts;
+
+  // 최초 렌더링
+  renderPosts();
+</script>
+
 </body>
 </html>
