@@ -26,17 +26,18 @@
       padding: 0 20px;
     }
 
-    /* 상단: 제목 + 로그인 */
+    /* 상단 영역: 제목 + 로그인 상태 */
     .top-row {
       display: flex;
       justify-content: space-between;
       align-items: flex-start;
-      margin-bottom: 24px;
       gap: 12px;
+      margin-bottom: 24px;
+      flex-wrap: wrap;
     }
 
     .title-wrap {
-      /* 기존 여백 유지용 래퍼 */
+      min-width: 220px;
     }
 
     .title-big {
@@ -48,33 +49,51 @@
     .subtitle {
       font-size: 16px;
       color: #6b7280;
-      margin-bottom: 0;
+    }
+
+    .auth-box {
+      font-size: 13px;
+      color: #4b5563;
+      text-align: right;
+      min-width: 180px;
+    }
+
+    .auth-main-text {
+      margin-bottom: 4px;
+    }
+
+    .auth-email {
+      font-weight: 600;
+    }
+
+    .auth-role {
+      color: #2563eb;
+      font-weight: 600;
+      margin-left: 4px;
     }
 
     .auth-buttons {
       display: flex;
-      gap: 8px;
-      align-items: center;
+      justify-content: flex-end;
+      gap: 6px;
+      margin-top: 4px;
     }
 
     .auth-btn {
-      padding: 6px 14px;
+      padding: 6px 12px;
       border-radius: 999px;
-      border: none;
-      font-size: 13px;
+      border: 1px solid #d1d5db;
+      background: #ffffff;
+      font-size: 12px;
       cursor: pointer;
-      white-space: nowrap;
+      text-decoration: none;
+      color: #374151;
     }
 
-    .auth-login {
+    .auth-btn.primary {
       background: #2563eb;
       color: #ffffff;
-      box-shadow: 0 8px 18px rgba(37, 99, 235, 0.25);
-    }
-
-    .auth-signup {
-      background: #e5e7eb;
-      color: #374151;
+      border-color: #2563eb;
     }
 
     /* 2 × 2 레이아웃 */
@@ -82,7 +101,6 @@
       display: grid;
       grid-template-columns: repeat(2, 1fr);
       gap: 22px;
-      margin-top: 24px;
     }
 
     .menu-card {
@@ -118,12 +136,16 @@
 
     a {
       text-decoration: none;
+      color: inherit;
     }
 
     @media (max-width: 640px) {
       .top-row {
         flex-direction: column;
         align-items: flex-start;
+      }
+      .auth-box {
+        text-align: left;
       }
     }
   </style>
@@ -132,26 +154,21 @@
 <body>
 <div class="page">
 
-  <!-- 상단: 제목 + 로그인 영역 -->
+  <!-- 상단: 제목 + 로그인 상태 -->
   <div class="top-row">
     <div class="title-wrap">
       <div class="title-big">블라썸잉글리쉬</div>
       <div class="subtitle">미래를 꽃 피우는 영어 교육</div>
     </div>
 
-    <div class="auth-buttons">
-      <!-- 나중에 이 버튼에서 선생님/학생 선택하거나 login.html에서 역할 선택 -->
-      <button class="auth-btn auth-login" onclick="location.href='login.html'">
-        로그인
-      </button>
-      <!-- 필요 없으면 이 회원가입 버튼은 나중에 지워도 됨 -->
-      <button class="auth-btn auth-signup" onclick="location.href='login.html?mode=signup'">
-        회원가입
-      </button>
+    <!-- 로그인/로그아웃 표시 영역 -->
+    <div class="auth-box" id="authBox">
+      <!-- JS에서 내용 채움 -->
+      <div class="auth-main-text">로그인 상태를 불러오는 중...</div>
     </div>
   </div>
 
-  <!-- 메뉴 4개 카드 -->
+  <!-- 메인 메뉴 2×2 -->
   <div class="grid">
 
     <!-- 어휘 학습 -->
@@ -188,5 +205,68 @@
 
   </div>
 </div>
+
+<!-- Supabase JS SDK -->
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script>
+  const { createClient } = supabase;
+
+  const SUPABASE_URL = "https://bpdisxjhhibrgfpvtlmv.supabase.co";
+  const SUPABASE_ANON_KEY =
+    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJwZGlzeGpoaGlicmdmcHZ0bG12Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjM5NTkxODQsImV4cCI6MjA3OTUzNTE4NH0.jDZ6BGirOPuWUnt4ykjhng4PLft2ZjBuYAFzApUnlYU";
+
+  const supa = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+  const authBox = document.getElementById("authBox");
+
+  function renderLoggedOut() {
+    authBox.innerHTML = `
+      <div class="auth-main-text">로그인이 필요합니다.</div>
+      <div class="auth-buttons">
+        <a href="login.html" class="auth-btn primary">로그인 / 회원가입</a>
+      </div>
+    `;
+  }
+
+  function renderLoggedIn(user) {
+    const email = user.email || "알 수 없음";
+    const role = (user.user_metadata && user.user_metadata.role) || "student";
+
+    authBox.innerHTML = `
+      <div class="auth-main-text">
+        <span class="auth-email">${email}</span>
+        <span class="auth-role">${role === "teacher" ? "선생님" : "학생"}</span>
+      </div>
+      <div class="auth-buttons">
+        <button class="auth-btn" id="logoutBtn">로그아웃</button>
+      </div>
+    `;
+
+    const logoutBtn = document.getElementById("logoutBtn");
+    logoutBtn.addEventListener("click", async () => {
+      try {
+        await supa.auth.signOut();
+      } catch (e) {
+        console.error(e);
+      } finally {
+        renderLoggedOut();
+      }
+    });
+  }
+
+  (async () => {
+    try {
+      const { data, error } = await supa.auth.getUser();
+      if (error || !data || !data.user) {
+        renderLoggedOut();
+      } else {
+        renderLoggedIn(data.user);
+      }
+    } catch (e) {
+      console.error(e);
+      renderLoggedOut();
+    }
+  })();
+</script>
+
 </body>
 </html>
