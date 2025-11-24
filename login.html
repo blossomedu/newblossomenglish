@@ -4,10 +4,7 @@
   <meta charset="UTF-8" />
   <title>블라썸잉글리쉬 로그인</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link
-    href="https://cdn.jsdelivr.net/npm/pretendard/dist/web/variable/pretendardvariable.css"
-    rel="stylesheet"
-  />
+  <link href="https://cdn.jsdelivr.net/npm/pretendard/dist/web/variable/pretendardvariable.css" rel="stylesheet" />
   <style>
     * {
       box-sizing: border-box;
@@ -23,7 +20,7 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      padding: 30px 12px;
+      padding: 24px;
     }
 
     .card {
@@ -31,399 +28,419 @@
       max-width: 520px;
       background: #ffffff;
       border-radius: 32px;
-      box-shadow: 0 18px 40px rgba(15, 23, 42, 0.12);
-      padding: 32px 32px 26px;
+      box-shadow: 0 24px 60px rgba(15, 23, 42, 0.14);
+      padding: 32px 32px 28px;
     }
 
-    .tabs {
+    .tab-row {
       display: flex;
-      margin-bottom: 28px;
-      background: #f3f4f6;
+      background: #e5e7eb;
       border-radius: 999px;
       padding: 4px;
+      margin-bottom: 26px;
     }
 
-    .tab {
+    .tab-btn {
       flex: 1;
-      text-align: center;
-      padding: 10px 0;
       border-radius: 999px;
+      border: none;
+      background: transparent;
+      padding: 10px 0;
       font-size: 15px;
       font-weight: 600;
       cursor: pointer;
       color: #6b7280;
-      transition: all 0.2s ease;
+      transition: all 0.18s ease;
     }
 
-    .tab.active {
+    .tab-btn.active {
       background: #2563eb;
       color: #ffffff;
-      box-shadow: 0 8px 18px rgba(37, 99, 235, 0.45);
+      box-shadow: 0 10px 25px rgba(37, 99, 235, 0.35);
     }
 
-    .form-title {
+    h2 {
       font-size: 24px;
       font-weight: 800;
-      margin-bottom: 24px;
+      margin-bottom: 20px;
+    }
+
+    .field {
+      margin-bottom: 14px;
     }
 
     .field-label {
       font-size: 13px;
       color: #4b5563;
-      margin-bottom: 6px;
+      margin-bottom: 4px;
     }
 
     .input {
       width: 100%;
-      padding: 11px 14px;
       border-radius: 999px;
-      border: 1px solid #e5e7eb;
-      margin-bottom: 14px;
+      border: 1px solid #d1d5db;
+      padding: 10px 14px;
       font-size: 14px;
+      outline: none;
+      transition: border-color 0.15s ease, box-shadow 0.15s ease;
+      background: #f9fafb;
     }
 
     .input:focus {
-      outline: none;
       border-color: #2563eb;
-      box-shadow: 0 0 0 1px #2563eb22;
-    }
-
-    .select {
-      width: 100%;
-      padding: 11px 14px;
-      border-radius: 999px;
-      border: 1px solid #e5e7eb;
-      margin-bottom: 18px;
-      font-size: 14px;
+      box-shadow: 0 0 0 1px rgba(37, 99, 235, 0.3);
       background: #ffffff;
     }
 
-    .btn-primary {
+    .primary-btn {
       width: 100%;
-      padding: 13px 0;
+      margin-top: 10px;
       border-radius: 999px;
       border: none;
+      padding: 12px 0;
       font-size: 16px;
       font-weight: 700;
-      background: #2563eb;
       color: #ffffff;
+      background: #2563eb;
       cursor: pointer;
-      margin-top: 4px;
-      margin-bottom: 14px;
-      box-shadow: 0 12px 26px rgba(37, 99, 235, 0.55);
-      transition: transform 0.1s ease, box-shadow 0.1s ease;
+      box-shadow: 0 16px 32px rgba(37, 99, 235, 0.45);
+      transition: transform 0.12s ease, box-shadow 0.12s ease,
+        background 0.12s ease;
     }
 
-    .btn-primary:active {
-      transform: translateY(1px);
-      box-shadow: 0 8px 16px rgba(37, 99, 235, 0.45);
+    .primary-btn:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 20px 40px rgba(37, 99, 235, 0.55);
+      background: #1d4ed8;
     }
 
-    .btn-google {
+    .google-btn {
       width: 100%;
-      padding: 11px 0;
+      margin-top: 10px;
       border-radius: 999px;
-      border: none;
+      border: 1px solid #d1d5db;
+      padding: 10px 0;
       font-size: 14px;
-      font-weight: 600;
-      background: #f3f4f6;
-      color: #374151;
+      font-weight: 500;
+      background: #ffffff;
       cursor: pointer;
-      margin-bottom: 10px;
     }
 
-    .help-text {
+    .hint {
       font-size: 12px;
-      text-align: center;
       color: #6b7280;
-      margin-bottom: 12px;
-    }
-
-    .home-link {
-      display: block;
       text-align: center;
-      font-size: 13px;
-      color: #2563eb;
-      text-decoration: none;
-      margin-top: 4px;
+      margin-top: 6px;
     }
 
     .error-box {
-      margin-top: 6px;
-      padding: 8px 10px;
-      border-radius: 12px;
+      margin-top: 12px;
+      border-radius: 999px;
       background: #fee2e2;
       color: #b91c1c;
+      padding: 8px 14px;
       font-size: 12px;
       text-align: center;
     }
 
-    .success-box {
-      margin-top: 6px;
-      padding: 8px 10px;
-      border-radius: 12px;
-      background: #dcfce7;
-      color: #166534;
-      font-size: 12px;
+    .link-row {
+      margin-top: 16px;
       text-align: center;
+      font-size: 13px;
     }
 
-    @media (max-width: 480px) {
-      .card {
-        padding: 26px 20px 20px;
-        border-radius: 24px;
-      }
+    .link-row a {
+      color: #2563eb;
+      text-decoration: none;
+      font-weight: 500;
     }
   </style>
 </head>
 <body>
-  <div class="card">
-    <div class="tabs">
-      <div class="tab active" id="tab-login">로그인</div>
-      <div class="tab" id="tab-signup">회원가입</div>
-    </div>
-
-    <div class="form-title" id="form-title-text">로그인</div>
-
-    <!-- 에러 / 성공 메시지 -->
-    <div id="message-box" style="display:none;"></div>
-
-    <!-- 로그인 폼 -->
-    <div id="login-form">
-      <div class="field-label">아이디 / 이메일</div>
-      <input id="login-id" class="input" placeholder="예: stella 또는 stella@email.com" />
-
-      <div class="field-label">비밀번호</div>
-      <input
-        id="login-password"
-        class="input"
-        type="password"
-        placeholder="비밀번호"
-      />
-
-      <button class="btn-primary" id="btn-login">로그인</button>
-    </div>
-
-    <!-- 회원가입 폼 -->
-    <div id="signup-form" style="display:none;">
-      <div class="field-label">아이디 / 이메일</div>
-      <input
-        id="signup-id"
-        class="input"
-        placeholder="예: stella (이메일 없어도 가입 가능)"
-      />
-
-      <div class="field-label">비밀번호</div>
-      <input
-        id="signup-password"
-        class="input"
-        type="password"
-        placeholder="비밀번호 (최소 6자)"
-      />
-
-      <div class="field-label">비밀번호 확인</div>
-      <input
-        id="signup-password2"
-        class="input"
-        type="password"
-        placeholder="비밀번호 다시 입력"
-      />
-
-      <div class="field-label">이름 / 별명</div>
-      <input
-        id="signup-name"
-        class="input"
-        placeholder="예: 홍길동 / Stella"
-      />
-
-      <!-- 역할 선택은 화면에서 제거하고, 모두 student로 가입 -->
-      <!-- 필요하면 나중에 관리자 페이지에서 teacher로 승격 -->
-
-      <button class="btn-primary" id="btn-signup">회원가입</button>
-    </div>
-
-    <button class="btn-google" id="btn-google">
-      구글 계정으로 가입/로그인
-    </button>
-
-    <div class="help-text">
-      구글 버튼은 이미 가입된 계정이 있어도 그대로 로그인 돼요.
-    </div>
-
-    <a href="index.html" class="home-link">← 블라썸잉글리쉬 홈으로 돌아가기</a>
+<div class="card">
+  <div class="tab-row">
+    <button id="tab-login" class="tab-btn active">로그인</button>
+    <button id="tab-signup" class="tab-btn">회원가입</button>
   </div>
 
-  <!-- Supabase JS -->
-  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-  <script>
-    // ==== Supabase 설정 ====
-    const SUPABASE_URL = "https://bpdisxjhhibrgfpvtlmv.supabase.co";
-    const SUPABASE_ANON_KEY =
-      "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJwZGlzeGpoaGlicmdmcHZ0bG12Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjM5NTkxODQsImV4cCI6MjA3OTUzNTE4NH0.jDZ6BGirOPuWUnt4ykjhng4PLft2ZjBuYAFzApUnlYU";
+  <h2 id="form-title">로그인</h2>
 
-    const { createClient } = supabase;
-    const client = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+  <!-- 로그인 폼 -->
+  <div id="login-form">
+    <div class="field">
+      <div class="field-label">아이디 / 이메일</div>
+      <input id="login-id" class="input" placeholder="예: stella 또는 stella@example.com" />
+    </div>
+    <div class="field">
+      <div class="field-label">비밀번호</div>
+      <input id="login-password" class="input" type="password" placeholder="비밀번호" />
+    </div>
+    <button id="login-submit" class="primary-btn">로그인</button>
 
-    // ==== DOM 요소 ====
-    const tabLogin = document.getElementById("tab-login");
-    const tabSignup = document.getElementById("tab-signup");
-    const loginForm = document.getElementById("login-form");
-    const signupForm = document.getElementById("signup-form");
-    const formTitle = document.getElementById("form-title-text");
-    const msgBox = document.getElementById("message-box");
+    <button id="google-login" class="google-btn">구글 계정으로 로그인</button>
+    <div class="hint">선생님·학부모는 구글 로그인 또는 이메일을 사용해 주세요.</div>
+  </div>
 
-    // ==== 탭 전환 ====
-    function setMode(mode) {
-      const isSignup = mode === "signup";
+  <!-- 회원가입 폼 -->
+  <div id="signup-form" style="display:none;">
+    <div class="field">
+      <div class="field-label">아이디 / 이메일</div>
+      <input id="signup-id" class="input" placeholder="학생은 아이디만 적어도 돼요 (예: stella)" />
+    </div>
+    <div class="field">
+      <div class="field-label">비밀번호</div>
+      <input id="signup-password" class="input" type="password" placeholder="최소 6자리" />
+    </div>
+    <div class="field">
+      <div class="field-label">비밀번호 확인</div>
+      <input id="signup-password2" class="input" type="password" placeholder="비밀번호 다시 입력" />
+    </div>
+    <div class="field">
+      <div class="field-label">이름 / 별명</div>
+      <input id="signup-name" class="input" placeholder="예: 박혜진 / Stella" />
+    </div>
 
-      tabLogin.classList.toggle("active", !isSignup);
-      tabSignup.classList.toggle("active", isSignup);
-      loginForm.style.display = isSignup ? "none" : "block";
-      signupForm.style.display = isSignup ? "block" : "none";
-      formTitle.textContent = isSignup ? "회원가입" : "로그인";
+    <button id="signup-submit" class="primary-btn">회원가입</button>
 
-      // 메시지 지우기
-      msgBox.style.display = "none";
-      msgBox.textContent = "";
+    <button id="google-signup" class="google-btn">구글 계정으로 가입/로그인</button>
+    <div class="hint">구글 버튼은 선생님·학부모용이에요. 이미 가입된 계정이 있으면 그대로 로그인돼요.</div>
+  </div>
+
+  <div id="error-box" class="error-box" style="display:none;"></div>
+
+  <div class="link-row">
+    <a href="index.html">← 블라썸잉글리쉬 홈으로 돌아가기</a>
+  </div>
+</div>
+
+<!-- Supabase JS -->
+<script src="https://unpkg.com/@supabase/supabase-js@2.48.0/dist/umd/supabase.js"></script>
+<script>
+  // ====== 여기에 너 프로젝트 값 그대로 사용 ======
+  const SUPABASE_URL = "https://bpdisxjhhibrgfpvtlmv.supabase.co";
+  const SUPABASE_ANON_KEY =
+    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJwZGlzeGpoaGlicmdmcHZ0bG12Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjM5NTkxODQsImV4cCI6MjA3OTUzNTE4NH0.jDZ6BGirOPuWUnt4ykjhng4PLft2ZjBuYAFzApUnlYU";
+
+  const client = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
+  // ====== 탭 전환 ======
+  const tabLogin = document.getElementById("tab-login");
+  const tabSignup = document.getElementById("tab-signup");
+  const loginForm = document.getElementById("login-form");
+  const signupForm = document.getElementById("signup-form");
+  const formTitle = document.getElementById("form-title");
+  const errorBox = document.getElementById("error-box");
+
+  function showError(msg) {
+    errorBox.textContent = msg;
+    errorBox.style.display = "block";
+  }
+  function clearError() {
+    errorBox.style.display = "none";
+    errorBox.textContent = "";
+  }
+
+  tabLogin.onclick = () => {
+    tabLogin.classList.add("active");
+    tabSignup.classList.remove("active");
+    loginForm.style.display = "block";
+    signupForm.style.display = "none";
+    formTitle.textContent = "로그인";
+    clearError();
+  };
+
+  tabSignup.onclick = () => {
+    tabSignup.classList.add("active");
+    tabLogin.classList.remove("active");
+    loginForm.style.display = "none";
+    signupForm.style.display = "block";
+    formTitle.textContent = "회원가입";
+    clearError();
+  };
+
+  // ====== 로그인 처리 ======
+  const loginIdEl = document.getElementById("login-id");
+  const loginPwEl = document.getElementById("login-password");
+  const loginBtn = document.getElementById("login-submit");
+
+  loginBtn.onclick = async () => {
+    clearError();
+    const idOrEmail = loginIdEl.value.trim();
+    const password = loginPwEl.value.trim();
+
+    if (!idOrEmail || !password) {
+      showError("아이디/이메일과 비밀번호를 모두 입력해 주세요.");
+      return;
     }
 
-    tabLogin.onclick = () => setMode("login");
-    tabSignup.onclick = () => setMode("signup");
-
-    // URL ?mode=signup 지원
-    const params = new URLSearchParams(window.location.search);
-    if (params.get("mode") === "signup") {
-      setMode("signup");
-    }
-
-    // ==== 아이디 / 이메일 처리 ====
-    function normalizeEmailOrId(value) {
-      const trimmed = value.trim();
-      if (!trimmed) return "";
-
-      // 이미 이메일 형태면 그대로 사용
-      if (trimmed.includes("@")) return trimmed;
-
-      // 아이디만 쓴 경우 → 내부용 이메일로 변환
-      // 예: stella  -> stella@id.blossomedu.net
-      return `${trimmed}@id.blossomedu.net`;
-    }
-
-    // ==== 메시지 표시 ====
-    function showError(message) {
-      msgBox.className = "error-box";
-      msgBox.textContent = message;
-      msgBox.style.display = "block";
-    }
-
-    function showSuccess(message) {
-      msgBox.className = "success-box";
-      msgBox.textContent = message;
-      msgBox.style.display = "block";
-    }
-
-    // ==== 회원가입 ====
-    document.getElementById("btn-signup").onclick = async () => {
-      const idOrEmail = document.getElementById("signup-id").value;
-      const password = document.getElementById("signup-password").value;
-      const password2 = document.getElementById("signup-password2").value;
-      const name = document.getElementById("signup-name").value.trim();
-
-      const email = normalizeEmailOrId(idOrEmail);
-
-      if (!email) {
-        showError("아이디 또는 이메일을 입력해 주세요.");
-        return;
-      }
-      if (password.length < 6) {
-        showError("비밀번호는 최소 6자 이상이어야 해요.");
-        return;
-      }
-      if (password !== password2) {
-        showError("비밀번호가 서로 다릅니다.");
-        return;
-      }
-
-      try {
-        const { data, error } = await client.auth.signUp({
-          email,
-          password,
-          options: {
-            data: {
-              display_name: name || null,
-              // 모두 기본값 student로 가입 (선생님 승격은 나중에 관리자 페이지에서)
-              role: "student"
-            }
-          }
-        });
-
-        if (error) {
-          console.error(error);
-          showError(error.message || "회원가입 중 오류가 발생했어요.");
-          return;
-        }
-
-        showSuccess("회원가입이 완료되었어요! 이제 로그인 탭에서 로그인해 주세요.");
-        setMode("login");
-      } catch (err) {
-        console.error(err);
-        showError("알 수 없는 오류가 발생했어요.");
-      }
-    };
-
-    // ==== 로그인 ====
-    document.getElementById("btn-login").onclick = async () => {
-      const idOrEmail = document.getElementById("login-id").value;
-      const password = document.getElementById("login-password").value;
-
-      const email = normalizeEmailOrId(idOrEmail);
-
-      if (!email || !password) {
-        showError("아이디/이메일과 비밀번호를 입력해 주세요.");
-        return;
-      }
-
-      try {
+    try {
+      if (idOrEmail.includes("@")) {
+        // ===== 이메일 계정 (선생님/학부모) → Supabase Auth 사용
         const { data, error } = await client.auth.signInWithPassword({
-          email,
-          password
+          email: idOrEmail,
+          password,
         });
-
         if (error) {
-          console.error(error);
           showError(error.message || "로그인에 실패했어요.");
           return;
         }
-
-        showSuccess("로그인 성공! 잠시 후 홈으로 이동합니다.");
-        setTimeout(() => {
-          window.location.href = "index.html";
-        }, 800);
-      } catch (err) {
-        console.error(err);
-        showError("알 수 없는 오류가 발생했어요.");
-      }
-    };
-
-    // ==== 구글 로그인 ====
-    document.getElementById("btn-google").onclick = async () => {
-      try {
-        const { data, error } = await client.auth.signInWithOAuth({
-          provider: "google",
-          options: {
-            redirectTo: "https://blossomedu.github.io/newblossomenglish/login.html"
-          }
-        });
+        // 성공 → 메인으로
+        window.location.href = "index.html";
+      } else {
+        // ===== 아이디만 입력 (학생 계정) → students 테이블 확인
+        const { data, error } = await client
+          .from("students")
+          .select("id, login_id, name")
+          .eq("login_id", idOrEmail)
+          .eq("password", password)  // 지금은 단순 비밀번호 (추후 해시 변경 가능)
+          .maybeSingle();
 
         if (error) {
           console.error(error);
-          showError("구글 로그인 중 오류가 발생했어요.");
+          showError("로그인 중 오류가 발생했어요.");
+          return;
         }
-      } catch (err) {
-        console.error(err);
-        showError("알 수 없는 오류가 발생했어요.");
+        if (!data) {
+          showError("아이디 또는 비밀번호가 올바르지 않아요.");
+          return;
+        }
+
+        // 브라우저에 간단히 학생 정보 저장 (숙제 기록 등에서 사용)
+        localStorage.setItem(
+          "blossom_student",
+          JSON.stringify({
+            id: data.id,
+            login_id: data.login_id,
+            name: data.name,
+          })
+        );
+        window.location.href = "index.html";
       }
-    };
-  </script>
+    } catch (err) {
+      console.error(err);
+      showError("알 수 없는 오류가 발생했어요.");
+    }
+  };
+
+  // ====== 회원가입 처리 ======
+  const signupIdEl = document.getElementById("signup-id");
+  const signupPwEl = document.getElementById("signup-password");
+  const signupPw2El = document.getElementById("signup-password2");
+  const signupNameEl = document.getElementById("signup-name");
+  const signupBtn = document.getElementById("signup-submit");
+
+  signupBtn.onclick = async () => {
+    clearError();
+    const idOrEmail = signupIdEl.value.trim();
+    const password = signupPwEl.value.trim();
+    const password2 = signupPw2El.value.trim();
+    const name = signupNameEl.value.trim();
+
+    if (!idOrEmail || !password || !password2 || !name) {
+      showError("모든 항목을 입력해 주세요.");
+      return;
+    }
+    if (password.length < 6) {
+      showError("비밀번호는 최소 6자리 이상이어야 해요.");
+      return;
+    }
+    if (password !== password2) {
+      showError("비밀번호가 서로 일치하지 않아요.");
+      return;
+    }
+
+    try {
+      if (idOrEmail.includes("@")) {
+        // ===== 이메일 계정 회원가입 (선생님/학부모)
+        const { data, error } = await client.auth.signUp({
+          email: idOrEmail,
+          password,
+          options: {
+            data: { display_name: name },
+          },
+        });
+        if (error) {
+          showError(error.message || "회원가입에 실패했어요.");
+          return;
+        }
+        alert("회원가입이 완료됐어요! 이제 로그인 탭에서 로그인해 주세요.");
+        tabLogin.click();
+      } else {
+        // ===== 학생: 아이디만 사용하는 회원가입 (students 테이블에 저장)
+        // 아이디 중복 체크
+        const { data: existing, error: checkErr } = await client
+          .from("students")
+          .select("id")
+          .eq("login_id", idOrEmail)
+          .maybeSingle();
+
+        if (checkErr) {
+          console.error(checkErr);
+          showError("아이디 확인 중 오류가 발생했어요.");
+          return;
+        }
+        if (existing) {
+          showError("이미 사용 중인 아이디예요. 다른 아이디를 입력해 주세요.");
+          return;
+        }
+
+        const { data, error } = await client
+          .from("students")
+          .insert({
+            login_id: idOrEmail,
+            password: password, // 지금은 단순 저장 (나중에 해시로 개선 가능)
+            name: name,
+          })
+          .select("id, login_id, name")
+          .single();
+
+        if (error) {
+          console.error(error);
+          showError("학생 회원가입 중 오류가 발생했어요.");
+          return;
+        }
+
+        // 가입 후 바로 로그인 처리
+        localStorage.setItem(
+          "blossom_student",
+          JSON.stringify({
+            id: data.id,
+            login_id: data.login_id,
+            name: data.name,
+          })
+        );
+        window.location.href = "index.html";
+      }
+    } catch (err) {
+      console.error(err);
+      showError("알 수 없는 오류가 발생했어요.");
+    }
+  };
+
+  // ====== 구글 로그인 / 가입 ======
+  const googleLoginBtn = document.getElementById("google-login");
+  const googleSignupBtn = document.getElementById("google-signup");
+
+  async function loginWithGoogle() {
+    clearError();
+    try {
+      const { error } = await client.auth.signInWithOAuth({
+        provider: "google",
+        options: {
+          redirectTo: "https://blossomedu.github.io/newblossomenglish/login.html",
+        },
+      });
+      if (error) {
+        showError(error.message || "구글 로그인에 실패했어요.");
+      }
+    } catch (err) {
+      console.error(err);
+      showError("구글 로그인 중 오류가 발생했어요.");
+    }
+  }
+
+  googleLoginBtn.onclick = loginWithGoogle;
+  googleSignupBtn.onclick = loginWithGoogle;
+</script>
 </body>
 </html>
