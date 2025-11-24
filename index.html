@@ -5,173 +5,123 @@
   <title>블라썸잉글리쉬</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link href="https://cdn.jsdelivr.net/npm/pretendard/dist/web/variable/pretendardvariable.css" rel="stylesheet" />
+
   <style>
-    body {
-      font-family: "Pretendard Variable", sans-serif;
+    * {
+      box-sizing: border-box;
       margin: 0;
       padding: 0;
+      font-family: "Pretendard Variable", -apple-system, BlinkMacSystemFont,
+        system-ui, "Apple SD Gothic Neo", "Noto Sans KR", sans-serif;
+    }
+
+    body {
       background: #f4f6fb;
+      padding: 30px 0 60px;
     }
 
-    header {
-      width: 100%;
-      display: flex;
-      justify-content: flex-end;
-      padding: 20px 26px;
-      font-size: 14px;
-      font-weight: 600;
-      color: #374151;
-    }
-
-    #user-status-text {
-      margin-right: 12px;
-    }
-
-    #user-status-btn {
-      padding: 6px 14px;
-      border-radius: 999px;
-      border: none;
-      cursor: pointer;
-      background: #2563eb;
-      color: white;
-      font-weight: 600;
-    }
-
-    .container {
-      max-width: 900px;
+    .page {
+      max-width: 1100px;
       margin: 0 auto;
-      padding: 20px;
+      padding: 0 20px;
     }
 
-    h1 {
-      font-size: 30px;
-      font-weight: 800;
+    .title-big {
+      font-size: 34px;
+      font-weight: 900;
       margin-bottom: 6px;
     }
 
     .subtitle {
+      font-size: 16px;
       color: #6b7280;
-      margin-bottom: 40px;
+      margin-bottom: 32px;
     }
 
+    /* 2 × 2 레이아웃 */
     .grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
-      gap: 26px;
+      gap: 22px;
     }
 
-    .card {
-      background: white;
-      border-radius: 28px;
-      padding: 30px;
-      font-size: 18px;
-      box-shadow: 0 18px 40px rgba(0,0,0,0.08);
-      cursor: pointer;
-      transition: 0.15s ease;
+    .menu-card {
+      background: #ffffff;
+      border-radius: 26px;
+      height: 180px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
       text-align: center;
+      box-shadow: 0 15px 32px rgba(15, 23, 42, 0.08);
+      transition: all 0.2s ease;
+      cursor: pointer;
     }
 
-    .card:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 24px 50px rgba(0,0,0,0.12);
+    .menu-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 22px 40px rgba(15, 23, 42, 0.12);
     }
 
-    .card img {
-      width: 64px;
-      margin-bottom: 14px;
+    .menu-icon {
+      width: 87px;
+      height: 87px;
+      margin-bottom: 16px;
+    }
+
+    .menu-text {
+      font-size: 20px;
+      font-weight: 700;
+      color: #111827;
+    }
+
+    a {
+      text-decoration: none;
     }
   </style>
 </head>
+
 <body>
-
-<header>
-  <span id="user-status-text">로그인이 필요합니다.</span>
-  <button id="user-status-btn" class="login-btn">로그인 / 회원가입</button>
-</header>
-
-<div class="container">
-  <h1>블라썸잉글리쉬</h1>
-  <div class="subtitle">미래를 꽃피우는 영어 교육</div>
+<div class="page">
+  <div class="title-big">블라썸잉글리쉬</div>
+  <div class="subtitle">미래를 꽃 피우는 영어 교육</div>
 
   <div class="grid">
-    <div class="card" onclick="location.href='vocab.html'">
-      <img src="img/vocab.png" />
-      어휘 학습
-    </div>
 
-    <div class="card" onclick="location.href='sentence.html'">
-      <img src="img/sentence.png" />
-      문장 학습
-    </div>
+    <!-- 어휘 학습 -->
+    <a href="vocabulary.html">
+      <div class="menu-card">
+        <img src="vocab-book.png" class="menu-icon" alt="어휘 학습" />
+        <div class="menu-text">어휘 학습</div>
+      </div>
+    </a>
 
-    <div class="card" onclick="location.href='board.html'">
-      <img src="img/board.png" />
-      반별 게시판
-    </div>
+    <!-- 문장 학습 -->
+    <a href="sentence.html">
+      <div class="menu-card">
+        <img src="pencil.png" class="menu-icon" alt="문장 학습" />
+        <div class="menu-text">문장 학습</div>
+      </div>
+    </a>
 
-    <div class="card" onclick="location.href='shop.html'">
-      <img src="img/shop.png" />
-      온라인 서점
-    </div>
+    <!-- 반별 게시판 -->
+    <a href="board.html">
+      <div class="menu-card">
+        <img src="board.png" class="menu-icon" alt="반별 게시판" />
+        <div class="menu-text">반별 게시판</div>
+      </div>
+    </a>
+
+    <!-- 온라인 서점 -->
+    <a href="https://search.kyobobook.co.kr/search?keyword=%EC%B4%88%EB%B0%94%EC%98%81&gbCode=TOT&target=total" target="_blank">
+      <div class="menu-card">
+        <img src="store.png" class="menu-icon" alt="온라인 서점" />
+        <div class="menu-text">온라인 서점</div>
+      </div>
+    </a>
+
   </div>
 </div>
-
-<!-- Supabase 로그인 상태 관리 스크립트 -->
-<script src="https://unpkg.com/@supabase/supabase-js@2.48.0/dist/umd/supabase.js"></script>
-<script>
-  const SUPABASE_URL = "https://bpdisxjhhibrgfpvtlmv.supabase.co";
-  const SUPABASE_ANON_KEY =
-    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJwZGlzeGpoaGlicmdmcHZ0bG12Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjM5NTkxODQsImV4cCI6MjA3OTUzNTE4NH0.jDZ6BGirOPuWUnt4ykjhng4PLft2ZjBuYAFzApUnlYU";
-
-  const client = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
-
-  async function refreshUserUI() {
-    const statusEl = document.getElementById("user-status-text");
-    const btnEl = document.getElementById("user-status-btn");
-
-    if (!statusEl || !btnEl) return;
-
-    // 1) 학생 로그인 먼저 확인
-    const studentData = localStorage.getItem("blossom_student");
-    if (studentData) {
-      const stu = JSON.parse(studentData);
-      statusEl.textContent = `${stu.name} 학생`;
-      btnEl.textContent = "로그아웃";
-      btnEl.onclick = () => {
-        localStorage.removeItem("blossom_student");
-        window.location.reload();
-      };
-      return;
-    }
-
-    // 2) Supabase Auth 로그인 확인 (선생님 / 학부모)
-    const { data } = await client.auth.getUser();
-
-    if (data?.user) {
-      const name =
-        data.user.user_metadata?.display_name ||
-        data.user.email ||
-        "사용자";
-
-      statusEl.textContent = `${name}님`;
-      btnEl.textContent = "로그아웃";
-
-      btnEl.onclick = async () => {
-        await client.auth.signOut();
-        window.location.reload();
-      };
-
-      return;
-    }
-
-    // 3) 로그인 안 된 기본 상태
-    statusEl.textContent = "로그인이 필요합니다.";
-    btnEl.textContent = "로그인 / 회원가입";
-    btnEl.onclick = () => (window.location.href = "login.html");
-  }
-
-  refreshUserUI();
-</script>
-
 </body>
 </html>
