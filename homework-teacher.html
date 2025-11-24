@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <title>온라인 숙제 만들기 - 블라썸잉글리쉬</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="https://cdn.jsdelivr.net/npm/pretendard/dist/web/variable/pretendardvariable.css" rel="stylesheet" />
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: "Pretendard Variable", -apple-system, BlinkMacSystemFont,
+        system-ui, "Apple SD Gothic Neo", "Noto Sans KR", sans-serif;
+    }
+
+    body {
+      background: #f4f6fb;
+      padding: 24px 0 40px;
+    }
+
+    .page {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    .top-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 18px;
+      gap: 10px;
+    }
+
+    .title-big {
+      font-size: 28px;
+      font-weight: 900;
+    }
+
+    .subtitle {
+      font-size: 14px;
+      color: #6b7280;
+      margin-top: 4px;
+    }
+
+    .link-btn {
+      border-radius: 999px;
+      border: none;
+      padding: 8px 16px;
+      font-size: 14px;
+      cursor: pointer;
+      background: #2563eb;
+      color: #ffffff;
+      white-space: nowrap;
+    }
+
+    .card {
+      background: #ffffff;
+      border-radius: 24px;
+      padding: 18px 20px 20px;
+      box-shadow: 0 15px 32px rgba(15, 23, 42, 0.08);
+      margin-bottom: 18px;
+    }
+
+    .info-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 14px;
+      gap: 8px;
+      font-size: 14px;
+      color: #4b5563;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      padding: 3px 10px;
+      border-radius: 999px;
+      background: #eef2ff;
+      color: #3730a3;
+      font-size: 12px;
+      margin-left: 6px;
+    }
+
+    .form-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 12px;
+      align-items: flex-end;
+    }
+
+    .field {
+      min-width: 140px;
+    }
+
+    .field label {
+      display: block;
+      font-size: 13px;
+      color: #4b5563;
+      margin-bottom: 4px;
+    }
+
+    select,
+    input[type="number"],
+    input[type="text"],
+    input[type="date"] {
+      width: 100%;
+      padding: 8px 10px;
+      border-radius: 999px;
+      border: 1px solid #d1d5db;
+      font-size: 14px;
+      background: #ffffff;
+    }
+
+    .pill-group {
+      display: inline-flex;
+      background: #e5e7eb;
+      border-radius: 999px;
+      padding: 3px;
+      gap: 4px;
+    }
+
+    .pill-btn {
+      border: none;
+      border-radius: 999px;
+      padding: 6px 12px;
+      font-size: 13px;
+      cursor: pointer;
+      background: transparent;
+      color: #4b5563;
+      white-space: nowrap;
+    }
+
+    .pill-btn.active {
+      background: #2563eb;
+      color: #ffffff;
+      box-shadow: 0 8px 18px rgba(37, 99, 235, 0.35);
+    }
+
+    .primary-btn {
+      border-radius: 999px;
+      border: none;
+      padding: 9px 18px;
+      font-size: 14px;
+      cursor: pointer;
+      background: #10b981;
+      color: #ffffff;
+      white-space: nowrap;
+    }
+
+    .primary-btn[disabled] {
+      opacity: 0.6;
+      cursor: default;
+    }
+
+    .status {
+      margin-top: 8px;
+      font-size: 13px;
+      color: #6b7280;
+    }
+
+    .status.error {
+      color: #b91c1c;
+    }
+
+    .hint {
+      font-size: 12px;
+      color: #9ca3af;
+      margin-top: 4px;
+    }
+
+    .list-title {
+      font-size: 15px;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    .hw-list {
+      font-size: 13px;
+      color: #4b5563;
+    }
+
+    .hw-item {
+      padding: 6px 0;
+      border-bottom: 1px solid #e5e7eb;
+    }
+
+    .hw-item:last-child {
+      border-bottom: none;
+    }
+
+    .hw-tag {
+      display: inline-block;
+      padding: 2px 8px;
+      border-radius: 999px;
+      font-size: 11px;
+      margin-right: 4px;
+    }
+
+    .hw-tag.vocab {
+      background: #fee2e2;
+      color: #b91c1c;
+    }
+
+    .hw-tag.sentence {
+      background: #e0f2fe;
+      color: #0369a1;
+    }
+
+    @media (max-width: 768px) {
+      .top-row {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .form-row {
+        flex-direction: column;
+        align-items: stretch;
+      }
+    }
+  </style>
+</head>
+<body>
+<div class="page">
+  <div class="top-row">
+    <div>
+      <div class="title-big">온라인 숙제 만들기</div>
+      <div class="subtitle">
+        반을 선택하고 어휘/문장 숙제를 등록하면, 나중에 학생 진도와 연결해서 볼 수 있어요.
+      </div>
+    </div>
+    <button class="link-btn" onclick="window.location.href='index.html'">
+      ← 메인으로
+    </button>
+  </div>
+
+  <div class="card">
+    <div class="info-row">
+      <div>
+        로그인 계정:
+        <span id="teacher-email">확인 중…</span>
+        <span class="badge">선생님 전용</span>
+      </div>
+      <button class="link-btn" id="logout-btn" style="background:#ef4444;">로그아웃</button>
+    </div>
+
+    <!-- 숙제 생성 폼 -->
+    <div class="form-row">
+      <div class="field" style="min-width:180px;">
+        <label>반 선택</label>
+        <select id="class-select">
+          <option value="">반을 선택하세요</option>
+          <!-- JS로 채워짐 -->
+        </select>
+      </div>
+
+      <div class="field">
+        <label>숙제 종류</label>
+        <div class="pill-group">
+          <button type="button" class="pill-btn active" id="type-vocab">어휘</button>
+          <button type="button" class="pill-btn" id="type-sentence">문장</button>
+        </div>
+      </div>
+
+      <div class="field" style="max-width:120px;">
+        <label>단계 (Level)</label>
+        <input id="level-input" type="number" min="1" step="1" value="1" />
+      </div>
+
+      <div class="field">
+        <label>세트 번호</label>
+        <input id="set-input" type="text" placeholder="예: 3 또는 1,2,3" />
+        <div class="hint">쉼표로 여러 개 입력 가능 (예: 3,4,5)</div>
+      </div>
+
+      <div class="field" style="max-width:170px;">
+        <label>마감일</label>
+        <input id="due-input" type="date" />
+      </div>
+
+      <div class="field" style="min-width:120px;">
+        <button class="primary-btn" id="save-btn">숙제 등록</button>
+      </div>
+    </div>
+
+    <div id="status-msg" class="status"></div>
+  </div>
+
+  <!-- 최근 등록된 숙제 리스트 (확인용) -->
+  <div class="card">
+    <div class="list-title">선택한 반의 최근 숙제</div>
+    <div class="hint">어휘/문장 숙제를 등록하면 여기에서 바로 확인할 수 있어요.</div>
+    <div id="hw-list" class="hw-list" style="margin-top:8px;">
+      아직 숙제가 없어요. 반을 선택해 주세요.
+    </div>
+  </div>
+</div>
+
+<!-- Supabase JS -->
+<script src="https://unpkg.com/@supabase/supabase-js@2.48.0/dist/umd/supabase.js"></script>
+<script>
+  // ---- Supabase 클라이언트 (login.html과 동일) ----
+  const SUPABASE_URL = "https://bpdisxjhhibrgfpvtlmv.supabase.co";
+  const SUPABASE_ANON_KEY =
+    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJwZGlzeGpoaGlicmdmcHZ0bG12Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjM5NTkxODQsImV4cCI6MjA3OTUzNTE4NH0.jDZ6BGirOPuWUnt4ykjhng4PLft2ZjBuYAFzApUnlYU";
+
+  const client = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
+  const teacherEmailEl = document.getElementById("teacher-email");
+  const logoutBtn = document.getElementById("logout-btn");
+  const classSelect = document.getElementById("class-select");
+  const typeVocabBtn = document.getElementById("type-vocab");
+  const typeSentenceBtn = document.getElementById("type-sentence");
+  const levelInput = document.getElementById("level-input");
+  const setInput = document.getElementById("set-input");
+  const dueInput = document.getElementById("due-input");
+  const saveBtn = document.getElementById("save-btn");
+  const statusMsg = document.getElementById("status-msg");
+  const hwListEl = document.getElementById("hw-list");
+
+  let currentType = "vocab"; // 'vocab' or 'sentence'
+  let classes = [];          // [{id, name}, ...]
+
+  function setStatus(message, isError = false) {
+    statusMsg.textContent = message || "";
+    statusMsg.classList.toggle("error", !!isError);
+  }
+
+  // ---- 1) 로그인 확인 (선생님만) ----
+  async function checkAuth() {
+    const { data, error } = await client.auth.getUser();
+    if (error || !data.user) {
+      // 로그인 안 되어 있으면 login 페이지로
+      window.location.href = "login.html";
+      return;
+    }
+    teacherEmailEl.textContent = data.user.email || "(이메일 없음)";
+  }
+
+  logoutBtn.onclick = async () => {
+    await client.auth.signOut();
+    localStorage.removeItem("blossom_student"); // 혹시 남아있을 학생 정보 제거
+    window.location.href = "login.html";
+  };
+
+  // ---- 2) classes 테이블에서 반 목록 가져오기 ----
+  async function loadClasses() {
+    const { data, error } = await client
+      .from("classes")
+      .select("id, name")
+      .order("name", { ascending: true });
+
+    if (error) {
+      console.error(error);
+      setStatus("반 목록을 불러오는 중 오류가 발생했어요.", true);
+      return;
+    }
+
+    classes = data || [];
+    classSelect.innerHTML = '<option value="">반을 선택하세요</option>';
+
+    classes.forEach(cls => {
+      const opt = document.createElement("option");
+      opt.value = cls.id;
+      opt.textContent = cls.name;
+      classSelect.appendChild(opt);
+    });
+  }
+
+  // ---- 3) 현재 선택된 반의 숙제 목록 보여주기 ----
+  async function loadHomeworkList() {
+    const classId = classSelect.value;
+    hwListEl.innerHTML = "";
+
+    if (!classId) {
+      hwListEl.textContent = "아직 숙제가 없어요. 반을 선택해 주세요.";
+      return;
+    }
+
+    // 어휘/문장 숙제를 각각 가져와서 합치기
+    const [vocabRes, sentenceRes] = await Promise.all([
+      client
+        .from("vocab_homework")
+        .select("id, level, set_numbers, due_date, created_at")
+        .eq("class_id", classId)
+        .order("created_at", { ascending: false })
+        .limit(10),
+      client
+        .from("sentence_homework")
+        .select("id, level, set_numbers, due_date, created_at")
+        .eq("class_id", classId)
+        .order("created_at", { ascending: false })
+        .limit(10),
+    ]);
+
+    if (vocabRes.error) {
+      console.error(vocabRes.error);
+    }
+    if (sentenceRes.error) {
+      console.error(sentenceRes.error);
+    }
+
+    const vocabList = (vocabRes.data || []).map(row => ({
+      type: "vocab",
+      ...row,
+    }));
+    const sentenceList = (sentenceRes.data || []).map(row => ({
+      type: "sentence",
+      ...row,
+    }));
+
+    const all = [...vocabList, ...sentenceList];
+
+    if (!all.length) {
+      hwListEl.textContent = "이 반에 등록된 숙제가 아직 없어요.";
+      return;
+    }
+
+    // created_at 기준 정렬 (최근순)
+    all.sort((a, b) => new Date(b.created_at) - new Date(a.created_at));
+
+    all.forEach(hw => {
+      const div = document.createElement("div");
+      div.className = "hw-item";
+
+      const tag = document.createElement("span");
+      tag.className = "hw-tag " + (hw.type === "vocab" ? "vocab" : "sentence");
+      tag.textContent = hw.type === "vocab" ? "어휘" : "문장";
+
+      const text = document.createElement("span");
+      const due = hw.due_date ? ` (마감: ${hw.due_date})` : "";
+      text.textContent = `단계 ${hw.level} / 세트 ${hw.set_numbers}${due}`;
+
+      div.appendChild(tag);
+      div.appendChild(text);
+
+      hwListEl.appendChild(div);
+    });
+  }
+
+  classSelect.onchange = loadHomeworkList;
+
+  // ---- 4) 숙제 종류 토글 ----
+  function updateTypeButtons() {
+    typeVocabBtn.classList.toggle("active", currentType === "vocab");
+    typeSentenceBtn.classList.toggle("active", currentType === "sentence");
+  }
+
+  typeVocabBtn.onclick = () => {
+    currentType = "vocab";
+    updateTypeButtons();
+  };
+
+  typeSentenceBtn.onclick = () => {
+    currentType = "sentence";
+    updateTypeButtons();
+  };
+
+  // ---- 5) 숙제 등록 버튼 ----
+  saveBtn.onclick = async () => {
+    setStatus("");
+
+    const classId = classSelect.value;
+    const level = parseInt(levelInput.value, 10);
+    const setNumbersRaw = setInput.value.trim();
+    const dueDateRaw = dueInput.value; // "" 또는 "2025-11-30" 같은 문자열
+
+    if (!classId) {
+      setStatus("어느 반 숙제인지 먼저 선택해 주세요.", true);
+      return;
+    }
+    if (!level || level < 1) {
+      setStatus("단계(Level)를 1 이상의 숫자로 입력해 주세요.", true);
+      return;
+    }
+    if (!setNumbersRaw) {
+      setStatus("세트 번호를 입력해 주세요. (예: 3 또는 1,2,3)", true);
+      return;
+    }
+
+    // 공백 제거해서 "1,2,3" 형태로 정리
+    const setNumbers = setNumbersRaw
+      .split(",")
+      .map(s => s.trim())
+      .filter(Boolean)
+      .join(",");
+
+    const dueDate = dueDateRaw ? dueDateRaw : null;
+
+    const tableName = currentType === "vocab" ? "vocab_homework" : "sentence_homework";
+
+    saveBtn.disabled = true;
+    setStatus("숙제를 저장하는 중입니다…");
+
+    const { error } = await client.from(tableName).insert({
+      class_id: classId,
+      level: level,
+      set_numbers: setNumbers,
+      due_date: dueDate,
+    });
+
+    saveBtn.disabled = false;
+
+    if (error) {
+      console.error(error);
+      setStatus("숙제를 저장하는 중 오류가 발생했어요.", true);
+      return;
+    }
+
+    setStatus("숙제가 저장됐어요!");
+    setInput.value = "";
+    // 방금 등록한 숙제까지 포함해서 리스트 새로고침
+    await loadHomeworkList();
+  };
+
+  // ---- 초기 실행 ----
+  (async function init() {
+    await checkAuth();   // 로그인 확인
+    await loadClasses(); // 반 목록 가져오기
+    updateTypeButtons();
+  })();
+</script>
+</body>
+</html>
