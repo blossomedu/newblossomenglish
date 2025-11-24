@@ -1,56 +1,87 @@
-// 🔥 Supabase 연결
-const SUPABASE_URL = "https://bpdisxjhhibrgfpvtlmv.supabase.co";
-const SUPABASE_KEY = "sb_publishable_PxYuAkvgNTGTiHd9XNUFg_0dR_PIEn"; // 네 공개키
-const supabase = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <title>로그인 - 블라썸잉글리쉬</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
-const msgEl = document.getElementById("msg");
-
-// 로그인 함수
-async function login() {
-  msgEl.textContent = "";
-
-  const email = document.getElementById("email").value;
-  const password = document.getElementById("password").value;
-  const role = document.getElementById("role").value;
-
-  const { data, error } = await supabase.auth.signInWithPassword({
-    email,
-    password,
-  });
-
-  if (error) {
-    msgEl.textContent = error.message;
-    return;
-  }
-
-  // 로그인 성공 → 역할에 따라 이동
-  if (role === "teacher") {
-    window.location.href = "teacher_dashboard.html";
-  } else {
-    window.location.href = "student_home.html";
-  }
-}
-
-// 회원가입 함수
-async function signup() {
-  msgEl.textContent = "";
-
-  const email = document.getElementById("email").value;
-  const password = document.getElementById("password").value;
-  const role = document.getElementById("role").value;
-
-  const { data, error } = await supabase.auth.signUp({
-    email,
-    password,
-    options: {
-      data: { role }, // supabase user metadata 에 role 저장
+  <style>
+    body {
+      font-family: Pretendard, sans-serif;
+      background: #f4f6fb;
+      display: flex;
+      justify-content: center;
+      padding-top: 60px;
     }
-  });
+    .box {
+      width: 360px;
+      background: white;
+      padding: 24px;
+      border-radius: 18px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+    }
+    h2 {
+      font-weight: 800;
+      margin-bottom: 18px;
+    }
+    input {
+      width: 100%;
+      padding: 12px;
+      border-radius: 12px;
+      border: 1px solid #ddd;
+      margin-bottom: 12px;
+    }
+    button {
+      width: 100%;
+      padding: 12px;
+      font-size: 16px;
+      border-radius: 12px;
+      border: none;
+      background: #2563eb;
+      color: white;
+      cursor: pointer;
+    }
+    button:hover {
+      background: #1e54c4;
+    }
+  </style>
+</head>
+<body>
 
-  if (error) {
-    msgEl.textContent = error.message;
-    return;
+<div class="box">
+  <h2>로그인</h2>
+
+  <input type="email" id="email" placeholder="이메일" />
+  <input type="password" id="password" placeholder="비밀번호" />
+
+  <button onclick="login()">로그인</button>
+</div>
+
+<script>
+  const supabase = supabase.createClient(
+    "https://bpdisxjhhibrgfpvtlmv.supabase.co",
+    "sb_publishable_PxYuAkvgNtGTilHd9XNUFg_OdR_PIEn"
+  );
+
+  async function login() {
+    const email = document.getElementById("email").value;
+    const password = document.getElementById("password").value;
+
+    const { data, error } = await supabase.auth.signInWithPassword({
+      email,
+      password
+    });
+
+    if (error) {
+      alert("로그인 실패: " + error.message);
+      return;
+    }
+
+    alert("로그인 성공!");
+    window.location.href = "index.html";
   }
+</script>
 
-  msgEl.textContent = "회원가입 완료! 이제 로그인하세요.";
-}
+</body>
+</html>
