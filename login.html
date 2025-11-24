@@ -278,11 +278,14 @@
 
   const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
-  // 아이디만 입력했을 때 → 내부용 가짜 이메일로 변환
+  // 아이디만 입력했을 때 → 내부용 이메일로 변환
   function toEmailFromId(idOrEmail) {
     const value = idOrEmail.trim();
     if (!value) return "";
-    return value.includes("@") ? value : `${value}@blossomedu.local`;
+    // 이미 이메일 형식이면 그대로 사용
+    if (value.includes("@")) return value;
+    // 아이디만 있으면 blossomsedu.net 도메인 붙이기
+    return `${value}@blossomedu.net`;
   }
 
   // GitHub Pages 경로 고려해서 index.html로 리다이렉트
@@ -291,7 +294,6 @@
     if (path.includes("login.html")) {
       return window.location.origin + path.replace("login.html", "index.html");
     }
-    // 혹시 /login 같은 형태일 경우 대비
     return window.location.origin + "/newblossomenglish/index.html";
   }
 
@@ -315,7 +317,7 @@
     loginPanel.classList.add("hidden");
   });
 
-  // ===== 로그인 처리 (아이디 / 이메일) =====
+  // ===== 로그인 처리 =====
   const loginForm = document.getElementById("login-form");
   const loginErrorBox = document.getElementById("login-error");
 
@@ -342,7 +344,7 @@
     window.location.href = getIndexUrl();
   });
 
-  // ===== 회원가입 처리 (아이디 / 이메일) =====
+  // ===== 회원가입 처리 =====
   const signupForm = document.getElementById("signup-form");
   const signupErrorBox = document.getElementById("signup-error");
 
@@ -386,7 +388,7 @@
     tabLogin.click();
   });
 
-  // ===== 구글 로그인 / 가입 (동일 로직) =====
+  // ===== 구글 로그인 / 가입 =====
   async function signInWithGoogle() {
     const { error } = await supabase.auth.signInWithOAuth({
       provider: "google",
