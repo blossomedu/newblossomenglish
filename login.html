@@ -14,7 +14,6 @@
       font-family: "Pretendard Variable", -apple-system, BlinkMacSystemFont,
         system-ui, "Apple SD Gothic Neo", "Noto Sans KR", sans-serif;
     }
-
     body {
       background: #f4f6fb;
       min-height: 100vh;
@@ -23,379 +22,360 @@
       justify-content: center;
       padding: 30px 16px;
     }
-
     .card {
       width: 100%;
-      max-width: 420px;
+      max-width: 480px;
       background: #ffffff;
-      border-radius: 26px;
-      box-shadow: 0 18px 40px rgba(15, 23, 42, 0.08);
-      padding: 28px 26px 26px;
+      border-radius: 30px;
+      box-shadow: 0 24px 60px rgba(15, 23, 42, 0.16);
+      padding: 32px 32px 28px;
+    }
+
+    .tabs {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 22px;
+    }
+    .tab-btn {
+      flex: 1;
+      padding: 10px 0;
+      border-radius: 999px;
+      border: none;
+      font-size: 15px;
+      cursor: pointer;
+      background: #e5e7eb;
+      color: #4b5563;
+    }
+    .tab-btn.active {
+      background: #2563eb;
+      color: #ffffff;
+      box-shadow: 0 12px 24px rgba(37, 99, 235, 0.35);
     }
 
     .title {
-      font-size: 24px;
+      font-size: 28px;
       font-weight: 800;
-      margin-bottom: 4px;
-    }
-
-    .subtitle {
-      font-size: 14px;
-      color: #6b7280;
       margin-bottom: 18px;
     }
 
-    .toggle-row {
-      display: flex;
-      margin-bottom: 16px;
-      border-radius: 999px;
-      background: #f3f4ff;
-      padding: 3px;
-    }
-
-    .toggle-btn {
-      flex: 1;
-      border: none;
-      background: transparent;
-      border-radius: 999px;
-      padding: 8px 0;
-      font-size: 14px;
-      cursor: pointer;
-      color: #4b5563;
-    }
-
-    .toggle-btn.active {
-      background: #2563eb;
-      color: #ffffff;
-      box-shadow: 0 8px 18px rgba(37, 99, 235, 0.35);
-    }
-
-    .role-row {
-      display: flex;
-      gap: 10px;
-      margin-bottom: 16px;
-      font-size: 14px;
-      color: #4b5563;
-    }
-
-    .role-row label {
-      display: inline-flex;
-      align-items: center;
-      gap: 4px;
-      cursor: pointer;
-    }
-
     .field {
-      margin-bottom: 12px;
+      margin-bottom: 14px;
     }
-
     .field label {
       display: block;
       font-size: 13px;
       margin-bottom: 4px;
       color: #4b5563;
     }
-
     .input {
       width: 100%;
-      padding: 9px 12px;
+      padding: 11px 14px;
       border-radius: 999px;
       border: 1px solid #d1d5db;
       font-size: 14px;
     }
-
-    .btn-main {
+    .select {
       width: 100%;
-      padding: 10px 0;
+      padding: 11px 14px;
+      border-radius: 999px;
+      border: 1px solid #d1d5db;
+      font-size: 14px;
+      background: #fff;
+    }
+
+    .primary-btn {
+      width: 100%;
+      padding: 12px 0;
       border-radius: 999px;
       border: none;
       background: #2563eb;
       color: #ffffff;
-      font-size: 15px;
+      font-size: 16px;
       font-weight: 600;
       cursor: pointer;
-      margin-top: 6px;
+      margin-top: 10px;
     }
 
-    .btn-main:disabled {
-      opacity: 0.6;
-      cursor: default;
-    }
-
-    .divider {
-      margin: 16px 0 10px;
-      font-size: 12px;
-      text-align: center;
-      color: #9ca3af;
-      position: relative;
-    }
-
-    .divider::before,
-    .divider::after {
-      content: "";
-      position: absolute;
-      top: 50%;
-      width: 34%;
-      height: 1px;
-      background: #e5e7eb;
-    }
-
-    .divider::before { left: 0; }
-    .divider::after { right: 0; }
-
-    .btn-google {
+    .google-btn {
       width: 100%;
-      padding: 9px 0;
+      padding: 10px 0;
       border-radius: 999px;
       border: 1px solid #d1d5db;
       background: #ffffff;
       font-size: 14px;
       cursor: pointer;
+      margin-top: 10px;
     }
 
-    .small-text {
-      margin-top: 10px;
+    .helper-text {
+      margin-top: 8px;
       font-size: 12px;
       color: #6b7280;
       text-align: center;
     }
 
-    .link {
-      color: #2563eb;
-      cursor: pointer;
-      text-decoration: underline;
-    }
-
-    .msg {
+    .error-box {
       margin-top: 10px;
-      font-size: 13px;
-      min-height: 18px;
-    }
-
-    .msg.error {
+      padding: 8px 10px;
+      border-radius: 10px;
+      background: #fee2e2;
       color: #b91c1c;
+      font-size: 13px;
+      display: none;
     }
-
-    .msg.success {
-      color: #15803d;
+    .success-box {
+      margin-top: 10px;
+      padding: 8px 10px;
+      border-radius: 10px;
+      background: #dcfce7;
+      color: #166534;
+      font-size: 13px;
+      display: none;
     }
 
     .back-link {
-      margin-top: 12px;
-      font-size: 13px;
+      margin-top: 14px;
       text-align: center;
+      font-size: 13px;
     }
-
     .back-link a {
-      color: #4b5563;
+      color: #2563eb;
       text-decoration: none;
-    }
-
-    .back-link a:hover {
-      text-decoration: underline;
+      font-weight: 600;
     }
   </style>
 </head>
 <body>
 
 <div class="card">
-  <div class="title">블라썸 로그인</div>
-  <div class="subtitle">학생 또는 선생님 계정으로 로그인하세요.</div>
-
-  <!-- 로그인 / 회원가입 토글 -->
-  <div class="toggle-row">
-    <button type="button" class="toggle-btn active" data-mode="login" id="tabLogin">로그인</button>
-    <button type="button" class="toggle-btn" data-mode="signup" id="tabSignup">회원가입</button>
+  <!-- 탭: 로그인 / 회원가입 -->
+  <div class="tabs">
+    <button class="tab-btn active" data-tab="login">로그인</button>
+    <button class="tab-btn" data-tab="signup">회원가입</button>
   </div>
 
-  <!-- 역할 선택 (학생 / 선생님) -->
-  <div class="role-row">
-    <label>
-      <input type="radio" name="role" value="student" checked />
-      학생
-    </label>
-    <label>
-      <input type="radio" name="role" value="teacher" />
-      선생님
-    </label>
+  <!-- 로그인 영역 -->
+  <div id="loginPane">
+    <div class="title">로그인</div>
+
+    <div class="field">
+      <label for="loginEmail">이메일</label>
+      <input id="loginEmail" type="email" class="input" placeholder="example@naver.com" />
+    </div>
+    <div class="field">
+      <label for="loginPassword">비밀번호</label>
+      <input id="loginPassword" type="password" class="input" placeholder="비밀번호" />
+    </div>
+
+    <button id="loginBtn" class="primary-btn">로그인</button>
+    <button id="googleLoginBtn" class="google-btn">구글 계정으로 로그인</button>
+
+    <div class="helper-text">
+      아직 계정이 없다면 위쪽 <b>회원가입</b> 탭을 눌러 주세요.
+    </div>
   </div>
 
-  <!-- 폼 -->
-  <div class="field">
-    <label>이메일</label>
-    <input type="email" id="email" class="input" placeholder="예: abc@example.com" />
+  <!-- 회원가입 영역 -->
+  <div id="signupPane" style="display:none;">
+    <div class="title">회원가입</div>
+
+    <div class="field">
+      <label for="signupEmail">이메일</label>
+      <input id="signupEmail" type="email" class="input" placeholder="보호자 이메일도 가능해요" />
+    </div>
+    <div class="field">
+      <label for="signupPassword">비밀번호</label>
+      <input id="signupPassword" type="password" class="input" placeholder="비밀번호 (최소 6자)" />
+    </div>
+    <div class="field">
+      <label for="signupPassword2">비밀번호 확인</label>
+      <input id="signupPassword2" type="password" class="input" placeholder="비밀번호 다시 입력" />
+    </div>
+    <div class="field">
+      <label for="signupName">이름 / 별명</label>
+      <input id="signupName" type="text" class="input" placeholder="예: 홍길동 / Stella" />
+    </div>
+    <div class="field">
+      <label for="signupRole">역할</label>
+      <select id="signupRole" class="select">
+        <option value="student">학생 / 학부모</option>
+        <option value="teacher">선생님</option>
+      </select>
+    </div>
+
+    <button id="signupBtn" class="primary-btn">회원가입</button>
+    <button id="googleSignupBtn" class="google-btn">구글 계정으로 가입/로그인</button>
+
+    <div class="helper-text">
+      구글 버튼은 이미 가입된 계정이 있어도 그대로 로그인돼요.
+    </div>
   </div>
 
-  <div class="field">
-    <label>비밀번호</label>
-    <input type="password" id="password" class="input" placeholder="8자 이상" />
-  </div>
-
-  <button class="btn-main" id="submitBtn">로그인</button>
-
-  <div class="divider">또는</div>
-
-  <button class="btn-google" id="googleBtn">구글 계정으로 계속</button>
-
-  <div class="small-text">
-    * 지금은 이메일 기반 로그인이에요.  
-    나중에 아이디/비밀번호 방식, 학생 전용 계정도 따로 만들 수 있어요.
-  </div>
-
-  <div id="message" class="msg"></div>
+  <!-- 메시지 영역 -->
+  <div id="errorBox" class="error-box"></div>
+  <div id="successBox" class="success-box"></div>
 
   <div class="back-link">
-    <a href="index.html">← 메인으로 돌아가기</a>
+    <a href="index.html">← 블라썸잉글리쉬 홈으로 돌아가기</a>
   </div>
 </div>
 
 <!-- Supabase JS SDK -->
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-
 <script>
-  // 🔑 Supabase 설정 (네 프로젝트 값 사용)
   const { createClient } = supabase;
 
+  // 너가 알려준 프로젝트 정보
   const SUPABASE_URL = "https://bpdisxjhhibrgfpvtlmv.supabase.co";
   const SUPABASE_ANON_KEY =
     "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJwZGlzeGpoaGlicmdmcHZ0bG12Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjM5NTkxODQsImV4cCI6MjA3OTUzNTE4NH0.jDZ6BGirOPuWUnt4ykjhng4PLft2ZjBuYAFzApUnlYU";
 
   const supa = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
-  // DOM 요소
-  const tabLogin   = document.getElementById("tabLogin");
-  const tabSignup  = document.getElementById("tabSignup");
-  const emailInput = document.getElementById("email");
-  const passInput  = document.getElementById("password");
-  const submitBtn  = document.getElementById("submitBtn");
-  const googleBtn  = document.getElementById("googleBtn");
-  const msgBox     = document.getElementById("message");
+  const tabButtons = document.querySelectorAll(".tab-btn");
+  const loginPane = document.getElementById("loginPane");
+  const signupPane = document.getElementById("signupPane");
+  const errorBox = document.getElementById("errorBox");
+  const successBox = document.getElementById("successBox");
 
-  let currentMode = "login"; // login | signup
-
-  function setMode(mode) {
-    currentMode = mode;
-    msgBox.textContent = "";
-    msgBox.className = "msg";
-
-    if (mode === "login") {
-      tabLogin.classList.add("active");
-      tabSignup.classList.remove("active");
-      submitBtn.textContent = "로그인";
-    } else {
-      tabSignup.classList.add("active");
-      tabLogin.classList.remove("active");
-      submitBtn.textContent = "회원가입";
+  function showError(msg) {
+    if (!msg) {
+      errorBox.style.display = "none";
+      return;
     }
+    errorBox.textContent = msg;
+    errorBox.style.display = "block";
+    successBox.style.display = "none";
   }
 
-  tabLogin.addEventListener("click", () => setMode("login"));
-  tabSignup.addEventListener("click", () => setMode("signup"));
-
-  function getSelectedRole() {
-    const radios = document.querySelectorAll("input[name='role']");
-    for (const r of radios) {
-      if (r.checked) return r.value; // "student" | "teacher"
+  function showSuccess(msg) {
+    if (!msg) {
+      successBox.style.display = "none";
+      return;
     }
-    return "student";
+    successBox.textContent = msg;
+    successBox.style.display = "block";
+    errorBox.style.display = "none";
   }
 
-  function setLoading(isLoading) {
-    submitBtn.disabled = isLoading;
-    submitBtn.textContent = isLoading
-      ? (currentMode === "login" ? "로그인 중..." : "회원가입 중...")
-      : (currentMode === "login" ? "로그인" : "회원가입");
+  // 탭 전환
+  tabButtons.forEach(btn => {
+    btn.addEventListener("click", () => {
+      const tab = btn.dataset.tab;
+      tabButtons.forEach(b => b.classList.remove("active"));
+      btn.classList.add("active");
+
+      if (tab === "login") {
+        loginPane.style.display = "block";
+        signupPane.style.display = "none";
+      } else {
+        loginPane.style.display = "none";
+        signupPane.style.display = "block";
+      }
+      showError("");
+      showSuccess("");
+    });
+  });
+
+  // URL 파라미터로 모드 지정 가능: ?mode=signup
+  const params = new URLSearchParams(window.location.search);
+  if (params.get("mode") === "signup") {
+    document.querySelector('.tab-btn[data-tab="signup"]').click();
   }
 
-  // ✅ 회원가입 / 로그인 처리
-  submitBtn.addEventListener("click", async () => {
-    const email = emailInput.value.trim();
-    const password = passInput.value.trim();
-    const role = getSelectedRole();
-
-    msgBox.textContent = "";
-    msgBox.className = "msg";
+  // 로그인 처리
+  document.getElementById("loginBtn").addEventListener("click", async () => {
+    const email = document.getElementById("loginEmail").value.trim();
+    const password = document.getElementById("loginPassword").value;
 
     if (!email || !password) {
-      msgBox.textContent = "이메일과 비밀번호를 입력해 주세요.";
-      msgBox.classList.add("error");
+      showError("이메일과 비밀번호를 모두 입력해 주세요.");
       return;
     }
 
-    setLoading(true);
-
     try {
-      if (currentMode === "signup") {
-        // 회원가입
-        const { data, error } = await supa.auth.signUp({
-          email,
-          password,
-          options: {
-            data: { role } // user_metadata.role 로 저장
-          }
-        });
-
-        if (error) throw error;
-
-        msgBox.textContent = "회원가입 완료! 이메일을 확인하고 로그인해 주세요.";
-        msgBox.classList.add("success");
-        setMode("login");
+      showError("");
+      const { error } = await supa.auth.signInWithPassword({ email, password });
+      if (error) {
+        showError(error.message || "로그인에 실패했어요.");
       } else {
-        // 로그인
-        const { data, error } = await supa.auth.signInWithPassword({
-          email,
-          password
-        });
-
-        if (error) throw error;
-
-        msgBox.textContent = "로그인 성공! 잠시 후 메인 화면으로 이동합니다.";
-        msgBox.classList.add("success");
-
-        // 잠깐 기다렸다가 index.html 로 이동
+        showSuccess("로그인에 성공했어요! 잠시 후 메인 화면으로 이동합니다.");
         setTimeout(() => {
           window.location.href = "index.html";
-        }, 800);
+        }, 900);
       }
-    } catch (err) {
-      console.error(err);
-      msgBox.textContent = err.message || "오류가 발생했어요. 다시 시도해 주세요.";
-      msgBox.classList.add("error");
-    } finally {
-      setLoading(false);
+    } catch (e) {
+      console.error(e);
+      showError("알 수 없는 오류가 발생했어요.");
     }
   });
 
-  // ✅ 구글 로그인
-  googleBtn.addEventListener("click", async () => {
-    msgBox.textContent = "";
-    msgBox.className = "msg";
+  // 이메일 회원가입
+  document.getElementById("signupBtn").addEventListener("click", async () => {
+    const email = document.getElementById("signupEmail").value.trim();
+    const password = document.getElementById("signupPassword").value;
+    const password2 = document.getElementById("signupPassword2").value;
+    const name = document.getElementById("signupName").value.trim();
+    const role = document.getElementById("signupRole").value;
+
+    if (!email || !password || !password2) {
+      showError("이메일과 비밀번호를 모두 입력해 주세요.");
+      return;
+    }
+    if (password !== password2) {
+      showError("비밀번호가 서로 같지 않아요.");
+      return;
+    }
+    if (password.length < 6) {
+      showError("비밀번호는 최소 6자 이상이어야 해요.");
+      return;
+    }
 
     try {
-      const { data, error } = await supa.auth.signInWithOAuth({
-        provider: "google",
+      showError("");
+      const { error } = await supa.auth.signUp({
+        email,
+        password,
         options: {
-          redirectTo: window.location.origin + "/index.html"
+          data: {
+            name: name || null,
+            role: role || "student"
+          }
         }
       });
-      if (error) throw error;
-      // 실제 동작은 Supabase 가 구글 로그인 페이지로 리디렉트함
-    } catch (err) {
-      console.error(err);
-      msgBox.textContent = err.message || "구글 로그인 중 오류가 발생했어요.";
-      msgBox.classList.add("error");
+
+      if (error) {
+        showError(error.message || "회원가입에 실패했어요.");
+      } else {
+        showSuccess("회원가입 완료! 메일함에서 인증 메일을 확인해 주세요.");
+      }
+    } catch (e) {
+      console.error(e);
+      showError("알 수 없는 오류가 발생했어요.");
     }
   });
 
-  // ✅ 이미 로그인해 있으면 자동으로 메인으로 보내기 (선택 사항)
-  (async () => {
-    const { data } = await supa.auth.getUser();
-    if (data && data.user) {
-      // 이미 로그인된 상태
-      // 원하면 바로 index로 보내기
-      // window.location.href = "index.html";
+  // 구글 로그인 / 회원가입 (둘 다 동일)
+  async function loginWithGoogle() {
+    try {
+      showError("");
+      const redirectTo = window.location.origin + window.location.pathname.replace("login.html", "index.html");
+      const { error } = await supa.auth.signInWithOAuth({
+        provider: "google",
+        options: { redirectTo }
+      });
+      if (error) {
+        showError(error.message || "구글 로그인에 실패했어요.");
+      }
+      // 성공 시에는 Supabase가 redirectTo로 이동시킴
+    } catch (e) {
+      console.error(e);
+      showError("구글 로그인 중 오류가 발생했어요.");
     }
-  })();
+  }
+
+  document.getElementById("googleLoginBtn").addEventListener("click", loginWithGoogle);
+  document.getElementById("googleSignupBtn").addEventListener("click", loginWithGoogle);
 </script>
 
 </body>
