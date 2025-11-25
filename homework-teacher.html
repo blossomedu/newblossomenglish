@@ -265,7 +265,7 @@
         </div>
       </div>
 
-      <!-- ✅ 단계(Level) 입력칸 완전 제거됨 -->
+      <!-- 단계(Level) 입력칸 제거됨 -->
 
       <div class="field">
         <label>세트 번호</label>
@@ -302,7 +302,7 @@
   // ---- Supabase 클라이언트 ----
   const SUPABASE_URL = "https://bpdisxjhhibrgfpvtlmv.supabase.co";
   const SUPABASE_ANON_KEY =
-    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJwZGlzeGpoaGlicmdmcHZ0bG12Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjM5NTkxODQsImV4cCI6MjA3OTUzNTE4NH0.jDZ6BGirOPuWUnt4ykjhng4PLft2ZjBuYAFzApUnlYU";
+    "sb_publishable_PYxUAkvqENTGi1Hd9X5NUFg_ODR_PIEn";
 
   const client = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
@@ -390,12 +390,8 @@
         .limit(10),
     ]);
 
-    if (vocabRes.error) {
-      console.error(vocabRes.error);
-    }
-    if (sentenceRes.error) {
-      console.error(sentenceRes.error);
-    }
+    if (vocabRes.error) console.error(vocabRes.error);
+    if (sentenceRes.error) console.error(sentenceRes.error);
 
     const vocabList = (vocabRes.data || []).map(row => ({
       type: "vocab",
@@ -425,7 +421,7 @@
 
       const text = document.createElement("span");
       const due = hw.due_date ? ` (마감: ${hw.due_date})` : "";
-      // ✅ 화면에는 단계 안 보여줌
+      // 단계는 더 이상 안 보여줌
       text.textContent = `세트 ${hw.set_numbers}${due}`;
 
       div.appendChild(tag);
@@ -479,8 +475,7 @@
     const dueDate = dueDateRaw ? dueDateRaw : null;
     const tableName = currentType === "vocab" ? "vocab_homework" : "sentence_homework";
 
-    // ✅ DB에는 level=1로 고정 저장 (컬럼 유지용)
-    const level = 1;
+    const level = 1; // 항상 1로 고정 저장
 
     saveBtn.disabled = true;
     setStatus("숙제를 저장하는 중입니다…");
