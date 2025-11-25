@@ -297,7 +297,7 @@
 
     <div class="top-btns">
       <button id="writeToggleBtn" class="pill-btn btn-primary">
-        ✏️ 글쓰기
+       ✏️ 글쓰기
       </button>
       <button id="onlineHwBtn" class="pill-btn btn-secondary">
         📚 온라인 숙제
@@ -397,7 +397,7 @@
       console.error("auth 확인 중 오류:", e);
     }
 
-    // 학생 로그인 정보(localStorage)에 따라 student/guest 판단 (있으면 student)
+    // 학생 로그인 정보(localStorage)에 따라 student/guest 판단
     try {
       const raw = localStorage.getItem("blossom_student");
       if (raw) {
@@ -441,7 +441,7 @@
     classFilterEl.innerHTML = '<option value="all">전체</option>';
     classes.forEach(cls => {
       const opt = document.createElement("option");
-      opt.value = cls.id;     // id로 필터
+      opt.value = cls.id;     // ✅ 항상 uuid(id)로 저장/필터
       opt.textContent = cls.name;
       classFilterEl.appendChild(opt);
     });
@@ -475,22 +475,15 @@
 
   // --- 게시글 + 온라인 숙제 불러오기 ---
   async function loadItems() {
-    // board_posts, vocab_homework, sentence_homework 한 번에 가져오기
     const [postsRes, vocabRes, sentenceRes] = await Promise.all([
       client.from("board_posts").select("*").order("created_at", { ascending: false }),
       client.from("vocab_homework").select("*").order("created_at", { ascending: false }),
       client.from("sentence_homework").select("*").order("created_at", { ascending: false }),
     ]);
 
-    if (postsRes.error) {
-      console.error("board_posts 불러오기 오류:", postsRes.error);
-    }
-    if (vocabRes.error) {
-      console.error("vocab_homework 불러오기 오류:", vocabRes.error);
-    }
-    if (sentenceRes.error) {
-      console.error("sentence_homework 불러오기 오류:", sentenceRes.error);
-    }
+    if (postsRes.error)   console.error("board_posts 불러오기 오류:", postsRes.error);
+    if (vocabRes.error)   console.error("vocab_homework 불러오기 오류:", vocabRes.error);
+    if (sentenceRes.error)console.error("sentence_homework 불러오기 오류:", sentenceRes.error);
 
     const all = [];
 
@@ -544,9 +537,7 @@
       });
     });
 
-    // 날짜 기준 최신순 정렬
     all.sort((a, b) => new Date(b.created_at) - new Date(a.created_at));
-
     items = all;
     renderItems();
   }
@@ -580,7 +571,8 @@
       badge.textContent = p.class_name || "전체";
 
       const typeBadge = document.createElement("span");
-      typeBadge.className = "post-type-badge " +
+      typeBadge.className =
+        "post-type-badge " +
         (p.type === "post"
           ? "type-post"
           : p.type === "vocab"
@@ -643,6 +635,7 @@
     setWriteStatus("");
   };
 
+  // --- 글 등록 ---
   submitWriteBtn.onclick = async () => {
     if (currentRole !== "teacher") {
       alert("선생님 계정으로 로그인해야 글을 작성할 수 있어요.");
@@ -684,13 +677,11 @@
     setWriteStatus("저장되었습니다!");
     writeBoxEl.style.display = "none";
 
-    // 리스트 새로고침
     await loadItems();
   };
 
   // 온라인 숙제 버튼 → homework-teacher.html 로 이동
   onlineHwBtn.onclick = () => {
-    // board.html과 같은 폴더에 있다고 가정
     window.location.href = "homework-teacher.html";
   };
 
