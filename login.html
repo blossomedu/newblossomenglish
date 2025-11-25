@@ -5,14 +5,13 @@
   <title>로그인 - 블라썸잉글리쉬</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link href="https://cdn.jsdelivr.net/npm/pretendard/dist/web/variable/pretendardvariable.css" rel="stylesheet" />
-
   <style>
     * {
       box-sizing: border-box;
       margin: 0;
       padding: 0;
       font-family: "Pretendard Variable", -apple-system, BlinkMacSystemFont,
-        system-ui, "Apple SD Gothic Neo", "Noto Sans KR", sans-serif;
+        system-ui, -apple-system, "Apple SD Gothic Neo", "Noto Sans KR", sans-serif;
     }
 
     body {
@@ -26,75 +25,69 @@
       padding: 0 20px;
     }
 
-    h1 {
-      font-size: 32px;
+    h1.title {
+      font-size: 34px;
       font-weight: 900;
       margin-bottom: 6px;
     }
 
-    .subtitle {
-      font-size: 15px;
+    .subtitle-main {
+      font-size: 16px;
       color: #6b7280;
       margin-bottom: 24px;
     }
 
-    .cards {
+    .login-grid {
       display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
+      grid-template-columns: 1fr 1fr;
       gap: 20px;
-    }
-
-    @media (max-width: 768px) {
-      .cards {
-        grid-template-columns: 1fr;
-      }
     }
 
     .card {
       background: #ffffff;
-      border-radius: 24px;
-      padding: 20px 22px 22px;
-      box-shadow: 0 15px 32px rgba(15, 23, 42, 0.08);
+      border-radius: 26px;
+      padding: 24px 26px 26px;
+      box-shadow: 0 18px 40px rgba(15, 23, 42, 0.12);
     }
 
-    .badge {
+    .card-header {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 14px;
+    }
+
+    .badge-role {
       display: inline-flex;
       align-items: center;
       padding: 3px 10px;
       border-radius: 999px;
-      font-size: 11px;
-      margin-bottom: 8px;
+      font-size: 12px;
+      font-weight: 600;
     }
 
     .badge-teacher {
-      background: #eef2ff;
-      color: #3730a3;
+      background: #dbeafe;
+      color: #1d4ed8;
     }
 
     .badge-student {
-      background: #ecfeff;
-      color: #0369a1;
+      background: #dcfce7;
+      color: #15803d;
     }
 
     .card-title {
       font-size: 18px;
       font-weight: 700;
-      margin-bottom: 6px;
     }
 
-    .card-sub {
-      font-size: 13px;
+    .card-desc {
+      font-size: 14px;
       color: #6b7280;
       margin-bottom: 16px;
-      line-height: 1.4;
     }
 
-    .field {
-      margin-bottom: 10px;
-    }
-
-    .field label {
-      display: block;
+    .field-label {
       font-size: 13px;
       color: #4b5563;
       margin-bottom: 4px;
@@ -102,118 +95,155 @@
 
     .input {
       width: 100%;
-      padding: 8px 10px;
+      padding: 10px 12px;
       border-radius: 999px;
       border: 1px solid #d1d5db;
       font-size: 14px;
+      outline: none;
+      background: #f9fafb;
+    }
+
+    .input::placeholder {
+      color: #9ca3af;
+    }
+
+    .input:focus {
+      border-color: #2563eb;
       background: #ffffff;
+      box-shadow: 0 0 0 1px rgba(37, 99, 235, 0.15);
+    }
+
+    .field-row {
+      margin-bottom: 10px;
     }
 
     .btn {
       width: 100%;
-      padding: 9px 14px;
-      border-radius: 999px;
       border: none;
+      border-radius: 999px;
+      padding: 11px 14px;
       font-size: 14px;
+      font-weight: 600;
       cursor: pointer;
-      white-space: nowrap;
       display: inline-flex;
       align-items: center;
       justify-content: center;
       gap: 6px;
-      font-weight: 600;
-      margin-top: 6px;
+      white-space: nowrap;
     }
 
-    .btn-blue {
+    .btn-primary {
       background: #2563eb;
       color: #ffffff;
     }
 
-    .btn-google {
+    .btn-primary:disabled {
+      background: #9ca3af;
+      cursor: default;
+    }
+
+    .btn-ghost {
       background: #ffffff;
-      color: #111827;
+      color: #374151;
       border: 1px solid #d1d5db;
     }
 
-    .btn-gray {
-      background: #e5e7eb;
-      color: #374151;
+    .btn-ghost:hover {
+      background: #f9fafb;
     }
 
-    .status {
-      font-size: 12px;
-      margin-top: 6px;
-      min-height: 16px;
-      color: #6b7280;
-    }
-
-    .status.error {
-      color: #b91c1c;
-    }
-
-    .divider {
-      height: 1px;
-      background: #e5e7eb;
-      margin: 14px 0 12px;
+    .btn-sub {
+      margin-top: 8px;
+      font-size: 13px;
+      padding: 9px 14px;
     }
 
     .section-title {
-      font-size: 13px;
-      font-weight: 700;
+      font-size: 15px;
+      font-weight: 600;
+      margin-top: 20px;
       margin-bottom: 8px;
-      color: #374151;
     }
 
-    .hint {
+    .helper-text {
+      font-size: 12px;
+      color: #6b7280;
+      margin-top: 2px;
+      margin-bottom: 10px;
+    }
+
+    .status-text {
+      font-size: 13px;
+      color: #6b7280;
+      margin-top: 8px;
+      min-height: 18px;
+    }
+
+    .status-text.error {
+      color: #b91c1c;
+    }
+
+    .status-text.success {
+      color: #15803d;
+    }
+
+    .small-footnote {
       font-size: 11px;
       color: #9ca3af;
-      margin-top: 4px;
+      margin-top: 6px;
     }
 
-    .small-link {
-      font-size: 12px;
-      color: #2563eb;
-      margin-top: 6px;
-      cursor: pointer;
-      text-decoration: underline;
-      display: inline-block;
+    @media (max-width: 900px) {
+      .login-grid {
+        grid-template-columns: 1fr;
+      }
     }
   </style>
 </head>
 <body>
-
 <div class="page">
-  <h1>로그인</h1>
-  <div class="subtitle">선생님과 학생이 한 페이지에서 로그인/가입할 수 있어요.</div>
+  <h1 class="title">로그인</h1>
+  <div class="subtitle-main">선생님 / 학생 계정으로 로그인하고 숙제를 관리해요.</div>
 
-  <div class="cards">
-
+  <div class="login-grid">
     <!-- 선생님 카드 -->
     <div class="card">
-      <div class="badge badge-teacher">Teacher</div>
-      <div class="card-title">선생님 로그인</div>
-      <div class="card-sub">
-        구글 계정으로 로그인하면<br />
+      <div class="card-header">
+        <span class="badge-role badge-teacher">Teacher</span>
+        <div class="card-title">선생님 로그인</div>
+      </div>
+      <div class="card-desc">
+        구글 계정 또는 이메일로 로그인하면<br />
         온라인 숙제와 반별 게시판을 관리할 수 있어요.
       </div>
 
-      <button id="googleLoginBtn" class="btn btn-google">
+      <div class="field-row">
+        <div class="field-label">이메일</div>
+        <input id="teacherEmail" class="input" type="email" placeholder="예: blossomteacher@gmail.com" />
+      </div>
+      <div class="field-row">
+        <div class="field-label">비밀번호</div>
+        <input id="teacherPassword" class="input" type="password" placeholder="Supabase에 등록된 비밀번호" />
+      </div>
+
+      <button id="teacherLoginBtn" class="btn btn-primary" style="margin-top: 10px;">
+        선생님 이메일로 로그인
+      </button>
+
+      <button id="googleLoginBtn" class="btn btn-ghost btn-sub">
         🔑 구글 계정으로 로그인
       </button>
 
-      <div class="hint">
-        별도 회원가입 없이, 구글 계정이 곧 선생님 계정이 됩니다.
-      </div>
-
-      <div id="teacherStatus" class="status"></div>
+      <div id="teacherStatus" class="status-text"></div>
     </div>
 
     <!-- 학생 카드 -->
     <div class="card">
-      <div class="badge badge-student">Student</div>
-      <div class="card-title">학생 로그인 / 가입</div>
-      <div class="card-sub">
+      <div class="card-header">
+        <span class="badge-role badge-student">Student</span>
+        <div class="card-title">학생 로그인 / 가입</div>
+      </div>
+      <div class="card-desc">
         학원에서 받은 아이디와 비밀번호로 로그인하거나,<br />
         아직 계정이 없다면 아래에서 새로 만들 수 있어요.
       </div>
@@ -221,308 +251,232 @@
       <!-- 학생 로그인 -->
       <div class="section-title">학생 로그인</div>
 
-      <div class="field">
-        <label>학생 아이디</label>
-        <input id="studentLoginId" class="input" type="text" placeholder="예: 7MB-01" />
+      <div class="field-row">
+        <div class="field-label">학생 아이디</div>
+        <input id="studentLoginId" class="input" type="text" placeholder="예: blossom001" />
+      </div>
+      <div class="field-row">
+        <div class="field-label">비밀번호</div>
+        <input id="studentLoginPw" class="input" type="password" placeholder="영어+숫자 조합 7자 이상" />
       </div>
 
-      <div class="field">
-        <label>비밀번호</label>
-        <input id="studentLoginPw" class="input" type="password" placeholder="비밀번호" />
-      </div>
-
-      <button id="studentLoginBtn" class="btn btn-gray">
+      <button id="studentLoginBtn" class="btn btn-primary" style="margin-top: 10px;">
         👦 학생으로 로그인
       </button>
 
-      <div id="studentLoginStatus" class="status"></div>
-
-      <div class="divider"></div>
-
-      <!-- 학생 가입 -->
       <div class="section-title">학생 회원가입</div>
 
-      <div class="field">
-        <label>새 학생 아이디</label>
-        <input id="studentSignupId" class="input" type="text" placeholder="예: 7MB-01" />
+      <div class="field-row">
+        <div class="field-label">새 학생 아이디</div>
+        <input id="studentSignupId" class="input" type="text" placeholder="예: blossom001" />
+        <div class="helper-text">영어와 숫자를 섞어서 7자 이상을 추천해요. (예: blossom001)</div>
       </div>
 
-      <div class="field">
-        <label>이름</label>
+      <div class="field-row">
+        <div class="field-label">이름</div>
         <input id="studentSignupName" class="input" type="text" placeholder="예: 홍길동" />
       </div>
 
-      <div class="field">
-        <label>비밀번호</label>
-        <input id="studentSignupPw" class="input" type="password" placeholder="비밀번호" />
+      <div class="field-row">
+        <div class="field-label">비밀번호</div>
+        <input id="studentSignupPw" class="input" type="password" placeholder="영어+숫자 조합 7자 이상" />
       </div>
 
-      <button id="studentSignupBtn" class="btn btn-blue">
+      <button id="studentSignupBtn" class="btn btn-primary" style="margin-top: 6px;">
         ✨ 학생 계정 만들기
       </button>
 
-      <div class="hint">
-        반(7MB, 10MB 등)은 나중에 선생님이 설정해 줄 수 있어요.
-      </div>
-
-      <div id="studentSignupStatus" class="status"></div>
-
-      <span id="goIndexLink" class="small-link" style="display:none;">
-        이미 로그인 상태예요. 메인으로 이동하기
-      </span>
+      <div id="studentStatus" class="status-text"></div>
+      <div class="small-footnote">※ 학생 계정 정보는 이 브라우저(localStorage)에만 저장돼요. 반(7MB, 10MB 등)은 나중에 선생님이 설정해 줄 수 있어요.</div>
     </div>
-
   </div>
 </div>
 
 <!-- Supabase JS -->
 <script src="https://unpkg.com/@supabase/supabase-js@2.48.0/dist/umd/supabase.js"></script>
 <script>
-  // ===== Supabase 설정 =====
+  // ===== Supabase 설정 (선생님용) =====
   const SUPABASE_URL = "https://bpdisxjhhibrgfpvtlmv.supabase.co";
   const SUPABASE_ANON_KEY =
     "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJwZGlzeGpoaGlicmdmcHZ0bG12Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjM5NTkxODQsImV4cCI6MjA3OTUzNTE4NH0.jDZ6BGirOPuWUnt4ykjhng4PLft2ZjBuYAFzApUnlYU";
 
-  const client = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+  const supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
-  const MAIN_PAGE = "index.html";
-  const STUDENT_STORAGE_KEY = "blossom_student";
+  // ===== 학생 계정은 localStorage에 저장 =====
+  const STUDENT_LIST_KEY = "blossom_students_v1";
+  const CURRENT_STUDENT_KEY = "blossom_student";
 
-  // ===== DOM =====
-  const googleLoginBtn       = document.getElementById("googleLoginBtn");
-  const teacherStatusEl      = document.getElementById("teacherStatus");
+  function loadStudents() {
+    try {
+      const raw = localStorage.getItem(STUDENT_LIST_KEY);
+      if (!raw) return [];
+      const parsed = JSON.parse(raw);
+      if (Array.isArray(parsed)) return parsed;
+      return [];
+    } catch (e) {
+      console.error("학생 계정 불러오기 오류:", e);
+      return [];
+    }
+  }
 
-  const studentLoginIdEl     = document.getElementById("studentLoginId");
-  const studentLoginPwEl     = document.getElementById("studentLoginPw");
-  const studentLoginBtn      = document.getElementById("studentLoginBtn");
-  const studentLoginStatusEl = document.getElementById("studentLoginStatus");
+  function saveStudents(list) {
+    try {
+      localStorage.setItem(STUDENT_LIST_KEY, JSON.stringify(list));
+    } catch (e) {
+      console.error("학생 계정 저장 오류:", e);
+    }
+  }
 
-  const studentSignupIdEl    = document.getElementById("studentSignupId");
-  const studentSignupNameEl  = document.getElementById("studentSignupName");
-  const studentSignupPwEl    = document.getElementById("studentSignupPw");
-  const studentSignupBtn     = document.getElementById("studentSignupBtn");
-  const studentSignupStatusEl= document.getElementById("studentSignupStatus");
-
-  const goIndexLinkEl        = document.getElementById("goIndexLink");
-
-  function setStatus(el, msg, isError = false) {
+  function setTeacherStatus(msg, type = "") {
+    const el = document.getElementById("teacherStatus");
     el.textContent = msg || "";
-    el.classList.toggle("error", !!isError);
+    el.className = "status-text" + (type ? " " + type : "");
   }
 
-  // ===== 이미 로그인되어 있으면 바로 index로 =====
-  async function redirectIfAlreadyLoggedIn() {
-    let teacherLoggedIn = false;
-    let studentLoggedIn = false;
-
-    // 선생님(구글) 로그인 여부
-    try {
-      const { data, error } = await client.auth.getUser();
-      if (!error && data && data.user) {
-        teacherLoggedIn = true;
-      }
-    } catch (e) {
-      console.error("선생님 로그인 확인 오류:", e);
-    }
-
-    // 학생(localStorage) 로그인 여부
-    try {
-      const raw = localStorage.getItem(STUDENT_STORAGE_KEY);
-      if (raw) {
-        studentLoggedIn = true;
-      }
-    } catch (e) {
-      console.error("학생 로그인 확인 오류:", e);
-    }
-
-    if (teacherLoggedIn || studentLoggedIn) {
-      // 이 페이지를 다시 들어온 상태라면 메인으로 바로 이동
-      window.location.href = MAIN_PAGE;
-    }
+  function setStudentStatus(msg, type = "") {
+    const el = document.getElementById("studentStatus");
+    el.textContent = msg || "";
+    el.className = "status-text" + (type ? " " + type : "");
   }
 
-  redirectIfAlreadyLoggedIn();
+  // ===== 선생님 로그인 (이메일/비밀번호) =====
+  const teacherEmailEl = document.getElementById("teacherEmail");
+  const teacherPasswordEl = document.getElementById("teacherPassword");
+  const teacherLoginBtn = document.getElementById("teacherLoginBtn");
+  const googleLoginBtn = document.getElementById("googleLoginBtn");
 
-  // ===== 선생님: 구글 로그인 =====
-  googleLoginBtn.onclick = async () => {
-    setStatus(teacherStatusEl, "구글 로그인 페이지로 이동합니다…");
-    try {
-      const redirectTo =
-        window.location.origin +
-        window.location.pathname.replace(/[^/]+$/, "login.html");
+  teacherLoginBtn.onclick = async () => {
+    const email = teacherEmailEl.value.trim();
+    const pw = teacherPasswordEl.value.trim();
 
-      const { data, error } = await client.auth.signInWithOAuth({
-        provider: "google",
-        options: {
-          redirectTo: redirectTo,
-        },
-      });
-
-      if (error) {
-        console.error("구글 로그인 오류:", error);
-        setStatus(teacherStatusEl, "구글 로그인 중 오류가 발생했어요.", true);
-        return;
-      }
-
-      if (data && data.url) {
-        window.location.href = data.url;
-      }
-    } catch (e) {
-      console.error("구글 로그인 예외:", e);
-      setStatus(teacherStatusEl, "구글 로그인 중 예외가 발생했어요.", true);
-    }
-  };
-
-  // ===== OAuth 콜백으로 돌아왔을 때: 이미 로그인되었으면 index로 =====
-  (async function handleOAuthReturn() {
-    try {
-      const { data, error } = await client.auth.getUser();
-      if (!error && data && data.user) {
-        // 이미 선생님으로 로그인된 상태 → 메인으로
-        window.location.href = MAIN_PAGE;
-      }
-    } catch (e) {
-      console.error("OAuth 콜백 처리 오류:", e);
-    }
-  })();
-
-  // ===== 학생 로그인 =====
-  studentLoginBtn.onclick = async () => {
-    const loginId = studentLoginIdEl.value.trim();
-    const pw      = studentLoginPwEl.value.trim();
-
-    setStatus(studentLoginStatusEl, "");
-    if (!loginId || !pw) {
-      setStatus(studentLoginStatusEl, "학생 아이디와 비밀번호를 모두 입력해 주세요.", true);
+    if (!email || !pw) {
+      setTeacherStatus("이메일과 비밀번호를 입력해 주세요.", "error");
       return;
     }
 
-    setStatus(studentLoginStatusEl, "로그인 중입니다…");
-    studentLoginBtn.disabled = true;
+    setTeacherStatus("로그인 중입니다…");
+    teacherLoginBtn.disabled = true;
 
-    const { data, error } = await client
-      .from("students")
-      .select("login_id, name")
-      .eq("login_id", loginId)
-      .eq("password", pw)
-      .maybeSingle();
+    const { data, error } = await supabaseClient.auth.signInWithPassword({
+      email,
+      password: pw,
+    });
 
-    studentLoginBtn.disabled = false;
+    teacherLoginBtn.disabled = false;
 
     if (error) {
-      console.error("학생 로그인 오류:", error);
-      setStatus(studentLoginStatusEl, "로그인 중 오류가 발생했어요.", true);
+      console.error("Teacher login error:", error);
+      setTeacherStatus("로그인에 실패했어요. 이메일/비밀번호를 확인해 주세요.", "error");
       return;
     }
 
-    if (!data) {
-      setStatus(studentLoginStatusEl, "아이디 또는 비밀번호가 올바르지 않습니다.", true);
+    setTeacherStatus("로그인 성공! 잠시 후 이동합니다.", "success");
+    // 메인 화면으로 이동
+    window.location.href = "index.html";
+  };
+
+  // ===== 선생님 구글 로그인 =====
+  googleLoginBtn.onclick = async () => {
+    // 로그인 후 index.html 로 돌아오도록 redirect 설정
+    const redirectUrl = window.location.origin + "/newblossomenglish/index.html";
+    await supabaseClient.auth.signInWithOAuth({
+      provider: "google",
+      options: {
+        redirectTo: redirectUrl,
+      },
+    });
+  };
+
+  // ===== 학생 로그인 =====
+  const studentLoginIdEl = document.getElementById("studentLoginId");
+  const studentLoginPwEl = document.getElementById("studentLoginPw");
+  const studentLoginBtn = document.getElementById("studentLoginBtn");
+
+  studentLoginBtn.onclick = () => {
+    const id = studentLoginIdEl.value.trim();
+    const pw = studentLoginPwEl.value.trim();
+
+    if (!id || !pw) {
+      setStudentStatus("학생 아이디와 비밀번호를 입력해 주세요.", "error");
       return;
     }
 
-    // localStorage에 저장
-    try {
-      const payload = {
-        login_id: data.login_id,
-        name: data.name,
-        logged_at: new Date().toISOString(),
-        role: "student",
-      };
-      localStorage.setItem(STUDENT_STORAGE_KEY, JSON.stringify(payload));
-    } catch (e) {
-      console.error("학생 정보 저장 오류:", e);
+    const list = loadStudents();
+    const found = list.find((s) => s.id === id);
+
+    if (!found || found.password !== pw) {
+      setStudentStatus("아이디 또는 비밀번호가 맞지 않아요.", "error");
+      return;
     }
 
-    setStatus(studentLoginStatusEl, "로그인되었습니다! 메인으로 이동합니다.");
-    window.location.href = MAIN_PAGE;
+    // 현재 로그인한 학생 정보 저장
+    localStorage.setItem(
+      CURRENT_STUDENT_KEY,
+      JSON.stringify({
+        login_id: found.id,
+        name: found.name,
+      })
+    );
+
+    setStudentStatus("로그인 성공! 잠시 후 이동합니다.", "success");
+    window.location.href = "index.html";
   };
 
   // ===== 학생 회원가입 =====
-  studentSignupBtn.onclick = async () => {
-    const loginId = studentSignupIdEl.value.trim();
-    const name    = studentSignupNameEl.value.trim();
-    const pw      = studentSignupPwEl.value.trim();
+  const studentSignupIdEl = document.getElementById("studentSignupId");
+  const studentSignupNameEl = document.getElementById("studentSignupName");
+  const studentSignupPwEl = document.getElementById("studentSignupPw");
+  const studentSignupBtn = document.getElementById("studentSignupBtn");
 
-    setStatus(studentSignupStatusEl, "");
-    if (!loginId || !name || !pw) {
-      setStatus(studentSignupStatusEl, "아이디, 이름, 비밀번호를 모두 입력해 주세요.", true);
+  function isValidIdOrPw(str) {
+    if (!str || str.length < 7) return false;
+    const hasLetter = /[a-zA-Z]/.test(str);
+    const hasNumber = /[0-9]/.test(str);
+    return hasLetter && hasNumber;
+  }
+
+  studentSignupBtn.onclick = () => {
+    const id = studentSignupIdEl.value.trim();
+    const name = studentSignupNameEl.value.trim();
+    const pw = studentSignupPwEl.value.trim();
+
+    if (!id || !name || !pw) {
+      setStudentStatus("아이디, 이름, 비밀번호를 모두 입력해 주세요.", "error");
       return;
     }
 
-    setStatus(studentSignupStatusEl, "계정을 만드는 중입니다…");
-    studentSignupBtn.disabled = true;
-
-    // 같은 아이디가 이미 있는지 확인
-    const { data: existing, error: checkError } = await client
-      .from("students")
-      .select("id")
-      .eq("login_id", loginId)
-      .limit(1);
-
-    if (checkError) {
-      console.error("학생 아이디 중복 확인 오류:", checkError);
-      studentSignupBtn.disabled = false;
-      setStatus(studentSignupStatusEl, "가입 중 오류가 발생했어요.", true);
+    if (!isValidIdOrPw(id)) {
+      setStudentStatus("아이디는 영어+숫자 조합 7자 이상으로 만들어 주세요. (예: blossom001)", "error");
       return;
     }
 
-    if (existing && existing.length > 0) {
-      studentSignupBtn.disabled = false;
-      setStatus(studentSignupStatusEl, "이미 사용 중인 아이디입니다. 다른 아이디를 사용해 주세요.", true);
+    if (!isValidIdOrPw(pw)) {
+      setStudentStatus("비밀번호도 영어+숫자 조합 7자 이상으로 만들어 주세요.", "error");
       return;
     }
 
-    // 새 학생 insert
-    const { data: inserted, error: insertError } = await client
-      .from("students")
-      .insert({
-        login_id: loginId,
-        name: name,
-        password: pw,
-      })
-      .select("login_id, name")
-      .maybeSingle();
-
-    studentSignupBtn.disabled = false;
-
-    if (insertError) {
-      console.error("학생 가입 오류:", insertError);
-      setStatus(studentSignupStatusEl, "학생 계정을 만드는 중 오류가 발생했어요.", true);
+    const list = loadStudents();
+    if (list.some((s) => s.id === id)) {
+      setStudentStatus("이미 사용 중인 아이디예요. 다른 아이디를 골라 주세요.", "error");
       return;
     }
 
-    // 가입 성공 → 바로 로그인 처리
-    try {
-      const payload = {
-        login_id: inserted.login_id,
-        name: inserted.name,
-        logged_at: new Date().toISOString(),
-        role: "student",
-      };
-      localStorage.setItem(STUDENT_STORAGE_KEY, JSON.stringify(payload));
-    } catch (e) {
-      console.error("학생 정보 저장 오류:", e);
-    }
+    list.push({
+      id,
+      name,
+      password: pw,
+    });
+    saveStudents(list);
 
-    setStatus(studentSignupStatusEl, "가입이 완료되었습니다! 메인으로 이동합니다.");
-    window.location.href = MAIN_PAGE;
+    setStudentStatus("학생 계정이 만들어졌어요! 위쪽 로그인 칸에서 바로 로그인할 수 있어요.", "success");
+
+    // 가입 폼 초기화
+    studentSignupPwEl.value = "";
   };
 
-  // ===== 이미 학생 정보가 있는 경우: "메인으로 이동" 링크 보이기 =====
-  (function checkStudentLocal() {
-    try {
-      const raw = localStorage.getItem(STUDENT_STORAGE_KEY);
-      if (raw) {
-        goIndexLinkEl.style.display = "inline-block";
-        goIndexLinkEl.onclick = () => {
-          window.location.href = MAIN_PAGE;
-        };
-      }
-    } catch (e) {
-      // 무시
-    }
-  })();
+  // 페이지 로드시 상태 메시지 초기화
+  setTeacherStatus("");
+  setStudentStatus("");
 </script>
-
 </body>
 </html>
