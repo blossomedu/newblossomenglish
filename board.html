@@ -35,7 +35,7 @@
     .subtitle {
       font-size: 16px;
       color: #6b7280;
-      margin-bottom: 12px;
+      margin-bottom: 20px;
     }
 
     /* 상단 필터 + 글쓰기 버튼 줄 */
@@ -45,7 +45,7 @@
       justify-content: space-between;
       align-items: center;
       gap: 10px;
-      margin-bottom: 16px;
+      margin-bottom: 20px;
     }
 
     .filter-group {
@@ -242,8 +242,8 @@
       </select>
     </div>
 
-    <!-- 선생님만 보게 될 글쓰기 버튼 -->
-    <button id="toggleWriteBtn" class="new-post-toggle">✏️ 글 쓰기</button>
+    <button class="new-post-toggle"
+        onclick="window.location.href='homework-teacher.html'">✏️ 글 쓰기</button>
   </div>
 
   <!-- 글쓰기 폼 -->
@@ -284,26 +284,17 @@
   </div>
 </div>
 
-<!-- Supabase JS -->
-<script src="https://unpkg.com/@supabase/supabase-js@2.48.0/dist/umd/supabase.js"></script>
 <script>
-  // ===== Supabase 클라이언트 (login.html과 동일) =====
-  const SUPABASE_URL = "https://bpdisxjhhibrgfpvtlmv.supabase.co";
-  const SUPABASE_ANON_KEY =
-    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJwZGlzeGpoaGlicmdmcHZ0bG12Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjM5NTkxODQsImV4cCI6MjA3OTUzNTE4NH0.jDZ6BGirOPuWUnt4ykjhng4PLft2ZjBuYAFzApUnlYU";
-
-  const supa = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
-
   // ====== 간단한 로컬 저장 키 ======
   const STORAGE_KEY = "blossom_board_posts_v1";
 
-  // 기본 더미 데이터
+  // 기본 더미 데이터 (처음엔 이걸로 한두 개 채워 놓기)
   const defaultPosts = [
     {
       id: Date.now() - 2000000,
       className: "1반",
       title: "이번 주 어휘 숙제 안내",
-      content: "1단계 1세트 ~ 3세트까지 학습하기\n퀴즈까지 꼭 완료해 주세요 :)",
+      content: "Unit 1-1 ~ 1-3까지 학습하기\n퀴즈까지 꼭 완료해 주세요 :)",
       author: "Stella쌤",
       createdAt: "2025-11-21 13:00"
     },
@@ -317,9 +308,11 @@
     }
   ];
 
+  // ====== localStorage에서 게시글 불러오기 ======
   function loadPosts() {
     const raw = localStorage.getItem(STORAGE_KEY);
     if (!raw) {
+      // 처음에는 기본 데이터 채워 넣기
       localStorage.setItem(STORAGE_KEY, JSON.stringify(defaultPosts));
       return defaultPosts.slice();
     }
@@ -333,6 +326,7 @@
     }
   }
 
+  // ====== 게시글 저장 ======
   function savePosts(posts) {
     localStorage.setItem(STORAGE_KEY, JSON.stringify(posts));
   }
@@ -351,67 +345,14 @@
   const writeTitleEl    = document.getElementById("writeTitle");
   const writeContentEl  = document.getElementById("writeContent");
 
-  // 현재 역할: "teacher" | "student" | "guest"
-  let currentRole = "guest";
-  let currentUserName = "";
-
-  // ===== 역할/사용자 정보 감지 =====
-  async function detectRole() {
-    try {
-      // 1) Supabase Auth 사용자 있으면 → 선생님
-      const { data, error } = await supa.auth.getUser();
-      if (!error && data && data.user) {
-        currentRole = "teacher";
-        currentUserName =
-          (data.user.user_metadata && data.user.user_metadata.display_name) ||
-          data.user.email ||
-          "선생님";
-        applyRoleUI();
-        renderPosts();
-        return;
-      }
-    } catch (e) {
-      console.error("Supabase user 확인 오류:", e);
-    }
-
-    // 2) 아니면 학생 로그인(localStorage) 확인
-    try {
-      const raw = localStorage.getItem("blossom_student");
-      if (raw) {
-        const s = JSON.parse(raw);
-        currentRole = "student";
-        currentUserName = s.name || s.login_id || "학생";
-      } else {
-        currentRole = "guest";
-        currentUserName = "";
-      }
-    } catch (e) {
-      currentRole = "guest";
-      currentUserName = "";
-    }
-
-    applyRoleUI();
-    renderPosts();
-  }
-
-  function applyRoleUI() {
-    const isTeacher = currentRole === "teacher";
-    // 선생님만 글쓰기 버튼 보이기
-    toggleWriteBtn.style.display = isTeacher ? "inline-block" : "none";
-    if (!isTeacher) {
-      writeBoxEl.style.display = "none";
-    }
-  }
-
-  // ===== 게시글 렌더링 =====
+  // ====== 게시글 렌더링 ======
   function renderPosts() {
-    const selectedClass = classFilterEl.value;
+    const selectedClass = classFilterEl.value; // all, 1반, 2반 ...
     postListEl.innerHTML = "";
 
-    const filtered =
-      selectedClass === "all"
-        ? posts.slice()
-        : posts.filter((p) => p.className === selectedClass);
+    const filtered = selectedClass === "all"
+      ? posts.slice()
+      : posts.filter(p => p.className === selectedClass);
 
     if (filtered.length === 0) {
       emptyBoxEl.style.display = "block";
@@ -420,6 +361,7 @@
       emptyBoxEl.style.display = "none";
     }
 
+    // 최신 글이 위로 오도록 정렬
     filtered.sort((a, b) => b.id - a.id);
 
     for (const p of filtered) {
@@ -462,17 +404,14 @@
     }
   }
 
-  // ===== 글쓰기 폼 열기/닫기 =====
+  // ====== 글쓰기 폼 열기/닫기 ======
   toggleWriteBtn.onclick = () => {
-    if (currentRole !== "teacher") {
-      alert("선생님 계정으로 로그인해야 글을 작성할 수 있어요.");
-      return;
-    }
     const visible = writeBoxEl.style.display !== "none";
     writeBoxEl.style.display = visible ? "none" : "block";
     if (!visible) {
+      // 열릴 때 폼 초기화
       writeTitleEl.value = "";
-      writeAuthorEl.value = currentUserName || "";
+      writeAuthorEl.value = "";
       writeContentEl.value = "";
     }
   };
@@ -481,17 +420,12 @@
     writeBoxEl.style.display = "none";
   };
 
-  // ===== 글 등록 =====
+  // ====== 글 등록 ======
   submitWriteBtn.onclick = () => {
-    if (currentRole !== "teacher") {
-      alert("선생님 계정으로 로그인해야 글을 작성할 수 있어요.");
-      return;
-    }
-
     const className = writeClassEl.value.trim();
-    const author = writeAuthorEl.value.trim() || currentUserName || "익명";
-    const title = writeTitleEl.value.trim();
-    const content = writeContentEl.value.trim();
+    const author    = writeAuthorEl.value.trim() || "익명";
+    const title     = writeTitleEl.value.trim();
+    const content   = writeContentEl.value.trim();
 
     if (!title || !content) {
       alert("제목과 내용을 입력해 주세요.");
@@ -499,13 +433,8 @@
     }
 
     const now = new Date();
-    const createdAt =
-      `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, "0")}-${String(
-        now.getDate()
-      ).padStart(2, "0")} ` +
-      `${String(now.getHours()).padStart(2, "0")}:${String(
-        now.getMinutes()
-      ).padStart(2, "0")}`;
+    const createdAt = `${now.getFullYear()}-${String(now.getMonth()+1).padStart(2,"0")}-${String(now.getDate()).padStart(2,"0")} ` +
+                      `${String(now.getHours()).padStart(2,"0")}:${String(now.getMinutes()).padStart(2,"0")}`;
 
     const newPost = {
       id: Date.now(),
@@ -513,7 +442,7 @@
       title,
       content,
       author,
-      createdAt,
+      createdAt
     };
 
     posts.push(newPost);
@@ -522,11 +451,11 @@
     renderPosts();
   };
 
-  // ===== 이벤트 =====
+  // ====== 반 필터 변경 시 ======
   classFilterEl.onchange = renderPosts;
 
-  // ===== 초기 실행 =====
-  detectRole();
+  // 최초 렌더링
+  renderPosts();
 </script>
 
 </body>
