@@ -90,7 +90,7 @@
       flex-wrap: wrap;
       gap: 12px;
       margin-bottom: 4px;
-      align-items: flex-start; /* 위쪽 맞추기 */
+      align-items: flex-start;
     }
 
     .field {
@@ -168,11 +168,19 @@
       white-space: nowrap;
     }
 
+    .print-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: flex-end;
+      margin-top: 8px;
+      margin-bottom: 4px;
+    }
+
     .print-buttons {
       display: flex;
       gap: 6px;
       flex-wrap: wrap;
-      margin-top: 6px;
     }
 
     .status {
@@ -232,7 +240,7 @@
     .print-summary {
       font-size: 13px;
       color: #4b5563;
-      margin-top: 6px;
+      margin-top: 4px;
     }
 
     @media (max-width: 768px) {
@@ -240,8 +248,11 @@
         flex-direction: column;
         align-items: flex-start;
       }
-
       .form-row {
+        flex-direction: column;
+        align-items: stretch;
+      }
+      .print-row {
         flex-direction: column;
         align-items: stretch;
       }
@@ -273,7 +284,7 @@
       <button class="link-btn" id="logout-btn" style="background:#ef4444;">로그아웃</button>
     </div>
 
-    <!-- 숙제 생성 폼 (업로드 전용) -->
+    <!-- 숙제 생성 폼 -->
     <div class="form-row">
       <div class="field" style="min-width:180px;">
         <label>반 선택</label>
@@ -292,7 +303,7 @@
       </div>
 
       <div class="field" style="flex:1; min-width:220px;">
-        <label>세트 번호</label>
+        <label>세트 번호 (숙제용)</label>
         <input id="set-input" type="text" placeholder="예: 3 또는 1,2,3" />
         <div class="hint">쉼표로 여러 개 입력 가능 (예: 3,4,5)</div>
       </div>
@@ -316,20 +327,28 @@
     <!-- 출력 영역 -->
     <div class="list-title">단어 시험지 / 암기장 출력</div>
     <div class="hint">
-      위에서 반과 숙제 종류, 세트 번호를 선택한 후 아래 버튼을 눌러 주세요.
+      위에서 반과 숙제 종류를 선택하고, 아래에서 출력할 세트 번호를 입력한 뒤 버튼을 눌러 주세요.
     </div>
+
+    <div class="print-row">
+      <div class="field" style="flex:1; min-width:220px;">
+        <label>세트 번호 (출력용)</label>
+        <input id="print-set-input" type="text" placeholder="예: 3 또는 1,2,3" />
+      </div>
+      <div class="print-buttons">
+        <button type="button" class="secondary-btn" id="print-test-btn">
+          단어 시험지 출력
+        </button>
+        <button type="button" class="secondary-btn" id="print-memo-btn">
+          단어 암기장 출력
+        </button>
+      </div>
+    </div>
+
     <div class="print-summary">
       선택된 반: <span id="summary-class">-</span> /
       숙제 종류: <span id="summary-type">-</span> /
       세트 번호: <span id="summary-sets">-</span>
-    </div>
-    <div class="print-buttons">
-      <button type="button" class="secondary-btn" id="print-test-btn">
-        단어 시험지 출력
-      </button>
-      <button type="button" class="secondary-btn" id="print-memo-btn">
-        단어 암기장 출력
-      </button>
     </div>
 
     <!-- 구분선 -->
@@ -365,6 +384,7 @@
   const statusMsg = document.getElementById("status-msg");
   const hwListEl = document.getElementById("hw-list");
 
+  const printSetInput = document.getElementById("print-set-input");
   const printTestBtn = document.getElementById("print-test-btn");
   const printMemoBtn = document.getElementById("print-memo-btn");
   const summaryClassEl = document.getElementById("summary-class");
@@ -427,7 +447,9 @@
 
     summaryTypeEl.textContent = currentType === "vocab" ? "어휘" : "문장";
 
-    const sets = setInput.value.trim();
+    const sets =
+      printSetInput.value.trim() ||
+      setInput.value.trim();
     summarySetsEl.textContent = sets || "-";
   }
 
@@ -519,8 +541,18 @@
     updateTypeButtons();
   };
 
-  // 세트 번호 입력이 바뀔 때마다 요약 업데이트
-  setInput.addEventListener("input", updatePrintSummary);
+  // 세트 번호 입력이 바뀔 때마다 서로 동기화 + 요약 업데이트
+  setInput.addEventListener("input", () => {
+    if (!printSetInput.value.trim()) {
+      printSetInput.value = setInput.value;
+    }
+    updatePrintSummary();
+  });
+
+  printSetInput.addEventListener("input", () => {
+    // 출력용 세트가 바뀌면 숙제용은 그대로 두고, 요약만 갱신
+    updatePrintSummary();
+  });
 
   // ---- 5) 숙제 등록 버튼 ----
   saveBtn.onclick = async () => {
@@ -546,7 +578,7 @@
       .join(",");
 
     const dueDate = dueDateRaw ? dueDateRaw : null;
-    const level = 1; // UI에는 없지만 테이블 호환용으로 1로 저장
+    const level = 1; // 테이블 호환용
 
     const tableName =
       currentType === "vocab" ? "vocab_homework" : "sentence_homework";
@@ -576,12 +608,17 @@
   // ---- 6) 출력 페이지 열기 ----
   function getCurrentParams() {
     const classId = classSelect.value;
-    const setNumbersRaw = setInput.value.trim();
-    const setNumbers = setNumbersRaw
+    // 출력은 출력용 세트 입력칸 우선 사용, 없으면 위의 세트 사용
+    const rawSets =
+      printSetInput.value.trim() ||
+      setInput.value.trim();
+
+    const setNumbers = rawSets
       .split(",")
       .map(s => s.trim())
       .filter(Boolean)
       .join(",");
+
     const dueDate = dueInput.value || "";
     const type = currentType;
     const level = 1;
@@ -597,7 +634,7 @@
       return;
     }
     if (!setNumbers) {
-      alert("세트 번호를 입력해 주세요.");
+      alert("출력할 세트 번호를 입력해 주세요.");
       return;
     }
 
@@ -625,6 +662,8 @@
     await checkAuth();
     await loadClasses();
     updateTypeButtons();
+    // 처음엔 출력 세트 입력칸을 위 값과 맞춰두기
+    printSetInput.value = setInput.value;
     updatePrintSummary();
   })();
 </script>
