@@ -253,7 +253,6 @@
         <label>반 선택</label>
         <select id="class-select">
           <option value="">반을 선택하세요</option>
-          <!-- JS로 채워짐 -->
         </select>
       </div>
 
@@ -265,7 +264,7 @@
         </div>
       </div>
 
-      <!-- 단계(Level) 입력칸 제거됨 -->
+      <!-- ★ 단계(Level) 입력칸 제거됨 ★ -->
 
       <div class="field">
         <label>세트 번호</label>
@@ -286,7 +285,6 @@
     <div id="status-msg" class="status"></div>
   </div>
 
-  <!-- 최근 등록된 숙제 리스트 (확인용) -->
   <div class="card">
     <div class="list-title">선택한 반의 최근 숙제</div>
     <div class="hint">어휘/문장 숙제를 등록하면 여기에서 바로 확인할 수 있어요.</div>
@@ -296,13 +294,11 @@
   </div>
 </div>
 
-<!-- Supabase JS -->
 <script src="https://unpkg.com/@supabase/supabase-js@2.48.0/dist/umd/supabase.js"></script>
 <script>
-  // ---- Supabase 클라이언트 ----
   const SUPABASE_URL = "https://bpdisxjhhibrgfpvtlmv.supabase.co";
   const SUPABASE_ANON_KEY =
-    "sb_publishable_PYxUAkvqENTGi1Hd9X5NUFg_ODR_PIEn";
+    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJwZGlzeGpoaGlicmdmcHZ0bG12Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjM5NTkxODQsImV4cCI6MjA3OTUzNTE4NH0.jDZ6BGirOPuWUnt4ykjhng4PLft2ZjBuYAFzApUnlYU";
 
   const client = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
@@ -317,15 +313,13 @@
   const statusMsg = document.getElementById("status-msg");
   const hwListEl = document.getElementById("hw-list");
 
-  let currentType = "vocab"; // 'vocab' or 'sentence'
-  let classes = [];          // [{id, name}, ...]
+  let currentType = "vocab";
 
   function setStatus(message, isError = false) {
     statusMsg.textContent = message || "";
     statusMsg.classList.toggle("error", !!isError);
   }
 
-  // ---- 1) 로그인 확인 (선생님만) ----
   async function checkAuth() {
     const { data, error } = await client.auth.getUser();
     if (error || !data.user) {
@@ -341,7 +335,6 @@
     window.location.href = "login.html";
   };
 
-  // ---- 2) classes 테이블에서 반 목록 가져오기 ----
   async function loadClasses() {
     const { data, error } = await client
       .from("classes")
@@ -354,10 +347,9 @@
       return;
     }
 
-    classes = data || [];
     classSelect.innerHTML = '<option value="">반을 선택하세요</option>';
 
-    classes.forEach(cls => {
+    (data || []).forEach(cls => {
       const opt = document.createElement("option");
       opt.value = cls.id;
       opt.textContent = cls.name;
@@ -365,7 +357,6 @@
     });
   }
 
-  // ---- 3) 현재 선택된 반의 숙제 목록 보여주기 ----
   async function loadHomeworkList() {
     const classId = classSelect.value;
     hwListEl.innerHTML = "";
@@ -421,8 +412,7 @@
 
       const text = document.createElement("span");
       const due = hw.due_date ? ` (마감: ${hw.due_date})` : "";
-      // 단계는 더 이상 안 보여줌
-      text.textContent = `세트 ${hw.set_numbers}${due}`;
+      text.textContent = `단계 ${hw.level} / 세트 ${hw.set_numbers}${due}`;
 
       div.appendChild(tag);
       div.appendChild(text);
@@ -433,7 +423,6 @@
 
   classSelect.onchange = loadHomeworkList;
 
-  // ---- 4) 숙제 종류 토글 ----
   function updateTypeButtons() {
     typeVocabBtn.classList.toggle("active", currentType === "vocab");
     typeSentenceBtn.classList.toggle("active", currentType === "sentence");
@@ -449,7 +438,6 @@
     updateTypeButtons();
   };
 
-  // ---- 5) 숙제 등록 버튼 ----
   saveBtn.onclick = async () => {
     setStatus("");
 
@@ -475,14 +463,14 @@
     const dueDate = dueDateRaw ? dueDateRaw : null;
     const tableName = currentType === "vocab" ? "vocab_homework" : "sentence_homework";
 
-    const level = 1; // 항상 1로 고정 저장
+    const level = 1; // ★ 항상 1로 저장 ★
 
     saveBtn.disabled = true;
     setStatus("숙제를 저장하는 중입니다…");
 
     const { error } = await client.from(tableName).insert({
       class_id: classId,
-      level: level,
+      level,
       set_numbers: setNumbers,
       due_date: dueDate,
     });
@@ -500,7 +488,6 @@
     await loadHomeworkList();
   };
 
-  // ---- 초기 실행 ----
   (async function init() {
     await checkAuth();
     await loadClasses();
