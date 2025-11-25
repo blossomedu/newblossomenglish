@@ -105,7 +105,6 @@
     }
 
     select,
-    input[type="number"],
     input[type="text"],
     input[type="date"] {
       width: 100%;
@@ -249,7 +248,7 @@
         반을 선택하고 어휘/문장 숙제를 등록하면, 나중에 학생 진도와 연결해서 볼 수 있어요.
       </div>
     </div>
-    <button class="link-btn" onclick="window.location.href='board.html'">
+    <button class="link-btn" onclick="window.location.href='index.html'">
       ← 메인으로
     </button>
   </div>
@@ -282,11 +281,6 @@
         </div>
       </div>
 
-      <div class="field" style="max-width:120px;">
-        <label>단계 (Level)</label>
-        <input id="level-input" type="number" min="1" step="1" value="1" />
-      </div>
-
       <div class="field">
         <label>세트 번호</label>
         <input id="set-input" type="text" placeholder="예: 3 또는 1,2,3" />
@@ -302,7 +296,7 @@
         <button class="primary-btn" id="save-btn">숙제 등록</button>
       </div>
 
-      <!-- 🔽 새로 추가된 출력 버튼 영역 -->
+      <!-- 출력 버튼 -->
       <div class="field" style="min-width:220px;">
         <label>출력</label>
         <div class="print-buttons">
@@ -313,14 +307,14 @@
             단어 암기장
           </button>
         </div>
-        <div class="hint">반/종류/레벨/세트를 설정한 뒤 출력 버튼을 눌러 주세요.</div>
+        <div class="hint">반/종류/세트를 설정한 뒤 출력 버튼을 눌러 주세요.</div>
       </div>
     </div>
 
     <div id="status-msg" class="status"></div>
   </div>
 
-  <!-- 최근 등록된 숙제 리스트 (확인용) -->
+  <!-- 최근 등록된 숙제 리스트 -->
   <div class="card">
     <div class="list-title">선택한 반의 최근 숙제</div>
     <div class="hint">어휘/문장 숙제를 등록하면 여기에서 바로 확인할 수 있어요.</div>
@@ -333,7 +327,7 @@
 <!-- Supabase JS -->
 <script src="https://unpkg.com/@supabase/supabase-js@2.48.0/dist/umd/supabase.js"></script>
 <script>
-  // ---- Supabase 클라이언트 (login.html과 동일) ----
+  // ---- Supabase 클라이언트 ----
   const SUPABASE_URL = "https://bpdisxjhhibrgfpvtlmv.supabase.co";
   const SUPABASE_ANON_KEY =
     "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJwZGlzeGpoaGlicmdmcHZ0bG12Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjM5NTkxODQsImV4cCI6MjA3OTUzNTE4NH0.jDZ6BGirOPuWUnt4ykjhng4PLft2ZjBuYAFzApUnlYU";
@@ -345,7 +339,6 @@
   const classSelect = document.getElementById("class-select");
   const typeVocabBtn = document.getElementById("type-vocab");
   const typeSentenceBtn = document.getElementById("type-sentence");
-  const levelInput = document.getElementById("level-input");
   const setInput = document.getElementById("set-input");
   const dueInput = document.getElementById("due-input");
   const saveBtn = document.getElementById("save-btn");
@@ -458,8 +451,9 @@
       tag.textContent = hw.type === "vocab" ? "어휘" : "문장";
 
       const text = document.createElement("span");
+      const levelText = hw.level ? `단계 ${hw.level} / ` : "";
       const due = hw.due_date ? ` (마감: ${hw.due_date})` : "";
-      text.textContent = `단계 ${hw.level} / 세트 ${hw.set_numbers}${due}`;
+      text.textContent = `${levelText}세트 ${hw.set_numbers}${due}`;
 
       div.appendChild(tag);
       div.appendChild(text);
@@ -491,7 +485,6 @@
     setStatus("");
 
     const classId = classSelect.value;
-    const level = parseInt(levelInput.value, 10);
     const setNumbersRaw = setInput.value.trim();
     const dueDateRaw = dueInput.value;
 
@@ -499,15 +492,12 @@
       setStatus("어느 반 숙제인지 먼저 선택해 주세요.", true);
       return;
     }
-    if (!level || level < 1) {
-      setStatus("단계(Level)를 1 이상의 숫자로 입력해 주세요.", true);
-      return;
-    }
     if (!setNumbersRaw) {
       setStatus("세트 번호를 입력해 주세요. (예: 3 또는 1,2,3)", true);
       return;
     }
 
+    // 공백 제거해서 "1,2,3" 형태로 정리
     const setNumbers = setNumbersRaw
       .split(",")
       .map(s => s.trim())
@@ -515,6 +505,11 @@
       .join(",");
 
     const dueDate = dueDateRaw ? dueDateRaw : null;
+
+    // 레벨은 더 이상 UI에 없지만,
+    // 기존 테이블 호환을 위해 1로 고정 저장 (또는 Supabase에서 무시)
+    const level = 1;
+
     const tableName = currentType === "vocab" ? "vocab_homework" : "sentence_homework";
 
     saveBtn.disabled = true;
@@ -540,10 +535,9 @@
     await loadHomeworkList();
   };
 
-  // ---- 6) 출력 페이지 열기용 공통 함수 ----
+  // ---- 6) 출력 페이지 열기 ----
   function getCurrentParams() {
     const classId = classSelect.value;
-    const level = parseInt(levelInput.value, 10) || 1;
     const setNumbersRaw = setInput.value.trim();
     const setNumbers = setNumbersRaw
       .split(",")
@@ -551,7 +545,8 @@
       .filter(Boolean)
       .join(",");
     const dueDate = dueInput.value || "";
-    const type = currentType; // 'vocab' or 'sentence'
+    const type = currentType;
+    const level = 1; // UI에는 없지만 일단 1로 고정
 
     return { classId, level, setNumbers, dueDate, type };
   }
@@ -576,7 +571,6 @@
       type,
     });
 
-    // kind: 'test' | 'memo'
     const url =
       kind === "test"
         ? `print-vocab-test.html?${params.toString()}`
