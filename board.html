@@ -38,7 +38,7 @@
       margin-bottom: 20px;
     }
 
-    /* 상단 필터 + 글쓰기 버튼 줄 */
+    /* 상단 필터 + 버튼 줄 */
     .top-bar {
       display: flex;
       flex-wrap: wrap;
@@ -64,6 +64,11 @@
       font-size: 14px;
     }
 
+    .top-actions {
+      display: flex;
+      gap: 8px;
+    }
+
     .new-post-toggle {
       padding: 8px 14px;
       border-radius: 999px;
@@ -72,6 +77,18 @@
       color: #ffffff;
       font-size: 14px;
       cursor: pointer;
+      white-space: nowrap;
+    }
+
+    .homework-btn {
+      padding: 8px 14px;
+      border-radius: 999px;
+      border: none;
+      background: #10b981;
+      color: #ffffff;
+      font-size: 14px;
+      cursor: pointer;
+      white-space: nowrap;
     }
 
     /* 글쓰기 폼 */
@@ -222,6 +239,13 @@
       .post-meta {
         text-align: left;
       }
+      .top-bar {
+        align-items: flex-start;
+      }
+      .top-actions {
+        width: 100%;
+        justify-content: flex-end;
+      }
     }
   </style>
 </head>
@@ -242,8 +266,16 @@
       </select>
     </div>
 
-    <button class="new-post-toggle"
-        onclick="window.location.href='homework-teacher.html'">✏️ 글 쓰기</button>
+    <!-- 여기만 바뀜 -->
+    <div class="top-actions">
+      <!-- 예전처럼 게시판 글쓰기 토글 -->
+      <button id="toggleWriteBtn" class="new-post-toggle">✏️ 글 쓰기</button>
+      <!-- 숙제 페이지로 이동 -->
+      <button class="homework-btn"
+              onclick="window.location.href='homework-teacher.html'">
+        📚 온라인 숙제
+      </button>
+    </div>
   </div>
 
   <!-- 글쓰기 폼 -->
@@ -288,7 +320,7 @@
   // ====== 간단한 로컬 저장 키 ======
   const STORAGE_KEY = "blossom_board_posts_v1";
 
-  // 기본 더미 데이터 (처음엔 이걸로 한두 개 채워 놓기)
+  // 기본 더미 데이터
   const defaultPosts = [
     {
       id: Date.now() - 2000000,
@@ -308,11 +340,9 @@
     }
   ];
 
-  // ====== localStorage에서 게시글 불러오기 ======
   function loadPosts() {
     const raw = localStorage.getItem(STORAGE_KEY);
     if (!raw) {
-      // 처음에는 기본 데이터 채워 넣기
       localStorage.setItem(STORAGE_KEY, JSON.stringify(defaultPosts));
       return defaultPosts.slice();
     }
@@ -326,7 +356,6 @@
     }
   }
 
-  // ====== 게시글 저장 ======
   function savePosts(posts) {
     localStorage.setItem(STORAGE_KEY, JSON.stringify(posts));
   }
@@ -345,14 +374,14 @@
   const writeTitleEl    = document.getElementById("writeTitle");
   const writeContentEl  = document.getElementById("writeContent");
 
-  // ====== 게시글 렌더링 ======
   function renderPosts() {
-    const selectedClass = classFilterEl.value; // all, 1반, 2반 ...
+    const selectedClass = classFilterEl.value;
     postListEl.innerHTML = "";
 
-    const filtered = selectedClass === "all"
-      ? posts.slice()
-      : posts.filter(p => p.className === selectedClass);
+    const filtered =
+      selectedClass === "all"
+        ? posts.slice()
+        : posts.filter(p => p.className === selectedClass);
 
     if (filtered.length === 0) {
       emptyBoxEl.style.display = "block";
@@ -361,7 +390,6 @@
       emptyBoxEl.style.display = "none";
     }
 
-    // 최신 글이 위로 오도록 정렬
     filtered.sort((a, b) => b.id - a.id);
 
     for (const p of filtered) {
@@ -404,12 +432,10 @@
     }
   }
 
-  // ====== 글쓰기 폼 열기/닫기 ======
   toggleWriteBtn.onclick = () => {
     const visible = writeBoxEl.style.display !== "none";
     writeBoxEl.style.display = visible ? "none" : "block";
     if (!visible) {
-      // 열릴 때 폼 초기화
       writeTitleEl.value = "";
       writeAuthorEl.value = "";
       writeContentEl.value = "";
@@ -420,7 +446,6 @@
     writeBoxEl.style.display = "none";
   };
 
-  // ====== 글 등록 ======
   submitWriteBtn.onclick = () => {
     const className = writeClassEl.value.trim();
     const author    = writeAuthorEl.value.trim() || "익명";
@@ -433,8 +458,9 @@
     }
 
     const now = new Date();
-    const createdAt = `${now.getFullYear()}-${String(now.getMonth()+1).padStart(2,"0")}-${String(now.getDate()).padStart(2,"0")} ` +
-                      `${String(now.getHours()).padStart(2,"0")}:${String(now.getMinutes()).padStart(2,"0")}`;
+    const createdAt =
+      `${now.getFullYear()}-${String(now.getMonth()+1).padStart(2,"0")}-${String(now.getDate()).padStart(2,"0")} ` +
+      `${String(now.getHours()).padStart(2,"0")}:${String(now.getMinutes()).padStart(2,"0")}`;
 
     const newPost = {
       id: Date.now(),
@@ -451,10 +477,8 @@
     renderPosts();
   };
 
-  // ====== 반 필터 변경 시 ======
   classFilterEl.onchange = renderPosts;
 
-  // 최초 렌더링
   renderPosts();
 </script>
 
