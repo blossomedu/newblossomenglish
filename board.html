@@ -322,7 +322,7 @@
       </div>
       <div style="flex:1; min-width:180px;">
         <label>제목</label><br />
-        <input id="writeTitle" class="write-input" style="width:100%;" placeholder="제목을 입력하세요." />
+        <input id="writeTitle" class="write-input" style="width:100%;" placeholder="예: 10월 25일 숙제" />
       </div>
     </div>
 
@@ -352,6 +352,8 @@
 
   const client = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
+  const DEFAULT_AUTHOR_LABEL = "Stella쌤";
+
   // DOM
   const classFilterEl  = document.getElementById("classFilter");
   const writeToggleBtn = document.getElementById("writeToggleBtn");
@@ -370,10 +372,11 @@
   const emptyBoxEl     = document.getElementById("emptyBox");
 
   // 상태
-  let classes = [];     // [{id, name}, ...]
-  let items   = [];     // 게시글 + 온라인 숙제
+  let classes = [];   // [{id, name}, ...]
+  let items   = [];   // 게시글 + 온라인 숙제
   let currentRole = "guest";  // "teacher" | "student" | "guest"
   let currentUserName = "";
+  let currentUserId = null;   // author_id( uuid )로 사용
 
   function setWriteStatus(msg, isError = false) {
     writeStatusEl.textContent = msg || "";
@@ -386,10 +389,11 @@
       const { data, error } = await client.auth.getUser();
       if (!error && data && data.user) {
         currentRole = "teacher";
+        currentUserId = data.user.id;
         currentUserName =
           (data.user.user_metadata && data.user.user_metadata.display_name) ||
           data.user.email ||
-          "선생님";
+          DEFAULT_AUTHOR_LABEL;
         applyRoleUI();
         return;
       }
@@ -437,11 +441,11 @@
 
     classes = data || [];
 
-    // 상단 필터 select 채우기
+    // 상단 필터 select
     classFilterEl.innerHTML = '<option value="all">전체</option>';
     classes.forEach(cls => {
       const opt = document.createElement("option");
-      opt.value = cls.id;     // ✅ 항상 uuid(id)로 저장/필터
+      opt.value = cls.id;     // id( uuid )로 필터
       opt.textContent = cls.name;
       classFilterEl.appendChild(opt);
     });
@@ -473,17 +477,29 @@
     return `${y}-${m}-${day} ${hh}:${mm}`;
   }
 
-  // --- 게시글 + 온라인 숙제 불러오기 ---
+  // --- board_posts + 온라인 숙제 불러오기 ---
   async function loadItems() {
     const [postsRes, vocabRes, sentenceRes] = await Promise.all([
-      client.from("board_posts").select("*").order("created_at", { ascending: false }),
-      client.from("vocab_homework").select("*").order("created_at", { ascending: false }),
-      client.from("sentence_homework").select("*").order("created_at", { ascending: false }),
+      client.from("board_posts")
+        .select("id, class_id, title, content, created_at")
+        .order("created_at", { ascending: false }),
+      client.from("vocab_homework")
+        .select("*")
+        .order("created_at", { ascending: false }),
+      client.from("sentence_homework")
+        .select("*")
+        .order("created_at", { ascending: false }),
     ]);
 
-    if (postsRes.error)   console.error("board_posts 불러오기 오류:", postsRes.error);
-    if (vocabRes.error)   console.error("vocab_homework 불러오기 오류:", vocabRes.error);
-    if (sentenceRes.error)console.error("sentence_homework 불러오기 오류:", sentenceRes.error);
+    if (postsRes.error) {
+      console.error("board_posts 불러오기 오류:", postsRes.error);
+    }
+    if (vocabRes.error) {
+      console.error("vocab_homework 불러오기 오류:", vocabRes.error);
+    }
+    if (sentenceRes.error) {
+      console.error("sentence_homework 불러오기 오류:", sentenceRes.error);
+    }
 
     const all = [];
 
@@ -496,8 +512,8 @@
         class_name: getClassNameById(row.class_id),
         title: row.title || "(제목 없음)",
         content: row.content || "",
-        author: row.author || "선생님",
-        created_at: row.created_at || row.createdAt || new Date().toISOString(),
+        authorLabel: DEFAULT_AUTHOR_LABEL,
+        created_at: row.created_at || new Date().toISOString(),
       });
     });
 
@@ -514,7 +530,7 @@
         class_name: className,
         title: "온라인 어휘 숙제",
         content: `단계 ${level} / 세트 ${sets}\n${due}`,
-        author: "온라인 숙제",
+        authorLabel: "온라인 숙제",
         created_at: row.created_at || new Date().toISOString(),
       });
     });
@@ -532,19 +548,21 @@
         class_name: className,
         title: "온라인 문장 숙제",
         content: `단계 ${level} / 세트 ${sets}\n${due}`,
-        author: "온라인 숙제",
+        authorLabel: "온라인 숙제",
         created_at: row.created_at || new Date().toISOString(),
       });
     });
 
+    // 최신순 정렬
     all.sort((a, b) => new Date(b.created_at) - new Date(a.created_at));
+
     items = all;
     renderItems();
   }
 
   // --- 화면에 리스트 렌더링 ---
   function renderItems() {
-    const selected = classFilterEl.value;  // "all" 또는 class_id
+    const selected = classFilterEl.value;  // "all" 또는 class_id(uuid)
     postListEl.innerHTML = "";
 
     const filtered =
@@ -571,8 +589,7 @@
       badge.textContent = p.class_name || "전체";
 
       const typeBadge = document.createElement("span");
-      typeBadge.className =
-        "post-type-badge " +
+      typeBadge.className = "post-type-badge " +
         (p.type === "post"
           ? "type-post"
           : p.type === "vocab"
@@ -596,7 +613,7 @@
       const meta = document.createElement("div");
       meta.className = "post-meta";
       meta.innerHTML = `
-        <span>${p.author || "선생님"}</span>
+        <span>${p.authorLabel || "선생님"}</span>
         <span>${formatDate(p.created_at)}</span>
       `;
 
@@ -625,7 +642,7 @@
     if (!visible) {
       writeTitleEl.value = "";
       writeContentEl.value = "";
-      writeAuthorEl.value = currentUserName || "";
+      writeAuthorEl.value = currentUserName || DEFAULT_AUTHOR_LABEL;
       setWriteStatus("");
     }
   };
@@ -635,15 +652,18 @@
     setWriteStatus("");
   };
 
-  // --- 글 등록 ---
+  // --- 글 등록 (Supabase board_posts 에 저장) ---
   submitWriteBtn.onclick = async () => {
     if (currentRole !== "teacher") {
       alert("선생님 계정으로 로그인해야 글을 작성할 수 있어요.");
       return;
     }
+    if (!currentUserId) {
+      setWriteStatus("로그인 정보를 찾을 수 없어요.", true);
+      return;
+    }
 
     const classId = writeClassEl.value;
-    const author  = writeAuthorEl.value.trim() || currentUserName || "선생님";
     const title   = writeTitleEl.value.trim();
     const content = writeContentEl.value.trim();
 
@@ -659,11 +679,14 @@
     setWriteStatus("저장 중입니다…");
     submitWriteBtn.disabled = true;
 
+    const nowIso = new Date().toISOString();
+
     const { error } = await client.from("board_posts").insert({
-      class_id: classId,
+      class_id: classId,          // uuid
       title,
       content,
-      author,
+      author_id: currentUserId,   // uuid
+      created_at: nowIso          // timestamptz
     });
 
     submitWriteBtn.disabled = false;
@@ -677,6 +700,7 @@
     setWriteStatus("저장되었습니다!");
     writeBoxEl.style.display = "none";
 
+    // 목록 새로 불러오기
     await loadItems();
   };
 
@@ -690,9 +714,9 @@
 
   // 초기 실행
   (async function init() {
-    await detectRole();
-    await loadClasses();
-    await loadItems();
+    await detectRole();   // 선생님/학생 구분
+    await loadClasses();  // Supabase에서 반 목록
+    await loadItems();    // board_posts + 온라인 숙제
   })();
 </script>
 
