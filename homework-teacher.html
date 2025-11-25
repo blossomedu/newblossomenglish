@@ -89,16 +89,17 @@
       display: flex;
       flex-wrap: wrap;
       gap: 12px;
-      margin-bottom: 12px;
-      align-items: flex-end;
+      margin-bottom: 4px;
+      align-items: flex-start; /* 위쪽 맞추기 */
     }
 
     .field {
       min-width: 140px;
+      display: flex;
+      flex-direction: column;
     }
 
     .field label {
-      display: block;
       font-size: 13px;
       color: #4b5563;
       margin-bottom: 4px;
@@ -171,6 +172,7 @@
       display: flex;
       gap: 6px;
       flex-wrap: wrap;
+      margin-top: 6px;
     }
 
     .status {
@@ -214,6 +216,7 @@
       padding: 2px 8px;
       border-radius: 999px;
       font-size: 11px;
+      margin-right: 4px;
     }
 
     .hw-tag.vocab {
@@ -224,6 +227,12 @@
     .hw-tag.sentence {
       background: #e0f2fe;
       color: #0369a1;
+    }
+
+    .print-summary {
+      font-size: 13px;
+      color: #4b5563;
+      margin-top: 6px;
     }
 
     @media (max-width: 768px) {
@@ -241,6 +250,7 @@
 </head>
 <body>
 <div class="page">
+  <!-- 상단: 숙제 업로드 -->
   <div class="top-row">
     <div>
       <div class="title-big">온라인 숙제 만들기</div>
@@ -263,7 +273,7 @@
       <button class="link-btn" id="logout-btn" style="background:#ef4444;">로그아웃</button>
     </div>
 
-    <!-- 숙제 생성 폼 -->
+    <!-- 숙제 생성 폼 (업로드 전용) -->
     <div class="form-row">
       <div class="field" style="min-width:180px;">
         <label>반 선택</label>
@@ -281,7 +291,7 @@
         </div>
       </div>
 
-      <div class="field">
+      <div class="field" style="flex:1; min-width:220px;">
         <label>세트 번호</label>
         <input id="set-input" type="text" placeholder="예: 3 또는 1,2,3" />
         <div class="hint">쉼표로 여러 개 입력 가능 (예: 3,4,5)</div>
@@ -293,29 +303,39 @@
       </div>
 
       <div class="field" style="min-width:120px;">
+        <label style="visibility:hidden;">등록</label>
         <button class="primary-btn" id="save-btn">숙제 등록</button>
-      </div>
-
-      <!-- 출력 버튼 -->
-      <div class="field" style="min-width:220px;">
-        <label>출력</label>
-        <div class="print-buttons">
-          <button type="button" class="secondary-btn" id="print-test-btn">
-            단어 시험지
-          </button>
-          <button type="button" class="secondary-btn" id="print-memo-btn">
-            단어 암기장
-          </button>
-        </div>
-        <div class="hint">반/종류/세트를 설정한 뒤 출력 버튼을 눌러 주세요.</div>
       </div>
     </div>
 
     <div id="status-msg" class="status"></div>
   </div>
 
-  <!-- 최근 등록된 숙제 리스트 -->
+  <!-- 하단: 출력 + 최근 숙제 리스트 -->
   <div class="card">
+    <!-- 출력 영역 -->
+    <div class="list-title">단어 시험지 / 암기장 출력</div>
+    <div class="hint">
+      위에서 반과 숙제 종류, 세트 번호를 선택한 후 아래 버튼을 눌러 주세요.
+    </div>
+    <div class="print-summary">
+      선택된 반: <span id="summary-class">-</span> /
+      숙제 종류: <span id="summary-type">-</span> /
+      세트 번호: <span id="summary-sets">-</span>
+    </div>
+    <div class="print-buttons">
+      <button type="button" class="secondary-btn" id="print-test-btn">
+        단어 시험지 출력
+      </button>
+      <button type="button" class="secondary-btn" id="print-memo-btn">
+        단어 암기장 출력
+      </button>
+    </div>
+
+    <!-- 구분선 -->
+    <hr style="border:none; border-top:1px solid #e5e7eb; margin:16px 0 14px;" />
+
+    <!-- 최근 숙제 리스트 -->
     <div class="list-title">선택한 반의 최근 숙제</div>
     <div class="hint">어휘/문장 숙제를 등록하면 여기에서 바로 확인할 수 있어요.</div>
     <div id="hw-list" class="hw-list" style="margin-top:8px;">
@@ -347,6 +367,9 @@
 
   const printTestBtn = document.getElementById("print-test-btn");
   const printMemoBtn = document.getElementById("print-memo-btn");
+  const summaryClassEl = document.getElementById("summary-class");
+  const summaryTypeEl = document.getElementById("summary-type");
+  const summarySetsEl = document.getElementById("summary-sets");
 
   let currentType = "vocab"; // 'vocab' or 'sentence'
   let classes = [];          // [{id, name}, ...]
@@ -394,6 +417,18 @@
       opt.textContent = cls.name;
       classSelect.appendChild(opt);
     });
+  }
+
+  // ---- 요약(출력 영역) 업데이트 ----
+  function updatePrintSummary() {
+    const classId = classSelect.value;
+    const classObj = classes.find(c => String(c.id) === String(classId));
+    summaryClassEl.textContent = classObj ? classObj.name : "-";
+
+    summaryTypeEl.textContent = currentType === "vocab" ? "어휘" : "문장";
+
+    const sets = setInput.value.trim();
+    summarySetsEl.textContent = sets || "-";
   }
 
   // ---- 3) 현재 선택된 반의 숙제 목록 보여주기 ----
@@ -462,12 +497,16 @@
     });
   }
 
-  classSelect.onchange = loadHomeworkList;
+  classSelect.onchange = () => {
+    loadHomeworkList();
+    updatePrintSummary();
+  };
 
   // ---- 4) 숙제 종류 토글 ----
   function updateTypeButtons() {
     typeVocabBtn.classList.toggle("active", currentType === "vocab");
     typeSentenceBtn.classList.toggle("active", currentType === "sentence");
+    updatePrintSummary();
   }
 
   typeVocabBtn.onclick = () => {
@@ -479,6 +518,9 @@
     currentType = "sentence";
     updateTypeButtons();
   };
+
+  // 세트 번호 입력이 바뀔 때마다 요약 업데이트
+  setInput.addEventListener("input", updatePrintSummary);
 
   // ---- 5) 숙제 등록 버튼 ----
   saveBtn.onclick = async () => {
@@ -497,7 +539,6 @@
       return;
     }
 
-    // 공백 제거해서 "1,2,3" 형태로 정리
     const setNumbers = setNumbersRaw
       .split(",")
       .map(s => s.trim())
@@ -505,12 +546,10 @@
       .join(",");
 
     const dueDate = dueDateRaw ? dueDateRaw : null;
+    const level = 1; // UI에는 없지만 테이블 호환용으로 1로 저장
 
-    // 레벨은 더 이상 UI에 없지만,
-    // 기존 테이블 호환을 위해 1로 고정 저장 (또는 Supabase에서 무시)
-    const level = 1;
-
-    const tableName = currentType === "vocab" ? "vocab_homework" : "sentence_homework";
+    const tableName =
+      currentType === "vocab" ? "vocab_homework" : "sentence_homework";
 
     saveBtn.disabled = true;
     setStatus("숙제를 저장하는 중입니다…");
@@ -531,7 +570,6 @@
     }
 
     setStatus("숙제가 저장됐어요!");
-    setInput.value = "";
     await loadHomeworkList();
   };
 
@@ -546,7 +584,7 @@
       .join(",");
     const dueDate = dueInput.value || "";
     const type = currentType;
-    const level = 1; // UI에는 없지만 일단 1로 고정
+    const level = 1;
 
     return { classId, level, setNumbers, dueDate, type };
   }
@@ -587,6 +625,7 @@
     await checkAuth();
     await loadClasses();
     updateTypeButtons();
+    updatePrintSummary();
   })();
 </script>
 </body>
