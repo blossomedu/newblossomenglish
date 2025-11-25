@@ -105,7 +105,6 @@
     }
 
     select,
-    input[type="number"],
     input[type="text"],
     input[type="date"] {
       width: 100%;
@@ -233,81 +232,4 @@
         반을 선택하고 어휘/문장 숙제를 등록하면, 나중에 학생 진도와 연결해서 볼 수 있어요.
       </div>
     </div>
-    <button class="link-btn" onclick="window.location.href='index.html'">
-      ← 메인으로
-    </button>
-  </div>
-
-  <div class="card">
-    <div class="info-row">
-      <div>
-        로그인 계정:
-        <span id="teacher-email">확인 중…</span>
-        <span class="badge">선생님 전용</span>
-      </div>
-      <button class="link-btn" id="logout-btn" style="background:#ef4444;">로그아웃</button>
-    </div>
-
-    <!-- 숙제 생성 폼 -->
-    <div class="form-row">
-      <div class="field" style="min-width:180px;">
-        <label>반 선택</label>
-        <select id="class-select">
-          <option value="">반을 선택하세요</option>
-          <!-- JS로 채워짐 -->
-        </select>
-      </div>
-
-      <div class="field">
-        <label>숙제 종류</label>
-        <div class="pill-group">
-          <button type="button" class="pill-btn active" id="type-vocab">어휘</button>
-          <button type="button" class="pill-btn" id="type-sentence">문장</button>
-        </div>
-      </div>
-
-      <!-- 단계 입력칸 삭제 -->
-
-      <div class="field">
-        <label>학습 세트 (단계-세트)</label>
-        <input id="set-input" type="text" placeholder="예: 1-1 또는 1-1, 1-2, 1-3" />
-        <div class="hint">같은 단계만 여러 개 입력 가능 (예: 1-1, 1-2, 1-3)</div>
-      </div>
-
-      <div class="field" style="max-width:170px;">
-        <label>마감일</label>
-        <input id="due-input" type="date" />
-      </div>
-
-      <div class="field" style="min-width:120px;">
-        <button class="primary-btn" id="save-btn">숙제 등록</button>
-      </div>
-    </div>
-
-    <div id="status-msg" class="status"></div>
-  </div>
-
-  <!-- 최근 등록된 숙제 리스트 (확인용) -->
-  <div class="card">
-    <div class="list-title">선택한 반의 최근 숙제</div>
-    <div class="hint">어휘/문장 숙제를 등록하면 여기에서 바로 확인할 수 있어요.</div>
-    <div id="hw-list" class="hw-list" style="margin-top:8px;">
-      아직 숙제가 없어요. 반을 선택해 주세요.
-    </div>
-  </div>
-</div>
-
-<!-- Supabase JS -->
-<script src="https://unpkg.com/@supabase/supabase-js@2.48.0/dist/umd/supabase.js"></script>
-<script>
-  // ---- Supabase 클라이언트 (login.html과 동일) ----
-  const SUPABASE_URL = "https://bpdisxjhhibrgfpvtlmv.supabase.co";
-  const SUPABASE_ANON_KEY =
-    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJwZGlzeGpoaGlicmdmcHZ0bG12Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjM5NTkxODQsImV4cCI6MjA3OTUzNTE4NH0.jDZ6BGirOPuWUnt4ykjhng4PLft2ZjBuYAFzApUnlYU";
-
-  const client = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
-
-  const teacherEmailEl   = document.getElementById("teacher-email");
-  const logoutBtn        = document.getElementById("logout-btn");
-  const classSelect      = document.getElementById("class-select");
-  const typeVocabBtn     = document.getElementById("type-vocab");
+    <button
