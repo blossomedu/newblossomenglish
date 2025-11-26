@@ -89,23 +89,23 @@
       display: flex;
       flex-wrap: wrap;
       gap: 12px;
-      margin-bottom: 4px;
-      align-items: flex-start;
+      margin-bottom: 12px;
+      align-items: flex-end;
     }
 
     .field {
       min-width: 140px;
-      display: flex;
-      flex-direction: column;
     }
 
     .field label {
+      display: block;
       font-size: 13px;
       color: #4b5563;
       margin-bottom: 4px;
     }
 
     select,
+    input[type="number"],
     input[type="text"],
     input[type="date"] {
       width: 100%;
@@ -155,32 +155,6 @@
     .primary-btn[disabled] {
       opacity: 0.6;
       cursor: default;
-    }
-
-    .secondary-btn {
-      border-radius: 999px;
-      border: 1px solid #d1d5db;
-      padding: 7px 12px;
-      font-size: 13px;
-      cursor: pointer;
-      background: #ffffff;
-      color: #374151;
-      white-space: nowrap;
-    }
-
-    .print-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      align-items: flex-end;
-      margin-top: 8px;
-      margin-bottom: 4px;
-    }
-
-    .print-buttons {
-      display: flex;
-      gap: 6px;
-      flex-wrap: wrap;
     }
 
     .status {
@@ -237,22 +211,13 @@
       color: #0369a1;
     }
 
-    .print-summary {
-      font-size: 13px;
-      color: #4b5563;
-      margin-top: 4px;
-    }
-
     @media (max-width: 768px) {
       .top-row {
         flex-direction: column;
         align-items: flex-start;
       }
+
       .form-row {
-        flex-direction: column;
-        align-items: stretch;
-      }
-      .print-row {
         flex-direction: column;
         align-items: stretch;
       }
@@ -261,7 +226,6 @@
 </head>
 <body>
 <div class="page">
-  <!-- 상단: 숙제 업로드 -->
   <div class="top-row">
     <div>
       <div class="title-big">온라인 숙제 만들기</div>
@@ -302,10 +266,12 @@
         </div>
       </div>
 
-      <div class="field" style="flex:1; min-width:220px;">
-        <label>세트 번호 (숙제용)</label>
-        <input id="set-input" type="text" placeholder="예: 3 또는 1,2,3" />
-        <div class="hint">쉼표로 여러 개 입력 가능 (예: 3,4,5)</div>
+      <!-- 단계 입력칸 삭제 -->
+
+      <div class="field">
+        <label>학습 세트 (단계-세트)</label>
+        <input id="set-input" type="text" placeholder="예: 1-1 또는 1-1, 1-2, 1-3" />
+        <div class="hint">같은 단계만 여러 개 입력 가능 (예: 1-1, 1-2, 1-3)</div>
       </div>
 
       <div class="field" style="max-width:170px;">
@@ -314,7 +280,6 @@
       </div>
 
       <div class="field" style="min-width:120px;">
-        <label style="visibility:hidden;">등록</label>
         <button class="primary-btn" id="save-btn">숙제 등록</button>
       </div>
     </div>
@@ -322,39 +287,8 @@
     <div id="status-msg" class="status"></div>
   </div>
 
-  <!-- 하단: 출력 + 최근 숙제 리스트 -->
+  <!-- 최근 등록된 숙제 리스트 (확인용) -->
   <div class="card">
-    <!-- 출력 영역 -->
-    <div class="list-title">단어 시험지 / 암기장 출력</div>
-    <div class="hint">
-      위에서 반과 숙제 종류를 선택하고, 아래에서 출력할 세트 번호를 입력한 뒤 버튼을 눌러 주세요.
-    </div>
-
-    <div class="print-row">
-      <div class="field" style="flex:1; min-width:220px;">
-        <label>세트 번호 (출력용)</label>
-        <input id="print-set-input" type="text" placeholder="예: 3 또는 1,2,3" />
-      </div>
-      <div class="print-buttons">
-        <button type="button" class="secondary-btn" id="print-test-btn">
-          단어 시험지 출력
-        </button>
-        <button type="button" class="secondary-btn" id="print-memo-btn">
-          단어 암기장 출력
-        </button>
-      </div>
-    </div>
-
-    <div class="print-summary">
-      선택된 반: <span id="summary-class">-</span> /
-      숙제 종류: <span id="summary-type">-</span> /
-      세트 번호: <span id="summary-sets">-</span>
-    </div>
-
-    <!-- 구분선 -->
-    <hr style="border:none; border-top:1px solid #e5e7eb; margin:16px 0 14px;" />
-
-    <!-- 최근 숙제 리스트 -->
     <div class="list-title">선택한 반의 최근 숙제</div>
     <div class="hint">어휘/문장 숙제를 등록하면 여기에서 바로 확인할 수 있어요.</div>
     <div id="hw-list" class="hw-list" style="margin-top:8px;">
@@ -366,306 +300,14 @@
 <!-- Supabase JS -->
 <script src="https://unpkg.com/@supabase/supabase-js@2.48.0/dist/umd/supabase.js"></script>
 <script>
-  // ---- Supabase 클라이언트 ----
+  // ---- Supabase 클라이언트 (login.html과 동일) ----
   const SUPABASE_URL = "https://bpdisxjhhibrgfpvtlmv.supabase.co";
   const SUPABASE_ANON_KEY =
     "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJwZGlzeGpoaGlicmdmcHZ0bG12Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjM5NTkxODQsImV4cCI6MjA3OTUzNTE4NH0.jDZ6BGirOPuWUnt4ykjhng4PLft2ZjBuYAFzApUnlYU";
 
   const client = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
-  const teacherEmailEl = document.getElementById("teacher-email");
-  const logoutBtn = document.getElementById("logout-btn");
-  const classSelect = document.getElementById("class-select");
-  const typeVocabBtn = document.getElementById("type-vocab");
-  const typeSentenceBtn = document.getElementById("type-sentence");
-  const setInput = document.getElementById("set-input");
-  const dueInput = document.getElementById("due-input");
-  const saveBtn = document.getElementById("save-btn");
-  const statusMsg = document.getElementById("status-msg");
-  const hwListEl = document.getElementById("hw-list");
-
-  const printSetInput = document.getElementById("print-set-input");
-  const printTestBtn = document.getElementById("print-test-btn");
-  const printMemoBtn = document.getElementById("print-memo-btn");
-  const summaryClassEl = document.getElementById("summary-class");
-  const summaryTypeEl = document.getElementById("summary-type");
-  const summarySetsEl = document.getElementById("summary-sets");
-
-  let currentType = "vocab"; // 'vocab' or 'sentence'
-  let classes = [];          // [{id, name}, ...]
-
-  function setStatus(message, isError = false) {
-    statusMsg.textContent = message || "";
-    statusMsg.classList.toggle("error", !!isError);
-  }
-
-  // ---- 1) 로그인 확인 (선생님만) ----
-  async function checkAuth() {
-    const { data, error } = await client.auth.getUser();
-    if (error || !data.user) {
-      window.location.href = "login.html";
-      return;
-    }
-    teacherEmailEl.textContent = data.user.email || "(이메일 없음)";
-  }
-
-  logoutBtn.onclick = async () => {
-    await client.auth.signOut();
-    localStorage.removeItem("blossom_student");
-    window.location.href = "login.html";
-  };
-
-  // ---- 2) classes 테이블에서 반 목록 가져오기 ----
-  async function loadClasses() {
-    const { data, error } = await client
-      .from("classes")
-      .select("id, name")
-      .order("name", { ascending: true });
-
-    if (error) {
-      console.error(error);
-      setStatus("반 목록을 불러오는 중 오류가 발생했어요.", true);
-      return;
-    }
-
-    classes = data || [];
-    classSelect.innerHTML = '<option value="">반을 선택하세요</option>';
-
-    classes.forEach(cls => {
-      const opt = document.createElement("option");
-      opt.value = cls.id;
-      opt.textContent = cls.name;
-      classSelect.appendChild(opt);
-    });
-  }
-
-  // ---- 요약(출력 영역) 업데이트 ----
-  function updatePrintSummary() {
-    const classId = classSelect.value;
-    const classObj = classes.find(c => String(c.id) === String(classId));
-    summaryClassEl.textContent = classObj ? classObj.name : "-";
-
-    summaryTypeEl.textContent = currentType === "vocab" ? "어휘" : "문장";
-
-    const sets =
-      printSetInput.value.trim() ||
-      setInput.value.trim();
-    summarySetsEl.textContent = sets || "-";
-  }
-
-  // ---- 3) 현재 선택된 반의 숙제 목록 보여주기 ----
-  async function loadHomeworkList() {
-    const classId = classSelect.value;
-    hwListEl.innerHTML = "";
-
-    if (!classId) {
-      hwListEl.textContent = "아직 숙제가 없어요. 반을 선택해 주세요.";
-      return;
-    }
-
-    const [vocabRes, sentenceRes] = await Promise.all([
-      client
-        .from("vocab_homework")
-        .select("id, level, set_numbers, due_date, created_at")
-        .eq("class_id", classId)
-        .order("created_at", { ascending: false })
-        .limit(10),
-      client
-        .from("sentence_homework")
-        .select("id, level, set_numbers, due_date, created_at")
-        .eq("class_id", classId)
-        .order("created_at", { ascending: false })
-        .limit(10),
-    ]);
-
-    if (vocabRes.error) console.error(vocabRes.error);
-    if (sentenceRes.error) console.error(sentenceRes.error);
-
-    const vocabList = (vocabRes.data || []).map(row => ({
-      type: "vocab",
-      ...row,
-    }));
-    const sentenceList = (sentenceRes.data || []).map(row => ({
-      type: "sentence",
-      ...row,
-    }));
-
-    const all = [...vocabList, ...sentenceList];
-
-    if (!all.length) {
-      hwListEl.textContent = "이 반에 등록된 숙제가 아직 없어요.";
-      return;
-    }
-
-    all.sort((a, b) => new Date(b.created_at) - new Date(a.created_at));
-
-    all.forEach(hw => {
-      const div = document.createElement("div");
-      div.className = "hw-item";
-
-      const tag = document.createElement("span");
-      tag.className = "hw-tag " + (hw.type === "vocab" ? "vocab" : "sentence");
-      tag.textContent = hw.type === "vocab" ? "어휘" : "문장";
-
-      const text = document.createElement("span");
-      const levelText = hw.level ? `단계 ${hw.level} / ` : "";
-      const due = hw.due_date ? ` (마감: ${hw.due_date})` : "";
-      text.textContent = `${levelText}세트 ${hw.set_numbers}${due}`;
-
-      div.appendChild(tag);
-      div.appendChild(text);
-
-      hwListEl.appendChild(div);
-    });
-  }
-
-  classSelect.onchange = () => {
-    loadHomeworkList();
-    updatePrintSummary();
-  };
-
-  // ---- 4) 숙제 종류 토글 ----
-  function updateTypeButtons() {
-    typeVocabBtn.classList.toggle("active", currentType === "vocab");
-    typeSentenceBtn.classList.toggle("active", currentType === "sentence");
-    updatePrintSummary();
-  }
-
-  typeVocabBtn.onclick = () => {
-    currentType = "vocab";
-    updateTypeButtons();
-  };
-
-  typeSentenceBtn.onclick = () => {
-    currentType = "sentence";
-    updateTypeButtons();
-  };
-
-  // 세트 번호 입력이 바뀔 때마다 서로 동기화 + 요약 업데이트
-  setInput.addEventListener("input", () => {
-    if (!printSetInput.value.trim()) {
-      printSetInput.value = setInput.value;
-    }
-    updatePrintSummary();
-  });
-
-  printSetInput.addEventListener("input", () => {
-    // 출력용 세트가 바뀌면 숙제용은 그대로 두고, 요약만 갱신
-    updatePrintSummary();
-  });
-
-  // ---- 5) 숙제 등록 버튼 ----
-  saveBtn.onclick = async () => {
-    setStatus("");
-
-    const classId = classSelect.value;
-    const setNumbersRaw = setInput.value.trim();
-    const dueDateRaw = dueInput.value;
-
-    if (!classId) {
-      setStatus("어느 반 숙제인지 먼저 선택해 주세요.", true);
-      return;
-    }
-    if (!setNumbersRaw) {
-      setStatus("세트 번호를 입력해 주세요. (예: 3 또는 1,2,3)", true);
-      return;
-    }
-
-    const setNumbers = setNumbersRaw
-      .split(",")
-      .map(s => s.trim())
-      .filter(Boolean)
-      .join(",");
-
-    const dueDate = dueDateRaw ? dueDateRaw : null;
-    const level = 1; // 테이블 호환용
-
-    const tableName =
-      currentType === "vocab" ? "vocab_homework" : "sentence_homework";
-
-    saveBtn.disabled = true;
-    setStatus("숙제를 저장하는 중입니다…");
-
-    const { error } = await client.from(tableName).insert({
-      class_id: classId,
-      level: level,
-      set_numbers: setNumbers,
-      due_date: dueDate,
-    });
-
-    saveBtn.disabled = false;
-
-    if (error) {
-      console.error(error);
-      setStatus("숙제를 저장하는 중 오류가 발생했어요.", true);
-      return;
-    }
-
-    setStatus("숙제가 저장됐어요!");
-    await loadHomeworkList();
-  };
-
-  // ---- 6) 출력 페이지 열기 ----
-  function getCurrentParams() {
-    const classId = classSelect.value;
-    // 출력은 출력용 세트 입력칸 우선 사용, 없으면 위의 세트 사용
-    const rawSets =
-      printSetInput.value.trim() ||
-      setInput.value.trim();
-
-    const setNumbers = rawSets
-      .split(",")
-      .map(s => s.trim())
-      .filter(Boolean)
-      .join(",");
-
-    const dueDate = dueInput.value || "";
-    const type = currentType;
-    const level = 1;
-
-    return { classId, level, setNumbers, dueDate, type };
-  }
-
-  function openPrintPage(kind) {
-    const { classId, level, setNumbers, dueDate, type } = getCurrentParams();
-
-    if (!classId) {
-      alert("반을 먼저 선택해 주세요.");
-      return;
-    }
-    if (!setNumbers) {
-      alert("출력할 세트 번호를 입력해 주세요.");
-      return;
-    }
-
-    const params = new URLSearchParams({
-      classId,
-      level,
-      sets: setNumbers,
-      due: dueDate,
-      type,
-    });
-
-    const url =
-      kind === "test"
-        ? `print-vocab-test.html?${params.toString()}`
-        : `print-vocab-memo.html?${params.toString()}`;
-
-    window.open(url, "_blank");
-  }
-
-  printTestBtn.onclick = () => openPrintPage("test");
-  printMemoBtn.onclick = () => openPrintPage("memo");
-
-  // ---- 초기 실행 ----
-  (async function init() {
-    await checkAuth();
-    await loadClasses();
-    updateTypeButtons();
-    // 처음엔 출력 세트 입력칸을 위 값과 맞춰두기
-    printSetInput.value = setInput.value;
-    updatePrintSummary();
-  })();
-</script>
-</body>
-</html>
+  const teacherEmailEl   = document.getElementById("teacher-email");
+  const logoutBtn        = document.getElementById("logout-btn");
+  const classSelect      = document.getElementById("class-select");
+  const typeVocabBtn     = document.getElementById("type-vocab");
