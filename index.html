@@ -2,9 +2,10 @@
 <html lang="ko">
 <head>
   <meta charset="UTF-8" />
-  <title>블라썸잉글리쉬</title>
+  <title>BLOSSOM ENGLISH</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link href="https://cdn.jsdelivr.net/npm/pretendard/dist/web/variable/pretendardvariable.css" rel="stylesheet" />
+
   <style>
     * {
       box-sizing: border-box;
@@ -16,13 +17,14 @@
 
     body {
       background: #f4f6fb;
+      color: #111827;
       min-height: 100vh;
     }
 
     .page {
-      max-width: 1120px;
-      margin: 32px auto 48px;
-      padding: 0 20px 40px;
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 20px 16px 40px;
     }
 
     /* 상단 헤더 */
@@ -30,205 +32,281 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      margin-bottom: 28px;
+      margin-bottom: 26px;
     }
 
-    .logo-wrap {
-      display: flex;
-      flex-direction: column;
-      gap: 4px;
-    }
-
-    .logo-title {
-      font-size: 28px;
-      font-weight: 900;
-    }
-
-    .logo-sub {
-      font-size: 14px;
-      color: #6b7280;
-    }
-
-    .header-right {
+    .logo-area {
       display: flex;
       align-items: center;
       gap: 10px;
-      font-size: 14px;
     }
 
-    .link-text {
-      color: #4b5563;
-      text-decoration: none;
-      padding: 6px 10px;
+    .logo-circle {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #f97373, #facc15);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #ffffff;
+      font-weight: 800;
+      font-size: 20px;
+    }
+
+    .logo-text-main {
+      font-size: 20px;
+      font-weight: 800;
+    }
+
+    .logo-text-sub {
+      font-size: 12px;
+      color: #6b7280;
+    }
+
+    .auth-buttons {
+      display: flex;
+      gap: 8px;
+    }
+
+    .btn {
+      border: none;
       border-radius: 999px;
-    }
-
-    .link-text:hover {
-      background: rgba(148, 163, 184, 0.15);
+      padding: 8px 16px;
+      font-size: 13px;
+      cursor: pointer;
+      white-space: nowrap;
     }
 
     .btn-login {
-      padding: 8px 16px;
-      border-radius: 999px;
-      border: none;
+      background: #ffffff;
+      color: #2563eb;
+      border: 1px solid #bfdbfe;
+    }
+
+    .btn-signup {
       background: #2563eb;
       color: #ffffff;
+      box-shadow: 0 10px 22px rgba(37, 99, 235, 0.35);
+    }
+
+    /* 메인 히어로영역 */
+    .hero {
+      background: #ffffff;
+      border-radius: 28px;
+      padding: 26px 24px 24px;
+      box-shadow: 0 18px 40px rgba(15, 23, 42, 0.08);
+      margin-bottom: 24px;
+    }
+
+    .hero-title {
+      font-size: 26px;
+      font-weight: 900;
+      margin-bottom: 6px;
+    }
+
+    .hero-subtitle {
       font-size: 14px;
-      font-weight: 600;
-      cursor: pointer;
-      text-decoration: none;
-      box-shadow: 0 12px 24px rgba(37, 99, 235, 0.35);
+      color: #6b7280;
+      margin-bottom: 16px;
     }
 
-    .btn-login:hover {
-      filter: brightness(1.03);
+    .hero-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-bottom: 10px;
     }
 
-    /* 메인 카드 영역 */
-    .grid {
+    .tag {
+      padding: 4px 10px;
+      border-radius: 999px;
+      font-size: 11px;
+      background: #e0ecff;
+      color: #1d4ed8;
+    }
+
+    .hero-bottom {
+      margin-top: 6px;
+      font-size: 13px;
+      color: #9ca3af;
+    }
+
+    /* 기능 카드 */
+    .section-title {
+      font-size: 16px;
+      font-weight: 700;
+      margin-bottom: 10px;
       margin-top: 12px;
+    }
+
+    .grid {
       display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 22px;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
     }
 
     .card {
       background: #ffffff;
-      border-radius: 32px;
-      padding: 32px 32px;
-      box-shadow: 0 22px 45px rgba(15, 23, 42, 0.08);
+      border-radius: 22px;
+      padding: 16px 16px 18px;
+      box-shadow: 0 10px 26px rgba(15, 23, 42, 0.06);
       display: flex;
-      align-items: center;
-      gap: 22px;
-      cursor: pointer;
-      text-decoration: none;
-      color: #111827;
-      transition: transform 0.12s ease, box-shadow 0.12s ease;
+      flex-direction: column;
+      justify-content: space-between;
+      min-height: 120px;
     }
 
-    .card:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 26px 55px rgba(15, 23, 42, 0.12);
-    }
-
-    .card-icon-wrap {
-      width: 64px;
-      height: 64px;
-      border-radius: 24px;
-      background: #f4f4ff;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
-    }
-
-    .card-icon {
-      width: 40px;
-      height: 40px;
-      object-fit: contain;
-    }
-
-    .card-text-main {
-      font-size: 20px;
-      font-weight: 700;
-      margin-bottom: 6px;
-    }
-
-    .card-text-sub {
+    .card-title {
       font-size: 14px;
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+
+    .card-desc {
+      font-size: 12px;
       color: #6b7280;
+      margin-bottom: 10px;
+      min-height: 32px;
+    }
+
+    .card-link {
+      font-size: 12px;
+      color: #2563eb;
+      text-decoration: none;
+      font-weight: 600;
+      align-self: flex-start;
+    }
+
+    .card-link:hover {
+      text-decoration: underline;
     }
 
     @media (max-width: 768px) {
-      .page {
-        margin-top: 20px;
+      .grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
       }
+    }
+
+    @media (max-width: 520px) {
       .header {
         flex-direction: column;
         align-items: flex-start;
         gap: 10px;
       }
+      .auth-buttons {
+        align-self: stretch;
+        justify-content: flex-end;
+      }
       .grid {
         grid-template-columns: 1fr;
-      }
-      .card {
-        padding: 24px 22px;
       }
     }
   </style>
 </head>
 <body>
 <div class="page">
-
-  <!-- 상단 헤더 -->
+  <!-- 상단 로고 + 로그인/회원가입 -->
   <header class="header">
-    <div class="logo-wrap">
-      <div class="logo-title">블라썸잉글리쉬</div>
-      <div class="logo-sub">미래를 꽃 피우는 영어 교육</div>
+    <div class="logo-area">
+      <div class="logo-circle">B</div>
+      <div>
+        <div class="logo-text-main">BLOSSOM ENGLISH</div>
+        <div class="logo-text-sub">블라썸 온라인 어휘 · 숙제 시스템</div>
+      </div>
     </div>
-
-    <div class="header-right">
-      <!-- 학생 회원가입으로 바로 이동 -->
-      <a href="signup.html" class="link-text">학생 회원가입</a>
-      <!-- 로그인 페이지 이동 버튼 -->
-      <a href="login.html" class="btn-login">로그인</a>
+    <div class="auth-buttons">
+      <button class="btn btn-login" id="loginBtn">로그인</button>
+      <button class="btn btn-signup" id="signupBtn">회원가입</button>
     </div>
   </header>
 
-  <!-- 메인 카드 4개 -->
-  <main class="grid">
-    <!-- 어휘 학습 -->
-    <a href="vocabulary.html" class="card">
-      <div class="card-icon-wrap">
-        <img src="vocab-main.png" alt="어휘 학습" class="card-icon" />
-      </div>
-      <div>
-        <div class="card-text-main">어휘 학습</div>
-        <div class="card-text-sub">
-          온라인 단어 학습과 숙제를 할 수 있어요.
-        </div>
-      </div>
-    </a>
+  <!-- 메인 히어로 -->
+  <section class="hero">
+    <div class="hero-title">집에서도 편하게, 블라썸 온라인 숙제</div>
+    <div class="hero-subtitle">
+      학생은 로그인 후 단어·문장 숙제를 풀고, 선생님은 반별로 숙제와 공지를 올릴 수 있어요.
+    </div>
+    <div class="hero-tags">
+      <span class="tag">온라인 어휘 학습</span>
+      <span class="tag">문장 연습</span>
+      <span class="tag">반별 게시판</span>
+      <span class="tag">시험지 · 암기장 출력</span>
+    </div>
+    <div class="hero-bottom">
+      ※ 아직 개발 중인 서비스입니다. 로그인/회원가입, 숙제 페이지부터 순서대로 완성해 나갈 예정이에요. 😊
+    </div>
+  </section>
 
-    <!-- 문장 학습 -->
-    <a href="sentence.html" class="card">
-      <div class="card-icon-wrap">
-        <img src="pencil.png" alt="문장 학습" class="card-icon" />
-      </div>
-      <div>
-        <div class="card-text-main">문장 학습</div>
-        <div class="card-text-sub">
-          교재 문장을 온라인으로 연습하고 복습해요.
+  <!-- 기능 카드들 -->
+  <section>
+    <div class="section-title">메뉴</div>
+    <div class="grid">
+      <div class="card">
+        <div>
+          <div class="card-title">온라인 어휘 학습</div>
+          <div class="card-desc">단계 · 유닛을 선택해서 단어를 학습하고 퀴즈를 풀 수 있어요.</div>
         </div>
+        <!-- TODO: 실제 어휘 학습(quiz) 페이지 경로로 수정 -->
+        <a href="quiz.html" class="card-link">어휘 학습 바로가기</a>
       </div>
-    </a>
 
-    <!-- 반별 게시판 -->
-    <a href="board.html" class="card">
-      <div class="card-icon-wrap">
-        <img src="board.png" alt="반별 게시판" class="card-icon" />
-      </div>
-      <div>
-        <div class="card-text-main">반별 게시판</div>
-        <div class="card-text-sub">
-          선생님이 올리는 숙제 안내와 공지를 확인해요.
+      <div class="card">
+        <div>
+          <div class="card-title">온라인 숙제 (학생용)</div>
+          <div class="card-desc">선생님이 올린 어휘/문장 숙제를 로그인 후 풀게 될 예정이에요.</div>
         </div>
+        <!-- TODO: 실제 학생 숙제 메인 페이지 경로로 수정 -->
+        <a href="homework-student.html" class="card-link">학생 숙제 페이지</a>
       </div>
-    </a>
 
-    <!-- 온라인 서점 -->
-    <a href="store.html" class="card">
-      <div class="card-icon-wrap">
-        <img src="store.png" alt="온라인 서점" class="card-icon" />
-      </div>
-      <div>
-        <div class="card-text-main">온라인 서점</div>
-        <div class="card-text-sub">
-          초바영 교재와 블라썸 교재를 온라인으로 살펴봐요.
+      <div class="card">
+        <div>
+          <div class="card-title">반별 게시판</div>
+          <div class="card-desc">반별 공지와 문제집 숙제를 확인할 수 있어요.</div>
         </div>
+        <a href="board.html" class="card-link">반별 게시판 열기</a>
       </div>
-    </a>
-  </main>
+
+      <div class="card">
+        <div>
+          <div class="card-title">숙제 관리 (선생님용)</div>
+          <div class="card-desc">선생님이 어휘/문장 숙제를 업로드하는 페이지예요.</div>
+        </div>
+        <a href="homework-teacher.html" class="card-link">선생님 숙제 올리기</a>
+      </div>
+
+      <div class="card">
+        <div>
+          <div class="card-title">단어 시험지 · 암기장</div>
+          <div class="card-desc">각 유닛별 단어 시험지와 암기장을 출력할 수 있도록 만들 예정이에요.</div>
+        </div>
+        <a href="print-words.html" class="card-link">준비 중</a>
+      </div>
+
+      <div class="card">
+        <div>
+          <div class="card-title">온라인 서점</div>
+          <div class="card-desc">초바영 교재를 교보문고에서 바로 찾아볼 수 있어요.</div>
+        </div>
+        <a
+          href="https://search.kyobobook.co.kr/search?keyword=%EC%B4%88%EB%B0%94%EC%98%81&gbCode=TOT&target=total"
+          target="_blank"
+          class="card-link"
+        >교보문고에서 보기</a>
+      </div>
+    </div>
+  </section>
 </div>
+
+<script>
+  // 로그인 / 회원가입 버튼 경로 연결
+  document.getElementById("loginBtn").onclick = () => {
+    window.location.href = "login.html";
+  };
+  document.getElementById("signupBtn").onclick = () => {
+    window.location.href = "signup.html";
+  };
+</script>
 </body>
 </html>
