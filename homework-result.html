@@ -50,39 +50,6 @@
       margin-bottom: 18px;
     }
 
-    .tabs {
-      display: inline-flex;
-      padding: 4px;
-      background: #e5e7eb;
-      border-radius: 999px;
-      gap: 4px;
-      margin-bottom: 18px;
-    }
-
-    .tab-btn {
-      border: none;
-      border-radius: 999px;
-      padding: 8px 18px;
-      font-size: 14px;
-      cursor: pointer;
-      background: transparent;
-      color: #4b5563;
-    }
-
-    .tab-btn.active {
-      background: #ffffff;
-      color: #111827;
-      box-shadow: 0 6px 16px rgba(15, 23, 42, 0.12);
-    }
-
-    .section {
-      display: none;
-    }
-
-    .section.active {
-      display: block;
-    }
-
     .result-list {
       display: flex;
       flex-direction: column;
@@ -126,17 +93,12 @@
       font-size: 11px;
     }
 
-    .badge-vocab {
+    .badge-mode {
       background: #d1fae5;
       color: #047857;
     }
 
-    .badge-sentence {
-      background: #e0f2fe;
-      color: #0369a1;
-    }
-
-    .badge-class {
+    .badge-unit {
       background: #eef2ff;
       color: #3730a3;
     }
@@ -164,7 +126,7 @@
       line-height: 1.6;
     }
 
-    .result-score-row {
+    .score-row {
       display: flex;
       flex-wrap: wrap;
       gap: 12px;
@@ -249,25 +211,9 @@
   <div id="contentBox" style="display:none;">
     <div id="studentInfo" class="student-info"></div>
 
-    <div class="tabs">
-      <button id="tabVocab" class="tab-btn active">어휘 숙제 결과</button>
-      <button id="tabSentence" class="tab-btn">문장 숙제 결과</button>
-    </div>
-
-    <!-- 어휘 결과 -->
-    <div id="sectionVocab" class="section active">
-      <div id="vocabList" class="result-list"></div>
-      <div id="vocabEmpty" class="empty-box" style="display:none;">
-        아직 제출한 어휘 숙제가 없어요.
-      </div>
-    </div>
-
-    <!-- 문장 결과 -->
-    <div id="sectionSentence" class="section">
-      <div id="sentenceList" class="result-list"></div>
-      <div id="sentenceEmpty" class="empty-box" style="display:none;">
-        아직 제출한 문장 숙제가 없어요.
-      </div>
+    <div id="resultList" class="result-list"></div>
+    <div id="emptyBox" class="empty-box" style="display:none;">
+      아직 저장된 숙제 결과가 없어요.
     </div>
 
     <div id="statusText" class="status-text"></div>
@@ -277,33 +223,21 @@
 <!-- Supabase JS -->
 <script src="https://unpkg.com/@supabase/supabase-js@2.48.0/dist/umd/supabase.js"></script>
 <script>
-  // === Supabase 설정 (board / homework 페이지와 동일) ===
   const SUPABASE_URL = "https://bpdisxjhhibrgfpvtlmv.supabase.co";
   const SUPABASE_ANON_KEY =
     "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJwZGlzeGpoaGlicmdmcHZ0bG12Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjM5NTkxODQsImV4cCI6MjA3OTUzNTE4NH0.jDZ6BGirOPuWUnt4ykjhng4PLft2ZjBuYAFzApUnlYU";
 
   const client = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
-  // === DOM 요소 ===
   const needLoginBox  = document.getElementById("needLoginBox");
   const goLoginBtn    = document.getElementById("goLoginBtn");
   const contentBox    = document.getElementById("contentBox");
   const studentInfoEl = document.getElementById("studentInfo");
+  const resultListEl  = document.getElementById("resultList");
+  const emptyBoxEl    = document.getElementById("emptyBox");
+  const statusTextEl  = document.getElementById("statusText");
 
-  const tabVocabBtn      = document.getElementById("tabVocab");
-  const tabSentenceBtn   = document.getElementById("tabSentence");
-  const sectionVocabEl   = document.getElementById("sectionVocab");
-  const sectionSentenceEl= document.getElementById("sectionSentence");
-
-  const vocabListEl      = document.getElementById("vocabList");
-  const vocabEmptyEl     = document.getElementById("vocabEmpty");
-  const sentenceListEl   = document.getElementById("sentenceList");
-  const sentenceEmptyEl  = document.getElementById("sentenceEmpty");
-
-  const statusTextEl     = document.getElementById("statusText");
-
-  // === 로그인된 학생 정보 (localStorage) ===
-  let currentStudent = null;   // { login_id, name }
+  let currentStudent = null;
 
   function setStatus(msg, isError = false) {
     statusTextEl.textContent = msg || "";
@@ -322,102 +256,46 @@
     return `${y}-${m}-${day} ${hh}:${mm}`;
   }
 
-  // --- 탭 전환 ---
-  function activateTab(which) {
-    if (which === "vocab") {
-      tabVocabBtn.classList.add("active");
-      tabSentenceBtn.classList.remove("active");
-      sectionVocabEl.classList.add("active");
-      sectionSentenceEl.classList.remove("active");
-    } else {
-      tabVocabBtn.classList.remove("active");
-      tabSentenceBtn.classList.add("active");
-      sectionVocabEl.classList.remove("active");
-      sectionSentenceEl.classList.add("active");
+  function modeLabel(mode) {
+    switch (mode) {
+      case "meaning":   return "뜻 찾기";
+      case "english":   return "영어 찾기";
+      case "listening": return "듣고 찾기";
+      case "sentence":  return "문장 빈칸";
+      default:          return mode || "알 수 없음";
     }
   }
-
-  tabVocabBtn.onclick = () => activateTab("vocab");
-  tabSentenceBtn.onclick = () => activateTab("sentence");
 
   goLoginBtn.onclick = () => {
     window.location.href = "login.html";
   };
 
-  // === 숙제 결과 불러오기 ===
-  /*
-    ⚠️ 여기서는 아래처럼 테이블/컬럼을 "가정"했어.
-
-    1) vocab_results
-       - id (uuid)
-       - vocab_homework_id (uuid, vocab_homework.id 참고)
-       - student_login_id (text)  ← login.html에서 쓰는 학생 아이디와 같게
-       - correct_count (int)
-       - total_count (int)
-       - submitted_at (timestamptz)
-
-    2) sentence_results
-       - id (uuid)
-       - sentence_homework_id (uuid, sentence_homework.id 참고)
-       - student_login_id (text)
-       - correct_count (int)
-       - total_count (int)
-       - submitted_at (timestamptz)
-
-    3) vocab_homework / sentence_homework 는 기존과 동일
-       - id, class_id, level, set_numbers, due_date, created_at ...
-  */
-
-  async function loadVocabResults(studentLoginId) {
-    // 결과
-    const { data: resultRows, error: resultError } = await client
+  async function loadResults(studentLoginId) {
+    const { data, error } = await client
       .from("vocab_results")
       .select("*")
       .eq("student_login_id", studentLoginId)
       .order("submitted_at", { ascending: false });
 
-    if (resultError) {
-      console.error("vocab_results 오류:", resultError);
-      throw new Error("어휘 숙제 결과를 불러오는 중 오류가 발생했어요.");
+    if (error) {
+      console.error("vocab_results 오류:", error);
+      throw new Error("숙제 결과를 불러오는 중 오류가 발생했어요.");
     }
 
-    if (!resultRows || !resultRows.length) {
-      vocabListEl.innerHTML = "";
-      vocabEmptyEl.style.display = "block";
+    if (!data || !data.length) {
+      resultListEl.innerHTML = "";
+      emptyBoxEl.style.display = "block";
       return;
     }
 
-    vocabEmptyEl.style.display = "none";
+    emptyBoxEl.style.display = "none";
+    resultListEl.innerHTML = "";
 
-    // 관련된 숙제 정보 한번에 가져오기
-    const hwIds = [...new Set(resultRows.map(r => r.vocab_homework_id))];
-    const { data: hwRows, error: hwError } = await client
-      .from("vocab_homework")
-      .select("*")
-      .in("id", hwIds);
-
-    if (hwError) {
-      console.error("vocab_homework 오류:", hwError);
-      throw new Error("어휘 숙제 정보를 불러오는 중 오류가 발생했어요.");
-    }
-
-    const hwMap = {};
-    (hwRows || []).forEach(h => {
-      hwMap[h.id] = h;
-    });
-
-    vocabListEl.innerHTML = "";
-
-    resultRows.forEach(row => {
-      const hw = hwMap[row.vocab_homework_id] || {};
-      const level = hw.level != null ? hw.level : "";
-      const sets  = hw.set_numbers || "";
-      const className = hw.class_name || ""; // 필요하면 나중에 컬럼 추가
-      const dueText = hw.due_date ? `마감일: ${hw.due_date}` : "";
-
-      const correct = row.correct_count ?? 0;
-      const total   = row.total_count ?? 0;
-      const percent = total > 0 ? Math.round((correct / total) * 100) : 0;
+    data.forEach(row => {
+      const percent =
+        row.total_count > 0
+          ? Math.round((row.correct_count / row.total_count) * 100)
+          : 0;
 
       const card = document.createElement("div");
       card.className = "result-card";
@@ -430,18 +308,15 @@
       const badgeRow = document.createElement("div");
       badgeRow.className = "badge-row";
 
-      const typeBadge = document.createElement("span");
-      typeBadge.className = "type-badge badge-vocab";
-      typeBadge.textContent = "온라인 어휘 숙제";
+      const modeBadge = document.createElement("span");
+      modeBadge.className = "type-badge badge-mode";
+      modeBadge.textContent = modeLabel(row.mode);
+      badgeRow.appendChild(modeBadge);
 
-      badgeRow.appendChild(typeBadge);
-
-      if (className) {
-        const classBadge = document.createElement("span");
-        classBadge.className = "type-badge badge-class";
-        classBadge.textContent = className;
-        badgeRow.appendChild(classBadge);
-      }
+      const unitBadge = document.createElement("span");
+      unitBadge.className = "type-badge badge-unit";
+      unitBadge.textContent = `레벨 ${row.unit_key}`;
+      badgeRow.appendChild(unitBadge);
 
       const dateBadge = document.createElement("span");
       dateBadge.className = "type-badge badge-date";
@@ -450,7 +325,7 @@
 
       const title = document.createElement("div");
       title.className = "result-title";
-      title.textContent = `단계 ${level} / 세트 ${sets}`;
+      title.textContent = `레벨 ${row.unit_key} · ${modeLabel(row.mode)}`;
 
       left.appendChild(badgeRow);
       left.appendChild(title);
@@ -458,7 +333,7 @@
       const meta = document.createElement("div");
       meta.className = "result-meta";
       meta.innerHTML = `
-        <span>점수 ${correct} / ${total}</span>
+        <span>${row.correct_count} / ${row.total_count}</span>
         <span>${percent}%</span>
       `;
 
@@ -469,14 +344,14 @@
       body.className = "result-body";
 
       const scoreRow = document.createElement("div");
-      scoreRow.className = "result-score-row";
+      scoreRow.className = "score-row";
       scoreRow.innerHTML = `
-        <span class="score-strong">맞힌 개수: ${correct} / ${total}</span>
+        <span class="score-strong">점수: ${row.correct_count} / ${row.total_count}</span>
         <span class="score-percent">${percent}%</span>
       `;
 
       const desc = document.createElement("div");
-      desc.textContent = dueText || "제출 완료된 숙제입니다.";
+      desc.textContent = "숙제를 모두 완료했어요. 잘했어요!";
 
       body.appendChild(scoreRow);
       body.appendChild(desc);
@@ -484,128 +359,10 @@
       card.appendChild(header);
       card.appendChild(body);
 
-      vocabListEl.appendChild(card);
+      resultListEl.appendChild(card);
     });
   }
 
-  async function loadSentenceResults(studentLoginId) {
-    const { data: resultRows, error: resultError } = await client
-      .from("sentence_results")
-      .select("*")
-      .eq("student_login_id", studentLoginId)
-      .order("submitted_at", { ascending: false });
-
-    if (resultError) {
-      console.error("sentence_results 오류:", resultError);
-      throw new Error("문장 숙제 결과를 불러오는 중 오류가 발생했어요.");
-    }
-
-    if (!resultRows || !resultRows.length) {
-      sentenceListEl.innerHTML = "";
-      sentenceEmptyEl.style.display = "block";
-      return;
-    }
-
-    sentenceEmptyEl.style.display = "none";
-
-    const hwIds = [...new Set(resultRows.map(r => r.sentence_homework_id))];
-    const { data: hwRows, error: hwError } = await client
-      .from("sentence_homework")
-      .select("*")
-      .in("id", hwIds);
-
-    if (hwError) {
-      console.error("sentence_homework 오류:", hwError);
-      throw new Error("문장 숙제 정보를 불러오는 중 오류가 발생했어요.");
-    }
-
-    const hwMap = {};
-    (hwRows || []).forEach(h => {
-      hwMap[h.id] = h;
-    });
-
-    sentenceListEl.innerHTML = "";
-
-    resultRows.forEach(row => {
-      const hw = hwMap[row.sentence_homework_id] || {};
-      const level = hw.level != null ? hw.level : "";
-      const sets  = hw.set_numbers || "";
-      const className = hw.class_name || "";
-      const dueText = hw.due_date ? `마감일: ${hw.due_date}` : "";
-
-      const correct = row.correct_count ?? 0;
-      const total   = row.total_count ?? 0;
-      const percent = total > 0 ? Math.round((correct / total) * 100) : 0;
-
-      const card = document.createElement("div");
-      card.className = "result-card";
-
-      const header = document.createElement("div");
-      header.className = "result-header";
-
-      const left = document.createElement("div");
-
-      const badgeRow = document.createElement("div");
-      badgeRow.className = "badge-row";
-
-      const typeBadge = document.createElement("span");
-      typeBadge.className = "type-badge badge-sentence";
-      typeBadge.textContent = "온라인 문장 숙제";
-      badgeRow.appendChild(typeBadge);
-
-      if (className) {
-        const classBadge = document.createElement("span");
-        classBadge.className = "type-badge badge-class";
-        classBadge.textContent = className;
-        badgeRow.appendChild(classBadge);
-      }
-
-      const dateBadge = document.createElement("span");
-      dateBadge.className = "type-badge badge-date";
-      dateBadge.textContent = formatDate(row.submitted_at);
-      badgeRow.appendChild(dateBadge);
-
-      const title = document.createElement("div");
-      title.className = "result-title";
-      title.textContent = `단계 ${level} / 세트 ${sets}`;
-
-      left.appendChild(badgeRow);
-      left.appendChild(title);
-
-      const meta = document.createElement("div");
-      meta.className = "result-meta";
-      meta.innerHTML = `
-        <span>점수 ${correct} / ${total}</span>
-        <span>${percent}%</span>
-      `;
-
-      header.appendChild(left);
-      header.appendChild(meta);
-
-      const body = document.createElement("div");
-      body.className = "result-body";
-
-      const scoreRow = document.createElement("div");
-      scoreRow.className = "result-score-row";
-      scoreRow.innerHTML = `
-        <span class="score-strong">맞힌 개수: ${correct} / ${total}</span>
-        <span class="score-percent">${percent}%</span>
-      `;
-
-      const desc = document.createElement("div");
-      desc.textContent = dueText || "제출 완료된 숙제입니다.";
-
-      body.appendChild(scoreRow);
-      body.appendChild(desc);
-
-      card.appendChild(header);
-      card.appendChild(body);
-
-      sentenceListEl.appendChild(card);
-    });
-  }
-
-  // === 초기 실행 ===
   (async function init() {
     // 1) 학생 로그인 정보 확인
     try {
@@ -615,8 +372,7 @@
         contentBox.style.display = "none";
         return;
       }
-      const s = JSON.parse(raw);
-      currentStudent = s;
+      currentStudent = JSON.parse(raw);
     } catch (e) {
       console.error("학생 정보 파싱 오류:", e);
       needLoginBox.style.display = "block";
@@ -624,7 +380,6 @@
       return;
     }
 
-    // 로그인 되어 있음
     needLoginBox.style.display = "none";
     contentBox.style.display = "block";
 
@@ -641,10 +396,7 @@
     setStatus("숙제 결과를 불러오는 중입니다…");
 
     try {
-      await Promise.all([
-        loadVocabResults(loginId),
-        loadSentenceResults(loginId),
-      ]);
+      await loadResults(loginId);
       setStatus("");
     } catch (e) {
       console.error(e);
