@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <title>단어 시험지 출력 - 블라썸잉글리쉬</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="https://cdn.jsdelivr.net/npm/pretendard/dist/web/variable/pretendardvariable.css" rel="stylesheet" />
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: "Pretendard Variable", -apple-system, BlinkMacSystemFont,
+        system-ui, "Apple SD Gothic Neo", "Noto Sans KR", sans-serif;
+    }
+    body {
+      background: #ffffff;
+      padding: 20px;
+    }
+    .page {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    h1 {
+      font-size: 24px;
+      font-weight: 800;
+      margin-bottom: 4px;
+    }
+    .subtitle {
+      font-size: 14px;
+      color: #6b7280;
+      margin-bottom: 16px;
+    }
+    .info-line {
+      font-size: 14px;
+      margin-bottom: 8px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 12px;
+      font-size: 14px;
+    }
+    th, td {
+      border: 1px solid #d1d5db;
+      padding: 6px 8px;
+      word-break: break-all;
+    }
+    th {
+      background: #f3f4f6;
+      text-align: center;
+    }
+    td.blanks {
+      height: 28px;
+    }
+    .print-tip {
+      font-size: 12px;
+      color: #9ca3af;
+      margin-top: 12px;
+    }
+    @media print {
+      body {
+        padding: 0;
+      }
+      .print-tip {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+<div class="page">
+  <h1>단어 시험지</h1>
+  <div id="subtitle" class="subtitle"></div>
+
+  <div class="info-line">이름: ____________________________</div>
+  <div class="info-line">점수: _____ / _____</div>
+
+  <table id="wordTable">
+    <thead>
+      <tr>
+        <th style="width:40px;">번호</th>
+        <th style="width:200px;">영어 단어</th>
+        <th>뜻</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- JS로 단어 채움 -->
+    </tbody>
+  </table>
+
+  <div class="print-tip">
+    이 창이 뜨면 브라우저 인쇄(⌘+P / Ctrl+P)로 출력하세요.
+  </div>
+</div>
+
+<!-- Supabase -->
+<script src="https://unpkg.com/@supabase/supabase-js@2.48.0/dist/umd/supabase.js"></script>
+<script>
+  const SUPABASE_URL = "https://bpdisxjhhibrgfpvtlmv.supabase.co";
+  const SUPABASE_ANON_KEY =
+    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJwZGlzeGpoaGlicmdmcHZ0bG12Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjM5NTkxODQsImV4cCI6MjA3OTUzNTE4NH0.jDZ6BGirOPuWUnt4ykjhng4PLft2ZjBuYAFzApUnlYU";
+
+  const client = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
+  const subtitleEl = document.getElementById("subtitle");
+  const tableBody  = document.querySelector("#wordTable tbody");
+
+  // 쿼리스트링에서 level, sets 읽기
+  const params = new URLSearchParams(window.location.search);
+  const levelParam = params.get("level") || "";
+  const setsParam  = params.get("sets") || "";
+  const setNumbers = setsParam
+    .split(",")
+    .map(s => s.trim())
+    .filter(s => s !== "");
+
+  subtitleEl.textContent =
+    `레벨 ${levelParam} / 세트 ${setNumbers.join(", ")} 단어 시험지`;
+
+  async function loadWords() {
+    if (!levelParam || setNumbers.length === 0) {
+      alert("레벨 또는 세트 정보가 없습니다.");
+      return;
+    }
+
+    // === 여기서부터는 네 DB 구조에 맞게 컬럼명만 맞춰주면 돼 ===
+    // 예시: vocab_words 테이블에
+    // level (int), set_number (int), english (text), korean (text)가 있다고 가정
+    const { data, error } = await client
+      .from("vocab_words")
+      .select("id, level, set_number, english, korean")
+      .eq("level", Number(levelParam))
+      .in("set_number", setNumbers.map(n => Number(n)))
+      .order("set_number", { ascending: true })
+      .order("english", { ascending: true });
+
+    if (error) {
+      console.error("단어 불러오기 오류:", error);
+      alert("단어를 불러오는 중 오류가 발생했습니다.");
+      return;
+    }
+
+    tableBody.innerHTML = "";
+    (data || []).forEach((row, idx) => {
+      const tr = document.createElement("tr");
+
+      const tdNo = document.createElement("td");
+      tdNo.textContent = idx + 1;
+      tdNo.style.textAlign = "center";
+
+      const tdEng = document.createElement("td");
+      tdEng.textContent = row.english || "";
+
+      const tdBlank = document.createElement("td");
+      tdBlank.className = "blanks";
+
+      tr.appendChild(tdNo);
+      tr.appendChild(tdEng);
+      tr.appendChild(tdBlank);
+
+      tableBody.appendChild(tr);
+    });
+
+    // 자동으로 출력 창 띄우기 (조금 기다렸다가)
+    setTimeout(() => {
+      window.print();
+    }, 500);
+  }
+
+  loadWords();
+</script>
+</body>
+</html>
