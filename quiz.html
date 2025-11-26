@@ -5,6 +5,8 @@
   <title>어휘 학습 - BLOSSOM ENGLISH</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link href="https://cdn.jsdelivr.net/npm/pretendard/dist/web/variable/pretendardvariable.css" rel="stylesheet" />
+  <!-- 주아체 폰트 추가 -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Jua&display=swap" />
 
   <style>
     * {
@@ -55,18 +57,19 @@
       white-space: nowrap;
     }
 
-    /* 기본 활성 탭 색: 하늘색(블루) */
+    /* 기본 활성 탭 색: 블루 */
     .mode-tab.active {
       background: #00AEEF;
       color: #ffffff;
       box-shadow: 0 12px 25px rgba(0, 174, 239, 0.35);
     }
 
-    /* 📚 학습하기 탭만 민트 */
-    .mode-tab.active[data-mode="study"] {
-      background: #9FE6B8;
+    /* 뜻 찾기 / 듣고 찾기 활성 탭: 핑크 */
+    .mode-tab.active[data-mode="meaning"],
+    .mode-tab.active[data-mode="listening"] {
+      background: #FF6FB5;
       color: #ffffff;
-      box-shadow: 0 12px 25px rgba(159, 230, 184, 0.55);
+      box-shadow: 0 12px 25px rgba(255, 111, 181, 0.45);
     }
 
     .card {
@@ -109,6 +112,9 @@
       font-size: 72px;
       font-weight: 800;
       color: #b91c1c;
+      /* 표제어 영어 단어만 주아체 적용 */
+      font-family: "Jua", "Pretendard Variable", -apple-system, BlinkMacSystemFont,
+        system-ui, "Apple SD Gothic Neo", "Noto Sans KR", sans-serif;
     }
 
     .meaning-big {
@@ -200,10 +206,11 @@
       font-size: 16px;
     }
 
+    /* 확인 버튼: 민트 */
     .check-btn {
       padding: 11px 18px;
       border-radius: 999px;
-      background: #2563eb;
+      background: #9AD7A0;
       border: none;
       color: #ffffff;
       font-size: 14px;
@@ -252,7 +259,7 @@
       white-space: nowrap;
     }
 
-    /* 🔁 다시 시작 = 하늘색(블루) */
+    /* 🔁 다시 시작 = 블루 */
     .pill-reset {
       background: #00AEEF;
       color: #ffffff;
