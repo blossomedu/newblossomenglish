@@ -305,3 +305,139 @@
 
 </body>
 </html>
+
+<script>
+  const supa = supabase.createClient(
+    "https://bpdisxjhhibrgfpvtlmv.supabase.co",
+    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJwZGlzeGpoaGlicmdmcHZ0bG12Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjM5NTkxODQsImV4cCI6MjA3OTUzNTE4NH0.jDZ6BGirOPuWUnt4ykjhng4PLft2ZjBuYAFzApUnlYU"
+  );
+
+  const teacherEmail = document.getElementById("teacherEmail");
+  const teacherPassword = document.getElementById("teacherPassword");
+  const teacherLoginBtn = document.getElementById("teacherLoginBtn");
+  const teacherStatus = document.getElementById("teacherStatus");
+
+  const googleLoginBtn = document.getElementById("googleLoginBtn");
+
+  const studentLoginId = document.getElementById("studentLoginId");
+  const studentLoginPw = document.getElementById("studentLoginPw");
+  const studentLoginBtn = document.getElementById("studentLoginBtn");
+
+  const studentSignupName = document.getElementById("studentSignupName");
+  const studentSignupId = document.getElementById("studentSignupId");
+  const studentSignupPw = document.getElementById("studentSignupPw");
+  const studentSignupPhone = document.getElementById("studentSignupPhone");
+  const studentSignupBtn = document.getElementById("studentSignupBtn");
+
+  const studentStatus = document.getElementById("studentStatus");
+
+  /* -----------------------------
+      1) 선생님 이메일 로그인
+  ------------------------------ */
+  teacherLoginBtn.onclick = async () => {
+    teacherStatus.textContent = "로그인 중...";
+    teacherStatus.className = "status-text";
+
+    const email = teacherEmail.value.trim();
+    const pw = teacherPassword.value.trim();
+
+    if (!email || !pw) {
+      teacherStatus.textContent = "이메일과 비밀번호를 입력해 주세요.";
+      teacherStatus.classList.add("error");
+      return;
+    }
+
+    const { error } = await supa.auth.signInWithPassword({
+      email,
+      password: pw,
+    });
+
+    if (error) {
+      teacherStatus.textContent = "로그인 실패! 이메일/비밀번호를 확인해주세요.";
+      teacherStatus.classList.add("error");
+      return;
+    }
+
+    teacherStatus.textContent = "로그인 성공!";
+    teacherStatus.classList.add("success");
+    setTimeout(() => (location.href = "index.html"), 600);
+  };
+
+  /* -----------------------------
+      2) 구글 로그인
+  ------------------------------ */
+  googleLoginBtn.onclick = async () => {
+    const { error } = await supa.auth.signInWithOAuth({
+      provider: "google",
+    });
+
+    if (error) alert("구글 로그인 오류");
+  };
+
+  /* -----------------------------
+      3) 학생 로그인
+  ------------------------------ */
+  studentLoginBtn.onclick = () => {
+    const id = studentLoginId.value.trim();
+    const pw = studentLoginPw.value.trim();
+
+    if (!id || !pw) {
+      studentStatus.textContent = "아이디와 비밀번호를 입력하세요.";
+      studentStatus.classList.add("error");
+      return;
+    }
+
+    const saved = localStorage.getItem("blossom_student");
+    if (!saved) {
+      studentStatus.textContent = "해당 학생 계정이 없습니다.";
+      studentStatus.classList.add("error");
+      return;
+    }
+
+    const stu = JSON.parse(saved);
+
+    if (stu.login_id === id && stu.password === pw) {
+      studentStatus.textContent = "학생 로그인 성공!";
+      studentStatus.classList.add("success");
+      setTimeout(() => (location.href = "index.html"), 600);
+    } else {
+      studentStatus.textContent = "아이디 또는 비밀번호가 틀렸습니다.";
+      studentStatus.classList.add("error");
+    }
+  };
+
+  /* -----------------------------
+      4) 학생 회원가입
+  ------------------------------ */
+  studentSignupBtn.onclick = () => {
+    const name = studentSignupName.value.trim();
+    const id = studentSignupId.value.trim();
+    const pw = studentSignupPw.value.trim();
+    const phone = studentSignupPhone.value.trim();
+
+    if (!name || !id || !pw) {
+      studentStatus.textContent = "모든 항목을 입력하세요.";
+      studentStatus.classList.add("error");
+      return;
+    }
+
+    if (id.length < 7 || pw.length < 7) {
+      studentStatus.textContent = "아이디/비밀번호는 7자 이상이어야 해요.";
+      studentStatus.classList.add("error");
+      return;
+    }
+
+    const studentObj = {
+      name,
+      login_id: id,
+      password: pw,
+      phone,
+    };
+
+    localStorage.setItem("blossom_student", JSON.stringify(studentObj));
+
+    studentStatus.textContent = "학생 계정이 생성되었습니다!";
+    studentStatus.classList.add("success");
+  };
+</script>
+
