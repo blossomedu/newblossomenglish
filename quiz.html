@@ -55,10 +55,18 @@
       white-space: nowrap;
     }
 
+    /* 기본 활성 탭 색: 하늘색(블루) */
     .mode-tab.active {
-      background: #2563eb;
+      background: #00AEEF;
       color: #ffffff;
-      box-shadow: 0 12px 25px rgba(37, 99, 235, 0.35);
+      box-shadow: 0 12px 25px rgba(0, 174, 239, 0.35);
+    }
+
+    /* 📚 학습하기 탭만 민트 */
+    .mode-tab.active[data-mode="study"] {
+      background: #9FE6B8;
+      color: #ffffff;
+      box-shadow: 0 12px 25px rgba(159, 230, 184, 0.55);
     }
 
     .card {
@@ -244,14 +252,16 @@
       white-space: nowrap;
     }
 
+    /* 🔁 다시 시작 = 하늘색(블루) */
     .pill-reset {
-      background: #fee2e2;
-      color: #b91c1c;
+      background: #00AEEF;
+      color: #ffffff;
     }
 
+    /* ⬅️ 돌아가기 = 핑크 */
     .pill-back {
-      background: #e5e7eb;
-      color: #374151;
+      background: #FF6FB5;
+      color: #ffffff;
     }
 
     @media (max-width: 768px) {
@@ -561,6 +571,7 @@
 
   function makeChoices(correctIdx) {
     const indices = [...Array(wordCount).keys()];
+
     const others = indices.filter(i => i !== correctIdx);
     for (let i = others.length - 1; i > 0; i--) {
       const j = Math.floor(Math.random() * (i + 1));
