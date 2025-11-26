@@ -13,75 +13,157 @@
       font-family: "Pretendard Variable", -apple-system, BlinkMacSystemFont,
         system-ui, "Apple SD Gothic Neo", "Noto Sans KR", sans-serif;
     }
+
     body {
       background: #ffffff;
-      padding: 20px;
+      padding: 24px 16px;
+      color: #111827;
     }
+
     .page {
       max-width: 900px;
       margin: 0 auto;
     }
+
+    /* 헤더 영역 */
+    .header {
+      margin-bottom: 18px;
+      border-bottom: 2px solid #e5e7eb;
+      padding-bottom: 10px;
+    }
+
+    .title-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 6px;
+    }
+
+    .logo-dot {
+      width: 18px;
+      height: 18px;
+      border-radius: 999px;
+      background: linear-gradient(135deg, #ff7eb3, #6ee7b7 50%, #60a5fa);
+    }
+
     h1 {
       font-size: 24px;
       font-weight: 800;
-      margin-bottom: 4px;
     }
+
     .subtitle {
       font-size: 14px;
       color: #6b7280;
-      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
     }
+
+    .level-pill {
+      display: inline-flex;
+      align-items: center;
+      padding: 3px 10px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 600;
+      background: #fff1f7; /* 연핑크 */
+      color: #be185d;
+      border: 1px solid #fed7e2;
+    }
+
     .info-line {
-      font-size: 14px;
-      margin-bottom: 8px;
+      font-size: 13px;
+      margin-top: 10px;
+      margin-bottom: 4px;
     }
+
+    .name-blank {
+      display: inline-block;
+      min-width: 220px;
+      border-bottom: 1px solid #d1d5db;
+      height: 22px;
+    }
+
+    /* 단어 리스트 */
+    .word-list {
+      margin-top: 12px;
+    }
+
     .word-row {
-      border-bottom: 1px solid #e5e7eb;
       padding: 8px 0;
+      border-bottom: 1px solid #f3f4f6;
     }
+
     .word-eng {
       font-size: 15px;
       font-weight: 700;
       margin-bottom: 4px;
     }
+
+    .word-meta {
+      font-size: 11px;
+      color: #9ca3af;
+      margin-bottom: 4px;
+    }
+
     .word-blank {
       height: 28px;
       border-bottom: 1px dashed #d1d5db;
       margin-bottom: 4px;
     }
+
     .word-small {
-      font-size: 12px;
+      font-size: 11px;
       color: #9ca3af;
     }
+
     .print-tip {
-      font-size: 12px;
+      font-size: 11px;
       color: #9ca3af;
-      margin-top: 12px;
+      margin-top: 14px;
     }
+
     @media print {
       body {
-        padding: 0;
+        padding: 12px;
       }
       .print-tip {
         display: none;
+      }
+      .header {
+        margin-bottom: 10px;
+        border-bottom: 1px solid #e5e7eb;
       }
     }
   </style>
 </head>
 <body>
 <div class="page">
-  <h1>단어 암기장</h1>
-  <div id="subtitle" class="subtitle"></div>
+  <!-- 상단 헤더 -->
+  <div class="header">
+    <div class="title-row">
+      <div class="logo-dot"></div>
+      <h1>단어 암기장</h1>
+    </div>
+    <div id="subtitle" class="subtitle">
+      <!-- JS에서 레벨/세트 정보 넣어줌 -->
+    </div>
+    <div class="info-line">
+      이름:
+      <span class="name-blank"></span>
+    </div>
+  </div>
 
-  <div class="info-line">이름: ____________________________</div>
-
-  <div id="wordContainer"></div>
+  <!-- 단어 리스트 -->
+  <div id="wordContainer" class="word-list"></div>
 
   <div class="print-tip">
-    이 창이 뜨면 브라우저 인쇄(⌘+P / Ctrl+P)로 출력하세요.
+    이 창이 열리면 브라우저 인쇄(⌘+P / Ctrl+P)로 출력하세요.
   </div>
 </div>
 
+<!-- Supabase JS -->
 <script src="https://unpkg.com/@supabase/supabase-js@2.48.0/dist/umd/supabase.js"></script>
 <script>
   const SUPABASE_URL = "https://bpdisxjhhibrgfpvtlmv.supabase.co";
@@ -96,17 +178,45 @@
   const params = new URLSearchParams(window.location.search);
   const levelParam = params.get("level") || "";
   const setsParam  = params.get("sets") || "";
+
+  // sets= 문자열 → [ "1", "2", ... ]
   const setNumbers = setsParam
     .split(",")
     .map(s => s.trim())
     .filter(s => s !== "");
 
-  subtitleEl.textContent =
-    `레벨 ${levelParam} / 세트 ${setNumbers.join(", ")} 단어 암기장`;
+  // 상단에 보여줄 레벨 텍스트 (1-1 / 1-1 ~ 1-3 이런 식)
+  let levelLabel = "";
+  if (levelParam && setNumbers.length > 0) {
+    if (setNumbers.length === 1) {
+      levelLabel = `${levelParam}-${setNumbers[0]}`;
+    } else {
+      const first = setNumbers[0];
+      const last  = setNumbers[setNumbers.length - 1];
+      levelLabel = `${levelParam}-${first} ~ ${levelParam}-${last}`;
+    }
+  }
+
+  // 서브타이틀 구성
+  subtitleEl.innerHTML = "";
+  if (levelLabel) {
+    const pill = document.createElement("span");
+    pill.className = "level-pill";
+    pill.textContent = levelLabel;
+    subtitleEl.appendChild(알약);
+
+    const text = document.createElement("span");
+    text.textContent = "단어 암기장";
+    subtitleEl.appendChild(text);
+  } else {
+    const text = document.createElement("span");
+    text.textContent = "단어 암기장";
+    subtitleEl.appendChild(text);
+  }
 
   async function loadWords() {
     if (!levelParam || setNumbers.length === 0) {
-      alert("레벨 또는 세트 정보가 없습니다.");
+      alert("레벨 또는 세트 정보가 없습니다. (URL에 ?level=1&sets=1,2 형식으로 값이 필요해요.)");
       return;
     }
 
@@ -125,6 +235,7 @@
     }
 
     container.innerHTML = "";
+
     (data || []).forEach((row, idx) => {
       const wrap = document.createElement("div");
       wrap.className = "word-row";
@@ -133,20 +244,26 @@
       eng.className = "word-eng";
       eng.textContent = `${idx + 1}. ${row.english || ""}`;
 
+      const meta = document.createElement("div");
+      meta.className = "word-meta";
+      meta.textContent = `레벨 ${row.level} / 세트 ${row.set_number}`;
+
       const blank = document.createElement("div");
       blank.className = "word-blank";
 
       const small = document.createElement("div");
       small.className = "word-small";
-      small.textContent = "(뜻 쓰기 / 예문 쓰기)";
+      small.textContent = "뜻 쓰기 / 예문 쓰기";
 
       wrap.appendChild(eng);
+      wrap.appendChild(meta);
       wrap.appendChild(blank);
       wrap.appendChild(small);
 
       container.appendChild(wrap);
     });
 
+    // 데이터 로드 후 자동 인쇄
     setTimeout(() => {
       window.print();
     }, 500);
