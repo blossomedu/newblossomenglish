@@ -238,6 +238,7 @@
     </button>
   </div>
 
+  <!-- 1. 숙제 등록 카드 -->
   <div class="card">
     <div class="info-row">
       <div>
@@ -248,13 +249,11 @@
       <button class="link-btn" id="logout-btn" style="background:#ef4444;">로그아웃</button>
     </div>
 
-    <!-- 숙제 생성 폼 -->
     <div class="form-row">
       <div class="field" style="min-width:180px;">
         <label>반 선택</label>
         <select id="class-select">
           <option value="">반을 선택하세요</option>
-          <!-- JS로 채워짐 -->
         </select>
       </div>
 
@@ -265,8 +264,6 @@
           <button type="button" class="pill-btn" id="type-sentence">문장</button>
         </div>
       </div>
-
-      <!-- 단계 입력칸 삭제 -->
 
       <div class="field">
         <label>학습 세트 (단계-세트)</label>
@@ -287,7 +284,25 @@
     <div id="status-msg" class="status"></div>
   </div>
 
-  <!-- 최근 등록된 숙제 리스트 (확인용) -->
+  <!-- 2. 단어 시험지 / 암기장 출력 카드 -->
+  <div class="card">
+    <div class="list-title">단어 시험지 / 암기장 출력</div>
+    <div class="hint">
+      위에서 반과 숙제 종류, 세트 번호를 선택한 후 아래 버튼을 눌러 주세요.
+    </div>
+    <div id="print-status" class="status" style="margin-top:6px;">
+      선택된 반: - / 숙제 종류: 어휘 / 세트 번호: -
+    </div>
+
+    <div style="margin-top:12px; display:flex; flex-wrap:wrap; gap:10px;">
+      <button class="primary-btn" id="btn-print-test">단어 시험지 출력</button>
+      <button class="primary-btn" id="btn-print-note" style="background:#2563eb;">
+        단어 암기장 출력
+      </button>
+    </div>
+  </div>
+
+  <!-- 3. 최근 숙제 카드 -->
   <div class="card">
     <div class="list-title">선택한 반의 최근 숙제</div>
     <div class="hint">어휘/문장 숙제를 등록하면 여기에서 바로 확인할 수 있어요.</div>
@@ -300,14 +315,289 @@
 <!-- Supabase JS -->
 <script src="https://unpkg.com/@supabase/supabase-js@2.48.0/dist/umd/supabase.js"></script>
 <script>
-  // ---- Supabase 클라이언트 (login.html과 동일) ----
+  // ========= Supabase 설정 =========
   const SUPABASE_URL = "https://bpdisxjhhibrgfpvtlmv.supabase.co";
   const SUPABASE_ANON_KEY =
     "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJwZGlzeGpoaGlicmdmcHZ0bG12Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjM5NTkxODQsImV4cCI6MjA3OTUzNTE4NH0.jDZ6BGirOPuWUnt4ykjhng4PLft2ZjBuYAFzApUnlYU";
 
   const client = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
+  // ========= DOM 요소 =========
   const teacherEmailEl   = document.getElementById("teacher-email");
   const logoutBtn        = document.getElementById("logout-btn");
   const classSelect      = document.getElementById("class-select");
   const typeVocabBtn     = document.getElementById("type-vocab");
+  const typeSentenceBtn  = document.getElementById("type-sentence");
+  const setInput         = document.getElementById("set-input");
+  const dueInput         = document.getElementById("due-input");
+  const saveBtn          = document.getElementById("save-btn");
+  const statusMsgEl      = document.getElementById("status-msg");
+  const hwListEl         = document.getElementById("hw-list");
+
+  // 출력용
+  const printStatusEl    = document.getElementById("print-status");
+  const btnPrintTest     = document.getElementById("btn-print-test");
+  const btnPrintNote     = document.getElementById("btn-print-note");
+
+  let currentType = "vocab";   // "vocab" | "sentence"
+
+  // ========= 공통 상태 표시 =========
+  function setStatus(msg, type = "") {
+    statusMsgEl.textContent = msg || "";
+    statusMsgEl.className = "status" + (type ? " " + type : "");
+  }
+
+  function setPrintStatus() {
+    const classText =
+      classSelect.options[classSelect.selectedIndex]?.text || "-";
+    const setsText = setInput.value.trim() || "-";
+    const typeText = currentType === "vocab" ? "어휘" : "문장";
+
+    printStatusEl.textContent =
+      `선택된 반: ${classText} / 숙제 종류: ${typeText} / 세트 번호: ${setsText}`;
+  }
+
+  // ========= 로그인 체크 =========
+  async function checkTeacher() {
+    const { data, error } = await client.auth.getUser();
+    if (error || !data.user) {
+      alert("선생님 계정으로 다시 로그인해 주세요.");
+      window.location.href = "login.html";
+      return;
+    }
+    teacherEmailEl.textContent = data.user.email || "(이메일 없음)";
+  }
+
+  logoutBtn.onclick = async () => {
+    await client.auth.signOut();
+    window.location.href = "login.html";
+  };
+
+  // ========= 반 목록 불러오기 =========
+  async function loadClasses() {
+    /*
+      classes 테이블 예시 (필요에 따라 컬럼 이름만 수정)
+      - id   : uuid
+      - name : text  (10MB, 5A 같은 반 이름)
+    */
+    const { data, error } = await client
+      .from("classes")
+      .select("id, name")   // name 컬럼 이름이 다르면 여기 수정
+      .order("name", { ascending: true });
+
+    if (error) {
+      console.error("반 목록 오류:", error);
+      return;
+    }
+
+    classSelect.innerHTML =
+      '<option value="">반을 선택하세요</option>';
+
+    (data || []).forEach(c => {
+      const opt = document.createElement("option");
+      opt.value = c.id;
+      opt.textContent = c.name;
+      classSelect.appendChild(opt);
+    });
+  }
+
+  // ========= 숙제 저장 =========
+  function parseLevelAndSets(setStr) {
+    // "1-1, 1-2, 1-3" -> { level: 1, sets: [1,2,3] }
+    const parts = setStr
+      .split(",")
+      .map(s => s.trim())
+      .filter(Boolean);
+
+    if (parts.length === 0) return null;
+
+    const first = parts[0].split("-");
+    if (first.length !== 2) return null;
+    const level = Number(first[0]);
+    if (!level) return null;
+
+    const setNums = [];
+    for (const p of parts) {
+      const [lvStr, setStr2] = p.split("-");
+      const lv = Number(lvStr);
+      const sn = Number(setStr2);
+      if (!lv || !sn || lv !== level) return null;
+      setNums.push(sn);
+    }
+    return { level, sets: setNums, raw: parts.join(", ") };
+  }
+
+  async function saveHomework() {
+    const classId = classSelect.value;
+    const rawSet  = setInput.value.trim();
+    const due     = dueInput.value;
+
+    if (!classId) {
+      setStatus("반을 먼저 선택해 주세요.", "error");
+      return;
+    }
+    if (!rawSet) {
+      setStatus("학습 세트를 입력해 주세요. (예: 1-1 또는 1-1, 1-2)", "error");
+      return;
+    }
+
+    const parsed = parseLevelAndSets(rawSet);
+    if (!parsed) {
+      setStatus("세트 형식이 올바르지 않아요. 예: 1-1, 1-2, 1-3", "error");
+      return;
+    }
+
+    if (!due) {
+      setStatus("마감일을 선택해 주세요.", "error");
+      return;
+    }
+
+    setStatus("숙제를 저장 중입니다…");
+
+    // 어휘 / 문장에 따라 다른 테이블에 저장한다고 가정
+    const tableName =
+      currentType === "vocab" ? "vocab_homework" : "sentence_homework";
+
+    /* 테이블 예시
+       vocab_homework / sentence_homework
+       - id          uuid
+       - class_id    uuid
+       - level       int
+       - set_numbers text  (예: "1-1, 1-2, 1-3")
+       - due_date    date
+       - created_at  timestamptz default now()
+    */
+
+    const { error } = await client.from(tableName).insert({
+      class_id: classId,
+      level: parsed.level,
+      set_numbers: parsed.raw,
+      due_date: due
+    });
+
+    if (error) {
+      console.error("숙제 저장 오류:", error);
+      setStatus("숙제를 저장하는 중 오류가 발생했어요.", "error");
+      return;
+    }
+
+    setStatus("숙제가 등록되었어요!", "success");
+    await loadHomeworkList();  // 아래에서 정의
+  }
+
+  saveBtn.onclick = saveHomework;
+
+  // ========= 숙제 종류 토글 =========
+  function setType(nextType) {
+    currentType = nextType;
+    if (nextType === "vocab") {
+      typeVocabBtn.classList.add("active");
+      typeSentenceBtn.classList.remove("active");
+    } else {
+      typeSentenceBtn.classList.add("active");
+      typeVocabBtn.classList.remove("active");
+    }
+    setPrintStatus();
+    loadHomeworkList();
+  }
+
+  typeVocabBtn.onclick = () => setType("vocab");
+  typeSentenceBtn.onclick = () => setType("sentence");
+
+  // ========= 최근 숙제 목록 =========
+  async function loadHomeworkList() {
+    const classId = classSelect.value;
+    if (!classId) {
+      hwListEl.textContent = "아직 숙제가 없어요. 반을 선택해 주세요.";
+      return;
+    }
+
+    const tableName =
+      currentType === "vocab" ? "vocab_homework" : "sentence_homework";
+
+    const { data, error } = await client
+      .from(tableName)
+      .select("id, level, set_numbers, due_date, created_at")
+      .eq("class_id", classId)
+      .order("created_at", { ascending: false })
+      .limit(10);
+
+    if (error) {
+      console.error("숙제 목록 오류:", error);
+      hwListEl.textContent = "숙제 목록을 불러오는 중 오류가 발생했어요.";
+      return;
+    }
+
+    if (!data || data.length === 0) {
+      hwListEl.textContent = "이 반에는 아직 등록된 숙제가 없어요.";
+      return;
+    }
+
+    hwListEl.innerHTML = "";
+    data.forEach(row => {
+      const div = document.createElement("div");
+      div.className = "hw-item";
+
+      const tagSpan = document.createElement("span");
+      tagSpan.className =
+        "hw-tag " + (currentType === "vocab" ? "vocab" : "sentence");
+      tagSpan.textContent =
+        currentType === "vocab" ? "어휘" : "문장";
+
+      const mainSpan = document.createElement("span");
+      mainSpan.textContent =
+        ` 레벨 ${row.level} / 세트: ${row.set_numbers} / 마감일: ${row.due_date || "-"}`;
+
+      div.appendChild(tagSpan);
+      div.appendChild(mainSpan);
+      hwListEl.appendChild(div);
+    });
+  }
+
+  classSelect.onchange = () => {
+    setPrintStatus();
+    loadHomeworkList();
+  };
+  setInput.oninput = setPrintStatus;
+
+  // ========= 인쇄 버튼들 =========
+  function openPrintWindow(kind) {
+    const rawSet = setInput.value.trim();
+    const parsed = parseLevelAndSets(rawSet);
+
+    if (!parsed) {
+      alert("세트 번호를 먼저 올바르게 입력해 주세요. (예: 1-1, 1-2, 1-3)");
+      return;
+    }
+
+    const level = parsed.level;
+    const sets = parsed.sets.join(",");
+
+    if (kind === "note") {
+      // 단어 암기장 출력
+      window.open(
+        `print-vocab-note.html?level=${level}&sets=${encodeURIComponent(sets)}`,
+        "_blank"
+      );
+    } else {
+      // 단어 시험지 출력
+      window.open(
+        `print-vocab-test.html?level=${level}&sets=${encodeURIComponent(sets)}`,
+        "_blank"
+      );
+    }
+  }
+
+  btnPrintNote.onclick = () => openPrintWindow("note");
+  btnPrintTest.onclick = () => openPrintWindow("test");
+
+  // ========= 초기화 =========
+  (async function init() {
+    await checkTeacher();
+    await loadClasses();
+    setType("vocab");
+    setPrintStatus();
+  })();
+</script>
+</body>
+</html>
