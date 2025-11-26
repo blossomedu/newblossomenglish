@@ -90,7 +90,7 @@
       flex-wrap: wrap;
       gap: 12px;
       margin-bottom: 12px;
-      align-items: flex-end;
+      align-items: flex-start;  /* 🔹 위 기준 정렬로 변경 */
     }
 
     .field {
@@ -220,11 +220,11 @@
     }
 
     .word-count-input {
-      width: 140px;
-      padding: 8px 10px;
+      width: 90px;           /* 🔹 더 작게 */
+      padding: 5px 10px;
       border-radius: 999px;
       border: 1px solid #d1d5db;
-      font-size: 13px;
+      font-size: 12px;       /* 🔹 글자도 작게 */
     }
 
     @media (max-width: 768px) {
@@ -316,21 +316,22 @@
     </div>
 
     <div class="print-controls">
-      <!-- 위치 바꿈: 암기장 → 왼쪽, 시험지 → 오른쪽 -->
+      <!-- 암기장 왼쪽 -->
       <button class="primary-btn" id="btn-print-note" style="background:#2563eb;">
         단어 암기장 출력
       </button>
+      <!-- 시험지 오른쪽 -->
       <button class="primary-btn" id="btn-print-test">
         단어 시험지 출력
       </button>
-      <!-- 시험지 문항 수 입력 -->
+      <!-- 시험지 문항 수 -->
       <input
         type="number"
         min="1"
         step="1"
         id="word-count-input"
         class="word-count-input"
-        placeholder="문항 수 (예: 20)"
+        placeholder="문항 수"
       />
     </div>
   </div>
@@ -348,14 +349,12 @@
 <!-- Supabase JS -->
 <script src="https://unpkg.com/@supabase/supabase-js@2.48.0/dist/umd/supabase.js"></script>
 <script>
-  // ========= Supabase 설정 =========
   const SUPABASE_URL = "https://bpdisxjhhibrgfpvtlmv.supabase.co";
   const SUPABASE_ANON_KEY =
     "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJwZGlzeGpoaGlicmdmcHZ0bG12Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjM5NTkxODQsImV4cCI6MjA3OTUzNTE4NH0.jDZ6BGirOPuWUnt4ykjhng4PLft2ZjBuYAFzApUnlYU";
 
   const client = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
-  // ========= DOM 요소 =========
   const teacherEmailEl   = document.getElementById("teacher-email");
   const logoutBtn        = document.getElementById("logout-btn");
   const classSelect      = document.getElementById("class-select");
@@ -367,15 +366,13 @@
   const statusMsgEl      = document.getElementById("status-msg");
   const hwListEl         = document.getElementById("hw-list");
 
-  // 출력용
   const printStatusEl    = document.getElementById("print-status");
   const btnPrintTest     = document.getElementById("btn-print-test");
   const btnPrintNote     = document.getElementById("btn-print-note");
   const wordCountInput   = document.getElementById("word-count-input");
 
-  let currentType = "vocab";   // "vocab" | "sentence"
+  let currentType = "vocab";
 
-  // ========= 공통 상태 표시 =========
   function setStatus(msg, type = "") {
     statusMsgEl.textContent = msg || "";
     statusMsgEl.className = "status" + (type ? " " + type : "");
@@ -391,7 +388,6 @@
       `선택된 반: ${classText} / 숙제 종류: ${typeText} / 세트 번호: ${setsText}`;
   }
 
-  // ========= 로그인 체크 =========
   async function checkTeacher() {
     const { data, error } = await client.auth.getUser();
     if (error || !data.user) {
@@ -407,7 +403,6 @@
     window.location.href = "login.html";
   };
 
-  // ========= 반 목록 불러오기 =========
   async function loadClasses() {
     const { data, error } = await client
       .from("classes")
@@ -430,9 +425,7 @@
     });
   }
 
-  // ========= 숙제 저장 =========
   function parseLevelAndSets(setStr) {
-    // "1-1, 1-2, 1-3" -> { level: 1, sets: [1,2,3] }
     const parts = setStr
       .split(",")
       .map(s => s.trim())
@@ -505,7 +498,6 @@
 
   saveBtn.onclick = saveHomework;
 
-  // ========= 숙제 종류 토글 =========
   function setType(nextType) {
     currentType = nextType;
     if (nextType === "vocab") {
@@ -522,7 +514,6 @@
   typeVocabBtn.onclick = () => setType("vocab");
   typeSentenceBtn.onclick = () => setType("sentence");
 
-  // ========= 최근 숙제 목록 =========
   async function loadHomeworkList() {
     const classId = classSelect.value;
     if (!classId) {
@@ -578,7 +569,6 @@
   };
   setInput.oninput = setPrintStatus;
 
-  // ========= 인쇄 버튼들 =========
   function openPrintWindow(kind) {
     const rawSet = setInput.value.trim();
     const parsed = parseLevelAndSets(rawSet);
@@ -593,7 +583,6 @@
     const sets = setsArray.join(",");
 
     if (kind === "note") {
-      // 단어 암기장은 한 세트만 출력
       if (setsArray.length !== 1) {
         alert("단어 암기장은 한 세트만 출력할 수 있어요. 예: 1-1");
         return;
@@ -604,7 +593,6 @@
         "_blank"
       );
     } else {
-      // 단어 시험지는 문항 수(count) 옵션 사용
       let countParam = "";
       const rawCount = wordCountInput.value.trim();
       if (rawCount) {
@@ -625,7 +613,6 @@
   btnPrintNote.onclick = () => openPrintWindow("note");
   btnPrintTest.onclick = () => openPrintWindow("test");
 
-  // ========= 초기화 =========
   (async function init() {
     await checkTeacher();
     await loadClasses();
