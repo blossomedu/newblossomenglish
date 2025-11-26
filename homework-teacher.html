@@ -211,6 +211,22 @@
       color: #0369a1;
     }
 
+    .print-controls {
+      margin-top: 12px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: center;
+    }
+
+    .word-count-input {
+      width: 140px;
+      padding: 8px 10px;
+      border-radius: 999px;
+      border: 1px solid #d1d5db;
+      font-size: 13px;
+    }
+
     @media (max-width: 768px) {
       .top-row {
         flex-direction: column;
@@ -220,6 +236,11 @@
       .form-row {
         flex-direction: column;
         align-items: stretch;
+      }
+
+      .print-controls {
+        flex-direction: column;
+        align-items: flex-start;
       }
     }
   </style>
@@ -294,11 +315,23 @@
       선택된 반: - / 숙제 종류: 어휘 / 세트 번호: -
     </div>
 
-    <div style="margin-top:12px; display:flex; flex-wrap:wrap; gap:10px;">
-      <button class="primary-btn" id="btn-print-test">단어 시험지 출력</button>
+    <div class="print-controls">
+      <!-- 위치 바꿈: 암기장 → 왼쪽, 시험지 → 오른쪽 -->
       <button class="primary-btn" id="btn-print-note" style="background:#2563eb;">
         단어 암기장 출력
       </button>
+      <button class="primary-btn" id="btn-print-test">
+        단어 시험지 출력
+      </button>
+      <!-- 시험지 문항 수 입력 -->
+      <input
+        type="number"
+        min="1"
+        step="1"
+        id="word-count-input"
+        class="word-count-input"
+        placeholder="문항 수 (예: 20)"
+      />
     </div>
   </div>
 
@@ -338,6 +371,7 @@
   const printStatusEl    = document.getElementById("print-status");
   const btnPrintTest     = document.getElementById("btn-print-test");
   const btnPrintNote     = document.getElementById("btn-print-note");
+  const wordCountInput   = document.getElementById("word-count-input");
 
   let currentType = "vocab";   // "vocab" | "sentence"
 
@@ -559,7 +593,7 @@
     const sets = setsArray.join(",");
 
     if (kind === "note") {
-      // 🔹 단어 암기장은 한 세트씩만 출력
+      // 단어 암기장은 한 세트만 출력
       if (setsArray.length !== 1) {
         alert("단어 암기장은 한 세트만 출력할 수 있어요. 예: 1-1");
         return;
@@ -570,9 +604,19 @@
         "_blank"
       );
     } else {
-      // 🔹 단어 시험지는 예전처럼 level + sets 로 전달
+      // 단어 시험지는 문항 수(count) 옵션 사용
+      let countParam = "";
+      const rawCount = wordCountInput.value.trim();
+      if (rawCount) {
+        const n = Number(rawCount);
+        if (!n || n <= 0) {
+          alert("문항 수는 1 이상의 숫자로 입력해 주세요.");
+          return;
+        }
+        countParam = `&count=${encodeURIComponent(n)}`;
+      }
       window.open(
-        `print-vocab-note.html?unit=${level}-${sets}`,
+        `print-vocab-test.html?level=${level}&sets=${encodeURIComponent(sets)}${countParam}`,
         "_blank"
       );
     }
