@@ -355,6 +355,9 @@
   googleLoginBtn.onclick = async () => {
     const { error } = await supa.auth.signInWithOAuth({
       provider: "google",
+      options: {
+        redirectTo: "https://blossomedu.github.io/newblossomenglish/login.html",
+      },
     });
 
     if (error) alert("구글 로그인 오류");
