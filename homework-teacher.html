@@ -90,7 +90,7 @@
       flex-wrap: wrap;
       gap: 12px;
       margin-bottom: 12px;
-      align-items: flex-start;  /* 🔹 위 기준 정렬로 변경 */
+      align-items: flex-end; /* 🔹 아래 기준으로 줄 맞추기 */
     }
 
     .field {
@@ -216,15 +216,11 @@
       display: flex;
       flex-wrap: wrap;
       gap: 10px;
-      align-items: center;
+      align-items: flex-end;
     }
 
-    .word-count-input {
-      width: 90px;           /* 🔹 더 작게 */
-      padding: 5px 10px;
-      border-radius: 999px;
-      border: 1px solid #d1d5db;
-      font-size: 12px;       /* 🔹 글자도 작게 */
+    .visually-hidden {
+      visibility: hidden;
     }
 
     @media (max-width: 768px) {
@@ -297,7 +293,9 @@
         <input id="due-input" type="date" />
       </div>
 
+      <!-- 🔹 버튼도 label 하나 만들어서 줄 맞추기 -->
       <div class="field" style="min-width:120px;">
+        <label class="visually-hidden">숙제 등록</label>
         <button class="primary-btn" id="save-btn">숙제 등록</button>
       </div>
     </div>
@@ -324,15 +322,17 @@
       <button class="primary-btn" id="btn-print-test">
         단어 시험지 출력
       </button>
-      <!-- 시험지 문항 수 -->
-      <input
-        type="number"
-        min="1"
-        step="1"
-        id="word-count-input"
-        class="word-count-input"
-        placeholder="문항 수"
-      />
+      <!-- 문항 수: 위 폼이랑 스타일 맞춤 -->
+      <div class="field" style="width:130px;">
+        <label>문항 수</label>
+        <input
+          type="number"
+          min="1"
+          step="1"
+          id="word-count-input"
+          placeholder="예: 20"
+        />
+      </div>
     </div>
   </div>
 

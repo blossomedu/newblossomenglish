@@ -2,7 +2,7 @@
 <html lang="ko">
 <head>
   <meta charset="UTF-8" />
-  <title>단어 시험지 출력 - 블라썸잉글리쉬</title>
+  <title>어휘 시험지 출력 - 블라썸잉글리쉬</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link href="https://cdn.jsdelivr.net/npm/pretendard/dist/web/variable/pretendardvariable.css" rel="stylesheet" />
   <style>
@@ -11,7 +11,7 @@
       margin: 0;
       padding: 0;
       font-family: "Pretendard Variable", -apple-system, BlinkMacSystemFont,
-        system-ui, "Apple SD Gothic Neo", "Noto Sans KR", sans-serif;
+        system-ui, "Noto Sans KR", sans-serif;
     }
     body {
       background: #ffffff;
@@ -70,11 +70,11 @@
 </head>
 <body>
 <div class="page">
-  <h1>단어 시험지</h1>
+  <h1>어휘 시험지</h1>
   <div id="subtitle" class="subtitle"></div>
 
   <div class="info-line">이름: ____________________________</div>
-  <div class="info-line">날짜: ____________________________</div>
+  <div class="info-line">점수: _____ / _____</div>
 
   <table id="wordTable">
     <thead>
@@ -94,13 +94,13 @@
   </div>
 </div>
 
-<!-- ✅ Supabase 제거, words.js 사용 -->
+<!-- words.js 사용 -->
 <script src="words.js"></script>
 <script>
   const subtitleEl = document.getElementById("subtitle");
   const tableBody  = document.querySelector("#wordTable tbody");
 
-  // ?level=1&sets=1,2&count=20 이런 식으로 들어옴
+  // ?level=1&sets=1,2&count=20
   const params = new URLSearchParams(window.location.search);
   const levelParam = params.get("level") || "";
   const setsParam  = params.get("sets") || "";
@@ -111,12 +111,12 @@
     .map(s => s.trim())
     .filter(s => s !== "");
 
-  // 서브타이틀
+  // 🔹 서브타이틀: 어휘 1-1 / 어휘 1-1, 1-2
   if (levelParam && setNumbers.length > 0) {
-    subtitleEl.textContent =
-      `레벨 ${levelParam} / 세트 ${setNumbers.join(", ")} 단어 시험지`;
+    const units = setNumbers.map(sn => `${levelParam}-${sn}`);
+    subtitleEl.textContent = `어휘 ${units.join(", ")}`;
   } else {
-    subtitleEl.textContent = "단어 시험지";
+    subtitleEl.textContent = "어휘 시험지";
   }
 
   function loadWords() {
@@ -128,7 +128,7 @@
     const db = window.WORD_DB || {};
     let allWords = [];
 
-    // 예: level=1, sets=1,2 → "1-1", "1-2"에서 단어를 모두 모음
+    // level=1, sets=1,2 → "1-1", "1-2"
     setNumbers.forEach(sn => {
       const key = `${levelParam}-${sn}`;
       const list = db[key] || [];
@@ -140,10 +140,9 @@
       return;
     }
 
-    // count가 있으면 그 개수만큼 자르기
     let limit = Number(countParam);
     if (!limit || limit <= 0) {
-      limit = allWords.length; // 입력 안 했으면 전체
+      limit = allWords.length;
     }
     const usedWords = allWords.slice(0, limit);
 
@@ -161,7 +160,6 @@
 
       const tdBlank = document.createElement("td");
       tdBlank.className = "blanks";
-      // 시험지니까 뜻은 학생이 쓰도록 비워 둠
 
       tr.appendChild(tdNo);
       tr.appendChild(tdEng);
@@ -169,7 +167,6 @@
       tableBody.appendChild(tr);
     });
 
-    // 자동 인쇄
     setTimeout(() => {
       window.print();
     }, 500);
