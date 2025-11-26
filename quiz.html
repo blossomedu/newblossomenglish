@@ -94,7 +94,7 @@
       text-align: center;
       gap: 12px;
       padding: 10px 8px;
-      min-height: 260px; /* 결과 문구가 나와도 크게 안 흔들리게 */
+      min-height: 260px;
     }
 
     .word-big {
@@ -120,7 +120,6 @@
       color: #6b7280;
     }
 
-    /* 뜻찾기 / 영어찾기 / 듣고찾기 제목 공통 */
     .question-title {
       font-size: 30px;
       font-weight: 800;
@@ -291,17 +290,40 @@
   </div>
 </div>
 
-<!-- ✅ 단어 데이터 불러오기 -->
+<!-- 단어 데이터 -->
 <script src="words.js"></script>
 
+<!-- Supabase JS -->
+<script src="https://unpkg.com/@supabase/supabase-js@2.48.0/dist/umd/supabase.js"></script>
+
 <script>
+  // ---------- Supabase 설정 ----------
+  const SUPABASE_URL = "https://bpdisxjhhibrgfpvtlmv.supabase.co";
+  const SUPABASE_ANON_KEY =
+    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJwZGlzeGpoaGlicmdmcHZ0bG12Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjM5NTkxODQsImV4cCI6MjA3OTUzNTE4NH0.jDZ6BGirOPuWUnt4ykjhng4PLft2ZjBuYAFzApUnlYU";
+
+  const client = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
+  // 학생 로그인 정보 (localStorage에 저장된 blossom_student 그대로 사용)
+  let currentStudentLoginId = null;
+  (function loadStudent() {
+    try {
+      const raw = localStorage.getItem("blossom_student");
+      if (!raw) return;
+      const s = JSON.parse(raw);
+      currentStudentLoginId = s.login_id || s.id || null;
+    } catch (e) {
+      console.error("학생 정보 읽기 오류:", e);
+    }
+  })();
+
   // ---------- URL 파라미터 & 단어 데이터 ----------
   const params = new URLSearchParams(window.location.search);
   let stage = params.get("stage") || "1";
   let unitKey = params.get("unit") || "1-1";
 
   // unit=1 처럼 숫자만 오면 1-1로 보정
-  if (/^\\d+$/.test(unitKey)) {
+  if (/^\d+$/.test(unitKey)) {
     unitKey = unitKey + "-1";
   }
 
@@ -367,7 +389,7 @@
     }
     const base = [];
     for (let i = 0; i < wordCount; i++) base.push(i);
-    quizQueue = shuffleArray(base);  // 🔁 랜덤 순서
+    quizQueue = shuffleArray(base);  // 랜덤 순서
     nextRoundQueue = [];
     quizPos = 0;
     quizFinished = false;
@@ -381,8 +403,35 @@
     }
     const base = [];
     for (let i = 0; i < wordCount; i++) base.push(i);
-    sentenceOrder = shuffleArray(base);  // 🔁 랜덤 순서
+    sentenceOrder = shuffleArray(base);  // 랜덤 순서
     sentencePos = 0;
+  }
+
+  // ✅ 결과 저장 (가장 단순 버전: 전부 맞추고 끝나면 100점으로 저장)
+  async function saveVocabResultForCurrentMode() {
+    if (!currentStudentLoginId) {
+      // 학생 로그인 안 돼 있으면 그냥 연습만 하고 저장은 안 함
+      return;
+    }
+    if (!wordCount) return;
+
+    try {
+      const { error } = await client.from("vocab_results").insert({
+        student_login_id: currentStudentLoginId,
+        unit: unitKey,
+        mode: currentMode,              // meaning / english / listening / sentence
+        correct_count: wordCount,       // 모두 맞출 때까지 시키니까 100점 처리
+        total_count: wordCount,
+        submitted_at: new Date().toISOString()
+      });
+      if (error) {
+        console.error("vocab_results 저장 오류:", error);
+      } else {
+        console.log("vocab_results 저장 완료");
+      }
+    } catch (e) {
+      console.error("vocab_results 저장 중 예외:", e);
+    }
   }
 
   function showQuizFinished() {
@@ -394,10 +443,13 @@
         100점 🎉
       </div>
       <div style="margin-top:12px;font-size:14px;color:#6b7280;">
-        다시 연습하려면 &quot;다시 시작&quot;을 눌러주세요.
+        다시 연습하려면 "다시 시작"을 눌러주세요.
       </div>
     `;
     setProgress(wordCount, wordCount);
+
+    // 👉 여기서 한 번만 저장 시도
+    saveVocabResultForCurrentMode();
   }
 
   function goNextQuestion(wrongIndexOrNull) {
@@ -427,8 +479,8 @@
 
   // ------------ 발음 (학습 / 듣기퀴즈) ------------
 
-  const STUDY_GAP_BETWEEN_READS = 1000;  // 1차 ↔ 2차 (조금 짧게)
-  const STUDY_GAP_AFTER_SECOND  = 2600;  // 2차 후 → 다음 단어 (조금 짧게)
+  const STUDY_GAP_BETWEEN_READS = 1000;  // 1차 ↔ 2차
+  const STUDY_GAP_AFTER_SECOND  = 2600;  // 2차 후 → 다음 단어
 
   function speakWordTwice(word, afterSecondDone) {
     const synth = window.speechSynthesis;
@@ -448,7 +500,6 @@
     u1.pitch = 1.1;
     u2.pitch = 1.1;
 
-    // 여성 음성 추정
     const voices = synth.getVoices();
     const female = voices.find(v =>
       v.lang.startsWith("en") &&
@@ -489,7 +540,7 @@
     }
 
     const item = words[currentIndex];
-    audioBadge.style.display = "none"; // 안내 뱃지는 숨김
+    audioBadge.style.display = "none";
 
     centerArea.innerHTML = `
       <div class="word-big">${item.word}</div>
@@ -588,7 +639,6 @@
     const baseNumber = Math.min(quizPos + 1, wordCount);
     setProgress(baseNumber, wordCount);
 
-    // 7초 타이머
     answerTimer = setTimeout(() => {
       handleQuizAnswer(qIndex, false, null, grid, item.meaning);
     }, 7000);
@@ -671,10 +721,8 @@
     const baseNumber = Math.min(quizPos + 1, wordCount);
     setProgress(baseNumber, wordCount);
 
-    // 발음 2번 들려주기
     speakWordTwice(item.word, null);
 
-    // 7초 타이머
     answerTimer = setTimeout(() => {
       handleQuizAnswer(qIndex, false, null, grid, item.meaning);
     }, 7000);
@@ -741,7 +789,7 @@
     centerArea.innerHTML = `
       <div class="sentence-en">${blanked}</div>
       <div class="sentence-ko">${item.exampleKo}</div>
-   `;
+    `;
 
     const row = document.createElement("div");
     row.className = "sentence-row";
@@ -798,7 +846,6 @@
 
     checkBtn.onclick = checkAnswer;
 
-    // 엔터 / 스페이스바로도 정답 확인
     input.addEventListener("keydown", (e) => {
       const isEnter = e.key === "Enter" || e.code === "Enter";
       const isSpace = e.key === " " || e.code === "Space";
@@ -847,7 +894,7 @@
         answerTimer = null;
       }
       currentMode = tab.dataset.mode;
-      currentIndex = 0;      // 학습 모드 인덱스 초기화
+      currentIndex = 0;
 
       if (AUTO_QUIZ_MODES.includes(currentMode)) {
         resetQuizFlow();
@@ -873,7 +920,6 @@
   };
 
   backToUnitsBtn.onclick = () => {
-    // 그냥 이전 페이지로 돌아가기 (404 방지)
     window.history.back();
   };
 
