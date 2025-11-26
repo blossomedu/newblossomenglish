@@ -266,20 +266,29 @@
 
       <div class="section-title">학생 회원가입</div>
 
-      <div class="field-row">
-        <div class="field-label">새 학생 아이디</div>
-        <input id="studentSignupId" class="input" type="text" placeholder="예: blossom001" />
-        <div class="helper-text">영어와 숫자를 섞어서 7자 이상을 추천해요. (예: blossom001)</div>
-      </div>
-
+      <!-- 1. 이름 -->
       <div class="field-row">
         <div class="field-label">이름</div>
         <input id="studentSignupName" class="input" type="text" placeholder="예: 홍길동" />
       </div>
 
+      <!-- 2. 아이디 -->
+      <div class="field-row">
+        <div class="field-label">학생 아이디</div>
+        <input id="studentSignupId" class="input" type="text" placeholder="예: blossom001" />
+        <div class="helper-text">영어와 숫자를 섞어서 7자 이상을 추천해요. (예: blossom001)</div>
+      </div>
+
+      <!-- 3. 비밀번호 -->
       <div class="field-row">
         <div class="field-label">비밀번호</div>
         <input id="studentSignupPw" class="input" type="password" placeholder="영어+숫자 조합 7자 이상" />
+      </div>
+
+      <!-- 4. 부모님 전화번호 -->
+      <div class="field-row">
+        <div class="field-label">부모님 전화번호</div>
+        <input id="studentSignupParentPhone" class="input" type="tel" placeholder="예: 01012345678" />
       </div>
 
       <button id="studentSignupBtn" class="btn btn-primary" style="margin-top: 6px;">
@@ -287,7 +296,9 @@
       </button>
 
       <div id="studentStatus" class="status-text"></div>
-      <div class="small-footnote">※ 학생 계정 정보는 이 브라우저(localStorage)에만 저장돼요. 반(7MB, 10MB 등)은 나중에 선생님이 설정해 줄 수 있어요.</div>
+      <div class="small-footnote">
+        ※ 학생 계정 정보는 이 브라우저(localStorage)에만 저장돼요. 반(7MB, 10MB 등)은 나중에 선생님이 설정해 줄 수 있어요.
+      </div>
     </div>
   </div>
 </div>
@@ -371,13 +382,11 @@
     }
 
     setTeacherStatus("로그인 성공! 잠시 후 이동합니다.", "success");
-    // 메인 화면으로 이동
     window.location.href = "index.html";
   };
 
   // ===== 선생님 구글 로그인 =====
   googleLoginBtn.onclick = async () => {
-    // 로그인 후 index.html 로 돌아오도록 redirect 설정
     const redirectUrl = window.location.origin + "/newblossomenglish/index.html";
     await supabaseClient.auth.signInWithOAuth({
       provider: "google",
@@ -409,12 +418,12 @@
       return;
     }
 
-    // 현재 로그인한 학생 정보 저장
     localStorage.setItem(
       CURRENT_STUDENT_KEY,
       JSON.stringify({
         login_id: found.id,
         name: found.name,
+        parent_phone: found.parentPhone || ""
       })
     );
 
@@ -426,6 +435,7 @@
   const studentSignupIdEl = document.getElementById("studentSignupId");
   const studentSignupNameEl = document.getElementById("studentSignupName");
   const studentSignupPwEl = document.getElementById("studentSignupPw");
+  const studentSignupParentPhoneEl = document.getElementById("studentSignupParentPhone");
   const studentSignupBtn = document.getElementById("studentSignupBtn");
 
   function isValidIdOrPw(str) {
@@ -435,13 +445,19 @@
     return hasLetter && hasNumber;
   }
 
+  function isValidPhone(콜) {
+    const digits = phone.replace(/[^0-9]/g, "");
+    return digits.length >= 9 && digits.length <= 12;
+  }
+
   studentSignupBtn.onclick = () => {
     const id = studentSignupIdEl.value.trim();
     const name = studentSignupNameEl.value.trim();
     const pw = studentSignupPwEl.value.trim();
+    const phone = studentSignupParentPhoneEl.value.trim();
 
-    if (!id || !name || !pw) {
-      setStudentStatus("아이디, 이름, 비밀번호를 모두 입력해 주세요.", "error");
+    if (!name || !id || !pw || !phone) {
+      setStudentStatus("이름, 아이디, 비밀번호, 부모님 전화번호를 모두 입력해 주세요.", "error");
       return;
     }
 
@@ -455,6 +471,11 @@
       return;
     }
 
+    if (!isValidPhone(콜)) {
+      setStudentStatus("부모님 전화번호를 숫자만 9~12자리 정도로 입력해 주세요. (예: 01012345678)", "error");
+      return;
+    }
+
     const list = loadStudents();
     if (list.some((s) => s.id === id)) {
       setStudentStatus("이미 사용 중인 아이디예요. 다른 아이디를 골라 주세요.", "error");
@@ -465,16 +486,17 @@
       id,
       name,
       password: pw,
+      parentPhone: phone
     });
     saveStudents(list);
 
     setStudentStatus("학생 계정이 만들어졌어요! 위쪽 로그인 칸에서 바로 로그인할 수 있어요.", "success");
 
-    // 가입 폼 초기화
+    // 가입 폼 초기화(아이디/이름은 남겨두고 비번+전화번호만 비움)
     studentSignupPwEl.value = "";
+    studentSignupParentPhoneEl.value = "";
   };
 
-  // 페이지 로드시 상태 메시지 초기화
   setTeacherStatus("");
   setStudentStatus("");
 </script>
