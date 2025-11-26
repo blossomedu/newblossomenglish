@@ -5,6 +5,7 @@
   <title>로그인 - 블라썸잉글리쉬</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link href="https://cdn.jsdelivr.net/npm/pretendard/dist/web/variable/pretendardvariable.css" rel="stylesheet" />
+
   <style>
     * {
       box-sizing: border-box;
@@ -128,17 +129,12 @@
       white-space: nowrap;
     }
 
-    /* ======================
-       버튼 색상 커스텀
-       ====================== */
-
-    /* 선생님 로그인 — 핑크 */
+    /* 버튼 색상 */
     #teacherLoginBtn {
       background: var(--pink);
       color: white;
     }
 
-    /* 구글 로그인 — 블루 라인 버튼 */
     #googleLoginBtn {
       background: white;
       border: 1px solid var(--blue);
@@ -148,19 +144,15 @@
       background: #eaf7ff;
     }
 
-    /* 학생 로그인 — 민트 */
     #studentLoginBtn {
       background: var(--mint);
       color: white;
     }
 
-    /* 학생 회원가입 — 블루 */
     #studentSignupBtn {
       background: var(--blue);
       color: white;
     }
-
-    /* ======================= */
 
     .helper-text {
       font-size: 12px;
@@ -197,6 +189,7 @@
     }
   </style>
 </head>
+
 <body>
 <div class="page">
   <h1 class="title">로그인</h1>
@@ -204,7 +197,7 @@
 
   <div class="login-grid">
 
-    <!-- 선생님 로그인 카드 -->
+    <!-- 선생님 로그인 -->
     <div class="card">
       <div class="card-header">
         <span class="badge-role badge-teacher">Teacher</span>
@@ -237,7 +230,7 @@
       <div id="teacherStatus" class="status-text"></div>
     </div>
 
-    <!-- 학생 로그인/가입 카드 -->
+    <!-- 학생 로그인 / 가입 -->
     <div class="card">
       <div class="card-header">
         <span class="badge-role badge-student">Student</span>
@@ -249,7 +242,6 @@
         아직 계정이 없다면 아래에서 새로 만들 수 있어요.
       </div>
 
-      <!-- 학생 로그인 -->
       <div class="field-row">
         <div class="field-label">학생 아이디</div>
         <input id="studentLoginId" class="input" type="text" placeholder="예: blossom001" />
@@ -264,7 +256,6 @@
         👦 학생으로 로그인
       </button>
 
-      <!-- 학생 회원가입 -->
       <div class="field-row" style="margin-top:18px;">
         <div class="field-label">이름</div>
         <input id="studentSignupName" class="input" type="text" placeholder="예: 홍길동" />
@@ -296,15 +287,8 @@
   </div>
 </div>
 
-<!-- Supabase -->
+<!-- ▼▼▼ 반드시 BODY 안! ▼▼▼ -->
 <script src="https://unpkg.com/@supabase/supabase-js@2.48.0/dist/umd/supabase.js"></script>
-
-<script>
-  /* 기존 JS 그대로 — 수정 없음 */
-</script>
-
-</body>
-</html>
 
 <script>
   const supa = supabase.createClient(
@@ -330,6 +314,7 @@
   const studentSignupBtn = document.getElementById("studentSignupBtn");
 
   const studentStatus = document.getElementById("studentStatus");
+
 
   /* -----------------------------
       1) 선생님 이메일 로그인
@@ -363,6 +348,7 @@
     setTimeout(() => (location.href = "index.html"), 600);
   };
 
+
   /* -----------------------------
       2) 구글 로그인
   ------------------------------ */
@@ -373,6 +359,7 @@
 
     if (error) alert("구글 로그인 오류");
   };
+
 
   /* -----------------------------
       3) 학생 로그인
@@ -405,6 +392,7 @@
       studentStatus.classList.add("error");
     }
   };
+
 
   /* -----------------------------
       4) 학생 회원가입
@@ -441,3 +429,5 @@
   };
 </script>
 
+</body>
+</html>
