@@ -267,23 +267,26 @@
       <!-- 학생 회원가입 -->
       <div class="section-title">학생 회원가입</div>
 
+      <!-- 1. 이름 -->
+      <div class="field-row">
+        <div class="field-label">이름</div>
+        <input id="studentSignupName" class="input" type="text" placeholder="예: 홍길동" />
+      </div>
+
+      <!-- 2. 아이디 -->
       <div class="field-row">
         <div class="field-label">새 학생 아이디</div>
         <input id="studentSignupId" class="input" type="text" placeholder="예: blossom001" />
         <div class="helper-text">영어와 숫자를 섞어서 7자 이상을 추천해요. (예: blossom001)</div>
       </div>
 
-      <div class="field-row">
-        <div class="field-label">이름</div>
-        <input id="studentSignupName" class="input" type="text" placeholder="예: 홍길동" />
-      </div>
-
+      <!-- 3. 비밀번호 -->
       <div class="field-row">
         <div class="field-label">비밀번호</div>
         <input id="studentSignupPw" class="input" type="password" placeholder="영어+숫자 조합 7자 이상" />
       </div>
 
-      <!-- 부모님 전화번호 추가 -->
+      <!-- 4. 부모님 전화번호 -->
       <div class="field-row">
         <div class="field-label">부모님 전화번호</div>
         <input id="studentSignupPhone" class="input" type="text" placeholder="예: 01012345678" />
@@ -383,12 +386,11 @@
 
   // ===== 선생님 구글 로그인 =====
   googleLoginBtn.onclick = async () => {
-    const redirectUrl = window.location.origin + "/blossomenglish/index.html";
+    // 배포 폴더가 /newblossomenglish 이라서 거기로 리다이렉트
+    const redirectUrl = window.location.origin + "/newblossomenglish/index.html";
     await supabaseClient.auth.signInWithOAuth({
       provider: "google",
-      options: {
-        redirectTo: redirectUrl,
-      },
+      options: { redirectTo: redirectUrl },
     });
   };
 
@@ -419,7 +421,7 @@
       JSON.stringify({
         login_id: found.id,
         name: found.name,
-        parent_phone: found.parentPhone || ""
+        parent_phone: found.parentPhone || "",
       })
     );
 
@@ -447,8 +449,8 @@
     const pw = studentSignupPwEl.value.trim();
     const phone = studentSignupPhoneEl.value.trim();
 
-    if (!id || !name || !pw || !phone) {
-      setStudentStatus("아이디, 이름, 비밀번호, 부모님 전화번호를 모두 입력해 주세요.", "error");
+    if (!name || !id || !pw || !phone) {
+      setStudentStatus("이름, 아이디, 비밀번호, 부모님 전화번호를 모두 입력해 주세요.", "error");
       return;
     }
 
@@ -472,7 +474,7 @@
       id,
       name,
       password: pw,
-      parentPhone: phone
+      parentPhone: phone,
     });
     saveStudents(list);
 
