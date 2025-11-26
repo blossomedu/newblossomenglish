@@ -94,55 +94,61 @@
   </div>
 </div>
 
-<!-- Supabase -->
-<script src="https://unpkg.com/@supabase/supabase-js@2.48.0/dist/umd/supabase.js"></script>
+<!-- ✅ Supabase 제거, words.js 사용 -->
+<script src="words.js"></script>
 <script>
-  const SUPABASE_URL = "https://bpdisxjhhibrgfpvtlmv.supabase.co";
-  const SUPABASE_ANON_KEY =
-    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJwZGlzeGpoaGlicmdmcHZ0bG12Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjM5NTkxODQsImV4cCI6MjA3OTUzNTE4NH0.jDZ6BGirOPuWUnt4ykjhng4PLft2ZjBuYAFzApUnlYU";
-
-  const client = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
-
   const subtitleEl = document.getElementById("subtitle");
   const tableBody  = document.querySelector("#wordTable tbody");
 
-  // 쿼리스트링에서 level, sets 읽기
+  // ?level=1&sets=1,2&count=20 이런 식으로 들어옴
   const params = new URLSearchParams(window.location.search);
   const levelParam = params.get("level") || "";
   const setsParam  = params.get("sets") || "";
+  const countParam = params.get("count") || "";
+
   const setNumbers = setsParam
     .split(",")
     .map(s => s.trim())
     .filter(s => s !== "");
 
-  subtitleEl.textContent =
-    `레벨 ${levelParam} / 세트 ${setNumbers.join(", ")} 단어 시험지`;
+  // 서브타이틀
+  if (levelParam && setNumbers.length > 0) {
+    subtitleEl.textContent =
+      `레벨 ${levelParam} / 세트 ${setNumbers.join(", ")} 단어 시험지`;
+  } else {
+    subtitleEl.textContent = "단어 시험지";
+  }
 
-  async function loadWords() {
+  function loadWords() {
     if (!levelParam || setNumbers.length === 0) {
       alert("레벨 또는 세트 정보가 없습니다.");
       return;
     }
 
-    // === 여기서부터는 네 DB 구조에 맞게 컬럼명만 맞춰주면 돼 ===
-    // 예시: vocab_words 테이블에
-    // level (int), set_number (int), english (text), korean (text)가 있다고 가정
-    const { data, error } = await client
-      .from("vocab_words")
-      .select("id, level, set_number, english, korean")
-      .eq("level", Number(levelParam))
-      .in("set_number", setNumbers.map(n => Number(n)))
-      .order("set_number", { ascending: true })
-      .order("english", { ascending: true });
+    const db = window.WORD_DB || {};
+    let allWords = [];
 
-    if (error) {
-      console.error("단어 불러오기 오류:", error);
-      alert("단어를 불러오는 중 오류가 발생했습니다.");
+    // 예: level=1, sets=1,2 → "1-1", "1-2"에서 단어를 모두 모음
+    setNumbers.forEach(sn => {
+      const key = `${levelParam}-${sn}`;
+      const list = db[key] || [];
+      allWords = allWords.concat(list);
+    });
+
+    if (allWords.length === 0) {
+      alert("해당 세트에서 단어를 찾지 못했어요. (words.js 확인)");
       return;
     }
 
+    // count가 있으면 그 개수만큼 자르기
+    let limit = Number(countParam);
+    if (!limit || limit <= 0) {
+      limit = allWords.length; // 입력 안 했으면 전체
+    }
+    const usedWords = allWords.slice(0, limit);
+
     tableBody.innerHTML = "";
-    (data || []).forEach((row, idx) => {
+    usedWords.forEach((row, idx) => {
       const tr = document.createElement("tr");
 
       const tdNo = document.createElement("td");
@@ -150,19 +156,20 @@
       tdNo.style.textAlign = "center";
 
       const tdEng = document.createElement("td");
-      tdEng.textContent = row.english || "";
+      const eng = row.word || row.english || "";
+      tdEng.textContent = eng;
 
       const tdBlank = document.createElement("td");
       tdBlank.className = "blanks";
+      // 시험지니까 뜻은 학생이 쓰도록 비워 둠
 
       tr.appendChild(tdNo);
       tr.appendChild(tdEng);
       tr.appendChild(tdBlank);
-
       tableBody.appendChild(tr);
     });
 
-    // 자동으로 출력 창 띄우기 (조금 기다렸다가)
+    // 자동 인쇄
     setTimeout(() => {
       window.print();
     }, 500);
