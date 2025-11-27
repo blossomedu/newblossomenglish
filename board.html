@@ -38,7 +38,7 @@
       margin-bottom: 20px;
     }
 
-    /* 상단 선택 + 버튼 */
+    /* 상단 필터 + 버튼 줄 */
     .top-bar {
       display: flex;
       flex-wrap: wrap;
@@ -82,19 +82,19 @@
       white-space: nowrap;
     }
 
-    /* 글쓰기 = 민트 */
+    /* 1. 글쓰기 = 민트 */
     .btn-primary {
       background: #9FE6B8;
       color: #ffffff;
     }
 
-    /* 온라인 숙제 = 블루 */
+    /* 2. 온라인 숙제 = 하늘색(블루) */
     .btn-secondary {
       background: #00AEEF;
       color: #ffffff;
     }
 
-    /* 관리 버튼 = 핑크 */
+    /* 3. 관리 = 핑크 */
     .btn-manage {
       background: #FF6FB5;
       color: #ffffff;
@@ -120,6 +120,11 @@
       flex-wrap: wrap;
       gap: 10px;
       margin-bottom: 10px;
+    }
+
+    .write-row label {
+      font-size: 14px;
+      color: #4b5563;
     }
 
     .write-input,
@@ -148,7 +153,26 @@
       gap: 8px;
     }
 
-    /* 게시글 카드 */
+    .btn {
+      padding: 8px 14px;
+      border-radius: 999px;
+      border: none;
+      font-size: 14px;
+      cursor: pointer;
+      white-space: nowrap;
+    }
+
+    .btn-cancel {
+      background: #e5e7eb;
+      color: #374151;
+    }
+
+    .btn-submit {
+      background: #10b981;
+      color: #ffffff;
+    }
+
+    /* 게시글 리스트 */
     .post-list {
       display: flex;
       flex-direction: column;
@@ -177,7 +201,20 @@
       color: #111827;
     }
 
+    .post-meta {
+      font-size: 12px;
+      color: #6b7280;
+      text-align: right;
+    }
+
+    .post-meta span + span::before {
+      content: "· ";
+      margin: 0 2px;
+    }
+
     .post-class-badge {
+      display: inline-flex;
+      align-items: center;
       padding: 2px 10px;
       border-radius: 999px;
       background: #eef2ff;
@@ -186,33 +223,50 @@
       margin-bottom: 4px;
     }
 
+    /* 3. 타입 뱃지 = 핑크 */
     .post-type-badge {
+      display: inline-flex;
+      align-items: center;
       padding: 1px 8px;
       border-radius: 999px;
-      background: #FFE5F3;
-      color: #FF6FB5;
       font-size: 11px;
       margin-left: 6px;
+      background: #FFE5F3;
+      color: #FF6FB5;
     }
 
     .post-section-label {
-      display: inline-block;
+      display: inline-flex;
+      align-items: center;
       padding: 2px 8px;
       border-radius: 999px;
       font-size: 11px;
-      margin-top: 4px;
       margin-bottom: 4px;
     }
 
-    .sec-offline { background: #FFE5F3; color: #FF6FB5; }
-    .sec-vocab   { background: #d1fae5; color: #047857; }
-    .sec-sentence{ background: #e0f2fe; color: #0369a1; }
+    /* 필기 섹션 라벨도 핑크 계열로 */
+    .sec-offline {
+      background: #FFE5F3;
+      color: #FF6FB5;
+    }
+
+    /* 나머지는 그대로 사용 (어휘=민트, 문장=블루느낌) */
+    .sec-vocab {
+      background: #d1fae5;
+      color: #047857;
+    }
+
+    .sec-sentence {
+      background: #e0f2fe;
+      color: #0369a1;
+    }
 
     .post-content {
       font-size: 14px;
-      margin-bottom: 10px;
-      white-space: pre-wrap;
       color: #374151;
+      white-space: pre-wrap;
+      margin-top: 4px;
+      margin-bottom: 10px;
     }
 
     .empty-box {
@@ -225,223 +279,568 @@
       text-align: center;
     }
 
-    /* 수정 / 삭제 버튼 */
-    .post-actions {
-      margin-top: 4px;
-      display: flex;
-      gap: 4px;
-      font-size: 11px;
+    .status-text {
+      font-size: 13px;
+      color: #6b7280;
+      margin-top: 6px;
     }
-    .post-action-btn {
-      padding: 3px 8px;
-      border-radius: 999px;
-      border: none;
-      cursor: pointer;
-    }
-    .post-action-edit {
-      background: #e0f2fe;
-      color: #0369a1;
-    }
-    .post-action-delete {
-      background: #fee2e2;
+
+    .status-text.error {
       color: #b91c1c;
     }
 
+    @media (max-width: 640px) {
+      .post-header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .post-meta {
+        text-align: left;
+      }
+      .top-bar {
+        align-items: flex-start;
+      }
+    }
   </style>
 </head>
 <body>
 
-  <!-- 글쓰기 박스 (선생님만 보임) -->
-<div id="writeBox" class="write-card" style="display:none;">
-  <div class="write-title" id="writeBoxTitle">새 글 쓰기</div>
+<div class="page">
+  <div class="title-big">반별 게시판</div>
+  <div class="subtitle">반을 선택하고 공지와 숙제를 확인하세요.</div>
 
-  <div class="write-row">
-    <div>
-      <label>반 선택</label><br />
-      <select id="writeClass" class="write-select"></select>
+  <div class="top-bar">
+    <div class="filter-group">
+      <span>반 선택</span>
+      <select id="classFilter" class="class-select">
+        <option value="all">전체</option>
+      </select>
     </div>
-    <div>
-      <label>작성자</label><br />
-      <input id="writeAuthor" class="write-input" placeholder="예: Stella쌤" />
-    </div>
-    <div style="flex:1; min-width:180px;">
-      <label>제목</label><br />
-      <input id="writeTitle" class="write-input" style="width:100%;" placeholder="예: 2025-10-25 숙제" />
+
+    <div class="top-btns">
+      <button id="writeToggleBtn" class="pill-btn btn-primary">
+        ✏️ 글쓰기
+      </button>
+      <button id="onlineHwBtn" class="pill-btn btn-secondary">
+        📚 온라인 숙제
+      </button>
+      <button id="manageBtn" class="pill-btn btn-manage">
+        🛠 관리
+      </button>
     </div>
   </div>
 
-  <textarea id="writeContent" class="write-textarea"
-    placeholder="내용을 입력하세요. (문법/듣기/독해 숙제, 공지 등)"></textarea>
+  <!-- 글쓰기 폼 (선생님만 보임) -->
+  <div id="writeBox" class="write-card" style="display:none;">
+    <div class="write-title">새 글 쓰기</div>
 
-  <div class="write-actions">
-    <button class="btn btn-cancel" id="cancelWriteBtn">취소</button>
-    <button class="btn btn-submit" id="submitWriteBtn">등록</button>
+    <div class="write-row">
+      <div>
+        <label>반 선택</label><br />
+        <select id="writeClass" class="write-select"></select>
+      </div>
+      <div>
+        <label>작성자</label><br />
+        <input id="writeAuthor" class="write-input" placeholder="예: Stella쌤" />
+      </div>
+      <div style="flex:1; min-width:180px;">
+        <label>제목</label><br />
+        <input id="writeTitle" class="write-input" style="width:100%;" placeholder="예: 2025-10-25 숙제" />
+      </div>
+    </div>
+
+    <textarea id="writeContent" class="write-textarea" placeholder="내용을 입력하세요. (문법/듣기/독해 숙제, 공지 등)"></textarea>
+
+    <div class="write-actions">
+      <button class="btn btn-cancel" id="cancelWriteBtn">취소</button>
+      <button class="btn btn-submit" id="submitWriteBtn">등록</button>
+    </div>
+
+    <div id="writeStatus" class="status-text"></div>
   </div>
 
-  <div id="writeStatus" class="status-text"></div>
+  <!-- 게시글 + 온라인 숙제 묶음 리스트 -->
+  <div id="postList" class="post-list"></div>
+  <div id="emptyBox" class="empty-box" style="display:none;">
+    선택된 반에 등록된 글이 아직 없어요.
+  </div>
 </div>
 
-  <script>
-// 수정 중인지 상태 저장
-let editingPostId = null;
+<!-- Supabase JS -->
+<script src="https://unpkg.com/@supabase/supabase-js@2.48.0/dist/umd/supabase.js"></script>
+<script>
+  const SUPABASE_URL = "https://bpdisxjhhibrgfpvtlmv.supabase.co";
+  const SUPABASE_ANON_KEY =
+    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJwZGlzeGpoaGlicmdmcHZ0bG12Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjM5NTkxODQsImV4cCI6MjA3OTUzNTE4NH0.jDZ6BGirOPuWUnt4ykjhng4PLft2ZjBuYAFzApUnlYU";
 
-// 글쓰기 토글
-writeToggleBtn.onclick = () => {
-  if (currentRole !== "teacher") {
-    alert("선생님 계정으로 로그인해야 글을 작성할 수 있어요.");
-    return;
+  const client = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+  const DEFAULT_AUTHOR_LABEL = "Stella쌤";
+
+  // DOM
+  const classFilterEl  = document.getElementById("classFilter");
+  const writeToggleBtn = document.getElementById("writeToggleBtn");
+  const onlineHwBtn    = document.getElementById("onlineHwBtn");
+  const manageBtn      = document.getElementById("manageBtn");
+
+  const writeBoxEl     = document.getElementById("writeBox");
+  const writeClassEl   = document.getElementById("writeClass");
+  const writeAuthorEl  = document.getElementById("writeAuthor");
+  const writeTitleEl   = document.getElementById("writeTitle");
+  const writeContentEl = document.getElementById("writeContent");
+  const cancelWriteBtn = document.getElementById("cancelWriteBtn");
+  const submitWriteBtn = document.getElementById("submitWriteBtn");
+  const writeStatusEl  = document.getElementById("writeStatus");
+
+  const postListEl     = document.getElementById("postList");
+  const emptyBoxEl     = document.getElementById("emptyBox");
+
+  // 상태
+  let classes = [];          // [{id, name}, ...]
+  let groups = [];           // 날짜+반으로 묶은 숙제들
+  let currentRole = "guest"; // "teacher" | "student" | "guest"
+  let currentUserName = "";
+  let currentUserId = null;
+
+  function setWriteStatus(msg, isError = false) {
+    writeStatusEl.textContent = msg || "";
+    writeStatusEl.classList.toggle("error", !!isError);
   }
 
-  const visible = writeBoxEl.style.display !== "none";
+  // --- 역할 감지 (선생님/학생/게스트) ---
+  async function detectRole() {
+    try {
+      const { data, error } = await client.auth.getUser();
+      if (!error && data && data.user) {
+        currentRole = "teacher";
+        currentUserId = data.user.id;
+        currentUserName =
+          (data.user.user_metadata && data.user.user_metadata.display_name) ||
+          data.user.email ||
+          DEFAULT_AUTHOR_LABEL;
+        applyRoleUI();
+        return;
+      }
+    } catch (e) {
+      console.error("auth 확인 중 오류:", e);
+    }
 
-  if (visible) {
-    // 닫힘
-    writeBoxEl.style.display = "none";
-    editingPostId = null;
-    writeBoxTitle.textContent = "새 글 쓰기";
-    submitWriteBtn.textContent = "등록";
-  } else {
-    // 새 글쓰기 모드
-    writeBoxEl.style.display = "block";
-    writeBoxTitle.textContent = "새 글 쓰기";
-    submitWriteBtn.textContent = "등록";
-    editingPostId = null;
-
-    writeTitleEl.value = "";
-    writeContentEl.value = "";
-    writeAuthorEl.value = currentUserName || DEFAULT_AUTHOR_LABEL;
-    setWriteStatus("");
+    // 학생(localStorage) 확인
+    try {
+      const raw = localStorage.getItem("blossom_student");
+      if (raw) {
+        const s = JSON.parse(raw);
+        currentRole = "student";
+        currentUserName = s.name || s.login_id || "학생";
+      } else {
+        currentRole = "guest";
+        currentUserName = "";
+      }
+    } catch (e) {
+      currentRole = "guest";
+      currentUserName = "";
+    }
+    applyRoleUI();
   }
-};
 
-// 글 등록 or 수정
-submitWriteBtn.onclick = async () => {
-  if (currentRole !== "teacher") return;
-
-  const classId = writeClassEl.value;
-  const title = writeTitleEl.value.trim();
-  const content = writeContentEl.value.trim();
-
-  if (!classId || !title || !content) {
-    setWriteStatus("모든 내용을 입력해 주세요.", true);
-    return;
+  function applyRoleUI() {
+    const isTeacher = currentRole === "teacher";
+    writeToggleBtn.style.display = isTeacher ? "inline-flex" : "none";
+    onlineHwBtn.style.display    = isTeacher ? "inline-flex" : "none";
+    manageBtn.style.display      = isTeacher ? "inline-flex" : "none";
+    if (!isTeacher) {
+      writeBoxEl.style.display = "none";
+    }
   }
 
-  setWriteStatus("저장 중…");
-  submitWriteBtn.disabled = true;
-
-  if (editingPostId) {
-    // ✏️ 수정 모드
-    const { error } = await client
-      .from("board_posts")
-      .update({ title, content })
-      .eq("id", editingPostId);
-
-    submitWriteBtn.disabled = false;
+  // --- 반 목록 불러오기 ---
+  async function loadClasses() {
+    const { data, error } = await client
+      .from("classes")
+      .select("id, name")
+      .order("name", { ascending: true });
 
     if (error) {
-      setWriteStatus("수정 중 오류 발생", true);
+      console.error("classes 불러오기 오류:", error);
       return;
     }
 
-    setWriteStatus("수정되었습니다!");
-  } else {
-    // ➕ 새 글 등록
-    const now = new Date().toISOString();
+    classes = data || [];
+
+    // 상단 필터
+    classFilterEl.innerHTML = '<option value="all">전체</option>';
+    classes.forEach(cls => {
+      const opt = document.createElement("option");
+      opt.value = cls.id;
+      opt.textContent = cls.name;
+      classFilterEl.appendChild(opt);
+    });
+
+    // 글쓰기용 반 선택
+    writeClassEl.innerHTML = "";
+    classes.forEach(cls => {
+      const opt = document.createElement("option");
+      opt.value = cls.id;
+      opt.textContent = cls.name;
+      writeClassEl.appendChild(opt);
+    });
+  }
+
+  function getClassNameById(id) {
+    const found = classes.find(c => String(c.id) === String(id));
+    return found ? found.name : "";
+  }
+
+  function formatDateTime(iso) {
+    if (!iso) return "";
+    const d = new Date(iso);
+    if (Number.isNaN(d.getTime())) return "";
+    const y = d.getFullYear();
+    const m = String(d.getMonth() + 1).padStart(2, "0");
+    const day = String(d.getDate()).padStart(2, "0");
+    const hh = String(d.getHours()).padStart(2, "0");
+    const mm = String(d.getMinutes()).padStart(2, "0");
+    return `${y}-${m}-${day} ${hh}:${mm}`;
+  }
+
+  function toDateKeyFromISO(iso) {
+    if (!iso) return "";
+    const d = new Date(iso);
+    if (Number.isNaN(d.getTime())) return "";
+    const y = d.getFullYear();
+    const m = String(d.getMonth() + 1).padStart(2, "0");
+    const day = String(d.getDate()).padStart(2, "0");
+    return `${y}-${m}-${day}`;
+  }
+
+  function dateKeyFromTitle(title) {
+    if (!title) return "";
+    const trimmed = title.trim();
+    // 2025-10-25 형태만 인식
+    const m = trimmed.match(/^(\d{4})-(\d{2})-(\d{2})/);
+    if (m) return `${m[1]}-${m[2]}-${m[3]}`;
+    return "";
+  }
+
+  // --- board_posts + 온라인 숙제 불러와서 날짜+반으로 묶기 ---
+  async function loadGroups() {
+    const [postsRes, vocabRes, sentenceRes] = await Promise.all([
+      client.from("board_posts")
+        .select("id, class_id, title, content, created_at")
+        .order("created_at", { ascending: false }),
+      client.from("vocab_homework")
+        .select("*")
+        .order("created_at", { ascending: false }),
+      client.from("sentence_homework")
+        .select("*")
+        .order("created_at", { ascending: false }),
+    ]);
+
+    if (postsRes.error) {
+      console.error("board_posts 불러오기 오류:", postsRes.error);
+    }
+    if (vocabRes.error) {
+      console.error("vocab_homework 불러오기 오류:", vocabRes.error);
+    }
+    if (sentenceRes.error) {
+      console.error("sentence_homework 불러오기 오류:", sentenceRes.error);
+    }
+
+    const map = {}; // key = class_id + '__' + dateKey
+
+    function ensureGroup(class_id, dateKey, created_at) {
+      const key = `${class_id}__${dateKey}`;
+      if (!map[key]) {
+        map[key] = {
+          key,
+          class_id,
+          class_name: getClassNameById(class_id),
+          dateKey,
+          latestTime: created_at || null,
+          posts: [],
+          vocab: [],
+          sentence: []
+        };
+      } else {
+        // 최신 시간 갱신
+        if (created_at && (!map[key].latestTime || new Date(created_at) > new Date(map[key].latestTime))) {
+          map[key].latestTime = created_at;
+        }
+      }
+      return map[key];
+    }
+
+    // 필기(게시판) 글
+    (postsRes.data || []).forEach(row => {
+      const titleDate = dateKeyFromTitle(row.title);
+      const dateKey = titleDate || toDateKeyFromISO(row.created_at);
+      if (!dateKey) return;
+
+      const g = ensureGroup(row.class_id, dateKey, row.created_at);
+      g.posts.push({
+        id: row.id,
+        title: row.title,
+        content: row.content || "",
+        created_at: row.created_at
+      });
+    });
+
+    // 온라인 어휘 숙제
+    (vocabRes.data || []).forEach(row => {
+      const baseDate = row.due_date || row.created_at;
+      const dateKey = row.due_date || toDateKeyFromISO(row.created_at);
+      if (!dateKey) return;
+
+      const g = ensureGroup(row.class_id, dateKey, baseDate);
+      g.vocab.push({
+        id: row.id,
+        level: row.level,
+        sets: row.set_numbers,
+        due_date: row.due_date,
+        created_at: row.created_at
+      });
+    });
+
+    // 온라인 문장 숙제
+    (sentenceRes.data || []).forEach(row => {
+      const baseDate = row.due_date || row.created_at;
+      const dateKey = row.due_date || toDateKeyFromISO(row.created_at);
+      if (!dateKey) return;
+
+      const g = ensureGroup(row.class_id, dateKey, baseDate);
+      g.sentence.push({
+        id: row.id,
+        level: row.level,
+        sets: row.set_numbers,
+        due_date: row.due_date,
+        created_at: row.created_at
+      });
+    });
+
+    // map -> 배열, 최신순 정렬
+    groups = Object.values(map).sort((a, b) => {
+      return new Date(b.latestTime || 0) - new Date(a.latestTime || 0);
+    });
+
+    renderGroups();
+  }
+
+  // --- 화면에 리스트 렌더링 (날짜+반 묶음 기준) ---
+  function renderGroups() {
+    const selected = classFilterEl.value;  // "all" 또는 class_id(uuid)
+    postListEl.innerHTML = "";
+
+    const filtered =
+      selected === "all"
+        ? groups.slice()
+        : groups.filter(g => String(g.class_id) === String(selected));
+
+    if (!filtered.length) {
+      emptyBoxEl.style.display = "block";
+      return;
+    }
+    emptyBoxEl.style.display = "none";
+
+    filtered.forEach(g => {
+      const card = document.createElement("div");
+      card.className = "post-card";
+
+      const header = document.createElement("div");
+      header.className = "post-header";
+
+      // 왼쪽: 반 뱃지 + 종류 뱃지 + 날짜(타이틀)
+      const left = document.createElement("div");
+      const classBadge = document.createElement("div");
+      classBadge.className = "post-class-badge";
+      classBadge.textContent = g.class_name || "전체";
+
+      const typeBadge = document.createElement("span");
+      typeBadge.className = "post-type-badge";
+      const hasOffline = g.posts.length > 0;
+      const hasOnline = g.vocab.length > 0 || g.sentence.length > 0;
+      if (hasOffline && hasOnline) {
+        typeBadge.textContent = "필기 + 온라인 숙제";
+      } else if (hasOffline) {
+        typeBadge.textContent = "필기 숙제";
+      } else {
+        typeBadge.textContent = "온라인 숙제";
+      }
+
+      const titleEl = document.createElement("div");
+      titleEl.className = "post-title";
+      titleEl.textContent = g.dateKey; // 예: 2025-10-25
+
+      left.appendChild(classBadge);
+      left.appendChild(typeBadge);
+      left.appendChild(titleEl);
+
+      // 오른쪽: 작성자/시간
+      const meta = document.createElement("div");
+      meta.className = "post-meta";
+      meta.innerHTML = `
+        <span>${DEFAULT_AUTHOR_LABEL}</span>
+        <span>${formatDateTime(g.latestTime)}</span>
+      `;
+
+      header.appendChild(left);
+      header.appendChild(meta);
+      card.appendChild(header);
+
+      // 본문: 필기 / 온라인 어휘 / 온라인 문장 섹션
+      const body = document.createElement("div");
+
+      if (g.posts.length > 0) {
+        const secLabel = document.createElement("div");
+        secLabel.className = "post-section-label sec-offline";
+        secLabel.textContent = "✏️ 필기 숙제 / 공지";
+        body.appendChild(secLabel);
+
+        g.posts.forEach(p => {
+          const c = document.createElement("div");
+          c.className = "post-content";
+          c.textContent = p.content;
+          body.appendChild(c);
+        });
+      }
+
+      if (g.vocab.length > 0) {
+        const secLabel = document.createElement("div");
+        secLabel.className = "post-section-label sec-vocab";
+        secLabel.textContent = "📚 온라인 어휘 숙제";
+        body.appendChild(secLabel);
+
+        g.vocab.forEach(h => {
+          const c = document.createElement("div");
+          c.className = "post-content";
+          const levelTxt = h.level != null ? `단계 ${h.level}` : "";
+          const setTxt = h.sets ? ` / 세트 ${h.sets}` : "";
+          const dueTxt = h.due_date ? `\n마감일: ${h.due_date}` : "";
+          c.textContent = `${levelTxt}${setTxt}${dueTxt}`;
+          body.appendChild(c);
+        });
+      }
+
+      if (g.sentence.length > 0) {
+        const secLabel = document.createElement("div");
+        secLabel.className = "post-section-label sec-sentence";
+        secLabel.textContent = "💬 온라인 문장 숙제";
+        body.appendChild(secLabel);
+
+        g.sentence.forEach(h => {
+          const c = document.createElement("div");
+          c.className = "post-content";
+          const levelTxt = h.level != null ? `단계 ${h.level}` : "";
+          const setTxt = h.sets ? ` / 세트 ${h.sets}` : "";
+          const dueTxt = h.due_date ? `\n마감일: ${h.due_date}` : "";
+          c.textContent = `${levelTxt}${setTxt}${dueTxt}`;
+          body.appendChild(c);
+        });
+      }
+
+      card.appendChild(body);
+      postListEl.appendChild(card);
+    });
+  }
+
+  // --- 글쓰기 버튼 동작 ---
+  writeToggleBtn.onclick = () => {
+    if (currentRole !== "teacher") {
+      alert("선생님 계정으로 로그인해야 글을 작성할 수 있어요.");
+      return;
+    }
+    const visible = writeBoxEl.style.display !== "none";
+    writeBoxEl.style.display = visible ? "none" : "block";
+    if (!visible) {
+      writeTitleEl.value = "";
+      writeContentEl.value = "";
+      writeAuthorEl.value = currentUserName || DEFAULT_AUTHOR_LABEL;
+      setWriteStatus("");
+    }
+  };
+
+  cancelWriteBtn.onclick = () => {
+    writeBoxEl.style.display = "none";
+    setWriteStatus("");
+  };
+
+  // --- 글 등록 (Supabase board_posts 에 저장) ---
+  submitWriteBtn.onclick = async () => {
+    if (currentRole !== "teacher") {
+      alert("선생님 계정으로 로그인해야 글을 작성할 수 있어요.");
+      return;
+    }
+    if (!currentUserId) {
+      setWriteStatus("로그인 정보를 찾을 수 없어요.", true);
+      return;
+    }
+
+    const classId = writeClassEl.value;
+    const title   = writeTitleEl.value.trim();
+    const content = writeContentEl.value.trim();
+
+    if (!classId) {
+      setWriteStatus("반을 선택해 주세요.", true);
+      return;
+    }
+    if (!title || !content) {
+      setWriteStatus("제목과 내용을 입력해 주세요.", true);
+      return;
+    }
+
+    setWriteStatus("저장 중입니다…");
+    submitWriteBtn.disabled = true;
+
+    const nowIso = new Date().toISOString();
+
     const { error } = await client.from("board_posts").insert({
       class_id: classId,
       title,
       content,
       author_id: currentUserId,
-      created_at: now
+      created_at: nowIso
     });
 
     submitWriteBtn.disabled = false;
 
     if (error) {
-      setWriteStatus("저장 중 오류 발생", true);
+      console.error("게시글 저장 오류:", error);
+      setWriteStatus("글을 저장하는 중 오류가 발생했어요.", true);
       return;
     }
 
-    setWriteStatus("등록되었습니다!");
-  }
+    setWriteStatus("저장되었습니다!");
+    writeBoxEl.style.display = "none";
 
-  writeBoxEl.style.display = "none";
-  editingPostId = null;
-  await loadGroups();
-};
+    await loadGroups();
+  };
 
-// 취소 버튼
-cancelWriteBtn.onclick = () => {
-  writeBoxEl.style.display = "none";
-  editingPostId = null;
-  setWriteStatus("");
-};
+  // 온라인 숙제 버튼 → homework-teacher.html 로 이동
+  onlineHwBtn.onclick = () => {
+    if (currentRole !== "teacher") {
+      alert("선생님 계정으로만 접근할 수 있어요.");
+      return;
+    }
+    window.location.href = "homework-teacher.html";
+  };
 
-// 삭제 기능
-async function deletePost(postId) {
-  if (!confirm("정말 삭제할까요?")) return;
+  // 관리 버튼 → teacher-result.html 로 이동
+  manageBtn.onclick = () => {
+    if (currentRole !== "teacher") {
+      alert("선생님 계정으로만 접근할 수 있어요.");
+      return;
+    }
+    window.location.href = "teacher-result.html";
+  };
 
-  const { error } = await client.from("board_posts").delete().eq("id", postId);
+  // 반 필터 변경 시
+  classFilterEl.onchange = renderGroups;
 
-  if (error) {
-    alert("삭제 중 오류 발생!");
-    return;
-  }
-
-  await loadGroups();
-}
-
-// 수정모드 진입
-function editPost(post) {
-  editingPostId = post.id;
-
-  writeBoxEl.style.display = "block";
-  writeBoxTitle.textContent = "글 수정하기";
-  submitWriteBtn.textContent = "수정";
-
-  writeClassEl.value = post.class_id;
-  writeTitleEl.value = post.title;
-  writeContentEl.value = post.content;
-
-  writeAuthorEl.value = currentUserName || DEFAULT_AUTHOR_LABEL;
-}
+  // 초기 실행
+  (async function init() {
+    await detectRole();   // 선생님/학생 구분
+    await loadClasses();  // Supabase에서 반 목록
+    await loadGroups();   // board_posts + 온라인 숙제 묶어서 불러오기
+  })();
 </script>
 
-  // 수정/삭제 버튼 (선생님만)
-if (currentRole === "teacher") {
-  const editRow = document.createElement("div");
-  editRow.style.marginTop = "6px";
-  editRow.style.display = "flex";
-  editRow.style.gap = "8px";
-
-  const editBtn = document.createElement("button");
-  editBtn.textContent = "수정";
-  editBtn.style.padding = "4px 10px";
-  editBtn.style.fontSize = "12px";
-  editBtn.style.borderRadius = "8px";
-  editBtn.style.border = "none";
-  editBtn.style.background = "#f9c74f";
-  editBtn.style.color = "#fff";
-  editBtn.onclick = () => editPost({
-    id: p.id,
-    title: p.title,
-    content: p.content,
-    class_id: g.class_id
-  });
-
-  const delBtn = document.createElement("button");
-  delBtn.textContent = "삭제";
-  delBtn.style.padding = "4px 10px";
-  delBtn.style.fontSize = "12px";
-  delBtn.style.borderRadius = "8px";
-  delBtn.style.border = "none";
-  delBtn.style.background = "#f94144";
-  delBtn.style.color = "#fff";
-  delBtn.onclick = () => deletePost(p.id);
-
-  editRow.appendChild(editBtn);
-  editRow.appendChild(delBtn);
-  body.appendChild(editRow);
-}
-  
+</body>
+</html>
