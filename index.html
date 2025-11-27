@@ -1,87 +1,163 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-  <meta charset="UTF-8" />
-  <title>블라썸잉글리쉬</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link href="https://cdn.jsdelivr.net/npm/pretendard/dist/web/variable/pretendardvariable.css" rel="stylesheet" />
-  <script src="https://unpkg.com/@supabase/supabase-js@2.48.0/dist/umd/supabase.js"></script>
+  <meta charset="UTF-8" />
+  <title>블라썸잉글리쉬</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="https://cdn.jsdelivr.net/npm/pretendard/dist/web/variable/pretendardvariable.css" rel="stylesheet" />
 
-  <style>
-    /* === 스타일 === */
-    :root { 
-        --main-blue: #00AEEF; /* 관리 버튼 색상 */
-        --main-pink: #FF6FB5; 
-        --bg: #f4f6fb; 
+  <style>
+    /* === CSS 안전장치 추가: 이미지 로드 실패 시 레이아웃 무너짐 방지 === */
+    :root { --main-blue: #00AEEF; --main-pink: #FF6FB5; }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: "Pretendard Variable", -apple-system, BlinkMacSystemFont,
+        system-ui, "Apple SD Gothic Neo", "Noto Sans KR", sans-serif;
+    }
+
+    body {
+      background: #f4f6fb;
+      padding: 30px 0 60px;
+    }
+
+    .page {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 20px;
+      position: relative;
+    }
+
+    /* 헤더 영역을 위한 추가 CSS */
+    .header-wrap { 
+        display: flex; 
+        justify-content: space-between; 
+        align-items: center; 
+        padding-top: 34px; 
+        padding-bottom: 30px;
+        margin-bottom: 32px;
     }
-    * { box-sizing: border-box; margin: 0; padding: 0; font-family: "Pretendard Variable", sans-serif; }
-    body { background: var(--bg); min-height: 100vh; color: #1f2937; }
-    .page { max-width: 900px; margin: 0 auto; padding: 32px 16px; }
+    
+    /* 🔹 오른쪽 상단 로그인 영역 */
+    #login-status-area {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+    }
+    
+    #login-status-area span {
+      font-size: 14px;
+      color: #374151;
+      font-weight: 600;
+    }
 
-    /* 헤더 */
-    .header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 40px; }
-    .header a { text-decoration: none; color: inherit; }
-    .brand-title { font-size: 30px; font-weight: 800; color: #1f2937; } /* 로고 색상 원복 */
-    
-    /* 사용자 정보 & 버튼 그룹 */
-    .user-info { display: flex; align-items: center; gap: 10px; }
-    .user-text { font-size: 14px; color: #4b5563; }
-    
-    /* 관리 버튼 (하늘색 부분 - 요청하신 위치) */
+    /* 관리 버튼 (하늘색) */
     .admin-btn { 
-        padding: 8px 12px; 
         border: none; 
-        background: var(--main-blue); /* 00AEEF 색상 */
+        background: var(--main-blue); 
         color: white; 
-        border-radius: 6px; 
+        padding: 6px 14px; 
+        border-radius: 999px; 
         cursor: pointer; 
-        font-size: 14px; 
+        font-size: 13px; 
         font-weight: 600;
         text-decoration: none;
-        display: inline-flex;
-        align-items: center;
+        display: none; /* JS로 제어 */
     }
-    
-    .logout-btn { padding: 8px 12px; border: 1px solid #e5e7eb; background: var(--main-pink); color: white; border-radius: 6px; cursor: pointer; font-size: 14px; font-weight: 600; }
-    .logout-btn:hover { filter: brightness(0.9); }
 
+    #logout-btn, #login-btn { 
+      border: none;
+      background: var(--main-pink); /* 핑크색 */
+      color: white;
+      padding: 6px 14px;
+      border-radius: 999px;
+      cursor: pointer;
+      font-size: 13px;
+      font-weight: 600;
+    }
 
-    /* 카드 그리드 */
-    .card-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; }
-    .card { background: white; border-radius: 20px; padding: 30px; text-decoration: none; color: #1f2937; transition: transform 0.2s, box-shadow 0.2s; min-height: 180px; display: flex; flex-direction: column; justify-content: space-between; }
-    .card:hover { transform: translateY(-5px); box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1); }
-    
-    .menu-icon { width: 87px; height: 87px; margin-bottom: 16px; }
-    .menu-text { font-size: 20px; font-weight: 700; color: #111827; }
-    
-    /* 카드별 색상 (사용자의 원본 CSS를 따름) */
-    .card:nth-child(1) { border-bottom: 5px solid #ff7eb3; }
-    .card:nth-child(2) { border-bottom: 5px solid #6ee7b7; }
-    .card:nth-child(3) { border-bottom: 5px solid #00AEEF; }
-    .card:nth-child(4) { border-bottom: 5px solid #FF6FB5; } /* 온라인 서점은 핑크 계열 유지 */
-    
-    /* 숨김 처리 */
-    .hidden { display: none !important; }
-  </style>
+    .title-big {
+      font-size: 34px;
+      font-weight: 900;
+      margin-bottom: 6px;
+    }
+
+    .subtitle {
+      font-size: 16px;
+      color: #6b7280;
+      margin-bottom: 32px;
+    }
+
+    /* 2 × 2 레이아웃 */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 22px;
+    }
+
+    .menu-card {
+      background: #ffffff;
+      border-radius: 26px;
+      height: 180px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      box-shadow: 0 15px 32px rgba(15, 23, 42, 0.08);
+      transition: all 0.2s ease;
+      cursor: pointer;
+    }
+
+    .menu-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 22px 40px rgba(15, 23, 42, 0.12);
+    }
+
+    /* ✨ 핵심 수정: 이미지가 없어도 레이아웃이 무너지지 않게 고정 */
+    .menu-icon {
+      width: 87px;
+      height: 87px;
+      margin-bottom: 16px;
+      display: block; 
+      object-fit: contain; 
+    }
+
+    .menu-text {
+      font-size: 20px;
+      font-weight: 700;
+      color: #111827;
+    }
+
+    a {
+      text-decoration: none;
+    }
+  </style>
 </head>
+
 <body>
 <div class="page">
-  <div class="header">
-    <a href="index.html">
-        <div class="brand-title">블라썸잉글리쉬</div>
-    </a>
-    
-    <div class="user-info">
-      <div class="user-text" id="userInfoText">로그인 해주세요.</div>
-      
-      <a href="teacher-result.html" class="admin-btn hidden" id="adminHeaderBtn">관리</a>
 
-      <button class="logout-btn hidden" id="logoutBtn">로그아웃</button>
+  <div class="header-wrap">
+        <div class="title-area">
+            <div class="title-big">블라썸잉글리쉬</div>
+            <div class="subtitle">미래를 꽃 피우는 영어 교육</div>
+        </div>
+        <div id="login-status-area">
+            <span id="login-name"></span>
+            
+            <a href="teacher-result.html" class="admin-btn" id="admin-btn" style="display:none;">관리</a>
+
+            <button id="login-btn" onclick="location.href='login.html'">로그인</button>
+            <button id="logout-btn" style="display:none;">로그아웃</button>
+        </div>
     </div>
-  </div>
 
-  <div class="card-grid">
-    <a href="quiz.html?unit=1-1">
+
+  <div class="grid">
+
+        <a href="quiz.html?unit=1-1">
       <div class="menu-card">
         <img src="vocab-book.png" class="menu-icon" alt="어휘 학습" />
         <div class="menu-text">어휘 학습</div>
@@ -102,74 +178,69 @@
       </div>
     </a>
 
-        <a id="online-store-link" 
-       href="https://search.kyobobook.co.kr/search?keyword=%EC%B4%88%EB%B0%94%EC%98%81&gbCode=TOT&target=total" 
-       target="_blank">
-      <div class="menu-card" id="online-store-card">
-        <img src="store.png" class="menu-icon" alt="온라인 서점" id="card-icon-store" />
-        <div class="menu-text" id="card-store-text">온라인 서점</div>
+        <a href="https://search.kyobobook.co.kr/search?keyword=%EC%B4%88%EB%B0%94%EC%98%81&gbCode=TOT&target=total" target="_blank">
+      <div class="menu-card">
+        <img src="store.png" class="menu-icon" alt="온라인 서점" />
+        <div class="menu-text">온라인 서점</div>
       </div>
     </a>
-  </div>
+
+  </div>
 </div>
 
+<script src="https://unpkg.com/@supabase/supabase-js@2.48.0/dist/umd/supabase.js"></script>
 <script>
-  // ---------- Supabase 설정 ----------
-  const SUPABASE_URL = "https://bpdisxjhhibrgfpvtlmv.supabase.co";
-  const SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJwZGlzeGpoaGlicmdmcHZ0bG12Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjM5NTkxODQsImV4cCI6MjA3OTUzNTE4NH0.jDZ6BGirOPuWUnt4ykjhng4PLft2ZjBuYAFzApUnlYU";
-  const supabase = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+  const supa = supabase.createClient(
+    "https://bpdisxjhhibrgfpvtlmv.supabase.co",
+    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJwZGlzeGpoaGlicmdmcHZ0bG12Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjM5NTkxODQsImV4cCI6MjA3OTUzNTE4NH0.jDZ6BGirOPuWUnt4ykjhng4PLft2ZjBuYAFzApUnlYU"
+  );
 
-  const userInfoText = document.getElementById("userInfoText");
-  const logoutBtn = document.getElementById("logoutBtn");
-  const adminHeaderBtn = document.getElementById("adminHeaderBtn"); // ✨ 새 버튼 ID
+  async function checkLogin() {
+    const loginName = document.getElementById("login-name");
+    const loginBtn = document.getElementById("login-btn");
+    const logoutBtn = document.getElementById("logout-btn");
+    const adminBtn = document.getElementById("admin-btn"); // 관리 버튼 ID
 
-  // --- 1. 로그인 상태 체크 및 UI 업데이트 ---
-  async function checkAuthAndRender() {
-    
-    // 1. Supabase 세션 확인 (선생님 로그인 체크)
-    const { data: { session } } = await supabase.auth.getSession();
-    
-    // 2. 학생 로그인 확인 (localStorage)
-    const studentData = localStorage.getItem("blossom_student");
+    // 1) 학생 로그인(localStorage)
+    const student = localStorage.getItem("blossom_student");
 
-    if (session) {
-      // ✅ 선생님 로그인 상태
-      const email = session.user.email;
-      
-      userInfoText.textContent = `${email.split('@')[0]} 선생님`;
-      logoutBtn.classList.remove("hidden");
-      adminHeaderBtn.classList.remove("hidden"); // ✨ 헤더 관리 버튼 표시 ✨
-      
-    } else if (studentData) {
-      // ✅ 학생 로그인 상태
-      const s = JSON.parse(studentData);
-      
-      userInfoText.textContent = `${s.name} 학생`;
-      logoutBtn.classList.remove("hidden");
-      adminHeaderBtn.classList.add("hidden"); // 학생은 관리 버튼 숨김
-      
-    } else {
-      // ❌ 비로그인 상태
-      userInfoText.textContent = "로그인 해주세요.";
-      logoutBtn.classList.add("hidden");
-      adminHeaderBtn.classList.add("hidden"); // 관리 버튼 숨김
-    }
-  }
+    if (student) {
+      const s = JSON.parse(student);
+      loginName.textContent = `${s.name} 학생`;
+      loginBtn.style.display = "none";
+      logoutBtn.style.display = "inline-block";
+      adminBtn.style.display = "none"; // 학생은 관리 버튼 숨김
+      return;
+    }
 
-  // --- 2. 로그아웃 처리 ---
-  async function logoutUser() {
-      if(confirm("로그아웃 하시겠습니까?")) {
-        localStorage.removeItem("blossom_student"); // 학생 로그아웃
-        await supabase.auth.signOut(); // 선생님 로그아웃
-        location.reload();
-      }
-  }
-  
-  // 로그아웃 버튼 이벤트 리스너 연결
-  document.getElementById("logoutBtn").onclick = logoutUser;
+    // 2) 선생님 로그인(supabase)
+    const { data } = await supa.auth.getUser();
 
-  // 페이지 로드 시 실행
-  checkAuthAndRender();
+    if (data.user) {
+      const name = data.user.user_metadata?.display_name || data.user.email;
+      loginName.textContent = `${name} 선생님`;
+      loginBtn.style.display = "none";
+      logoutBtn.style.display = "inline-block";
+      adminBtn.style.display = "inline-block"; // ✨ 선생님만 관리 버튼 표시 ✨
+      return;
+    }
+
+    // 3) 아무도 로그인 안함
+    loginName.textContent = "";
+    loginBtn.style.display = "inline-block";
+    logoutBtn.style.display = "none";
+    adminBtn.style.display = "none"; // 비로그인 시 관리 버튼 숨김
+  }
+
+  async function logoutUser() {
+    localStorage.removeItem("blossom_student");
+    await supa.auth.signOut();
+    location.reload();
+  }
+
+  checkLogin();
 </script>
+
 </body>
+
 </html>
