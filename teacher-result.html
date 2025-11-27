@@ -95,10 +95,12 @@
 </div>
 
 <script>
-  // 1. Supabase 설정 (본인 키 그대로 사용)
+  // 1. Supabase 설정 (변수명 충돌 방지: supabaseClient로 변경)
   const SUPABASE_URL = "https://bpdisxjhhibrgfpvtlmv.supabase.co";
   const SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJwZGlzeGpoaGlicmdmcHZ0bG12Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjM5NTkxODQsImV4cCI6MjA3OTUzNTE4NH0.jDZ6BGirOPuWUnt4ykjhng4PLft2ZjBuYAFzApUnlYU";
-  const supabase = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+  
+  // ✨ 여기가 수정되었습니다 (변수명 충돌 해결)
+  const supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
   let classList = [];
 
@@ -117,7 +119,8 @@
 
   // --- [1] 반 목록 가져오기 ---
   async function loadClasses() {
-    const { data, error } = await supabase.from('classes').select('*').order('name');
+    // supabaseClient 사용
+    const { data, error } = await supabaseClient.from('classes').select('*').order('name');
     
     const select = document.getElementById("classSelect");
     select.innerHTML = '<option value="">반 선택</option>';
@@ -141,7 +144,8 @@
   async function loadNewStudents() {
     const tbody = document.querySelector("#newStudentTable tbody");
     
-    const { data, error } = await supabase
+    // supabaseClient 사용
+    const { data, error } = await supabaseClient
       .from('students')
       .select('*')
       .is('class_id', null)
@@ -183,7 +187,7 @@
     const sel = document.getElementById(`sel-${studentId}`);
     if (!sel.value) { alert("반을 선택해주세요."); return; }
 
-    const { error } = await supabase
+    const { error } = await supabaseClient
       .from('students')
       .update({ class_id: sel.value })
       .eq('id', studentId);
@@ -210,7 +214,7 @@
 
     try {
       // 1. 반 학생 명단
-      const { data: students } = await supabase
+      const { data: students } = await supabaseClient
         .from('students').select('id, name, login_id').eq('class_id', classId).order('name');
 
       if (!students || students.length === 0) {
@@ -225,7 +229,7 @@
       const start = dateVal + " 00:00:00";
       const end = dateVal + " 23:59:59";
 
-      const { data: results, error } = await supabase
+      const { data: results, error } = await supabaseClient
         .from('vocab_results')
         .select('*')
         .in('student_login_id', loginIds)
