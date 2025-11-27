@@ -1,4 +1,4 @@
-// 1. Supabase 설정 (기존 키)
+// 1. Supabase 설정
 const SUPABASE_URL = "https://bpdisxjhhibrgfpvtlmv.supabase.co";
 const SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJwZGlzeGpoaGlicmdmcHZ0bG12Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjM5NTkxODQsImV4cCI6MjA3OTUzNTE4NH0.jDZ6BGirOPuWUnt4ykjhng4PLft2ZjBuYAFzApUnlYU";
 
@@ -21,7 +21,7 @@ async function loadClasses() {
   
   // 숙제 조회용 Select 박스 채우기
   const select = document.getElementById("classSelect");
-  select.innerHTML = '<option value="">반을 선택하세요</option>';
+  select.innerHTML = '<option value="">반 선택</option>';
   
   data.forEach(cls => {
     const opt = document.createElement("option");
@@ -46,7 +46,7 @@ async function loadNewStudents() {
 
   tbody.innerHTML = "";
   if (!data || data.length === 0) {
-    tbody.innerHTML = `<tr><td colspan="6" style="text-align:center; padding:20px; color:#999;">신규 학생이 없습니다.</td></tr>`;
+    tbody.innerHTML = `<tr><td colspan="6" style="text-align:center; padding:20px; color:#999;">신규 학생(미배정)이 없습니다.</td></tr>`;
     return;
   }
 
@@ -100,7 +100,8 @@ async function loadHomework() {
   const unit = document.getElementById("unitInput").value.trim();
   const tbody = document.querySelector("#homeworkTable tbody");
 
-  if (!classId) { alert("반을 선택해주세요."); return; }
+  if (!classId) { alert("반을 먼저 선택해주세요."); return; }
+  if (!unit) { alert("검사할 단원을 입력해주세요."); return; }
 
   tbody.innerHTML = `<tr><td colspan="4" style="text-align:center; padding:20px;">데이터 조회 중...</td></tr>`;
 
