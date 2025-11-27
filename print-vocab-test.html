@@ -2,177 +2,130 @@
 <html lang="ko">
 <head>
   <meta charset="UTF-8" />
-  <title>어휘 시험지 출력 - 블라썸잉글리쉬</title>
+  <title>단어 시험지 출력 - Blossom English</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link href="https://cdn.jsdelivr.net/npm/pretendard/dist/web/variable/pretendardvariable.css" rel="stylesheet" />
+
   <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-      font-family: "Pretendard Variable", -apple-system, BlinkMacSystemFont,
-        system-ui, "Noto Sans KR", sans-serif;
-    }
-    body {
-      background: #ffffff;
-      padding: 20px;
-    }
-    .page {
-      max-width: 900px;
-      margin: 0 auto;
-    }
-    h1 {
-      font-size: 24px;
-      font-weight: 800;
-      margin-bottom: 4px;
-    }
-    .subtitle {
-      font-size: 14px;
-      color: #6b7280;
-      margin-bottom: 16px;
-    }
-    .info-line {
-      font-size: 14px;
-      margin-bottom: 8px;
-    }
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      margin-top: 12px;
-      font-size: 14px;
-    }
-    th, td {
-      border: 1px solid #d1d5db;
-      padding: 6px 8px;
-      word-break: break-all;
-    }
-    th {
-      background: #f3f4f6;
-      text-align: center;
-    }
-    td.blanks {
-      height: 28px;
-    }
-    .print-tip {
-      font-size: 12px;
-      color: #9ca3af;
-      margin-top: 12px;
-    }
-    @media print {
-      body {
-        padding: 0;
-      }
-      .print-tip {
-        display: none;
-      }
+    :root { --pink: #ff7eb3; --blue: #00AEEF; --mint: #6ee7b7; }
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: "Pretendard Variable", sans-serif; }
+    body { background: #ffffff; padding: 24px; color: #111827; }
+    .page { max-width: 900px; margin: 0 auto; }
+    
+    /* 상단 영역 */
+    .top-row { display: flex; align-items: center; justify-content: space-between; gap: 16px; margin-bottom: 16px; }
+    .logo-area { display: flex; align-items: center; gap: 10px; }
+    .logo-img { height: 40px; width: auto; }
+    .logo-text { font-size: 28px; font-weight: 800; color: #111827; }
+    
+    /* 레벨 표 */
+    .level-table { border-collapse: collapse; font-size: 13px; min-width: 120px; }
+    .level-table th, .level-table td { border: 1px solid #e5e7eb; padding: 6px 10px; text-align: center; }
+    .level-table th { background: var(--pink); color: white; font-weight: 700; }
+    .level-table td { background: #ffe6f1; color: #9d174d; font-weight: 600; }
+    
+    /* 단어 표 */
+    .word-table { width: 100%; border-collapse: collapse; font-size: 14px; }
+    .word-table th, .word-table td { border: 1px solid #d1d5db; padding: 10px 8px; }
+    .word-table thead th { background: var(--blue); color: white; font-weight: 700; text-align: center; }
+    
+    tr:nth-child(odd) td { background: #ffffff; }
+    tr:nth-child(even) td { background: #f9fafb; }
+    
+    .col-num { width: 50px; text-align: center; font-weight: 600; background: var(--mint); color: #064e3b; }
+    .col-word { width: 45%; font-weight: 600; }
+    .col-meaning { width: auto; }
+    
+    /* 빈칸(시험지용) 스타일 - 높이 확보 */
+    .col-meaning.blank-box { height: 40px; }
+
+    .print-tip { font-size: 11px; color: #9ca3af; margin-top: 12px; text-align: right; }
+    
+    @media print { 
+      body { padding: 0; } 
+      .print-tip { display: none; } 
+      .page { margin: 0; width: 100%; max-width: none; }
     }
   </style>
 </head>
 <body>
 <div class="page">
-  <h1>어휘 시험지</h1>
-  <div id="subtitle" class="subtitle"></div>
+  <div class="top-row">
+    <div class="logo-area">
+      <img src="blossom-logo.png" alt="Blossom English" class="logo-img" />
+      <div class="logo-text">Blossom English</div>
+    </div>
+    <table class="level-table">
+      <thead><tr><th>Level</th></tr></thead>
+      <tbody><tr><td id="levelText"></td></tr></tbody>
+    </table>
+  </div>
 
-  <div class="info-line">이름: ____________________________</div>
-  <div class="info-line">날짜: ____________________________</div>
-
-  <table id="wordTable">
+  <table class="word-table">
     <thead>
-      <tr>
-        <th style="width:40px;">번호</th>
-        <th style="width:200px;">영어 단어</th>
-        <th>뜻</th>
-      </tr>
+      <tr><th class="col-num">No.</th><th class="col-word">Word</th><th class="col-meaning">Meaning</th></tr>
     </thead>
-    <tbody>
-      <!-- JS로 단어 채움 -->
-    </tbody>
+    <tbody id="wordBody"></tbody>
   </table>
 
   <div class="print-tip">
-    이 창이 뜨면 브라우저 인쇄(⌘+P / Ctrl+P)로 출력하세요.
+    이 창이 열리면 브라우저 인쇄(⌘+P / Ctrl+P)로 출력하세요.
   </div>
 </div>
 
-<!-- words.js 사용 -->
 <script src="words.js"></script>
+
 <script>
-  const subtitleEl = document.getElementById("subtitle");
-  const tableBody  = document.querySelector("#wordTable tbody");
-
-  // ?level=1&sets=1,2&count=20
+  // 1. URL 파라미터 확인
   const params = new URLSearchParams(window.location.search);
-  const levelParam = params.get("level") || "";
-  const setsParam  = params.get("sets") || "";
-  const countParam = params.get("count") || "";
+  const unit = params.get("unit") || "1-1";
+  document.getElementById("levelText").textContent = unit;
 
-  const setNumbers = setsParam
-    .split(",")
-    .map(s => s.trim())
-    .filter(s => s !== "");
-
-  // 🔹 서브타이틀: 어휘 1-1 / 어휘 1-1, 1-2
-  if (levelParam && setNumbers.length > 0) {
-    const units = setNumbers.map(sn => `${levelParam}-${sn}`);
-    subtitleEl.textContent = `어휘 ${units.join(", ")}`;
-  } else {
-    subtitleEl.textContent = "어휘 시험지";
+  // ✨ 핵심: 배열을 무작위로 섞는 함수 ✨
+  function shuffleArray(array) {
+    const arr = [...array]; 
+    for (let i = arr.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [arr[i], arr[j]] = [arr[j], arr[i]];
+    }
+    return arr;
   }
 
   function loadWords() {
-    if (!levelParam || setNumbers.length === 0) {
-      alert("레벨 또는 세트 정보가 없습니다.");
-      return;
-    }
-
     const db = window.WORD_DB || {};
-    let allWords = [];
-
-    // level=1, sets=1,2 → "1-1", "1-2"
-    setNumbers.forEach(sn => {
-      const key = `${levelParam}-${sn}`;
-      const list = db[key] || [];
-      allWords = allWords.concat(list);
-    });
-
-    if (allWords.length === 0) {
-      alert("해당 세트에서 단어를 찾지 못했어요. (words.js 확인)");
+    const originalList = db[unit] || [];
+    const tbody = document.getElementById("wordBody");
+    tbody.innerHTML = "";
+    
+    if (!originalList.length) {
+      tbody.innerHTML = `<tr><td colspan="3" style="text-align:center; padding:20px;">'${unit}' 단어가 없습니다.</td></tr>`;
       return;
     }
-
-    let limit = Number(countParam);
-    if (!limit || limit <= 0) {
-      limit = allWords.length;
-    }
-    const usedWords = allWords.slice(0, limit);
-
-    tableBody.innerHTML = "";
-    usedWords.forEach((row, idx) => {
+    
+    // ✨ 여기서 섞습니다! (새로고침 할 때마다 순서 바뀜) ✨
+    const shuffledList = shuffleArray(originalList);
+    
+    // 섞인 목록으로 표 만들기
+    shuffledList.forEach((row, idx) => {
       const tr = document.createElement("tr");
-
-      const tdNo = document.createElement("td");
-      tdNo.textContent = idx + 1;
-      tdNo.style.textAlign = "center";
-
-      const tdEng = document.createElement("td");
-      const eng = row.word || row.english || "";
-      tdEng.textContent = eng;
-
-      const tdBlank = document.createElement("td");
-      tdBlank.className = "blanks";
-
-      tr.appendChild(tdNo);
-      tr.appendChild(tdEng);
-      tr.appendChild(tdBlank);
-      tableBody.appendChild(tr);
+      
+      // 번호(idx+1)는 1,2,3... 순서대로 유지
+      // 단어(row.word)는 섞인 순서대로 출력
+      // 뜻 부분은 빈칸(blank-box)으로 비워둠
+      tr.innerHTML = `
+        <td class="col-num">${idx + 1}</td>
+        <td class="col-word">${row.word}</td>
+        <td class="col-meaning blank-box"></td>`; 
+      tbody.appendChild(tr);
     });
-
-    setTimeout(() => {
-      window.print();
-    }, 500);
+    
+    // 0.5초 뒤 인쇄창 자동 실행
+    setTimeout(() => window.print(), 500);
   }
-
-  loadWords();
+  
+  // 데이터 로딩 대기
+  if (window.WORD_DB) loadWords();
+  else window.addEventListener("load", loadWords);
 </script>
 </body>
 </html>
