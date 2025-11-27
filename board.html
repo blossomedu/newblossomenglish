@@ -94,6 +94,12 @@
       color: #ffffff;
     }
 
+    /* 3. 관리 = 핑크 */
+    .btn-manage {
+      background: #FF6FB5;
+      color: #ffffff;
+    }
+
     /* 글쓰기 카드 */
     .write-card {
       background: #ffffff;
@@ -318,6 +324,9 @@
       <button id="onlineHwBtn" class="pill-btn btn-secondary">
         📚 온라인 숙제
       </button>
+      <button id="manageBtn" class="pill-btn btn-manage">
+        🛠 관리
+      </button>
     </div>
   </div>
 
@@ -371,6 +380,7 @@
   const classFilterEl  = document.getElementById("classFilter");
   const writeToggleBtn = document.getElementById("writeToggleBtn");
   const onlineHwBtn    = document.getElementById("onlineHwBtn");
+  const manageBtn      = document.getElementById("manageBtn");
 
   const writeBoxEl     = document.getElementById("writeBox");
   const writeClassEl   = document.getElementById("writeClass");
@@ -435,6 +445,8 @@
   function applyRoleUI() {
     const isTeacher = currentRole === "teacher";
     writeToggleBtn.style.display = isTeacher ? "inline-flex" : "none";
+    onlineHwBtn.style.display    = isTeacher ? "inline-flex" : "none";
+    manageBtn.style.display      = isTeacher ? "inline-flex" : "none";
     if (!isTeacher) {
       writeBoxEl.style.display = "none";
     }
@@ -803,7 +815,20 @@
 
   // 온라인 숙제 버튼 → homework-teacher.html 로 이동
   onlineHwBtn.onclick = () => {
+    if (currentRole !== "teacher") {
+      alert("선생님 계정으로만 접근할 수 있어요.");
+      return;
+    }
     window.location.href = "homework-teacher.html";
+  };
+
+  // 관리 버튼 → teacher-result.html 로 이동
+  manageBtn.onclick = () => {
+    if (currentRole !== "teacher") {
+      alert("선생님 계정으로만 접근할 수 있어요.");
+      return;
+    }
+    window.location.href = "teacher-result.html";
   };
 
   // 반 필터 변경 시
