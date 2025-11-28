@@ -61,6 +61,20 @@
       box-shadow: 0 12px 25px rgba(0, 174, 239, 0.35);
     }
 
+    /* 탭 버튼 색상 번갈아 적용 (블루 / 핑크 / 블루 / 핑크 / 블루) */
+.mode-tab:nth-child(1).active,
+.mode-tab:nth-child(3).active,
+.mode-tab:nth-child(5).active {
+  background: #00AEEF;  /* 파란색 */
+  color: #fff;
+}
+
+.mode-tab:nth-child(2).active,
+.mode-tab:nth-child(4).active {
+  background: #FF6FB5;  /* 핑크색 */
+  color: #fff;
+}
+
     .card {
       background: #ffffff;
       border-radius: 28px;
@@ -493,4 +507,5 @@
   renderCurrent();
 </script>
 </body>
+
 </html>
