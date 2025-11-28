@@ -88,7 +88,7 @@
       color: #ffffff;
     }
 
-    /* 2. 온라인 숙제 = 하늘색(블루) */
+    /* 2. 온라인 숙제 = 블루 */
     .btn-secondary {
       background: #00AEEF;
       color: #ffffff;
@@ -223,7 +223,7 @@
       margin-bottom: 4px;
     }
 
-    /* 3. 타입 뱃지 = 핑크 */
+    /* 타입 뱃지 = 핑크 */
     .post-type-badge {
       display: inline-flex;
       align-items: center;
@@ -244,13 +244,13 @@
       margin-bottom: 4px;
     }
 
-    /* 필기 섹션 라벨도 핑크 계열로 */
+    /* 필기 섹션 라벨 = 핑크 */
     .sec-offline {
       background: #FFE5F3;
       color: #FF6FB5;
     }
 
-    /* 나머지는 그대로 사용 (어휘=민트, 문장=블루느낌) */
+    /* 온라인 어휘 = 민트, 온라인 문장 = 블루 */
     .sec-vocab {
       background: #d1fae5;
       color: #047857;
@@ -266,7 +266,38 @@
       color: #374151;
       white-space: pre-wrap;
       margin-top: 4px;
-      margin-bottom: 10px;
+      margin-bottom: 4px;
+    }
+
+    /* 필기 내용 + 버튼 묶음 */
+    .post-offline-item {
+      margin-bottom: 6px;
+    }
+
+    .post-actions {
+      display: flex;
+      gap: 6px;
+      margin-top: 2px;
+    }
+
+    .post-action-btn {
+      padding: 3px 10px;
+      border-radius: 999px;
+      border: none;
+      font-size: 11px;
+      cursor: pointer;
+      background: #e5e7eb;
+      color: #374151;
+    }
+
+    .post-action-btn.edit {
+      background: #bfdbfe;
+      color: #1d4ed8;
+    }
+
+    .post-action-btn.delete {
+      background: #fecaca;
+      color: #b91c1c;
     }
 
     .empty-box {
@@ -332,7 +363,7 @@
 
   <!-- 글쓰기 폼 (선생님만 보임) -->
   <div id="writeBox" class="write-card" style="display:none;">
-    <div class="write-title">새 글 쓰기</div>
+    <div class="write-title" id="writeBoxTitle">새 글 쓰기</div>
 
     <div class="write-row">
       <div>
@@ -377,29 +408,33 @@
   const DEFAULT_AUTHOR_LABEL = "Stella쌤";
 
   // DOM
-  const classFilterEl  = document.getElementById("classFilter");
-  const writeToggleBtn = document.getElementById("writeToggleBtn");
-  const onlineHwBtn    = document.getElementById("onlineHwBtn");
-  const manageBtn      = document.getElementById("manageBtn");
+  const classFilterEl   = document.getElementById("classFilter");
+  const writeToggleBtn  = document.getElementById("writeToggleBtn");
+  const onlineHwBtn     = document.getElementById("onlineHwBtn");
+  const manageBtn       = document.getElementById("manageBtn");
 
-  const writeBoxEl     = document.getElementById("writeBox");
-  const writeClassEl   = document.getElementById("writeClass");
-  const writeAuthorEl  = document.getElementById("writeAuthor");
-  const writeTitleEl   = document.getElementById("writeTitle");
-  const writeContentEl = document.getElementById("writeContent");
-  const cancelWriteBtn = document.getElementById("cancelWriteBtn");
-  const submitWriteBtn = document.getElementById("submitWriteBtn");
-  const writeStatusEl  = document.getElementById("writeStatus");
+  const writeBoxEl      = document.getElementById("writeBox");
+  const writeBoxTitleEl = document.getElementById("writeBoxTitle");
+  const writeClassEl    = document.getElementById("writeClass");
+  const writeAuthorEl   = document.getElementById("writeAuthor");
+  const writeTitleEl    = document.getElementById("writeTitle");
+  const writeContentEl  = document.getElementById("writeContent");
+  const cancelWriteBtn  = document.getElementById("cancelWriteBtn");
+  const submitWriteBtn  = document.getElementById("submitWriteBtn");
+  const writeStatusEl   = document.getElementById("writeStatus");
 
-  const postListEl     = document.getElementById("postList");
-  const emptyBoxEl     = document.getElementById("emptyBox");
+  const postListEl      = document.getElementById("postList");
+  const emptyBoxEl      = document.getElementById("emptyBox");
 
   // 상태
-  let classes = [];          // [{id, name}, ...]
-  let groups = [];           // 날짜+반으로 묶은 숙제들
-  let currentRole = "guest"; // "teacher" | "student" | "guest"
+  let classes = [];           // [{id, name}, ...]
+  let groups = [];            // 날짜+반으로 묶은 숙제들
+  let currentRole = "guest";  // "teacher" | "student" | "guest"
   let currentUserName = "";
   let currentUserId = null;
+
+  // 지금 수정 중인 게시글 ID (없으면 null → 새 글)
+  let currentEditPostId = null;
 
   function setWriteStatus(msg, isError = false) {
     writeStatusEl.textContent = msg || "";
@@ -445,8 +480,7 @@
   function applyRoleUI() {
     const isTeacher = currentRole === "teacher";
     writeToggleBtn.style.display = isTeacher ? "inline-flex" : "none";
-    onlineHwBtn.style.display    = isTeacher ? "inline-flex" : "none";
-    manageBtn.style.display      = isTeacher ? "inline-flex" : "none";
+    manageBtn.style.display = isTeacher ? "inline-flex" : "none";
     if (!isTeacher) {
       writeBoxEl.style.display = "none";
     }
@@ -625,7 +659,6 @@
   }
 
   // --- 화면에 리스트 렌더링 (날짜+반 묶음 기준) ---
- // --- 화면에 리스트 렌더링 (날짜+반 묶음 기준) ---
   function renderGroups() {
     const selected = classFilterEl.value;  // "all" 또는 class_id(uuid)
     postListEl.innerHTML = "";
@@ -691,7 +724,7 @@
       // 본문: 필기 / 온라인 어휘 / 온라인 문장 섹션
       const body = document.createElement("div");
 
-      /* ✏️ 필기 숙제 / 공지 */
+      // --- 필기 숙제 / 공지 ---
       if (g.posts.length > 0) {
         const secLabel = document.createElement("div");
         secLabel.className = "post-section-label sec-offline";
@@ -699,43 +732,68 @@
         body.appendChild(secLabel);
 
         g.posts.forEach(p => {
-          const wrapper = document.createElement("div");
-          wrapper.style.marginBottom = "6px";
+          const itemWrap = document.createElement("div");
+          itemWrap.className = "post-offline-item";
 
           const c = document.createElement("div");
           c.className = "post-content";
           c.textContent = p.content;
+          itemWrap.appendChild(c);
 
           if (isTeacher) {
-            // 🔹 텍스트 전체 클릭 = 수정
-            c.style.cursor = "pointer";
-            c.title = "클릭하면 내용을 수정할 수 있어요.";
-            c.onclick = () => editPost(p.id, p.content);
-
-            const actions = document.createElement("div");
-            actions.className = "post-actions";
+            const actionWrap = document.createElement("div");
+            actionWrap.className = "post-actions";
 
             const editBtn = document.createElement("button");
-            editBtn.className = "action-btn";
+            editBtn.className = "post-action-btn edit";
             editBtn.textContent = "수정";
-            editBtn.onclick = () => editPost(p.id, p.content);
+
+            editBtn.onclick = () => {
+              // 수정 모드로 전환
+              currentEditPostId = p.id;
+              writeBoxTitleEl.textContent = "글 수정하기";
+              writeClassEl.value = g.class_id;
+              writeAuthorEl.value = currentUserName || DEFAULT_AUTHOR_LABEL;
+              writeTitleEl.value = p.title;
+              writeContentEl.value = p.content || "";
+              submitWriteBtn.textContent = "수정 저장";
+              setWriteStatus("");
+              writeBoxEl.style.display = "block";
+            };
 
             const delBtn = document.createElement("button");
-            delBtn.className = "action-btn action-delete";
+            delBtn.className = "post-action-btn delete";
             delBtn.textContent = "삭제";
-            delBtn.onclick = () => deletePost(p.id);
 
-            actions.appendChild(editBtn);
-            actions.appendChild(delBtn);
-            wrapper.appendChild(actions);
+            delBtn.onclick = async () => {
+              if (!confirm("이 글을 삭제할까요?")) return;
+              try {
+                const { error } = await client
+                  .from("board_posts")
+                  .delete()
+                  .eq("id", p.id);
+                if (error) {
+                  console.error("게시글 삭제 오류:", error);
+                  alert("삭제 중 오류가 발생했어요.");
+                  return;
+                }
+                await loadGroups();
+              } catch (e) {
+                console.error("게시글 삭제 중 예외:", e);
+                alert("삭제 중 오류가 발생했어요.");
+              }
+            };
+
+            actionWrap.appendChild(editBtn);
+            actionWrap.appendChild(delBtn);
+            itemWrap.appendChild(actionWrap);
           }
 
-          wrapper.insertBefore(c, wrapper.firstChild);
-          body.appendChild(wrapper);
+          body.appendChild(itemWrap);
         });
       }
 
-      /* 📚 온라인 어휘 숙제 */
+      // --- 온라인 어휘 숙제 ---
       if (g.vocab.length > 0) {
         const secLabel = document.createElement("div");
         secLabel.className = "post-section-label sec-vocab";
@@ -753,7 +811,7 @@
         });
       }
 
-      /* 💬 온라인 문장 숙제 */
+      // --- 온라인 문장 숙제 ---
       if (g.sentence.length > 0) {
         const secLabel = document.createElement("div");
         secLabel.className = "post-section-label sec-sentence";
@@ -782,6 +840,11 @@
       alert("선생님 계정으로 로그인해야 글을 작성할 수 있어요.");
       return;
     }
+    // 새 글 모드
+    currentEditPostId = null;
+    writeBoxTitleEl.textContent = "새 글 쓰기";
+    submitWriteBtn.textContent = "등록";
+
     const visible = writeBoxEl.style.display !== "none";
     writeBoxEl.style.display = visible ? "none" : "block";
     if (!visible) {
@@ -794,10 +857,11 @@
 
   cancelWriteBtn.onclick = () => {
     writeBoxEl.style.display = "none";
+    currentEditPostId = null;
     setWriteStatus("");
   };
 
-  // --- 글 등록 (Supabase board_posts 에 저장) ---
+  // --- 글 등록 / 수정 (Supabase board_posts) ---
   submitWriteBtn.onclick = async () => {
     if (currentRole !== "teacher") {
       alert("선생님 계정으로 로그인해야 글을 작성할 수 있어요.");
@@ -824,36 +888,59 @@
     setWriteStatus("저장 중입니다…");
     submitWriteBtn.disabled = true;
 
-    const nowIso = new Date().toISOString();
+    try {
+      if (currentEditPostId) {
+        // 수정 모드: UPDATE
+        const { error } = await client
+          .from("board_posts")
+          .update({
+            class_id: classId,
+            title,
+            content
+          })
+          .eq("id", currentEditPostId);
 
-    const { error } = await client.from("board_posts").insert({
-      class_id: classId,
-      title,
-      content,
-      author_id: currentUserId,
-      created_at: nowIso
-    });
+        if (error) {
+          console.error("게시글 수정 오류:", error);
+          setWriteStatus("글을 수정하는 중 오류가 발생했어요.", true);
+          submitWriteBtn.disabled = false;
+          return;
+        }
+      } else {
+        // 새 글: INSERT
+        const nowIso = new Date().toISOString();
 
-    submitWriteBtn.disabled = false;
+        const { error } = await client.from("board_posts").insert({
+          class_id: classId,
+          title,
+          content,
+          author_id: currentUserId,
+          created_at: nowIso
+        });
 
-    if (error) {
-      console.error("게시글 저장 오류:", error);
-      setWriteStatus("글을 저장하는 중 오류가 발생했어요.", true);
-      return;
+        if (error) {
+          console.error("게시글 저장 오류:", error);
+          setWriteStatus("글을 저장하는 중 오류가 발생했어요.", true);
+          submitWriteBtn.disabled = false;
+          return;
+        }
+      }
+
+      setWriteStatus("저장되었습니다!");
+      writeBoxEl.style.display = "none";
+      currentEditPostId = null;
+      submitWriteBtn.disabled = false;
+
+      await loadGroups();
+    } catch (e) {
+      console.error("게시글 저장/수정 중 예외:", e);
+      setWriteStatus("저장 중 오류가 발생했어요.", true);
+      submitWriteBtn.disabled = false;
     }
-
-    setWriteStatus("저장되었습니다!");
-    writeBoxEl.style.display = "none";
-
-    await loadGroups();
   };
 
   // 온라인 숙제 버튼 → homework-teacher.html 로 이동
   onlineHwBtn.onclick = () => {
-    if (currentRole !== "teacher") {
-      alert("선생님 계정으로만 접근할 수 있어요.");
-      return;
-    }
     window.location.href = "homework-teacher.html";
   };
 
