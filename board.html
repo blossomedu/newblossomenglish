@@ -625,6 +625,7 @@
   }
 
   // --- 화면에 리스트 렌더링 (날짜+반 묶음 기준) ---
+ // --- 화면에 리스트 렌더링 (날짜+반 묶음 기준) ---
   function renderGroups() {
     const selected = classFilterEl.value;  // "all" 또는 class_id(uuid)
     postListEl.innerHTML = "";
@@ -639,6 +640,8 @@
       return;
     }
     emptyBoxEl.style.display = "none";
+
+    const isTeacher = currentRole === "teacher";
 
     filtered.forEach(g => {
       const card = document.createElement("div");
@@ -688,6 +691,7 @@
       // 본문: 필기 / 온라인 어휘 / 온라인 문장 섹션
       const body = document.createElement("div");
 
+      /* ✏️ 필기 숙제 / 공지 */
       if (g.posts.length > 0) {
         const secLabel = document.createElement("div");
         secLabel.className = "post-section-label sec-offline";
@@ -695,13 +699,43 @@
         body.appendChild(secLabel);
 
         g.posts.forEach(p => {
+          const wrapper = document.createElement("div");
+          wrapper.style.marginBottom = "6px";
+
           const c = document.createElement("div");
           c.className = "post-content";
           c.textContent = p.content;
-          body.appendChild(c);
+
+          if (isTeacher) {
+            // 🔹 텍스트 전체 클릭 = 수정
+            c.style.cursor = "pointer";
+            c.title = "클릭하면 내용을 수정할 수 있어요.";
+            c.onclick = () => editPost(p.id, p.content);
+
+            const actions = document.createElement("div");
+            actions.className = "post-actions";
+
+            const editBtn = document.createElement("button");
+            editBtn.className = "action-btn";
+            editBtn.textContent = "수정";
+            editBtn.onclick = () => editPost(p.id, p.content);
+
+            const delBtn = document.createElement("button");
+            delBtn.className = "action-btn action-delete";
+            delBtn.textContent = "삭제";
+            delBtn.onclick = () => deletePost(p.id);
+
+            actions.appendChild(editBtn);
+            actions.appendChild(delBtn);
+            wrapper.appendChild(actions);
+          }
+
+          wrapper.insertBefore(c, wrapper.firstChild);
+          body.appendChild(wrapper);
         });
       }
 
+      /* 📚 온라인 어휘 숙제 */
       if (g.vocab.length > 0) {
         const secLabel = document.createElement("div");
         secLabel.className = "post-section-label sec-vocab";
@@ -719,6 +753,7 @@
         });
       }
 
+      /* 💬 온라인 문장 숙제 */
       if (g.sentence.length > 0) {
         const secLabel = document.createElement("div");
         secLabel.className = "post-section-label sec-sentence";
