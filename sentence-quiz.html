@@ -239,7 +239,9 @@
 
 <script src="sentence.js"></script>
 <script>
- // -------- 공통 설정 --------
+  // ==========================
+  // 공통 설정
+  // ==========================
   const params   = new URLSearchParams(window.location.search);
   const unitKey  = params.get("unit") || "1-1";
 
@@ -255,7 +257,17 @@
   const SENTENCE_DB  = window.SENTENCE_DB || {};
   const allQuestions = SENTENCE_DB[unitKey] || [];
 
-  // type별로 문제 분류 (지금은 blank만 데이터 있음)
+  // 유틸: 배열 섞기
+  function shuffle(arr) {
+    const a = arr.slice();
+    for (let i = a.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [a[i], a[j]] = [a[j], a[i]];
+    }
+    return a;
+  }
+
+  // type(또는 mode)별로 분류
   const questionsByType = {
     blank:   [],
     order:   [],
@@ -265,12 +277,15 @@
   };
 
   allQuestions.forEach(q => {
-    if (!q.type) return;
-    if (questionsByType[q.type]) {
-      questionsByType[q.type].push(q);
+    // sentence.js 에서 type 또는 mode 둘 중 하나를 쓴다고 가정
+    const t = q.type || q.mode;
+    if (!t) return;
+    if (questionsByType[t]) {
+      questionsByType[t].push(q);
     }
   });
 
+  // 모드별 현재 인덱스
   let currentMode = "blank";
   const modeIndex = {
     blank:   0,
@@ -386,6 +401,11 @@
 
     let answered = false;
 
+    // answerIndex(0부터) 또는 answer(1~4) 둘 다 지원
+    const correctIndex = (typeof q.answerIndex === "number")
+      ? q.answerIndex
+      : (typeof q.answer === "number" ? q.answer - 1 : 0);
+
     (q.options || []).forEach((opt, i) => {
       const btn = document.createElement("button");
       btn.className = "choice-btn";
@@ -398,7 +418,7 @@
         answered = true;
         clearTimers();
 
-        const correct = (i === q.answerIndex);
+        const correct = (i === correctIndex);
 
         if (correct) {
           // ✅ 정답: 바로 초록 표시 + 해설 → 1초 뒤 다음 문제
@@ -407,7 +427,7 @@
           expDiv.textContent  = q.explanation || "정답입니다!";
           setTimer(goNext, 1000);
         } else {
-          // ❌ 오답: 힌트만 즉시 보여주고, 정답은 나중에
+          // ❌ 오답: 지금은 힌트만, 정답/해설은 나중에
           btn.classList.add("wrong");
 
           hintDiv.textContent = "힌트: 다시 생각해 보세요.";
@@ -416,7 +436,7 @@
           // 15초 뒤에 정답 버튼 표시 + 해설 보여주고 다음 문제로
           setTimer(() => {
             Array.from(grid.children).forEach((b, idxBtn) => {
-              if (idxBtn === q.answerIndex) {
+              if (idxBtn === correctIndex) {
                 b.classList.add("correct");
               }
             });
@@ -427,13 +447,13 @@
       };
     });
 
-    // ⏱ 15초 동안 아무 것도 안 누르면 → 정답/해설 바로 보여주고, 15초 뒤 다음 문제
+    // ⏱ 15초 동안 아무 것도 안 누르면 → 정답/해설 보여주고, 15초 뒤 다음
     setTimer(() => {
       if (answered) return;
       answered = true;
 
       Array.from(grid.children).forEach((b, idxBtn) => {
-        if (idxBtn === q.answerIndex) {
+        if (idxBtn === correctIndex) {
           b.classList.add("correct");
         }
       });
@@ -464,13 +484,14 @@
       return;
     }
 
+    // 모드별 문제 순서는 들어올 때 그대로 쓰거나, 여기서 한번 섞어도 됨
     const idx = modeIndex[currentMode] || 0;
     const q   = list[idx];
 
     if (currentMode === "blank") {
       renderBlankQuestion(q, idx, list.length);
     } else {
-      // 아직 구현 안 된 모드는 안내 문구만
+      // 아직 안 만든 모드들은 안내만
       renderNoQuestion();
     }
   }
@@ -492,6 +513,8 @@
     modeIndex.type    = 0;
     modeIndex.choose  = 0;
     modeIndex.passage = 0;
+
+    // 필요하면 여기서 모드별 문제 순서를 섞어도 됨
     renderCurrent();
   };
 
@@ -503,3 +526,4 @@
 
   // 첫 화면
   renderCurrent();
+</script>
