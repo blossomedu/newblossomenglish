@@ -210,53 +210,42 @@
         grid-template-columns: 1fr;
       }
     }
-    /* ============================
-   문장 배열(order) UI 전체 스타일
-   (칩 크게 / 간격 넓게 / 보기 좋게)
-============================ */
-
-.order-kor {
-  font-size: 18px;
-  margin-bottom: 18px;
-  color: #4b5563;
-}
-/* ============================================
-   문장 배열(order) 칩 / 답안 칩 스타일 업그레이드
-   (빈칸 완성과 동일 톤 + 크기)
+    /* ============================================
+   문장 배열(order) – 답안 칸 + 단어 칩 크게 / 여유 있게
 ============================================ */
+
+.answer-row {
+  min-height: 70px;
+  background: #f0f5ff;
+  border-radius: 16px;
+  padding: 16px 22px;
+  margin-top: 18px;
+  margin-bottom: 26px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  align-items: center;
+  font-size: 18px;
+}
 
 .word-chips {
   display: flex;
   flex-wrap: wrap;
   gap: 14px;
-  margin-top: 16px;
-  justify-content: flex-start;
-}
-
-.answer-row {
-  min-height: 70px;         /* 칸 크게 */
-  background: #f0f5ff;
-  border-radius: 16px;
-  padding: 14px 20px;
-  margin-bottom: 20px;
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 14px;
-  font-size: 18px;          /* 글씨 크게 */
+  margin-top: 12px;
 }
 
 .word-chip {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 12px 20px;        /* 칩 자체 크기 ↑ */
+  padding: 12px 20px;
   border-radius: 14px;
   background: #ffffff;
-  border: 2px solid #d0d7e6; /* 연한 보더 */
+  border: 2px solid #d0d7e6;
   cursor: pointer;
 
-  font-size: 18px;           /* 기존보다 훨씬 크게 */
+  font-size: 18px;
   font-weight: 500;
   color: #111;
 
@@ -273,7 +262,21 @@
   border-color: #5c9dff;
   color: #0648a8;
   font-weight: 600;
-  transform: scale(1.04);     /* 클릭된 칩 약간 강조 */
+  transform: scale(1.04);
+}
+
+/* 모바일 최적화 */
+@media (max-width: 768px) {
+  .answer-row {
+    font-size: 16px;
+    min-height: 60px;
+    padding: 12px 16px;
+  }
+
+  .word-chip {
+    font-size: 16px;
+    padding: 10px 16px;
+  }
 }
   </style>
 </head>
@@ -684,5 +687,6 @@
   // 첫 화면
   renderCurrent();
 </script>
+
 
 
