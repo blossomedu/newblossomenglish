@@ -239,23 +239,23 @@
 
 <script src="sentence.js"></script>
 <script>
-  // -------- 공통 설정 --------
-  const params = new URLSearchParams(window.location.search);
-  const unitKey = params.get("unit") || "1-1";
+ // -------- 공통 설정 --------
+  const params   = new URLSearchParams(window.location.search);
+  const unitKey  = params.get("unit") || "1-1";
 
-  const mainTitle = document.getElementById("mainTitle");
-  mainTitle.textContent = `문장 학습 ${unitKey}`;
-
+  const mainTitle      = document.getElementById("mainTitle");
   const centerArea     = document.getElementById("centerArea");
   const progressText   = document.getElementById("progressText");
   const modeTabs       = document.querySelectorAll(".mode-tab");
   const modeResetBtn   = document.getElementById("modeResetBtn");
   const backToUnitsBtn = document.getElementById("backToUnitsBtn");
 
+  mainTitle.textContent = `문장 학습 ${unitKey}`;
+
   const SENTENCE_DB  = window.SENTENCE_DB || {};
   const allQuestions = SENTENCE_DB[unitKey] || [];
 
-  // type 값에 따라 분류해 두기 (지금은 blank만 사용)
+  // type별로 문제 분류 (지금은 blank만 데이터 있음)
   const questionsByType = {
     blank:   [],
     order:   [],
@@ -265,6 +265,7 @@
   };
 
   allQuestions.forEach(q => {
+    if (!q.type) return;
     if (questionsByType[q.type]) {
       questionsByType[q.type].push(q);
     }
@@ -326,13 +327,13 @@
       renderNoQuestion();
       return;
     }
+
     modeIndex[currentMode]++;
 
     const total = list.length;
     const idx   = modeIndex[currentMode];
 
     if (idx >= total) {
-      // 마지막 문제까지 푼 뒤에는 완료 메시지
       clearCenter();
       const done = document.createElement("div");
       done.className = "question-text";
@@ -345,7 +346,6 @@
       centerArea.appendChild(sub);
 
       setProgress(total, total);
-      // 인덱스는 total-1 이 아니라 total 로 놔둬도 상관 없음
     } else {
       renderCurrent();
     }
@@ -365,7 +365,6 @@
     qDiv.textContent = "빈칸에 알맞은 말을 고르세요.";
     centerArea.appendChild(qDiv);
 
-    // 문장 + 긴 밑줄
     const sentenceDiv = document.createElement("div");
     sentenceDiv.className = "sentence-en";
     const raw  = q.question || "";
@@ -402,24 +401,25 @@
         const correct = (i === q.answerIndex);
 
         if (correct) {
+          // ✅ 정답: 바로 초록 표시 + 해설 → 1초 뒤 다음 문제
           btn.classList.add("correct");
           hintDiv.textContent = "";
-          expDiv.textContent = q.explanation || "정답입니다!";
-          setTimer(goNext, 1000); // 맞으면 바로 다음(1초 뒤)
+          expDiv.textContent  = q.explanation || "정답입니다!";
+          setTimer(goNext, 1000);
         } else {
+          // ❌ 오답: 힌트만 즉시 보여주고, 정답은 나중에
           btn.classList.add("wrong");
-          Array.from(grid.children).forEach((b, idxBtn) => {
-            if (idxBtn === q.answerIndex) {
-              b.classList.add("correct");
-            }
-          });
 
-          // 오답 시: 힌트만 보여주고, 해설은 자동 타임아웃 때
           hintDiv.textContent = "힌트: 다시 생각해 보세요.";
-          expDiv.textContent = "";
+          expDiv.textContent  = "";
 
-          // 15초 뒤 다음 문제로
+          // 15초 뒤에 정답 버튼 표시 + 해설 보여주고 다음 문제로
           setTimer(() => {
+            Array.from(grid.children).forEach((b, idxBtn) => {
+              if (idxBtn === q.answerIndex) {
+                b.classList.add("correct");
+              }
+            });
             expDiv.textContent = q.explanation || "";
             goNext();
           }, 15000);
@@ -427,7 +427,7 @@
       };
     });
 
-    // 15초 동안 아무 것도 안 누르면 → 정답/해설 보여주고 15초 뒤 자동 다음
+    // ⏱ 15초 동안 아무 것도 안 누르면 → 정답/해설 바로 보여주고, 15초 뒤 다음 문제
     setTimer(() => {
       if (answered) return;
       answered = true;
@@ -439,7 +439,7 @@
       });
 
       hintDiv.textContent = "시간이 지났어요. 정답과 해설을 확인해 보세요.";
-      expDiv.textContent = q.explanation || "";
+      expDiv.textContent  = q.explanation || "";
 
       setTimer(goNext, 15000);
     }, 15000);
@@ -453,14 +453,12 @@
   function renderCurrent() {
     clearTimers();
 
-    // 탭 active 표시
     modeTabs.forEach(tab => {
       tab.classList.toggle("active", tab.dataset.mode === currentMode);
     });
 
     const list = questionsByType[currentMode];
 
-    // 아직 해당 타입 문제 없으면 안내 문구
     if (!list || !list.length) {
       renderNoQuestion();
       return;
@@ -472,7 +470,7 @@
     if (currentMode === "blank") {
       renderBlankQuestion(q, idx, list.length);
     } else {
-      // 아직 구현 전인 모드
+      // 아직 구현 안 된 모드는 안내 문구만
       renderNoQuestion();
     }
   }
@@ -505,7 +503,3 @@
 
   // 첫 화면
   renderCurrent();
-</script>
-</body>
-
-</html>
