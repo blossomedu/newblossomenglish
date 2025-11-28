@@ -257,20 +257,18 @@
   const SENTENCE_DB  = window.SENTENCE_DB || {};
   const allQuestions = SENTENCE_DB[unitKey] || [];
 
-  // type별 문제 분류
   const questionsByType = {
     blank:   [],
     order:   [],
     type:    [],
     choose:  [],
-    passage: []
+    passage: [],
   };
 
   allQuestions.forEach(q => {
-    const t = q.type || q.mode;
-    if (!t) return;
-    if (questionsByType[t]) {
-      questionsByType[t].push(q);
+    if (!q || !q.type) return;
+    if (questionsByType[q.type]) {
+      questionsByType[q.type].push(q);
     }
   });
 
@@ -280,7 +278,7 @@
     order:   0,
     type:    0,
     choose:  0,
-    passage: 0
+    passage: 0,
   };
 
   // ==========================
@@ -311,11 +309,11 @@
     centerArea.innerHTML = "";
   }
 
-  function renderNoQuestion(msg) {
+  function renderNoQuestion() {
     clearCenter();
     const div = document.createElement("div");
     div.className = "question-text";
-    div.textContent = msg || "이 유형의 문제가 없습니다.";
+    div.textContent = "이 유형의 문제가 없습니다.";
     centerArea.appendChild(div);
 
     const sub = document.createElement("div");
@@ -334,7 +332,6 @@
     }
 
     modeIndex[currentMode]++;
-
     const total = list.length;
     const idx   = modeIndex[currentMode];
 
@@ -357,8 +354,17 @@
 
   const CIRCLED_NUMS = ["①", "②", "③", "④"];
 
+  function shuffle(arr) {
+    const a = arr.slice();
+    for (let i = a.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [a[i], a[j]] = [a[j], a[i]];
+    }
+    return a;
+  }
+
   // ==========================
-  // (1) 빈칸 완성  - blank
+  // (1) 빈칸 완성
   // ==========================
   function renderBlankQuestion(q, idx, total) {
     clearTimers();
@@ -389,11 +395,9 @@
     centerArea.appendChild(expDiv);
 
     let answered = false;
-
-    // answerIndex(0부터) 또는 answer(1~4) 둘 다 지원
     const correctIndex = (typeof q.answerIndex === "number")
       ? q.answerIndex
-      : (typeof q.answer === "number" ? q.answer - 1 : 0);
+      : 0;
 
     (q.options || []).forEach((opt, i) => {
       const btn = document.createElement("button");
@@ -410,20 +414,19 @@
         if (correct) {
           answered = true;
           clearTimers();
-
           btn.classList.add("correct");
           hintDiv.textContent = "";
           expDiv.textContent  = q.explanation || "정답입니다!";
           setTimer(goNext, 1000);
         } else {
-          // 틀려도 다시 고를 수 있게, 힌트만
           btn.classList.add("wrong");
           hintDiv.textContent = "힌트: 다시 생각해 보세요.";
+          // 해설은 아직 안 보여줌
         }
       };
     });
 
-    // 15초 안에 못 맞추면 정답/해설 보여주고 15초 뒤 다음 문제
+    // 15초 동안 정답 못 맞추면 → 정답/해설 보여주고 15초 뒤 다음
     setTimer(() => {
       if (answered) return;
       answered = true;
@@ -436,6 +439,7 @@
 
       hintDiv.textContent = "시간이 지났어요. 정답과 해설을 확인해 보세요.";
       expDiv.textContent  = q.explanation || "";
+
       setTimer(goNext, 15000);
     }, 15000);
 
@@ -443,17 +447,8 @@
   }
 
   // ==========================
-  // (2) 문장 배열 - order
+  // (2) 문장 배열
   // ==========================
-  function shuffle(arr) {
-    const a = arr.slice();
-    for (let i = a.length - 1; i > 0; i--) {
-      const j = Math.floor(Math.random() * (i + 1));
-      [a[i], a[j]] = [a[j], a[i]];
-    }
-    return a;
-  }
-
   function renderOrderQuestion(q, idx, total) {
     clearTimers();
     clearCenter();
@@ -463,74 +458,55 @@
     qDiv.textContent = q.question || "다음 단어를 바르게 배열하여 문장을 만드시오.";
     centerArea.appendChild(qDiv);
 
-    if (q.kor) {
+    // 한국어 해석
+    if (q.meaningKo) {
       const koDiv = document.createElement("div");
       koDiv.className = "sentence-en";
+      koDiv.style.fontSize = "16px";
       koDiv.style.color = "#4b5563";
-      koDiv.style.marginTop = "4px";
-      koDiv.textContent = q.kor;
+      koDiv.textContent = q.meaningKo;
       centerArea.appendChild(koDiv);
     }
 
-    // 답 칸
     const answerRow = document.createElement("div");
     answerRow.className = "answer-row";
-    answerRow.style.minHeight = "48px";
-    answerRow.style.fontSize = "18px";
-    answerRow.style.display = "flex";
-    answerRow.style.alignItems = "center";
+    answerRow.textContent = "";
     centerArea.appendChild(answerRow);
 
-    // 단어 칩 영역
     const chipsWrap = document.createElement("div");
     chipsWrap.className = "word-chips";
-    chipsWrap.style.display = "flex";
-    chipsWrap.style.flexWrap = "wrap";
-    chipsWrap.style.gap = "10px";
-    chipsWrap.style.marginTop = "10px";
     centerArea.appendChild(chipsWrap);
 
-    // 버튼 줄
     const btnRow = document.createElement("div");
     btnRow.style.display = "flex";
     btnRow.style.gap = "8px";
-    btnRow.style.marginTop = "12px";
+    btnRow.style.marginTop = "6px";
     centerArea.appendChild(btnRow);
 
-    const expDiv = document.createElement("div");
-    expDiv.className = "explanation-text";
-    expDiv.style.marginTop = "6px";
-    centerArea.appendChild(expDiv);
+    const hintDiv = document.createElement("div");
+    hintDiv.className = "hint-text";
+    centerArea.appendChild(hintDiv);
 
-    const words = q.words || [];
     let selected = [];
     let finished = false;
+    const correctSentence = (q.answerEn || "").trim();
+    let pool = shuffle((q.words || []).slice());  // 단어 순서 랜덤
 
-    let pool = shuffle(words.map(w => ({ w })));
-
-    function renderAnswer() {
-      answerRow.textContent = selected.map(o => o.w).join(" ");
-    }
-
-    function renderChips() {
+    function refresh() {
+      answerRow.textContent = selected.join(" ");
       chipsWrap.innerHTML = "";
-      pool.forEach((obj, i) => {
+
+      pool.forEach((w, i) => {
         const chip = document.createElement("button");
         chip.type = "button";
         chip.className = "chip";
-        chip.style.padding = "8px 14px";
-        chip.style.borderRadius = "999px";
-        chip.style.border = "1px solid #d1d5db";
-        chip.style.background = "#f9fafb";
-        chip.style.fontSize = "15px";
-        chip.style.cursor = "pointer";
-        chip.textContent = obj.w;
+        chip.style.marginBottom = "6px";
+        chip.textContent = w;
         chip.onclick = () => {
           if (finished) return;
-          selected.push(obj);
+          selected.push(w);
           pool.splice(i, 1);
-          renderAnswer();
-          renderChips();
+          refresh();
         };
         chipsWrap.appendChild(chip);
       });
@@ -542,10 +518,9 @@
     resetBtn.onclick = () => {
       if (finished) return;
       selected = [];
-      pool = shuffle(words.map(w => ({ w })));
-      expDiv.textContent = "";
-      renderAnswer();
-      renderChips();
+      pool = shuffle((q.words || []).slice());
+      hintDiv.textContent = "";
+      refresh();
     };
     btnRow.appendChild(resetBtn);
 
@@ -557,60 +532,33 @@
     submitBtn.onclick = () => {
       if (finished) return;
 
-      const userSentence = selected.map(o => o.w).join(" ").trim();
-      const correctSentence = (q.answer || "").trim();
-
+      const userSentence = selected.join(" ").trim();
       if (!userSentence) {
-        expDiv.textContent = "먼저 단어들을 눌러 문장을 만들어 보세요.";
+        hintDiv.textContent = "먼저 단어들을 눌러 문장을 만들어 보세요.";
         return;
       }
 
       if (userSentence === correctSentence) {
         finished = true;
-        expDiv.textContent = q.explanation || "정답입니다!";
-        clearTimers();
+        hintDiv.textContent = "정답입니다!";
         setTimer(goNext, 1000);
       } else {
-        expDiv.textContent = "순서를 다시 한 번 생각해 보세요.";
+        hintDiv.textContent = "순서를 다시 한 번 생각해 보세요.";
       }
     };
     btnRow.appendChild(submitBtn);
 
-    // 20초 안에 못 맞추면 정답/해설 보여주고 3초 뒤 다음
+    // 20초 동안 정답을 못 맞추면 정답 공개 후 5초 뒤 다음 문제
     setTimer(() => {
       if (finished) return;
       finished = true;
-      answerRow.textContent = q.answer || "";
-      expDiv.textContent =
-        (q.explanation ? q.explanation + " " : "") +
-        "(시간이 지나 정답이 공개되었습니다.)";
-      setTimer(goNext, 3000);
+      answerRow.textContent = correctSentence;
+      hintDiv.textContent = "(시간이 지나 정답이 공개되었습니다.)";
+      setTimer(goNext, 5000);
     }, 20000);
 
-    renderAnswer();
-    renderChips();
+    refresh();
     setProgress(idx, total);
-  }
-
-  // ==========================
-  // (3) 문장 완성 - type (준비 중)
-  // ==========================
-  function renderTypeQuestion() {
-    renderNoQuestion("문장 완성 모드는 준비 중입니다.");
-  }
-
-  // ==========================
-  // (4) 문장 고르기 - choose (준비 중)
-  // ==========================
-  function renderChooseQuestion() {
-    renderNoQuestion("문장 고르기 모드는 곧 업데이트될 예정입니다.");
-  }
-
-  // ==========================
-  // (5) 지문 완성 - passage (준비 중)
-  // ==========================
-  function renderPassageQuestion() {
-    renderNoQuestion("지문 완성 모드는 곧 업데이트될 예정입니다.");
   }
 
   // ==========================
@@ -624,19 +572,8 @@
     });
 
     const list = questionsByType[currentMode];
-
     if (!list || !list.length) {
-      if (currentMode === "blank") {
-        renderNoQuestion("이 유형의 문제가 없습니다.");
-      } else if (currentMode === "order") {
-        renderNoQuestion("문장 배열 문제가 없습니다.");
-      } else if (currentMode === "type") {
-        renderTypeQuestion();
-      } else if (currentMode === "choose") {
-        renderChooseQuestion();
-      } else if (currentMode === "passage") {
-        renderPassageQuestion();
-      }
+      renderNoQuestion();
       return;
     }
 
@@ -647,12 +584,9 @@
       renderBlankQuestion(q, idx, list.length);
     } else if (currentMode === "order") {
       renderOrderQuestion(q, idx, list.length);
-    } else if (currentMode === "type") {
-      renderTypeQuestion(q, idx, list.length);
-    } else if (currentMode === "choose") {
-      renderChooseQuestion(q, idx, list.length);
-    } else if (currentMode === "passage") {
-      renderPassageQuestion(q, idx, list.length);
+    } else {
+      // 아직 구현 안 된 모드(type, choose, passage)는 안내만
+      renderNoQuestion();
     }
   }
 
