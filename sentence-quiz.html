@@ -220,52 +220,60 @@
   margin-bottom: 18px;
   color: #4b5563;
 }
+/* ============================================
+   문장 배열(order) 칩 / 답안 칩 스타일 업그레이드
+   (빈칸 완성과 동일 톤 + 크기)
+============================================ */
 
-/* 칩들이 들어가는 영역 */
 .word-chips {
   display: flex;
   flex-wrap: wrap;
-  gap: 18px 22px;            /* 칩들 사이 간격 넓게 */
-  padding: 16px 4px;
-  margin-top: 10px;
+  gap: 14px;
+  margin-top: 16px;
+  justify-content: flex-start;
 }
 
-/* 선택한 단어들이 배치되는 박스 */
 .answer-row {
-  min-height: 70px;          /* 높이 크게 */
-  padding: 18px 20px;
-  border-radius: 18px;
-  background: #eef2ff;       /* 연보라톤 */
-  font-size: 20px;           /* 글씨 크게 */
+  min-height: 70px;         /* 칸 크게 */
+  background: #f0f5ff;
+  border-radius: 16px;
+  padding: 14px 20px;
+  margin-bottom: 20px;
   display: flex;
   flex-wrap: wrap;
-  gap: 14px;                 /* 안쪽 칩 간격 */
-  margin-top: 20px;
-  border: 2px solid #dbe2ff; /* 부드러운 테두리 */
+  align-items: center;
+  gap: 14px;
+  font-size: 18px;          /* 글씨 크게 */
 }
 
-/* 개별 단어 칩 스타일 */
 .word-chip {
-  padding: 10px 18px;        /* 칩 크기 증가 */
-  border-radius: 22px;
-  background: white;
-  font-size: 18px;
-  border: 2px solid #d1d5db;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 20px;        /* 칩 자체 크기 ↑ */
+  border-radius: 14px;
+  background: #ffffff;
+  border: 2px solid #d0d7e6; /* 연한 보더 */
   cursor: pointer;
-  transition: 0.18s ease;
+
+  font-size: 18px;           /* 기존보다 훨씬 크게 */
+  font-weight: 500;
+  color: #111;
+
+  transition: all 0.2s ease;
 }
 
-/* 칩 hover 효과 */
 .word-chip:hover {
-  background: #f0f7ff;
-  border-color: #93c5fd;
+  background: #e8f0ff;
+  border-color: #8ab4ff;
 }
 
-/* 칩이 선택되어 answer-row로 이동했을 때 */
 .word-chip.selected {
-  background: #c7d2fe;       /* 연한 파랑-purple */
-  border-color: #818cf8;
-  color: #1e1b4b;
+  background: #d6e8ff;
+  border-color: #5c9dff;
+  color: #0648a8;
+  font-weight: 600;
+  transform: scale(1.04);     /* 클릭된 칩 약간 강조 */
 }
   </style>
 </head>
@@ -676,4 +684,5 @@
   // 첫 화면
   renderCurrent();
 </script>
+
 
