@@ -1,742 +1,692 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-  <meta charset="UTF-8" />
-  <title>문장 학습 - BLOSSOM ENGLISH</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link href="https://cdn.jsdelivr.net/npm/pretendard/dist/web/variable/pretendardvariable.css" rel="stylesheet" />
+  <meta charset="UTF-8" />
+  <title>문장 학습 - BLOSSOM ENGLISH</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="https://cdn.jsdelivr.net/npm/pretendard/dist/web/variable/pretendardvariable.css" rel="stylesheet" />
 
-  <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-      font-family: "Pretendard Variable", -apple-system, BlinkMacSystemFont,
-        system-ui, "Apple SD Gothic Neo", "Noto Sans KR", sans-serif;
-    }
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: "Pretendard Variable", -apple-system, BlinkMacSystemFont,
+        system-ui, "Apple SD Gothic Neo", "Noto Sans KR", sans-serif;
+    }
 
-    body {
-      background: #f4f6fb;
-      color: #111827;
-      min-height: 100vh;
-    }
+    body {
+      background: #f4f6fb;
+      color: #111827;
+      min-height: 100vh;
+    }
 
-    .page {
-      max-width: 1100px;
-      margin: 32px auto 48px;
-      padding: 0 16px;
-    }
+    .page {
+      max-width: 1100px;
+      margin: 32px auto 48px;
+      padding: 0 16px;
+    }
 
-    .main-title {
-      font-size: 28px;
-      font-weight: 800;
-      margin-bottom: 20px;
-    }
+    .main-title {
+      font-size: 28px;
+      font-weight: 800;
+      margin-bottom: 20px;
+    }
 
-    .top-bar {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-bottom: 20px;
-    }
+    .top-bar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
 
-    .mode-tab {
-      padding: 9px 18px;
-      border-radius: 999px;
-      border: none;
-      background: #eef1ff;
-      color: #111827;
-      font-size: 14px;
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      cursor: pointer;
-      transition: all 0.15s ease;
-      white-space: nowrap;
-    }
+    .mode-tab {
+      padding: 9px 18px;
+      border-radius: 999px;
+      border: none;
+      background: #eef1ff;
+      color: #111827;
+      font-size: 14px;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      cursor: pointer;
+      transition: all 0.15s ease;
+      white-space: nowrap;
+    }
 
-    .mode-tab.active {
-      background: #00AEEF;
-      color: #ffffff;
-      box-shadow: 0 12px 25px rgba(0, 174, 239, 0.35);
-    }
+    .mode-tab.active {
+      background: #00AEEF;
+      color: #ffffff;
+      box-shadow: 0 12px 25px rgba(0, 174, 239, 0.35);
+    }
 
-    /* 탭 버튼 색상 번갈아 적용 (블루 / 핑크 / 블루 / 핑크 / 블루) */
+    /* 탭 버튼 색상 번갈아 적용 (블루 / 핑크 / 블루 / 핑크 / 블루) */
 .mode-tab:nth-child(1).active,
 .mode-tab:nth-child(3).active,
 .mode-tab:nth-child(5).active {
-  background: #00AEEF;  /* 파란색 */
-  color: #fff;
+  background: #00AEEF;  /* 파란색 */
+  color: #fff;
 }
 
 .mode-tab:nth-child(2).active,
 .mode-tab:nth-child(4).active {
-  background: #FF6FB5;  /* 핑크색 */
-  color: #fff;
+  background: #FF6FB5;  /* 핑크색 */
+  color: #fff;
 }
 
-    .card {
-      background: #ffffff;
-      border-radius: 28px;
-      padding: 32px 24px 24px;
-      box-shadow: 0 18px 40px rgba(15, 23, 42, 0.08);
-      min-height: 360px;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-    }
+    .card {
+      background: #ffffff;
+      border-radius: 28px;
+      padding: 32px 24px 24px;
+      box-shadow: 0 18px 40px rgba(15, 23, 42, 0.08);
+      min-height: 360px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
 
-    .center-area {
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-      align-items: stretch;
-      justify-content: center;
-      gap: 16px;
-      text-align: left;
-      padding: 10px 8px;
-    }
+    .center-area {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: stretch;
+      justify-content: center;
+      gap: 16px;
+      text-align: left;
+      padding: 10px 8px;
+    }
 
-    .question-text {
-      font-size: 18px;
-      font-weight: 600;
-      white-space: pre-line;
-    }
+    .question-text {
+      font-size: 18px;
+      font-weight: 600;
+      white-space: pre-line;
+    }
 
-    .sentence-en {
-      font-size: 22px;
-      margin-top: 8px;
-      white-space: pre-line;
-    }
+    .sentence-en {
+      font-size: 22px;
+      margin-top: 8px;
+      white-space: pre-line;
+    }
 
-    /* 밑줄 길게 */
-    .blank-line {
-      display: inline-block;
-      min-width: 180px; /* 기존보다 3배 정도 넓게 */
-      border-bottom: 2px solid #111827;
-      margin: 0 4px;
-    }
+    /* 밑줄 길게 */
+    .blank-line {
+      display: inline-block;
+      min-width: 180px; /* 기존보다 3배 정도 넓게 */
+      border-bottom: 2px solid #111827;
+      margin: 0 4px;
+    }
 
-    .choices-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 10px 16px;
-      margin-top: 6px;
-    }
+    .choices-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px 16px;
+      margin-top: 6px;
+    }
 
-    .choice-btn {
-      width: 100%;
-      min-height: 44px;
-      padding: 10px 14px;
-      border-radius: 16px;
-      border: 1px solid #e5e7eb;
-      background: #f9fafb;
-      font-size: 15px;
-      cursor: pointer;
-      text-align: left;
-      transition: all 0.12s ease;
-    }
+    .choice-btn {
+      width: 100%;
+      min-height: 44px;
+      padding: 10px 14px;
+      border-radius: 16px;
+      border: 1px solid #e5e7eb;
+      background: #f9fafb;
+      font-size: 15px;
+      cursor: pointer;
+      text-align: left;
+      transition: all 0.12s ease;
+    }
 
-    .choice-btn:hover {
-      background: #eef2ff;
-    }
+    .choice-btn:hover {
+      background: #eef2ff;
+    }
 
-    .choice-btn.correct {
-      background: #dcfce7;
-      border-color: #22c55e;
-      color: #166534;
-      font-weight: 600;
-    }
+    .choice-btn.correct {
+      background: #dcfce7;
+      border-color: #22c55e;
+      color: #166534;
+      font-weight: 600;
+    }
 
-    .choice-btn.wrong {
-      background: #fee2e2;
-      border-color: #f97373;
-      color: #b91c1c;
-    }
+    .choice-btn.wrong {
+      background: #fee2e2;
+      border-color: #f97373;
+      color: #b91c1c;
+    }
 
-    .hint-text {
-      font-size: 14px;
-      color: #f97316;
-      min-height: 20px;
-      margin-top: 4px;
-    }
+    .hint-text {
+      font-size: 14px;
+      color: #f97316;
+      min-height: 20px;
+      margin-top: 4px;
+    }
 
-    .explanation-text {
-      font-size: 14px;
-      color: #4b5563;
-      min-height: 20px;
-      margin-top: 4px;
-    }
+    .explanation-text {
+      font-size: 14px;
+      color: #4b5563;
+      min-height: 20px;
+      margin-top: 4px;
+    }
 
-    .bottom-bar {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-top: 20px;
-      gap: 10px;
-      font-size: 14px;
-      color: #6b7280;
-    }
+    .bottom-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 20px;
+      gap: 10px;
+      font-size: 14px;
+      color: #6b7280;
+    }
 
-    .bottom-right {
-      display: flex;
-      gap: 8px;
-    }
+    .bottom-right {
+      display: flex;
+      gap: 8px;
+    }
 
-    .nav-pill {
-      padding: 9px 16px;
-      border-radius: 999px;
-      border: none;
-      font-size: 13px;
-      cursor: pointer;
-      white-space: nowrap;
-    }
+    .nav-pill {
+      padding: 9px 16px;
+      border-radius: 999px;
+      border: none;
+      font-size: 13px;
+      cursor: pointer;
+      white-space: nowrap;
+    }
 
-    .pill-reset {
-      background: #00AEEF;
-      color: #ffffff;
-    }
+    .pill-reset {
+      background: #00AEEF;
+      color: #ffffff;
+    }
 
-    .pill-back {
-      background: #FF6FB5;
-      color: #ffffff;
-    }
+    .pill-back {
+      background: #FF6FB5;
+      color: #ffffff;
+    }
 
-    @media (max-width: 768px) {
-      .card {
-        padding: 24px 16px 20px;
-      }
-      .choices-grid {
-        grid-template-columns: 1fr;
-      }
-    }
-    /* ============================================
-   문장 배열(order) – 답안 칸 + 단어 칩 크게 / 여유 있게
+    @media (max-width: 768px) {
+      .card {
+        padding: 24px 16px 20px;
+      }
+      .choices-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+    /* ============================================
+   문장 배열(order) – 답안 칸 + 단어 칩 크게 / 여유 있게
 ============================================ */
 
 .answer-row {
-  min-height: 70px;
-  background: #f0f5ff;
-  border-radius: 16px;
-  padding: 16px 22px;
-  margin-top: 18px;
-  margin-bottom: 26px;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 14px;
-  align-items: center;
-  font-size: 18px;
+  min-height: 70px;
+  background: #f0f5ff;
+  border-radius: 16px;
+  padding: 16px 22px;
+  margin-top: 18px;
+  margin-bottom: 26px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  align-items: center;
+  font-size: 18px;
 }
 
 .word-chips {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 14px;
-  margin-top: 12px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-top: 12px;
 }
 
 .word-chip {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 12px 20px;
-  border-radius: 14px;
-  background: #ffffff;
-  border: 2px solid #d0d7e6;
-  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 20px;
+  border-radius: 14px;
+  background: #ffffff;
+  border: 2px solid #d0d7e6;
+  cursor: pointer;
 
-  font-size: 18px;
-  font-weight: 500;
-  color: #111;
+  font-size: 18px;
+  font-weight: 500;
+  color: #111;
 
-  transition: all 0.2s ease;
+  transition: all 0.2s ease;
 }
 
 .word-chip:hover {
-  background: #e8f0ff;
-  border-color: #8ab4ff;
+  background: #e8f0ff;
+  border-color: #8ab4ff;
 }
 
 .word-chip.selected {
-  background: #d6e8ff;
-  border-color: #5c9dff;
-  color: #0648a8;
-  font-weight: 600;
-  transform: scale(1.04);
+  background: #d6e8ff;
+  border-color: #5c9dff;
+  color: #0648a8;
+  font-weight: 600;
+  transform: scale(1.04);
 }
 
 /* 모바일 최적화 */
 @media (max-width: 768px) {
-  .answer-row {
-    font-size: 16px;
-    min-height: 60px;
-    padding: 12px 16px;
-  }
+  .answer-row {
+    font-size: 16px;
+    min-height: 60px;
+    padding: 12px 16px;
+  }
 
-  .word-chip {
-    font-size: 16px;
-    padding: 10px 16px;
-  }
+  .word-chip {
+    font-size: 16px;
+    padding: 10px 16px;
+  }
 }
-  </style>
+  </style>
 </head>
 <body>
 <div class="page">
-  <h1 class="main-title" id="mainTitle">문장 학습</h1>
+  <h1 class="main-title" id="mainTitle">문장 학습</h1>
 
-  <div class="top-bar">
-    <button class="mode-tab active" data-mode="blank">🧩 빈칸 완성</button>
-    <button class="mode-tab" data-mode="order">🔀 문장 배열</button>
-    <button class="mode-tab" data-mode="type">⌨️ 문장 완성</button>
-    <button class="mode-tab" data-mode="choose">✅ 문장 고르기</button>
-    <button class="mode-tab" data-mode="passage">📖 지문 완성</button>
-  </div>
+  <div class="top-bar">
+    <button class="mode-tab active" data-mode="blank">🧩 빈칸 완성</button>
+    <button class="mode-tab" data-mode="order">🔀 문장 배열</button>
+    <button class="mode-tab" data-mode="type">⌨️ 문장 완성</button>
+    <button class="mode-tab" data-mode="choose">✅ 문장 고르기</button>
+    <button class="mode-tab" data-mode="passage">📖 지문 완성</button>
+  </div>
 
-  <div class="card">
-    <div class="center-area" id="centerArea"></div>
+  <div class="card">
+    <div class="center-area" id="centerArea"></div>
 
-    <div class="bottom-bar">
-      <div id="progressText">0 / 0</div>
-      <div class="bottom-right">
-        <button class="nav-pill pill-reset" id="modeResetBtn">다시 풀기</button>
-        <button class="nav-pill pill-back" id="backToUnitsBtn">돌아가기</button>
-      </div>
-    </div>
-  </div>
+    <div class="bottom-bar">
+      <div id="progressText">0 / 0</div>
+      <div class="bottom-right">
+        <button class="nav-pill pill-reset" id="modeResetBtn">다시 풀기</button>
+        <button class="nav-pill pill-back" id="backToUnitsBtn">돌아가기</button>
+      </div>
+    </div>
+  </div>
 </div>
 
 <script src="sentence.js"></script>
 <script>
-  // ==========================
-  // 공통 설정
-  // ==========================
- const params  = new URLSearchParams(window.location.search);
-const unitKey = params.get("unit") || "1-1";
+  // ==========================
+  // 공통 설정
+  // ==========================
+  const params  = new URLSearchParams(window.location.search);
+  const unitKey = params.get("unit") || "1-1";
 
-const mainTitle      = document.getElementById("mainTitle");
-const centerArea     = document.getElementById("centerArea");
-const progressText   = document.getElementById("progressText");
-const modeTabs       = document.querySelectorAll(".mode-tab");
-const modeResetBtn   = document.getElementById("modeResetBtn");
-const backToUnitsBtn = document.getElementById("backToUnitsBtn");
+  const mainTitle      = document.getElementById("mainTitle");
+  const centerArea     = document.getElementById("centerArea");
+  const progressText   = document.getElementById("progressText");
+  const modeTabs       = document.querySelectorAll(".mode-tab");
+  const modeResetBtn   = document.getElementById("modeResetBtn");
+  const backToUnitsBtn = document.getElementById("backToUnitsBtn");
 
-mainTitle.textContent = `문장 학습 ${unitKey}`;
+  mainTitle.textContent = `문장 학습 ${unitKey}`;
 
-const SENTENCE_DB  = window.SENTENCE_DB || {};
-const allQuestions = SENTENCE_DB[unitKey] || [];
+  const SENTENCE_DB  = window.SENTENCE_DB || {};
+  const allQuestions = SENTENCE_DB[unitKey] || [];
 
-const questionsByType = {
-  blank:   [],
-  order:   [],
-  type:    [],
-  choose:  [],
-  passage: [],
-};
+  const questionsByType = {
+    blank:   [],
+    order:   [],
+    type:    [],
+    choose:  [],
+    passage: [],
+  };
 
-allQuestions.forEach(q => {
-  if (!q || !q.type) return;
-  if (questionsByType[q.type]) {
-    questionsByType[q.type].push(q);
-  }
-});
+  allQuestions.forEach(q => {
+    if (!q || !q.type) return;
+    if (questionsByType[q.type]) {
+      questionsByType[q.type].push(q);
+    }
+  });
 
-let currentMode = "blank";
-const modeIndex = {
-  blank:   0,
-  order:   0,
-  type:    0,
-  choose:  0,
-  passage: 0,
-};
+  let currentMode = "blank";
+  const modeIndex = {
+    blank:   0,
+    order:   0,
+    type:    0,
+    choose:  0,
+    passage: 0,
+  };
 
-// ==========================
-// 타이머 관리
-// ==========================
-let activeTimers = [];
+  // ==========================
+  // 타이머 관리
+  // ==========================
+  let activeTimers = [];
 
-function clearTimers() {
-  activeTimers.forEach(id => clearTimeout(id));
-  activeTimers = [];
-}
-
-function setTimer(fn, ms) {
-  const id = setTimeout(fn, ms);
-  activeTimers.push(id);
-  return id;
-}
-
-function setProgress(idx, total) {
-  if (!total) {
-    progressText.textContent = "0 / 0";
-  } else {
-    progressText.textContent = `${idx + 1} / ${total}`;
-  }
-}
-
-function clearCenter() {
-  centerArea.innerHTML = "";
-}
-
-function renderNoQuestion() {
-  clearCenter();
-  const div = document.createElement("div");
-  div.className = "question-text";
-  div.textContent = "이 유형의 문제가 없습니다.";
-  centerArea.appendChild(div);
-
-  const sub = document.createElement("div");
-  sub.className = "sentence-en";
-  sub.textContent = "문제를 추가하면 바로 여기서 풀 수 있어요.";
-  centerArea.appendChild(sub);
-
-  setProgress(0, 0);
-}
-
-function goNext() {
-  const list = questionsByType[currentMode];
-  if (!list || !list.length) {
-    renderNoQuestion();
-    return;
+  function clearTimers() {
+    activeTimers.forEach(id => clearTimeout(id));
+    activeTimers = [];
   }
 
-  modeIndex[currentMode]++;
-  const total = list.length;
-  const idx   = modeIndex[currentMode];
+  function setTimer(fn, ms) {
+    const id = setTimeout(fn, ms);
+    activeTimers.push(id);
+    return id;
+  }
 
-  if (idx >= total) {
+  function setProgress(idx, total) {
+    if (!total) {
+      progressText.textContent = "0 / 0";
+    } else {
+      progressText.textContent = `${idx + 1} / ${total}`;
+    }
+  }
+
+  function clearCenter() {
+    centerArea.innerHTML = "";
+  }
+
+  function renderNoQuestion() {
     clearCenter();
-    const done = document.createElement("div");
-    done.className = "question-text";
-    done.textContent = "이 유형의 문제를 모두 풀었습니다. 😊";
-    centerArea.appendChild(done);
+    const div = document.createElement("div");
+    div.className = "question-text";
+    div.textContent = "이 유형의 문제가 없습니다.";
+    centerArea.appendChild(div);
 
     const sub = document.createElement("div");
     sub.className = "sentence-en";
+    sub.textContent = "문제를 추가하면 바로 여기서 풀 수 있어요.";
     centerArea.appendChild(sub);
 
-    setProgress(total, total);
-  } else {
-    renderCurrent();
-  }
-}
-
-const CIRCLED_NUMS = ["①", "②", "③", "④"];
-
-function shuffle(arr) {
-  const a = arr.slice();
-  for (let i = a.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [a[i], a[j]] = [a[j], a[i]];
-  }
-  return a;
-}
-
-// ==========================
-// (1) 빈칸 완성
-// ==========================
-function renderBlankQuestion(q, idx, total) {
-  clearTimers();
-  clearCenter();
-
-  const qDiv = document.createElement("div");
-  qDiv.className = "question-text";
-  qDiv.textContent = "빈칸에 알맞은 말을 고르세요.";
-  centerArea.appendChild(qDiv);
-
-  const sentenceDiv = document.createElement("div");
-  sentenceDiv.className = "sentence-en";
-  const raw  = q.question || "";
-  const html = raw.replace("____", "<span class=\"blank-line\"></span>");
-  sentenceDiv.innerHTML = html;
-  centerArea.appendChild(sentenceDiv);
-
-  const grid = document.createElement("div");
-  grid.className = "choices-grid";
-  centerArea.appendChild(grid);
-
-  const hintDiv = document.createElement("div");
-  hintDiv.className = "hint-text";
-  centerArea.appendChild(hintDiv);
-
-  const expDiv = document.createElement("div");
-  expDiv.className = "explanation-text";
-  centerArea.appendChild(expDiv);
-
-  let answered = false;
-  const correctIndex = (typeof q.answerIndex === "number")
-    ? q.answerIndex
-    : 0;
-
-  (q.options || []).forEach((opt, i) => {
-    const btn = document.createElement("button");
-    btn.className = "choice-btn";
-    const label = CIRCLED_NUMS[i] || (i + 1) + ")";
-    btn.textContent = `${label} ${opt}`;
-    grid.appendChild(btn);
-
-    btn.onclick = () => {
-      if (answered) return;
-
-      const correct = (i === correctIndex);
-
-      if (correct) {
-        answered = true;
-        clearTimers();
-        btn.classList.add("correct");
-        hintDiv.textContent = "";
-        expDiv.textContent  = q.explanation || "정답입니다!";
-        setTimer(goNext, 1000);
-      } else {
-        btn.classList.add("wrong");
-        hintDiv.textContent = "힌트: 다시 생각해 보세요.";
-        // 해설은 아직 안 보여줌
-      }
-    };
-  });
-
-  // 15초 동안 정답 못 맞추면 → 정답/해설 보여주고 15초 뒤 다음
-  setTimer(() => {
-    if (answered) return;
-    answered = true;
-
-    Array.from(grid.children).forEach((b, idxBtn) => {
-      if (idxBtn === correctIndex) {
-        b.classList.add("correct");
-      }
-    });
-
-    hintDiv.textContent = "시간이 지났어요. 정답과 해설을 확인해 보세요.";
-    expDiv.textContent  = q.explanation || "";
-
-    setTimer(goNext, 15000);
-  }, 15000);
-
-  setProgress(idx, total);
-}
-
-// ==========================
-// (2) 문장 배열
-// ==========================
-function renderOrderQuestion(q, idx, total) {
-  clearTimers();
-  clearCenter();
-
-  const qDiv = document.createElement("div");
-  qDiv.className = "question-text";
-  qDiv.textContent = q.question || "다음 단어를 바르게 배열하여 문장을 만드시오.";
-  centerArea.appendChild(qDiv);
-
-  // 한국어 해석
-  if (q.meaningKo) {
-    const koDiv = document.createElement("div");
-    koDiv.className = "sentence-en";
-    koDiv.style.fontSize = "16px";
-    koDiv.style.color = "#4b5563";
-    koDiv.textContent = q.meaningKo;
-    centerArea.appendChild(koDiv);
+    setProgress(0, 0);
   }
 
-  // 정답 배열 공간
-  const answerRow = document.createElement("div");
-  answerRow.className = "answer-row";
-  centerArea.appendChild(answerRow);
-
-  // 단어 칩 공간
-  const chipsWrap = document.createElement("div");
-  chipsWrap.className = "word-chips";
-  centerArea.appendChild(chipsWrap);
-
-  const btnRow = document.createElement("div");
-  btnRow.style.display = "flex";
-  btnRow.style.gap = "8px";
-  btnRow.style.marginTop = "6px";
-  centerArea.appendChild(btnRow);
-
-  const hintDiv = document.createElement("div");
-  hintDiv.className = "hint-text";
-  centerArea.appendChild(hintDiv);
-
-  let selected = []; // 선택된 단어 배열
-  let pool = shuffle((q.words || []).map((word, index) => ({ word, originalIndex: index }))); // 원본 인덱스를 포함한 셔플된 단어 풀
-  let finished = false;
-  const correctSentence = (q.answerEn || "").trim();
-
-
-  // ** 선택된 단어를 다시 눌러 제거하는 로직 추가 **
-  answerRow.onclick = (e) => {
-    if (finished) return;
-    const clickedChip = e.target;
-    if (clickedChip.classList.contains('word-chip')) {
-      const word = clickedChip.textContent;
-      const index = selected.findIndex(item => item.word === word);
-
-      if (index !== -1) {
-        const [removed] = selected.splice(index, 1);
-        pool.push(removed); // 단어 풀에 되돌림
-        pool.sort((a, b) => a.originalIndex - b.originalIndex); // 원래 순서대로 정렬 시도 (시각적 일관성을 위해)
-        refresh();
-      }
-    }
-  };
-
-  function refresh() {
-    answerRow.innerHTML = "";
-    chipsWrap.innerHTML = "";
-    hintDiv.textContent = "";
-
-    // 1. 정답 행 (Answer Row) 렌더링
-    if (selected.length === 0) {
-      answerRow.textContent = ""; // 빈 경우 텍스트 대신
-    } else {
-      selected.forEach(item => {
-        const chip = document.createElement("button");
-        chip.type = "button";
-        chip.className = "word-chip selected"; // 선택된 칩 클래스 추가
-        chip.textContent = item.word;
-        answerRow.appendChild(chip);
-      });
-    }
-
-
-    // 2. 단어 칩 (Chip Pool) 렌더링
-    pool.forEach((item, i) => {
-      const chip = document.createElement("button");
-      chip.type = "button";
-      chip.className = "word-chip"; // **클래스명 수정: chip -> word-chip**
-      chip.textContent = item.word;
-      chip.dataset.wordIndex = i; // 풀에서의 인덱스
-
-      chip.onclick = () => {
-        if (finished) return;
-        selected.push(item); // 선택된 배열에 추가
-        pool.splice(i, 1);   // 풀에서 제거
-        refresh();
-      };
-      chipsWrap.appendChild(chip);
-    });
-
-    // 정답 확인 버튼 상태
-    submitBtn.disabled = finished;
-    resetBtn.disabled = finished;
-  }
-
-  const resetBtn = document.createElement("button");
-  resetBtn.className = "nav-pill pill-reset";
-  resetBtn.textContent = "지우기";
-  resetBtn.onclick = () => {
-    if (finished) return;
-    selected = [];
-    // 원본 단어 배열을 다시 섞어서 풀에 저장
-    pool = shuffle((q.words || []).map((word, index) => ({ word, originalIndex: index })));
-    hintDiv.textContent = "";
-    refresh();
-  };
-  btnRow.appendChild(resetBtn);
-
-  const submitBtn = document.createElement("button");
-  submitBtn.className = "nav-pill";
-  submitBtn.style.background = "#9AD7A0";
-  submitBtn.style.color = "#ffffff";
-  submitBtn.textContent = "정답 확인";
-  submitBtn.onclick = () => {
-    if (finished) return;
-
-    const userSentence = selected.map(item => item.word).join(" ").trim(); // 단어만 추출
-    if (!userSentence) {
-      hintDiv.textContent = "먼저 단어들을 눌러 문장을 만들어 보세요.";
+  function goNext() {
+    const list = questionsByType[currentMode];
+    if (!list || !list.length) {
+      renderNoQuestion();
       return;
     }
 
-    // 대소문자 무시, 마침표 제거 후 비교
-    const normalize = (str) => str.replace(/[.,!?]/g, '').toLowerCase().trim();
+    modeIndex[currentMode]++;
+    const total = list.length;
+    const idx   = modeIndex[currentMode];
 
-    if (normalize(userSentence) === normalize(correctSentence)) {
-      finished = true;
-      hintDiv.textContent = "정답입니다!";
-      // 최종 정답 문장으로 AnswerRow 업데이트
-      answerRow.innerHTML = "";
-      answerRow.textContent = correctSentence;
-      chipsWrap.innerHTML = ""; // 단어 풀 제거
-      setTimer(goNext, 1000);
+    if (idx >= total) {
+      clearCenter();
+      const done = document.createElement("div");
+      done.className = "question-text";
+      done.textContent = "이 유형의 문제를 모두 풀었습니다. 😊";
+      centerArea.appendChild(done);
+
+      const sub = document.createElement("div");
+      sub.className = "sentence-en";
+      centerArea.appendChild(sub);
+
+      setProgress(total, total);
     } else {
-      hintDiv.textContent = "순서를 다시 한 번 생각해 보세요.";
+      renderCurrent();
     }
+  }
+
+  const CIRCLED_NUMS = ["①", "②", "③", "④"];
+
+  function shuffle(arr) {
+    const a = arr.slice();
+    for (let i = a.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [a[i], a[j]] = [a[j], a[i]];
+    }
+    return a;
+  }
+
+  // ==========================
+  // (1) 빈칸 완성
+  // ==========================
+  function renderBlankQuestion(q, idx, total) {
+    clearTimers();
+    clearCenter();
+
+    const qDiv = document.createElement("div");
+    qDiv.className = "question-text";
+    qDiv.textContent = "빈칸에 알맞은 말을 고르세요.";
+    centerArea.appendChild(qDiv);
+
+    const sentenceDiv = document.createElement("div");
+    sentenceDiv.className = "sentence-en";
+    const raw  = q.question || "";
+    const html = raw.replace("____", "<span class=\"blank-line\"></span>");
+    sentenceDiv.innerHTML = html;
+    centerArea.appendChild(sentenceDiv);
+
+    const grid = document.createElement("div");
+    grid.className = "choices-grid";
+    centerArea.appendChild(grid);
+
+    const hintDiv = document.createElement("div");
+    hintDiv.className = "hint-text";
+    centerArea.appendChild(hintDiv);
+
+    const expDiv = document.createElement("div");
+    expDiv.className = "explanation-text";
+    centerArea.appendChild(expDiv);
+
+    let answered = false;
+    const correctIndex = (typeof q.answerIndex === "number")
+      ? q.answerIndex
+      : 0;
+
+    (q.options || []).forEach((opt, i) => {
+      const btn = document.createElement("button");
+      btn.className = "choice-btn";
+      const label = CIRCLED_NUMS[i] || (i + 1) + ")";
+      btn.textContent = `${label} ${opt}`;
+      grid.appendChild(btn);
+
+      btn.onclick = () => {
+        if (answered) return;
+
+        const correct = (i === correctIndex);
+
+        if (correct) {
+          answered = true;
+          clearTimers();
+          btn.classList.add("correct");
+          hintDiv.textContent = "";
+          expDiv.textContent  = q.explanation || "정답입니다!";
+          setTimer(goNext, 1000);
+        } else {
+          btn.classList.add("wrong");
+          hintDiv.textContent = "힌트: 다시 생각해 보세요.";
+          // 해설은 아직 안 보여줌
+        }
+      };
+    });
+
+    // 15초 동안 정답 못 맞추면 → 정답/해설 보여주고 15초 뒤 다음
+    setTimer(() => {
+      if (answered) return;
+      answered = true;
+
+      Array.from(grid.children).forEach((b, idxBtn) => {
+        if (idxBtn === correctIndex) {
+          b.classList.add("correct");
+        }
+      });
+
+      hintDiv.textContent = "시간이 지났어요. 정답과 해설을 확인해 보세요.";
+      expDiv.textContent  = q.explanation || "";
+
+      setTimer(goNext, 15000);
+    }, 15000);
+
+    setProgress(idx, total);
+  }
+
+  // ==========================
+  // (2) 문장 배열
+  // ==========================
+  function renderOrderQuestion(q, idx, total) {
+    clearTimers();
+    clearCenter();
+
+    const qDiv = document.createElement("div");
+    qDiv.className = "question-text";
+    qDiv.textContent = q.question || "다음 단어를 바르게 배열하여 문장을 만드시오.";
+    centerArea.appendChild(qDiv);
+
+    // 한국어 해석
+    if (q.meaningKo) {
+      const koDiv = document.createElement("div");
+      koDiv.className = "sentence-en";
+      koDiv.style.fontSize = "16px";
+      koDiv.style.color = "#4b5563";
+      koDiv.textContent = q.meaningKo;
+      centerArea.appendChild(koDiv);
+    }
+
+    const answerRow = document.createElement("div");
+    answerRow.className = "answer-row";
+    answerRow.textContent = "";
+    centerArea.appendChild(answerRow);
+
+    const chipsWrap = document.createElement("div");
+    chipsWrap.className = "word-chips";
+    centerArea.appendChild(chipsWrap);
+
+    const btnRow = document.createElement("div");
+    btnRow.style.display = "flex";
+    btnRow.style.gap = "8px";
+    btnRow.style.marginTop = "6px";
+    centerArea.appendChild(btnRow);
+
+    const hintDiv = document.createElement("div");
+    hintDiv.className = "hint-text";
+    centerArea.appendChild(hintDiv);
+
+    let selected = [];
+    let finished = false;
+    const correctSentence = (q.answerEn || "").trim();
+    let pool = shuffle((q.words || []).slice());  // 단어 순서 랜덤
+
+    function refresh() {
+      answerRow.textContent = selected.join(" ");
+      chipsWrap.innerHTML = "";
+
+      pool.forEach((w, i) => {
+        const chip = document.createElement("button");
+        chip.type = "button";
+        chip.className = "chip";
+        chip.style.marginBottom = "6px";
+        chip.textContent = w;
+        chip.onclick = () => {
+          if (finished) return;
+          selected.push(w);
+          pool.splice(i, 1);
+          refresh();
+        };
+        chipsWrap.appendChild(chip);
+      });
+    }
+
+    const resetBtn = document.createElement("button");
+    resetBtn.className = "nav-pill";
+    resetBtn.textContent = "지우기";
+    resetBtn.onclick = () => {
+      if (finished) return;
+      selected = [];
+      pool = shuffle((q.words || []).slice());
+      hintDiv.textContent = "";
+      refresh();
+    };
+    btnRow.appendChild(resetBtn);
+
+    const submitBtn = document.createElement("button");
+    submitBtn.className = "nav-pill";
+    submitBtn.style.background = "#9AD7A0";
+    submitBtn.style.color = "#ffffff";
+    submitBtn.textContent = "정답 확인";
+    submitBtn.onclick = () => {
+      if (finished) return;
+
+      const userSentence = selected.join(" ").trim();
+      if (!userSentence) {
+        hintDiv.textContent = "먼저 단어들을 눌러 문장을 만들어 보세요.";
+        return;
+      }
+
+      if (userSentence === correctSentence) {
+        finished = true;
+        hintDiv.textContent = "정답입니다!";
+        setTimer(goNext, 1000);
+      } else {
+        hintDiv.textContent = "순서를 다시 한 번 생각해 보세요.";
+      }
+    };
+    btnRow.appendChild(submitBtn);
+
+    // 20초 동안 정답을 못 맞추면 정답 공개 후 5초 뒤 다음 문제
+    setTimer(() => {
+      if (finished) return;
+      finished = true;
+      answerRow.textContent = correctSentence;
+      hintDiv.textContent = "(시간이 지나 정답이 공개되었습니다.)";
+      setTimer(goNext, 5000);
+    }, 20000);
+
     refresh();
-  };
-  btnRow.appendChild(submitBtn);
+    setProgress(idx, total);
+  }
 
-  // 20초 동안 정답을 못 맞추면 정답 공개 후 5초 뒤 다음 문제
-  setTimer(() => {
-    if (finished) return;
-    finished = true;
-    answerRow.innerHTML = "";
-    answerRow.textContent = correctSentence;
-    chipsWrap.innerHTML = ""; // 단어 풀 제거
-    hintDiv.textContent = "⏰ 시간이 지나 정답이 공개되었습니다. 5초 뒤 다음 문제로 넘어갑니다.";
-    setTimer(goNext, 5000);
-  }, 20000);
+  // ==========================
+  // 현재 모드 렌더링
+  // ==========================
+  function renderCurrent() {
+    clearTimers();
 
-  // 초기 렌더링
-  pool = shuffle((q.words || []).map((word, index) => ({ word, originalIndex: index }))); // 최초 단어 풀 정의
-  refresh();
-  setProgress(idx, total);
-}
+    modeTabs.forEach(tab => {
+      tab.classList.toggle("active", tab.dataset.mode === currentMode);
+    });
 
+    const list = questionsByType[currentMode];
+    if (!list || !list.length) {
+      renderNoQuestion();
+      return;
+    }
 
-// ==========================
-// 현재 모드 렌더링 (생략)...
-// ==========================
-function renderCurrent() {
-  clearTimers();
+    const idx = modeIndex[currentMode] || 0;
+    const q   = list[idx];
 
+    if (currentMode === "blank") {
+      renderBlankQuestion(q, idx, list.length);
+    } else if (currentMode === "order") {
+      renderOrderQuestion(q, idx, list.length);
+    } else {
+      // 아직 구현 안 된 모드(type, choose, passage)는 안내만
+      renderNoQuestion();
+    }
+  }
+
+  // 탭 클릭
   modeTabs.forEach(tab => {
-    tab.classList.toggle("active", tab.dataset.mode === currentMode);
+    tab.onclick = () => {
+      const mode = tab.dataset.mode;
+      currentMode = mode;
+      renderCurrent();
+    };
   });
 
-  const list = questionsByType[currentMode];
-  if (!list || !list.length) {
-    renderNoQuestion();
-    return;
-  }
-
-  const idx = modeIndex[currentMode] || 0;
-  const q   = list[idx];
-
-  if (currentMode === "blank") {
-    renderBlankQuestion(q, idx, list.length);
-  } else if (currentMode === "order") {
-    renderOrderQuestion(q, idx, list.length);
-  } else {
-    // 아직 구현 안 된 모드(type, choose, passage)는 안내만
-    renderNoQuestion();
-  }
-}
-
-// 탭 클릭
-modeTabs.forEach(tab => {
-  tab.onclick = () => {
-    const mode = tab.dataset.mode;
-    currentMode = mode;
+  // 다시 풀기
+  modeResetBtn.onclick = () => {
+    clearTimers();
+    modeIndex.blank   = 0;
+    modeIndex.order   = 0;
+    modeIndex.type    = 0;
+    modeIndex.choose  = 0;
+    modeIndex.passage = 0;
     renderCurrent();
   };
-});
 
-// 다시 풀기
-modeResetBtn.onclick = () => {
-  clearTimers();
-  modeIndex.blank   = 0;
-  modeIndex.order   = 0;
-  modeIndex.type    = 0;
-  modeIndex.choose  = 0;
-  modeIndex.passage = 0;
+  // 돌아가기
+  backToUnitsBtn.onclick = () => {
+    clearTimers();
+    window.history.back();
+  };
+
+  // 첫 화면
   renderCurrent();
-};
+</script>
 
-// 돌아가기
-backToUnitsBtn.onclick = () => {
-  clearTimers();
-  window.history.back();
-};
-
-// 첫 화면
-renderCurrent();
+이 코드를 보고 수정해줘야해.
+지금 기능을 우선 보여줄게
