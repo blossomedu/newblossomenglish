@@ -210,6 +210,63 @@
         grid-template-columns: 1fr;
       }
     }
+    /* ============================
+   문장 배열(order) UI 전체 스타일
+   (칩 크게 / 간격 넓게 / 보기 좋게)
+============================ */
+
+.order-kor {
+  font-size: 18px;
+  margin-bottom: 18px;
+  color: #4b5563;
+}
+
+/* 칩들이 들어가는 영역 */
+.word-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 18px 22px;            /* 칩들 사이 간격 넓게 */
+  padding: 16px 4px;
+  margin-top: 10px;
+}
+
+/* 선택한 단어들이 배치되는 박스 */
+.answer-row {
+  min-height: 70px;          /* 높이 크게 */
+  padding: 18px 20px;
+  border-radius: 18px;
+  background: #eef2ff;       /* 연보라톤 */
+  font-size: 20px;           /* 글씨 크게 */
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;                 /* 안쪽 칩 간격 */
+  margin-top: 20px;
+  border: 2px solid #dbe2ff; /* 부드러운 테두리 */
+}
+
+/* 개별 단어 칩 스타일 */
+.word-chip {
+  padding: 10px 18px;        /* 칩 크기 증가 */
+  border-radius: 22px;
+  background: white;
+  font-size: 18px;
+  border: 2px solid #d1d5db;
+  cursor: pointer;
+  transition: 0.18s ease;
+}
+
+/* 칩 hover 효과 */
+.word-chip:hover {
+  background: #f0f7ff;
+  border-color: #93c5fd;
+}
+
+/* 칩이 선택되어 answer-row로 이동했을 때 */
+.word-chip.selected {
+  background: #c7d2fe;       /* 연한 파랑-purple */
+  border-color: #818cf8;
+  color: #1e1b4b;
+}
   </style>
 </head>
 <body>
@@ -619,3 +676,4 @@
   // 첫 화면
   renderCurrent();
 </script>
+
