@@ -2,7 +2,7 @@
 <html lang="ko">
 <head>
   <meta charset="UTF-8" />
-  <title>어휘 학습 - BLOSSOM ENGLISH</title>
+  <title>문장 학습 - BLOSSOM ENGLISH</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link href="https://cdn.jsdelivr.net/npm/pretendard/dist/web/variable/pretendardvariable.css" rel="stylesheet" />
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Jua&display=swap" />
@@ -26,18 +26,7 @@
       background: #FF6FB5; color: #ffffff; box-shadow: 0 12px 25px rgba(255, 111, 181, 0.45);
     }
 
-    /* ✨ [6번 버튼] 어휘 보기 전용 스타일 ✨ */
-    .mode-tab.print-btn {
-      background: #ff7eb3; /* 요청하신 색상 */
-      color: #ffffff;
-      font-weight: 600;
-    }
-    .mode-tab.print-btn:hover {
-      filter: brightness(0.95);
-      box-shadow: 0 8px 20px rgba(255, 126, 179, 0.4);
-    }
-
-    /* 카드 및 퀴즈 스타일 (기존 유지) */
+       /* 카드 및 퀴즈 스타일 (기존 유지) */
     .card { background: #ffffff; border-radius: 28px; padding: 40px 60px 32px; box-shadow: 0 18px 40px rgba(15, 23, 42, 0.08); min-height: 360px; position: relative; display: flex; flex-direction: column; justify-content: space-between; }
     .audio-badge { position: absolute; top: 18px; right: 26px; padding: 6px 14px; border-radius: 999px; background: #e5edff; font-size: 12px; color: #1d4ed8; display: none; }
     .center-area { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; gap: 12px; padding: 10px 8px; min-height: 260px; }
@@ -69,17 +58,14 @@
 </head>
 <body>
 <div class="page">
-  <h1 class="main-title" id="mainTitle">어휘 학습</h1>
+  <h1 class="main-title" id="mainTitle">문장 학습</h1>
 
   <div class="top-bar">
-    <button class="mode-tab active" data-mode="study">📚 학습 하기</button>
-    <button class="mode-tab" data-mode="meaning">✅ 뜻 찾기</button>
-    <button class="mode-tab" data-mode="english">🔤 영어 찾기</button>
-    <button class="mode-tab" data-mode="listening">🎧 듣고 찾기</button>
-    <button class="mode-tab" data-mode="sentence">✏️ 문장 빈칸</button>
-    
-    <button class="mode-tab print-btn" id="printVocabBtn">🖨️ 어휘 보기</button>
-  </div>
+    <button class="mode-tab active" data-mode="study">📚 빈칸 완성</button>
+    <button class="mode-tab" data-mode="meaning">✅ 문장 배열</button>
+    <button class="mode-tab" data-mode="english">🔤 문장 고르기</button>
+    <button class="mode-tab" data-mode="listening">✏️ 지문 완성</button>
+</div>
 
   <div class="card">
     <div class="audio-badge" id="audioBadge"></div>
@@ -93,7 +79,7 @@
       </div>
     </div>
   </div>
-</div>
+</div> 
 
 <script src="words.js"></script>
 <script src="https://unpkg.com/@supabase/supabase-js@2.48.0/dist/umd/supabase.js"></script>
@@ -128,24 +114,14 @@
 
   // DOM 요소
   const mainTitle = document.getElementById("mainTitle");
-  mainTitle.textContent = `어휘 학습 ${unitKey}`;
+  mainTitle.textContent = `문장 학습 ${unitKey}`;
   const centerArea = document.getElementById("centerArea");
   const audioBadge = document.getElementById("audioBadge");
   const progressText = document.getElementById("progressText");
-  const modeTabs = document.querySelectorAll(".mode-tab:not(#printVocabBtn)"); // 출력 버튼 제외
+  const modeTabs = document.querySelectorAll(".mode-tab");
   const modeResetBtn = document.getElementById("modeResetBtn");
   const backToUnitsBtn = document.getElementById("backToUnitsBtn");
   
-  // ✨ [출력 버튼] 기능 연결 ✨
-  const printVocabBtn = document.getElementById("printVocabBtn");
-  if (printVocabBtn) {
-    printVocabBtn.onclick = () => {
-      // print-vocab-note.html 파일을 새 창으로 열기 (유닛 정보 전달)
-      const url = `print-vocab-note.html?unit=${unitKey}`;
-      window.open(url, "_blank");
-    };
-  }
-
   // ---------- 이하 기존 로직 유지 ----------
   let currentMode = "study";
   let currentIndex = 0;
