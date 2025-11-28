@@ -327,7 +327,7 @@
     setProgress(0, 0);
   }
 
-  // ----- 현재 모드의 현재 라운드가 끝났을 때 처리 -----
+  // ----- 라운드 종료 화면 -----
   function showCompleted() {
     clearCenter();
     const done = document.createElement("div");
@@ -337,7 +337,7 @@
 
     const sub = document.createElement("div");
     sub.className = "sentence-en";
-    // 안내 문구는 비워 둠 (원하면 여기 텍스트 넣기)
+    // 안내 문구는 비워 둠 (원하면 여기 텍스트 넣자)
     centerArea.appendChild(sub);
 
     const list = questionsByType[currentMode] || [];
@@ -389,7 +389,6 @@
   // ==========================
   // (1) 빈칸 완성
   // ==========================
-  // isReview: 복습 라운드인지 표시 (지금은 UI에 차이는 없지만 필요하면 사용)
   function renderBlankQuestion(q, idx, total, isReview) {
     clearTimers();
     clearCenter();
@@ -428,7 +427,6 @@
       : (typeof q.answer === "number" ? q.answer - 1 : 0);
 
     function markWrongOnce() {
-      // 같은 문제를 여러 번 틀려도 배열에는 한 번만
       if (!state.wrong.includes(q)) {
         state.wrong.push(q);
       }
@@ -460,10 +458,8 @@
           // ❌ 오답: 힌트만, 다시 클릭 가능
           btn.classList.add("wrong");
           hintDiv.textContent = "힌트: 다시 생각해 보세요.";
-          // 해설은 아직 안 보여줌
-          expDiv.textContent = "";
+          expDiv.textContent  = "";
 
-          // 오답으로 기록 (복습 라운드용)
           markWrongOnce();
         }
       };
@@ -475,7 +471,6 @@
       if (answered) return;
       answered = true;
 
-      // 시간 초과도 오답으로 간주 → 복습 라운드에 포함
       markWrongOnce();
 
       Array.from(grid.children).forEach((b, idxBtn) => {
@@ -490,6 +485,150 @@
       setTimer(goNext, 15000);
     }, 15000);
 
+    setProgress(idx, total);
+  }
+
+  // ==========================
+  // (2) 문장 배열
+  // ==========================
+  function renderOrderQuestion(q, idx, total, isReview) {
+    clearTimers();
+    clearCenter();
+
+    const state = modeState.order;
+
+    const qDiv = document.createElement("div");
+    qDiv.className = "question-text";
+    qDiv.textContent = q.question || "다음 단어를 바르게 배열하여 문장을 만드세요.";
+    centerArea.appendChild(qDiv);
+
+    // 사용자가 쌓아가는 문장
+    const answerRow = document.createElement("div");
+    answerRow.className = "answer-row";
+    answerRow.textContent = "";
+    centerArea.appendChild(answerRow);
+
+    // 단어 칩 영역
+    const chipsWrap = document.createElement("div");
+    chipsWrap.className = "word-chips";
+    centerArea.appendChild(chipsWrap);
+
+    // 버튼 영역 (지우기 / 정답 확인)
+    const btnRow = document.createElement("div");
+    btnRow.style.display   = "flex";
+    btnRow.style.gap       = "8px";
+    btnRow.style.marginTop = "6px";
+    centerArea.appendChild(btnRow);
+
+    const hintDiv = document.createElement("div");
+    hintDiv.className = "hint-text";
+    centerArea.appendChild(hintDiv);
+
+    const expDiv = document.createElement("div");
+    expDiv.className = "explanation-text";
+    centerArea.appendChild(expDiv);
+
+    // 원래 단어 배열 (정답 체크용)
+    const originalWords = (q.words || []).slice();
+    const correctSentence = (q.answer || "").trim();
+
+    // 화면에 뿌릴 칩용 단어들은 섞어서 사용
+    const chipsWords = originalWords.slice();
+    for (let i = chipsWords.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [chipsWords[i], chipsWords[j]] = [chipsWords[j], chipsWords[i]];
+    }
+
+    let selected = [];
+    let used = new Array(chipsWords.length).fill(false);
+    let finished = false;
+
+    function markWrongOnce() {
+      if (!state.wrong.includes(q)) {
+        state.wrong.push(q);
+      }
+    }
+
+    function refresh() {
+      answerRow.textContent = selected.join(" ");
+      chipsWrap.innerHTML = "";
+
+      chipsWords.forEach((w, wordIdx) => {
+        if (used[wordIdx]) return;
+        const chip = document.createElement("button");
+        chip.type = "button";
+        chip.className = "chip";
+        chip.textContent = w;
+        chip.onclick = () => {
+          if (finished) return;
+          used[wordIdx] = true;
+          selected.push(w);
+          refresh();
+        };
+        chipsWrap.appendChild(chip);
+      });
+    }
+
+    // [지우기] 버튼
+    const resetBtn = document.createElement("button");
+    resetBtn.className = "nav-pill";
+    resetBtn.textContent = "지우기";
+    resetBtn.onclick = () => {
+      if (finished) return;
+      selected = [];
+      used = new Array(chipsWords.length).fill(false);
+      refresh();
+      hintDiv.textContent = "";
+      expDiv.textContent  = "";
+    };
+    btnRow.appendChild(resetBtn);
+
+    // [정답 확인] 버튼
+    const checkBtn = document.createElement("button");
+    checkBtn.className = "nav-pill";
+    checkBtn.style.background = "#9AD7A0";
+    checkBtn.style.color      = "#ffffff";
+    checkBtn.textContent      = "정답 확인";
+    checkBtn.onclick = () => {
+      if (finished) return;
+      const userSentence = selected.join(" ").trim();
+
+      if (!userSentence) {
+        hintDiv.textContent = "먼저 단어들을 눌러 문장을 만들어 보세요.";
+        return;
+      }
+
+      if (userSentence === correctSentence) {
+        // ✅ 정답
+        finished = true;
+        clearTimers();
+        hintDiv.textContent = "";
+        expDiv.textContent  = q.explanation || "정답입니다!";
+        setTimer(goNext, 1000);
+      } else {
+        // ❌ 오답 → 다시 시도 가능 + 오답 기록
+        hintDiv.textContent = "순서를 다시 한 번 생각해 보세요.";
+        expDiv.textContent  = "";
+        markWrongOnce();
+      }
+    };
+    btnRow.appendChild(checkBtn);
+
+    // ⏱ 20초 타이머: 시간 안에 못 맞추면 정답 공개 후 3초 뒤 다음
+    setTimer(() => {
+      if (finished) return;
+      finished = true;
+
+      markWrongOnce();
+
+      answerRow.textContent = correctSentence;
+      hintDiv.textContent   = "시간이 지났어요. 정답을 확인해 보세요.";
+      expDiv.textContent    = q.explanation || "";
+
+      setTimer(goNext, 3000);
+    }, 20000);
+
+    refresh();
     setProgress(idx, total);
   }
 
@@ -532,6 +671,8 @@
 
     if (currentMode === "blank") {
       renderBlankQuestion(q, idx, total, isReview);
+    } else if (currentMode === "order") {
+      renderOrderQuestion(q, idx, total, isReview);
     } else {
       // 아직 구현 안 된 모드는 안내 문구만
       renderNoQuestion();
