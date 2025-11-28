@@ -489,225 +489,137 @@
   }
 
   // ==========================
-  // (2) 문장 배열
-  // ==========================
-  function renderOrderQuestion(q, idx, total, isReview) {
-    clearTimers();
-    clearCenter();
+// (2) 문장 배열
+// ==========================
+function renderOrderQuestion(q, idx, total) {
+  clearTimers();
+  clearCenter();
 
-    const state = modeState.order;
+  // 문제 문장 (한국어 안내 문장)
+  const qDiv = document.createElement("div");
+  qDiv.className = "question-text";
+  qDiv.textContent = q.question || "다음 단어를 바르게 배열하여 문장을 만드시오.";
+  centerArea.appendChild(qDiv);
 
-    const qDiv = document.createElement("div");
-    qDiv.className = "question-text";
-    qDiv.textContent = q.question || "다음 단어를 바르게 배열하여 문장을 만드세요.";
-    centerArea.appendChild(qDiv);
-
-    // 사용자가 쌓아가는 문장
-    const answerRow = document.createElement("div");
-    answerRow.className = "answer-row";
-    answerRow.textContent = "";
-    centerArea.appendChild(answerRow);
-
-    // 단어 칩 영역
-    const chipsWrap = document.createElement("div");
-    chipsWrap.className = "word-chips";
-    centerArea.appendChild(chipsWrap);
-
-    // 버튼 영역 (지우기 / 정답 확인)
-    const btnRow = document.createElement("div");
-    btnRow.style.display   = "flex";
-    btnRow.style.gap       = "8px";
-    btnRow.style.marginTop = "6px";
-    centerArea.appendChild(btnRow);
-
-    const hintDiv = document.createElement("div");
-    hintDiv.className = "hint-text";
-    centerArea.appendChild(hintDiv);
-
-    const expDiv = document.createElement("div");
-    expDiv.className = "explanation-text";
-    centerArea.appendChild(expDiv);
-
-    // 원래 단어 배열 (정답 체크용)
-    const originalWords = (q.words || []).slice();
-    const correctSentence = (q.answer || "").trim();
-
-    // 화면에 뿌릴 칩용 단어들은 섞어서 사용
-    const chipsWords = originalWords.slice();
-    for (let i = chipsWords.length - 1; i > 0; i--) {
-      const j = Math.floor(Math.random() * (i + 1));
-      [chipsWords[i], chipsWords[j]] = [chipsWords[j], chipsWords[i]];
-    }
-
-    let selected = [];
-    let used = new Array(chipsWords.length).fill(false);
-    let finished = false;
-
-    function markWrongOnce() {
-      if (!state.wrong.includes(q)) {
-        state.wrong.push(q);
-      }
-    }
-
-    function refresh() {
-      answerRow.textContent = selected.join(" ");
-      chipsWrap.innerHTML = "";
-
-      chipsWords.forEach((w, wordIdx) => {
-        if (used[wordIdx]) return;
-        const chip = document.createElement("button");
-        chip.type = "button";
-        chip.className = "chip";
-        chip.textContent = w;
-        chip.onclick = () => {
-          if (finished) return;
-          used[wordIdx] = true;
-          selected.push(w);
-          refresh();
-        };
-        chipsWrap.appendChild(chip);
-      });
-    }
-
-    // [지우기] 버튼
-    const resetBtn = document.createElement("button");
-    resetBtn.className = "nav-pill";
-    resetBtn.textContent = "지우기";
-    resetBtn.onclick = () => {
-      if (finished) return;
-      selected = [];
-      used = new Array(chipsWords.length).fill(false);
-      refresh();
-      hintDiv.textContent = "";
-      expDiv.textContent  = "";
-    };
-    btnRow.appendChild(resetBtn);
-
-    // [정답 확인] 버튼
-    const checkBtn = document.createElement("button");
-    checkBtn.className = "nav-pill";
-    checkBtn.style.background = "#9AD7A0";
-    checkBtn.style.color      = "#ffffff";
-    checkBtn.textContent      = "정답 확인";
-    checkBtn.onclick = () => {
-      if (finished) return;
-      const userSentence = selected.join(" ").trim();
-
-      if (!userSentence) {
-        hintDiv.textContent = "먼저 단어들을 눌러 문장을 만들어 보세요.";
-        return;
-      }
-
-      if (userSentence === correctSentence) {
-        // ✅ 정답
-        finished = true;
-        clearTimers();
-        hintDiv.textContent = "";
-        expDiv.textContent  = q.explanation || "정답입니다!";
-        setTimer(goNext, 1000);
-      } else {
-        // ❌ 오답 → 다시 시도 가능 + 오답 기록
-        hintDiv.textContent = "순서를 다시 한 번 생각해 보세요.";
-        expDiv.textContent  = "";
-        markWrongOnce();
-      }
-    };
-    btnRow.appendChild(checkBtn);
-
-    // ⏱ 20초 타이머: 시간 안에 못 맞추면 정답 공개 후 3초 뒤 다음
-    setTimer(() => {
-      if (finished) return;
-      finished = true;
-
-      markWrongOnce();
-
-      answerRow.textContent = correctSentence;
-      hintDiv.textContent   = "시간이 지났어요. 정답을 확인해 보세요.";
-      expDiv.textContent    = q.explanation || "";
-
-      setTimer(goNext, 3000);
-    }, 20000);
-
-    refresh();
-    setProgress(idx, total);
+  // ✅ 한국어 해석 (여기에 '해석'을 넣어 쓰면 됨)
+  // sentence.js의 order 문제에서 explanation 칸에 한국어 해석을 넣어 두면 여기 뜬다.
+  if (q.explanation) {
+    const koDiv = document.createElement("div");
+    koDiv.className = "sentence-ko";
+    koDiv.textContent = q.explanation; // 예: "그녀는 매일 책을 읽는다."
+    centerArea.appendChild(koDiv);
   }
 
-  // ==========================
-  // 현재 모드 렌더링
-  // ==========================
-  function renderCurrent() {
-    clearTimers();
+  // 내가 만든 문장
+  const answerRow = document.createElement("div");
+  answerRow.className = "answer-row";
+  answerRow.textContent = "";
+  centerArea.appendChild(answerRow);
 
-    modeTabs.forEach(tab => {
-      tab.classList.toggle("active", tab.dataset.mode === currentMode);
+  // 단어 칩 영역
+  const chipsWrap = document.createElement("div");
+  chipsWrap.className = "word-chips";
+  centerArea.appendChild(chipsWrap);
+
+  // 버튼 영역 (지우기 / 정답 확인)
+  const btnRow = document.createElement("div");
+  btnRow.style.display = "flex";
+  btnRow.style.gap = "8px";
+  btnRow.style.marginTop = "10px";
+  centerArea.appendChild(btnRow);
+
+  // 간단한 피드백만 (힌트/해설 아님)
+  const msgDiv = document.createElement("div");
+  msgDiv.className = "hint-text";
+  msgDiv.textContent = "";
+  centerArea.appendChild(msgDiv);
+
+  // ----- 상태 -----
+  let selected = [];
+  let finished = false;
+
+  // 단어 섞기 (q.words는 대소문자/마침표 그대로 사용)
+  const shuffled = [...q.words];
+  for (let i = shuffled.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+  }
+
+  function refresh() {
+    answerRow.textContent = selected.join(" ");
+    chipsWrap.innerHTML = "";
+
+    shuffled.forEach((w) => {
+      // 이미 선택된 단어는 칩에서 제거
+      if (selected.includes(w)) return;
+
+      const chip = document.createElement("div");
+      chip.className = "chip";
+      chip.textContent = w;
+      chip.onclick = () => {
+        if (finished) return;
+        selected.push(w);
+        refresh();
+      };
+      chipsWrap.appendChild(chip);
     });
+  }
 
-    const baseList = questionsByType[currentMode];
+  // 지우기 버튼
+  const resetBtn = document.createElement("button");
+  resetBtn.className = "nav-pill";
+  resetBtn.textContent = "지우기";
+  resetBtn.onclick = () => {
+    if (finished) return;
+    selected = [];
+    msgDiv.textContent = "";
+    answerRow.style.borderColor = "#d1d5db";
+    refresh();
+  };
+  btnRow.appendChild(resetBtn);
 
-    if (!baseList || !baseList.length) {
-      renderNoQuestion();
+  // 정답 확인 버튼
+  const submitBtn = document.createElement("button");
+  submitBtn.className = "nav-pill";
+  submitBtn.style.background = "#9AD7A0";
+  submitBtn.style.color = "#ffffff";
+  submitBtn.textContent = "정답 확인";
+  submitBtn.onclick = () => {
+    if (finished) return;
+
+    const userSentence = selected.join(" ").trim();
+    const correctSentence = (q.answer || "").trim();
+
+    if (!userSentence) {
+      msgDiv.textContent = "먼저 단어들을 눌러 문장을 만들어 보세요.";
       return;
     }
 
-    const state = modeState[currentMode];
-
-    let q, idx, total, isReview = state.inReview;
-
-    if (!state.inReview) {
-      // 메인 라운드
-      q     = baseList[state.mainIdx];
-      idx   = state.mainIdx;
-      total = baseList.length;
+    if (userSentence === correctSentence) {
+      // ✅ 정답
+      finished = true;
+      clearTimers();
+      answerRow.style.borderColor = "#22c55e";
+      msgDiv.textContent = "정답입니다! 😊";
+      setTimer(goNext, 1000);
     } else {
-      // 복습 라운드 (오답만)
-      if (!state.wrong.length) {
-        renderNoQuestion();
-        return;
-      }
-      q     = state.wrong[state.reviewIdx];
-      idx   = state.reviewIdx;
-      total = state.wrong.length;
+      // ❌ 오답: 설명은 안 보여주고 다시 시도만 가능
+      answerRow.style.borderColor = "#f97373";
+      msgDiv.textContent = "순서를 다시 한 번 확인해 보세요.";
     }
-
-    if (currentMode === "blank") {
-      renderBlankQuestion(q, idx, total, isReview);
-    } else if (currentMode === "order") {
-      renderOrderQuestion(q, idx, total, isReview);
-    } else {
-      // 아직 구현 안 된 모드는 안내 문구만
-      renderNoQuestion();
-    }
-  }
-
-  // 탭 클릭
-  modeTabs.forEach(tab => {
-    tab.onclick = () => {
-      const mode = tab.dataset.mode;
-      currentMode = mode;
-      renderCurrent();
-    };
-  });
-
-  // 다시 풀기
-  modeResetBtn.onclick = () => {
-    clearTimers();
-
-    Object.keys(modeState).forEach(key => {
-      modeState[key].mainIdx   = 0;
-      modeState[key].reviewIdx = 0;
-      modeState[key].inReview  = false;
-      modeState[key].wrong     = [];
-    });
-
-    renderCurrent();
   };
+  btnRow.appendChild(submitBtn);
 
-  // 돌아가기
-  backToUnitsBtn.onclick = () => {
-    clearTimers();
-    window.history.back();
-  };
+  // 20초 동안 정답을 못 맞추면 → 정답 보여주고 3초 뒤 다음 문제
+  setTimer(() => {
+    if (finished) return;
+    finished = true;
+    answerRow.textContent = q.answer || "";
+    answerRow.style.borderColor = "#22c55e";
+    msgDiv.textContent = "시간이 지났어요. 정답을 확인해 보세요.";
+    setTimer(goNext, 3000);
+  }, 20000);
 
-  // 첫 화면
-  renderCurrent();
-</script>
+  refresh();
+  setProgress(idx, total);
+}
