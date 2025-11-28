@@ -274,13 +274,16 @@
     }
   });
 
+  // ----- 모드 / 진행 상태 -----
   let currentMode = "blank";
-  const modeIndex = {
-    blank:   0,
-    order:   0,
-    type:    0,
-    choose:  0,
-    passage: 0
+
+  // 각 모드별 상태 (A버전: 오답 다시 한 번 나오기)
+  const modeState = {
+    blank:   { mainIdx: 0, reviewIdx: 0, inReview: false, wrong: [] },
+    order:   { mainIdx: 0, reviewIdx: 0, inReview: false, wrong: [] },
+    type:    { mainIdx: 0, reviewIdx: 0, inReview: false, wrong: [] },
+    choose:  { mainIdx: 0, reviewIdx: 0, inReview: false, wrong: [] },
+    passage: { mainIdx: 0, reviewIdx: 0, inReview: false, wrong: [] }
   };
 
   // -------- 타이머 관리 --------
@@ -324,32 +327,60 @@
     setProgress(0, 0);
   }
 
+  // ----- 현재 모드의 현재 라운드가 끝났을 때 처리 -----
+  function showCompleted() {
+    clearCenter();
+    const done = document.createElement("div");
+    done.className = "question-text";
+    done.textContent = "이 유형의 문제를 모두 풀었습니다. 😊";
+    centerArea.appendChild(done);
+
+    const sub = document.createElement("div");
+    sub.className = "sentence-en";
+    // 안내 문구는 비워 둠 (원하면 여기 텍스트 넣기)
+    centerArea.appendChild(sub);
+
+    const list = questionsByType[currentMode] || [];
+    setProgress(list.length, list.length);
+  }
+
+  // ----- 다음 문제로 이동 (A버전: 오답 한 번 더) -----
   function goNext() {
-    const list = questionsByType[currentMode];
-    if (!list || !list.length) {
+    const baseList = questionsByType[currentMode];
+    if (!baseList || !baseList.length) {
       renderNoQuestion();
       return;
     }
 
-    modeIndex[currentMode]++;
+    const state = modeState[currentMode];
 
-    const total = list.length;
-    const idx   = modeIndex[currentMode];
+    if (!state.inReview) {
+      // 메인 라운드 진행 중
+      state.mainIdx++;
 
-    if (idx >= total) {
-      clearCenter();
-      const done = document.createElement("div");
-      done.className = "question-text";
-      done.textContent = "이 유형의 문제를 모두 풀었습니다. 😊";
-      centerArea.appendChild(done);
-
-      const sub = document.createElement("div");
-      sub.className = "sentence-en";
-      centerArea.appendChild(sub);
-
-      setProgress(total, total);
+      if (state.mainIdx >= baseList.length) {
+        // 메인 라운드 끝남 → 오답이 있으면 복습 라운드 시작
+        if (state.wrong.length > 0) {
+          state.inReview  = true;
+          state.reviewIdx = 0;
+          renderCurrent();
+        } else {
+          // 오답이 없으면 바로 종료 화면
+          showCompleted();
+        }
+      } else {
+        renderCurrent();
+      }
     } else {
-      renderCurrent();
+      // 복습 라운드(오답만 다시) 진행 중
+      state.reviewIdx++;
+
+      if (state.reviewIdx >= state.wrong.length) {
+        // 복습 라운드도 끝 → 종료
+        showCompleted();
+      } else {
+        renderCurrent();
+      }
     }
   }
 
@@ -358,9 +389,12 @@
   // ==========================
   // (1) 빈칸 완성
   // ==========================
-  function renderBlankQuestion(q, idx, total) {
+  // isReview: 복습 라운드인지 표시 (지금은 UI에 차이는 없지만 필요하면 사용)
+  function renderBlankQuestion(q, idx, total, isReview) {
     clearTimers();
     clearCenter();
+
+    const state = modeState.blank;
 
     const qDiv = document.createElement("div");
     qDiv.className = "question-text";
@@ -386,13 +420,19 @@
     expDiv.className = "explanation-text";
     centerArea.appendChild(expDiv);
 
-    // 아직 문제 끝났는지 여부
     let answered = false;
 
     // answerIndex(0부터) 또는 answer(1~4) 둘 다 지원
     const correctIndex = (typeof q.answerIndex === "number")
       ? q.answerIndex
       : (typeof q.answer === "number" ? q.answer - 1 : 0);
+
+    function markWrongOnce() {
+      // 같은 문제를 여러 번 틀려도 배열에는 한 번만
+      if (!state.wrong.includes(q)) {
+        state.wrong.push(q);
+      }
+    }
 
     (q.options || []).forEach((opt, i) => {
       const btn = document.createElement("button");
@@ -402,8 +442,7 @@
       grid.appendChild(btn);
 
       btn.onclick = () => {
-        // 이미 끝난 문제면 무시
-        if (answered) return;
+        if (answered) return; // 이미 끝난 문제면 무시
 
         const correct = (i === correctIndex);
 
@@ -421,7 +460,11 @@
           // ❌ 오답: 힌트만, 다시 클릭 가능
           btn.classList.add("wrong");
           hintDiv.textContent = "힌트: 다시 생각해 보세요.";
-          // expDiv는 비워 둠
+          // 해설은 아직 안 보여줌
+          expDiv.textContent = "";
+
+          // 오답으로 기록 (복습 라운드용)
+          markWrongOnce();
         }
       };
     });
@@ -431,6 +474,9 @@
     setTimer(() => {
       if (answered) return;
       answered = true;
+
+      // 시간 초과도 오답으로 간주 → 복습 라운드에 포함
+      markWrongOnce();
 
       Array.from(grid.children).forEach((b, idxBtn) => {
         if (idxBtn === correctIndex) {
@@ -457,18 +503,35 @@
       tab.classList.toggle("active", tab.dataset.mode === currentMode);
     });
 
-    const list = questionsByType[currentMode];
+    const baseList = questionsByType[currentMode];
 
-    if (!list || !list.length) {
+    if (!baseList || !baseList.length) {
       renderNoQuestion();
       return;
     }
 
-    const idx = modeIndex[currentMode] || 0;
-    const q   = list[idx];
+    const state = modeState[currentMode];
+
+    let q, idx, total, isReview = state.inReview;
+
+    if (!state.inReview) {
+      // 메인 라운드
+      q     = baseList[state.mainIdx];
+      idx   = state.mainIdx;
+      total = baseList.length;
+    } else {
+      // 복습 라운드 (오답만)
+      if (!state.wrong.length) {
+        renderNoQuestion();
+        return;
+      }
+      q     = state.wrong[state.reviewIdx];
+      idx   = state.reviewIdx;
+      total = state.wrong.length;
+    }
 
     if (currentMode === "blank") {
-      renderBlankQuestion(q, idx, list.length);
+      renderBlankQuestion(q, idx, total, isReview);
     } else {
       // 아직 구현 안 된 모드는 안내 문구만
       renderNoQuestion();
@@ -487,11 +550,14 @@
   // 다시 풀기
   modeResetBtn.onclick = () => {
     clearTimers();
-    modeIndex.blank   = 0;
-    modeIndex.order   = 0;
-    modeIndex.type    = 0;
-    modeIndex.choose  = 0;
-    modeIndex.passage = 0;
+
+    Object.keys(modeState).forEach(key => {
+      modeState[key].mainIdx   = 0;
+      modeState[key].reviewIdx = 0;
+      modeState[key].inReview  = false;
+      modeState[key].wrong     = [];
+    });
+
     renderCurrent();
   };
 
@@ -504,4 +570,3 @@
   // 첫 화면
   renderCurrent();
 </script>
-
