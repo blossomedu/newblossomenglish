@@ -827,7 +827,7 @@ function renderTypeQuestion(q, idx, total) {
    문제 렌더링 스위치
 =========================================================== */
 function renderQuestionObj(q, type) {
-  const list  = questionsByType[type] || [];
+  const list  = questionsByType[type];
   const idx   = list.indexOf(q);
   const total = list.length;
 
@@ -835,7 +835,7 @@ function renderQuestionObj(q, type) {
   if (type === "order")  return renderOrderQuestion(q, idx, total);
   if (type === "type")   return renderTypeQuestion(q, idx, total);
 
-  // 아직 구현 안 한 모드(choose, passage)
+  // 아직 구현 안 한 모드(choose, passage)는 안내만
   renderNoQuestion();
 }
 
@@ -897,6 +897,7 @@ renderCurrent();
 </script>
 </body>
 </html>
+
 
 
 
