@@ -38,26 +38,25 @@
           explanation,
         };
       } else if (type === "order") {
-        // 형식(지금 네가 쓰는 것):
-        // unit|order|id|question|answerEn|meaningKo
-        if (rest.length < 2) continue;
-        const [question, answerEn, meaningKo] = rest;
+      // 형식:
+      // unit|order|id|question|answerEn|meaningKo
+      if (rest.length < 2) continue;
+      const [question, answerEn, meaningKo] = rest;
 
-        // 단어 칩으로 쓸 words 배열 자동 생성
-        const words = (answerEn || "")
-          .replace(/[.!?]/g, "")  // . ? ! 제거
-          .split(" ")
-          .map(w => w.trim())
-          .filter(Boolean);
+      // 단어 칩으로 쓸 words 배열 (마침표 포함 그대로 사용)
+      const words = (answerEn || "")
+        .split(" ")
+        .map(w => w.trim())
+        .filter(Boolean);
 
-        q = {
-          id,
-          type,
-          question,
-          answerEn: (answerEn || "").trim(),
-          meaningKo: meaningKo || "",
-          words,
-        };
+      q = {
+        id,
+        type,
+        question,
+        answerEn: (answerEn || "").trim(), // 정답 문장 (마침표 포함)
+        meaningKo: meaningKo || "",        // 한국어 해석
+        words,                             // 단어 칩 목록
+      };
       } else if (type === "type") {
         // 문장 타이핑 완성
         // 형식:
@@ -181,3 +180,4 @@
   // 최종 DB를 전역에 노출
   window.SENTENCE_DB = buildSentenceDB(RAW_SENTENCES);
 })();
+
