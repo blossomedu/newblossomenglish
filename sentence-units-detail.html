@@ -124,22 +124,35 @@
     titleEl.textContent = String(setNumber);
 
     // 1~60 유닛 생성: ex) 10-1, 10-2, ..., 10-60
-    for (let i = 1; i <= 60; i++) {
-      const unitId = `${setNumber}-${i}`;
+for (let i = 1; i <= 60; i++) {
 
-      const card = document.createElement("div");
-      card.className = "unit-card";
-      card.textContent = unitId;
+  const unitId = `${setNumber}-${i}`;
 
-      card.onclick = () => {
-        // 기존 quiz.html 규칙 유지
-        location.href = `sentence-quiz.html?stage=${stage}&unit=${unitId}`;
-      };
+  const card = document.createElement("div");
+  card.className = "unit-card";
+  card.textContent = unitId;
 
-      gridEl.appendChild(card);
+  card.onclick = () => {
+    
+    // ★ 여기가 핵심 ★
+    let targetQuiz = "";
+
+    if (stage === "1") {
+      targetQuiz = "sentence-quiz-1.html";   // 기능 1, 2
+    } else if (stage === "2") {
+      targetQuiz = "sentence-quiz-2.html";   // 기능 3
+    } else if (stage === "3") {
+      targetQuiz = "sentence-quiz-3.html";   // 기능 4
+    } else if (stage === "school") {
+      targetQuiz = "sentence-quiz-school.html"; // 기능 5
+    } else {
+      alert("잘못된 단계입니다.");
+      return;
     }
-  }
-</script>
 
-</body>
-</html>
+    // 선택한 퀴즈 파일로 이동
+    location.href = `${targetQuiz}?stage=${stage}&unit=${unitId}`;
+  };
+
+  gridEl.appendChild(card);
+}
