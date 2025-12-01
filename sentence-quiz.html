@@ -634,3 +634,82 @@ function renderOrderQuestion(q, idx, total) {
   refreshChips();
   setProgress(idx, total);
 }
+/* ===========================================================
+   문제 렌더링 스위치
+=========================================================== */
+function renderQuestionObj(q, type) {
+  const list  = questionsByType[type];
+  const idx   = list.indexOf(q);
+  const total = list.length;
+
+  if (type === "blank")  return renderBlankQuestion(q, idx, total);
+  if (type === "order")  return renderOrderQuestion(q, idx, total);
+  if (type === "type")   return renderTypeQuestion(q, idx, total);
+
+  // 아직 구현 안 한 모드(choose, passage)
+  renderNoQuestion();
+}
+
+/* ===========================================================
+   현재 모드 렌더링
+=========================================================== */
+function renderCurrent() {
+  clearTimers();
+
+  modeTabs.forEach(tab => {
+    tab.classList.toggle("active", tab.dataset.mode === currentMode);
+  });
+
+  const list = questionsByType[currentMode];
+  if (!list || !list.length) {
+    renderNoQuestion();
+    return;
+  }
+
+  // 처음 진입 시 해당 유형 문제 순서 섞기
+  if (modeIndex[currentMode] === 0 && !list._shuffled) {
+    questionsByType[currentMode] = shuffle(list);
+    questionsByType[currentMode]._shuffled = true;
+  }
+
+  const idx = modeIndex[currentMode];
+  const q   = questionsByType[currentMode][idx];
+
+  renderQuestionObj(q, currentMode);
+}
+
+/* ===========================================================
+   탭 전환 / 버튼
+=========================================================== */
+modeTabs.forEach(tab => {
+  tab.onclick = () => {
+    currentMode = tab.dataset.mode;
+    modeIndex[currentMode] = 0;
+    renderCurrent();
+  };
+});
+
+modeResetBtn.onclick = () => {
+  clearTimers();
+  Object.keys(modeIndex).forEach(k => (modeIndex[k] = 0));
+  Object.keys(wrongQuestions).forEach(k => (wrongQuestions[k] = []));
+  Object.keys(questionsByType).forEach(type => {
+    const list = questionsByType[type];
+    if (list && list.length) {
+      questionsByType[type] = shuffle(list);
+      questionsByType[type]._shuffled = true;
+    }
+  });
+  renderCurrent();
+};
+
+backToUnitsBtn.onclick = () => {
+  clearTimers();
+  window.history.back();
+};
+
+/* 첫 화면 렌더링 */
+renderCurrent();
+</script>
+</body>
+</html>
