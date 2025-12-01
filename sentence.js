@@ -204,18 +204,20 @@
 1-1|type|T5|문장을 완성하세요.|I am doing homework.|나는 숙제를 하고 있습니다.
 
 # 4) 문장 고르기 (5문제)
-1-1|choose|C1|다음 중 올바른 문장을 고르시오.|He go to school.|She plays the piano.|They walks fast.|I am goes home.|1|3인칭 단수 She에는 plays처럼 동사에 -s가 붙어야 합니다.
-1-1|choose|C2|다음 중 올바른 문장을 고르시오.|We is hungry.|Does he like apples?|She don’t read.|He cans swim well.|1|의문문은 Does + 주어 + 동사원형 구조가 바른 형태입니다.
-1-1|choose|C3|다음 중 올바른 문장을 고르시오.|My father work at a bank.|They is friends.|She is studying now.|He don’t has money.|2|현재진행형은 주어 + be동사 + 동사ing 형태입니다.
-1-1|choose|C4|다음 중 올바른 문장을 고르시오.|Do she play tennis?|He have a cat.|I doesn’t know.|The students are in the classroom.|3|students는 복수 주어이므로 be동사 are가 바른 형태입니다.
+# 형식: unit|choose|id|question|opt1|opt2|opt3|opt4|answerIndex(0~3)|explanation
+1-1|choose|C1|다음 중 올바른 문장을 고르시오.|He go to school.|She plays the piano.|They walks fast.|I am goes home.|1|She plays the piano.가 올바른 문장입니다.
+1-1|choose|C2|다음 중 올바른 문장을 고르시오.|We is hungry.|Does he like apples?|She don’t read.|He cans swim well.|1|Does + 주어 + 동사원형 구조가 바른 형태입니다.
+1-1|choose|C3|다음 중 올바른 문장을 고르시오.|My father work at a bank.|They is friends.|She is studying now.|He don’t has money.|2|현재진행형: be동사 + 동사ing 형태입니다.
+1-1|choose|C4|다음 중 올바른 문장을 고르시오.|Do she play tennis?|He have a cat.|I doesn’t know.|The students are in the classroom.|3|students는 복수 주어이므로 are를 사용합니다.
 1-1|choose|C5|다음 중 올바른 문장을 고르시오.|She eat breakfast.|They are happy today.|He don’t like music.|I goes to bed early.|1|복수 주어 They에는 be동사 are가 자연스럽게 쓰입니다.
 
 # 5) 지문 완성 (1문제)
-1-1|passage|P1|My name is Tom. I (1) ____ in a small town.\\nEvery morning, I (2) ____ up at 7 a.m.\\nI (3) ____ breakfast with my family.|live|lives|get|gets|eat|live|get|eat|I(1인칭) → live, get, eat 원형.
-  `;
+# 형식: unit|passage|id|passage|opt1|opt2|opt3|opt4|opt5|blank1|blank2|blank3|explanation
+1-1|passage|P1|My name is Tom. I (1) ____ in a small town.\nEvery morning, I (2) ____ up at 7 a.m.\nI (3) ____ breakfast with my family.|live|lives|get|gets|eat|live|get|eat|주어 I에는 현재형 동사 원형인 live, get, eat이 알맞습니다.
 
   // 최종 DB를 전역에 노출
   window.SENTENCE_DB = buildSentenceDB(RAW_SENTENCES);
 })();
+
 
 
