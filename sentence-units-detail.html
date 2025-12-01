@@ -87,72 +87,76 @@
 <body>
 
 <div class="page">
-  <!-- 위에는 세트 번호 하나만 크게 -->
   <div class="page-title" id="page-title"></div>
-
-  <!-- 유닛 카드 영역 -->
   <div class="grid" id="unit-grid"></div>
-
-  <!-- 에러 메시지 -->
   <div id="error-container"></div>
 </div>
 
 <script>
-  const params = new URLSearchParams(window.location.search);
-  const stage = params.get("stage");      // "1", "2", "3"
-  const rawSet = params.get("set");       // "1"~"27"
-  const setNumber = Number(rawSet);
+  const params   = new URLSearchParams(window.location.search);
+  const stage    = params.get("stage");   // "1", "2", "3"
+  const rawSet   = params.get("set");     // "1" ~ "27"
+  const setNum   = Number(rawSet);
 
-  const titleEl = document.getElementById("page-title");
-  const gridEl  = document.getElementById("unit-grid");
-  const errorEl = document.getElementById("error-container");
+  const titleEl  = document.getElementById("page-title");
+  const gridEl   = document.getElementById("unit-grid");
+  const errorEl  = document.getElementById("error-container");
 
-  let valid = false;
-
-  if (stage === "1" && setNumber >= 1  && setNumber <= 9)  valid = true;
-  else if (stage === "2" && setNumber >= 10 && setNumber <= 18) valid = true;
-  else if (stage === "3" && setNumber >= 19 && setNumber <= 27) valid = true;
-
-  if (!stage || !rawSet || Number.isNaN(setNumber) || !valid) {
+  function showError(msgText) {
     gridEl.innerHTML = "";
     const msg = document.createElement("div");
     msg.className = "error-box";
-    msg.textContent = "세트 정보가 올바르지 않습니다.";
+    msg.textContent = msgText;
     errorEl.appendChild(msg);
+  }
+
+  // 파라미터 검증
+  if (!stage || !rawSet || Number.isNaN(setNum)) {
+    showError("세트 정보가 올바르지 않습니다.");
   } else {
-    // 상단에 세트 번호만 크게 표시 (1, 10, 19 ...)
-    titleEl.textContent = String(setNumber);
+    let valid = false;
 
-    // 1~60 유닛 생성: ex) 10-1, 10-2, ..., 10-60
-for (let i = 1; i <= 60; i++) {
+    if (stage === "1" && setNum >= 1  && setNum <= 9)  valid = true;
+    if (stage === "2" && setNum >= 10 && setNum <= 18) valid = true;
+    if (stage === "3" && setNum >= 19 && setNum <= 27) valid = true;
 
-  const unitId = `${setNumber}-${i}`;
-
-  const card = document.createElement("div");
-  card.className = "unit-card";
-  card.textContent = unitId;
-
-  card.onclick = () => {
-    
-    // ★ 여기가 핵심 ★
-    let targetQuiz = "";
-
-    if (stage === "1") {
-      targetQuiz = "sentence-quiz-1.html";   // 기능 1, 2
-    } else if (stage === "2") {
-      targetQuiz = "sentence-quiz-2.html";   // 기능 3
-    } else if (stage === "3") {
-      targetQuiz = "sentence-quiz-3.html";   // 기능 4
-    } else if (stage === "school") {
-      targetQuiz = "sentence-quiz-school.html"; // 기능 5
+    if (!valid) {
+      showError("세트 정보가 올바르지 않습니다.");
     } else {
-      alert("잘못된 단계입니다.");
-      return;
+      // 제목: 1단계 세트 1 이런 식으로
+      titleEl.textContent = `${stage}단계 세트 ${setNum}`;
+
+      // 유닛 카드 생성 : 1 ~ 60 → 예) 1-1, 1-2 ...
+      for (let i = 1; i <= 60; i++) {
+        const unitId = `${setNum}-${i}`;
+
+        const card = document.createElement("div");
+        card.className = "unit-card";
+        card.textContent = unitId;
+
+        card.onclick = () => {
+          let targetQuiz = "";
+
+          if (stage === "1") {
+            targetQuiz = "sentence-quiz-1.html";   // 1단계용 (빈칸, 문장 배열)
+          } else if (stage === "2") {
+            targetQuiz = "sentence-quiz-2.html";   // 나중에 만들 2단계용
+          } else if (stage === "3") {
+            targetQuiz = "sentence-quiz-3.html";   // 나중에 만들 3단계용
+          } else {
+            alert("잘못된 단계입니다.");
+            return;
+          }
+
+          // 선택한 퀴즈 페이지로 이동
+          location.href = `${targetQuiz}?stage=${stage}&unit=${unitId}`;
+        };
+
+        gridEl.appendChild(card);
+      }
     }
+  }
+</script>
 
-    // 선택한 퀴즈 파일로 이동
-    location.href = `${targetQuiz}?stage=${stage}&unit=${unitId}`;
-  };
-
-  gridEl.appendChild(card);
-}
+</body>
+</html>
