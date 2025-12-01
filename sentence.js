@@ -21,9 +21,9 @@
       const [unit, type, id, ...rest] = parts.map(p => p.trim());
       let q = null;
 
+     // ===== 여기서부터 if~else 묶음 전체 교체 =====
       if (type === "blank") {
-        // 형식:
-        // unit|blank|id|question|opt1|opt2|opt3|opt4|answerIndex(0~3)|explanation
+        // unit|blank|id|question|opt1|opt2|opt3|opt4|answerIndex|explanation
         if (rest.length < 7) continue;
         const [question, opt1, opt2, opt3, opt4, ansStr, explanation] = rest;
         const answerIndex = parseInt(ansStr, 10);
@@ -37,43 +37,51 @@
           answerIndex,
           explanation,
         };
+
       } else if (type === "order") {
-      // 형식:
-      // unit|order|id|question|answerEn|meaningKo
-      if (rest.length < 2) continue;
-      const [question, answerEn, meaningKo] = rest;
-
-      // 단어 칩으로 쓸 words 배열 (마침표 포함 그대로 사용)
-      const words = (answerEn || "")
-        .split(" ")
-        .map(w => w.trim())
-        .filter(Boolean);
-
-      q = {
-        id,
-        type,
-        question,
-        answerEn: (answerEn || "").trim(), // 정답 문장 (마침표 포함)
-        meaningKo: meaningKo || "",        // 한국어 해석
-        words,                             // 단어 칩 목록
-      };
-      } else if (type === "type") {
-        // 문장 타이핑 완성
-        // 형식:
-        // unit|type|id|question|answerEn|meaningKo
+        // 새 형식:
+        // unit|order|id|question|answerEn|meaningKo
         if (rest.length < 2) continue;
         const [question, answerEn, meaningKo] = rest;
 
+        // 정답 문장을 자동으로 단어 리스트로 쪼개서 사용
+        const words = (answerEn || "")
+          .trim()
+          .split(" ")
+          .map(w => w.trim())
+          .filter(Boolean);
+
         q = {
           id,
           type,
           question,
-          answerEn: (answerEn || "").trim(),
-          meaningKo: meaningKo || "",
+          answerEn,
+          meaningKo,
+          words,
         };
+
+      } else if (type === "type") {
+        // 문장 완성(타이핑)
+        // 형식:
+        // unit|type|id|question|answerEn|meaningKo|[target1]|[target2]|...
+        if (rest.length < 2) continue;
+        const [question, answerEn, meaningKo, ...targets] = rest;
+
+        const targetWords = (targets || [])
+          .map(w => w.trim())
+          .filter(Boolean);   // 타이핑해야 할 단어들 (없으면 빈 배열)
+
+        q = {
+          id,
+          type,
+          question,
+          answerEn,
+          meaningKo,
+          targetWords,
+        };
+
       } else if (type === "choose") {
-        // 형식(예전 그대로):
-        // unit|choose|id|question|opt1|opt2|opt3|opt4|answerIndex(0~3)|explanation
+        // unit|choose|id|question|opt1|opt2|opt3|opt4|answerIndex|explanation
         if (rest.length < 7) continue;
         const [question, opt1, opt2, opt3, opt4, ansStr, explanation] = rest;
         const answerIndex = parseInt(ansStr, 10);
@@ -87,7 +95,36 @@
           answerIndex,
           explanation,
         };
+
       } else if (type === "passage") {
+        // unit|passage|id|passage|opt1|opt2|opt3|opt4|opt5|blank1|blank2|blank3|explanation
+        if (rest.length < 11) continue;
+        const [
+          passage,
+          opt1,
+          opt2,
+          opt3,
+          opt4,
+          opt5,
+          b1,
+          b2,
+          b3,
+          explanation,
+        ] = rest;
+
+        const blanks = [b1, b2, b3].filter(Boolean);
+        const options = [opt1, opt2, opt3, opt4, opt5];
+
+        q = {
+          id,
+          type,
+          passage,
+          options,
+          blanks,
+          explanation,
+        };
+      }
+      //
         // 형식(예전 그대로 예시):
         // unit|passage|id|passage|opt1|opt2|opt3|opt4|opt5|blank1|blank2|blank3|explanation
         if (rest.length < 11) continue;
@@ -180,4 +217,5 @@
   // 최종 DB를 전역에 노출
   window.SENTENCE_DB = buildSentenceDB(RAW_SENTENCES);
 })();
+
 
