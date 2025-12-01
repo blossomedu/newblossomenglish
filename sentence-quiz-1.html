@@ -503,17 +503,19 @@ function renderBlankQuestion(q, idx, total) {
 }
 
 /* ===========================================================
-   (2) 문장 배열 (기존 그대로, 약간 심플 버전)
+   (2) 문장 배열 (order) – 칩을 눌러 위 칸 채우기, 자동 채점
 =========================================================== */
 function renderOrderQuestion(q, idx, total) {
   clearTimers();
   clearCenter();
 
+  // 문제 문장
   const qDiv = document.createElement("div");
   qDiv.className = "question-text";
   qDiv.textContent = q.question || "다음 단어를 바르게 배열하여 문장을 만드시오.";
   centerArea.appendChild(qDiv);
 
+  // 한국어 해석
   if (q.meaningKo) {
     const ko = document.createElement("div");
     ko.className = "sentence-en";
@@ -523,10 +525,45 @@ function renderOrderQuestion(q, idx, total) {
     centerArea.appendChild(ko);
   }
 
+  // 정답 문장 → 단어 배열
+  const correctWords = (q.answerEn || "")
+    .trim()
+    .split(" ")
+    .map(w => w.trim())
+    .filter(Boolean);
+
+  let currentIndex = 0;              // 지금 채워야 할 칸 번호
+  let finished = false;
+  let pool = shuffle(correctWords.slice());   // 아래 칩들(섞어서 시작)
+
+  // 위쪽 "칸칸" 영역
   const answerRow = document.createElement("div");
   answerRow.className = "answer-row";
   centerArea.appendChild(answerRow);
 
+  const slots = [];
+  correctWords.forEach(() => {
+    const slot = document.createElement("div");
+
+    // 개별 칸 스타일 (핑크 상자)
+    slot.style.minWidth        = "80px";
+    slot.style.minHeight       = "44px";
+    slot.style.borderRadius    = "16px";
+    slot.style.border          = "2px solid #FF6FB5";
+    slot.style.background      = "#ffe2f1";      // 연한 핑크
+    slot.style.display         = "flex";
+    slot.style.alignItems      = "center";
+    slot.style.justifyContent  = "center";
+    slot.style.fontSize        = "20px";
+    slot.style.fontWeight      = "500";
+    slot.style.marginBottom    = "4px";
+
+    slot.textContent = "";
+    answerRow.appendChild(slot);
+    slots.push(slot);
+  });
+
+  // 아래 단어 칩 영역
   const chipsWrap = document.createElement("div");
   chipsWrap.className = "word-chips";
   centerArea.appendChild(chipsWrap);
@@ -535,155 +572,154 @@ function renderOrderQuestion(q, idx, total) {
   hintDiv.className = "hint-text";
   centerArea.appendChild(hintDiv);
 
-  let selected = [];
-  let finished = false;
-  const correctSentence = (q.answerEn || "").trim();
-  let pool = shuffle((q.words || correctSentence.split(" ")).slice());
-
-  function refresh() {
-    answerRow.textContent = selected.join(" ");
+  function refreshChips() {
     chipsWrap.innerHTML = "";
 
-    pool.forEach((w, i) => {
+    pool.forEach((word, i) => {
       const chip = document.createElement("div");
       chip.className = "word-chip";
-      chip.textContent = w;
+      chip.textContent = word;
+
       chip.onclick = () => {
         if (finished) return;
-        selected.push(w);
-        pool.splice(i, 1);
-        refresh();
+
+        const expected = correctWords[currentIndex];
+        if (!expected) return;  // 이미 다 채워졌으면 무시
+
+        if (word === expected) {
+          // ✅ 맞는 단어 → 현재 칸에 들어감
+          slots[currentIndex].textContent = word;
+          slots[currentIndex].style.background  = "#FF6FB5";
+          slots[currentIndex].style.color       = "#ffffff";
+          slots[currentIndex].style.borderColor = "#FF6FB5";
+
+          pool.splice(i, 1);   // 아래에서 제거
+          currentIndex++;
+          refreshChips();
+
+          // 모든 칸이 채워졌으면 자동으로 다음 문제
+          if (currentIndex >= correctWords.length) {
+            finished = true;
+            hintDiv.textContent = "정답입니다!";
+            setTimer(goNext, 1000);
+          }
+        } else {
+          // ❌ 틀린 단어 → 위 칸엔 안 들어가고 칩만 잠깐 빨갛게
+          const originalBg    = chip.style.background;
+          const originalBorder= chip.style.borderColor;
+
+          chip.style.background  = "#fee2e2";
+          chip.style.borderColor = "#f97373";
+          hintDiv.textContent    = "해당 위치에 들어갈 단어가 아니에요.";
+
+          // 오답 목록에 한 번만 추가
+          if (window.wrongQuestions && wrongQuestions.order && !q._countedWrong) {
+            q._countedWrong = true;
+            wrongQuestions.order.push(q);
+          }
+
+          setTimeout(() => {
+            chip.style.background  = originalBg || "#ffffff";
+            chip.style.borderColor = originalBorder || "#d0d7e6";
+          }, 350);
+        }
       };
+
       chipsWrap.appendChild(chip);
     });
   }
 
-  const btnRow = document.createElement("div");
-  btnRow.style.display = "flex";
-  btnRow.style.gap = "10px";
-  centerArea.appendChild(btnRow);
-
-  const resetBtn = document.createElement("button");
-  resetBtn.className = "nav-pill";
-  resetBtn.textContent = "지우기";
-  resetBtn.onclick = () => {
-    if (finished) return;
-    selected = [];
-    pool = shuffle((q.words || correctSentence.split(" ")).slice());
-    hintDiv.textContent = "";
-    refresh();
-  };
-  btnRow.appendChild(resetBtn);
-
-  const submitBtn = document.createElement("button");
-  submitBtn.className = "nav-pill";
-  submitBtn.style.background = "#22c55e";
-  submitBtn.style.color = "#ffffff";
-  submitBtn.textContent = "정답 확인";
-  submitBtn.onclick = () => {
-    if (finished) return;
-
-    const userSentence = selected.join(" ").trim();
-    if (!userSentence) {
-      hintDiv.textContent = "먼저 단어를 선택하세요!";
-      return;
-    }
-
-    if (userSentence === correctSentence) {
-      finished = true;
-      hintDiv.textContent = "정답입니다!";
-      setTimer(goNext, 1000);
-    } else {
-      hintDiv.textContent = "틀렸어요. 다시 시도해 보세요.";
-      wrongQuestions.order.push(q);
-    }
-  };
-  btnRow.appendChild(submitBtn);
-
-  // 시간 제한 (선택사항) – 30초 후 정답 공개
+  // ⏱ 30초 동안 완성 못 하면 정답 공개 후 5초 뒤 다음 문제
   setTimer(() => {
     if (finished) return;
     finished = true;
-    answerRow.textContent = correctSentence;
-    hintDiv.textContent = "시간이 지났습니다. 정답을 확인해 보세요.";
+
+    correctWords.forEach((w, idxWord) => {
+      slots[idxWord].textContent = w;
+      slots[idxWord].style.background  = "#e5f3ff";
+      slots[idxWord].style.borderColor = "#9cc4ff";
+      slots[idxWord].style.color       = "#111827";
+    });
     chipsWrap.innerHTML = "";
+    hintDiv.textContent = "(시간이 지나 정답이 공개되었습니다.)";
+
     setTimer(goNext, 5000);
   }, 30000);
 
-  refresh();
+  refreshChips();
   setProgress(idx, total);
 }
 
 /* ===========================================================
-   문제 렌더링 스위치
+   문제 렌더링 스위치
 =========================================================== */
 function renderQuestionObj(q, type) {
-  const list  = questionsByType[type];
-  const idx   = list.indexOf(q);
-  const total = list.length;
+  const list  = questionsByType[type];
+  const idx   = list.indexOf(q);
+  const total = list.length;
 
-  if (type === "blank") return renderBlankQuestion(q, idx, total);
-  if (type === "order") return renderOrderQuestion(q, idx, total);
+  if (type === "blank") return renderBlankQuestion(q, idx, total);
+  if (type === "order") return renderOrderQuestion(q, idx, total);
 
-  renderNoQuestion();
+  renderNoQuestion();
 }
 
 /* ===========================================================
-   현재 모드 렌더링
+   현재 모드 렌더링
 =========================================================== */
 function renderCurrent() {
-  clearTimers();
+  clearTimers();
 
-  modeTabs.forEach(tab => {
-    tab.classList.toggle("active", tab.dataset.mode === currentMode);
-  });
+  modeTabs.forEach(tab => {
+    tab.classList.toggle("active", tab.dataset.mode === currentMode);
+  });
 
-  const list = questionsByType[currentMode];
-  if (!list || !list.length) {
-    renderNoQuestion();
-    return;
-  }
+  const list = questionsByType[currentMode];
+  if (!list || !list.length) {
+    renderNoQuestion();
+    return;
+  }
 
-  // 처음 들어올 때만 섞기
-  if (modeIndex[currentMode] === 0 && !list._shuffled) {
-    questionsByType[currentMode] = shuffle(list);
-    questionsByType[currentMode]._shuffled = true;
-  }
+  // 처음 들어올 때만 섞기
+  if (modeIndex[currentMode] === 0 && !list._shuffled) {
+    questionsByType[currentMode] = shuffle(list);
+    questionsByType[currentMode]._shuffled = true;
+  }
 
-  const idx = modeIndex[currentMode];
-  const q   = questionsByType[currentMode][idx];
+  const idx = modeIndex[currentMode];
+  const q   = questionsByType[currentMode][idx];
 
-  renderQuestionObj(q, currentMode);
+  renderQuestionObj(q, currentMode);
 }
 
 /* ===========================================================
-   탭 전환 / 버튼
+   탭 전환 / 버튼
 =========================================================== */
 modeTabs.forEach(tab => {
-  tab.onclick = () => {
-    currentMode = tab.dataset.mode;
-    modeIndex[currentMode] = 0;
-    renderCurrent();
-  };
+  tab.onclick = () => {
+    currentMode = tab.dataset.mode;
+    modeIndex[currentMode] = 0;
+    renderCurrent();
+  };
 });
 
 modeResetBtn.onclick = () => {
-  clearTimers();
-  Object.keys(modeIndex).forEach(k => (modeIndex[k] = 0));
-  Object.keys(wrongQuestions).forEach(k => (wrongQuestions[k] = []));
-  Object.keys(questionsByType).forEach(type => {
-    const list = questionsByType[type];
-    if (list && list.length) {
-      questionsByType[type] = shuffle(list);
-      questionsByType[type]._shuffled = true;
-    }
-  });
-  renderCurrent();
+  clearTimers();
+  Object.keys(modeIndex).forEach(k => (modeIndex[k] = 0));
+  Object.keys(wrongQuestions).forEach(k => (wrongQuestions[k] = []));
+  Object.keys(questionsByType).forEach(type => {
+    const list = questionsByType[type];
+    if (list && list.length) {
+      questionsByType[type] = shuffle(list);
+      questionsByType[type]._shuffled = true;
+    }
+  });
+  renderCurrent();
 };
 
 backToUnitsBtn.onclick = () => {
-  clearTimers();
-  window.history.back();
+  clearTimers();
+  window.history.back();
 };
 
 /* 첫 화면 렌더링 */
