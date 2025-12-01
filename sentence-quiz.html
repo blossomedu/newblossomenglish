@@ -636,17 +636,147 @@ function renderOrderQuestion(q, idx, total) {
   setProgress(idx, total);
 }
 /* ===========================================================
+   (3) 문장 완성 (type)
+   - 학생이 직접 영어 문장을 타이핑
+   - 한국어 해석 제공, 단어칩 없음
+=========================================================== */
+function renderTypeQuestion(q, idx, total) {
+  clearTimers();
+  clearCenter();
+
+  // 문제 안내
+  const qDiv = document.createElement("div");
+  qDiv.className = "question-text";
+  qDiv.textContent = q.question || "문장을 완성하세요.";
+  centerArea.appendChild(qDiv);
+
+  // 한국어 해석
+  if (q.meaningKo) {
+    const koDiv = document.createElement("div");
+    koDiv.className = "sentence-en";
+    koDiv.style.fontSize = "18px";
+    koDiv.style.color = "#4b5563";
+    koDiv.textContent = q.meaningKo;
+    centerArea.appendChild(koDiv);
+  }
+
+  // 입력 칸
+  const input = document.createElement("textarea");
+  input.rows = 2;
+  input.style.width = "100%";
+  input.style.marginTop = "16px";
+  input.style.padding = "12px 16px";
+  input.style.borderRadius = "16px";
+  input.style.border = "2px solid #d0d7e6";
+  input.style.fontSize = "18px";
+  input.style.resize = "vertical";
+  centerArea.appendChild(input);
+
+  // 버튼 줄
+  const btnRow = document.createElement("div");
+  btnRow.style.display = "flex";
+  btnRow.style.gap = "10px";
+  btnRow.style.marginTop = "12px";
+  centerArea.appendChild(btnRow);
+
+  const checkBtn = document.createElement("button");
+  checkBtn.className = "nav-pill";
+  checkBtn.style.background = "#9AD7A0";
+  checkBtn.style.color = "#fff";
+  checkBtn.textContent = "정답 확인";
+  btnRow.appendChild(checkBtn);
+
+  const hintDiv = document.createElement("div");
+  hintDiv.className = "hint-text";
+  centerArea.appendChild(hintDiv);
+
+  const answerDiv = document.createElement("div");
+  answerDiv.className = "explanation-text";
+  centerArea.appendChild(answerDiv);
+
+  const correctSentence = (q.answerEn || "").trim();
+  let finished = false;
+
+  // 공백 정리해서 비교 (띄어쓰기 여러 개 → 하나로)
+  function normalize(str) {
+    return str.replace(/\s+/g, " ").trim();
+  }
+
+  function checkAnswer() {
+    if (finished) return;
+    const user = normalize(input.value);
+    const correct = normalize(correctSentence);
+
+    if (!user) {
+      hintDiv.textContent = "먼저 영어 문장을 써 보세요.";
+      return;
+    }
+
+    if (user === correct) {
+      finished = true;
+      clearTimers();
+      input.disabled = true;
+      hintDiv.textContent = "";
+      answerDiv.textContent = "정답입니다!";
+      setTimer(goNext, 1000);
+    } else {
+      hintDiv.textContent = "철자와 띄어쓰기를 다시 확인해 보세요.";
+      answerDiv.textContent = `정답: ${correctSentence}`;
+
+      // 오답 목록에 기록 (한 번만)
+      if (!q._countedWrong) {
+        q._countedWrong = true;
+        if (wrongQuestions && wrongQuestions.type) {
+          wrongQuestions.type.push(q);
+        }
+      }
+    }
+  }
+
+  checkBtn.onclick = checkAnswer;
+
+  // Enter(줄바꿈 없음)로도 제출
+  input.addEventListener("keydown", e => {
+    if (e.key === "Enter" && !e.shiftKey) {
+      e.preventDefault();
+      checkAnswer();
+    }
+  });
+
+  // ⏱ 30초 동안 완성 못하면 정답 공개 후 8초 뒤 자동 다음
+  setTimer(() => {
+    if (finished) return;
+    finished = true;
+
+    hintDiv.textContent = "시간이 지났어요.";
+    answerDiv.textContent = `정답: ${correctSentence}`;
+
+    if (!q._countedWrong) {
+      q._countedWrong = true;
+      if (wrongQuestions && wrongQuestions.type) {
+        wrongQuestions.type.push(q);
+      }
+    }
+
+    setTimer(goNext, 8000);
+  }, 30000);
+
+  setProgress(idx, total);
+}
+
+/* ===========================================================
    문제 렌더링 스위치
 =========================================================== */
 function renderQuestionObj(q, type) {
-  const list  = questionsByType[type];
+  const list  = questionsByType[type] || [];
   const idx   = list.indexOf(q);
   const total = list.length;
 
   if (type === "blank")  return renderBlankQuestion(q, idx, total);
   if (type === "order")  return renderOrderQuestion(q, idx, total);
+  if (type === "type")   return renderTypeQuestion(q, idx, total);
 
-  // 아직 구현 안 한 모드(type, choose, passage)
+  // 아직 구현 안 한 모드(choose, passage)
   renderNoQuestion();
 }
 
@@ -656,6 +786,7 @@ function renderQuestionObj(q, type) {
 function renderCurrent() {
   clearTimers();
 
+  // 탭 active 처리
   modeTabs.forEach(tab => {
     tab.classList.toggle("active", tab.dataset.mode === currentMode);
   });
@@ -666,7 +797,7 @@ function renderCurrent() {
     return;
   }
 
-  const idx = modeIndex[currentMode];
+  const idx = modeIndex[currentMode] || 0;
   const q   = list[idx];
 
   renderQuestionObj(q, currentMode);
@@ -685,12 +816,15 @@ modeTabs.forEach(tab => {
 
 modeResetBtn.onclick = () => {
   clearTimers();
-  Object.keys(modeIndex).forEach(k => modeIndex[k] = 0);
-  // retry 플래그 초기화
-  Object.keys(questionsByType).forEach(type => {
-    questionsByType[type].forEach(q => { delete q._retryAdded; });
-    questionsByType[type] = shuffle(questionsByType[type]);
-  });
+  Object.keys(modeIndex).forEach(k => (modeIndex[k] = 0));
+
+  // 틀린 문제 기록 초기화(있다면)
+  if (typeof wrongQuestions === "object") {
+    Object.keys(wrongQuestions).forEach(k => {
+      wrongQuestions[k] = [];
+    });
+  }
+
   renderCurrent();
 };
 
@@ -704,6 +838,7 @@ renderCurrent();
 </script>
 </body>
 </html>
+
 
 
 
