@@ -638,15 +638,16 @@ function renderOrderQuestion(q, idx, total) {
   setProgress(idx, total);
 }
 /* ===========================================================
-   (3) 문장 완성 (type)
-   - 학생이 직접 영어 문장을 타이핑
-   - 한국어 해석 제공, 단어칩 없음
+   /* ===========================================================
+   (3) 문장 완성 (type, 타이핑)
+   - 한국어 해석만 보여 주고
+   - 특정 단어만 칸(인풋)으로 만들어서 직접 타이핑
+   - 첫 칸 자동 포커스, Enter로 정답 확인
 =========================================================== */
 function renderTypeQuestion(q, idx, total) {
   clearTimers();
   clearCenter();
 
-  // 문제 안내
   const qDiv = document.createElement("div");
   qDiv.className = "question-text";
   qDiv.textContent = q.question || "문장을 완성하세요.";
@@ -654,25 +655,75 @@ function renderTypeQuestion(q, idx, total) {
 
   // 한국어 해석
   if (q.meaningKo) {
-    const koDiv = document.createElement("div");
-    koDiv.className = "sentence-en";
-    koDiv.style.fontSize = "18px";
-    koDiv.style.color = "#4b5563";
-    koDiv.textContent = q.meaningKo;
-    centerArea.appendChild(koDiv);
+    const ko = document.createElement("div");
+    ko.className = "sentence-en";
+    ko.style.fontSize = "18px";
+    ko.style.color = "#4b5563";
+    ko.textContent = q.meaningKo;
+    centerArea.appendChild(ko);
   }
 
-  // 입력 칸
-  const input = document.createElement("textarea");
-  input.rows = 2;
-  input.style.width = "100%";
-  input.style.marginTop = "16px";
-  input.style.padding = "12px 16px";
-  input.style.borderRadius = "16px";
-  input.style.border = "2px solid #d0d7e6";
-  input.style.fontSize = "18px";
-  input.style.resize = "vertical";
-  centerArea.appendChild(input);
+  // 전체 정답 문장을 단어 배열로
+  const correctWords = (q.answerEn || "")
+    .trim()
+    .split(" ")
+    .map(w => w.trim())
+    .filter(Boolean);
+
+  // sentence.js 에서 targetWords가 있으면 그 단어들만 칸으로, 없으면 전체 단어를 칸으로
+  const targets = Array.isArray(q.targetWords) && q.targetWords.length
+    ? q.targetWords
+    : correctWords;
+
+  const targetSet = new Set(targets);
+
+  // 위쪽 칸 영역
+  const answerRow = document.createElement("div");
+  answerRow.className = "answer-row";
+  centerArea.appendChild(answerRow);
+
+  const inputs = [];
+
+  // 한 단어씩 보면서 input 칸 / 그냥 글자 결정
+  correctWords.forEach(word => {
+    if (targetSet.has(word)) {
+      // ✏️ 타이핑해야 하는 단어 → 인풋 칸
+      const slot = document.createElement("div");
+      slot.style.minWidth        = "80px";
+      slot.style.minHeight       = "40px";
+      slot.style.borderRadius    = "14px";
+      slot.style.border          = "2px solid #d0d7e6";
+      slot.style.background      = "#ffffff";
+      slot.style.display         = "flex";
+      slot.style.alignItems      = "center";
+      slot.style.justifyContent  = "center";
+      slot.style.marginRight     = "8px";
+      slot.style.marginBottom    = "8px";
+      slot.style.padding         = "0 6px";
+
+      const input = document.createElement("input");
+      input.type = "text";
+      input.style.border = "none";
+      input.style.outline = "none";
+      input.style.fontSize = "18px";
+      input.style.textAlign = "center";
+      input.style.width = Math.max(60, word.length * 10 + 16) + "px";
+
+      input.dataset.answer = word;
+
+      slot.appendChild(input);
+      answerRow.appendChild(slot);
+      inputs.push(input);
+    } else {
+      // 그대로 보이는 단어
+      const span = document.createElement("span");
+      span.textContent = word;
+      span.style.marginRight = "8px";
+      span.style.fontSize = "20px";
+      span.style.fontWeight = "500";
+      answerRow.appendChild(span);
+    }
+  });
 
   // 버튼 줄
   const btnRow = document.createElement("div");
@@ -681,86 +732,92 @@ function renderTypeQuestion(q, idx, total) {
   btnRow.style.marginTop = "12px";
   centerArea.appendChild(btnRow);
 
-  const checkBtn = document.createElement("button");
-  checkBtn.className = "nav-pill";
-  checkBtn.style.background = "#9AD7A0";
-  checkBtn.style.color = "#fff";
-  checkBtn.textContent = "정답 확인";
-  btnRow.appendChild(checkBtn);
+  const submitBtn = document.createElement("button");
+  submitBtn.className = "nav-pill";
+  submitBtn.style.background = "#9AD7A0";
+  submitBtn.style.color = "#ffffff";
+  submitBtn.textContent = "정답 확인";
+  btnRow.appendChild(submitBtn);
 
   const hintDiv = document.createElement("div");
   hintDiv.className = "hint-text";
   centerArea.appendChild(hintDiv);
 
-  const answerDiv = document.createElement("div");
-  answerDiv.className = "explanation-text";
-  centerArea.appendChild(answerDiv);
-
-  const correctSentence = (q.answerEn || "").trim();
   let finished = false;
-
-  // 공백 정리해서 비교 (띄어쓰기 여러 개 → 하나로)
-  function normalize(str) {
-    return str.replace(/\s+/g, " ").trim();
-  }
 
   function checkAnswer() {
     if (finished) return;
-    const user = normalize(input.value);
-    const correct = normalize(correctSentence);
-
-    if (!user) {
-      hintDiv.textContent = "먼저 영어 문장을 써 보세요.";
+    if (!inputs.length) {
+      finished = true;
+      setTimer(goNext, 500);
       return;
     }
 
-    if (user === correct) {
+    let allFilled = true;
+    let allCorrect = true;
+
+    inputs.forEach(input => {
+      const ans = input.dataset.answer;
+      const val = input.value.trim();
+
+      if (!val) allFilled = false;
+      if (val !== ans) allCorrect = false;
+    });
+
+    if (!allFilled) {
+      hintDiv.textContent = "모든 칸을 채워 보세요.";
+      return;
+    }
+
+    if (allCorrect) {
       finished = true;
-      clearTimers();
-      input.disabled = true;
-      hintDiv.textContent = "";
-      answerDiv.textContent = "정답입니다!";
+      hintDiv.textContent = "정답입니다!";
       setTimer(goNext, 1000);
     } else {
-      hintDiv.textContent = "철자와 띄어쓰기를 다시 확인해 보세요.";
-      answerDiv.textContent = `정답: ${correctSentence}`;
-
-      // 오답 목록에 기록 (한 번만)
-      if (!q._countedWrong) {
-        q._countedWrong = true;
-        if (wrongQuestions && wrongQuestions.type) {
-          wrongQuestions.type.push(q);
-        }
+      hintDiv.textContent = "틀린 칸이 있어요. 다시 확인해 보세요.";
+      if (!q._countedWrongType) {
+        q._countedWrongType = true;
+        wrongQuestions.type.push(q);
       }
     }
   }
 
-  checkBtn.onclick = checkAnswer;
+  submitBtn.onclick = checkAnswer;
 
-  // Enter(줄바꿈 없음)로도 제출
-  input.addEventListener("keydown", e => {
-    if (e.key === "Enter" && !e.shiftKey) {
-      e.preventDefault();
-      checkAnswer();
-    }
+  // Enter로도 제출
+  inputs.forEach(input => {
+    input.addEventListener("keydown", e => {
+      if (e.key === "Enter") {
+        e.preventDefault();
+        checkAnswer();
+      }
+    });
   });
 
-  // ⏱ 30초 동안 완성 못하면 정답 공개 후 8초 뒤 자동 다음
+  // 첫 번째 칸 자동 포커스
+  if (inputs.length) {
+    setTimeout(() => {
+      inputs[0].focus();
+    }, 0);
+  }
+
+  // 시간 지나면 정답 공개
   setTimer(() => {
     if (finished) return;
     finished = true;
 
-    hintDiv.textContent = "시간이 지났어요.";
-    answerDiv.textContent = `정답: ${correctSentence}`;
+    inputs.forEach(input => {
+      input.value = input.dataset.answer;
+      input.style.color = "#111827";
+      input.style.fontWeight = "600";
+    });
 
-    if (!q._countedWrong) {
-      q._countedWrong = true;
-      if (wrongQuestions && wrongQuestions.type) {
-        wrongQuestions.type.push(q);
-      }
+    hintDiv.textContent = "(시간이 지나 정답이 공개되었습니다.)";
+    if (!q._countedWrongType) {
+      q._countedWrongType = true;
+      wrongQuestions.type.push(q);
     }
-
-    setTimer(goNext, 8000);
+    setTimer(goNext, 5000);
   }, 30000);
 
   setProgress(idx, total);
@@ -840,6 +897,7 @@ renderCurrent();
 </script>
 </body>
 </html>
+
 
 
 
