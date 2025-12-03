@@ -2,7 +2,6 @@
 <html lang="ko">
 <head>
   <meta charset="UTF-8" />
-  <!-- 이 파일은 2단계 전용 -->
   <title>문장 학습 2단계</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link href="https://cdn.jsdelivr.net/npm/pretendard/dist/web/variable/pretendardvariable.css" rel="stylesheet" />
@@ -62,14 +61,10 @@
       box-shadow: 0 12px 25px rgba(0, 174, 239, 0.35);
     }
 
-    .mode-tab:nth-child(1).active {
-      background: #00AEEF;
-      color: #fff;
-    }
-    .mode-tab:nth-child(2).active {
-      background: #FF6FB5;
-      color: #fff;
-    }
+    /* 1,2,3번째 탭 색 */
+    .mode-tab:nth-child(1).active { background: #00AEEF; color: #fff; }
+    .mode-tab:nth-child(2).active { background: #FF6FB5; color: #fff; }
+    .mode-tab:nth-child(3).active { background: #22C55E; color: #fff; }
 
     .card {
       background: #ffffff;
@@ -105,6 +100,12 @@
       white-space: pre-line;
     }
 
+    .sentence-kr {
+      font-size: 18px;
+      color: #4b5563;
+      margin-top: 4px;
+    }
+
     .blank-line {
       display: inline-block;
       min-width: 180px;
@@ -112,13 +113,13 @@
       margin: 0 4px;
     }
 
-    /* ===== 빈칸 완성 레이아웃 (어휘 4지선다 느낌으로 통일) ===== */
+    /* ===== 빈칸 완성 4지선다 ===== */
 
     .blank-choice-area {
-      min-height: 110px;
+      min-height: 140px;
       background: #eef4ff;
       border-radius: 22px;
-      padding: 16px 32px;          /* 왼쪽, 오른쪽 여백 */
+      padding: 24px 26px;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -127,24 +128,24 @@
 
     .choices-grid {
       display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 12px 32px;              /* 세로 12, 가로(가운데) 32 */
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px 20px;
       width: 100%;
-      max-width: 720px;            /* 가운데 2×2 묶음 고정 폭 */
-      margin: 0 auto;
+      max-width: 520px;
     }
 
     .choice-btn {
       width: 100%;
-      min-height: 44px;            /* 이전보다 작게 */
-      padding: 10px 14px;
+      min-height: 52px;
+      padding: 12px 18px;
       border-radius: 999px;
       border: 1.5px solid #d0d7e6;
       background: #ffffff;
-      font-size: 16px;
+      font-size: 18px;
       cursor: pointer;
       text-align: left;
       transition: all 0.15s ease;
+      white-space: nowrap;
     }
 
     .choice-btn:hover {
@@ -165,23 +166,19 @@
       color: #b91c1c;
     }
 
-    /* ===== 문장 배열 (항상 2칸, homework 줄바꿈 방지) ===== */
+    /* ===== 문장 배열 ===== */
 
     .answer-row {
+      min-height: 80px;
       background: #eef4ff;
       border-radius: 22px;
-      padding: 18px 16px;
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));  /* 한 줄 2칸 */
-      gap: 10px;
+      padding: 18px 22px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
       font-size: 20px;
       align-items: center;
       margin-bottom: 16px;
-
-      width: 100%;
-      max-width: 720px;            /* 위 4지선다와 동일 폭 */
-      margin-left: auto;
-      margin-right: auto;
     }
 
     .word-chips {
@@ -203,7 +200,6 @@
       font-size: 20px;
       font-weight: 500;
       transition: 0.15s ease;
-      white-space: nowrap;         /* 단어 안 줄바꿈 방지 */
     }
 
     .word-chip:hover {
@@ -215,6 +211,69 @@
       background: #d6e8ff;
       border-color: #5c9dff;
       transform: scale(1.05);
+    }
+
+    /* ===== 문장 타이핑 ===== */
+
+    .typing-area {
+      margin-top: 10px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .typing-input-wrap {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      width: 100%;
+      max-width: 520px;
+      margin-top: 6px;
+    }
+
+    .typing-input {
+      flex: 1;
+      padding: 12px 18px;
+      border-radius: 999px;
+      border: 1.5px solid #d0d7e6;
+      font-size: 18px;
+      outline: none;
+      transition: border-color 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
+    }
+
+    .typing-input.correct {
+      background: #dcfce7;
+      border-color: #22c55e;
+    }
+
+    .typing-input.wrong {
+      background: #fee2e2;
+      border-color: #f97373;
+    }
+
+    .typing-check-btn {
+      padding: 10px 18px;
+      border-radius: 999px;
+      border: none;
+      background: #22c55e;
+      color: #ffffff;
+      font-size: 16px;
+      cursor: pointer;
+      white-space: nowrap;
+    }
+
+    .typing-check-btn:disabled {
+      opacity: 0.7;
+      cursor: default;
+    }
+
+    .typing-hint {
+      font-size: 16px;
+      color: #6b7280;
+      text-align: left;
+      width: 100%;
+      max-width: 520px;
     }
 
     .hint-text {
@@ -264,7 +323,6 @@
       color: #ffffff;
     }
 
-    /* 모바일에서 살짝 키우기 */
     @media (max-width: 600px) {
       .card {
         padding: 24px 18px 20px;
@@ -273,20 +331,14 @@
         font-size: 21px;
       }
       .choice-btn {
-        font-size: 17px;
+        font-size: 16px;
         min-height: 48px;
       }
       .word-chip {
         font-size: 18px;
       }
-    }
-
-    /* PC에서 문장 배열 살짝 작게 */
-    @media (min-width: 900px) {
-      .answer-row {
-        padding: 14px 16px;
-        gap: 8px;
-        font-size: 18px;
+      .typing-input {
+        font-size: 16px;
       }
     }
   </style>
@@ -298,6 +350,7 @@
   <div class="top-bar">
     <button class="mode-tab active" data-mode="blank">🧩 빈칸 완성</button>
     <button class="mode-tab" data-mode="order">🔀 문장 배열</button>
+    <button class="mode-tab" data-mode="type">⌨ 문장 타이핑</button>
   </div>
 
   <div class="card">
@@ -317,16 +370,15 @@
   </div>
 </div>
 
-<!-- 2단계용 데이터 -->
+<!-- 2단계 전용 문제 데이터 -->
 <script src="sentence2.js"></script>
 
 <script>
 /* ============================================
    기본 설정
 ============================================ */
-const params  = new URLSearchParams(window.location.search);
-const stage   = params.get("stage") || "2";    // 이 파일은 기본 2단계
-const unitKey = params.get("unit")  || "10-1";
+const params   = new URLSearchParams(window.location.search);
+const unitKey  = params.get("unit") || "10-1";
 
 const mainTitle      = document.getElementById("mainTitle");
 const centerArea     = document.getElementById("centerArea");
@@ -335,17 +387,16 @@ const modeTabs       = document.querySelectorAll(".mode-tab");
 const modeResetBtn   = document.getElementById("modeResetBtn");
 const backToUnitsBtn = document.getElementById("backToUnitsBtn");
 
-/* 화면 제목 + 브라우저 탭 제목에 단계 반영 */
-mainTitle.textContent = `문장 학습 ${stage}단계 ${unitKey}`;
-document.title        = `문장 학습 ${stage}단계 ${unitKey}`;
+mainTitle.textContent = `문장 학습 2단계 ${unitKey}`;
 
-const RAW_DB = window.SENTENCE_DB || {};
-let allQuestions = RAW_DB[unitKey] || [];
+const SENTENCE_DB  = window.SENTENCE_DB || {};
+const allQuestions = SENTENCE_DB[unitKey] || [];
 
 /* 유형별 저장 */
 const questionsByType = {
   blank: [],
   order: [],
+  type:  [],
 };
 
 allQuestions.forEach(q => {
@@ -360,12 +411,14 @@ let currentMode = "blank";
 const modeIndex = {
   blank: 0,
   order: 0,
+  type:  0,
 };
 
 /* 틀린 문제 다시 */
 const wrongQuestions = {
   blank: [],
   order: [],
+  type:  [],
 };
 
 /* 셔플 */
@@ -449,7 +502,9 @@ function goNext() {
   }
 }
 
-/* ====================== (1) 빈칸 완성 ====================== */
+/* ===========================================================
+   (1) 빈칸 완성 – 4지선다
+=========================================================== */
 function renderBlankQuestion(q, idx, total) {
   clearTimers();
   clearCenter();
@@ -530,7 +585,9 @@ function renderBlankQuestion(q, idx, total) {
   setProgress(idx, total);
 }
 
-/* ====================== (2) 문장 배열 ====================== */
+/* ===========================================================
+   (2) 문장 배열 – 단어 칩
+=========================================================== */
 function renderOrderQuestion(q, idx, total) {
   clearTimers();
   clearCenter();
@@ -543,9 +600,7 @@ function renderOrderQuestion(q, idx, total) {
 
   if (q.meaningKo) {
     const ko = document.createElement("div");
-    ko.className = "sentence-en";
-    ko.style.fontSize = "18px";
-    ko.style.color = "#4b5563";
+    ko.className = "sentence-kr";
     ko.textContent = q.meaningKo;
     centerArea.appendChild(ko);
   }
@@ -567,19 +622,16 @@ function renderOrderQuestion(q, idx, total) {
   const slots = [];
   correctWords.forEach(() => {
     const slot = document.createElement("div");
-
     slot.style.minWidth       = "80px";
-    slot.style.minHeight      = "40px";
+    slot.style.minHeight      = "44px";
     slot.style.borderRadius   = "999px";
     slot.style.border         = "1.5px solid #d0d7e6";
     slot.style.background     = "#ffffff";
     slot.style.display        = "flex";
     slot.style.alignItems     = "center";
     slot.style.justifyContent = "center";
-    slot.style.fontSize       = "18px";
+    slot.style.fontSize       = "20px";
     slot.style.fontWeight     = "500";
-    slot.style.whiteSpace     = "nowrap";   // homework 줄바꿈 방지
-
     slot.textContent = "";
     answerRow.appendChild(slot);
     slots.push(slot);
@@ -666,18 +718,142 @@ function renderOrderQuestion(q, idx, total) {
   setProgress(idx, total);
 }
 
-/* ====================== 공통 ====================== */
+/* ===========================================================
+   (3) 문장 타이핑 – 전체 문장 입력
+=========================================================== */
+function normalizeSentence(str) {
+  return String(str || "")
+    .replace(/\s+/g, " ")
+    .trim()
+    .replace(/[.!?]$/,"")
+    .toLowerCase();
+}
+
+function renderTypeQuestion(q, idx, total) {
+  clearTimers();
+  clearCenter();
+
+  const qDiv = document.createElement("div");
+  qDiv.className = "question-text";
+  qDiv.textContent = q.question || "문장을 완성하세요.";
+  centerArea.appendChild(qDiv);
+
+  if (q.meaningKo) {
+    const kr = document.createElement("div");
+    kr.className = "sentence-kr";
+    kr.textContent = q.meaningKo;
+    centerArea.appendChild(kr);
+  }
+
+  const typingArea = document.createElement("div");
+  typingArea.className = "typing-area";
+  centerArea.appendChild(typingArea);
+
+  const typingHint = document.createElement("div");
+  typingHint.className = "typing-hint";
+  typingHint.textContent = "영어 문장을 그대로 입력해 보세요.";
+  typingArea.appendChild(typingHint);
+
+  const inputWrap = document.createElement("div");
+  inputWrap.className = "typing-input-wrap";
+  typingArea.appendChild(inputWrap);
+
+  const input = document.createElement("input");
+  input.type = "text";
+  input.className = "typing-input";
+  input.placeholder = "정확한 영어 문장을 입력하세요.";
+  inputWrap.appendChild(input);
+
+  const checkBtn = document.createElement("button");
+  checkBtn.type = "button";
+  checkBtn.className = "typing-check-btn";
+  checkBtn.textContent = "확인";
+  inputWrap.appendChild(checkBtn);
+
+  const hintDiv = document.createElement("div");
+  hintDiv.className = "hint-text";
+  centerArea.appendChild(hintDiv);
+
+  const expDiv = document.createElement("div");
+  expDiv.className = "explanation-text";
+  centerArea.appendChild(expDiv);
+
+  const answerNorm = normalizeSentence(q.answerEn);
+  let finished = false;
+
+  function handleCheck() {
+    if (finished) return;
+    const userNorm = normalizeSentence(input.value);
+
+    if (!userNorm) {
+      hintDiv.textContent = "먼저 문장을 입력해 보세요.";
+      return;
+    }
+
+    if (userNorm === answerNorm) {
+      finished = true;
+      input.classList.remove("wrong");
+      input.classList.add("correct");
+      hintDiv.textContent = "";
+      expDiv.textContent = "정답입니다! 👏";
+
+      checkBtn.disabled = true;
+      setTimer(goNext, 1200);
+    } else {
+      input.classList.remove("correct");
+      input.classList.add("wrong");
+      hintDiv.textContent = "철자와 띄어쓰기를 다시 한 번 확인해 보세요.";
+      expDiv.textContent  = "";
+      if (!q._countedWrong) {
+        q._countedWrong = true;
+        wrongQuestions.type.push(q);
+      }
+    }
+  }
+
+  checkBtn.onclick = handleCheck;
+  input.addEventListener("keydown", e => {
+    if (e.key === "Enter") {
+      e.preventDefault();
+      handleCheck();
+    }
+  });
+
+  // 30초 지나면 정답 공개
+  setTimer(() => {
+    if (finished) return;
+    finished = true;
+    input.value = q.answerEn || "";
+    input.classList.remove("wrong");
+    input.classList.add("correct");
+    hintDiv.textContent = "시간이 지나 정답이 공개되었습니다.";
+    expDiv.textContent  = "";
+    checkBtn.disabled = true;
+    setTimer(goNext, 4000);
+  }, 30000);
+
+  input.focus();
+  setProgress(idx, total);
+}
+
+/* ===========================================================
+   문제 렌더링 스위치
+=========================================================== */
 function renderQuestionObj(q, type) {
   const list  = questionsByType[type];
   const idx   = list.indexOf(q);
   const total = list.length;
 
-  if (type === "blank")  return renderBlankQuestion(q, idx, total);
-  if (type === "order")  return renderOrderQuestion(q, idx, total);
+  if (type === "blank") return renderBlankQuestion(q, idx, total);
+  if (type === "order") return renderOrderQuestion(q, idx, total);
+  if (type === "type")  return renderTypeQuestion(q, idx, total);
 
   renderNoQuestion();
 }
 
+/* ===========================================================
+   현재 모드 렌더링
+=========================================================== */
 function renderCurrent() {
   clearTimers();
 
@@ -702,7 +878,9 @@ function renderCurrent() {
   renderQuestionObj(q, currentMode);
 }
 
-/* 탭 / 버튼 */
+/* ===========================================================
+   탭 전환 / 버튼
+=========================================================== */
 modeTabs.forEach(tab => {
   tab.onclick = () => {
     currentMode = tab.dataset.mode;
