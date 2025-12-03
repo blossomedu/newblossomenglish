@@ -141,7 +141,6 @@
       margin-bottom: 8px;
     }
 
-    /* 듣고 찾기 제목 전용 클래스 (스타일은 다른 데서 이미 조정해둔 걸로) */
     .listening-title { }
 
     .choices-grid {
@@ -162,8 +161,8 @@
       font-size: 16px;
       cursor: pointer;
       transition: all 0.12s ease;
-      word-break: keep-all;   /* 단어 중간에서 안 끊기게 */
-      white-space: pre-line;  /* \n 을 실제 줄바꿈으로 표시 */
+      word-break: keep-all;
+      white-space: pre-line;  /* \n 줄바꿈 반영 */
     }
     .choice-btn:hover { background: #eef2ff; }
     .choice-btn.correct {
@@ -250,7 +249,6 @@
       .word-big { font-size: 54px; }
       .meaning-big { font-size: 30px; }
       .sentence-en { font-size: 22px; }
-
       .sentence-input {
         width: 70%;
         max-width: 70%;
@@ -335,13 +333,15 @@
         /Mobi|Android|iPhone|iPad|iPod|SamsungBrowser/i.test(navigator.userAgent) ||
         window.innerWidth < 768;
 
-      let url = `print-vocab-note.html?unit=${encodeURIComponent(unitKey)}`;
       if (isMobile) {
-        // 모바일: 자동 인쇄 유지
-        url += "&auto=1";
+        // 모바일: 선생님용 페이지 + auto=1 → 자동 인쇄 유지
+        const url = `print-vocab-note.html?unit=${encodeURIComponent(unitKey)}&auto=1`;
+        window.open(url, "_blank");
+      } else {
+        // PC: 학생용 리스트 페이지 (자동 인쇄 없음)
+        const url = `vocab-list.html?unit=${encodeURIComponent(unitKey)}`;
+        window.open(url, "_blank");
       }
-      // PC: auto 안 붙임 → 리스트만
-      window.open(url, "_blank");
     };
   }
 
@@ -438,7 +438,7 @@
     const u2 = new SpeechSynthesisUtterance(word);
     u1.lang = "en-US"; u2.lang = "en-US";
     u1.rate = 0.9;     u2.rate = 0.9;
-    u1.onend = () => setTimeout(() => synth.speak(u2), 1000);
+    u1.onend = () => setTimeout(() => synth.speaks && synth.speak(u2), 1000);
     u2.onend = () => { if (cb) setTimeout(cb, 2600); };
     synth.speak(u1);
   }
@@ -470,13 +470,11 @@
   // --- 보기 텍스트 포맷: 9자 이상 + 쉼표 있으면 쉼표 뒤에서 줄바꿈 (쉼표는 유지) ---
   function formatChoiceText(txt) {
     const MAX_LEN = 9;
-
     if (txt.length < MAX_LEN) return txt;
 
     const commaIndex = txt.indexOf(",");
     if (commaIndex === -1) return txt;
 
-    // "행동하다, 연기하다" → "행동하다,\n연기하다"
     return txt.slice(0, commaIndex + 1) + "\n" + txt.slice(commaIndex + 1).trim();
   }
 
