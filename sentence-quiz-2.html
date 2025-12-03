@@ -61,10 +61,10 @@
       box-shadow: 0 12px 25px rgba(0, 174, 239, 0.35);
     }
 
-    /* 1,2,3번째 탭 색 */
+    /* 탭별 색 (모두 파랑으로 통일해도 되지만, active는 공통 규칙 사용) */
     .mode-tab:nth-child(1).active { background: #00AEEF; color: #fff; }
     .mode-tab:nth-child(2).active { background: #FF6FB5; color: #fff; }
-    .mode-tab:nth-child(3).active { background: #22C55E; color: #fff; }
+    .mode-tab:nth-child(3).active { background: #00AEEF; color: #fff; }
 
     .card {
       background: #ffffff;
@@ -109,6 +109,13 @@
     .blank-line {
       display: inline-block;
       min-width: 180px;
+      border-bottom: 2px solid #111827;
+      margin: 0 4px;
+    }
+
+    .inline-blank {
+      display: inline-block;
+      min-width: 160px;
       border-bottom: 2px solid #111827;
       margin: 0 4px;
     }
@@ -256,7 +263,7 @@
       padding: 10px 18px;
       border-radius: 999px;
       border: none;
-      background: #22c55e;
+      background: #9AD7A0; /* 💚 민트색 */
       color: #ffffff;
       font-size: 16px;
       cursor: pointer;
@@ -719,7 +726,7 @@ function renderOrderQuestion(q, idx, total) {
 }
 
 /* ===========================================================
-   (3) 문장 타이핑 – 전체 문장 입력
+   (3) 문장 타이핑 – 문장 안 '필요한 부분'만 입력
 =========================================================== */
 function normalizeSentence(str) {
   return String(str || "")
@@ -729,9 +736,16 @@ function normalizeSentence(str) {
     .toLowerCase();
 }
 
+function escapeRegExp(str) {
+  return str.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+}
+
 function renderTypeQuestion(q, idx, total) {
   clearTimers();
   clearCenter();
+
+  const fullEn   = q.fullEn || q.answerEn || "";
+  const targetEn = q.targetEn || q.answerEn || "";
 
   const qDiv = document.createElement("div");
   qDiv.className = "question-text";
@@ -745,13 +759,29 @@ function renderTypeQuestion(q, idx, total) {
     centerArea.appendChild(kr);
   }
 
+  // 문장 안에서 target 부분만 ____ 로 가리기
+  const sDiv = document.createElement("div");
+  sDiv.className = "sentence-en";
+
+  if (fullEn && targetEn) {
+    const pattern = new RegExp(escapeRegExp(targetEn), "i");
+    const replaced = fullEn.replace(
+      pattern,
+      "<span class='inline-blank'></span>"
+    );
+    sDiv.innerHTML = replaced;
+  } else {
+    sDiv.textContent = fullEn || "(문장 데이터 없음)";
+  }
+  centerArea.appendChild(sDiv);
+
   const typingArea = document.createElement("div");
   typingArea.className = "typing-area";
   centerArea.appendChild(typingArea);
 
   const typingHint = document.createElement("div");
   typingHint.className = "typing-hint";
-  typingHint.textContent = "영어 문장을 그대로 입력해 보세요.";
+  typingHint.textContent = "빈칸에 들어갈 영어 부분만 입력해 보세요.";
   typingArea.appendChild(typingHint);
 
   const inputWrap = document.createElement("div");
@@ -761,7 +791,7 @@ function renderTypeQuestion(q, idx, total) {
   const input = document.createElement("input");
   input.type = "text";
   input.className = "typing-input";
-  input.placeholder = "정확한 영어 문장을 입력하세요.";
+  input.placeholder = "예: goes to school at 8";
   inputWrap.appendChild(input);
 
   const checkBtn = document.createElement("button");
@@ -778,7 +808,7 @@ function renderTypeQuestion(q, idx, total) {
   expDiv.className = "explanation-text";
   centerArea.appendChild(expDiv);
 
-  const answerNorm = normalizeSentence(q.answerEn);
+  const answerNorm = normalizeSentence(targetEn);
   let finished = false;
 
   function handleCheck() {
@@ -786,7 +816,7 @@ function renderTypeQuestion(q, idx, total) {
     const userNorm = normalizeSentence(input.value);
 
     if (!userNorm) {
-      hintDiv.textContent = "먼저 문장을 입력해 보세요.";
+      hintDiv.textContent = "먼저 빈칸에 들어갈 말을 입력해 보세요.";
       return;
     }
 
@@ -802,7 +832,7 @@ function renderTypeQuestion(q, idx, total) {
     } else {
       input.classList.remove("correct");
       input.classList.add("wrong");
-      hintDiv.textContent = "철자와 띄어쓰기를 다시 한 번 확인해 보세요.";
+      hintDiv.textContent = "단어 순서와 철자를 다시 한 번 확인해 보세요.";
       expDiv.textContent  = "";
       if (!q._countedWrong) {
         q._countedWrong = true;
@@ -823,7 +853,7 @@ function renderTypeQuestion(q, idx, total) {
   setTimer(() => {
     if (finished) return;
     finished = true;
-    input.value = q.answerEn || "";
+    input.value = targetEn;
     input.classList.remove("wrong");
     input.classList.add("correct");
     hintDiv.textContent = "시간이 지나 정답이 공개되었습니다.";
@@ -867,49 +897,4 @@ function renderCurrent() {
     return;
   }
 
-  if (modeIndex[currentMode] === 0 && !list._shuffled) {
-    questionsByType[currentMode] = shuffle(list);
-    questionsByType[currentMode]._shuffled = true;
-  }
-
-  const idx = modeIndex[currentMode];
-  const q   = questionsByType[currentMode][idx];
-
-  renderQuestionObj(q, currentMode);
-}
-
-/* ===========================================================
-   탭 전환 / 버튼
-=========================================================== */
-modeTabs.forEach(tab => {
-  tab.onclick = () => {
-    currentMode = tab.dataset.mode;
-    modeIndex[currentMode] = 0;
-    renderCurrent();
-  };
-});
-
-modeResetBtn.onclick = () => {
-  clearTimers();
-  Object.keys(modeIndex).forEach(k => (modeIndex[k] = 0));
-  Object.keys(wrongQuestions).forEach(k => (wrongQuestions[k] = []));
-  Object.keys(questionsByType).forEach(type => {
-    const list = questionsByType[type];
-    if (list && list.length) {
-      questionsByType[type] = shuffle(list);
-      questionsByType[type]._shuffled = true;
-    }
-  });
-  renderCurrent();
-};
-
-backToUnitsBtn.onclick = () => {
-  clearTimers();
-  window.history.back();
-};
-
-/* 첫 화면 렌더링 */
-renderCurrent();
-</script>
-</body>
-</html>
+  if (modeIndex[currentMode] ==
