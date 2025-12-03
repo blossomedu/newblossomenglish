@@ -2,7 +2,8 @@
 <html lang="ko">
 <head>
   <meta charset="UTF-8" />
-  <title>문장 학습</title>
+  <!-- 이 파일은 2단계 전용 -->
+  <title>문장 학습 2단계</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link href="https://cdn.jsdelivr.net/npm/pretendard/dist/web/variable/pretendardvariable.css" rel="stylesheet" />
 
@@ -61,7 +62,6 @@
       box-shadow: 0 12px 25px rgba(0, 174, 239, 0.35);
     }
 
-    /* 1번째 탭 파랑, 2번째 탭 핑크 */
     .mode-tab:nth-child(1).active {
       background: #00AEEF;
       color: #fff;
@@ -112,14 +112,13 @@
       margin: 0 4px;
     }
 
-    /* ===== 빈칸 완성 4지선다 레이아웃 ===== */
+    /* ===== 빈칸 완성 레이아웃 (어휘 4지선다 느낌으로 통일) ===== */
 
-    /* 연보라 큰 박스 */
     .blank-choice-area {
       min-height: 110px;
       background: #eef4ff;
       border-radius: 22px;
-      padding: 16px 24px;
+      padding: 16px 32px;          /* 왼쪽, 오른쪽 여백 */
       display: flex;
       align-items: center;
       justify-content: center;
@@ -128,20 +127,21 @@
 
     .choices-grid {
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 16px 20px;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px 32px;              /* 세로 12, 가로(가운데) 32 */
       width: 100%;
-      max-width: 520px; /* 모바일 기준 기본값 */
+      max-width: 720px;            /* 가운데 2×2 묶음 고정 폭 */
+      margin: 0 auto;
     }
 
     .choice-btn {
       width: 100%;
-      min-height: 52px;
-      padding: 12px 18px;
+      min-height: 44px;            /* 이전보다 작게 */
+      padding: 10px 14px;
       border-radius: 999px;
       border: 1.5px solid #d0d7e6;
       background: #ffffff;
-      font-size: 18px;
+      font-size: 16px;
       cursor: pointer;
       text-align: left;
       transition: all 0.15s ease;
@@ -165,21 +165,21 @@
       color: #b91c1c;
     }
 
-    /* ------ 문장 배열 ------ */
+    /* ===== 문장 배열 (항상 2칸, homework 줄바꿈 방지) ===== */
+
     .answer-row {
       background: #eef4ff;
       border-radius: 22px;
       padding: 18px 16px;
       display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr)); /* 한 줄에 3칸 */
+      grid-template-columns: repeat(2, minmax(0, 1fr));  /* 한 줄 2칸 */
       gap: 10px;
       font-size: 20px;
       align-items: center;
       margin-bottom: 16px;
 
-      /* PC에서 “너무 넓어 보이는 느낌” 방지용: 폭 제한 후 가운데 정렬 */
       width: 100%;
-      max-width: 820px;
+      max-width: 720px;            /* 위 4지선다와 동일 폭 */
       margin-left: auto;
       margin-right: auto;
     }
@@ -203,6 +203,7 @@
       font-size: 20px;
       font-weight: 500;
       transition: 0.15s ease;
+      white-space: nowrap;         /* 단어 안 줄바꿈 방지 */
     }
 
     .word-chip:hover {
@@ -263,6 +264,7 @@
       color: #ffffff;
     }
 
+    /* 모바일에서 살짝 키우기 */
     @media (max-width: 600px) {
       .card {
         padding: 24px 18px 20px;
@@ -271,7 +273,7 @@
         font-size: 21px;
       }
       .choice-btn {
-        font-size: 16px;
+        font-size: 17px;
         min-height: 48px;
       }
       .word-chip {
@@ -279,29 +281,19 @@
       }
     }
 
-    /* === PC 전용 레이아웃 보정 === */
+    /* PC에서 문장 배열 살짝 작게 */
     @media (min-width: 900px) {
-      /* 1) 빈칸 완성 보기 배열을 더 “꽉” 채우기 */
-      .blank-choice-area {
-        padding: 18px 32px;
-      }
-      .choices-grid {
-        max-width: 820px;         /* 520 → 820, 보라 영역 안을 더 채움 */
-        gap: 14px 24px;
-      }
-
-      /* 2) 문장 배열 칸이 너무 커 보이지 않도록 패딩만 살짝 줄임
-            (모바일은 그대로 유지) */
       .answer-row {
-        padding: 14px 18px;
+        padding: 14px 16px;
         gap: 8px;
+        font-size: 18px;
       }
     }
   </style>
 </head>
 <body>
 <div class="page">
-  <h1 class="main-title" id="mainTitle">문장 학습</h1>
+  <h1 class="main-title" id="mainTitle">문장 학습 2단계</h1>
 
   <div class="top-bar">
     <button class="mode-tab active" data-mode="blank">🧩 빈칸 완성</button>
@@ -325,7 +317,7 @@
   </div>
 </div>
 
-<!-- 문제 데이터: 1단계면 sentence.js, 2단계면 sentence2.js 로 바꿔서 사용 -->
+<!-- 2단계용 데이터 -->
 <script src="sentence2.js"></script>
 
 <script>
@@ -333,8 +325,8 @@
    기본 설정
 ============================================ */
 const params  = new URLSearchParams(window.location.search);
-const stage   = params.get("stage") || "1";    // 단계
-const unitKey = params.get("unit")  || "1-1";
+const stage   = params.get("stage") || "2";    // 이 파일은 기본 2단계
+const unitKey = params.get("unit")  || "10-1";
 
 const mainTitle      = document.getElementById("mainTitle");
 const centerArea     = document.getElementById("centerArea");
@@ -343,19 +335,12 @@ const modeTabs       = document.querySelectorAll(".mode-tab");
 const modeResetBtn   = document.getElementById("modeResetBtn");
 const backToUnitsBtn = document.getElementById("backToUnitsBtn");
 
-/* 3) 제목/브라우저 탭에 단계 반영 */
-mainTitle.textContent  = `문장 학습 ${stage}단계 ${unitKey}`;
-document.title         = `문장 학습 ${stage}단계 ${unitKey}`;
+/* 화면 제목 + 브라우저 탭 제목에 단계 반영 */
+mainTitle.textContent = `문장 학습 ${stage}단계 ${unitKey}`;
+document.title        = `문장 학습 ${stage}단계 ${unitKey}`;
 
 const RAW_DB = window.SENTENCE_DB || {};
-let allQuestions = [];
-
-/* sentence.js / sentence2.js 구조: 단순 unit 키 구조 사용 */
-if (RAW_DB[unitKey]) {
-  allQuestions = RAW_DB[unitKey];
-} else {
-  allQuestions = [];
-}
+let allQuestions = RAW_DB[unitKey] || [];
 
 /* 유형별 저장 */
 const questionsByType = {
@@ -584,15 +569,16 @@ function renderOrderQuestion(q, idx, total) {
     const slot = document.createElement("div");
 
     slot.style.minWidth       = "80px";
-    slot.style.minHeight      = "44px";
+    slot.style.minHeight      = "40px";
     slot.style.borderRadius   = "999px";
     slot.style.border         = "1.5px solid #d0d7e6";
     slot.style.background     = "#ffffff";
     slot.style.display        = "flex";
     slot.style.alignItems     = "center";
     slot.style.justifyContent = "center";
-    slot.style.fontSize       = "20px";
+    slot.style.fontSize       = "18px";
     slot.style.fontWeight     = "500";
+    slot.style.whiteSpace     = "nowrap";   // homework 줄바꿈 방지
 
     slot.textContent = "";
     answerRow.appendChild(slot);
