@@ -2,7 +2,7 @@
 <html lang="ko">
 <head>
   <meta charset="UTF-8" />
-  <title>문장 학습 1단계</title>
+  <title>문장 학습</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link href="https://cdn.jsdelivr.net/npm/pretendard/dist/web/variable/pretendardvariable.css" rel="stylesheet" />
 
@@ -114,7 +114,7 @@
 
     /* ===== 빈칸 완성 4지선다 레이아웃 ===== */
 
-    /* 연보라 큰 박스 - 여백 축소 */
+    /* 연보라 큰 박스 */
     .blank-choice-area {
       min-height: 110px;
       background: #eef4ff;
@@ -131,7 +131,7 @@
       grid-template-columns: repeat(2, 1fr);
       gap: 16px 20px;
       width: 100%;
-      max-width: 520px;
+      max-width: 520px; /* 모바일 기준 기본값 */
     }
 
     .choice-btn {
@@ -165,7 +165,7 @@
       color: #b91c1c;
     }
 
-    /* ------ 문장 배열 (칩 크게 / 넉넉한 간격) ------ */
+    /* ------ 문장 배열 ------ */
     .answer-row {
       background: #eef4ff;
       border-radius: 22px;
@@ -176,6 +176,12 @@
       font-size: 20px;
       align-items: center;
       margin-bottom: 16px;
+
+      /* PC에서 “너무 넓어 보이는 느낌” 방지용: 폭 제한 후 가운데 정렬 */
+      width: 100%;
+      max-width: 820px;
+      margin-left: auto;
+      margin-right: auto;
     }
 
     .word-chips {
@@ -272,11 +278,30 @@
         font-size: 18px;
       }
     }
+
+    /* === PC 전용 레이아웃 보정 === */
+    @media (min-width: 900px) {
+      /* 1) 빈칸 완성 보기 배열을 더 “꽉” 채우기 */
+      .blank-choice-area {
+        padding: 18px 32px;
+      }
+      .choices-grid {
+        max-width: 820px;         /* 520 → 820, 보라 영역 안을 더 채움 */
+        gap: 14px 24px;
+      }
+
+      /* 2) 문장 배열 칸이 너무 커 보이지 않도록 패딩만 살짝 줄임
+            (모바일은 그대로 유지) */
+      .answer-row {
+        padding: 14px 18px;
+        gap: 8px;
+      }
+    }
   </style>
 </head>
 <body>
 <div class="page">
-  <h1 class="main-title" id="mainTitle">문장 학습 1단계</h1>
+  <h1 class="main-title" id="mainTitle">문장 학습</h1>
 
   <div class="top-bar">
     <button class="mode-tab active" data-mode="blank">🧩 빈칸 완성</button>
@@ -300,7 +325,7 @@
   </div>
 </div>
 
-<!-- 문제 데이터 -->
+<!-- 문제 데이터: 1단계면 sentence.js, 2단계면 sentence2.js 로 바꿔서 사용 -->
 <script src="sentence2.js"></script>
 
 <script>
@@ -308,7 +333,7 @@
    기본 설정
 ============================================ */
 const params  = new URLSearchParams(window.location.search);
-const stage   = params.get("stage") || "1";    // ★ 단계
+const stage   = params.get("stage") || "1";    // 단계
 const unitKey = params.get("unit")  || "1-1";
 
 const mainTitle      = document.getElementById("mainTitle");
@@ -318,25 +343,15 @@ const modeTabs       = document.querySelectorAll(".mode-tab");
 const modeResetBtn   = document.getElementById("modeResetBtn");
 const backToUnitsBtn = document.getElementById("backToUnitsBtn");
 
-/* 제목에 단계 반영 */
-mainTitle.textContent = `문장 학습 ${stage}단계 ${unitKey}`;
+/* 3) 제목/브라우저 탭에 단계 반영 */
+mainTitle.textContent  = `문장 학습 ${stage}단계 ${unitKey}`;
+document.title         = `문장 학습 ${stage}단계 ${unitKey}`;
 
 const RAW_DB = window.SENTENCE_DB || {};
 let allQuestions = [];
 
-/*
-  sentence.js 구조 두 가지 모두 대응:
-
-  1) 단계별 중첩
-     SENTENCE_DB["1"]["10-1"] = [...]
-     SENTENCE_DB["2"]["10-1"] = [...]
-
-  2) 단순 유닛키
-     SENTENCE_DB["10-1"] = [...]
-*/
-if (RAW_DB[stage] && RAW_DB[stage][unitKey]) {
-  allQuestions = RAW_DB[stage][unitKey];
-} else if (RAW_DB[unitKey]) {
+/* sentence.js / sentence2.js 구조: 단순 unit 키 구조 사용 */
+if (RAW_DB[unitKey]) {
   allQuestions = RAW_DB[unitKey];
 } else {
   allQuestions = [];
