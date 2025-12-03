@@ -69,7 +69,7 @@
       box-shadow: 0 12px 25px rgba(255, 111, 181, 0.45);
     }
 
-    /* ✨ [어휘 보기] 버튼 전용 스타일 ✨ */
+    /* 어휘 보기 버튼 */
     .mode-tab.print-btn {
       background: #ff7eb3;
       color: #ffffff;
@@ -81,7 +81,7 @@
       box-shadow: 0 8px 20px rgba(255, 126, 179, 0.4);
     }
 
-    /* 카드 및 퀴즈 스타일 */
+    /* 카드 / 내용 영역 */
     .card {
       background: #ffffff;
       border-radius: 28px;
@@ -148,9 +148,9 @@
       margin-bottom: 8px;
     }
 
-    /* 듣고 찾기 제목 전용 클래스 (모바일에서만 줄어들게) */
+    /* 듣고 찾기 제목 전용 */
     .listening-title {
-      /* 기본은 question-title의 폰트 사용 */
+      /* 기본은 question-title과 동일, 모바일에서만 줄임 */
     }
 
     .choices-grid {
@@ -203,16 +203,20 @@
       margin-bottom: 18px;
     }
 
+    /* 문장 빈칸 입력 줄 */
     .sentence-row {
       display: flex;
       gap: 10px;
-      width: 90%;          /* ▶ 카드 안에서 여백 확보 (모바일에서 튀어나오는 문제 해결) */
+      width: 90%;
       max-width: 520px;
       margin: 0 auto;
+      justify-content: center; /* 가운데 배치 */
     }
 
     .sentence-input {
-      flex: 1;
+      flex: none;          /* flex:1 제거해서 길이 고정 */
+      width: 70%;          /* ▶ PC 기준 70% */
+      max-width: 70%;
       padding: 12px 16px;
       border-radius: 999px;
       border: 1px solid #d1d5db;
@@ -300,15 +304,15 @@
         font-size: 22px;
       }
 
-      /* ▶ 듣고 찾기 제목만 줄여서 한 줄에 들어가도록 */
+      /* 듣고 찾기 제목만 줄여서 한 줄에 들어가게 */
       .listening-title {
         font-size: 20px;
       }
 
-      /* ▶ 문장 빈칸 입력줄이 카드 안에서 안정적으로 보이도록 */
-      .sentence-row {
-        width: 90%;
-        max-width: 100%;
+      /* 모바일에서 입력칸 조금 더 넓게 */
+      .sentence-input {
+        width: 80%;
+        max-width: 80%;
       }
     }
   </style>
@@ -377,7 +381,6 @@
   // DOM 요소
   const mainTitle = document.getElementById("mainTitle");
   mainTitle.textContent = `어휘 학습 ${unitKey}`;
-
   const centerArea = document.getElementById("centerArea");
   const audioBadge = document.getElementById("audioBadge");
   const progressText = document.getElementById("progressText");
@@ -385,24 +388,23 @@
   const modeResetBtn = document.getElementById("modeResetBtn");
   const backToUnitsBtn = document.getElementById("backToUnitsBtn");
 
-  // ✨ [어휘 보기] 버튼 기능 연결
+  // 어휘 보기 버튼 (PC: 리스트만 / 모바일: 자동 프린트 유지)
   const printVocabBtn = document.getElementById("printVocabBtn");
   if (printVocabBtn) {
     printVocabBtn.onclick = () => {
-      // PC에서는 리스트만, 모바일에서는 현재처럼 자동 인쇄
       const isMobile =
         /Mobi|Android|iPhone|iPad|iPod|SamsungBrowser/i.test(navigator.userAgent) ||
         window.innerWidth < 768;
 
       let url = `print-vocab-note.html?unit=${encodeURIComponent(unitKey)}`;
       if (isMobile) {
-        url += "&auto=1"; // print-vocab-note.html에서 auto=1 일 때만 window.print() 실행
+        url += "&auto=1"; // 모바일일 때만 auto=1로 자동 프린트
       }
       window.open(url, "_blank");
     };
   }
 
-  // ---------- 이하 기존 로직 유지 ----------
+  // ---------- 이하 기존 로직 ----------
   let currentMode = "study";
   let currentIndex = 0;
   const AUTO_QUIZ_MODES = ["meaning", "english", "listening"];
@@ -472,16 +474,14 @@
     centerArea.innerHTML = `
       <div class="question-title">모든 문제를 다 풀었어요!</div>
       <div style="margin-top:10px;font-size:22px;color:#16a34a;font-weight:700;">100점 🎉</div>
-      <div style="margin-top:12px;font-size:14px;color:#6b7280;">다시 연습하려면 "다시 시작"을 눌러주세요.</div>
-    `;
+      <div style="margin-top:12px;font-size:14px;color:#6b7280;">다시 연습하려면 "다시 시작"을 눌러주세요.</div>`;
     setProgress(wordCount, wordCount);
     saveVocabResult();
   }
 
   function goNextQuestion(wrongIndex) {
-    if (wrongIndex !== null && wrongIndex !== undefined) {
+    if (wrongIndex !== null && wrongIndex !== undefined)
       nextRoundQueue.push(wrongIndex);
-    }
     quizPos++;
     if (quizPos >= quizQueue.length) {
       if (nextRoundQueue.length > 0) {
@@ -532,8 +532,7 @@
       <div class="word-big">${item.word}</div>
       <div class="meaning-big">${item.meaning}</div>
       <div class="example-en">${item.exampleEn}</div>
-      <div class="example-ko">${item.exampleKo}</div>
-    `;
+      <div class="example-ko">${item.exampleKo}</div>`;
     setProgress(currentIndex + 1, wordCount);
     speakWordTwice(item.word, () => {
       if (currentMode !== "study") return;
@@ -577,7 +576,7 @@
     } else if (type === "english") {
       questionHtml = `<div class="question-title">${item.meaning}</div>`;
     } else if (type === "listening") {
-      /* ▶ 듣고 찾기 제목에 listening-title 클래스 추가 */
+      /* 듣고 찾기 제목: 전용 클래스 추가 */
       questionHtml = `<div class="question-title listening-title">발음을 듣고 단어를 고르세요.</div>`;
     }
 
@@ -610,12 +609,11 @@
         } else {
           btn.classList.add("wrong");
           grid.childNodes.forEach((b) => {
-            const text = b.textContent;
             const correctText =
               type === "meaning" || type === "listening"
                 ? item.meaning
                 : item.word;
-            if (text === correctText) b.classList.add("correct");
+            if (b.textContent === correctText) b.classList.add("correct");
           });
         }
 
@@ -652,20 +650,16 @@
 
     centerArea.innerHTML = `
       <div class="sentence-en">${blanked}</div>
-      <div class="sentence-ko">${item.exampleKo}</div>
-    `;
+      <div class="sentence-ko">${item.exampleKo}</div>`;
 
     const row = document.createElement("div");
     row.className = "sentence-row";
-
     const input = document.createElement("input");
     input.className = "sentence-input";
     input.placeholder = "단어 입력";
-
     const btn = document.createElement("button");
     btn.className = "check-btn";
     btn.textContent = "확인";
-
     row.appendChild(input);
     row.appendChild(btn);
     centerArea.appendChild(row);
@@ -673,7 +667,6 @@
     const hint = document.createElement("div");
     hint.className = "hint-text";
     centerArea.appendChild(hint);
-
     const res = document.createElement("div");
     res.className = "result-text";
     centerArea.appendChild(res);
