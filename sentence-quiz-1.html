@@ -119,7 +119,8 @@
       min-height: 140px;
       background: #eef4ff;
       border-radius: 22px;
-      padding: 20px 26px;
+      /* ✅ 1·3번 간격 동일하게: 위·아래 패딩 값을 row gap과 맞춤 */
+      padding: 24px 26px;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -130,7 +131,8 @@
     .choices-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
-      gap: 16px 20px;
+      /* ✅ 세로 간격을 24px로 → 1·2·3이 모두 24px */
+      gap: 24px 20px; /* row 24px, column 20px */
       width: 100%;
       max-width: 520px;
     }
@@ -147,6 +149,8 @@
       cursor: pointer;
       text-align: left;
       transition: all 0.15s ease;
+      /* ✅ 모바일에서 "② watches"가 절대 줄바꿈되지 않도록 */
+      white-space: nowrap;
     }
 
     .choice-btn:hover {
