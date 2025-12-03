@@ -109,7 +109,7 @@
       padding: 10px 8px;
       min-height: 260px;
     }
-    /* 문장 빈칸 모드 전용: 살짝만 더 아래로 */
+    /* 문장 빈칸 모드에서 살짝 더 아래로 */
     .center-area.sentence-mode {
       padding-top: 30px;
     }
@@ -141,7 +141,7 @@
       margin-bottom: 8px;
     }
 
-    /* 듣고 찾기 제목 전용 클래스 (이미 사용 중, 스타일은 그대로 둠) */
+    /* 듣고 찾기 제목 전용 클래스 (스타일은 다른 데서 이미 조정해둔 걸로) */
     .listening-title { }
 
     .choices-grid {
@@ -162,8 +162,8 @@
       font-size: 16px;
       cursor: pointer;
       transition: all 0.12s ease;
-      word-break: keep-all;     /* 단어 중간에서 안 끊기게 */
-      white-space: pre-line;    /* \n 을 실제 줄바꿈으로 표시 */
+      word-break: keep-all;   /* 단어 중간에서 안 끊기게 */
+      white-space: pre-line;  /* \n 을 실제 줄바꿈으로 표시 */
     }
     .choice-btn:hover { background: #eef2ff; }
     .choice-btn.correct {
@@ -197,7 +197,6 @@
       margin: 0 auto;
       justify-content: center;
     }
-    /* 입력칸은 이미 잘 동작하는 버전 가정: 70% 폭 */
     .sentence-input {
       flex: none;
       width: 70%;
@@ -251,9 +250,6 @@
       .word-big { font-size: 54px; }
       .meaning-big { font-size: 30px; }
       .sentence-en { font-size: 22px; }
-
-      /* 이미 듣고찾기 제목은 여기서 조절된 걸로 가정 */
-      /* .listening-title { ... } 등은 건드리지 않음 */
 
       .sentence-input {
         width: 70%;
@@ -471,12 +467,17 @@
     });
   }
 
-  // --- 보기 텍스트 포맷: 9자 이상 + 쉼표 있으면 쉼표 뒤에서 줄바꿈 ---
+  // --- 보기 텍스트 포맷: 9자 이상 + 쉼표 있으면 쉼표 뒤에서 줄바꿈 (쉼표는 유지) ---
   function formatChoiceText(txt) {
     const MAX_LEN = 9;
+
     if (txt.length < MAX_LEN) return txt;
-    if (!txt.includes(",")) return txt;
-    return txt.split(",").map(v => v.trim()).join("\n");
+
+    const commaIndex = txt.indexOf(",");
+    if (commaIndex === -1) return txt;
+
+    // "행동하다, 연기하다" → "행동하다,\n연기하다"
+    return txt.slice(0, commaIndex + 1) + "\n" + txt.slice(commaIndex + 1).trim();
   }
 
   function makeChoices(correctIdx) {
@@ -521,6 +522,8 @@
     centerArea.appendChild(grid);
 
     const choices = makeChoices(qIndex);
+    const normalize = s => (s || "").replace(/\s/g, "");
+
     choices.forEach(idx => {
       const choice = words[idx];
       const btn = document.createElement("button");
@@ -532,7 +535,7 @@
       else
         btnText = choice.word;
 
-      btn.innerText = formatChoiceText(btnText);  // ✅ 줄바꿈 규칙 적용
+      btn.innerText = formatChoiceText(btnText);
       grid.appendChild(btn);
       
       btn.onclick = () => {
@@ -550,7 +553,7 @@
               (type === "meaning" || type === "listening")
                 ? item.meaning
                 : item.word;
-            if (b.innerText.replace(/\n/g, "").trim() === correctText.replace(/\n/g, "").trim()) {
+            if (normalize(b.innerText) === normalize(correctText)) {
               b.classList.add("correct");
             }
           });
