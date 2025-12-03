@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <title>어휘 리스트 - BLOSSOM ENGLISH</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="https://cdn.jsdelivr.net/npm/pretendard/dist/web/variable/pretendardvariable.css" rel="stylesheet" />
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: "Pretendard Variable", sans-serif;
+    }
+    body {
+      background: #ffffff;
+      color: #111827;
+      padding: 24px 12px 40px;
+    }
+    .wrap {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    .header-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 16px;
+    }
+    .brand {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+    .brand-title {
+      font-size: 28px;
+      font-weight: 800;
+    }
+    .brand-sub {
+      font-size: 13px;
+      color: #6b7280;
+    }
+    .level-box {
+      border-radius: 4px;
+      overflow: hidden;
+      border: 1px solid #fecaca;
+    }
+    .level-box-header {
+      background: #FF6FB5;
+      color: #ffffff;
+      padding: 6px 24px;
+      font-size: 13px;
+      text-align: center;
+      font-weight: 600;
+    }
+    .level-box-body {
+      background: #ffffff;
+      padding: 8px 24px;
+      font-size: 16px;
+      font-weight: 700;
+      text-align: center;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 10px;
+      font-size: 14px;
+    }
+    thead tr {
+      background: #00AEEF;
+      color: #ffffff;
+    }
+    th, td {
+      padding: 8px 10px;
+      border: 1px solid #d1d5db;
+      text-align: left;
+    }
+    th:nth-child(1),
+    td:nth-child(1) {
+      width: 50px;
+      text-align: center;
+    }
+    th:nth-child(2) {
+      width: 150px;
+    }
+
+    tbody tr:nth-child(even) {
+      background: #f9fafb;
+    }
+    tbody td:nth-child(1) {
+      color: #047857;
+      font-weight: 600;
+    }
+
+    .footer {
+      margin-top: 14px;
+      font-size: 12px;
+      color: #6b7280;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+    .print-btn {
+      padding: 6px 14px;
+      border-radius: 999px;
+      border: none;
+      background: #00AEEF;
+      color: #ffffff;
+      font-size: 13px;
+      cursor: pointer;
+      white-space: nowrap;
+    }
+
+    @media print {
+      .print-btn {
+        display: none;
+      }
+      body {
+        padding: 0;
+      }
+      .wrap {
+        margin-top: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+<div class="wrap">
+  <div class="header-row">
+    <div class="brand">
+      <div class="brand-title">Blossom English</div>
+      <div class="brand-sub">Vocabulary List</div>
+    </div>
+    <div class="level-box">
+      <div class="level-box-header">Level</div>
+      <div class="level-box-body" id="levelText">-</div>
+    </div>
+  </div>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Num</th>
+        <th>Word</th>
+        <th>Meaning</th>
+      </tr>
+    </thead>
+    <tbody id="tbody">
+      <!-- JS로 채움 -->
+    </tbody>
+  </table>
+
+  <div class="footer">
+    <div>이 리스트를 보고 싶으면 이 창만 열어두고, 출력이 필요하면 오른쪽 버튼을 눌러 인쇄하세요.</div>
+    <button class="print-btn" onclick="window.print()">인쇄하기</button>
+  </div>
+</div>
+
+<script src="words.js"></script>
+<script>
+  const params = new URLSearchParams(window.location.search);
+  let unitKey = params.get("unit") || "1-1";
+  if (/^\\d+$/.test(unitKey)) unitKey = unitKey + "-1";
+
+  document.getElementById("levelText").textContent = unitKey;
+
+  const WORD_DB = window.WORD_DB || {};
+  const words = WORD_DB[unitKey] || [];
+  const tbody = document.getElementById("tbody");
+
+  if (!words.length) {
+    const tr = document.createElement("tr");
+    const td = document.createElement("td");
+    td.colSpan = 3;
+    td.textContent = "단어 목록이 없습니다.";
+    tr.appendChild(td);
+    tbody.appendChild(tr);
+  } else {
+    words.forEach((item, idx) => {
+      const tr = document.createElement("tr");
+
+      const tdNum = document.createElement("td");
+      tdNum.textContent = String(idx + 1);
+
+      const tdWord = document.createElement("td");
+      tdWord.textContent = item.word;
+
+      const tdMeaning = document.createElement("td");
+      tdMeaning.textContent = item.meaning;
+
+      tr.appendChild(tdNum);
+      tr.appendChild(tdWord);
+      tr.appendChild(tdMeaning);
+      tbody.appendChild(tr);
+    });
+  }
+</script>
+</body>
+</html>
