@@ -113,7 +113,7 @@
       margin: 0 4px;
     }
 
-    /* ===== (1) 빈칸 완성 4지선다 ===== */
+    /* ===== (1) 빈칸 완성 ===== */
 
     .blank-choice-area {
       min-height: 140px;
@@ -223,10 +223,10 @@
       gap: 14px;
     }
 
-    /* 1단계처럼 연보라 배경 안에 흰 상자 */
+    /* 1단계와 같은 연보라 박스 안에 문장 */
     .typing-box-area {
       width: 100%;
-      min-height: 120px;
+      min-height: 140px;
       background: #eef4ff;
       border-radius: 22px;
       padding: 24px 26px;
@@ -237,15 +237,18 @@
     }
 
     .typing-sentence-box {
-      background: #ffffff;
-      border-radius: 18px;
-      padding: 14px 18px;
-      min-height: 60px;
+      /* 안쪽 흰 상자 없애고, 그냥 텍스트 컨테이너 느낌만 */
+      background: transparent;
+      border-radius: 0;
+      padding: 0;
+      min-height: 0;
       display: flex;
       flex-wrap: wrap;
       align-items: center;
       gap: 8px;
       font-size: 22px;
+      max-width: 820px;
+      width: 100%;
     }
 
     .typing-input-wrap {
@@ -280,9 +283,10 @@
       transition: all 0.15s ease;
     }
 
+    /* 포커스시 연보라색 강조 */
     .inline-blank-input:focus {
-      border-color: #8ab4ff;
-      background: #eef4ff;
+      border-color: #a5b4fc;
+      background: #e5e7ff;
     }
 
     .inline-blank-input.correct {
@@ -424,13 +428,9 @@
   </div>
 </div>
 
-<!-- 2단계 전용 문제 데이터 -->
 <script src="sentence2.js"></script>
 
 <script>
-/* ============================================
-   기본 설정
-============================================ */
 const params   = new URLSearchParams(window.location.search);
 const unitKey  = params.get("unit") || "10-1";
 
@@ -446,12 +446,7 @@ mainTitle.textContent = `문장 학습 2단계 ${unitKey}`;
 const SENTENCE_DB  = window.SENTENCE_DB || {};
 const allQuestions = SENTENCE_DB[unitKey] || [];
 
-/* 유형별 저장 */
-const questionsByType = {
-  blank: [],
-  order: [],
-  type:  [],
-};
+const questionsByType = { blank: [], order: [], type: [] };
 
 allQuestions.forEach(q => {
   if (!q || !q.type) return;
@@ -460,22 +455,11 @@ allQuestions.forEach(q => {
   }
 });
 
-/* 현재 모드 / 인덱스 */
 let currentMode = "blank";
-const modeIndex = {
-  blank: 0,
-  order: 0,
-  type:  0,
-};
+const modeIndex = { blank: 0, order: 0, type: 0 };
 
-/* 틀린 문제 다시 */
-const wrongQuestions = {
-  blank: [],
-  order: [],
-  type:  [],
-};
+const wrongQuestions = { blank: [], order: [], type: [] };
 
-/* 셔플 */
 function shuffle(arr) {
   const a = arr.slice();
   for (let i = a.length - 1; i > 0; i--) {
@@ -485,7 +469,7 @@ function shuffle(arr) {
   return a;
 }
 
-/* 타이머 */
+/* 타이머(1,2단계에서만 사용) */
 let activeTimers = [];
 function clearTimers() {
   activeTimers.forEach(id => clearTimeout(id));
@@ -497,12 +481,10 @@ function setTimer(fn, ms) {
   return id;
 }
 
-/* 진행 표시 */
 function setProgress(idx, total) {
   progressText.textContent = total ? `${idx + 1} / ${total}` : "0 / 0";
 }
 
-/* 화면 초기화 */
 function clearCenter() {
   centerArea.innerHTML = "";
 }
@@ -522,17 +504,14 @@ function renderNoQuestion() {
   setProgress(0, 0);
 }
 
-/* 번호 동그라미 */
 const CIRCLED_NUMS = ["①", "②", "③", "④"];
 
-/* 틀린 문제 재출제 큐 */
 function enqueueRetryQuestion(type, q) {
   if (q._retryAdded) return;
   q._retryAdded = true;
   questionsByType[type].push(q);
 }
 
-/* 다음 문제 */
 function goNext() {
   const list = questionsByType[currentMode];
   if (!list || !list.length) {
@@ -556,9 +535,7 @@ function goNext() {
   }
 }
 
-/* ===========================================================
-   (1) 빈칸 완성 – 4지선다
-=========================================================== */
+/* ========== (1) 빈칸 완성 ========== */
 function renderBlankQuestion(q, idx, total) {
   clearTimers();
   clearCenter();
@@ -639,9 +616,7 @@ function renderBlankQuestion(q, idx, total) {
   setProgress(idx, total);
 }
 
-/* ===========================================================
-   (2) 문장 배열 – 단어 칩
-=========================================================== */
+/* ========== (2) 문장 배열 ========== */
 function renderOrderQuestion(q, idx, total) {
   clearTimers();
   clearCenter();
@@ -772,14 +747,11 @@ function renderOrderQuestion(q, idx, total) {
   setProgress(idx, total);
 }
 
-/* ===========================================================
-   (3) 문장 타이핑 – 문장 속 '필요한 단어'만 빈칸 타이핑
-   - 시간 제한 없음 (자동 정답 공개 X)
-   - 스페이스/엔터로 다음 칸 이동, 마지막 칸에서는 확인
-=========================================================== */
+/* ========== (3) 문장 타이핑 ========== */
+/* 시간 제한 없음 + 스페이스/엔터로 이동/확인 */
 
 function renderTypeQuestion(q, idx, total) {
-  clearTimers();   // 다른 모드 타이머 정리만, 여기선 새 타이머 안 건다.
+  clearTimers();  // 다른 모드 타이머만 정리
   clearCenter();
 
   const qDiv = document.createElement("div");
@@ -796,6 +768,7 @@ function renderTypeQuestion(q, idx, total) {
 
   const typingHintTop = document.createElement("div");
   typingHintTop.className = "typing-hint";
+  typingHintTop.textContent = "문장에서 빠진 단어를 알맞게 입력해 보세요.";
   centerArea.appendChild(typingHintTop);
 
   const typingArea = document.createElement("div");
@@ -826,8 +799,8 @@ function renderTypeQuestion(q, idx, total) {
 
   if (!blankTargets.length && tokens.length) {
     const midToken = tokens[Math.floor(tokens.length / 2)];
-    const core = midToken.replace(/[.,!?]+$/g, "");
-    blankTargets = [core.toLowerCase()];
+    const coreMid = midToken.replace(/[.,!?]+$/g, "");
+    blankTargets = [coreMid.toLowerCase()];
   }
 
   const blankInputs = [];
@@ -846,10 +819,8 @@ function renderTypeQuestion(q, idx, total) {
       input.className = "inline-blank-input";
       input.dataset.answer = normCore;
       input.dataset.answerDisplay = core;
-
       blankInputs.push(input);
       sentenceBox.appendChild(input);
-
       if (punctuation) {
         const spanP = document.createElement("span");
         spanP.textContent = punctuation;
@@ -857,7 +828,7 @@ function renderTypeQuestion(q, idx, total) {
       }
     } else {
       const span = document.createElement("span");
-      span.textContent = token + (punctuation ? punctuation : "");
+      span.textContent = core + (punctuation ? punctuation : "");
       sentenceBox.appendChild(span);
     }
 
@@ -937,8 +908,7 @@ function renderTypeQuestion(q, idx, total) {
 
   checkBtn.onclick = handleCheck;
 
-  // 스페이스 / 엔터로 다음 칸 이동,
-  // 마지막 칸에서 스페이스/엔터 => 확인
+  // 스페이스 / 엔터로 다음 칸 이동, 마지막 칸에서는 확인
   blankInputs.forEach((input, idx) => {
     input.addEventListener("keydown", (e) => {
       if (e.key === " " || e.key === "Spacebar" || e.key === "Enter") {
@@ -957,14 +927,11 @@ function renderTypeQuestion(q, idx, total) {
     blankInputs[0].focus();
   }
 
-  // 시간 제한 없음: setTimer로 정답 공개하지 않음
-
   setProgress(idx, total);
 }
 
-/* ===========================================================
-   문제 렌더링 스위치
-=========================================================== */
+/* ========== 공통 렌더링 ========== */
+
 function renderQuestionObj(q, type) {
   const list  = questionsByType[type];
   const idx   = list.indexOf(q);
@@ -977,9 +944,6 @@ function renderQuestionObj(q, type) {
   renderNoQuestion();
 }
 
-/* ===========================================================
-   현재 모드 렌더링
-=========================================================== */
 function renderCurrent() {
   clearTimers();
 
@@ -1004,9 +968,8 @@ function renderCurrent() {
   renderQuestionObj(q, currentMode);
 }
 
-/* ===========================================================
-   탭 전환 / 버튼
-=========================================================== */
+/* 탭/버튼 이벤트 */
+
 modeTabs.forEach(tab => {
   tab.onclick = () => {
     currentMode = tab.dataset.mode;
@@ -1034,9 +997,7 @@ backToUnitsBtn.onclick = () => {
   window.history.back();
 };
 
-/* 첫 화면 렌더링 */
 renderCurrent();
 </script>
 </body>
 </html>
-
