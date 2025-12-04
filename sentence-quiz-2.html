@@ -64,7 +64,6 @@
     /* 1,2,3번째 탭 색 */
     .mode-tab:nth-child(1).active { background: #00AEEF; color: #fff; }
     .mode-tab:nth-child(2).active { background: #FF6FB5; color: #fff; }
-    /* 문장 타이핑 탭을 민트(#9AD7A0)로 */
     .mode-tab:nth-child(3).active { background: #9AD7A0; color: #fff; }
 
     .card {
@@ -114,7 +113,7 @@
       margin: 0 4px;
     }
 
-    /* ===== 빈칸 완성 4지선다 ===== */
+    /* ===== (1) 빈칸 완성 4지선다 ===== */
 
     .blank-choice-area {
       min-height: 140px;
@@ -167,7 +166,7 @@
       color: #b91c1c;
     }
 
-    /* ===== 문장 배열 ===== */
+    /* ===== (2) 문장 배열 ===== */
 
     .answer-row {
       min-height: 80px;
@@ -214,7 +213,7 @@
       transform: scale(1.05);
     }
 
-    /* ===== 문장 타이핑 (단어 빈칸 타이핑) ===== */
+    /* ===== (3) 문장 타이핑 ===== */
 
     .typing-area {
       margin-top: 10px;
@@ -222,6 +221,31 @@
       flex-direction: column;
       align-items: center;
       gap: 14px;
+    }
+
+    /* 1단계처럼 연보라 배경 안에 흰 상자 */
+    .typing-box-area {
+      width: 100%;
+      min-height: 120px;
+      background: #eef4ff;
+      border-radius: 22px;
+      padding: 24px 26px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 8px;
+    }
+
+    .typing-sentence-box {
+      background: #ffffff;
+      border-radius: 18px;
+      padding: 14px 18px;
+      min-height: 60px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 8px;
+      font-size: 22px;
     }
 
     .typing-input-wrap {
@@ -233,27 +257,7 @@
       margin-top: 16px;
     }
 
-    .typing-input {
-      flex: 1;
-      padding: 12px 18px;
-      border-radius: 999px;
-      border: 1.5px solid #d0d7e6;
-      font-size: 18px;
-      outline: none;
-      transition: border-color 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
-    }
-
-    .typing-input.correct {
-      background: #dcfce7;
-      border-color: #22c55e;
-    }
-
-    .typing-input.wrong {
-      background: #fee2e2;
-      border-color: #f97373;
-    }
-
-    /* 문장 안에 들어가는 단어 빈칸 인풋 - 1,2번과 통일된 pill 스타일 */
+    /* 문장 안에 들어가는 단어 빈칸 인풋 */
     .inline-blank-input {
       display: inline-flex;
       align-items: center;
@@ -382,8 +386,8 @@
       .word-chip {
         font-size: 18px;
       }
-      .typing-input {
-        font-size: 16px;
+      .typing-sentence-box {
+        font-size: 20px;
       }
       .inline-blank-input {
         font-size: 18px;
@@ -770,10 +774,12 @@ function renderOrderQuestion(q, idx, total) {
 
 /* ===========================================================
    (3) 문장 타이핑 – 문장 속 '필요한 단어'만 빈칸 타이핑
+   - 시간 제한 없음 (자동 정답 공개 X)
+   - 스페이스/엔터로 다음 칸 이동, 마지막 칸에서는 확인
 =========================================================== */
 
 function renderTypeQuestion(q, idx, total) {
-  clearTimers();
+  clearTimers();   // 다른 모드 타이머 정리만, 여기선 새 타이머 안 건다.
   clearCenter();
 
   const qDiv = document.createElement("div");
@@ -797,9 +803,13 @@ function renderTypeQuestion(q, idx, total) {
   typingArea.className = "typing-area";
   centerArea.appendChild(typingArea);
 
-  const sentenceWrap = document.createElement("div");
-  sentenceWrap.className = "sentence-en";
-  typingArea.appendChild(sentenceWrap);
+  const boxArea = document.createElement("div");
+  boxArea.className = "typing-box-area";
+  typingArea.appendChild(boxArea);
+
+  const sentenceBox = document.createElement("div");
+  sentenceBox.className = "typing-sentence-box";
+  boxArea.appendChild(sentenceBox);
 
   const rawSentence = String(q.answerEn || "");
   const tokens = rawSentence
@@ -839,19 +849,20 @@ function renderTypeQuestion(q, idx, total) {
       input.dataset.answerDisplay = core;
 
       blankInputs.push(input);
-      sentenceWrap.appendChild(input);
+      sentenceBox.appendChild(input);
 
       if (punctuation) {
         const spanP = document.createElement("span");
         spanP.textContent = punctuation;
-        sentenceWrap.appendChild(spanP);
+        sentenceBox.appendChild(spanP);
       }
-      sentenceWrap.appendChild(document.createTextNode(" "));
     } else {
       const span = document.createElement("span");
-      span.textContent = token + " ";
-      sentenceWrap.appendChild(span);
+      span.textContent = token + (punctuation ? punctuation : "");
+      sentenceBox.appendChild(span);
     }
+
+    sentenceBox.appendChild(document.createTextNode(" "));
   });
 
   const controls = document.createElement("div");
@@ -927,11 +938,14 @@ function renderTypeQuestion(q, idx, total) {
 
   checkBtn.onclick = handleCheck;
 
+  // 스페이스 / 엔터로 다음 칸 이동,
+  // 마지막 칸에서 스페이스/엔터 => 확인
   blankInputs.forEach((input, idx) => {
     input.addEventListener("keydown", (e) => {
-      if (e.key === "Enter") {
+      if (e.key === " " || e.key === "Spacebar" || e.key === "Enter") {
         e.preventDefault();
-        if (idx < blankInputs.length - 1) {
+        const lastIndex = blankInputs.length - 1;
+        if (idx < lastIndex) {
           blankInputs[idx + 1].focus();
         } else {
           handleCheck();
@@ -944,22 +958,7 @@ function renderTypeQuestion(q, idx, total) {
     blankInputs[0].focus();
   }
 
-  setTimer(() => {
-    if (finished) return;
-    finished = true;
-
-    blankInputs.forEach(input => {
-      const display = input.dataset.answerDisplay || input.dataset.answer || "";
-      input.value = display;
-      input.classList.remove("wrong");
-      input.classList.add("correct");
-    });
-    hintDiv.textContent = "시간이 지나 정답이 공개되었습니다.";
-    expDiv.textContent  = "";
-    checkBtn.disabled = true;
-
-    setTimer(goNext, 4000);
-  }, 30000);
+  // 시간 제한 없음: setTimer로 정답 공개하지 않음
 
   setProgress(idx, total);
 }
