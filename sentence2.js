@@ -17,6 +17,7 @@
       let q = null;
 
       if (type === "blank") {
+        // unit | blank | id | question | opt1 | opt2 | opt3 | opt4 | answerIndex | explanation
         if (rest.length < 7) continue;
         const [question, opt1, opt2, opt3, opt4, ansStr, explanation] = rest;
         const answerIndex = parseInt(ansStr, 10);
@@ -30,6 +31,7 @@
           explanation,
         };
       } else if (type === "order") {
+        // unit | order | id | question | answerEn | meaningKo
         if (rest.length < 3) continue;
         const [question, answerEn, meaningKo] = rest;
         q = {
@@ -40,8 +42,10 @@
           meaningKo,
         };
       } else if (type === "type") {
+        // unit | type | id | question | answerEn | meaningKo | (optional) blankWords
+        // blankWords: "reads,books" 처럼 콤마로 구분해서 여러 개 가능
         if (rest.length < 3) continue;
-        const [question, answerEn, meaningKo] = rest;
+        const [question, answerEn, meaningKo, blankWords] = rest;
         q = {
           id,
           type,
@@ -49,7 +53,11 @@
           answerEn,
           meaningKo,
         };
+        if (blankWords) {
+          q.blankWords = blankWords; // 예: "reads,books"
+        }
       } else if (type === "choose") {
+        // unit | choose | id | question | opt1 | opt2 | opt3 | opt4 | answerIndex | explanation
         if (rest.length < 7) continue;
         const [question, opt1, opt2, opt3, opt4, ansStr, explanation] = rest;
         const answerIndex = parseInt(ansStr, 10);
@@ -63,6 +71,7 @@
           explanation,
         };
       } else if (type === "passage") {
+        // unit | passage | id | passage | opt1 | opt2 | opt3 | opt4 | opt5 | b1 | b2 | b3 | explanation
         if (rest.length < 11) continue;
         const [
           passage,
@@ -96,7 +105,7 @@
     return db;
   }
 
-  // ===== 여기서부터 문제 데이터 (1-1 → 10-1 로 전체 변경) =====
+  // ===== 여기서부터 문제 데이터 =====
   const RAW_SENTENCES = `
 # 1) 빈칸 완성
 10-1|blank|B1|He ____ to school every day.|go|goes|going|is going|1|He는 3인칭 단수라서 goes가 됩니다.
@@ -112,12 +121,15 @@
 10-1|order|R4|다음 단어를 바르게 배열하여 문장을 만드시오.|Mom is cooking dinner.|엄마는 저녁을 요리하고 있습니다.
 10-1|order|R5|다음 단어를 바르게 배열하여 문장을 만드시오.|I am doing homework.|나는 숙제를 하고 있습니다.
 
-# 3) 문장 타이핑
-10-1|type|T1|문장을 완성하세요.|She reads books every day.|그녀는 매일 책을 읽습니다.
-10-1|type|T2|문장을 완성하세요.|He goes to school at 8.|그는 8시에 학교에 갑니다.
-10-1|type|T3|문장을 완성하세요.|The children play in the park.|그 아이들은 공원에서 놉니다.
-10-1|type|T4|문장을 완성하세요.|Mom is cooking dinner.|엄마는 저녁을 요리하고 있습니다.
-10-1|type|T5|문장을 완성하세요.|I am doing homework.|나는 숙제를 하고 있습니다.
+# 3) 문장 타이핑 (문장 속 필요한 단어만 빈칸)
+# 형식: unit|type|id|question|answerEn|meaningKo|blankWords
+# blankWords: 콤마로 여러 개 가능 (reads,books 처럼)
+
+10-1|type|T1|빈칸을 채워 문장을 완성하세요.|She reads books every day.|그녀는 매일 책을 읽습니다.|reads,books
+10-1|type|T2|빈칸을 채워 문장을 완성하세요.|He goes to school at 8.|그는 8시에 학교에 갑니다.|goes,to,school,at
+10-1|type|T3|빈칸을 채워 문장을 완성하세요.|The children play in the park.|그 아이들은 공원에서 놉니다.|play,in,the,park
+10-1|type|T4|빈칸을 채워 문장을 완성하세요.|Mom is cooking dinner.|엄마는 저녁을 요리하고 있습니다.|is,cooking,dinner
+10-1|type|T5|빈칸을 채워 문장을 완성하세요.|I am doing homework.|나는 숙제를 하고 있습니다.|doing,homework
 
 # 4) 문장 고르기
 10-1|choose|C1|다음 중 올바른 문장을 고르시오.|He go to school.|She plays the piano.|They walks fast.|I am goes home.|1|She + plays가 올바른 형태입니다.
@@ -127,7 +139,7 @@
 10-1|choose|C5|다음 중 올바른 문장을 고르시오.|She eat breakfast.|They are happy today.|He don’t like music.|I goes to bed early.|1|They are.
 
 # 5) 지문 완성
-10-1|passage|P1|My name is Tom. I (1) ____ in a small town.\nEvery morning, I (2) ____ up at 7 a.m.\nI (3) ____ breakfast with my family.|live|lives|get|gets|eat|live|get|eat|I(1인칭) → live, get, eat 원형.
+10-1|passage|P1|My name is Tom. I (1) ____ in a small town.\\nEvery morning, I (2) ____ up at 7 a.m.\\nI (3) ____ breakfast with my family.|live|lives|get|gets|eat|live|get|eat|I(1인칭) → live, get, eat 원형.
 `;
 
   window.SENTENCE_DB = buildSentenceDB(RAW_SENTENCES);
