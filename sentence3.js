@@ -1,5 +1,5 @@
 // sentence3.js
-// 문장 학습 3단계(19-1 단원부터) 문제 DB
+// 문장 학습 3단계 문제 DB (예: 19-1 단원)
 
 (function () {
   function buildSentenceDB(raw) {
@@ -32,24 +32,11 @@
       } else if (type === "order") {
         if (rest.length < 3) continue;
         const [question, answerEn, meaningKo] = rest;
-        q = {
-          id,
-          type,
-          question,
-          answerEn,
-          meaningKo,
-        };
+        q = { id, type, question, answerEn, meaningKo };
       } else if (type === "type") {
         if (rest.length < 3) continue;
         const [question, answerEn, meaningKo] = rest;
-        q = {
-          id,
-          type,
-          question,
-          answerEn,
-          meaningKo,
-          // 필요하면 여기 나중에 blankWords 직접 넣어도 됨 (예: q.blankWords = "goes,to,school")
-        };
+        q = { id, type, question, answerEn, meaningKo };
       } else if (type === "choose") {
         if (rest.length < 7) continue;
         const [question, opt1, opt2, opt3, opt4, ansStr, explanation] = rest;
@@ -77,16 +64,9 @@
           b3,
           explanation,
         ] = rest;
-        const blanks = [b1, b2, b3].filter(Boolean);
+        const blanks  = [b1, b2, b3].filter(Boolean);
         const options = [opt1, opt2, opt3, opt4, opt5];
-        q = {
-          id,
-          type,
-          passage,
-          options,
-          blanks,
-          explanation,
-        };
+        q = { id, type, passage, options, blanks, explanation };
       }
 
       if (!q) continue;
@@ -97,7 +77,7 @@
     return db;
   }
 
-  // ===== 여기서부터 3단계(예: 19-1 세트) 문제 데이터 =====
+  // ===== 19-1 세트 예시 =====
   const RAW_SENTENCES = `
 # 1) 빈칸 완성
 19-1|blank|B1|He ____ to school every day.|go|goes|going|is going|1|He는 3인칭 단수라서 goes가 됩니다.
@@ -113,7 +93,7 @@
 19-1|order|R4|다음 단어를 바르게 배열하여 문장을 만드시오.|Mom is cooking dinner.|엄마는 저녁을 요리하고 있습니다.
 19-1|order|R5|다음 단어를 바르게 배열하여 문장을 만드시오.|I am doing homework.|나는 숙제를 하고 있습니다.
 
-# 3) 문장 타이핑
+# 3) 문장 완성(타이핑)
 19-1|type|T1|빈칸을 채워 문장을 완성하세요.|She reads books every day.|그녀는 매일 책을 읽습니다.
 19-1|type|T2|빈칸을 채워 문장을 완성하세요.|He goes to school at 8.|그는 8시에 학교에 갑니다.
 19-1|type|T3|빈칸을 채워 문장을 완성하세요.|The children play in the park.|그 아이들은 공원에서 놉니다.
@@ -126,9 +106,6 @@
 19-1|choose|C3|다음 중 올바른 문장을 고르시오.|My father work at a bank.|They is friends.|She is studying now.|He don’t has money.|2|현재진행형 규칙.
 19-1|choose|C4|다음 중 올바른 문장을 고르시오.|Do she play tennis?|He have a cat.|I doesn’t know.|The students are in the classroom.|3|students → are.
 19-1|choose|C5|다음 중 올바른 문장을 고르시오.|She eat breakfast.|They are happy today.|He don’t like music.|I goes to bed early.|1|They are.
-
-# 5) 지문 완성 (원하면 사용, 아니면 삭제)
-19-1|passage|P1|My name is Tom. I (1) ____ in a small town.\nEvery morning, I (2) ____ up at 7 a.m.\nI (3) ____ breakfast with my family.|live|lives|get|gets|eat|live|get|eat|I(1인칭) → live, get, eat 원형.
 `;
 
   window.SENTENCE3_DB = buildSentenceDB(RAW_SENTENCES);
