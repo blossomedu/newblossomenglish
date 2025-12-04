@@ -2,7 +2,7 @@
 <html lang="ko">
 <head>
   <meta charset="UTF-8" />
-  <title>문장 학습 2단계</title>
+  <title>문장 학습 3단계</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link href="https://cdn.jsdelivr.net/npm/pretendard/dist/web/variable/pretendardvariable.css" rel="stylesheet" />
 
@@ -61,11 +61,14 @@
       box-shadow: 0 12px 25px rgba(0, 174, 239, 0.35);
     }
 
-    /* 1,2,3,4번째 탭 색 */
+    /* 1,2,3,4번째 탭 색
+       - 3번째(문장 완성): 다시 풀기와 같은 파랑 #00AEEF
+       - 4번째(문장 고르기): 돌아가기와 같은 핑크 #FF6FB5
+    */
     .mode-tab:nth-child(1).active { background: #00AEEF; color: #fff; }   /* 빈칸 완성 */
     .mode-tab:nth-child(2).active { background: #FF6FB5; color: #fff; }   /* 문장 배열 */
-    .mode-tab:nth-child(3).active { background: #9AD7A0; color: #fff; }   /* 문장 타이핑 */
-    .mode-tab:nth-child(4).active { background: #6366F1; color: #fff; }   /* 문장 고르기 */
+    .mode-tab:nth-child(3).active { background: #00AEEF; color: #fff; }   /* 문장 완성 */
+    .mode-tab:nth-child(4).active { background: #FF6FB5; color: #fff; }   /* 문장 고르기 */
 
     .card {
       background: #ffffff;
@@ -214,7 +217,7 @@
       transform: scale(1.05);
     }
 
-    /* ===== (3) 문장 타이핑 ===== */
+    /* ===== (3) 문장 완성(타이핑) ===== */
 
     .typing-area {
       margin-top: 10px;
@@ -400,12 +403,12 @@
 </head>
 <body>
 <div class="page">
-  <h1 class="main-title" id="mainTitle">문장 학습 2단계</h1>
+  <h1 class="main-title" id="mainTitle">문장 학습 3단계</h1>
 
   <div class="top-bar">
     <button class="mode-tab active" data-mode="blank">🧩 빈칸 완성</button>
     <button class="mode-tab" data-mode="order">🔀 문장 배열</button>
-    <button class="mode-tab" data-mode="type">⌨ 문장 타이핑</button>
+    <button class="mode-tab" data-mode="type">✏ 문장 완성</button>
     <button class="mode-tab" data-mode="choose">✅ 문장 고르기</button>
   </div>
 
@@ -426,12 +429,13 @@
   </div>
 </div>
 
-<script src="sentence2.js"></script>
+<!-- ★★★ 3단계 전용 데이터 파일 ★★★ -->
+<script src="sentence3.js"></script>
 
 <script>
 /* 기본 설정 */
 const params   = new URLSearchParams(window.location.search);
-const unitKey  = params.get("unit") || "10-1";
+const unitKey  = params.get("unit") || "19-1";
 
 const mainTitle      = document.getElementById("mainTitle");
 const centerArea     = document.getElementById("centerArea");
@@ -440,9 +444,10 @@ const modeTabs       = document.querySelectorAll(".mode-tab");
 const modeResetBtn   = document.getElementById("modeResetBtn");
 const backToUnitsBtn = document.getElementById("backToUnitsBtn");
 
-mainTitle.textContent = `문장 학습 2단계 ${unitKey}`;
+mainTitle.textContent = `문장 학습 3단계 ${unitKey}`;
 
-const SENTENCE_DB  = window.SENTENCE_DB || {};
+/* ★★★ 3단계 DB 사용 ★★★ */
+const SENTENCE_DB  = window.SENTENCE3_DB || {};
 const allQuestions = SENTENCE_DB[unitKey] || [];
 
 /* 유형별 저장 */
@@ -770,7 +775,7 @@ function renderOrderQuestion(q, idx, total) {
   setProgress(idx, total);
 }
 
-/* ========== (3) 문장 타이핑 ========== */
+/* ========== (3) 문장 완성 (타이핑) ========== */
 /* 시간 제한 없음 + 스페이스/엔터로 이동/확인 */
 
 function renderTypeQuestion(q, idx, total) {
