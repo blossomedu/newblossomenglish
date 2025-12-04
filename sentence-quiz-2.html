@@ -230,7 +230,7 @@
       gap: 10px;
       width: 100%;
       max-width: 520px;
-      margin-top: 6px;
+      margin-top: 16px;
     }
 
     /* 기존 전체 문장 입력 인풋 (혹시 다른 곳에서 쓸 수도 있으니 그대로 둠) */
@@ -304,9 +304,7 @@
     .typing-hint {
       font-size: 16px;
       color: #6b7280;
-      text-align: left;
-      width: 100%;
-      max-width: 520px;
+      margin-top: 4px;
     }
 
     .hint-text {
@@ -757,16 +755,16 @@ function renderOrderQuestion(q, idx, total) {
 
 /* ===========================================================
    (3) 문장 타이핑 – 문장 속 '필요한 단어'만 빈칸 타이핑
-   - sentence2.js의 type 문제에 blankWords(콤마 구분)로 어떤 단어를 비울지 지정 가능
 =========================================================== */
 
 function renderTypeQuestion(q, idx, total) {
   clearTimers();
   clearCenter();
 
+  // 여기서 문구를 고정
   const qDiv = document.createElement("div");
   qDiv.className = "question-text";
-  qDiv.textContent = q.question || "문장에서 알맞은 말을 채우세요.";
+  qDiv.textContent = "빈칸을 채워 문장을 완성하세요.";
   centerArea.appendChild(qDiv);
 
   if (q.meaningKo) {
@@ -776,14 +774,15 @@ function renderTypeQuestion(q, idx, total) {
     centerArea.appendChild(kr);
   }
 
+  // 한글 뜻 바로 아래에 안내문
+  const typingHintTop = document.createElement("div");
+  typingHintTop.className = "typing-hint";
+  typingHintTop.textContent = "문장에서 빠진 단어를 알맞게 입력해 보세요.";
+  centerArea.appendChild(typingHintTop);
+
   const typingArea = document.createElement("div");
   typingArea.className = "typing-area";
   centerArea.appendChild(typingArea);
-
-  const typingHint = document.createElement("div");
-  typingHint.className = "typing-hint";
-  typingHint.textContent = "문장에서 빠진 단어를 알맞게 입력해 보세요.";
-  typingArea.appendChild(typingHint);
 
   const sentenceWrap = document.createElement("div");
   sentenceWrap.className = "sentence-en";
@@ -804,7 +803,7 @@ function renderTypeQuestion(q, idx, total) {
       .filter(Boolean);
   }
 
-  // 만약 blankWords가 비어 있으면, 문장 가운데 단어 하나를 자동으로 빈칸 처리 (fallback)
+  // blankWords가 없으면 문장 가운데 단어 하나를 자동으로 빈칸 처리
   if (!blankTargets.length && tokens.length) {
     const midToken = tokens[Math.floor(tokens.length / 2)];
     const core = midToken.replace(/[.,!?]+$/g, "");
