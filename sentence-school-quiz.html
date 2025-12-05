@@ -1160,7 +1160,7 @@ function renderPassageQuestion(q, idx, total) {
   passageArea.appendChild(passageTextBox);
 
   const passage = String(q.passage || "");
-  const blanks = Array.isArray(q.blanks) ? q.blanks : [];
+  const blanks  = Array.isArray(q.blanks)  ? q.blanks  : [];
   const options = Array.isArray(q.options) ? q.options : [];
 
   const blankElems = [];
@@ -1235,6 +1235,7 @@ function renderPassageQuestion(q, idx, total) {
     chip.textContent = word;
 
     chip.onclick = () => {
+      // 아직 어떤 칸도 선택 안 돼 있으면 0번 칸부터
       if (selectedBlank == null) {
         selectedBlank = 0;
         updateBlankSelection();
@@ -1242,8 +1243,10 @@ function renderPassageQuestion(q, idx, total) {
 
       const currentBlank = selectedBlank;
 
+      // 이 칩이 이미 다른 칸에 들어가 있었는지 확인
       const prevBlankForThisOption = optionAssignedBlank[i];
       if (prevBlankForThisOption !== null) {
+        // 같은 칸을 다시 눌렀다면 → 취소
         if (prevBlankForThisOption === currentBlank) {
           optionAssignedBlank[i] = null;
           assignedOptionIndex[currentBlank] = null;
@@ -1252,12 +1255,14 @@ function renderPassageQuestion(q, idx, total) {
           chip.classList.remove("used");
           return;
         } else {
+          // 다른 칸에서 가져오는 경우, 이전 칸 비우기
           assignedOptionIndex[prevBlankForThisOption] = null;
           blankElems[prevBlankForThisOption].textContent = "____";
           blankElems[prevBlankForThisOption].classList.remove("correct", "wrong");
         }
       }
 
+      // 현재 칸에 이미 다른 단어가 있었다면 그 칩 상태 초기화
       const prevOptionIndexForBlank = assignedOptionIndex[currentBlank];
       if (prevOptionIndexForBlank !== null && prevOptionIndexForBlank !== i) {
         optionAssignedBlank[prevOptionIndexForBlank] = null;
@@ -1265,12 +1270,41 @@ function renderPassageQuestion(q, idx, total) {
         if (prevChip) prevChip.classList.remove("used");
       }
 
+      // 현재 칸에 이 칩을 할당
       assignedOptionIndex[currentBlank] = i;
       optionAssignedBlank[i] = currentBlank;
 
       blankElems[currentBlank].textContent = word;
       blankElems[currentBlank].classList.remove("correct", "wrong");
       chip.classList.add("used");
+
+      // ★ 여기부터 추가: 단어를 넣은 뒤 다음 빈칸으로 자동 이동
+      let nextIndex = null;
+
+      // 1) 현재 칸 뒤쪽에서 비어 있는 칸 찾기
+      for (let b = currentBlank + 1; b < blankElems.length; b++) {
+        if (assignedOptionIndex[b] === null) {
+          nextIndex = b;
+          break;
+        }
+      }
+
+      // 2) 뒤쪽에 없으면 앞쪽에서 다시 찾기
+      if (nextIndex === null) {
+        for (let b = 0; b < currentBlank; b++) {
+          if (assignedOptionIndex[b] === null) {
+            nextIndex = b;
+            break;
+          }
+        }
+      }
+
+      // 3) 비어 있는 칸이 있으면 거기로 selection 이동
+      if (nextIndex !== null) {
+        selectedBlank = nextIndex;
+        updateBlankSelection();
+      }
+      // 모두 채워졌으면 selection은 그대로 둠
     };
 
     return chip;
@@ -1434,3 +1468,4 @@ renderCurrent();
 </script>
 </body>
 </html>
+
