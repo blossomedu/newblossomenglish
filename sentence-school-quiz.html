@@ -61,6 +61,13 @@
       box-shadow: 0 12px 25px rgba(0, 174, 239, 0.35);
     }
 
+    /* 탭별 활성 색
+       - 1: 빈칸 완성   → 파랑
+       - 2: 문장 배열   → 핑크
+       - 3: 문장 완성   → 파랑
+       - 4: 문장 고르기 → 핑크
+       - 5: 지문 완성   → 파랑
+    */
     .mode-tab:nth-child(1).active { background: #00AEEF; color: #fff; }
     .mode-tab:nth-child(2).active { background: #FF6FB5; color: #fff; }
     .mode-tab:nth-child(3).active { background: #00AEEF; color: #fff; }
@@ -114,6 +121,8 @@
       margin: 0 4px;
     }
 
+    /* ===== (1) 빈칸 완성 / (4) 문장 고르기 공통 카드 ===== */
+
     .blank-choice-area {
       min-height: 140px;
       background: #eef4ff;
@@ -165,6 +174,8 @@
       color: #b91c1c;
     }
 
+    /* ===== (2) 문장 배열 ===== */
+
     .answer-row {
       min-height: 80px;
       background: #eef4ff;
@@ -214,6 +225,8 @@
       border-color: #5c9dff;
       transform: scale(1.05);
     }
+
+    /* ===== (3) 문장 완성(타이핑) ===== */
 
     .typing-area {
       margin-top: 10px;
@@ -291,6 +304,7 @@
       border-color: #f97373;
     }
 
+    /* 확인 버튼: 민트색 (#9AD7A0) */
     .typing-check-btn {
       padding: 10px 18px;
       border-radius: 999px;
@@ -331,6 +345,8 @@
       color: #4b5563;
       min-height: 22px;
     }
+
+    /* ===== (5) 지문 완성 (passage) ===== */
 
     .passage-area {
       background: #eef4ff;
@@ -480,12 +496,29 @@
   </div>
 </div>
 
+<!-- ★★★ 학교 시험 전용 데이터 파일 ★★★ -->
 <script src="sentence-school.js"></script>
 
 <script>
+/* ================== 파라미터 & 타이틀 ================== */
 const params   = new URLSearchParams(window.location.search);
-const schoolId = params.get("school") || "";
-const unitKey  = params.get("unit") || "1-1";
+const rawUnit  = params.get("unit") || "1-1";   // 예: 1-1 또는 jsm1-1
+let   schoolId = params.get("school") || "";
+
+// 실제 DB에서 사용할 키 (1-1, 1-2 ...)
+let unitKey = rawUnit;
+
+// rawUnit이 jsm1-1, scm2-3 이런 패턴이면 분리
+const m = rawUnit.match(/^([a-z]+[0-9]+)-([0-9]+)$/i);
+if (m) {
+  // m[1] = jsm1, m[2] = 1
+  if (!schoolId) schoolId = m[1];
+
+  const gradeMatch = m[1].match(/(\d+)$/); // jsm1 → 1
+  const grade = gradeMatch ? gradeMatch[1] : "1";
+  const setNo = m[2];                      // 1
+  unitKey = `${grade}-${setNo}`;           // 1-1
+}
 
 const mainTitle      = document.getElementById("mainTitle");
 const centerArea     = document.getElementById("centerArea");
@@ -508,12 +541,19 @@ const SCHOOL_LABELS = {
 };
 
 const schoolLabel = SCHOOL_LABELS[schoolId] || "학교 시험";
-mainTitle.textContent = `${schoolLabel} ${unitKey}`;
 
-/* DB */
+// 타이틀: 잠신중 1 1-1 이런 느낌
+if (schoolId) {
+  mainTitle.textContent = `${schoolLabel} ${unitKey}`;
+} else {
+  mainTitle.textContent = `학교 시험 ${unitKey}`;
+}
+
+/* ================== DB 불러오기 ================== */
 const SENTENCE_DB  = window.SENTENCE_SCHOOL_DB || {};
 const allQuestions = SENTENCE_DB[unitKey] || [];
 
+/* 유형별 저장 */
 const questionsByType = {
   blank:   [],
   order:   [],
@@ -529,6 +569,7 @@ allQuestions.forEach(q => {
   }
 });
 
+/* 현재 모드 / 인덱스 */
 let currentMode = "blank";
 const modeIndex = {
   blank:   0,
@@ -538,6 +579,7 @@ const modeIndex = {
   passage: 0,
 };
 
+/* 틀린 문제 다시 큐 (지금은 안 쓰지만 남겨둠) */
 const wrongQuestions = {
   blank:   [],
   order:   [],
@@ -546,6 +588,7 @@ const wrongQuestions = {
   passage: [],
 };
 
+/* 셔플 */
 function shuffle(arr) {
   const a = arr.slice();
   for (let i = a.length - 1; i > 0; i--) {
@@ -555,6 +598,7 @@ function shuffle(arr) {
   return a;
 }
 
+/* 타이머 (blank / choose / order에서만 사용) */
 let activeTimers = [];
 function clearTimers() {
   activeTimers.forEach(id => clearTimeout(id));
@@ -566,10 +610,12 @@ function setTimer(fn, ms) {
   return id;
 }
 
+/* 진행 표시 */
 function setProgress(idx, total) {
   progressText.textContent = total ? `${idx + 1} / ${total}` : "0 / 0";
 }
 
+/* 화면 초기화 */
 function clearCenter() {
   centerArea.innerHTML = "";
 }
@@ -589,14 +635,17 @@ function renderNoQuestion() {
   setProgress(0, 0);
 }
 
+/* 번호 동그라미 */
 const CIRCLED_NUMS = ["①", "②", "③", "④", "⑤"];
 
+/* 틀린 문제 재출제 큐 (객관식) */
 function enqueueRetryQuestion(type, q) {
   if (q._retryAdded) return;
   q._retryAdded = true;
   questionsByType[type].push(q);
 }
 
+/* 다음 문제 */
 function goNext() {
   const list = questionsByType[currentMode];
   if (!list || !list.length) {
@@ -620,7 +669,7 @@ function goNext() {
   }
 }
 
-/* 1) 빈칸 완성 */
+/* ========== (1) 빈칸 완성 ========== */
 function renderBlankQuestion(q, idx, total) {
   clearTimers();
   clearCenter();
@@ -684,6 +733,7 @@ function renderBlankQuestion(q, idx, total) {
     };
   });
 
+  // 15초 후 자동 공개
   setTimer(() => {
     if (answered) return;
     answered = true;
@@ -701,7 +751,7 @@ function renderBlankQuestion(q, idx, total) {
   setProgress(idx, total);
 }
 
-/* 2) 문장 배열 */
+/* ========== (2) 문장 배열 ========== */
 function renderOrderQuestion(q, idx, total) {
   clearTimers();
   clearCenter();
@@ -812,6 +862,7 @@ function renderOrderQuestion(q, idx, total) {
     });
   }
 
+  // 30초 후 자동 정답 공개
   setTimer(() => {
     if (finished) return;
     finished = true;
@@ -832,7 +883,9 @@ function renderOrderQuestion(q, idx, total) {
   setProgress(idx, total);
 }
 
-/* 3) 문장 완성(타이핑) — 타이머 없음 */
+/* ========== (3) 문장 완성 (타이핑) ========== */
+/* 시간 제한 없음 */
+
 function renderTypeQuestion(q, idx, total) {
   clearTimers();
   clearCenter();
@@ -1011,7 +1064,8 @@ function renderTypeQuestion(q, idx, total) {
   setProgress(idx, total);
 }
 
-/* 4) 문장 고르기 */
+/* ========== (4) 문장 고르기 ========== */
+
 function renderChooseQuestion(q, idx, total) {
   clearTimers();
   clearCenter();
@@ -1067,6 +1121,7 @@ function renderChooseQuestion(q, idx, total) {
     };
   });
 
+  // 15초 후 자동 공개
   setTimer(() => {
     if (answered) return;
     answered = true;
@@ -1084,7 +1139,9 @@ function renderChooseQuestion(q, idx, total) {
   setProgress(idx, total);
 }
 
-/* 5) 지문 완성 — ★타이머 없음★ */
+/* ========== (5) 지문 완성 (passage) ========== */
+/* 시간 제한 없음 */
+
 function renderPassageQuestion(q, idx, total) {
   clearTimers();
   clearCenter();
@@ -1281,6 +1338,7 @@ function renderPassageQuestion(q, idx, total) {
       hintDiv.textContent = "";
       expDiv.textContent = q.explanation || "정답입니다! 잘했어요. 👏";
       checkBtn.disabled = true;
+      setTimer(goNext, 1500);
     } else {
       hintDiv.textContent = "틀린 빈칸이 있어요. 다시 한 번 확인해 보세요.";
       expDiv.textContent = q.explanation || "";
@@ -1296,7 +1354,7 @@ function renderPassageQuestion(q, idx, total) {
   setProgress(idx, total);
 }
 
-/* 공통 렌더링 */
+/* ========== 공통 렌더링 ========== */
 
 function renderQuestionObj(q, type) {
   const list  = questionsByType[type];
@@ -1365,6 +1423,7 @@ modeResetBtn.onclick = () => {
 backToUnitsBtn.onclick = () => {
   clearTimers();
   if (schoolId) {
+    // 잠신중 1 세트 리스트로
     location.href = `sentence-school-detail.html?school=${encodeURIComponent(schoolId)}`;
   } else {
     window.history.back();
