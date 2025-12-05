@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <title>학교 시험 회차 선택</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="https://cdn.jsdelivr.net/npm/pretendard/dist/web/variable/pretendardvariable.css" rel="stylesheet" />
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: "Pretendard Variable", -apple-system, BlinkMacSystemFont,
+        system-ui, "Apple SD Gothic Neo", "Noto Sans KR", sans-serif;
+    }
+
+    body {
+      background: #f4f6fb;
+      color: #111827;
+    }
+
+    .page {
+      max-width: 1100px;
+      margin: 40px auto;
+      padding: 0 20px 40px;
+    }
+
+    h1 {
+      font-size: 28px;
+      font-weight: 800;
+      margin-bottom: 6px;
+    }
+
+    .subtitle {
+      font-size: 16px;
+      color: #6b7280;
+      margin-bottom: 24px;
+    }
+
+    .grid {
+      background: #f1f3fb;
+      border-radius: 28px;
+      padding: 28px 24px;
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 18px;
+    }
+
+    .card {
+      background: #fff;
+      border-radius: 20px;
+      height: 90px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      font-weight: 600;
+      color: #111827;
+      cursor: pointer;
+      box-shadow: 0 8px 18px rgba(15, 23, 42, 0.06);
+      transition: transform 0.15s ease, box-shadow 0.15s ease;
+      text-align: center;
+    }
+
+    .card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 26px rgba(15, 23, 42, 0.1);
+    }
+
+    .back-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 8px 14px;
+      border-radius: 999px;
+      border: none;
+      background: #FF6FB5;
+      color: #fff;
+      font-size: 13px;
+      cursor: pointer;
+      margin-bottom: 16px;
+    }
+
+    @media (max-width: 900px) {
+      .grid {
+        grid-template-columns: repeat(4, 1fr);
+      }
+    }
+
+    @media (max-width: 720px) {
+      .grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    @media (max-width: 520px) {
+      .grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+  </style>
+</head>
+<body>
+<div class="page">
+  <button type="button" class="back-btn" id="backBtn">← 학교 목록으로</button>
+
+  <h1 id="title">학교 시험</h1>
+  <div class="subtitle" id="subtitle">회차를 선택하세요.</div>
+
+  <section class="grid" id="set-grid">
+    <!-- JS에서 카드 생성 -->
+  </section>
+</div>
+
+<script>
+  const params   = new URLSearchParams(window.location.search);
+  const schoolId = params.get("school") || "";
+
+  // id ↔ label 매핑
+  const SCHOOL_LABELS = {
+    jsm1: "잠신중 1",
+    jsm2: "잠신중 2",
+    jsm3: "잠신중 3",
+    scm1: "신천중 1",
+    scm2: "신천중 2",
+    scm3: "신천중 3",
+    jsh1: "잠신고 1",
+    jsh2: "잠신고 2",
+    jsh3: "잠신고 3",
+  };
+
+  const titleEl    = document.getElementById("title");
+  const subtitleEl = document.getElementById("subtitle");
+  const grid       = document.getElementById("set-grid");
+  const backBtn    = document.getElementById("backBtn");
+
+  const label = SCHOOL_LABELS[schoolId] || "학교 시험";
+
+  titleEl.textContent    = label;
+  subtitleEl.textContent = `${label} 세트(1–10)를 선택하세요.`;
+
+  const TOTAL_SETS = 10; // 1~10회
+
+  for (let i = 1; i <= TOTAL_SETS; i++) {
+    const card = document.createElement("div");
+    card.className = "card";
+    card.textContent = `${i}회`;
+
+    // 예: jsm1-1, jsm1-2 ...
+    const unitKey = `${schoolId}-${i}`;
+
+    card.onclick = () => {
+      // 👉 실제 퀴즈 페이지로 이동
+      location.href = `sentence-school-quiz.html?unit=${unitKey}`;
+    };
+
+    grid.appendChild(card);
+  }
+
+  backBtn.onclick = () => {
+    window.location.href = "sentence-school.html";
+  };
+</script>
+</body>
+</html>
