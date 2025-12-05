@@ -2,8 +2,7 @@
 <html lang="ko">
 <head>
   <meta charset="UTF-8" />
-  <title>학교 시험 회차 선택</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>학교 시험 세트 선택</title>
   <link href="https://cdn.jsdelivr.net/npm/pretendard/dist/web/variable/pretendardvariable.css" rel="stylesheet" />
 
   <style>
@@ -17,7 +16,6 @@
 
     body {
       background: #f4f6fb;
-      color: #111827;
     }
 
     .page {
@@ -27,7 +25,7 @@
     }
 
     h1 {
-      font-size: 28px;
+      font-size: 32px;
       font-weight: 800;
       margin-bottom: 6px;
     }
@@ -35,89 +33,73 @@
     .subtitle {
       font-size: 16px;
       color: #6b7280;
-      margin-bottom: 24px;
+      margin-bottom: 28px;
     }
 
     .grid {
       background: #f1f3fb;
       border-radius: 28px;
-      padding: 28px 24px;
+      padding: 32px 26px;
       display: grid;
-      grid-template-columns: repeat(5, 1fr);
-      gap: 18px;
+      grid-template-columns: repeat(4, 1fr); /* 4개씩 3줄 = 12개 */
+      gap: 22px;
     }
 
     .card {
       background: #fff;
-      border-radius: 20px;
-      height: 90px;
+      border-radius: 24px;
+      height: 110px;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 18px;
-      font-weight: 600;
+      font-size: 20px;
+      font-weight: 700;
       color: #111827;
       cursor: pointer;
-      box-shadow: 0 8px 18px rgba(15, 23, 42, 0.06);
+      box-shadow: 0 10px 24px rgba(15, 23, 42, 0.06);
       transition: transform 0.15s ease, box-shadow 0.15s ease;
-      text-align: center;
     }
 
     .card:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 12px 26px rgba(15, 23, 42, 0.1);
-    }
-
-    .back-btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      padding: 8px 14px;
-      border-radius: 999px;
-      border: none;
-      background: #FF6FB5;
-      color: #fff;
-      font-size: 13px;
-      cursor: pointer;
-      margin-bottom: 16px;
+      transform: translateY(-4px);
+      box-shadow: 0 14px 30px rgba(15, 23, 42, 0.12);
     }
 
     @media (max-width: 900px) {
-      .grid {
-        grid-template-columns: repeat(4, 1fr);
-      }
-    }
-
-    @media (max-width: 720px) {
       .grid {
         grid-template-columns: repeat(3, 1fr);
       }
     }
 
-    @media (max-width: 520px) {
+    @media (max-width: 640px) {
       .grid {
         grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 480px) {
+      .grid {
+        grid-template-columns: 1fr;
       }
     }
   </style>
 </head>
 <body>
 <div class="page">
-  <button type="button" class="back-btn" id="backBtn">← 학교 목록으로</button>
+  <h1 id="schoolTitle">학교 시험</h1>
+  <div class="subtitle" id="schoolSubtitle"></div>
 
-  <h1 id="title">학교 시험</h1>
-  <div class="subtitle" id="subtitle">회차를 선택하세요.</div>
-
-  <section class="grid" id="set-grid">
+  <section class="grid" id="unit-grid">
     <!-- JS에서 카드 생성 -->
   </section>
 </div>
 
 <script>
-  const params   = new URLSearchParams(window.location.search);
-  const schoolId = params.get("school") || "";
+  // URL 예시: sentence-school-detail.html?school=jsm1
+  const params = new URLSearchParams(window.location.search);
+  const schoolId = params.get("school") || "jsm1";
 
-  // id ↔ label 매핑
+  // schoolId → 표시용 이름 매핑
   const SCHOOL_LABELS = {
     jsm1: "잠신중 1",
     jsm2: "잠신중 2",
@@ -130,37 +112,33 @@
     jsh3: "잠신고 3",
   };
 
-  const titleEl    = document.getElementById("title");
-  const subtitleEl = document.getElementById("subtitle");
-  const grid       = document.getElementById("set-grid");
-  const backBtn    = document.getElementById("backBtn");
+  const schoolName = SCHOOL_LABELS[schoolId] || "학교 시험";
 
-  const label = SCHOOL_LABELS[schoolId] || "학교 시험";
+  const titleEl    = document.getElementById("schoolTitle");
+  const subtitleEl = document.getElementById("schoolSubtitle");
+  const grid       = document.getElementById("unit-grid");
 
-  titleEl.textContent    = label;
-  subtitleEl.textContent = `${label} 세트(1–10)를 선택하세요.`;
+  titleEl.textContent = schoolName;
+  subtitleEl.textContent = `${schoolName} 세트(1-12)를 선택하세요.`;
 
-  const TOTAL_SETS = 10; // 1~10회
+  const TOTAL_UNITS = 12; // 1-1 ~ 1-12
 
-  for (let i = 1; i <= TOTAL_SETS; i++) {
+  for (let i = 1; i <= TOTAL_UNITS; i++) {
     const card = document.createElement("div");
     card.className = "card";
-    card.textContent = `${i}회`;
 
-    // 예: jsm1-1, jsm1-2 ...
+    // 카드에 보이는 텍스트: 예) "잠신중 1-1"
+    card.textContent = `${schoolName}-${i}`;
+
+    // 실제 unit 파라미터: 예) "jsm1-1"
     const unitKey = `${schoolId}-${i}`;
 
     card.onclick = () => {
-      // 👉 실제 퀴즈 페이지로 이동
       location.href = `sentence-school-quiz.html?unit=${unitKey}`;
     };
 
     grid.appendChild(card);
   }
-
-  backBtn.onclick = () => {
-    window.location.href = "sentence-school.html";
-  };
 </script>
 </body>
 </html>
