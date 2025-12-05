@@ -56,21 +56,11 @@
     }
 
     /* 탭별 활성 색 */
-    .mode-tab:nth-child(1).active {
-      background: #00aeef;
-    }
-    .mode-tab:nth-child(2).active {
-      background: #ff6fb5;
-    }
-    .mode-tab:nth-child(3).active {
-      background: #00aeef;
-    }
-    .mode-tab:nth-child(4).active {
-      background: #ff6fb5;
-    }
-    .mode-tab:nth-child(5).active {
-      background: #00aeef;
-    }
+    .mode-tab:nth-child(1).active { background: #00aeef; }
+    .mode-tab:nth-child(2).active { background: #ff6fb5; }
+    .mode-tab:nth-child(3).active { background: #00aeef; }
+    .mode-tab:nth-child(4).active { background: #ff6fb5; }
+    .mode-tab:nth-child(5).active { background: #00aeef; }
 
     .card {
       background: #ffffff;
@@ -140,6 +130,12 @@
       max-width: 520px;
     }
 
+    /* 문장 고르기용: 1열 넓은 pill */
+    .choices-grid.wide {
+      grid-template-columns: 1fr;
+      max-width: 720px;
+    }
+
     .choice-btn {
       width: 100%;
       min-height: 52px;
@@ -149,7 +145,7 @@
       cursor: pointer;
       font-size: 18px;
       font-weight: 500;
-      padding: 8px 14px;
+      padding: 10px 18px;
       text-align: left;
       transition: 0.15s ease;
     }
@@ -203,6 +199,15 @@
       background: #d6e8ff;
       border-color: #5c9dff;
       transform: scale(1.05);
+    }
+
+    /* ===== (2) 문장 배열용 답안 줄 ===== */
+    .answer-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 18px;
+      min-height: 50px;
     }
 
     /* ===== (3) 문장 완성(타이핑) ===== */
@@ -342,7 +347,7 @@
       font-size: 20px;
     }
 
-    /* ★ 줄 맞춤을 위해 height 제거, inline-block + baseline 정렬 */
+    /* 줄 맞춤을 위해 height 제거, inline-block + baseline 정렬 */
     .passage-blank {
       display: inline-block;
       min-width: 110px;
@@ -479,9 +484,9 @@
 
   <script>
     /* ================== 파라미터 & 타이틀 ================== */
-    const params = new URLSearchParams(window.location.search);
-    const rawUnit = params.get("unit") || "1-1"; // 예: 1-1 또는 jsm1-1
-    let schoolId = params.get("school") || "";
+    const params   = new URLSearchParams(window.location.search);
+    const rawUnit  = params.get("unit") || "1-1";   // 예: 1-1 또는 jsm1-1
+    let   schoolId = params.get("school") || "";
 
     // 실제 DB에서 사용할 키 (1-1, 1-2 .)
     let unitKey = rawUnit;
@@ -494,15 +499,15 @@
 
       const gradeMatch = m[1].match(/(\d+)$/); // jsm1 → 1
       const grade = gradeMatch ? gradeMatch[1] : "1";
-      const setNo = m[2]; // 1
-      unitKey = `${grade}-${setNo}`; // 1-1
+      const setNo = m[2];                      // 1
+      unitKey = `${grade}-${setNo}`;           // 1-1
     }
 
-    const mainTitle = document.getElementById("mainTitle");
-    const centerArea = document.getElementById("centerArea");
-    const progressText = document.getElementById("progressText");
-    const modeTabs = document.querySelectorAll(".mode-tab");
-    const modeResetBtn = document.getElementById("modeResetBtn");
+    const mainTitle      = document.getElementById("mainTitle");
+    const centerArea     = document.getElementById("centerArea");
+    const progressText   = document.getElementById("progressText");
+    const modeTabs       = document.querySelectorAll(".mode-tab");
+    const modeResetBtn   = document.getElementById("modeResetBtn");
     const backToUnitsBtn = document.getElementById("backToUnitsBtn");
 
     // 학교 이름 매핑
@@ -528,19 +533,19 @@
     }
 
     /* ================== DB 불러오기 ================== */
-    const SENTENCE_DB = window.SENTENCE_SCHOOL_DB || {};
+    const SENTENCE_DB  = window.SENTENCE_SCHOOL_DB || {};
     const allQuestions = SENTENCE_DB[unitKey] || [];
 
     /* 유형별 저장 */
     const questionsByType = {
-      blank: [],
-      order: [],
-      type: [],
-      choose: [],
+      blank:   [],
+      order:   [],
+      type:    [],
+      choose:  [],
       passage: [],
     };
 
-    allQuestions.forEach((q) => {
+    allQuestions.forEach(q => {
       if (!q || !q.type) return;
       if (questionsByType[q.type]) {
         questionsByType[q.type].push(q);
@@ -550,19 +555,19 @@
     /* 현재 모드 / 인덱스 */
     let currentMode = "blank";
     const modeIndex = {
-      blank: 0,
-      order: 0,
-      type: 0,
-      choose: 0,
+      blank:   0,
+      order:   0,
+      type:    0,
+      choose:  0,
       passage: 0,
     };
 
     /* 틀린 문제 다시 큐 (지금은 안 쓰지만 남겨둠) */
     const wrongQuestions = {
-      blank: [],
-      order: [],
-      type: [],
-      choose: [],
+      blank:   [],
+      order:   [],
+      type:    [],
+      choose:  [],
       passage: [],
     };
 
@@ -579,7 +584,7 @@
     /* 타이머 (blank / choose / order에서만 사용) */
     let activeTimers = [];
     function clearTimers() {
-      activeTimers.forEach((id) => clearTimeout(id));
+      activeTimers.forEach(id => clearTimeout(id));
       activeTimers = [];
     }
     function setTimer(fn, ms) {
@@ -750,7 +755,7 @@
       const correctWords = (q.answerEn || "")
         .trim()
         .split(" ")
-        .map((w) => w.trim())
+        .map(w => w.trim())
         .filter(Boolean);
 
       let currentIndex = 0;
@@ -764,17 +769,17 @@
       const slots = [];
       correctWords.forEach(() => {
         const slot = document.createElement("div");
-        slot.style.minWidth = "80px";
-        slot.style.minHeight = "44px";
-        slot.style.borderRadius = "999px";
-        slot.style.border = "1.5px solid #d0d7e6";
-        slot.style.background = "#ffffff";
-        slot.style.display = "flex";
-        slot.style.alignItems = "center";
+        slot.style.minWidth       = "80px";
+        slot.style.minHeight      = "44px";
+        slot.style.borderRadius   = "999px";
+        slot.style.border         = "1.5px solid #d0d7e6";
+        slot.style.background     = "#ffffff";
+        slot.style.display        = "flex";
+        slot.style.alignItems     = "center";
         slot.style.justifyContent = "center";
-        slot.style.fontSize = "20px";
-        slot.style.fontWeight = "500";
-        slot.textContent = "";
+        slot.style.fontSize       = "20px";
+        slot.style.fontWeight     = "500";
+        slot.textContent          = "";
         answerRow.appendChild(slot);
         slots.push(slot);
       });
@@ -804,7 +809,7 @@
             if (word === expected) {
               const slot = slots[currentIndex];
               slot.textContent = word;
-              slot.style.background = "#d6e8ff";
+              slot.style.background  = "#d6e8ff";
               slot.style.borderColor = "#5c9dff";
 
               pool.splice(i, 1);
@@ -817,12 +822,12 @@
                 setTimer(goNext, 1000);
               }
             } else {
-              const originalBg = chip.style.background;
+              const originalBg     = chip.style.background;
               const originalBorder = chip.style.borderColor;
 
-              chip.style.background = "#fee2e2";
+              chip.style.background  = "#fee2e2";
               chip.style.borderColor = "#f97373";
-              hintDiv.textContent = "해당 위치에 들어갈 단어가 아니에요.";
+              hintDiv.textContent    = "해당 위치에 들어갈 단어가 아니에요.";
 
               if (!q._countedWrong) {
                 q._countedWrong = true;
@@ -830,7 +835,7 @@
               }
 
               setTimeout(() => {
-                chip.style.background = originalBg || "#ffffff";
+                chip.style.background  = originalBg || "#ffffff";
                 chip.style.borderColor = originalBorder || "#d0d7e6";
               }, 350);
             }
@@ -847,9 +852,9 @@
 
         correctWords.forEach((w, idxWord) => {
           const slot = slots[idxWord];
-          slot.textContent = w;
+          slot.textContent      = w;
           slot.style.background = "#e5f3ff";
-          slot.style.borderColor = "#9cc4ff";
+          slot.style.borderColor= "#9cc4ff";
         });
         chipsWrap.innerHTML = "";
         hintDiv.textContent = "(시간이 지나 정답이 공개되었습니다.)";
@@ -862,7 +867,8 @@
     }
 
     /* ========== (3) 문장 완성 (타이핑) ========== */
-    /* 시간 제한 없음 */
+    /* 시간 제한 없음, 한 단어 또는 지정한 단어들만 빈칸 처리 */
+
     function renderTypeQuestion(q, idx, total) {
       clearTimers();
       clearCenter();
@@ -898,30 +904,32 @@
       const rawSentence = String(q.answerEn || "");
       const tokens = rawSentence
         .split(" ")
-        .map((t) => t.trim())
+        .map(t => t.trim())
         .filter(Boolean);
 
       let blankTargets = [];
       if (q.blankWords) {
         blankTargets = String(q.blankWords)
           .split(",")
-          .map((w) => w.trim().toLowerCase())
+          .map(w => w.trim().toLowerCase())
           .filter(Boolean);
-      } else {
-        // 별도 지정이 없으면 마지막 단어만 빈칸
-        if (tokens.length > 0) {
-          blankTargets = [tokens[tokens.length - 1].toLowerCase()];
-        }
+      }
+
+      // blankWords가 없으면 문장 가운데 단어 하나를 빈칸으로
+      if (!blankTargets.length && tokens.length) {
+        const midToken = tokens[Math.floor(tokens.length / 2)];
+        const coreMid = midToken.replace(/[.!?]+$/g, "");
+        blankTargets = [coreMid.toLowerCase()];
       }
 
       const blankInputs = [];
 
-      tokens.forEach((word, i) => {
-        const m = word.match(/^(.+?)([.,!?])$/);
-        const core = m ? m[1] : word;
-        const punctuation = m ? m[2] : "";
-
+      tokens.forEach(token => {
+        const core = token.replace(/[.,!?]+$/g, "");
+        const punctMatch = token.match(/[.,!?]+$/g);
+        const punctuation = punctMatch ? punctMatch[0] : "";
         const normCore = core.toLowerCase();
+
         const isBlankTarget = blankTargets.includes(normCore);
 
         if (isBlankTarget) {
@@ -976,9 +984,9 @@
         let allFilled = true;
         let allCorrect = true;
 
-        blankInputs.forEach((input) => {
+        blankInputs.forEach(input => {
           const user = String(input.value || "").trim().toLowerCase();
-          const ans = String(input.dataset.answer || "").toLowerCase();
+          const ans  = String(input.dataset.answer || "").toLowerCase();
 
           if (!user) {
             allFilled = false;
@@ -1056,7 +1064,7 @@
       centerArea.appendChild(choiceArea);
 
       const grid = document.createElement("div");
-      grid.className = "choices-grid";
+      grid.className = "choices-grid wide"; // ★ 한 줄짜리 넓은 pill
       choiceArea.appendChild(grid);
 
       const hintDiv = document.createElement("div");
@@ -1160,7 +1168,7 @@
         const blankSpan = document.createElement("span");
         blankSpan.className = "passage-blank";
         blankSpan.dataset.blankIndex = String(blankCount);
-        blankSpan.textContent = ""; // 줄(____) 대신 비워둠
+        blankSpan.textContent = ""; // 밑줄 대신 비워둠
         passageTextBox.appendChild(blankSpan);
 
         blankElems.push(blankSpan);
@@ -1354,14 +1362,14 @@
     /* ========== 공통 렌더링 ========== */
 
     function renderQuestionObj(q, type) {
-      const list = questionsByType[type];
-      const idx = list.indexOf(q);
+      const list  = questionsByType[type];
+      const idx   = list.indexOf(q);
       const total = list.length;
 
-      if (type === "blank") return renderBlankQuestion(q, idx, total);
-      if (type === "order") return renderOrderQuestion(q, idx, total);
-      if (type === "type") return renderTypeQuestion(q, idx, total);
-      if (type === "choose") return renderChooseQuestion(q, idx, total);
+      if (type === "blank")   return renderBlankQuestion(q, idx, total);
+      if (type === "order")   return renderOrderQuestion(q, idx, total);
+      if (type === "type")    return renderTypeQuestion(q, idx, total);
+      if (type === "choose")  return renderChooseQuestion(q, idx, total);
       if (type === "passage") return renderPassageQuestion(q, idx, total);
 
       renderNoQuestion();
@@ -1370,7 +1378,7 @@
     function renderCurrent() {
       clearTimers();
 
-      modeTabs.forEach((tab) => {
+      modeTabs.forEach(tab => {
         tab.classList.toggle("active", tab.dataset.mode === currentMode);
       });
 
@@ -1387,14 +1395,14 @@
       }
 
       const idx = modeIndex[currentMode];
-      const q = questionsByType[currentMode][idx];
+      const q   = questionsByType[currentMode][idx];
 
       renderQuestionObj(q, currentMode);
     }
 
     /* 탭 / 버튼 이벤트 */
 
-    modeTabs.forEach((tab) => {
+    modeTabs.forEach(tab => {
       tab.onclick = () => {
         currentMode = tab.dataset.mode;
         modeIndex[currentMode] = 0;
@@ -1404,9 +1412,9 @@
 
     modeResetBtn.onclick = () => {
       clearTimers();
-      Object.keys(modeIndex).forEach((k) => (modeIndex[k] = 0));
-      Object.keys(wrongQuestions).forEach((k) => (wrongQuestions[k] = []));
-      Object.keys(questionsByType).forEach((type) => {
+      Object.keys(modeIndex).forEach(k => (modeIndex[k] = 0));
+      Object.keys(wrongQuestions).forEach(k => (wrongQuestions[k] = []));
+      Object.keys(questionsByType).forEach(type => {
         const list = questionsByType[type];
         if (list && list.length) {
           const shuffled = shuffle(list);
