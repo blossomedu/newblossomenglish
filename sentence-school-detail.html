@@ -41,14 +41,14 @@
       border-radius: 28px;
       padding: 32px 26px;
       display: grid;
-      grid-template-columns: repeat(4, 1fr); /* 4개씩 3줄 = 12개 */
+      grid-template-columns: repeat(4, 1fr);
       gap: 22px;
     }
 
     .card {
       background: #fff;
       border-radius: 24px;
-      height: 110px;
+      height: 90px;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -63,6 +63,20 @@
     .card:hover {
       transform: translateY(-4px);
       box-shadow: 0 14px 30px rgba(15, 23, 42, 0.12);
+    }
+
+    .back-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 8px 14px;
+      border-radius: 999px;
+      border: none;
+      font-size: 14px;
+      cursor: pointer;
+      background: #FF6FB5;
+      color: #ffffff;
+      margin-bottom: 18px;
     }
 
     @media (max-width: 900px) {
@@ -86,8 +100,10 @@
 </head>
 <body>
 <div class="page">
-  <h1 id="schoolTitle">학교 시험</h1>
-  <div class="subtitle" id="schoolSubtitle"></div>
+  <button class="back-btn" id="backBtn">← 학교 선택</button>
+
+  <h1 id="title">학교 시험</h1>
+  <div class="subtitle" id="subtitle"></div>
 
   <section class="grid" id="unit-grid">
     <!-- JS에서 카드 생성 -->
@@ -95,50 +111,52 @@
 </div>
 
 <script>
-  // URL 예시: sentence-school-detail.html?school=jsm1
-  const params = new URLSearchParams(window.location.search);
-  const schoolId = params.get("school") || "jsm1";
-
-  // schoolId → 표시용 이름 매핑
-  const SCHOOL_LABELS = {
-    jsm1: "잠신중 1",
-    jsm2: "잠신중 2",
-    jsm3: "잠신중 3",
-    scm1: "신천중 1",
-    scm2: "신천중 2",
-    scm3: "신천중 3",
-    jsh1: "잠신고 1",
-    jsh2: "잠신고 2",
-    jsh3: "잠신고 3",
+  // school 코드별 정보
+  const SCHOOL_INFO = {
+    jsm1: { label: "잠신중 1", grade: 1 },
+    jsm2: { label: "잠신중 2", grade: 2 },
+    jsm3: { label: "잠신중 3", grade: 3 },
+    scm1: { label: "신천중 1", grade: 1 },
+    scm2: { label: "신천중 2", grade: 2 },
+    scm3: { label: "신천중 3", grade: 3 },
+    jsh1: { label: "잠신고 1", grade: 1 },
+    jsh2: { label: "잠신고 2", grade: 2 },
+    jsh3: { label: "잠신고 3", grade: 3 },
   };
 
-  const schoolName = SCHOOL_LABELS[schoolId] || "학교 시험";
+  const params   = new URLSearchParams(location.search);
+  const schoolId = params.get("school") || "jsm1";
 
-  const titleEl    = document.getElementById("schoolTitle");
-  const subtitleEl = document.getElementById("schoolSubtitle");
+  const info = SCHOOL_INFO[schoolId] || { label: "학교 시험", grade: 1 };
+  const titleEl    = document.getElementById("title");
+  const subtitleEl = document.getElementById("subtitle");
   const grid       = document.getElementById("unit-grid");
 
-  titleEl.textContent = schoolName;
-  subtitleEl.textContent = `${schoolName} 세트(1-12)를 선택하세요.`;
+  titleEl.textContent    = info.label;
+  subtitleEl.textContent = `${info.label} 세트(1-12)을 선택하세요.`;
 
-  const TOTAL_UNITS = 12; // 1-1 ~ 1-12
+  // 1-1 ~ 1-12 이런 식으로 12개 생성
+  const MAX_UNIT = 12;
 
-  for (let i = 1; i <= TOTAL_UNITS; i++) {
+  for (let i = 1; i <= MAX_UNIT; i++) {
+    const unitId = `${info.grade}-${i}`;        // DB용 키 (예: 1-1)
+    const label  = `${info.label}-${i}`;        // 화면 표시용 (예: 잠신중 1-1)
+
     const card = document.createElement("div");
     card.className = "card";
-
-    // 카드에 보이는 텍스트: 예) "잠신중 1-1"
-    card.textContent = `${schoolName}-${i}`;
-
-    // 실제 unit 파라미터: 예) "jsm1-1"
-    const unitKey = `${schoolId}-${i}`;
+    card.textContent = label;
 
     card.onclick = () => {
-      location.href = `sentence-school-quiz.html?unit=${unitKey}`;
+      location.href =
+        `sentence-school-quiz.html?school=${encodeURIComponent(schoolId)}&unit=${encodeURIComponent(unitId)}`;
     };
 
     grid.appendChild(card);
   }
+
+  document.getElementById("backBtn").onclick = () => {
+    history.back();
+  };
 </script>
 </body>
 </html>
