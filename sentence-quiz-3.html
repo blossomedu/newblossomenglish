@@ -56,16 +56,16 @@
     }
 
     .mode-tab.active {
-      background: #00AEEF;
       color: #ffffff;
       box-shadow: 0 12px 25px rgba(0, 174, 239, 0.35);
     }
 
     /* 1,2,3,4번째 탭 색 */
-    .mode-tab:nth-child(1).active { background: #00AEEF; color: #fff; }
-    .mode-tab:nth-child(2).active { background: #FF6FB5; color: #fff; }
-    .mode-tab:nth-child(3).active { background: #00AEEF; color: #fff; }
-    .mode-tab:nth-child(4).active { background: #2563EB; color: #fff; }
+    .mode-tab:nth-child(1).active { background: #00AEEF; }
+    .mode-tab:nth-child(2).active { background: #FF6FB5; }
+    .mode-tab:nth-child(3).active { background: #00AEEF; }
+    /* 🔥 문장 고르기 탭도 핑크(돌아가기와 동일 계열) */
+    .mode-tab:nth-child(4).active { background: #FF6FB5; }
 
     .card {
       background: #ffffff;
@@ -350,14 +350,17 @@
     }
 
     .nav-pill {
-      padding: 9px 18px;
+      padding: 9px 20px;
       border-radius: 999px;
       border: none;
       font-size: 14px;
       cursor: pointer;
       white-space: nowrap;
+      min-width: 80px;
+      text-align: center;
     }
 
+    /* 🔥 Home / 다시 풀기 / 돌아가기 색 구분 */
     .pill-home {
       background: #9AD7A0;
       color: #ffffff;
@@ -400,31 +403,9 @@
       color: #111827;
     }
 
+    /* 타이머 pill는 UI에서 제거했지만, 클래스는 남겨둠 (혹시 나중에 쓸 때용) */
     .choice-timer-pill {
-      display: none; /* UI 숨김 (시간 제한은 유지) */
-      align-items: center;
-      gap: 8px;
-      border-radius: 999px;
-      background: #e5e7eb;
-      padding: 6px 14px;
-    }
-
-    .choice-timer-label {
-      font-size: 11px;
-      font-weight: 600;
-      color: #6b7280;
-    }
-
-    .choice-timer-value {
-      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
-        "Liberation Mono", "Courier New", monospace;
-      font-size: 16px;
-      font-weight: 700;
-      color: #111827;
-    }
-
-    .choice-timer-value.danger {
-      color: #ef4444;
+      display: none;
     }
 
     .choice-outer {
@@ -440,32 +421,33 @@
       gap: 16px;
     }
 
-    /* 문장 고르기 버튼 = 핑크 (돌아가기 버튼과 동일 계열) */
     .choice-option-btn {
       width: 100%;
       display: flex;
       align-items: center;
       border-radius: 999px;
-      border: 1.5px solid #FF6FB5;
-      background: #FF6FB5;
+      border: 1.5px solid #fbd2ea; /* 연한 핑크 테두리 */
+      background: #ffffff;
       padding: 14px 20px;
       font-size: 16px;
       cursor: pointer;
       text-align: left;
-      box-shadow: 0 12px 28px rgba(236, 72, 153, 0.35);
+      box-shadow: 0 12px 28px rgba(15, 23, 42, 0.08);
       transition: all 0.15s ease;
-      color: #ffffff;
+      color: #111827;
     }
 
     .choice-option-btn:hover {
-      border-color: #ff5aa9;
-      background: #ff5aa9;
-      box-shadow: 0 16px 34px rgba(236, 72, 153, 0.45);
+      border-color: #FF6FB5;
+      box-shadow: 0 16px 34px rgba(15, 23, 42, 0.16);
       transform: translateY(-1px);
     }
 
     .choice-option-btn.selected {
-      box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.7);
+      border-color: #FF6FB5;
+      background: #FF6FB5;  /* 선택 시 돌아가기와 같은 핑크 */
+      color: #ffffff;
+      box-shadow: 0 16px 34px rgba(249, 111, 181, 0.35);
     }
 
     .choice-option-btn.disabled {
@@ -474,26 +456,26 @@
       transform: none;
     }
 
+    /* 🔥 번호 동그라미: 빈칸 완성과 통일 (그냥 ①②③④ 폰트) */
     .choice-option-number {
       flex-shrink: 0;
-      width: 42px;
-      height: 42px;
-      border-radius: 999px;
-      border: 1.5px solid rgba(255,255,255,0.7);
-      background: rgba(255,255,255,0.2);
+      margin-right: 10px;
+      font-size: 18px;
+      font-weight: 400;
+      color: inherit;
+      width: auto;
+      height: auto;
+      border: none;
+      background: transparent;
       display: flex;
       align-items: center;
       justify-content: center;
-      margin-right: 16px;
-      font-size: 18px;
-      font-weight: 600;
-      color: #ffffff;
     }
 
     .choice-option-text {
       flex: 1;
       line-height: 1.5;
-      color: #ffffff;
+      color: inherit;
     }
 
     .choice-result {
@@ -545,7 +527,6 @@
         padding: 0 10px;
       }
 
-      /* 문장 배열: 모바일에서 위 칸 3개 + 글자 약간 작게 */
       .answer-row {
         padding: 16px 16px;
         gap: 10px;
@@ -565,21 +546,8 @@
       }
 
       .choice-option-number {
-        width: 38px;
-        height: 38px;
-        margin-right: 12px;
+        margin-right: 8px;
         font-size: 16px;
-      }
-
-      /* 🔹 모바일에서만 보기 한 줄에 하나씩 */
-      .choices-grid {
-        display: flex;
-        flex-direction: column;
-        gap: 12px;
-      }
-
-      .choice-btn {
-        white-space: normal; /* 보기 길면 줄바꿈 */
       }
     }
   </style>
@@ -601,6 +569,7 @@
     <div class="bottom-bar">
       <div id="progressText">0 / 0</div>
       <div class="bottom-right">
+        <!-- 🔥 Home 추가 + 세 버튼 모두 nav-pill 사용 -->
         <button type="button" class="nav-pill pill-home" id="homeBtn">
           Home
         </button>
@@ -744,24 +713,10 @@ function renderBlankQuestion(q, idx, total) {
   clearTimers();
   clearCenter();
 
-  // Q1 헤더
-  const header = document.createElement("div");
-  header.className = "choice-header";
-  centerArea.appendChild(header);
-
-  const left = document.createElement("div");
-  left.className = "choice-header-left";
-  header.appendChild(left);
-
-  const qLabel = document.createElement("div");
-  qLabel.className = "choice-q-label";
-  qLabel.textContent = `Q${idx + 1}`;
-  left.appendChild(qLabel);
-
-  const qTitle = document.createElement("div");
-  qTitle.className = "choice-q-title";
-  qTitle.textContent = "빈칸에 알맞은 말을 고르세요.";
-  left.appendChild(qTitle);
+  const qDiv = document.createElement("div");
+  qDiv.className = "question-text";
+  qDiv.textContent = "빈칸에 알맞은 말을 고르세요.";
+  centerArea.appendChild(qDiv);
 
   const sDiv = document.createElement("div");
   sDiv.className = "sentence-en";
@@ -841,25 +796,11 @@ function renderOrderQuestion(q, idx, total) {
   clearTimers();
   clearCenter();
 
-  // Q 헤더
-  const header = document.createElement("div");
-  header.className = "choice-header";
-  centerArea.appendChild(header);
-
-  const left = document.createElement("div");
-  left.className = "choice-header-left";
-  header.appendChild(left);
-
-  const qLabel = document.createElement("div");
-  qLabel.className = "choice-q-label";
-  qLabel.textContent = `Q${idx + 1}`;
-  left.appendChild(qLabel);
-
-  const qTitle = document.createElement("div");
-  qTitle.className = "choice-q-title";
-  qTitle.textContent =
+  const qDiv = document.createElement("div");
+  qDiv.className = "question-text";
+  qDiv.textContent =
     q.question || "다음 단어를 바르게 배열하여 문장을 만드시오.";
-  left.appendChild(qTitle);
+  centerArea.appendChild(qDiv);
 
   if (q.meaningKo) {
     const ko = document.createElement("div");
@@ -989,24 +930,10 @@ function renderTypeQuestion(q, idx, total) {
   clearTimers();
   clearCenter();
 
-  // Q 헤더
-  const header = document.createElement("div");
-  header.className = "choice-header";
-  centerArea.appendChild(header);
-
-  const left = document.createElement("div");
-  left.className = "choice-header-left";
-  header.appendChild(left);
-
-  const qLabel = document.createElement("div");
-  qLabel.className = "choice-q-label";
-  qLabel.textContent = `Q${idx + 1}`;
-  left.appendChild(qLabel);
-
-  const qTitle = document.createElement("div");
-  qTitle.className = "choice-q-title";
-  qTitle.textContent = "빈칸을 채워 문장을 완성하세요.";
-  left.appendChild(qTitle);
+  const qDiv = document.createElement("div");
+  qDiv.className = "question-text";
+  qDiv.textContent = "빈칸을 채워 문장을 완성하세요.";
+  centerArea.appendChild(qDiv);
 
   if (q.meaningKo) {
     const kr = document.createElement("div");
@@ -1089,6 +1016,20 @@ function renderTypeQuestion(q, idx, total) {
     }
   });
 
+  const controls = document.createElement("div");
+  controls.className = "typing-input-wrap";
+  typingArea.appendChild(controls);
+
+  const filler = document.createElement("div");
+  filler.style.flex = "1";
+  controls.appendChild(filler);
+
+  const checkBtn = document.createElement("button");
+  checkBtn.type = "button";
+  checkBtn.className = "typing-check-btn";
+  checkBtn.textContent = "확인";
+  controls.appendChild(checkBtn);
+
   const hintDiv = document.createElement("div");
   hintDiv.className = "hint-text";
   centerArea.appendChild(hintDiv);
@@ -1134,6 +1075,7 @@ function renderTypeQuestion(q, idx, total) {
       finished = true;
       hintDiv.textContent = "";
       expDiv.textContent = "정답입니다! 👏";
+      checkBtn.disabled = true;
       setTimer(goNext, 1200);
     } else {
       hintDiv.textContent = "철자와 띄어쓰기를 다시 한 번 확인해 보세요.";
@@ -1146,7 +1088,8 @@ function renderTypeQuestion(q, idx, total) {
     }
   }
 
-  // 스페이스 / 엔터로 다음 칸 이동, 마지막 칸에서는 자동 채점 → 정답이면 다음 문제
+  checkBtn.onclick = handleCheck;
+
   blankInputs.forEach((input, idx) => {
     input.addEventListener("keydown", (e) => {
       if (e.key === " " || e.key === "Spacebar" || e.key === "Enter") {
@@ -1168,7 +1111,7 @@ function renderTypeQuestion(q, idx, total) {
   setProgress(idx, total);
 }
 
-/* ========== (4) 문장 고르기 (2분 타이머, 시계 UI 숨김) ========== */
+/* ========== (4) 문장 고르기 (UI 수정 버전, 시간 제한 2분 유지) ========== */
 function renderChoiceQuestion(q, idx, total) {
   clearTimers();
   clearCenter();
@@ -1196,21 +1139,6 @@ function renderChoiceQuestion(q, idx, total) {
   qTitle.textContent = questionText;
   left.appendChild(qTitle);
 
-  // 타이머 pill은 DOM상 존재하지만 CSS로 display:none
-  const timerPill = document.createElement("div");
-  timerPill.className = "choice-timer-pill";
-  header.appendChild(timerPill);
-
-  const timerLabel = document.createElement("span");
-  timerLabel.className = "choice-timer-label";
-  timerLabel.textContent = "남은 시간";
-  timerPill.appendChild(timerLabel);
-
-  const timerValue = document.createElement("span");
-  timerValue.className = "choice-timer-value";
-  timerValue.textContent = "02:00";
-  timerPill.appendChild(timerValue);
-
   const outer = document.createElement("div");
   outer.className = "choice-outer";
   centerArea.appendChild(outer);
@@ -1224,20 +1152,6 @@ function renderChoiceQuestion(q, idx, total) {
   centerArea.appendChild(resultDiv);
 
   let answered = false;
-  let timeLeft = 120;
-
-  function formatTime(sec) {
-    const m = Math.floor(sec / 60);
-    const s = sec % 60;
-    return `${String(m).padStart(2, "0")}:${String(s).padStart(2, "0")}`;
-  }
-
-  function updateTimerView() {
-    timerValue.textContent = formatTime(timeLeft);
-    if (timeLeft <= 10) {
-      timerValue.classList.add("danger");
-    }
-  }
 
   const buttons = [];
 
@@ -1249,7 +1163,6 @@ function renderChoiceQuestion(q, idx, total) {
 
     const num = document.createElement("div");
     num.className = "choice-option-number";
-    // 번호 동그라미 ①②③④ 사용
     num.textContent = CIRCLED_NUMS[i] || String(i + 1);
     btn.appendChild(num);
 
@@ -1259,7 +1172,7 @@ function renderChoiceQuestion(q, idx, total) {
     btn.appendChild(spanText);
 
     btn.onclick = () => {
-      if (answered || timeLeft <= 0) return;
+      if (answered) return;
 
       const isCorrect = i === correctIndex;
 
@@ -1269,14 +1182,13 @@ function renderChoiceQuestion(q, idx, total) {
       if (isCorrect) {
         answered = true;
         clearTimers();
-        btn.classList.add("correct");
         resultDiv.textContent = "정답입니다! 🎉";
         resultDiv.className = "choice-result correct";
         setTimer(goNext, 1000);
       } else {
         resultDiv.textContent = "힌트: 다시 한 번 생각해 보세요.";
         resultDiv.className = "choice-result wrong";
-        enqueueRetryQuestion("choice", q); // 틀린 문제는 큐 뒤로
+        enqueueRetryQuestion("choice", q);
       }
     };
 
@@ -1284,16 +1196,7 @@ function renderChoiceQuestion(q, idx, total) {
     buttons.push(btn);
   });
 
-  // 2분 카운트다운 (UI는 숨겨져 있지만 동작은 유지)
-  updateTimerView();
-  setIntervalTimer(() => {
-    if (answered) return;
-    timeLeft -= 1;
-    if (timeLeft < 0) timeLeft = 0;
-    updateTimerView();
-  }, 1000);
-
-  // 2분 지나면 정답 공개 + 다시 풀기 큐 + 자동 다음
+  // 2분 지나면 정답 공개 + 다시 풀기 큐 + 자동 다음 (UI에 타이머는 안 보임)
   setTimer(() => {
     if (answered) return;
     answered = true;
@@ -1383,9 +1286,10 @@ backToUnitsBtn.onclick = () => {
   window.history.back();
 };
 
+/* 🔥 Home 버튼: 홈 URL은 상황에 맞게 수정해서 사용해도 됨 */
 homeBtn.onclick = () => {
   clearTimers();
-  // 홈 URL은 필요하면 나중에 바꿔도 됨
+  // TODO: 실제 홈 페이지 URL에 맞게 수정하세요.
   window.location.href = "index.html";
 };
 
