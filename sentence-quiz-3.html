@@ -4,7 +4,10 @@
   <meta charset="UTF-8" />
   <title>문장 학습 3단계</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link href="https://cdn.jsdelivr.net/npm/pretendard/dist/web/variable/pretendardvariable.css" rel="stylesheet" />
+  <link
+    href="https://cdn.jsdelivr.net/npm/pretendard/dist/web/variable/pretendardvariable.css"
+    rel="stylesheet"
+  />
 
   <style>
     * {
@@ -22,1087 +25,497 @@
     }
 
     .page {
-      max-width: 1100px;
-      margin: 32px auto 48px;
-      padding: 0 16px;
-    }
-
-    .main-title {
-      font-size: 28px;
-      font-weight: 800;
-      margin-bottom: 20px;
-    }
-
-    .top-bar {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-bottom: 20px;
-    }
-
-    .mode-tab {
-      padding: 9px 18px;
-      border-radius: 999px;
-      border: none;
-      background: #eef1ff;
-      color: #111827;
-      font-size: 14px;
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      cursor: pointer;
-      transition: all 0.15s ease;
-      white-space: nowrap;
-    }
-
-    .mode-tab.active {
-      box-shadow: 0 12px 25px rgba(0, 174, 239, 0.35);
-      color: #ffffff;
-    }
-
-    /* 탭별 활성 색상 */
-    .mode-tab:nth-child(1).active { background: #00AEEF; } /* 빈칸 완성 */
-    .mode-tab:nth-child(2).active { background: #FF6FB5; } /* 문장 배열 */
-    .mode-tab:nth-child(3).active { background: #00AEEF; } /* 문장 완성 */
-    .mode-tab:nth-child(4).active { background: #FF6FB5; } /* 문장 고르기 */
-
-    .card {
-      background: #ffffff;
-      border-radius: 28px;
-      padding: 32px 24px 24px;
-      box-shadow: 0 18px 40px rgba(15, 23, 42, 0.08);
-      min-height: 380px;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-    }
-
-    .center-area {
-      flex: 1;
+      min-height: 100vh;
       display: flex;
       flex-direction: column;
       align-items: stretch;
-      justify-content: center;
-      gap: 20px;
-      text-align: left;
-      padding: 10px;
     }
 
-    .question-text {
-      font-size: 20px;
-      font-weight: 700;
-      white-space: pre-line;
+    .page-inner {
+      max-width: 1024px;
+      margin: 0 auto;
+      padding: 24px 16px 40px;
     }
 
-    .sentence-en {
-      font-size: 24px;
-      margin-top: 8px;
-      white-space: pre-line;
-    }
-
-    .sentence-kr {
-      font-size: 18px;
-      color: #4b5563;
-      margin-top: 4px;
-    }
-
-    .blank-line {
-      display: inline-block;
-      min-width: 180px;
-      border-bottom: 2px solid #111827;
-      margin: 0 4px;
-    }
-
-    /* ===== (1) 빈칸 완성 / (4) 문장 고르기 공통 카드 ===== */
-
-    .blank-choice-area {
-      min-height: 140px;
-      background: #eef4ff;
-      border-radius: 22px;
-      padding: 24px 26px;
+    .page-header {
       display: flex;
-      align-items: center;
-      justify-content: center;
-      margin-top: 18px;
-    }
-
-    .choices-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 24px 20px;
-      width: 100%;
-      max-width: 520px; /* 기본: 2단계와 동일, choose에서만 JS로 780px로 늘림 */
-    }
-
-    .choice-btn {
-      width: 100%;
-      min-height: 52px;
-      padding: 12px 18px;
-      border-radius: 999px;
-      border: 1.5px solid #d0d7e6;
-      background: #ffffff;
-      font-size: 18px;
-      cursor: pointer;
-      text-align: left;
-      transition: all 0.15s ease;
-      white-space: nowrap;
-    }
-
-    .choice-btn:hover {
-      background: #e8f0ff;
-      border-color: #8ab4ff;
-    }
-
-    .choice-btn.correct {
-      background: #dcfce7;
-      border-color: #22c55e;
-      color: #166534;
-      font-weight: 600;
-    }
-
-    .choice-btn.wrong {
-      background: #fee2e2;
-      border-color: #f97373;
-      color: #b91c1c;
-    }
-
-    /* ===== (2) 문장 배열 ===== */
-
-    .answer-row {
-      min-height: 80px;
-      background: #eef4ff;
-      border-radius: 22px;
-      padding: 18px 22px;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 14px;
-      font-size: 20px;
+      justify-content: space-between;
       align-items: center;
       margin-bottom: 16px;
     }
 
-    .word-chips {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 14px;
-      min-height: 64px;
-    }
-
-    .word-chip {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      padding: 12px 20px;
-      border-radius: 999px;
-      background: #ffffff;
-      border: 1.5px solid #d0d7e6;
-      cursor: pointer;
-      font-size: 20px;
-      font-weight: 500;
-      transition: 0.15s ease;
-    }
-
-    .word-chip:hover {
-      background: #e8f0ff;
-      border-color: #8ab4ff;
-    }
-
-    .word-chip.selected {
-      background: #d6e8ff;
-      border-color: #5c9dff;
-      transform: scale(1.05);
-    }
-
-    /* ===== (3) 문장 완성(타이핑) ===== */
-
-    .typing-area {
-      margin-top: 10px;
+    .page-title-group {
       display: flex;
       flex-direction: column;
-      align-items: center;
-      gap: 14px;
+      gap: 4px;
     }
 
-    .typing-box-area {
-      width: 100%;
-      min-height: 140px;
-      background: #eef4ff;
-      border-radius: 22px;
-      padding: 24px 26px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin-top: 8px;
+    .page-subtitle {
+      font-size: 13px;
+      color: #6b7280;
+      font-weight: 500;
     }
 
-    .typing-sentence-box {
-      background: transparent;
-      border-radius: 0;
-      padding: 0;
-      min-height: 0;
+    .page-title {
+      font-size: 20px;
+      font-weight: 700;
+      color: #111827;
+    }
+
+    /* 퀴즈 유형 탭 */
+    .quiz-tabs {
       display: flex;
       flex-wrap: wrap;
-      align-items: center;
       gap: 8px;
-      font-size: 22px;
-      max-width: 820px;
-      width: 100%;
+      margin-bottom: 24px;
     }
 
-    .typing-input-wrap {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      width: 100%;
-      max-width: 520px;
-      margin-top: 16px;
-    }
-
-    .inline-blank-input {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-
-      min-width: 100px;
-      height: 40px;
-      padding: 0 12px;
-
+    .quiz-tab {
       border-radius: 999px;
-      border: 1.5px solid #d0d7e6;
+      border: 1px solid #e5e7eb;
       background: #ffffff;
-
-      font-size: 20px;
+      color: #374151;
+      font-size: 13px;
       font-weight: 500;
-      text-align: center;
-
-      outline: none;
-      margin: 0 6px;
-      transition: all 0.15s ease;
-    }
-
-    .inline-blank-input:focus {
-      border-color: #a5b4fc;
-      background: #e5e7ff;
-    }
-
-    .inline-blank-input.correct {
-      background: #dcfce7;
-      border-color: #22c55e;
-    }
-
-    .inline-blank-input.wrong {
-      background: #fee2e2;
-      border-color: #f97373;
-    }
-
-    .typing-check-btn {
-      padding: 10px 18px;
-      border-radius: 999px;
-      border: none;
-      background: #9AD7A0;
-      color: #ffffff;
-      font-size: 16px;
+      padding: 8px 16px;
       cursor: pointer;
-      white-space: nowrap;
-      transition: background 0.15s ease, transform 0.1s ease;
+      transition: all 0.15s ease-in-out;
     }
 
-    .typing-check-btn:hover:not(:disabled) {
-      background: #86c48d;
-      transform: translateY(-1px);
+    .quiz-tab:hover {
+      background: #f3f4ff;
+      border-color: #c7d2fe;
     }
 
-    .typing-check-btn:disabled {
-      opacity: 0.7;
-      cursor: default;
-      transform: none;
+    .quiz-tab.active {
+      background: #2563eb;
+      border-color: #2563eb;
+      color: #ffffff;
+      box-shadow: 0 6px 16px rgba(37, 99, 235, 0.25);
     }
 
-    .typing-hint {
-      font-size: 16px;
-      color: #6b7280;
-      margin-top: 4px;
+    /* 레이아웃: 문제 카드 + 오른쪽 사이드 */
+    .layout {
+      display: grid;
+      grid-template-columns: minmax(0, 2.2fr) minmax(0, 1fr);
+      gap: 20px;
     }
 
-    .hint-text {
-      font-size: 16px;
-      color: #f97316;
-      min-height: 22px;
+    @media (max-width: 840px) {
+      .layout {
+        grid-template-columns: minmax(0, 1fr);
+      }
     }
 
-    .explanation-text {
-      font-size: 16px;
-      color: #4b5563;
-      min-height: 22px;
+    /* 문제 카드 */
+    .quiz-card {
+      background: #ffffff;
+      border-radius: 24px;
+      box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
+      padding: 24px 24px 28px;
     }
 
-    .bottom-bar {
+    .quiz-header {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      margin-top: 24px;
-      gap: 10px;
-      font-size: 14px;
+      gap: 16px;
+      margin-bottom: 20px;
+    }
+
+    .quiz-header-left {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .quiz-number {
+      font-size: 13px;
+      font-weight: 600;
+      color: #2563eb;
+    }
+
+    .quiz-question {
+      font-size: 18px;
+      font-weight: 700;
+      color: #111827;
+    }
+
+    .timer-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      border-radius: 999px;
+      background: #e5e7eb;
+      padding: 6px 14px;
+    }
+
+    .timer-label {
+      font-size: 11px;
+      font-weight: 600;
       color: #6b7280;
     }
 
-    .bottom-right {
+    .timer-value {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+        "Liberation Mono", "Courier New", monospace;
+      font-size: 16px;
+      font-weight: 700;
+      color: #111827;
+    }
+
+    .timer-value.danger {
+      color: #ef4444;
+    }
+
+    /* 선다 영역 외곽 박스 */
+    .choices-wrapper {
+      border-radius: 32px;
+      background: #f3f7ff;
+      padding: 24px 20px;
+    }
+
+    @media (min-width: 640px) {
+      .choices-wrapper {
+        padding: 28px 28px;
+      }
+    }
+
+    /* 보기 리스트: 한 줄에 하나씩 세로로 */
+    .choice-list {
       display: flex;
-      gap: 10px;
-      margin-left: auto;
+      flex-direction: column;
+      gap: 14px; /* 보기 간 간격 */
     }
 
-    .nav-pill {
-      padding: 9px 18px;
+    .choice-button {
+      width: 100%;
+      display: flex;
+      align-items: center;
       border-radius: 999px;
-      border: none;
+      border: 1px solid #d7e2ff;
+      background: #ffffff;
+      padding: 12px 16px;
       font-size: 14px;
+      color: #111827;
+      text-align: left;
       cursor: pointer;
-      white-space: nowrap;
+      box-shadow: 0 4px 10px rgba(148, 163, 184, 0.25);
+      transition: all 0.15s ease;
     }
 
-    .pill-reset {
-      background: #00AEEF;
-      color: #ffffff;
+    @media (min-width: 640px) {
+      .choice-button {
+        padding: 16px 24px;
+        font-size: 15px;
+      }
     }
 
-    .pill-back {
-      background: #FF6FB5;
-      color: #ffffff;
+    .choice-button:hover {
+      border-color: #a8bffc;
+      box-shadow: 0 8px 18px rgba(148, 163, 184, 0.4);
+      transform: translateY(-1px);
     }
 
-    /* 모바일 전용 */
-    @media (max-width: 600px) {
-      .card {
-        padding: 24px 18px 20px;
-      }
-      .sentence-en {
-        font-size: 21px;
-      }
-      .choice-btn {
-        font-size: 16px;
-        min-height: 48px;
-      }
-      .word-chip {
-        font-size: 18px;
-      }
-      .typing-sentence-box {
-        font-size: 20px;
-      }
-      .inline-blank-input {
-        font-size: 18px;
-        min-width: 70px;
-        height: 36px;
-        padding: 0 10px;
-      }
+    .choice-button.selected {
+      border-color: #f9739a;
+      box-shadow: 0 0 0 2px rgba(249, 115, 155, 0.35);
+    }
 
-      /* 문장 배열: 슬롯 3개 */
-      .answer-row {
-        padding: 16px 16px;
-        gap: 10px;
-        justify-content: flex-start;
-      }
+    .choice-button.disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+      box-shadow: 0 4px 10px rgba(148, 163, 184, 0.2);
+      transform: none;
+    }
 
-      .answer-row > div {
-        flex: 0 0 calc((100% - 20px) / 3);
-        max-width: calc((100% - 20px) / 3);
-        min-width: 0;
-        font-size: 16px !important;
+    .choice-number {
+      flex-shrink: 0;
+      width: 36px;
+      height: 36px;
+      border-radius: 999px;
+      border: 1px solid #d7e2ff;
+      background: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-right: 12px;
+      font-size: 13px;
+      font-weight: 600;
+      color: #374151;
+    }
+
+    @media (min-width: 640px) {
+      .choice-number {
+        width: 40px;
+        height: 40px;
+        margin-right: 16px;
+        font-size: 14px;
       }
+    }
+
+    .choice-text {
+      flex: 1;
+      line-height: 1.5;
+    }
+
+    /* 결과 메시지 */
+    .result-message {
+      margin-top: 18px;
+      min-height: 24px;
+      font-size: 15px;
+      font-weight: 600;
+    }
+
+    .result-correct {
+      color: #16a34a;
+    }
+
+    .result-wrong {
+      color: #ef4444;
+    }
+
+    .result-timeover {
+      color: #ef4444;
+    }
+
+    /* 오른쪽 사이드 정보 박스 (선택) */
+    .side-card {
+      background: #ffffff;
+      border-radius: 20px;
+      padding: 16px 18px;
+      box-shadow: 0 8px 22px rgba(15, 23, 42, 0.08);
+      margin-bottom: 12px;
+    }
+
+    .side-card-title {
+      font-size: 13px;
+      font-weight: 600;
+      color: #111827;
+      margin-bottom: 6px;
+    }
+
+    .side-card-text {
+      font-size: 13px;
+      color: #4b5563;
+      line-height: 1.5;
     }
   </style>
 </head>
+
 <body>
-<div class="page">
-  <h1 class="main-title" id="mainTitle">문장 학습 3단계</h1>
+  <div class="page">
+    <div class="page-inner">
+      <!-- 상단 헤더 -->
+      <header class="page-header">
+        <div class="page-title-group">
+          <div class="page-subtitle">문장 학습</div>
+          <h1 class="page-title">문장 고르기 (Sentence Quiz 3)</h1>
+        </div>
+        <div>
+          <!-- 필요하면 우측에 진행률/사용자 영역 넣기 -->
+        </div>
+      </header>
 
-  <div class="top-bar">
-    <button class="mode-tab active" data-mode="blank">🧩 빈칸 완성</button>
-    <button class="mode-tab" data-mode="order">🔀 문장 배열</button>
-    <button class="mode-tab" data-mode="type">⌨ 문장 완성</button>
-    <button class="mode-tab" data-mode="choose">✅ 문장 고르기</button>
-  </div>
+      <!-- 퀴즈 유형 탭 -->
+      <nav class="quiz-tabs">
+        <button class="quiz-tab" type="button">빈칸완성</button>
+        <button class="quiz-tab" type="button">문장 배열</button>
+        <button class="quiz-tab" type="button">문장 완성</button>
+        <button class="quiz-tab active" type="button">문장 고르기</button>
+      </nav>
 
-  <div class="card">
-    <div class="center-area" id="centerArea"></div>
+      <!-- 메인 레이아웃 -->
+      <div class="layout">
+        <!-- 왼쪽: 실제 문제 카드 -->
+        <section class="quiz-card">
+          <div class="quiz-header">
+            <div class="quiz-header-left">
+              <div class="quiz-number">Q1</div>
+              <h2 class="quiz-question">다음 중 올바른 문장을 고르시오.</h2>
+            </div>
+            <div class="timer-badge">
+              <span class="timer-label">남은 시간</span>
+              <span id="timerText" class="timer-value">02:00</span>
+            </div>
+          </div>
 
-    <div class="bottom-bar">
-      <div id="progressText">0 / 0</div>
-      <div class="bottom-right">
-        <button type="button" class="nav-pill pill-reset" id="modeResetBtn">
-          다시 풀기
-        </button>
-        <button type="button" class="nav-pill pill-back" id="backToUnitsBtn">
-          돌아가기
-        </button>
+          <div class="choices-wrapper">
+            <div class="choice-list">
+              <!-- 보기: 한 줄에 하나씩 -->
+              <button
+                class="choice-button"
+                type="button"
+                data-index="0"
+              >
+                <span class="choice-number">1</span>
+                <span class="choice-text">She eat breakfast.</span>
+              </button>
+
+              <button
+                class="choice-button"
+                type="button"
+                data-index="1"
+              >
+                <span class="choice-number">2</span>
+                <span class="choice-text">They are happy today.</span>
+              </button>
+
+              <button
+                class="choice-button"
+                type="button"
+                data-index="2"
+              >
+                <span class="choice-number">3</span>
+                <span class="choice-text">He don’t like music.</span>
+              </button>
+
+              <button
+                class="choice-button"
+                type="button"
+                data-index="3"
+              >
+                <span class="choice-number">4</span>
+                <span class="choice-text">I goes to bed early.</span>
+              </button>
+            </div>
+          </div>
+
+          <div class="result-message" id="resultMessage"></div>
+        </section>
+
+        <!-- 오른쪽: 보조 설명 카드 (원하면 삭제해도 됨) -->
+        <aside>
+          <div class="side-card">
+            <div class="side-card-title">풀이 안내</div>
+            <div class="side-card-text">
+              주어와 동사의 형태가 올바른지, 문장이 자연스러운지 차근차근 읽어보세요.
+              틀린 동사 변화나 어색한 표현이 있는지 확인하면 도움이 됩니다.
+            </div>
+          </div>
+          <div class="side-card">
+            <div class="side-card-title">제한 시간</div>
+            <div class="side-card-text">
+              이 문제의 제한 시간은 <strong>2분</strong>입니다.
+              제한 시간이 지나면 더 이상 선택할 수 없습니다.
+            </div>
+          </div>
+        </aside>
       </div>
     </div>
   </div>
-</div>
 
-<!-- 3단계용 데이터 -->
-<script src="sentence3.js"></script>
+  <script>
+    // ====== 기본 설정 ======
+    const TOTAL_TIME = 120; // 한 문제당 2분(120초)
+    const correctIndex = 1; // 정답: 두 번째 보기
 
-<script>
-const params   = new URLSearchParams(window.location.search);
-const unitKey  = params.get("unit") || "19-1";
+    let timeLeft = TOTAL_TIME;
+    let timerId = null;
+    let selectedIndex = null;
 
-const mainTitle      = document.getElementById("mainTitle");
-const centerArea     = document.getElementById("centerArea");
-const progressText   = document.getElementById("progressText");
-const modeTabs       = document.querySelectorAll(".mode-tab");
-const modeResetBtn   = document.getElementById("modeResetBtn");
-const backToUnitsBtn = document.getElementById("backToUnitsBtn");
+    const timerTextEl = document.getElementById("timerText");
+    const resultMessageEl = document.getElementById("resultMessage");
+    const choiceButtons = Array.from(
+      document.querySelectorAll(".choice-button")
+    );
 
-mainTitle.textContent = `문장 학습 3단계 ${unitKey}`;
+    // 시간 포맷: mm:ss
+    function formatTime(seconds) {
+      const m = Math.floor(seconds / 60);
+      const s = seconds % 60;
+      const mm = String(m).padStart(2, "0");
+      const ss = String(s).padStart(2, "0");
+      return mm + ":" + ss;
+    }
 
-/* ==== DB ==== */
-const SENTENCE_DB  = window.SENTENCE3_DB || {};
-const allQuestions = SENTENCE_DB[unitKey] || [];
+    function renderTime() {
+      if (!timerTextEl) return;
+      timerTextEl.textContent = formatTime(timeLeft);
 
-const questionsByType = { blank: [], order: [], type: [], choose: [] };
-
-allQuestions.forEach(q => {
-  if (!q || !q.type) return;
-  if (questionsByType[q.type]) {
-    questionsByType[q.type].push(q);
-  }
-});
-
-let currentMode = "blank";
-const modeIndex = { blank: 0, order: 0, type: 0, choose: 0 };
-const wrongQuestions = { blank: [], order: [], type: [], choose: [] };
-
-function shuffle(arr) {
-  const a = arr.slice();
-  for (let i = a.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [a[i], a[j]] = [a[j], a[i]];
-  }
-  return a;
-}
-
-/* 타이머 */
-let activeTimers = [];
-function clearTimers() {
-  activeTimers.forEach(id => clearTimeout(id));
-  activeTimers = [];
-}
-function setTimer(fn, ms) {
-  const id = setTimeout(fn, ms);
-  activeTimers.push(id);
-  return id;
-}
-
-function setProgress(idx, total) {
-  progressText.textContent = total ? `${idx + 1} / ${total}` : "0 / 0";
-}
-
-function clearCenter() {
-  centerArea.innerHTML = "";
-}
-
-function renderNoQuestion() {
-  clearCenter();
-  const a = document.createElement("div");
-  a.className = "question-text";
-  a.textContent = "이 유형의 문제가 없습니다.";
-  centerArea.appendChild(a);
-
-  const b = document.createElement("div");
-  b.className = "sentence-en";
-  b.textContent = "문제를 추가하면 바로 여기서 풀 수 있어요.";
-  centerArea.appendChild(b);
-
-  setProgress(0, 0);
-}
-
-const CIRCLED_NUMS = ["①", "②", "③", "④"];
-
-function enqueueRetryQuestion(type, q) {
-  if (q._retryAdded) return;
-  q._retryAdded = true;
-  questionsByType[type].push(q);
-}
-
-function goNext() {
-  const list = questionsByType[currentMode];
-  if (!list || !list.length) {
-    renderNoQuestion();
-    return;
-  }
-
-  modeIndex[currentMode]++;
-  const idx   = modeIndex[currentMode];
-  const total = list.length;
-
-  if (idx >= total) {
-    clearCenter();
-    const done = document.createElement("div");
-    done.className = "question-text";
-    done.textContent = "이 유형의 문제를 모두 풀었습니다. 😊";
-    centerArea.appendChild(done);
-    setProgress(total, total);
-  } else {
-    renderCurrent();
-  }
-}
-
-/* ========== (1) 빈칸 완성 ========== */
-function renderBlankQuestion(q, idx, total) {
-  clearTimers();
-  clearCenter();
-
-  const qDiv = document.createElement("div");
-  qDiv.className = "question-text";
-  qDiv.textContent = "빈칸에 알맞은 말을 고르세요.";
-  centerArea.appendChild(qDiv);
-
-  const sDiv = document.createElement("div");
-  sDiv.className = "sentence-en";
-  sDiv.innerHTML = (q.question || "").replace(
-    "____",
-    "<span class='blank-line'></span>"
-  );
-  centerArea.appendChild(sDiv);
-
-  const choiceArea = document.createElement("div");
-  choiceArea.className = "blank-choice-area";
-  centerArea.appendChild(choiceArea);
-
-  const grid = document.createElement("div");
-  grid.className = "choices-grid";
-  choiceArea.appendChild(grid);
-
-  const hintDiv = document.createElement("div");
-  hintDiv.className = "hint-text";
-  centerArea.appendChild(hintDiv);
-
-  const expDiv = document.createElement("div");
-  expDiv.className = "explanation-text";
-  centerArea.appendChild(expDiv);
-
-  let answered = false;
-  const correctIndex =
-    typeof q.answerIndex === "number" ? q.answerIndex : 0;
-
-  (q.options || []).forEach((opt, i) => {
-    const btn = document.createElement("button");
-    btn.className = "choice-btn";
-    btn.textContent = `${CIRCLED_NUMS[i]} ${opt}`;
-    grid.appendChild(btn);
-
-    btn.onclick = () => {
-      if (answered) return;
-
-      const isCorrect = i === correctIndex;
-
-      if (isCorrect) {
-        answered = true;
-        clearTimers();
-        btn.classList.add("correct");
-        hintDiv.textContent = "";
-        expDiv.textContent = q.explanation || "정답입니다!";
-        setTimer(goNext, 1000);
-      } else {
-        btn.classList.add("wrong");
-        hintDiv.textContent = "힌트: 다시 생각해 보세요.";
-        enqueueRetryQuestion("blank", q);
+      if (timeLeft <= 10) {
+        timerTextEl.classList.add("danger");
       }
-    };
-  });
+    }
 
-  setTimer(() => {
-    if (answered) return;
-    answered = true;
+    function disableChoices() {
+      choiceButtons.forEach((btn) => {
+        btn.classList.add("disabled");
+        btn.disabled = true;
+      });
+    }
 
-    [...grid.children].forEach((b, idxBtn) => {
-      if (idxBtn === correctIndex) b.classList.add("correct");
-    });
+    function enableChoices() {
+      choiceButtons.forEach((btn) => {
+        btn.classList.remove("disabled");
+        btn.disabled = false;
+      });
+    }
 
-    hintDiv.textContent = "시간이 지나 정답이 공개되었습니다.";
-    expDiv.textContent = q.explanation || "";
+    // 타이머 시작
+    function startTimer() {
+      renderTime();
 
-    enqueueRetryQuestion("blank", q);
+      timerId = setInterval(() => {
+        timeLeft -= 1;
 
-    setTimer(goNext, 1500);
-  }, 15000);
-
-  setProgress(idx, total);
-}
-
-/* ========== (2) 문장 배열 ========== */
-function renderOrderQuestion(q, idx, total) {
-  clearTimers();
-  clearCenter();
-
-  const qDiv = document.createElement("div");
-  qDiv.className = "question-text";
-  qDiv.textContent =
-    q.question || "다음 단어를 바르게 배열하여 문장을 만드시오.";
-  centerArea.appendChild(qDiv);
-
-  if (q.meaningKo) {
-    const ko = document.createElement("div");
-    ko.className = "sentence-kr";
-    ko.textContent = q.meaningKo;
-    centerArea.appendChild(ko);
-  }
-
-  const correctWords = (q.answerEn || "")
-    .trim()
-    .split(" ")
-    .map(w => w.trim())
-    .filter(Boolean);
-
-  let currentIndex = 0;
-  let finished = false;
-  let pool = shuffle(correctWords.slice());
-
-  const answerRow = document.createElement("div");
-  answerRow.className = "answer-row";
-  centerArea.appendChild(answerRow);
-
-  const slots = [];
-  correctWords.forEach(() => {
-    const slot = document.createElement("div");
-    slot.style.minWidth       = "80px";
-    slot.style.minHeight      = "44px";
-    slot.style.borderRadius   = "999px";
-    slot.style.border         = "1.5px solid #d0d7e6";
-    slot.style.background     = "#ffffff";
-    slot.style.display        = "flex";
-    slot.style.alignItems     = "center";
-    slot.style.justifyContent = "center";
-    slot.style.fontSize       = "20px";
-    slot.style.fontWeight     = "500";
-    slot.textContent = "";
-    answerRow.appendChild(slot);
-    slots.push(slot);
-  });
-
-  const chipsWrap = document.createElement("div");
-  chipsWrap.className = "word-chips";
-  centerArea.appendChild(chipsWrap);
-
-  const hintDiv = document.createElement("div");
-  hintDiv.className = "hint-text";
-  centerArea.appendChild(hintDiv);
-
-  function refreshChips() {
-    chipsWrap.innerHTML = "";
-
-    pool.forEach((word, i) => {
-      const chip = document.createElement("div");
-      chip.className = "word-chip";
-      chip.textContent = word;
-
-      chip.onclick = () => {
-        if (finished) return;
-
-        const expected = correctWords[currentIndex];
-        if (!expected) return;
-
-        if (word === expected) {
-          const slot = slots[currentIndex];
-          slot.textContent = word;
-          slot.style.background  = "#d6e8ff";
-          slot.style.borderColor = "#5c9dff";
-
-          pool.splice(i, 1);
-          currentIndex++;
-          refreshChips();
-
-          if (currentIndex >= correctWords.length) {
-            finished = true;
-            hintDiv.textContent = "정답입니다!";
-            setTimer(goNext, 1000);
+        if (timeLeft <= 0) {
+          timeLeft = 0;
+          renderTime();
+          clearInterval(timerId);
+          timerId = null;
+          disableChoices();
+          if (resultMessageEl) {
+            resultMessageEl.textContent = "제한 시간이 종료되었습니다.";
+            resultMessageEl.className =
+              "result-message result-timeover";
           }
-        } else {
-          const originalBg     = chip.style.background;
-          const originalBorder = chip.style.borderColor;
-
-          chip.style.background  = "#fee2e2";
-          chip.style.borderColor = "#f97373";
-          hintDiv.textContent    = "해당 위치에 들어갈 단어가 아니에요.";
-
-          if (!q._countedWrong) {
-            q._countedWrong = true;
-            wrongQuestions.order.push(q);
-            enqueueRetryQuestion("order", q);
-          }
-
-          setTimeout(() => {
-            chip.style.background  = originalBg || "#ffffff";
-            chip.style.borderColor = originalBorder || "#d0d7e6";
-          }, 350);
+          return;
         }
-      };
 
-      chipsWrap.appendChild(chip);
-    });
-  }
-
-  setTimer(() => {
-    if (finished) return;
-    finished = true;
-
-    correctWords.forEach((w, idxWord) => {
-      const slot = slots[idxWord];
-      slot.textContent      = w;
-      slot.style.background = "#e5f3ff";
-      slot.style.borderColor= "#9cc4ff";
-    });
-    chipsWrap.innerHTML = "";
-    hintDiv.textContent = "(시간이 지나 정답이 공개되었습니다.)";
-
-    enqueueRetryQuestion("order", q);
-
-    setTimer(goNext, 5000);
-  }, 30000);
-
-  refreshChips();
-  setProgress(idx, total);
-}
-
-/* ========== (3) 문장 완성 (타이핑) ========== */
-function renderTypeQuestion(q, idx, total) {
-  clearTimers();
-  clearCenter();
-
-  const qDiv = document.createElement("div");
-  qDiv.className = "question-text";
-  qDiv.textContent = "빈칸을 채워 문장을 완성하세요.";
-  centerArea.appendChild(qDiv);
-
-  if (q.meaningKo) {
-    const kr = document.createElement("div");
-    kr.className = "sentence-kr";
-    kr.textContent = q.meaningKo;
-    centerArea.appendChild(kr);
-  }
-
-  const typingHintTop = document.createElement("div");
-  typingHintTop.className = "typing-hint";
-  centerArea.appendChild(typingHintTop);
-
-  const typingArea = document.createElement("div");
-  typingArea.className = "typing-area";
-  centerArea.appendChild(typingArea);
-
-  const boxArea = document.createElement("div");
-  boxArea.className = "typing-box-area";
-  typingArea.appendChild(boxArea);
-
-  const sentenceBox = document.createElement("div");
-  sentenceBox.className = "typing-sentence-box";
-  boxArea.appendChild(sentenceBox);
-
-  const rawSentence = String(q.answerEn || "");
-  const tokens = rawSentence
-    .split(" ")
-    .map(t => t.trim())
-    .filter(Boolean);
-
-  let blankTargets = [];
-  if (q.blankWords) {
-    blankTargets = String(q.blankWords)
-      .split(",")
-      .map(w => w.trim().toLowerCase())
-      .filter(Boolean);
-  }
-
-  if (!blankTargets.length && tokens.length) {
-    const midToken = tokens[Math.floor(tokens.length / 2)];
-    const coreMid = midToken.replace(/[.,!?]+$/g, "");
-    blankTargets = [coreMid.toLowerCase()];
-  }
-
-  const blankInputs = [];
-
-  tokens.forEach((token, tokenIdx) => {
-    const core = token.replace(/[.,!?]+$/g, "");
-    const punctMatch = token.match(/[.,!?]+$/g);
-    const punctuation = punctMatch ? punctMatch[0] : "";
-    const normCore = core.toLowerCase();
-
-    const isBlankTarget = blankTargets.includes(normCore);
-
-    if (isBlankTarget) {
-      const input = document.createElement("input");
-      input.type = "text";
-      input.className = "inline-blank-input";
-      input.dataset.answer = normCore;
-      input.dataset.answerDisplay = core;
-
-      const estimatedWidth = Math.max(core.length * 10 + 24, 60);
-      input.style.width = estimatedWidth + "px";
-
-      blankInputs.push(input);
-      sentenceBox.appendChild(input);
-      if (punctuation) {
-        const spanP = document.createElement("span");
-        spanP.textContent = punctuation;
-        sentenceBox.appendChild(spanP);
-      }
-    } else {
-      const span = document.createElement("span");
-      span.textContent = core + (punctuation ? punctuation : "");
-      sentenceBox.appendChild(span);
+        renderTime();
+      }, 1000);
     }
 
-    // 마지막 토큰이 아닐 때만 공백 추가 (마침표 앞 공백 제거)
-    if (tokenIdx !== tokens.length - 1) {
-      sentenceBox.appendChild(document.createTextNode(" "));
-    }
-  });
+    // 보기 클릭 핸들러
+    function handleChoiceClick(event) {
+      const btn = event.currentTarget;
+      const idx = Number(btn.getAttribute("data-index"));
 
-  const controls = document.createElement("div");
-  controls.className = "typing-input-wrap";
-  typingArea.appendChild(controls);
+      if (Number.isNaN(idx)) return;
+      if (timeLeft <= 0) return;
 
-  const filler = document.createElement("div");
-  filler.style.flex = "1";
-  controls.appendChild(filler);
+      selectedIndex = idx;
 
-  const checkBtn = document.createElement("button");
-  checkBtn.type = "button";
-  checkBtn.className = "typing-check-btn";
-  checkBtn.textContent = "확인";
-  controls.appendChild(checkBtn);
+      // 선택 표시 초기화 후 다시 적용
+      choiceButtons.forEach((b) => b.classList.remove("selected"));
+      btn.classList.add("selected");
 
-  const hintDiv = document.createElement("div");
-  hintDiv.className = "hint-text";
-  centerArea.appendChild(hintDiv);
+      if (!resultMessageEl) return;
 
-  const expDiv = document.createElement("div");
-  expDiv.className = "explanation-text";
-  centerArea.appendChild(expDiv);
-
-  let finished = false;
-
-  function handleCheck() {
-    if (finished) return;
-
-    let allFilled = true;
-    let allCorrect = true;
-
-    blankInputs.forEach(input => {
-      const user = String(input.value || "").trim().toLowerCase();
-      const ans  = String(input.dataset.answer || "").toLowerCase();
-
-      if (!user) {
-        allFilled = false;
-        input.classList.remove("correct", "wrong");
-        return;
-      }
-
-      if (user === ans) {
-        input.classList.remove("wrong");
-        input.classList.add("correct");
+      if (selectedIndex === correctIndex) {
+        resultMessageEl.textContent = "정답입니다! 🎉";
+        resultMessageEl.className = "result-message result-correct";
       } else {
-        allCorrect = false;
-        input.classList.remove("correct");
-        input.classList.add("wrong");
-      }
-    });
-
-    if (!allFilled) {
-      hintDiv.textContent = "모든 빈칸을 먼저 입력해 보세요.";
-      return;
-    }
-
-    if (allCorrect) {
-      finished = true;
-      hintDiv.textContent = "";
-      expDiv.textContent = "정답입니다! 👏";
-      checkBtn.disabled = true;
-      setTimer(goNext, 1200);
-    } else {
-      hintDiv.textContent = "철자와 띄어쓰기를 다시 한 번 확인해 보세요.";
-      expDiv.textContent = "";
-      if (!q._countedWrong) {
-        q._countedWrong = true;
-        wrongQuestions.type.push(q);
-        enqueueRetryQuestion("type", q);  // 문장 완성도 다시 나오게
+        resultMessageEl.textContent =
+          "오답입니다. 다시 한 번 생각해보세요.";
+        resultMessageEl.className = "result-message result-wrong";
       }
     }
-  }
 
-  checkBtn.onclick = handleCheck;
+    // 초기 세팅
+    document.addEventListener("DOMContentLoaded", function () {
+      // 클릭 이벤트 바인딩
+      choiceButtons.forEach((btn) => {
+        btn.addEventListener("click", handleChoiceClick);
+      });
 
-  blankInputs.forEach((input, idx) => {
-    input.addEventListener("keydown", (e) => {
-      if (e.key === " " || e.key === "Spacebar" || e.key === "Enter") {
-        e.preventDefault();
-        const lastIndex = blankInputs.length - 1;
-        if (idx < lastIndex) {
-          blankInputs[idx + 1].focus();
-        } else {
-          handleCheck();
-        }
-      }
+      // 처음에는 선택 가능
+      enableChoices();
+
+      // 타이머 시작
+      startTimer();
     });
-  });
-
-  if (blankInputs[0]) {
-    blankInputs[0].focus();
-  }
-
-  setProgress(idx, total);
-}
-
-/* ========== (4) 문장 고르기 ========== */
-
-function renderChooseQuestion(q, idx, total) {
-  clearTimers();
-  clearCenter();
-
-  const qDiv = document.createElement("div");
-  qDiv.className = "question-text";
-  qDiv.textContent = q.question || "다음 중 올바른 문장을 고르시오.";
-  centerArea.appendChild(qDiv);
-
-  const choiceArea = document.createElement("div");
-  choiceArea.className = "blank-choice-area";
-  centerArea.appendChild(choiceArea);
-
-  const grid = document.createElement("div");
-  grid.className = "choices-grid";
-  grid.style.maxWidth = "780px"; // ★ 문장 고르기에서만 1.5배 길이
-  choiceArea.appendChild(grid);
-
-  const hintDiv = document.createElement("div");
-  hintDiv.className = "hint-text";
-  centerArea.appendChild(hintDiv);
-
-  const expDiv = document.createElement("div");
-  expDiv.className = "explanation-text";
-  centerArea.appendChild(expDiv);
-
-  let answered = false;
-  const correctIndex =
-    typeof q.answerIndex === "number" ? q.answerIndex : 0;
-
-  (q.options || []).forEach((opt, i) => {
-    const btn = document.createElement("button");
-    btn.className = "choice-btn";
-    btn.textContent = `${CIRCLED_NUMS[i]} ${opt}`;
-    grid.appendChild(btn);
-
-    btn.onclick = () => {
-      if (answered) return;
-
-      const isCorrect = i === correctIndex;
-
-      if (isCorrect) {
-        answered = true;
-        clearTimers();
-        btn.classList.add("correct");
-        hintDiv.textContent = "";
-        expDiv.textContent = q.explanation || "정답입니다!";
-        setTimer(goNext, 1000);
-      } else {
-        btn.classList.add("wrong");
-        hintDiv.textContent = "다른 문장과 비교해서 다시 생각해 보세요.";
-
-        if (!q._countedWrong) {
-          q._countedWrong = true;
-          wrongQuestions.choose.push(q);
-          enqueueRetryQuestion("choose", q); // 문장 고르기도 다시
-        }
-      }
-    };
-  });
-
-  setTimer(() => {
-    if (answered) return;
-    answered = true;
-
-    [...grid.children].forEach((b, idxBtn) => {
-      if (idxBtn === correctIndex) b.classList.add("correct");
-    });
-
-    hintDiv.textContent = "시간이 지나 정답이 공개되었습니다.";
-    expDiv.textContent = q.explanation || "";
-
-    enqueueRetryQuestion("choose", q);
-
-    setTimer(goNext, 2000);
-  }, 15000);
-
-  setProgress(idx, total);
-}
-
-/* ========== 공통 렌더링 ========== */
-
-function renderQuestionObj(q, type) {
-  const list  = questionsByType[type];
-  const idx   = list.indexOf(q);
-  const total = list.length;
-
-  if (type === "blank")  return renderBlankQuestion(q, idx, total);
-  if (type === "order")  return renderOrderQuestion(q, idx, total);
-  if (type === "type")   return renderTypeQuestion(q, idx, total);
-  if (type === "choose") return renderChooseQuestion(q, idx, total);
-
-  renderNoQuestion();
-}
-
-function renderCurrent() {
-  clearTimers();
-
-  modeTabs.forEach(tab => {
-    tab.classList.toggle("active", tab.dataset.mode === currentMode);
-  });
-
-  const list = questionsByType[currentMode];
-  if (!list || !list.length) {
-    renderNoQuestion();
-    return;
-  }
-
-  if (modeIndex[currentMode] === 0 && !list._shuffled) {
-    questionsByType[currentMode] = shuffle(list);
-    questionsByType[currentMode]._shuffled = true;
-  }
-
-  const idx = modeIndex[currentMode];
-  const q   = questionsByType[currentMode][idx];
-
-  renderQuestionObj(q, currentMode);
-}
-
-/* 탭 / 버튼 이벤트 */
-
-modeTabs.forEach(tab => {
-  tab.onclick = () => {
-    currentMode = tab.dataset.mode;
-    modeIndex[currentMode] = 0;
-    renderCurrent();
-  };
-});
-
-modeResetBtn.onclick = () => {
-  clearTimers();
-  Object.keys(modeIndex).forEach(k => (modeIndex[k] = 0));
-  Object.keys(wrongQuestions).forEach(k => (wrongQuestions[k] = []));
-  Object.keys(questionsByType).forEach(type => {
-    const list = questionsByType[type];
-    if (list && list.length) {
-      questionsByType[type] = shuffle(list);
-      questionsByType[type]._shuffled = true;
-    }
-  });
-  renderCurrent();
-};
-
-backToUnitsBtn.onclick = () => {
-  clearTimers();
-  window.history.back();
-};
-
-renderCurrent();
-</script>
+  </script>
 </body>
 </html>
