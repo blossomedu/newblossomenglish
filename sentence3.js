@@ -17,6 +17,7 @@
       let q = null;
 
       if (type === "blank") {
+        // unit | blank | id | question | opt1 | opt2 | opt3 | opt4 | answerIndex | explanation
         if (rest.length < 7) continue;
         const [question, opt1, opt2, opt3, opt4, ansStr, explanation] = rest;
         const answerIndex = parseInt(ansStr, 10);
@@ -29,15 +30,38 @@
           answerIndex,
           explanation,
         };
+
       } else if (type === "order") {
+        // unit | order | id | question | answerEn | meaningKo
         if (rest.length < 3) continue;
         const [question, answerEn, meaningKo] = rest;
-        q = { id, type, question, answerEn, meaningKo };
+        q = {
+          id,
+          type,
+          question,
+          answerEn,
+          meaningKo,
+        };
+
       } else if (type === "type") {
+        // unit | type | id | question | answerEn | meaningKo | (optional) blankWords
+        // blankWords: "reads,books" 처럼 콤마로 여러 개 가능
         if (rest.length < 3) continue;
-        const [question, answerEn, meaningKo] = rest;
-        q = { id, type, question, answerEn, meaningKo };
+        const [question, answerEn, meaningKo, blankWords] = rest;
+        q = {
+          id,
+          type,
+          question,
+          answerEn,
+          meaningKo,
+        };
+        if (blankWords) {
+          // 👉 여기서 꼭 저장해야 화면에서 여러 칸이 뜸
+          q.blankWords = blankWords;
+        }
+
       } else if (type === "choose") {
+        // unit | choose | id | question | opt1 | opt2 | opt3 | opt4 | answerIndex | explanation
         if (rest.length < 7) continue;
         const [question, opt1, opt2, opt3, opt4, ansStr, explanation] = rest;
         const answerIndex = parseInt(ansStr, 10);
@@ -50,7 +74,9 @@
           answerIndex,
           explanation,
         };
+
       } else if (type === "passage") {
+        // unit | passage | id | passage | opt1 | opt2 | opt3 | opt4 | opt5 | b1 | b2 | b3 | explanation
         if (rest.length < 11) continue;
         const [
           passage,
@@ -66,7 +92,14 @@
         ] = rest;
         const blanks  = [b1, b2, b3].filter(Boolean);
         const options = [opt1, opt2, opt3, opt4, opt5];
-        q = { id, type, passage, options, blanks, explanation };
+        q = {
+          id,
+          type,
+          passage,
+          options,
+          blanks,
+          explanation,
+        };
       }
 
       if (!q) continue;
@@ -110,4 +143,3 @@
 
   window.SENTENCE3_DB = buildSentenceDB(RAW_SENTENCES);
 })();
-
