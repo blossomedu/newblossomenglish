@@ -803,7 +803,7 @@ function renderTypeQuestion(q, idx, total) {
 
   const blankInputs = [];
 
-  tokens.forEach(token => {
+  tokens.forEach((token, tokenIdx) => {
     const core = token.replace(/[.,!?]+$/g, "");
     const punctMatch = token.match(/[.,!?]+$/g);
     const punctuation = punctMatch ? punctMatch[0] : "";
@@ -834,7 +834,10 @@ function renderTypeQuestion(q, idx, total) {
       sentenceBox.appendChild(span);
     }
 
-    sentenceBox.appendChild(document.createTextNode(" "));
+    // 마지막 토큰이 아닐 때만 공백 추가 → 마침표 앞 공백 제거
+    if (tokenIdx !== tokens.length - 1) {
+      sentenceBox.appendChild(document.createTextNode(" "));
+    }
   });
 
   const controls = document.createElement("div");
@@ -1003,4 +1006,3 @@ renderCurrent();
 </script>
 </body>
 </html>
-
