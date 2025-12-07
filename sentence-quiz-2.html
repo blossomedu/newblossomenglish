@@ -64,7 +64,7 @@
     /* 1,2,3번째 탭 색 */
     .mode-tab:nth-child(1).active { background: #00AEEF; color: #fff; }
     .mode-tab:nth-child(2).active { background: #FF6FB5; color: #fff; }
-    .mode-tab:nth-child(3).active { background: #9AD7A0; color: #fff; }
+    .mode-tab:nth-child(3).active { background: #00AEEF; color: #fff; }
 
     .card {
       background: #ffffff;
@@ -213,7 +213,7 @@
       transform: scale(1.05);
     }
 
-    /* ===== (3) 문장 타이핑 ===== */
+    /* ===== (3) 문장 완성(타이핑) ===== */
 
     .typing-area {
       margin-top: 10px;
@@ -266,9 +266,9 @@
       align-items: center;
       justify-content: center;
 
-      min-width: 120px;
-      height: 44px;
-      padding: 0 18px;
+      min-width: 0;
+      height: 40px;
+      padding: 0 12px;
 
       border-radius: 999px;
       border: 1.5px solid #d0d7e6;
@@ -395,8 +395,7 @@
       }
       .inline-blank-input {
         font-size: 18px;
-        min-width: 90px;
-        height: 40px;
+        height: 36px;
       }
     }
   </style>
@@ -408,7 +407,7 @@
   <div class="top-bar">
     <button class="mode-tab active" data-mode="blank">🧩 빈칸 완성</button>
     <button class="mode-tab" data-mode="order">🔀 문장 배열</button>
-    <button class="mode-tab" data-mode="type">⌨ 문장 타이핑</button>
+    <button class="mode-tab" data-mode="type">⌨ 문장 완성</button>
   </div>
 
   <div class="card">
@@ -747,7 +746,7 @@ function renderOrderQuestion(q, idx, total) {
   setProgress(idx, total);
 }
 
-/* ========== (3) 문장 타이핑 ========== */
+/* ========== (3) 문장 완성(타이핑) ========== */
 /* 시간 제한 없음 + 스페이스/엔터로 이동/확인 */
 
 function renderTypeQuestion(q, idx, total) {
@@ -818,6 +817,10 @@ function renderTypeQuestion(q, idx, total) {
       input.className = "inline-blank-input";
       input.dataset.answer = normCore;
       input.dataset.answerDisplay = core;
+
+      const estimatedWidth = Math.max(core.length * 10 + 24, 60);
+      input.style.width = estimatedWidth + "px";
+
       blankInputs.push(input);
       sentenceBox.appendChild(input);
       if (punctuation) {
@@ -1000,4 +1003,3 @@ renderCurrent();
 </script>
 </body>
 </html>
-
