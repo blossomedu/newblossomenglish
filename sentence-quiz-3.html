@@ -356,6 +356,13 @@
       font-size: 14px;
       cursor: pointer;
       white-space: nowrap;
+      min-width: 80px;
+      text-align: center;
+    }
+
+    .pill-home {
+      background: #9AD7A0;
+      color: #ffffff;
     }
 
     .pill-reset {
@@ -369,59 +376,6 @@
     }
 
     /* ===== (4) 문장 고르기 ===== */
-
-    .choice-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 16px;
-    }
-
-    .choice-header-left {
-      display: flex;
-      flex-direction: column;
-      gap: 4px;
-    }
-
-    /* Q 라벨은 더 이상 안 쓰지만, 혹시 나중에 쓸 수도 있으니 남겨둠 */
-    .choice-q-label {
-      font-size: 13px;
-      font-weight: 600;
-      color: #2563eb;
-    }
-
-    .choice-q-title {
-      font-size: 20px;
-      font-weight: 700;
-      color: #111827;
-    }
-
-    .choice-timer-pill {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      border-radius: 999px;
-      background: #e5e7eb;
-      padding: 6px 14px;
-    }
-
-    .choice-timer-label {
-      font-size: 11px;
-      font-weight: 600;
-      color: #6b7280;
-    }
-
-    .choice-timer-value {
-      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
-        "Liberation Mono", "Courier New", monospace;
-      font-size: 16px;
-      font-weight: 700;
-      color: #111827;
-    }
-
-    .choice-timer-value.danger {
-      color: #ef4444;
-    }
 
     .choice-outer {
       margin-top: 18px;
@@ -438,10 +392,8 @@
 
     .choice-option-btn {
       width: 100%;
-      display: flex;
-      align-items: center;
       border-radius: 999px;
-      border: 1.5px solid #d0d7e6;   /* 기본은 회색 테두리 */
+      border: 1.5px solid #d0d7e6;
       background: #ffffff;
       padding: 14px 20px;
       font-size: 16px;
@@ -457,37 +409,23 @@
       transform: translateY(-1px);
     }
 
-    .choice-option-btn.selected {
-      border-color: #FF6FB5; /* 선택됐을 때만 핑크 */
-      box-shadow: 0 0 0 2px rgba(255, 111, 181, 0.35);
+    .choice-option-btn.correct {
+      background: #dcfce7;
+      border-color: #22c55e;
+      color: #166534;
+      font-weight: 600;
+    }
+
+    .choice-option-btn.wrong {
+      background: #fee2e2;
+      border-color: #f97373;
+      color: #b91c1c;
     }
 
     .choice-option-btn.disabled {
       opacity: 0.6;
       cursor: not-allowed;
       transform: none;
-    }
-
-    .choice-option-number {
-      flex-shrink: 0;
-      width: 42px;
-      height: 42px;
-      border-radius: 999px;
-      border: 1.5px solid #d0d7e6;
-      background: #ffffff;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin-right: 16px;
-      font-size: 16px;
-      font-weight: 600;
-      color: #374151;
-    }
-
-    .choice-option-text {
-      flex: 1;
-      line-height: 1.5;
-      color: #111827;
     }
 
     .choice-result {
@@ -517,6 +455,11 @@
 
       .sentence-en {
         font-size: 21px;
+      }
+
+      /* 빈칸 완성: 모바일에서는 한 줄에 하나씩 */
+      .choices-grid {
+        grid-template-columns: 1fr;
       }
 
       .choice-btn {
@@ -556,13 +499,6 @@
         font-size: 15px;
         padding: 12px 14px;
       }
-
-      .choice-option-number {
-        width: 38px;
-        height: 38px;
-        margin-right: 12px;
-        font-size: 14px;
-      }
     }
   </style>
 </head>
@@ -583,6 +519,9 @@
     <div class="bottom-bar">
       <div id="progressText">0 / 0</div>
       <div class="bottom-right">
+        <button type="button" class="nav-pill pill-home" id="homeBtn">
+          Home
+        </button>
         <button type="button" class="nav-pill pill-reset" id="modeResetBtn">
           다시 풀기
         </button>
@@ -605,6 +544,7 @@ const mainTitle      = document.getElementById("mainTitle");
 const centerArea     = document.getElementById("centerArea");
 const progressText   = document.getElementById("progressText");
 const modeTabs       = document.querySelectorAll(".mode-tab");
+const homeBtn        = document.getElementById("homeBtn");
 const modeResetBtn   = document.getElementById("modeResetBtn");
 const backToUnitsBtn = document.getElementById("backToUnitsBtn");
 
@@ -623,7 +563,7 @@ allQuestions.forEach(q => {
   }
 });
 
-// 기본 모드를 choice로 시작
+// 기본 모드를 choice로 시작 (원하면 "blank"로 바꿔도 됨)
 let currentMode = "choice";
 const modeIndex = { blank: 0, order: 0, type: 0, choice: 0 };
 
@@ -638,26 +578,17 @@ function shuffle(arr) {
   return a;
 }
 
-/* 타이머(기존 + choice용 interval 포함) */
+/* 타이머(기존 + choice) */
 let activeTimers = [];
-let activeIntervals = [];
 
 function clearTimers() {
   activeTimers.forEach(id => clearTimeout(id));
-  activeIntervals.forEach(id => clearInterval(id));
   activeTimers = [];
-  activeIntervals = [];
 }
 
 function setTimer(fn, ms) {
   const id = setTimeout(fn, ms);
   activeTimers.push(id);
-  return id;
-}
-
-function setIntervalTimer(fn, ms) {
-  const id = setInterval(fn, ms);
-  activeIntervals.push(id);
   return id;
 }
 
@@ -717,7 +648,7 @@ function goNext() {
   }
 }
 
-/* ========== (1) 빈칸 완성 (원래 코드) ========== */
+/* ========== (1) 빈칸 완성 ========== */
 function renderBlankQuestion(q, idx, total) {
   clearTimers();
   clearCenter();
@@ -800,7 +731,7 @@ function renderBlankQuestion(q, idx, total) {
   setProgress(idx, total);
 }
 
-/* ========== (2) 문장 배열 (원래 코드) ========== */
+/* ========== (2) 문장 배열 ========== */
 function renderOrderQuestion(q, idx, total) {
   clearTimers();
   clearCenter();
@@ -934,7 +865,7 @@ function renderOrderQuestion(q, idx, total) {
   setProgress(idx, total);
 }
 
-/* ========== (3) 문장 완성(타이핑) (원래 코드) ========== */
+/* ========== (3) 문장 완성(타이핑) ========== */
 function renderTypeQuestion(q, idx, total) {
   clearTimers();
   clearCenter();
@@ -1120,7 +1051,7 @@ function renderTypeQuestion(q, idx, total) {
   setProgress(idx, total);
 }
 
-/* ========== (4) 문장 고르기 (2분 타이머) ========== */
+/* ========== (4) 문장 고르기 (2분 제한, 타이머 UI 없음) ========== */
 function renderChoiceQuestion(q, idx, total) {
   clearTimers();
   clearCenter();
@@ -1130,33 +1061,10 @@ function renderChoiceQuestion(q, idx, total) {
   const correctIndex =
     typeof q.answerIndex === "number" ? q.answerIndex : 0;
 
-  const header = document.createElement("div");
-  header.className = "choice-header";
-  centerArea.appendChild(header);
-
-  const left = document.createElement("div");
-  left.className = "choice-header-left";
-  header.appendChild(left);
-
-  // ✅ Q1 라벨 제거, 문제 문장만 표시
-  const qTitle = document.createElement("div");
-  qTitle.className = "choice-q-title";
-  qTitle.textContent = questionText;
-  left.appendChild(qTitle);
-
-  const timerPill = document.createElement("div");
-  timerPill.className = "choice-timer-pill";
-  header.appendChild(timerPill);
-
-  const timerLabel = document.createElement("span");
-  timerLabel.className = "choice-timer-label";
-  timerLabel.textContent = "남은 시간";
-  timerPill.appendChild(timerLabel);
-
-  const timerValue = document.createElement("span");
-  timerValue.className = "choice-timer-value";
-  timerValue.textContent = "02:00";
-  timerPill.appendChild(timerValue);
+  const qDiv = document.createElement("div");
+  qDiv.className = "question-text";
+  qDiv.textContent = questionText;
+  centerArea.appendChild(qDiv);
 
   const outer = document.createElement("div");
   outer.className = "choice-outer";
@@ -1171,20 +1079,6 @@ function renderChoiceQuestion(q, idx, total) {
   centerArea.appendChild(resultDiv);
 
   let answered = false;
-  let timeLeft = 120;
-
-  function formatTime(sec) {
-    const m = Math.floor(sec / 60);
-    const s = sec % 60;
-    return `${String(m).padStart(2, "0")}:${String(s).padStart(2, "0")}`;
-  }
-
-  function updateTimerView() {
-    timerValue.textContent = formatTime(timeLeft);
-    if (timeLeft <= 10) {
-      timerValue.classList.add("danger");
-    }
-  }
 
   const buttons = [];
 
@@ -1192,36 +1086,27 @@ function renderChoiceQuestion(q, idx, total) {
     const btn = document.createElement("button");
     btn.type = "button";
     btn.className = "choice-option-btn";
-    btn.dataset.index = String(i);
 
-    const num = document.createElement("div");
-    num.className = "choice-option-number";
-    num.textContent = CIRCLED_NUMS[i] || String(i + 1); // ①②③④
-    btn.appendChild(num);
-
-    const spanText = document.createElement("div");
-    spanText.className = "choice-option-text";
-    spanText.textContent = text;
-    btn.appendChild(spanText);
+    // 빈칸 완성과 동일하게 ① 보기 형식
+    btn.textContent = `${CIRCLED_NUMS[i]} ${text}`;
 
     btn.onclick = () => {
-      if (answered || timeLeft <= 0) return;
+      if (answered) return;
 
       const isCorrect = i === correctIndex;
-
-      buttons.forEach(b => b.classList.remove("selected"));
-      btn.classList.add("selected");
 
       if (isCorrect) {
         answered = true;
         clearTimers();
+        btn.classList.add("correct");
         resultDiv.textContent = "정답입니다! 🎉";
         resultDiv.className = "choice-result correct";
         setTimer(goNext, 1000);
       } else {
+        btn.classList.add("wrong");
         resultDiv.textContent = "힌트: 다시 한 번 생각해 보세요.";
         resultDiv.className = "choice-result wrong";
-        enqueueRetryQuestion("choice", q); // 틀린 문제는 큐 뒤로
+        enqueueRetryQuestion("choice", q);
       }
     };
 
@@ -1229,25 +1114,15 @@ function renderChoiceQuestion(q, idx, total) {
     buttons.push(btn);
   });
 
-  // 2분 카운트다운
-  updateTimerView();
-  setIntervalTimer(() => {
-    if (answered) return;
-    timeLeft -= 1;
-    if (timeLeft < 0) timeLeft = 0;
-    updateTimerView();
-  }, 1000);
-
-  // 2분 지나면 정답 공개 + 다시 풀기 큐 + 자동 다음
+  // 2분이 지나면 정답만 초록색으로 공개 (UI 타이머 없음)
   setTimer(() => {
     if (answered) return;
     answered = true;
 
     buttons.forEach((btn, i) => {
-      btn.classList.add("disabled");
       btn.disabled = true;
       if (i === correctIndex) {
-        btn.classList.add("selected");
+        btn.classList.add("correct");
       }
     });
 
@@ -1308,6 +1183,12 @@ modeTabs.forEach(tab => {
     renderCurrent();
   };
 });
+
+homeBtn.onclick = () => {
+  clearTimers();
+  // 필요하면 여기 경로를 프로젝트에 맞게 수정하면 돼
+  window.location.href = "index.html";
+};
 
 modeResetBtn.onclick = () => {
   clearTimers();
