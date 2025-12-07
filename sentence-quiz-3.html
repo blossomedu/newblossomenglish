@@ -292,6 +292,7 @@
       border-color: #f97373;
     }
 
+    /* 확인 버튼 스타일은 남겨두지만 이제 화면엔 안 씀 */
     .typing-check-btn {
       padding: 10px 18px;
       border-radius: 999px;
@@ -563,7 +564,7 @@ allQuestions.forEach(q => {
   }
 });
 
-// 기본 모드를 choice로 시작 (원하면 "blank"로 바꿔도 됨)
+// 기본 모드를 choice로 시작
 let currentMode = "choice";
 const modeIndex = { blank: 0, order: 0, type: 0, choice: 0 };
 
@@ -578,7 +579,7 @@ function shuffle(arr) {
   return a;
 }
 
-/* 타이머(기존 + choice) */
+/* 타이머 */
 let activeTimers = [];
 
 function clearTimers() {
@@ -624,7 +625,7 @@ function enqueueRetryQuestion(type, q) {
   questionsByType[type].push(q);
 }
 
-/* 다음 문제로 이동 */
+/* 다음 문제 */
 function goNext() {
   const list = questionsByType[currentMode];
   if (!list || !list.length) {
@@ -865,7 +866,7 @@ function renderOrderQuestion(q, idx, total) {
   setProgress(idx, total);
 }
 
-/* ========== (3) 문장 완성(타이핑) ========== */
+/* ========== (3) 문장 완성(타이핑) – 확인 버튼 없이 엔터/스페이스로 채점 ========== */
 function renderTypeQuestion(q, idx, total) {
   clearTimers();
   clearCenter();
@@ -956,20 +957,6 @@ function renderTypeQuestion(q, idx, total) {
     }
   });
 
-  const controls = document.createElement("div");
-  controls.className = "typing-input-wrap";
-  typingArea.appendChild(controls);
-
-  const filler = document.createElement("div");
-  filler.style.flex = "1";
-  controls.appendChild(filler);
-
-  const checkBtn = document.createElement("button");
-  checkBtn.type = "button";
-  checkBtn.className = "typing-check-btn";
-  checkBtn.textContent = "확인";
-  controls.appendChild(checkBtn);
-
   const hintDiv = document.createElement("div");
   hintDiv.className = "hint-text";
   centerArea.appendChild(hintDiv);
@@ -1015,7 +1002,6 @@ function renderTypeQuestion(q, idx, total) {
       finished = true;
       hintDiv.textContent = "";
       expDiv.textContent = "정답입니다! 👏";
-      checkBtn.disabled = true;
       setTimer(goNext, 1200);
     } else {
       hintDiv.textContent = "철자와 띄어쓰기를 다시 한 번 확인해 보세요.";
@@ -1028,8 +1014,7 @@ function renderTypeQuestion(q, idx, total) {
     }
   }
 
-  checkBtn.onclick = handleCheck;
-
+  // 스페이스/엔터로 다음 칸 이동, 마지막 칸에서는 채점
   blankInputs.forEach((input, idx) => {
     input.addEventListener("keydown", (e) => {
       if (e.key === " " || e.key === "Spacebar" || e.key === "Enter") {
@@ -1087,7 +1072,7 @@ function renderChoiceQuestion(q, idx, total) {
     btn.type = "button";
     btn.className = "choice-option-btn";
 
-    // 빈칸 완성과 동일하게 ① 보기 형식
+    // 빈칸 완성과 동일한 형식
     btn.textContent = `${CIRCLED_NUMS[i]} ${text}`;
 
     btn.onclick = () => {
@@ -1114,7 +1099,7 @@ function renderChoiceQuestion(q, idx, total) {
     buttons.push(btn);
   });
 
-  // 2분이 지나면 정답만 초록색으로 공개 (UI 타이머 없음)
+  // 2분 후 자동 정답 공개
   setTimer(() => {
     if (answered) return;
     answered = true;
@@ -1186,7 +1171,7 @@ modeTabs.forEach(tab => {
 
 homeBtn.onclick = () => {
   clearTimers();
-  // 필요하면 여기 경로를 프로젝트에 맞게 수정하면 돼
+  // 필요하면 경로 수정
   window.location.href = "index.html";
 };
 
