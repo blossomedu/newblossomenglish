@@ -129,7 +129,7 @@
     .choices-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
-      gap: 24px 20px;
+      gap: 16px 20px;
       width: 100%;
       max-width: 520px;
     }
@@ -146,6 +146,9 @@
       text-align: left;
       transition: all 0.15s ease;
       white-space: nowrap;
+      display: flex;
+      align-items: center;
+      gap: 8px;
     }
 
     .choice-btn:hover {
@@ -164,6 +167,22 @@
       background: #fee2e2;
       border-color: #f97373;
       color: #b91c1c;
+    }
+
+    /* 번호 동그라미 (공통) */
+    .choice-index-circle {
+      flex-shrink: 0;
+      width: 32px;
+      height: 32px;
+      border-radius: 999px;
+      border: 1.5px solid #d0d7e6;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 15px;
+      font-weight: 600;
+      background: #ffffff;
+      color: #111827;
     }
 
     /* ===== (2) 문장 배열 ===== */
@@ -295,29 +314,6 @@
       border-color: #f97373;
     }
 
-    .typing-check-btn {
-      padding: 10px 18px;
-      border-radius: 999px;
-      border: none;
-      background: #9AD7A0;
-      color: #ffffff;
-      font-size: 16px;
-      cursor: pointer;
-      white-space: nowrap;
-      transition: background 0.15s ease, transform 0.1s ease;
-    }
-
-    .typing-check-btn:hover:not(:disabled) {
-      background: #86c48d;
-      transform: translateY(-1px);
-    }
-
-    .typing-check-btn:disabled {
-      opacity: 0.7;
-      cursor: default;
-      transform: none;
-    }
-
     .typing-hint {
       font-size: 16px;
       color: #6b7280;
@@ -359,8 +355,6 @@
       font-size: 14px;
       cursor: pointer;
       white-space: nowrap;
-      min-width: 80px;
-      text-align: center;
     }
 
     .pill-home {
@@ -388,7 +382,7 @@
         font-size: 21px;
       }
 
-      /* 모바일에서 보기 한 줄에 하나 */
+      /* 빈칸 완성: 한 줄에 하나씩 */
       .choices-grid {
         grid-template-columns: 1fr;
       }
@@ -464,14 +458,15 @@
 <script>
 const params   = new URLSearchParams(window.location.search);
 const unitKey  = params.get("unit") || "10-1";
+const stageKey = params.get("stage") || "2";
 
 const mainTitle      = document.getElementById("mainTitle");
 const centerArea     = document.getElementById("centerArea");
 const progressText   = document.getElementById("progressText");
 const modeTabs       = document.querySelectorAll(".mode-tab");
-const homeBtn        = document.getElementById("homeBtn");
 const modeResetBtn   = document.getElementById("modeResetBtn");
 const backToUnitsBtn = document.getElementById("backToUnitsBtn");
+const homeBtn        = document.getElementById("homeBtn");
 
 mainTitle.textContent = `문장 학습 2단계 ${unitKey}`;
 
@@ -539,8 +534,9 @@ function renderNoQuestion() {
 const CIRCLED_NUMS = ["①", "②", "③", "④"];
 
 function enqueueRetryQuestion(type, q) {
-  if (q._retryAdded) return;
-  q._retryAdded = true;
+  if (q._retryAddedFor && q._retryAddedFor[type]) return;
+  if (!q._retryAddedFor) q._retryAddedFor = {};
+  q._retryAddedFor[type] = true;
   questionsByType[type].push(q);
 }
 
@@ -608,7 +604,16 @@ function renderBlankQuestion(q, idx, total) {
   (q.options || []).forEach((opt, i) => {
     const btn = document.createElement("button");
     btn.className = "choice-btn";
-    btn.textContent = `${CIRCLED_NUMS[i]} ${opt}`;
+
+    const circle = document.createElement("div");
+    circle.className = "choice-index-circle";
+    circle.textContent = CIRCLED_NUMS[i] || String(i + 1);
+    btn.appendChild(circle);
+
+    const textSpan = document.createElement("span");
+    textSpan.textContent = opt;
+    btn.appendChild(textSpan);
+
     grid.appendChild(btn);
 
     btn.onclick = () => {
@@ -724,9 +729,9 @@ function renderOrderQuestion(q, idx, total) {
 
         if (word === expected) {
           const slot = slots[currentIndex];
-          slot.textContent = word;
-          slot.style.background  = "#d6e8ff";
-          slot.style.borderColor = "#5c9dff";
+          slot.textContent      = word;
+          slot.style.background = "#d6e8ff";
+          slot.style.borderColor= "#5c9dff";
 
           pool.splice(i, 1);
           currentIndex++;
@@ -745,10 +750,10 @@ function renderOrderQuestion(q, idx, total) {
           chip.style.borderColor = "#f97373";
           hintDiv.textContent    = "해당 위치에 들어갈 단어가 아니에요.";
 
-          if (!q._countedWrong) {
-            q._countedWrong = true;
+          if (!q._countedWrongOrder) {
+            q._countedWrongOrder = true;
             wrongQuestions.order.push(q);
-            enqueueRetryQuestion("order", q);  // 틀리면 다시 풀기 큐에 추가
+            enqueueRetryQuestion("order", q);
           }
 
           setTimeout(() => {
@@ -775,7 +780,7 @@ function renderOrderQuestion(q, idx, total) {
     chipsWrap.innerHTML = "";
     hintDiv.textContent = "(시간이 지나 정답이 공개되었습니다.)";
 
-    enqueueRetryQuestion("order", q);  // 시간초과도 다시 풀기 큐에 추가
+    enqueueRetryQuestion("order", q);
 
     setTimer(goNext, 5000);
   }, 30000);
@@ -785,7 +790,7 @@ function renderOrderQuestion(q, idx, total) {
 }
 
 /* ========== (3) 문장 완성(타이핑) ========== */
-/* 시간 제한 없음 + 스페이스/엔터로 이동/확인 */
+/* 확인 버튼 없이, 마지막 칸에서 엔터/스페이스로 자동 채점 */
 
 function renderTypeQuestion(q, idx, total) {
   clearTimers();
@@ -805,6 +810,7 @@ function renderTypeQuestion(q, idx, total) {
 
   const typingHintTop = document.createElement("div");
   typingHintTop.className = "typing-hint";
+  typingHintTop.textContent = "각 칸에서 스페이스바 또는 엔터를 누르면 다음 칸으로 이동해요.";
   centerArea.appendChild(typingHintTop);
 
   const typingArea = document.createElement("div");
@@ -872,25 +878,10 @@ function renderTypeQuestion(q, idx, total) {
       sentenceBox.appendChild(span);
     }
 
-    // 마지막 토큰이 아닐 때만 공백 추가 → 마침표 앞 공백 제거
     if (tokenIdx !== tokens.length - 1) {
       sentenceBox.appendChild(document.createTextNode(" "));
     }
   });
-
-  const controls = document.createElement("div");
-  controls.className = "typing-input-wrap";
-  typingArea.appendChild(controls);
-
-  const filler = document.createElement("div");
-  filler.style.flex = "1";
-  controls.appendChild(filler);
-
-  const checkBtn = document.createElement("button");
-  checkBtn.type = "button";
-  checkBtn.className = "typing-check-btn";
-  checkBtn.textContent = "확인";
-  controls.appendChild(checkBtn);
 
   const hintDiv = document.createElement("div");
   hintDiv.className = "hint-text";
@@ -937,20 +928,17 @@ function renderTypeQuestion(q, idx, total) {
       finished = true;
       hintDiv.textContent = "";
       expDiv.textContent = "정답입니다! 👏";
-      checkBtn.disabled = true;
       setTimer(goNext, 1200);
     } else {
       hintDiv.textContent = "철자와 띄어쓰기를 다시 한 번 확인해 보세요.";
       expDiv.textContent = "";
-      if (!q._countedWrong) {
-        q._countedWrong = true;
+      if (!q._countedWrongType) {
+        q._countedWrongType = true;
         wrongQuestions.type.push(q);
-        enqueueRetryQuestion("type", q); // ★ 문장 완성도 다시 나오게
+        enqueueRetryQuestion("type", q);
       }
     }
   }
-
-  checkBtn.onclick = handleCheck;
 
   // 스페이스 / 엔터로 다음 칸 이동, 마지막 칸에서는 확인
   blankInputs.forEach((input, idx) => {
@@ -1022,12 +1010,6 @@ modeTabs.forEach(tab => {
   };
 });
 
-homeBtn.onclick = () => {
-  clearTimers();
-  // 홈 경로는 프로젝트 구조에 맞게 수정
-  window.location.href = "index.html";
-};
-
 modeResetBtn.onclick = () => {
   clearTimers();
   Object.keys(modeIndex).forEach(k => (modeIndex[k] = 0));
@@ -1045,6 +1027,16 @@ modeResetBtn.onclick = () => {
 backToUnitsBtn.onclick = () => {
   clearTimers();
   window.history.back();
+};
+
+homeBtn.onclick = () => {
+  clearTimers();
+  // stage 파라미터가 있으면 단계 메인으로 이동
+  if (stageKey) {
+    window.location.href = `sentence-main.html?stage=${encodeURIComponent(stageKey)}`;
+  } else {
+    window.location.href = "sentence-main.html";
+  }
 };
 
 renderCurrent();
