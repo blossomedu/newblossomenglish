@@ -61,7 +61,7 @@
       box-shadow: 0 12px 25px rgba(0, 174, 239, 0.35);
     }
 
-    /* 1,2,3,4번째 탭 색 (원래 3개 + 문장 고르기) */
+    /* 1,2,3,4번째 탭 색 */
     .mode-tab:nth-child(1).active { background: #00AEEF; color: #fff; }
     .mode-tab:nth-child(2).active { background: #FF6FB5; color: #fff; }
     .mode-tab:nth-child(3).active { background: #00AEEF; color: #fff; }
@@ -251,15 +251,14 @@
     }
 
     .typing-input-wrap {
-      width: 100%;
-      max-width: 520px;
-      margin-top: 16px;
       display: flex;
       align-items: center;
       gap: 10px;
+      width: 100%;
+      max-width: 520px;
+      margin-top: 16px;
     }
 
-    /* 문장 안에 들어가는 단어 빈칸 인풋 (PC 기본) */
     .inline-blank-input {
       display: inline-flex;
       align-items: center;
@@ -293,7 +292,6 @@
       border-color: #f97373;
     }
 
-    /* 확인 버튼: 민트색 (#9AD7A0) */
     .typing-check-btn {
       padding: 10px 18px;
       border-radius: 999px;
@@ -511,7 +509,7 @@
       color: #ef4444;
     }
 
-    /* 📱 모바일 */
+    /* 📱 모바일 전용 스타일 */
     @media (max-width: 600px) {
       .card {
         padding: 24px 18px 20px;
@@ -576,7 +574,7 @@
     <button class="mode-tab" data-mode="blank">🧩 빈칸 완성</button>
     <button class="mode-tab" data-mode="order">🔀 문장 배열</button>
     <button class="mode-tab" data-mode="type">⌨ 문장 완성</button>
-    <button class="mode-tab active" data-mode="choice">문장 고르기</button>
+    <button class="mode-tab" data-mode="choice">문장 고르기</button>
   </div>
 
   <div class="card">
@@ -614,7 +612,7 @@ mainTitle.textContent = `문장 학습 3단계 ${unitKey}`;
 const SENTENCE_DB  = window.SENTENCE_DB || {};
 const allQuestions = SENTENCE_DB[unitKey] || [];
 
-/* type: blank / order / type / choice */
+// type: blank / order / type / choice
 const questionsByType = { blank: [], order: [], type: [], choice: [] };
 
 allQuestions.forEach(q => {
@@ -624,7 +622,7 @@ allQuestions.forEach(q => {
   }
 });
 
-/* 기본 모드는 문장 고르기 */
+// 기본 모드를 choice(문장 고르기)로
 let currentMode = "choice";
 const modeIndex = { blank: 0, order: 0, type: 0, choice: 0 };
 
@@ -639,7 +637,7 @@ function shuffle(arr) {
   return a;
 }
 
-/* 타이머: setTimeout + setInterval 둘 다 관리 */
+/* 타이머(기존 + choice용 interval까지 관리) */
 let activeTimers = [];
 let activeIntervals = [];
 
@@ -688,9 +686,8 @@ function renderNoQuestion() {
 const CIRCLED_NUMS = ["①", "②", "③", "④"];
 
 function enqueueRetryQuestion(type, q) {
-  if (!q._retryAddedFor) q._retryAddedFor = {};
-  if (q._retryAddedFor[type]) return;
-  q._retryAddedFor[type] = true;
+  if (q._retryAdded) return;
+  q._retryAdded = true;
   questionsByType[type].push(q);
 }
 
@@ -782,7 +779,6 @@ function renderBlankQuestion(q, idx, total) {
     };
   });
 
-  /* 1단계에서는 15초 뒤 자동 공개 */
   setTimer(() => {
     if (answered) return;
     answered = true;
@@ -876,9 +872,9 @@ function renderOrderQuestion(q, idx, total) {
 
         if (word === expected) {
           const slot = slots[currentIndex];
-          slot.textContent = word;
-          slot.style.background  = "#d6e8ff";
-          slot.style.borderColor = "#5c9dff";
+          slot.textContent      = word;
+          slot.style.background = "#d6e8ff";
+          slot.style.borderColor= "#5c9dff";
 
           pool.splice(i, 1);
           currentIndex++;
@@ -897,8 +893,8 @@ function renderOrderQuestion(q, idx, total) {
           chip.style.borderColor = "#f97373";
           hintDiv.textContent    = "해당 위치에 들어갈 단어가 아니에요.";
 
-          if (!q._countedWrongOrder) {
-            q._countedWrongOrder = true;
+          if (!q._countedWrong) {
+            q._countedWrong = true;
             wrongQuestions.order.push(q);
             enqueueRetryQuestion("order", q);
           }
@@ -914,7 +910,6 @@ function renderOrderQuestion(q, idx, total) {
     });
   }
 
-  /* 30초 지나면 정답 공개 + 다시 풀기 큐 */
   setTimer(() => {
     if (finished) return;
     finished = true;
@@ -1125,9 +1120,8 @@ function renderTypeQuestion(q, idx, total) {
 
 /* ========== (4) 문장 고르기 (2분 타이머) ========== */
 /* - 2분 카운트다운
-   - 틀리면 힌트만, 정답 나올 때까지 계속 선택 가능
-   - 한 번이라도 틀리면 다시 풀기 큐에 넣음
-   - 시간 끝나면 정답만 표시 + 다시 풀기 큐 + 다음 문제로 이동
+   - 틀리면 힌트만, 정답 나올 때까지 계속 선택
+   - 한 번이라도 틀리거나 시간초과 → 다시 풀기 큐에 추가
 */
 function renderChoiceQuestion(q, idx, total) {
   clearTimers();
@@ -1137,7 +1131,6 @@ function renderChoiceQuestion(q, idx, total) {
   const options = q.options || [];
   const correctIndex = typeof q.answerIndex === "number" ? q.answerIndex : 0;
 
-  // 상단: Q번호 + 질문 + 타이머
   const header = document.createElement("div");
   header.className = "choice-header";
   centerArea.appendChild(header);
@@ -1170,7 +1163,6 @@ function renderChoiceQuestion(q, idx, total) {
   timerValue.textContent = "02:00";
   timerPill.appendChild(timerValue);
 
-  // 보기들
   const outer = document.createElement("div");
   outer.className = "choice-outer";
   centerArea.appendChild(outer);
@@ -1222,6 +1214,7 @@ function renderChoiceQuestion(q, idx, total) {
       if (answered || timeLeft <= 0) return;
 
       const isCorrect = i === correctIndex;
+
       buttons.forEach(b => b.classList.remove("selected"));
       btn.classList.add("selected");
 
@@ -1236,8 +1229,7 @@ function renderChoiceQuestion(q, idx, total) {
         hadWrong = true;
         resultDiv.textContent = "힌트: 다시 한 번 생각해 보세요.";
         resultDiv.className = "choice-result wrong";
-        // 틀렸으면 다시 풀기 큐에 추가 (한 번만)
-        enqueueRetryQuestion("choice", q);
+        enqueueRetryQuestion("choice", q); // 틀리면 다시 풀기 큐
       }
     };
 
@@ -1252,10 +1244,8 @@ function renderChoiceQuestion(q, idx, total) {
     timeLeft -= 1;
     if (timeLeft <= 0) {
       timeLeft = 0;
-      updateTimerView();
-    } else {
-      updateTimerView();
     }
+    updateTimerView();
   }, 1000);
 
   // 2분 지나면 정답 공개 + 다시 풀기 큐 + 자동 다음
@@ -1267,7 +1257,7 @@ function renderChoiceQuestion(q, idx, total) {
       btn.classList.add("disabled");
       btn.disabled = true;
       if (i === correctIndex) {
-        btn.classList.add("correct");
+        btn.classList.add("selected");
       }
     });
 
