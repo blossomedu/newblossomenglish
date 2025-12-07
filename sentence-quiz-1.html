@@ -107,12 +107,10 @@
 
     /* ===== 빈칸 완성 4지선다 레이아웃 ===== */
 
-    /* 연보라 큰 박스 */
     .blank-choice-area {
       min-height: 140px;
       background: #eef4ff;
       border-radius: 22px;
-      /* 🔥 안쪽 위·아래 여백 = 24px */
       padding: 24px 26px;
       display: flex;
       align-items: center;
@@ -120,12 +118,10 @@
       margin-top: 18px;
     }
 
-    /* 2×2 그리드 */
     .choices-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
-      /* 🔥 보기 1·2행 사이 간격도 24px */
-      gap: 24px 20px;  /* row 24px, column 20px */
+      gap: 24px 20px;
       width: 100%;
       max-width: 520px;
     }
@@ -141,7 +137,7 @@
       cursor: pointer;
       text-align: left;
       transition: all 0.15s ease;
-      white-space: nowrap; /* 모바일에서 ② watches 한 줄 유지 */
+      white-space: nowrap;
     }
 
     .choice-btn:hover {
@@ -268,6 +264,20 @@
       }
       .word-chip {
         font-size: 18px;
+      }
+
+      /* 문장 배열: 모바일에서 슬롯 3개 + 글자 살짝 작게 */
+      .answer-row {
+        padding: 16px 16px;
+        gap: 10px;
+        justify-content: flex-start;
+      }
+
+      .answer-row > div {
+        flex: 0 0 calc((100% - 20px) / 3);
+        max-width: calc((100% - 20px) / 3);
+        min-width: 0;
+        font-size: 16px !important;
       }
     }
   </style>
@@ -428,7 +438,7 @@ function goNext() {
 }
 
 /* ===========================================================
-   (1) 빈칸 완성 – 4지선다 보라색 박스
+   (1) 빈칸 완성 – 4지선다
 =========================================================== */
 function renderBlankQuestion(q, idx, total) {
   clearTimers();
@@ -447,12 +457,10 @@ function renderBlankQuestion(q, idx, total) {
   );
   centerArea.appendChild(sDiv);
 
-  // 보라색 큰 박스
   const choiceArea = document.createElement("div");
   choiceArea.className = "blank-choice-area";
   centerArea.appendChild(choiceArea);
 
-  // 2×2 그리드
   const grid = document.createElement("div");
   grid.className = "choices-grid";
   choiceArea.appendChild(grid);
@@ -495,7 +503,7 @@ function renderBlankQuestion(q, idx, total) {
     };
   });
 
-  // 15초 지나면 자동 정답 공개
+  // 15초 지나면 자동 정답 공개 + 다시 풀기 큐에 추가
   setTimer(() => {
     if (answered) return;
     answered = true;
@@ -507,6 +515,8 @@ function renderBlankQuestion(q, idx, total) {
     hintDiv.textContent = "시간이 지나 정답이 공개되었습니다.";
     expDiv.textContent = q.explanation || "";
 
+    enqueueRetryQuestion("blank", q);
+
     setTimer(goNext, 1500);
   }, 15000);
 
@@ -514,20 +524,18 @@ function renderBlankQuestion(q, idx, total) {
 }
 
 /* ===========================================================
-   (2) 문장 배열 (order) – 슬롯 여러 개 + 자동 채점
+   (2) 문장 배열 (order)
 =========================================================== */
 function renderOrderQuestion(q, idx, total) {
   clearTimers();
   clearCenter();
 
-  // 문제 문장
   const qDiv = document.createElement("div");
   qDiv.className = "question-text";
   qDiv.textContent =
     q.question || "다음 단어를 바르게 배열하여 문장을 만드시오.";
   centerArea.appendChild(qDiv);
 
-  // 한국어 해석
   if (q.meaningKo) {
     const ko = document.createElement("div");
     ko.className = "sentence-en";
@@ -537,18 +545,16 @@ function renderOrderQuestion(q, idx, total) {
     centerArea.appendChild(ko);
   }
 
-  // 정답 문장 → 단어 배열
   const correctWords = (q.answerEn || "")
     .trim()
     .split(" ")
     .map(w => w.trim())
     .filter(Boolean);
 
-  let currentIndex = 0;                      // 지금 채울 칸 번호
+  let currentIndex = 0;
   let finished = false;
-  let pool = shuffle(correctWords.slice());  // 아래 칩들(섞어서 시작)
+  let pool = shuffle(correctWords.slice());
 
-  // 위쪽 "칸칸" 영역
   const answerRow = document.createElement("div");
   answerRow.className = "answer-row";
   centerArea.appendChild(answerRow);
@@ -556,8 +562,6 @@ function renderOrderQuestion(q, idx, total) {
   const slots = [];
   correctWords.forEach(() => {
     const slot = document.createElement("div");
-
-    // 흰색 슬롯 박스
     slot.style.minWidth       = "80px";
     slot.style.minHeight      = "44px";
     slot.style.borderRadius   = "999px";
@@ -568,13 +572,11 @@ function renderOrderQuestion(q, idx, total) {
     slot.style.justifyContent = "center";
     slot.style.fontSize       = "20px";
     slot.style.fontWeight     = "500";
-
     slot.textContent = "";
     answerRow.appendChild(slot);
     slots.push(slot);
   });
 
-  // 아래 단어 칩 영역
   const chipsWrap = document.createElement("div");
   chipsWrap.className = "word-chips";
   centerArea.appendChild(chipsWrap);
@@ -595,27 +597,24 @@ function renderOrderQuestion(q, idx, total) {
         if (finished) return;
 
         const expected = correctWords[currentIndex];
-        if (!expected) return; // 이미 다 채워졌으면 무시
+        if (!expected) return;
 
         if (word === expected) {
-          // ✅ 맞는 단어 → 현재 슬롯에 들어감
           const slot = slots[currentIndex];
           slot.textContent = word;
           slot.style.background  = "#d6e8ff";
           slot.style.borderColor = "#5c9dff";
 
-          pool.splice(i, 1);   // 아래 칩 목록에서 제거
+          pool.splice(i, 1);
           currentIndex++;
           refreshChips();
 
-          // 모든 슬롯이 채워졌으면 자동으로 다음 문제
           if (currentIndex >= correctWords.length) {
             finished = true;
             hintDiv.textContent = "정답입니다!";
             setTimer(goNext, 1000);
           }
         } else {
-          // ❌ 틀린 단어 → 슬롯에는 안 들어가고 칩만 잠깐 빨갛게
           const originalBg     = chip.style.background;
           const originalBorder = chip.style.borderColor;
 
@@ -623,10 +622,10 @@ function renderOrderQuestion(q, idx, total) {
           chip.style.borderColor = "#f97373";
           hintDiv.textContent    = "해당 위치에 들어갈 단어가 아니에요.";
 
-          // 오답 한 번만 저장
           if (!q._countedWrong) {
             q._countedWrong = true;
             wrongQuestions.order.push(q);
+            enqueueRetryQuestion("order", q);  // 틀린 문제 다시 큐에
           }
 
           setTimeout(() => {
@@ -640,7 +639,7 @@ function renderOrderQuestion(q, idx, total) {
     });
   }
 
-  // ⏱ 30초 동안 완성 못 하면 정답 공개 후 5초 뒤 다음 문제
+  // 30초 지나면 정답 공개 + 다시 풀기 큐에 추가
   setTimer(() => {
     if (finished) return;
     finished = true;
@@ -651,8 +650,10 @@ function renderOrderQuestion(q, idx, total) {
       slot.style.background = "#e5f3ff";
       slot.style.borderColor= "#9cc4ff";
     });
-    chipsWrap.innerHTML = ""; // 칩 제거 (word-chips에 min-height 있어서 높이 유지)
+    chipsWrap.innerHTML = "";
     hintDiv.textContent = "(시간이 지나 정답이 공개되었습니다.)";
+
+    enqueueRetryQuestion("order", q);
 
     setTimer(goNext, 5000);
   }, 30000);
@@ -691,7 +692,6 @@ function renderCurrent() {
     return;
   }
 
-  // 처음 들어올 때만 섞기
   if (modeIndex[currentMode] === 0 && !list._shuffled) {
     questionsByType[currentMode] = shuffle(list);
     questionsByType[currentMode]._shuffled = true;
@@ -703,9 +703,8 @@ function renderCurrent() {
   renderQuestionObj(q, currentMode);
 }
 
-/* ===========================================================
-   탭 전환 / 버튼
-=========================================================== */
+/* 탭/버튼 이벤트 */
+
 modeTabs.forEach(tab => {
   tab.onclick = () => {
     currentMode = tab.dataset.mode;
