@@ -445,7 +445,7 @@
     }
   }
 
-  // === TTS(음성) 관련: 가장 안정적인 방식 (영어만, 2번, 0.8배속) ===
+  // === TTS(음성) 관련: 영어만, 2번, 0.8배속, 사이 간격 1초 ===
   let TTS_VOICES = [];
 
   function loadVoices() {
@@ -483,7 +483,7 @@
     return enVoices[0];
   }
 
-  // ✅ 단어를 한 번의 Utterance로 2번 읽기 (모든 플랫폼에서 가장 단순하고 안정적인 방식)
+  // ✅ 단어를 두 Utterance로 2번 읽기 (중간에 1초 쉬기)
   function speakWordTwice(word, cb) {
     const synth = window.speechSynthesis;
     if (!synth) {
@@ -497,22 +497,39 @@
       console.error(e);
     }
 
-    const textToSpeak = word + ". " + word + ".";
-    const utter = new SpeechSynthesisUtterance(textToSpeak);
-    utter.lang = "en-US";
+    const u1 = new SpeechSynthesisUtterance(word);
+    const u2 = new SpeechSynthesisUtterance(word);
+
+    u1.lang = "en-US";
+    u2.lang = "en-US";
 
     const voice = getEnglishVoice();
-    if (voice) utter.voice = voice;
+    if (voice) {
+      u1.voice = voice;
+      u2.voice = voice;
+    }
 
-    // 요청: 지금보다 느리게 → 0.8배속
-    utter.rate = 0.8;
+    u1.rate = 0.8;
+    u2.rate = 0.8;
 
-    utter.onend = function () {
+    u1.onend = function () {
+      // 1초(1000ms) 쉰 후 두 번째 발음
+      setTimeout(function () {
+        try {
+          synth.speak(u2);
+        } catch (e) {
+          console.error(e);
+          if (cb) cb();
+        }
+      }, 1000);
+    };
+
+    u2.onend = function () {
       if (cb) cb();
     };
 
     try {
-      synth.speak(utter);
+      synth.speak(u1);
     } catch (e) {
       console.error(e);
       if (cb) cb();
@@ -550,7 +567,7 @@
       '<div class="example-ko">' + item.exampleKo + "</div>";
     setProgress(currentIndex + 1, wordCount);
 
-    // 영어 단어만 2번(0.8배속) 읽음
+    // 영어 단어만 2번(0.8배속, 1초 간격) 읽음
     speakWordTwice(item.word, function () {
       if (currentMode !== "study") return;
       currentIndex = (currentIndex + 1) % wordCount;
@@ -566,7 +583,7 @@
     const commaIndex = txt.indexOf(",");
     if (commaIndex === -1) return txt;
 
-    return txt.slice(0, commaIndex + 1) + "\n" + txt.slice( commaIndex + 1 ).trim();
+    return txt.slice(0, commaIndex + 1) + "\n" + txt.slice(commaIndex + 1).trim();
   }
 
   function makeChoices(correctIdx) {
@@ -670,7 +687,7 @@
 
     setProgress(Math.min(quizPos + 1, wordCount), wordCount);
     if (type === "listening") {
-      // 듣고 찾기 모드에서도 영어 단어만 2번 읽기
+      // 듣고 찾기 모드에서도 영어 단어만 동일하게 2번 재생
       speakWordTwice(item.word, null);
     }
 
