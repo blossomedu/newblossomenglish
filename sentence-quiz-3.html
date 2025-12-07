@@ -56,16 +56,16 @@
     }
 
     .mode-tab.active {
+      background: #00AEEF;
       color: #ffffff;
       box-shadow: 0 12px 25px rgba(0, 174, 239, 0.35);
     }
 
     /* 1,2,3,4번째 탭 색 */
-    .mode-tab:nth-child(1).active { background: #00AEEF; }
-    .mode-tab:nth-child(2).active { background: #FF6FB5; }
-    .mode-tab:nth-child(3).active { background: #00AEEF; }
-    /* 🔥 문장 고르기 탭도 핑크(돌아가기와 동일 계열) */
-    .mode-tab:nth-child(4).active { background: #FF6FB5; }
+    .mode-tab:nth-child(1).active { background: #00AEEF; color: #fff; }
+    .mode-tab:nth-child(2).active { background: #FF6FB5; color: #fff; }
+    .mode-tab:nth-child(3).active { background: #00AEEF; color: #fff; }
+    .mode-tab:nth-child(4).active { background: #FF6FB5; color: #fff; }
 
     .card {
       background: #ffffff;
@@ -350,20 +350,12 @@
     }
 
     .nav-pill {
-      padding: 9px 20px;
+      padding: 9px 18px;
       border-radius: 999px;
       border: none;
       font-size: 14px;
       cursor: pointer;
       white-space: nowrap;
-      min-width: 80px;
-      text-align: center;
-    }
-
-    /* 🔥 Home / 다시 풀기 / 돌아가기 색 구분 */
-    .pill-home {
-      background: #9AD7A0;
-      color: #ffffff;
     }
 
     .pill-reset {
@@ -391,6 +383,7 @@
       gap: 4px;
     }
 
+    /* Q 라벨은 더 이상 안 쓰지만, 혹시 나중에 쓸 수도 있으니 남겨둠 */
     .choice-q-label {
       font-size: 13px;
       font-weight: 600;
@@ -403,9 +396,31 @@
       color: #111827;
     }
 
-    /* 타이머 pill는 UI에서 제거했지만, 클래스는 남겨둠 (혹시 나중에 쓸 때용) */
     .choice-timer-pill {
-      display: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      border-radius: 999px;
+      background: #e5e7eb;
+      padding: 6px 14px;
+    }
+
+    .choice-timer-label {
+      font-size: 11px;
+      font-weight: 600;
+      color: #6b7280;
+    }
+
+    .choice-timer-value {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+        "Liberation Mono", "Courier New", monospace;
+      font-size: 16px;
+      font-weight: 700;
+      color: #111827;
+    }
+
+    .choice-timer-value.danger {
+      color: #ef4444;
     }
 
     .choice-outer {
@@ -426,28 +441,25 @@
       display: flex;
       align-items: center;
       border-radius: 999px;
-      border: 1.5px solid #fbd2ea; /* 연한 핑크 테두리 */
+      border: 1.5px solid #d0d7e6;   /* 기본은 회색 테두리 */
       background: #ffffff;
       padding: 14px 20px;
       font-size: 16px;
       cursor: pointer;
       text-align: left;
-      box-shadow: 0 12px 28px rgba(15, 23, 42, 0.08);
+      box-shadow: 0 12px 28px rgba(15, 23, 42, 0.12);
       transition: all 0.15s ease;
-      color: #111827;
     }
 
     .choice-option-btn:hover {
-      border-color: #FF6FB5;
-      box-shadow: 0 16px 34px rgba(15, 23, 42, 0.16);
+      border-color: #8ab4ff;
+      box-shadow: 0 16px 34px rgba(15, 23, 42, 0.18);
       transform: translateY(-1px);
     }
 
     .choice-option-btn.selected {
-      border-color: #FF6FB5;
-      background: #FF6FB5;  /* 선택 시 돌아가기와 같은 핑크 */
-      color: #ffffff;
-      box-shadow: 0 16px 34px rgba(249, 111, 181, 0.35);
+      border-color: #FF6FB5; /* 선택됐을 때만 핑크 */
+      box-shadow: 0 0 0 2px rgba(255, 111, 181, 0.35);
     }
 
     .choice-option-btn.disabled {
@@ -456,26 +468,26 @@
       transform: none;
     }
 
-    /* 🔥 번호 동그라미: 빈칸 완성과 통일 (그냥 ①②③④ 폰트) */
     .choice-option-number {
       flex-shrink: 0;
-      margin-right: 10px;
-      font-size: 18px;
-      font-weight: 400;
-      color: inherit;
-      width: auto;
-      height: auto;
-      border: none;
-      background: transparent;
+      width: 42px;
+      height: 42px;
+      border-radius: 999px;
+      border: 1.5px solid #d0d7e6;
+      background: #ffffff;
       display: flex;
       align-items: center;
       justify-content: center;
+      margin-right: 16px;
+      font-size: 16px;
+      font-weight: 600;
+      color: #374151;
     }
 
     .choice-option-text {
       flex: 1;
       line-height: 1.5;
-      color: inherit;
+      color: #111827;
     }
 
     .choice-result {
@@ -546,8 +558,10 @@
       }
 
       .choice-option-number {
-        margin-right: 8px;
-        font-size: 16px;
+        width: 38px;
+        height: 38px;
+        margin-right: 12px;
+        font-size: 14px;
       }
     }
   </style>
@@ -569,10 +583,6 @@
     <div class="bottom-bar">
       <div id="progressText">0 / 0</div>
       <div class="bottom-right">
-        <!-- 🔥 Home 추가 + 세 버튼 모두 nav-pill 사용 -->
-        <button type="button" class="nav-pill pill-home" id="homeBtn">
-          Home
-        </button>
         <button type="button" class="nav-pill pill-reset" id="modeResetBtn">
           다시 풀기
         </button>
@@ -597,7 +607,6 @@ const progressText   = document.getElementById("progressText");
 const modeTabs       = document.querySelectorAll(".mode-tab");
 const modeResetBtn   = document.getElementById("modeResetBtn");
 const backToUnitsBtn = document.getElementById("backToUnitsBtn");
-const homeBtn        = document.getElementById("homeBtn");
 
 mainTitle.textContent = `문장 학습 3단계 ${unitKey}`;
 
@@ -708,7 +717,7 @@ function goNext() {
   }
 }
 
-/* ========== (1) 빈칸 완성 ========== */
+/* ========== (1) 빈칸 완성 (원래 코드) ========== */
 function renderBlankQuestion(q, idx, total) {
   clearTimers();
   clearCenter();
@@ -791,7 +800,7 @@ function renderBlankQuestion(q, idx, total) {
   setProgress(idx, total);
 }
 
-/* ========== (2) 문장 배열 ========== */
+/* ========== (2) 문장 배열 (원래 코드) ========== */
 function renderOrderQuestion(q, idx, total) {
   clearTimers();
   clearCenter();
@@ -925,7 +934,7 @@ function renderOrderQuestion(q, idx, total) {
   setProgress(idx, total);
 }
 
-/* ========== (3) 문장 완성(타이핑) ========== */
+/* ========== (3) 문장 완성(타이핑) (원래 코드) ========== */
 function renderTypeQuestion(q, idx, total) {
   clearTimers();
   clearCenter();
@@ -1111,7 +1120,7 @@ function renderTypeQuestion(q, idx, total) {
   setProgress(idx, total);
 }
 
-/* ========== (4) 문장 고르기 (UI 수정 버전, 시간 제한 2분 유지) ========== */
+/* ========== (4) 문장 고르기 (2분 타이머) ========== */
 function renderChoiceQuestion(q, idx, total) {
   clearTimers();
   clearCenter();
@@ -1129,15 +1138,25 @@ function renderChoiceQuestion(q, idx, total) {
   left.className = "choice-header-left";
   header.appendChild(left);
 
-  const qLabel = document.createElement("div");
-  qLabel.className = "choice-q-label";
-  qLabel.textContent = `Q${idx + 1}`;
-  left.appendChild(qLabel);
-
+  // ✅ Q1 라벨 제거, 문제 문장만 표시
   const qTitle = document.createElement("div");
   qTitle.className = "choice-q-title";
   qTitle.textContent = questionText;
   left.appendChild(qTitle);
+
+  const timerPill = document.createElement("div");
+  timerPill.className = "choice-timer-pill";
+  header.appendChild(timerPill);
+
+  const timerLabel = document.createElement("span");
+  timerLabel.className = "choice-timer-label";
+  timerLabel.textContent = "남은 시간";
+  timerPill.appendChild(timerLabel);
+
+  const timerValue = document.createElement("span");
+  timerValue.className = "choice-timer-value";
+  timerValue.textContent = "02:00";
+  timerPill.appendChild(timerValue);
 
   const outer = document.createElement("div");
   outer.className = "choice-outer";
@@ -1152,6 +1171,20 @@ function renderChoiceQuestion(q, idx, total) {
   centerArea.appendChild(resultDiv);
 
   let answered = false;
+  let timeLeft = 120;
+
+  function formatTime(sec) {
+    const m = Math.floor(sec / 60);
+    const s = sec % 60;
+    return `${String(m).padStart(2, "0")}:${String(s).padStart(2, "0")}`;
+  }
+
+  function updateTimerView() {
+    timerValue.textContent = formatTime(timeLeft);
+    if (timeLeft <= 10) {
+      timerValue.classList.add("danger");
+    }
+  }
 
   const buttons = [];
 
@@ -1163,7 +1196,7 @@ function renderChoiceQuestion(q, idx, total) {
 
     const num = document.createElement("div");
     num.className = "choice-option-number";
-    num.textContent = CIRCLED_NUMS[i] || String(i + 1);
+    num.textContent = CIRCLED_NUMS[i] || String(i + 1); // ①②③④
     btn.appendChild(num);
 
     const spanText = document.createElement("div");
@@ -1172,7 +1205,7 @@ function renderChoiceQuestion(q, idx, total) {
     btn.appendChild(spanText);
 
     btn.onclick = () => {
-      if (answered) return;
+      if (answered || timeLeft <= 0) return;
 
       const isCorrect = i === correctIndex;
 
@@ -1188,7 +1221,7 @@ function renderChoiceQuestion(q, idx, total) {
       } else {
         resultDiv.textContent = "힌트: 다시 한 번 생각해 보세요.";
         resultDiv.className = "choice-result wrong";
-        enqueueRetryQuestion("choice", q);
+        enqueueRetryQuestion("choice", q); // 틀린 문제는 큐 뒤로
       }
     };
 
@@ -1196,7 +1229,16 @@ function renderChoiceQuestion(q, idx, total) {
     buttons.push(btn);
   });
 
-  // 2분 지나면 정답 공개 + 다시 풀기 큐 + 자동 다음 (UI에 타이머는 안 보임)
+  // 2분 카운트다운
+  updateTimerView();
+  setIntervalTimer(() => {
+    if (answered) return;
+    timeLeft -= 1;
+    if (timeLeft < 0) timeLeft = 0;
+    updateTimerView();
+  }, 1000);
+
+  // 2분 지나면 정답 공개 + 다시 풀기 큐 + 자동 다음
   setTimer(() => {
     if (answered) return;
     answered = true;
@@ -1284,13 +1326,6 @@ modeResetBtn.onclick = () => {
 backToUnitsBtn.onclick = () => {
   clearTimers();
   window.history.back();
-};
-
-/* 🔥 Home 버튼: 홈 URL은 상황에 맞게 수정해서 사용해도 됨 */
-homeBtn.onclick = () => {
-  clearTimers();
-  // TODO: 실제 홈 페이지 URL에 맞게 수정하세요.
-  window.location.href = "index.html";
 };
 
 renderCurrent();
