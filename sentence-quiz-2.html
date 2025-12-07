@@ -381,24 +381,43 @@
       .card {
         padding: 24px 18px 20px;
       }
+
       .sentence-en {
         font-size: 21px;
       }
+
       .choice-btn {
         font-size: 16px;
         min-height: 48px;
       }
+
       .word-chip {
         font-size: 18px;
       }
+
       .typing-sentence-box {
         font-size: 20px;
       }
+
       .inline-blank-input {
         font-size: 18px;
-        min-width: 70px;   /* 👈 모바일에서만 가로길이 더 작게 */
+        min-width: 70px;   /* 모바일에서만 더 컴팩트 */
         height: 36px;
         padding: 0 10px;
+      }
+
+      /* 👉 문장 배열: 모바일에서는 위 칸을 한 줄에 3개 + 글자 조금 작게 */
+      .answer-row {
+        padding: 16px 16px;
+        gap: 10px;
+        justify-content: flex-start;
+      }
+
+      .answer-row > div {
+        flex: 0 0 calc((100% - 20px) / 3);   /* (gap 10px * 2) 빼고 3등분 */
+        max-width: calc((100% - 20px) / 3);
+        min-width: 0;
+        font-size: 16px !important;          /* 아래 칩보다 살짝 작게 */
       }
     }
   </style>
