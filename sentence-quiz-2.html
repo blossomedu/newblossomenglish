@@ -931,6 +931,7 @@ function renderTypeQuestion(q, idx, total) {
       if (!q._countedWrong) {
         q._countedWrong = true;
         wrongQuestions.type.push(q);
+        enqueueRetryQuestion("type", q); // ★ 문장 완성도 다시 나오게
       }
     }
   }
