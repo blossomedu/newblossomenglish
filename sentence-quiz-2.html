@@ -260,13 +260,13 @@
       margin-top: 16px;
     }
 
-    /* 문장 안에 들어가는 단어 빈칸 인풋 */
+    /* 문장 안에 들어가는 단어 빈칸 인풋 (PC 기본) */
     .inline-blank-input {
       display: inline-flex;
       align-items: center;
       justify-content: center;
 
-      min-width: 130px;
+      min-width: 100px;
       height: 40px;
       padding: 0 12px;
 
@@ -376,6 +376,7 @@
       color: #ffffff;
     }
 
+    /* 📱 모바일 전용 스타일 */
     @media (max-width: 600px) {
       .card {
         padding: 24px 18px 20px;
@@ -395,7 +396,9 @@
       }
       .inline-blank-input {
         font-size: 18px;
+        min-width: 70px;   /* 👈 모바일에서만 가로길이 더 작게 */
         height: 36px;
+        padding: 0 10px;
       }
     }
   </style>
@@ -1006,4 +1009,3 @@ renderCurrent();
 </script>
 </body>
 </html>
-
