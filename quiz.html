@@ -156,7 +156,7 @@
     /* ✅ 보기 버튼: 항상 같은 높이 + 가운데 정렬 */
     .choice-btn {
       width: 100%;
-      height: 72px;             /* 모든 보기 높이를 고정 */
+      height: 72px;
       padding: 8px 16px;
       border-radius: 18px;
       border: 1px solid #e5e7eb;
@@ -164,9 +164,9 @@
       font-size: 16px;
       cursor: pointer;
       transition: all 0.12s ease;
-      word-break: keep-all;     /* 단어 중간에서 안 끊기게 */
-      white-space: pre-line;    /* \n 을 실제 줄바꿈으로 표시 */
-      display: flex;            /* 세로 가운데 정렬 */
+      word-break: keep-all;
+      white-space: pre-line;
+      display: flex;
       align-items: center;
       justify-content: center;
       text-align: center;
@@ -301,6 +301,11 @@
     "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJwZGlzeGpoaGlicmdmcHZ0bG12Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjM5NTkxODQsImV4cCI6MjA3OTUzNTE4NH0.jDZ6BGirOPuWUnt4ykjhng4PLft2ZjBuYAFzApUnlYU";
   const client = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
+  // 플랫폼 체크 (맥 / iOS 구분)
+  const UA = navigator.userAgent || "";
+  const IS_IOS = /iPhone|iPad|iPod/.test(UA);
+  const IS_MAC = !IS_IOS && /Macintosh|Mac OS X|Mac OS/.test(UA);
+
   // 학생 정보
   let currentStudentLoginId = null;
   (function loadStudent() {
@@ -353,10 +358,14 @@
   function setProgress(current, total) {
     progressText.textContent = `${current} / ${total}`;
   }
+
   function stopSpeech() {
     const synth = window.speechSynthesis;
-    if (synth && (synth.speaking || synth.pending)) synth.cancel();
+    if (synth && (synth.speaking || synth.pending)) {
+      try { synth.cancel(); } catch (e) { console.error(e); }
+    }
   }
+
   function shuffleArray(arr) {
     const a = arr.slice();
     for (let i = a.length - 1; i > 0; i--) {
@@ -375,6 +384,7 @@
     quizPos = 0;
     quizFinished = false;
   }
+
   function resetSentenceFlow() {
     if (!wordCount) return;
     const base = [];
@@ -427,18 +437,105 @@
     }
   }
 
+  // === TTS(음성) 관련: 맥 / iOS 보완 ===
+  let TTS_VOICES = [];
+
+  function loadVoices() {
+    const synth = window.speechSynthesis;
+    if (!synth) return;
+    const voices = synth.getVoices();
+    if (voices && voices.length) {
+      TTS_VOICES = voices;
+    }
+  }
+
+  function getEnglishVoice() {
+    const synth = window.speechSynthesis;
+    if (!synth) return null;
+
+    const voices = (TTS_VOICES && TTS_VOICES.length)
+      ? TTS_VOICES
+      : synth.getVoices();
+
+    if (!voices || !voices.length) return null;
+
+    const enVoices = voices.filter(v =>
+      v.lang && v.lang.toLowerCase().startsWith("en")
+    );
+    if (!enVoices.length) return null;
+
+    const preferredNames = ["Samantha", "Alex", "Daniel", "Karen", "Moira", "Google US English"];
+    for (const name of preferredNames) {
+      const found = enVoices.find(v => v.name.indexOf(name) !== -1);
+      if (found) return found;
+    }
+    return enVoices[0];
+  }
+
+  // 단어 두 번 읽기 (iOS 에서는 1번만 안정적으로 읽도록)
   function speakWordTwice(word, cb) {
     const synth = window.speechSynthesis;
-    if (!synth) { if (cb) cb(); return; }
-    synth.cancel();
-    const u1 = new SpeechSynthesisUtterance(word);
-    const u2 = new SpeechSynthesisUtterance(word);
-    u1.lang = "en-US"; u2.lang = "en-US";
-    u1.rate = 0.9;     u2.rate = 0.9;
-    u1.onend = () => setTimeout(() => synth.speak(u2), 1000);
-    u2.onend = () => { if (cb) setTimeout(cb, 2600); };
-    synth.speak(u1);
+    if (!synth) {
+      if (cb) cb();
+      return;
+    }
+
+    try {
+      synth.cancel();
+    } catch (e) {
+      console.error(e);
+    }
+
+    // iOS: 한 번만, 그 외: "word. word." 형태로 두 번
+    const textToSpeak = IS_IOS ? word : `${word}. ${word}.`;
+    const utter = new SpeechSynthesisUtterance(textToSpeak);
+    utter.lang = "en-US";
+
+    const voice = getEnglishVoice();
+    if (voice) utter.voice = voice;
+
+    utter.rate = IS_MAC ? 0.85 : 0.9;
+
+    utter.onend = function () {
+      if (cb) cb();
+    };
+
+    try {
+      synth.speak(utter);
+    } catch (e) {
+      console.error(e);
+      if (cb) cb();
+    }
   }
+
+  // 음성 엔진/voice 미리 로딩
+  (function initTTS() {
+    if (!("speechSynthesis" in window)) return;
+    const synth = window.speechSynthesis;
+
+    loadVoices();
+    if (typeof synth.onvoiceschanged !== "undefined") {
+      synth.onvoiceschanged = loadVoices;
+    }
+
+    // iOS에서는 preload용 speak 호출도 생략 (튐 방지)
+    if (!IS_IOS) {
+      window.addEventListener("load", function () {
+        try {
+          loadVoices();
+          const pre = new SpeechSynthesisUtterance("check");
+          pre.lang = "en-US";
+          const v = getEnglishVoice();
+          if (v) pre.voice = v;
+          pre.volume = 0; // 사용자에게 들리지 않게
+          synth.speak(pre);
+        } catch (e) {
+          console.error(e);
+        }
+      });
+    }
+  })();
+  // === TTS 설정 끝 ===
 
   function renderStudy() {
     stopSpeech();
@@ -447,6 +544,7 @@
 
     if (!words.length) {
       centerArea.textContent = "단어가 없습니다.";
+      setProgress(0, 0);
       return;
     }
     const item = words[currentIndex];
@@ -457,7 +555,8 @@
       <div class="example-en">${item.exampleEn}</div>
       <div class="example-ko">${item.exampleKo}</div>`;
     setProgress(currentIndex + 1, wordCount);
-    speakWordTwice(item.word, () => {
+
+    speakWordTwice(item.word, function () {
       if (currentMode !== "study") return;
       currentIndex = (currentIndex + 1) % wordCount;
       renderStudy();
@@ -467,27 +566,32 @@
   // --- 보기 텍스트 포맷: 9자 이상 + 쉼표 있으면 쉼표 뒤에서 줄바꿈 (쉼표는 유지) ---
   function formatChoiceText(txt) {
     const MAX_LEN = 9;
-
     if (txt.length < MAX_LEN) return txt;
 
     const commaIndex = txt.indexOf(",");
     if (commaIndex === -1) return txt;
 
-    // "행동하다, 연기하다" → "행동하다,\n연기하다"
     return txt.slice(0, commaIndex + 1) + "\n" + txt.slice(commaIndex + 1).trim();
   }
 
   function makeChoices(correctIdx) {
-    const indices = [...Array(wordCount).keys()].filter(i => i !== correctIdx);
+    const indices = [];
+    for (let i = 0; i < wordCount; i++) {
+      if (i !== correctIdx) indices.push(i);
+    }
     for (let i = indices.length - 1; i > 0; i--) {
       const j = Math.floor(Math.random() * (i + 1));
-      [indices[i], indices[j]] = [indices[j], indices[i]];
+      const temp = indices[i];
+      indices[i] = indices[j];
+      indices[j] = temp;
     }
     const pick = indices.slice(0, 3);
-    const all = [correctIdx, ...pick];
+    const all = [correctIdx].concat(pick);
     for (let i = all.length - 1; i > 0; i--) {
       const j = Math.floor(Math.random() * (i + 1));
-      [all[i], all[j]] = [all[j], all[i]];
+      const tmp = all[i];
+      all[i] = all[j];
+      all[j] = tmp;
     }
     return all;
   }
@@ -498,7 +602,10 @@
     centerArea.classList.remove("sentence-mode");
 
     if (!words.length || (!quizQueue.length && !quizFinished)) resetQuizFlow();
-    if (quizFinished) { showQuizFinished(); return; }
+    if (quizFinished) {
+      showQuizFinished();
+      return;
+    }
 
     const qIndex = quizQueue[quizPos];
     const item = words[qIndex];
@@ -506,12 +613,13 @@
     centerArea.dataset.answered = "false";
     
     let questionHtml = "";
-    if (type === "meaning")
-      questionHtml = `<div class="question-title">${item.word}</div>`;
-    else if (type === "english")
-      questionHtml = `<div class="question-title">${item.meaning}</div>`;
-    else if (type === "listening")
-      questionHtml = `<div class="question-title listening-title">발음을 듣고 단어를 고르세요.</div>`;
+    if (type === "meaning") {
+      questionHtml = '<div class="question-title">' + item.word + "</div>";
+    } else if (type === "english") {
+      questionHtml = '<div class="question-title">' + item.meaning + "</div>";
+    } else if (type === "listening") {
+      questionHtml = '<div class="question-title listening-title">발음을 듣고 단어를 고르세요.</div>';
+    }
 
     centerArea.innerHTML = questionHtml;
     const grid = document.createElement("div");
@@ -519,23 +627,26 @@
     centerArea.appendChild(grid);
 
     const choices = makeChoices(qIndex);
-    const normalize = s => (s || "").replace(/\s/g, "");
+    const normalize = function (s) {
+      return (s || "").replace(/\s/g, "");
+    };
 
-    choices.forEach(idx => {
+    choices.forEach(function (idx) {
       const choice = words[idx];
       const btn = document.createElement("button");
       btn.className = "choice-btn";
       
       let btnText = "";
-      if (type === "meaning" || type === "listening")
+      if (type === "meaning" || type === "listening") {
         btnText = choice.meaning;
-      else
+      } else {
         btnText = choice.word;
+      }
 
       btn.innerText = formatChoiceText(btnText);
       grid.appendChild(btn);
       
-      btn.onclick = () => {
+      btn.onclick = function () {
         if (centerArea.dataset.answered === "true") return;
         centerArea.dataset.answered = "true";
         if (answerTimer) clearTimeout(answerTimer);
@@ -545,7 +656,7 @@
           btn.classList.add("correct");
         } else {
           btn.classList.add("wrong");
-          grid.childNodes.forEach(b => {
+          grid.childNodes.forEach(function (b) {
             const correctText =
               (type === "meaning" || type === "listening")
                 ? item.meaning
@@ -556,14 +667,18 @@
           });
         }
         
-        setTimeout(() => goNextQuestion(isCorrect ? null : qIndex), 900);
+        setTimeout(function () {
+          goNextQuestion(isCorrect ? null : qIndex);
+        }, 900);
       };
     });
 
     setProgress(Math.min(quizPos + 1, wordCount), wordCount);
-    if (type === "listening") speakWordTwice(item.word, null);
+    if (type === "listening") {
+      speakWordTwice(item.word, null);
+    }
 
-    answerTimer = setTimeout(() => {
+    answerTimer = setTimeout(function () {
       if (centerArea.dataset.answered === "false") {
         centerArea.dataset.answered = "true";
         goNextQuestion(qIndex);
@@ -574,9 +689,16 @@
   function renderSentenceQuiz() {
     stopSpeech();
     if (answerTimer) clearTimeout(answerTimer);
-    if (!words.length) return;
+    if (!words.length) {
+      centerArea.textContent = "단어가 없습니다.";
+      setProgress(0, 0);
+      return;
+    }
     if (!sentenceOrder.length) resetSentenceFlow();
-    if (sentencePos >= wordCount) { showQuizFinished(); return; }
+    if (sentencePos >= wordCount) {
+      showQuizFinished();
+      return;
+    }
 
     const item = words[sentenceOrder[sentencePos]];
     const blanked = item.exampleEn.replace(new RegExp(item.word, "i"), "____");
@@ -614,25 +736,27 @@
         input.style.borderColor = "#22c55e";
         res.textContent = "정답! 👍";
         hint.textContent = "";
-        setTimeout(() => {
+        setTimeout(function () {
           sentencePos++;
           renderSentenceQuiz();
         }, 900);
       } else {
         input.style.borderColor = "#f97373";
-        hint.textContent = `힌트: "${item.word[0]}"로 시작`;
+        hint.textContent = '힌트: "' + item.word[0] + '"로 시작';
         res.textContent = "다시 해보세요.";
       }
     }
     btn.onclick = check;
-    input.onkeydown = e => { if (e.key === "Enter") check(); };
+    input.onkeydown = function (e) {
+      if (e.key === "Enter") check();
+    };
     input.focus();
   }
 
   function renderCurrent() {
-    modeTabs.forEach(t =>
-      t.classList.toggle("active", t.dataset.mode === currentMode)
-    );
+    modeTabs.forEach(function (t) {
+      t.classList.toggle("active", t.dataset.mode === currentMode);
+    });
     if (currentMode === "study") renderStudy();
     else if (currentMode === "meaning") renderQuizCommon("meaning");
     else if (currentMode === "english") renderQuizCommon("english");
@@ -640,19 +764,19 @@
     else if (currentMode === "sentence") renderSentenceQuiz();
   }
 
-  modeTabs.forEach(tab => {
-    tab.onclick = () => {
+  modeTabs.forEach(function (tab) {
+    tab.onclick = function () {
       stopSpeech();
       if (answerTimer) clearTimeout(answerTimer);
       currentMode = tab.dataset.mode;
       currentIndex = 0;
-      if (AUTO_QUIZ_MODES.includes(currentMode)) resetQuizFlow();
+      if (AUTO_QUIZ_MODES.indexOf(currentMode) !== -1) resetQuizFlow();
       if (currentMode === "sentence") resetSentenceFlow();
       renderCurrent();
     };
   });
 
-  modeResetBtn.onclick = () => {
+  modeResetBtn.onclick = function () {
     stopSpeech();
     if (answerTimer) clearTimeout(answerTimer);
     currentIndex = 0;
@@ -660,8 +784,11 @@
     resetSentenceFlow();
     renderCurrent();
   };
-  backToUnitsBtn.onclick = () => window.history.back();
+  backToUnitsBtn.onclick = function () {
+    window.history.back();
+  };
 
+  // 초기 렌더
   renderCurrent();
 </script>
 </body>
