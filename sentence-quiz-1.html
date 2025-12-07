@@ -98,6 +98,12 @@
       white-space: pre-line;
     }
 
+    .sentence-kr {
+      font-size: 18px;
+      color: #4b5563;
+      margin-top: 4px;
+    }
+
     .blank-line {
       display: inline-block;
       min-width: 180px;
@@ -239,6 +245,13 @@
       font-size: 14px;
       cursor: pointer;
       white-space: nowrap;
+      min-width: 80px;
+      text-align: center;
+    }
+
+    .pill-home {
+      background: #9AD7A0;
+      color: #ffffff;
     }
 
     .pill-reset {
@@ -258,6 +271,12 @@
       .sentence-en {
         font-size: 21px;
       }
+
+      /* 모바일: 보기 한 줄에 하나씩 */
+      .choices-grid {
+        grid-template-columns: 1fr;
+      }
+
       .choice-btn {
         font-size: 16px;
         min-height: 48px;
@@ -297,6 +316,9 @@
     <div class="bottom-bar">
       <div id="progressText">0 / 0</div>
       <div class="bottom-right">
+        <button type="button" class="nav-pill pill-home" id="homeBtn">
+          Home
+        </button>
         <button type="button" class="nav-pill pill-reset" id="modeResetBtn">
           다시 풀기
         </button>
@@ -322,6 +344,7 @@ const mainTitle      = document.getElementById("mainTitle");
 const centerArea     = document.getElementById("centerArea");
 const progressText   = document.getElementById("progressText");
 const modeTabs       = document.querySelectorAll(".mode-tab");
+const homeBtn        = document.getElementById("homeBtn");
 const modeResetBtn   = document.getElementById("modeResetBtn");
 const backToUnitsBtn = document.getElementById("backToUnitsBtn");
 
@@ -538,9 +561,7 @@ function renderOrderQuestion(q, idx, total) {
 
   if (q.meaningKo) {
     const ko = document.createElement("div");
-    ko.className = "sentence-en";
-    ko.style.fontSize = "18px";
-    ko.style.color = "#4b5563";
+    ko.className = "sentence-kr";
     ko.textContent = q.meaningKo;
     centerArea.appendChild(ko);
   }
@@ -712,6 +733,12 @@ modeTabs.forEach(tab => {
     renderCurrent();
   };
 });
+
+homeBtn.onclick = () => {
+  clearTimers();
+  // 홈 경로는 상황에 맞게 수정 가능
+  window.location.href = "index.html";
+};
 
 modeResetBtn.onclick = () => {
   clearTimers();
