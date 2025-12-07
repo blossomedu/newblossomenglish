@@ -89,34 +89,10 @@
       padding: 10px;
     }
 
-    /* 🔹 Q1 동그라미 헤더 공통 */
-    .question-header {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      margin-bottom: 4px;
-    }
-
-    .question-badge {
-      width: 40px;
-      height: 40px;
-      border-radius: 999px;
-      background-color: #ffffff;
-      border: 2px solid #c7d5ff;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+    .question-text {
+      font-size: 20px;
       font-weight: 700;
-      font-size: 16px;
-      color: #2563eb;
-      box-shadow: 0 6px 16px rgba(37, 99, 235, 0.18);
-      flex-shrink: 0;
-    }
-
-    .question-title {
-      font-size: 18px;
-      font-weight: 700;
-      color: #111827;
+      white-space: pre-line;
     }
 
     .sentence-en {
@@ -138,77 +114,6 @@
       margin: 0 4px;
     }
 
-    /* 공통 힌트/해설 */
-    .hint-text {
-      font-size: 16px;
-      color: #f97316;
-      min-height: 22px;
-    }
-
-    .explanation-text {
-      font-size: 16px;
-      color: #4b5563;
-      min-height: 22px;
-    }
-
-    .bottom-bar {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-top: 24px;
-      gap: 10px;
-      font-size: 14px;
-      color: #6b7280;
-    }
-
-    .bottom-right {
-      display: flex;
-      gap: 10px;
-      margin-left: auto;
-    }
-
-    .nav-pill {
-      padding: 9px 18px;
-      border-radius: 999px;
-      border: none;
-      font-size: 14px;
-      cursor: pointer;
-      white-space: nowrap;
-    }
-
-    .pill-reset {
-      background: #00AEEF;
-      color: #ffffff;
-    }
-
-    .pill-back {
-      background: #FF6FB5;
-      color: #ffffff;
-    }
-
-    /* ===== 공통 번호 동그라미 (1,2,3,4) ===== */
-    .choice-option-number {
-      flex-shrink: 0;
-      width: 38px;
-      height: 38px;
-      border-radius: 999px;
-      border: 1.5px solid #d0d7e6;
-      background: #ffffff;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin-right: 12px;
-      font-size: 15px;
-      font-weight: 600;
-      color: #374151;
-    }
-
-    .choice-option-text {
-      flex: 1;
-      line-height: 1.5;
-      color: #111827;
-    }
-
     /* ===== (1) 빈칸 완성 ===== */
 
     .blank-choice-area {
@@ -219,13 +124,13 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      margin-top: 8px;
+      margin-top: 18px;
     }
 
     .choices-grid {
-      display: flex;
-      flex-direction: column;  /* 🔹 한 줄에 하나씩 */
-      gap: 12px;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px 20px;
       width: 100%;
       max-width: 520px;
     }
@@ -241,9 +146,7 @@
       cursor: pointer;
       text-align: left;
       transition: all 0.15s ease;
-      display: flex;            /* 번호 동그라미 + 텍스트 정렬 */
-      align-items: center;
-      white-space: normal;      /* 길면 줄바꿈 */
+      white-space: nowrap;
     }
 
     .choice-btn:hover {
@@ -418,54 +321,172 @@
       margin-top: 4px;
     }
 
+    .hint-text {
+      font-size: 16px;
+      color: #f97316;
+      min-height: 22px;
+    }
+
+    .explanation-text {
+      font-size: 16px;
+      color: #4b5563;
+      min-height: 22px;
+    }
+
+    .bottom-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 24px;
+      gap: 10px;
+      font-size: 14px;
+      color: #6b7280;
+    }
+
+    .bottom-right {
+      display: flex;
+      gap: 10px;
+      margin-left: auto;
+    }
+
+    .nav-pill {
+      padding: 9px 18px;
+      border-radius: 999px;
+      border: none;
+      font-size: 14px;
+      cursor: pointer;
+      white-space: nowrap;
+    }
+
+    .pill-reset {
+      background: #00AEEF;
+      color: #ffffff;
+    }
+
+    .pill-back {
+      background: #FF6FB5;
+      color: #ffffff;
+    }
+
     /* ===== (4) 문장 고르기 ===== */
 
+    .choice-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .choice-header-left {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .choice-q-label {
+      font-size: 13px;
+      font-weight: 600;
+      color: #2563eb;
+    }
+
+    .choice-q-title {
+      font-size: 20px;
+      font-weight: 700;
+      color: #111827;
+    }
+
+    .choice-timer-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      border-radius: 999px;
+      background: #e5e7eb;
+      padding: 6px 14px;
+    }
+
+    .choice-timer-label {
+      font-size: 11px;
+      font-weight: 600;
+      color: #6b7280;
+    }
+
+    .choice-timer-value {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+        "Liberation Mono", "Courier New", monospace;
+      font-size: 16px;
+      font-weight: 700;
+      color: #111827;
+    }
+
+    .choice-timer-value.danger {
+      color: #ef4444;
+    }
+
     .choice-outer {
-      margin-top: 12px;
+      margin-top: 18px;
       background: #eef4ff;
       border-radius: 26px;
-      padding: 22px 24px;
+      padding: 24px 26px;
     }
 
     .choice-option-list {
       display: flex;
       flex-direction: column;
-      gap: 12px;
+      gap: 16px;
     }
 
-    /* 🔹 문장 고르기 버튼 = 돌아가기(핑크) 색 */
     .choice-option-btn {
       width: 100%;
       display: flex;
       align-items: center;
       border-radius: 999px;
-      border: 1.5px solid #FF6FB5;
-      background: #FF6FB5;
+      border: 1.5px solid #d0d7e6;
+      background: #ffffff;
       padding: 14px 20px;
       font-size: 16px;
       cursor: pointer;
       text-align: left;
-      box-shadow: 0 12px 28px rgba(236, 72, 153, 0.35);
+      box-shadow: 0 12px 28px rgba(15, 23, 42, 0.12);
       transition: all 0.15s ease;
-      color: #ffffff;
     }
 
     .choice-option-btn:hover {
-      border-color: #ff5aa9;
-      background: #ff5aa9;
-      box-shadow: 0 16px 34px rgba(236, 72, 153, 0.45);
+      border-color: #8ab4ff;
+      box-shadow: 0 16px 34px rgba(15, 23, 42, 0.18);
       transform: translateY(-1px);
     }
 
     .choice-option-btn.selected {
-      border-color: #ffffff;
-      box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.4);
+      border-color: #f9739a;
+      box-shadow: 0 0 0 2px rgba(249, 115, 155, 0.3);
     }
 
     .choice-option-btn.disabled {
       opacity: 0.6;
       cursor: not-allowed;
       transform: none;
+    }
+
+    .choice-option-number {
+      flex-shrink: 0;
+      width: 42px;
+      height: 42px;
+      border-radius: 999px;
+      border: 1.5px solid #d0d7e6;
+      background: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-right: 16px;
+      font-size: 16px;
+      font-weight: 600;
+      color: #374151;
+    }
+
+    .choice-option-text {
+      flex: 1;
+      line-height: 1.5;
+      color: #111827;
     }
 
     .choice-result {
@@ -493,53 +514,13 @@
         padding: 24px 18px 20px;
       }
 
-      .main-title {
-        font-size: 24px;
-      }
-
-      .question-badge {
-        width: 34px;
-        height: 34px;
-        font-size: 14px;
-        box-shadow: 0 4px 10px rgba(37, 99, 235, 0.18);
-      }
-
-      .question-title {
-        font-size: 16px;
-      }
-
       .sentence-en {
         font-size: 21px;
       }
 
-      .sentence-kr {
-        font-size: 16px;
-      }
-
-      .blank-line {
-        min-width: 120px;
-      }
-
-      .blank-choice-area {
-        padding: 18px 16px;
-      }
-
-      .choices-grid {
-        gap: 10px;
-        max-width: 100%;
-      }
-
       .choice-btn {
         font-size: 16px;
-        min-height: 44px;
-        padding: 10px 14px;
-      }
-
-      .choice-option-number {
-        width: 32px;
-        height: 32px;
-        font-size: 13px;
-        margin-right: 8px;
+        min-height: 48px;
       }
 
       .word-chip {
@@ -568,6 +549,18 @@
         max-width: calc((100% - 20px) / 3);
         min-width: 0;
         font-size: 16px !important;
+      }
+
+      .choice-option-btn {
+        font-size: 15px;
+        padding: 12px 14px;
+      }
+
+      .choice-option-number {
+        width: 38px;
+        height: 38px;
+        margin-right: 12px;
+        font-size: 14px;
       }
     }
   </style>
@@ -678,7 +671,7 @@ function clearCenter() {
 function renderNoQuestion() {
   clearCenter();
   const a = document.createElement("div");
-  a.className = "question-title";
+  a.className = "question-text";
   a.textContent = "이 유형의 문제가 없습니다.";
   centerArea.appendChild(a);
 
@@ -690,9 +683,11 @@ function renderNoQuestion() {
   setProgress(0, 0);
 }
 
+const CIRCLED_NUMS = ["①", "②", "③", "④"];
+
 function enqueueRetryQuestion(type, q) {
+  if (q._retryAddedFor && q._retryAddedFor[type]) return;
   if (!q._retryAddedFor) q._retryAddedFor = {};
-  if (q._retryAddedFor[type]) return;
   q._retryAddedFor[type] = true;
   questionsByType[type].push(q);
 }
@@ -712,7 +707,7 @@ function goNext() {
   if (idx >= total) {
     clearCenter();
     const done = document.createElement("div");
-    done.className = "question-title";
+    done.className = "question-text";
     done.textContent = "이 유형의 문제를 모두 풀었습니다. 😊";
     centerArea.appendChild(done);
     setProgress(total, total);
@@ -721,31 +716,15 @@ function goNext() {
   }
 }
 
-/* 공통 헤더 생성(Q1 동그라미) */
-function createHeader(qIndex, titleText) {
-  const header = document.createElement("div");
-  header.className = "question-header";
-
-  const badge = document.createElement("div");
-  badge.className = "question-badge";
-  badge.textContent = `Q${qIndex + 1}`;
-  header.appendChild(badge);
-
-  const title = document.createElement("div");
-  title.className = "question-title";
-  title.textContent = titleText;
-  header.appendChild(title);
-
-  return header;
-}
-
-/* ========== (1) 빈칸 완성 ========== */
+/* ========== (1) 빈칸 완성 (원래 코드) ========== */
 function renderBlankQuestion(q, idx, total) {
   clearTimers();
   clearCenter();
 
-  const header = createHeader(idx, "빈칸에 알맞은 말을 고르세요.");
-  centerArea.appendChild(header);
+  const qDiv = document.createElement("div");
+  qDiv.className = "question-text";
+  qDiv.textContent = "빈칸에 알맞은 말을 고르세요.";
+  centerArea.appendChild(qDiv);
 
   const sDiv = document.createElement("div");
   sDiv.className = "sentence-en";
@@ -772,24 +751,13 @@ function renderBlankQuestion(q, idx, total) {
   centerArea.appendChild(expDiv);
 
   let answered = false;
-  const options = q.options || [];
   const correctIndex =
     typeof q.answerIndex === "number" ? q.answerIndex : 0;
 
-  options.forEach((opt, i) => {
+  (q.options || []).forEach((opt, i) => {
     const btn = document.createElement("button");
     btn.className = "choice-btn";
-
-    const numDiv = document.createElement("div");
-    numDiv.className = "choice-option-number";
-    numDiv.textContent = String(i + 1);
-    btn.appendChild(numDiv);
-
-    const textDiv = document.createElement("div");
-    textDiv.className = "choice-option-text";
-    textDiv.textContent = opt;
-    btn.appendChild(textDiv);
-
+    btn.textContent = `${CIRCLED_NUMS[i]} ${opt}`;
     grid.appendChild(btn);
 
     btn.onclick = () => {
@@ -812,7 +780,6 @@ function renderBlankQuestion(q, idx, total) {
     };
   });
 
-  // 15초 지나면 자동 정답 공개
   setTimer(() => {
     if (answered) return;
     answered = true;
@@ -832,16 +799,16 @@ function renderBlankQuestion(q, idx, total) {
   setProgress(idx, total);
 }
 
-/* ========== (2) 문장 배열 ========== */
+/* ========== (2) 문장 배열 (원래 코드) ========== */
 function renderOrderQuestion(q, idx, total) {
   clearTimers();
   clearCenter();
 
-  const header = createHeader(
-    idx,
-    q.question || "다음 단어를 바르게 배열하여 문장을 만드시오."
-  );
-  centerArea.appendChild(header);
+  const qDiv = document.createElement("div");
+  qDiv.className = "question-text";
+  qDiv.textContent =
+    q.question || "다음 단어를 바르게 배열하여 문장을 만드시오.";
+  centerArea.appendChild(qDiv);
 
   if (q.meaningKo) {
     const ko = document.createElement("div");
@@ -944,7 +911,6 @@ function renderOrderQuestion(q, idx, total) {
     });
   }
 
-  // 30초 지나면 정답 공개
   setTimer(() => {
     if (finished) return;
     finished = true;
@@ -967,13 +933,15 @@ function renderOrderQuestion(q, idx, total) {
   setProgress(idx, total);
 }
 
-/* ========== (3) 문장 완성(타이핑) ========== */
+/* ========== (3) 문장 완성(타이핑) (원래 코드) ========== */
 function renderTypeQuestion(q, idx, total) {
   clearTimers();
   clearCenter();
 
-  const header = createHeader(idx, "빈칸을 채워 문장을 완성하세요.");
-  centerArea.appendChild(header);
+  const qDiv = document.createElement("div");
+  qDiv.className = "question-text";
+  qDiv.textContent = "빈칸을 채워 문장을 완성하세요.";
+  centerArea.appendChild(qDiv);
 
   if (q.meaningKo) {
     const kr = document.createElement("div");
@@ -1026,4 +994,346 @@ function renderTypeQuestion(q, idx, total) {
     const punctuation = punctMatch ? punctMatch[0] : "";
     const normCore = core.toLowerCase();
 
-    const
+    const isBlankTarget = blankTargets.includes(normCore);
+
+    if (isBlankTarget) {
+      const input = document.createElement("input");
+      input.type = "text";
+      input.className = "inline-blank-input";
+      input.dataset.answer = normCore;
+      input.dataset.answerDisplay = core;
+
+      const estimatedWidth = Math.max(core.length * 10 + 24, 60);
+      input.style.width = estimatedWidth + "px";
+
+      blankInputs.push(input);
+      sentenceBox.appendChild(input);
+      if (punctuation) {
+        const spanP = document.createElement("span");
+        spanP.textContent = punctuation;
+        sentenceBox.appendChild(spanP);
+      }
+    } else {
+      const span = document.createElement("span");
+      span.textContent = core + (punctuation ? punctuation : "");
+      sentenceBox.appendChild(span);
+    }
+
+    if (tokenIdx !== tokens.length - 1) {
+      sentenceBox.appendChild(document.createTextNode(" "));
+    }
+  });
+
+  const controls = document.createElement("div");
+  controls.className = "typing-input-wrap";
+  typingArea.appendChild(controls);
+
+  const filler = document.createElement("div");
+  filler.style.flex = "1";
+  controls.appendChild(filler);
+
+  const checkBtn = document.createElement("button");
+  checkBtn.type = "button";
+  checkBtn.className = "typing-check-btn";
+  checkBtn.textContent = "확인";
+  controls.appendChild(checkBtn);
+
+  const hintDiv = document.createElement("div");
+  hintDiv.className = "hint-text";
+  centerArea.appendChild(hintDiv);
+
+  const expDiv = document.createElement("div");
+  expDiv.className = "explanation-text";
+  centerArea.appendChild(expDiv);
+
+  let finished = false;
+
+  function handleCheck() {
+    if (finished) return;
+
+    let allFilled = true;
+    let allCorrect = true;
+
+    blankInputs.forEach(input => {
+      const user = String(input.value || "").trim().toLowerCase();
+      const ans  = String(input.dataset.answer || "").toLowerCase();
+
+      if (!user) {
+        allFilled = false;
+        input.classList.remove("correct", "wrong");
+        return;
+      }
+
+      if (user === ans) {
+        input.classList.remove("wrong");
+        input.classList.add("correct");
+      } else {
+        allCorrect = false;
+        input.classList.remove("correct");
+        input.classList.add("wrong");
+      }
+    });
+
+    if (!allFilled) {
+      hintDiv.textContent = "모든 빈칸을 먼저 입력해 보세요.";
+      return;
+    }
+
+    if (allCorrect) {
+      finished = true;
+      hintDiv.textContent = "";
+      expDiv.textContent = "정답입니다! 👏";
+      checkBtn.disabled = true;
+      setTimer(goNext, 1200);
+    } else {
+      hintDiv.textContent = "철자와 띄어쓰기를 다시 한 번 확인해 보세요.";
+      expDiv.textContent = "";
+      if (!q._countedWrongType) {
+        q._countedWrongType = true;
+        wrongQuestions.type.push(q);
+        enqueueRetryQuestion("type", q);
+      }
+    }
+  }
+
+  checkBtn.onclick = handleCheck;
+
+  blankInputs.forEach((input, idx) => {
+    input.addEventListener("keydown", (e) => {
+      if (e.key === " " || e.key === "Spacebar" || e.key === "Enter") {
+        e.preventDefault();
+        const lastIndex = blankInputs.length - 1;
+        if (idx < lastIndex) {
+          blankInputs[idx + 1].focus();
+        } else {
+          handleCheck();
+        }
+      }
+    });
+  });
+
+  if (blankInputs[0]) {
+    blankInputs[0].focus();
+  }
+
+  setProgress(idx, total);
+}
+
+/* ========== (4) 문장 고르기 (2분 타이머) ========== */
+function renderChoiceQuestion(q, idx, total) {
+  clearTimers();
+  clearCenter();
+
+  const questionText = q.question || "다음 중 올바른 문장을 고르시오.";
+  const options = q.options || [];
+  const correctIndex =
+    typeof q.answerIndex === "number" ? q.answerIndex : 0;
+
+  const header = document.createElement("div");
+  header.className = "choice-header";
+  centerArea.appendChild(header);
+
+  const left = document.createElement("div");
+  left.className = "choice-header-left";
+  header.appendChild(left);
+
+  const qLabel = document.createElement("div");
+  qLabel.className = "choice-q-label";
+  qLabel.textContent = `Q${idx + 1}`;
+  left.appendChild(qLabel);
+
+  const qTitle = document.createElement("div");
+  qTitle.className = "choice-q-title";
+  qTitle.textContent = questionText;
+  left.appendChild(qTitle);
+
+  const timerPill = document.createElement("div");
+  timerPill.className = "choice-timer-pill";
+  header.appendChild(timerPill);
+
+  const timerLabel = document.createElement("span");
+  timerLabel.className = "choice-timer-label";
+  timerLabel.textContent = "남은 시간";
+  timerPill.appendChild(timerLabel);
+
+  const timerValue = document.createElement("span");
+  timerValue.className = "choice-timer-value";
+  timerValue.textContent = "02:00";
+  timerPill.appendChild(timerValue);
+
+  const outer = document.createElement("div");
+  outer.className = "choice-outer";
+  centerArea.appendChild(outer);
+
+  const list = document.createElement("div");
+  list.className = "choice-option-list";
+  outer.appendChild(list);
+
+  const resultDiv = document.createElement("div");
+  resultDiv.className = "choice-result";
+  centerArea.appendChild(resultDiv);
+
+  let answered = false;
+  let timeLeft = 120;
+
+  function formatTime(sec) {
+    const m = Math.floor(sec / 60);
+    const s = sec % 60;
+    return `${String(m).padStart(2, "0")}:${String(s).padStart(2, "0")}`;
+  }
+
+  function updateTimerView() {
+    timerValue.textContent = formatTime(timeLeft);
+    if (timeLeft <= 10) {
+      timerValue.classList.add("danger");
+    }
+  }
+
+  const buttons = [];
+
+  options.forEach((text, i) => {
+    const btn = document.createElement("button");
+    btn.type = "button";
+    btn.className = "choice-option-btn";
+    btn.dataset.index = String(i);
+
+    const num = document.createElement("div");
+    num.className = "choice-option-number";
+    num.textContent = String(i + 1);
+    btn.appendChild(num);
+
+    const spanText = document.createElement("div");
+    spanText.className = "choice-option-text";
+    spanText.textContent = text;
+    btn.appendChild(spanText);
+
+    btn.onclick = () => {
+      if (answered || timeLeft <= 0) return;
+
+      const isCorrect = i === correctIndex;
+
+      buttons.forEach(b => b.classList.remove("selected"));
+      btn.classList.add("selected");
+
+      if (isCorrect) {
+        answered = true;
+        clearTimers();
+        btn.classList.add("correct");
+        resultDiv.textContent = "정답입니다! 🎉";
+        resultDiv.className = "choice-result correct";
+        setTimer(goNext, 1000);
+      } else {
+        resultDiv.textContent = "힌트: 다시 한 번 생각해 보세요.";
+        resultDiv.className = "choice-result wrong";
+        enqueueRetryQuestion("choice", q); // 틀린 문제는 큐 뒤로
+      }
+    };
+
+    list.appendChild(btn);
+    buttons.push(btn);
+  });
+
+  // 2분 카운트다운
+  updateTimerView();
+  setIntervalTimer(() => {
+    if (answered) return;
+    timeLeft -= 1;
+    if (timeLeft < 0) timeLeft = 0;
+    updateTimerView();
+  }, 1000);
+
+  // 2분 지나면 정답 공개 + 다시 풀기 큐 + 자동 다음
+  setTimer(() => {
+    if (answered) return;
+    answered = true;
+
+    buttons.forEach((btn, i) => {
+      btn.classList.add("disabled");
+      btn.disabled = true;
+      if (i === correctIndex) {
+        btn.classList.add("selected");
+      }
+    });
+
+    resultDiv.textContent = "시간이 지나 정답이 공개되었습니다.";
+    resultDiv.className = "choice-result timeover";
+
+    enqueueRetryQuestion("choice", q);
+
+    setTimer(goNext, 1500);
+  }, 120000);
+
+  setProgress(idx, total);
+}
+
+/* ========== 공통 렌더링 ========== */
+function renderQuestionObj(q, type) {
+  const list  = questionsByType[type];
+  const idx   = list.indexOf(q);
+  const total = list.length;
+
+  if (type === "blank")  return renderBlankQuestion(q, idx, total);
+  if (type === "order")  return renderOrderQuestion(q, idx, total);
+  if (type === "type")   return renderTypeQuestion(q, idx, total);
+  if (type === "choice") return renderChoiceQuestion(q, idx, total);
+
+  renderNoQuestion();
+}
+
+function renderCurrent() {
+  clearTimers();
+
+  modeTabs.forEach(tab => {
+    tab.classList.toggle("active", tab.dataset.mode === currentMode);
+  });
+
+  const list = questionsByType[currentMode];
+  if (!list || !list.length) {
+    renderNoQuestion();
+    return;
+  }
+
+  if (modeIndex[currentMode] === 0 && !list._shuffled) {
+    questionsByType[currentMode] = shuffle(list);
+    questionsByType[currentMode]._shuffled = true;
+  }
+
+  const idx = modeIndex[currentMode];
+  const q   = questionsByType[currentMode][idx];
+
+  renderQuestionObj(q, currentMode);
+}
+
+/* 탭/버튼 이벤트 */
+modeTabs.forEach(tab => {
+  tab.onclick = () => {
+    currentMode = tab.dataset.mode;
+    modeIndex[currentMode] = 0;
+    renderCurrent();
+  };
+});
+
+modeResetBtn.onclick = () => {
+  clearTimers();
+  Object.keys(modeIndex).forEach(k => (modeIndex[k] = 0));
+  Object.keys(wrongQuestions).forEach(k => (wrongQuestions[k] = []));
+  Object.keys(questionsByType).forEach(type => {
+    const list = questionsByType[type];
+    if (list && list.length) {
+      questionsByType[type] = shuffle(list);
+      questionsByType[type]._shuffled = true;
+    }
+  });
+  renderCurrent();
+};
+
+backToUnitsBtn.onclick = () => {
+  clearTimers();
+  window.history.back();
+};
+
+renderCurrent();
+</script>
+</body>
+</html>
+
