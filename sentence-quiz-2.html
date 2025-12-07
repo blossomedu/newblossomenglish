@@ -223,7 +223,6 @@
       gap: 14px;
     }
 
-    /* 1단계와 같은 연보라 박스 안에 문장 */
     .typing-box-area {
       width: 100%;
       min-height: 140px;
@@ -237,7 +236,6 @@
     }
 
     .typing-sentence-box {
-      /* 안쪽 흰 상자 없애고, 그냥 텍스트 컨테이너 느낌만 */
       background: transparent;
       border-radius: 0;
       padding: 0;
@@ -283,7 +281,6 @@
       transition: all 0.15s ease;
     }
 
-    /* 포커스시 연보라색 강조 */
     .inline-blank-input:focus {
       border-color: #a5b4fc;
       background: #e5e7ff;
@@ -401,12 +398,12 @@
 
       .inline-blank-input {
         font-size: 18px;
-        min-width: 70px;   /* 모바일에서만 더 컴팩트 */
+        min-width: 70px;
         height: 36px;
         padding: 0 10px;
       }
 
-      /* 👉 문장 배열: 모바일에서는 위 칸을 한 줄에 3개 + 글자 조금 작게 */
+      /* 문장 배열: 모바일에서 위 칸 3개 + 글자 약간 작게 */
       .answer-row {
         padding: 16px 16px;
         gap: 10px;
@@ -414,10 +411,10 @@
       }
 
       .answer-row > div {
-        flex: 0 0 calc((100% - 20px) / 3);   /* (gap 10px * 2) 빼고 3등분 */
+        flex: 0 0 calc((100% - 20px) / 3);
         max-width: calc((100% - 20px) / 3);
         min-width: 0;
-        font-size: 16px !important;          /* 아래 칩보다 살짝 작게 */
+        font-size: 16px !important;
       }
     }
   </style>
@@ -631,6 +628,8 @@ function renderBlankQuestion(q, idx, total) {
     hintDiv.textContent = "시간이 지나 정답이 공개되었습니다.";
     expDiv.textContent = q.explanation || "";
 
+    enqueueRetryQuestion("blank", q);
+
     setTimer(goNext, 1500);
   }, 15000);
 
@@ -735,6 +734,7 @@ function renderOrderQuestion(q, idx, total) {
           if (!q._countedWrong) {
             q._countedWrong = true;
             wrongQuestions.order.push(q);
+            enqueueRetryQuestion("order", q);  // 틀리면 다시 풀기 큐에 추가
           }
 
           setTimeout(() => {
@@ -761,6 +761,8 @@ function renderOrderQuestion(q, idx, total) {
     chipsWrap.innerHTML = "";
     hintDiv.textContent = "(시간이 지나 정답이 공개되었습니다.)";
 
+    enqueueRetryQuestion("order", q);  // 시간초과도 다시 풀기 큐에 추가
+
     setTimer(goNext, 5000);
   }, 30000);
 
@@ -772,7 +774,7 @@ function renderOrderQuestion(q, idx, total) {
 /* 시간 제한 없음 + 스페이스/엔터로 이동/확인 */
 
 function renderTypeQuestion(q, idx, total) {
-  clearTimers();  // 다른 모드 타이머만 정리
+  clearTimers();
   clearCenter();
 
   const qDiv = document.createElement("div");
