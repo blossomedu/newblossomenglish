@@ -45,7 +45,7 @@
 
     #login-status button {
       border: none;
-      background: #FF6FB5;
+      background: #FF6FB5; /* 핑크 */
       color: white;
       padding: 6px 14px;
       border-radius: 999px;
@@ -118,9 +118,10 @@
       box-shadow: 0 0 0 2px rgba(96, 165, 250, 0.3);
     }
 
+    /* ✅ 추가하기 버튼: 블루 (#00AEEF) */
     .write-box button {
       border: none;
-      background: #2563eb;
+      background: #00AEEF;
       color: white;
       padding: 8px 18px;
       border-radius: 999px;
@@ -130,7 +131,7 @@
     }
 
     .write-box button:hover {
-      background: #1d4ed8;
+      background: #0099D4; /* 같은 계열 살짝 진하게 */
     }
 
     .hint {
@@ -172,10 +173,11 @@
       color: #9ca3af;
     }
 
+    /* ✅ 영상 보기 버튼: 민트 (#9AD7A0) */
     .post-actions a {
       border-radius: 999px;
       border: none;
-      background: #10b981;
+      background: #9AD7A0;
       color: white;
       padding: 7px 14px;
       font-size: 13px;
@@ -186,7 +188,7 @@
     }
 
     .post-actions a:hover {
-      background: #059669;
+      background: #7EC987; /* 민트 계열 살짝 진하게 */
     }
 
     .empty-text {
@@ -239,7 +241,7 @@
 
 </div>
 
-<!-- Supabase (로그인 상태 확인용, 메인과 동일) -->
+<!-- Supabase (로그인 상태 확인용) -->
 <script src="https://unpkg.com/@supabase/supabase-js@2.48.0/dist/umd/supabase.js"></script>
 <script>
   const supa = supabase.createClient(
