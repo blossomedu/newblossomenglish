@@ -27,11 +27,32 @@
       position: relative;
     }
 
-    /* 로그인 상태 박스 (메인과 동일) */
+    /* 상단 Home + 로그인 영역 한 줄 */
+    .top-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+
+    /* ✅ Home 버튼: 민트 */
+    .home-btn {
+      background: #9AD7A0;
+      color: white;
+      padding: 6px 16px;
+      border-radius: 999px;
+      border: none;
+      cursor: pointer;
+      font-size: 13px;
+      font-weight: 600;
+    }
+
+    .home-btn:hover {
+      background: #7EC987;
+    }
+
+    /* 로그인 상태 박스 */
     #login-status {
-      position: absolute;
-      top: 34px;
-      right: 20px;
       display: flex;
       gap: 10px;
       align-items: center;
@@ -62,41 +83,13 @@
       font-size: 28px;
       font-weight: 900;
       margin-bottom: 6px;
-      margin-top: 34px;
+      margin-top: 16px;
     }
 
     .subtitle {
       font-size: 15px;
       color: #6b7280;
       margin-bottom: 24px;
-    }
-
-    /* 상단 Home 버튼 영역 */
-    .top-nav {
-      margin-bottom: 12px;
-    }
-
-    /* ✅ Home 버튼: 민트 */
-    .home-btn {
-      background: #9AD7A0;
-      color: white;
-      padding: 6px 16px;
-      border-radius: 999px;
-      border: none;
-      cursor: pointer;
-      font-size: 13px;
-      font-weight: 600;
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-    }
-
-    .home-btn:hover {
-      background: #7EC987;
-    }
-
-    .home-btn-icon {
-      font-size: 14px;
     }
 
     /* 글쓰기 박스 */
@@ -134,7 +127,7 @@
       box-shadow: 0 0 0 2px rgba(96, 165, 250, 0.3);
     }
 
-    /* ✅ 추가하기 버튼: 회색 */
+    /* ✅ 추가하기 버튼: 회색 (관리용) */
     .write-box button {
       border: none;
       background: #6B7280;
@@ -189,7 +182,7 @@
       color: #9ca3af;
     }
 
-    /* ✅ 영상 보기 버튼: 블루 */
+    /* ✅ 영상 보기 버튼: 블루 (학생 액션) */
     .post-actions a {
       border-radius: 999px;
       border: none;
@@ -215,6 +208,12 @@
     }
 
     @media (max-width: 600px) {
+      .top-bar {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+      }
+
       .form-row {
         flex-direction: column;
       }
@@ -224,19 +223,15 @@
 <body>
 <div class="page">
 
-  <!-- 로그인 영역 -->
-  <div id="login-status">
-    <span id="login-name"></span>
-    <button id="login-btn" onclick="location.href='login.html'">로그인</button>
-    <button id="logout-btn" style="display:none;" onclick="logoutUser()">로그아웃</button>
-  </div>
+  <!-- 상단: Home + 로그인 영역 -->
+  <div class="top-bar">
+    <button class="home-btn" onclick="location.href='index.html'">Home</button>
 
-  <!-- 상단 Home 버튼 -->
-  <div class="top-nav">
-    <button class="home-btn" onclick="location.href='index.html'">
-      <span class="home-btn-icon">⌂</span>
-      <span>Home</span>
-    </button>
+    <div id="login-status">
+      <span id="login-name"></span>
+      <button id="login-btn" onclick="location.href='login.html'">로그인</button>
+      <button id="logout-btn" style="display:none;" onclick="logoutUser()">로그아웃</button>
+    </div>
   </div>
 
   <div class="title-big">문법 학습 게시판</div>
