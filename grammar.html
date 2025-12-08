@@ -71,16 +71,32 @@
       margin-bottom: 24px;
     }
 
-    .back-link {
-      display: inline-block;
+    /* 상단 Home 버튼 영역 */
+    .top-nav {
       margin-bottom: 12px;
-      font-size: 14px;
-      color: #6b7280;
-      cursor: pointer;
     }
 
-    .back-link:hover {
-      text-decoration: underline;
+    /* ✅ Home 버튼: 민트 */
+    .home-btn {
+      background: #9AD7A0;
+      color: white;
+      padding: 6px 16px;
+      border-radius: 999px;
+      border: none;
+      cursor: pointer;
+      font-size: 13px;
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .home-btn:hover {
+      background: #7EC987;
+    }
+
+    .home-btn-icon {
+      font-size: 14px;
     }
 
     /* 글쓰기 박스 */
@@ -118,10 +134,10 @@
       box-shadow: 0 0 0 2px rgba(96, 165, 250, 0.3);
     }
 
-    /* ✅ 추가하기 버튼: 블루 (#00AEEF) */
+    /* ✅ 추가하기 버튼: 회색 */
     .write-box button {
       border: none;
-      background: #00AEEF;
+      background: #6B7280;
       color: white;
       padding: 8px 18px;
       border-radius: 999px;
@@ -131,7 +147,7 @@
     }
 
     .write-box button:hover {
-      background: #0099D4; /* 같은 계열 살짝 진하게 */
+      background: #4B5563;
     }
 
     .hint {
@@ -173,11 +189,11 @@
       color: #9ca3af;
     }
 
-    /* ✅ 영상 보기 버튼: 민트 (#9AD7A0) */
+    /* ✅ 영상 보기 버튼: 블루 */
     .post-actions a {
       border-radius: 999px;
       border: none;
-      background: #9AD7A0;
+      background: #00AEEF;
       color: white;
       padding: 7px 14px;
       font-size: 13px;
@@ -188,7 +204,7 @@
     }
 
     .post-actions a:hover {
-      background: #7EC987; /* 민트 계열 살짝 진하게 */
+      background: #0099D4;
     }
 
     .empty-text {
@@ -215,7 +231,13 @@
     <button id="logout-btn" style="display:none;" onclick="logoutUser()">로그아웃</button>
   </div>
 
-  <div class="back-link" onclick="location.href='index.html'">← 메인으로 돌아가기</div>
+  <!-- 상단 Home 버튼 -->
+  <div class="top-nav">
+    <button class="home-btn" onclick="location.href='index.html'">
+      <span class="home-btn-icon">⌂</span>
+      <span>Home</span>
+    </button>
+  </div>
 
   <div class="title-big">문법 학습 게시판</div>
   <div class="subtitle">유튜브 문법 강의 링크를 모아서 한 번에 볼 수 있어요.</div>
