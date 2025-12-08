@@ -127,7 +127,7 @@
       box-shadow: 0 0 0 2px rgba(96, 165, 250, 0.3);
     }
 
-    /* 추가하기 버튼: 회색 (관리/선생님용) */
+    /* 추가하기 버튼: 회색 (주로 선생님용) */
     .write-box button {
       border: none;
       background: #6B7280;
@@ -219,7 +219,8 @@
 
   <!-- 상단: Home + 로그인 영역 -->
   <div class="top-bar">
-    <button class="home-btn" onclick="location.href='chobaeng-units.html'">Home</button>
+    <!-- Home은 메인(index)으로 -->
+    <button class="home-btn" onclick="location.href='index.html'">Home</button>
 
     <div id="login-status">
       <span id="login-name"></span>
@@ -302,10 +303,12 @@
 
   // ---------- 레벨 정보 읽기 ----------
   const LEVEL_LABELS = {
-    "1": "1단계",
-    "2": "2단계",
-    "3": "3단계",
-    "4": "학교 시험"
+    "1": "1단계 파닉스",
+    "2": "2단계 패턴편",
+    "3": "3단계 실전편 1",
+    "4": "4단계 실전편 1 · 600제",
+    "5": "5단계 실전편 2 · 700제",
+    "6": "6단계 실전편 2"
   };
 
   function getLevelFromUrl() {
