@@ -16,7 +16,36 @@
     
     .header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 30px; }
     .brand { font-size: 24px; font-weight: 800; color: #1f2937; }
-    .logout-btn { padding: 8px 16px; border: 1px solid #d1d5db; background: white; border-radius: 6px; cursor: pointer; }
+
+    /* 상단 버튼 공통 스타일 (homework-teacher.html 과 동일 컨셉) */
+    .top-actions {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+    }
+    .link-btn {
+      border-radius: 999px;
+      border: none;
+      padding: 8px 18px;
+      font-size: 14px;
+      cursor: pointer;
+      background: var(--blue);
+      color: #ffffff;
+      white-space: nowrap;
+    }
+    /* Home 버튼: 민트색 */
+    #home-btn {
+      background: var(--mint);
+      color: #ffffff;
+    }
+    /* 뒤로 버튼: 회색 */
+    #back-btn {
+      background: #e5e7eb;
+      color: #374151;
+    }
+    #back-btn:hover {
+      background: #d1d5db;
+    }
     
     .section-card { background: white; border-radius: 16px; padding: 24px; margin-bottom: 24px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1); }
     .card-title { font-size: 18px; font-weight: 700; margin-bottom: 16px; padding-bottom: 12px; border-bottom: 2px solid #f3f4f6; color: #374151; }
@@ -46,7 +75,12 @@
 <div class="page">
   <div class="header">
     <div class="brand">👨‍🏫 선생님 관리 페이지</div>
-    <button class="logout-btn" onclick="location.href='login.html'">로그아웃</button>
+    <div class="top-actions">
+      <!-- 뒤로: 직전 페이지로 -->
+      <button class="link-btn" id="back-btn" type="button" onclick="history.back()">뒤로</button>
+      <!-- Home: 메인 페이지로 -->
+      <button class="link-btn" id="home-btn" type="button" onclick="window.location.href='index.html'">Home</button>
+    </div>
   </div>
 
   <!-- ✅ 1. 날짜별 숙제 검사 카드가 위로 올라옴 -->
