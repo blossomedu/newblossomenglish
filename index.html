@@ -118,9 +118,13 @@
 <body>
 <div class="page">
 
-  <!-- 🔹 로그인 영역 -->
+  <!-- 로그인 영역 -->
   <div id="login-status">
     <span id="login-name"></span>
+
+    <!-- ⭐⭐⭐ 추가된 마이페이지 버튼 ⭐⭐⭐ -->
+    <button id="mypage-btn" style="display:none;" onclick="location.href='mypage.html'">마이페이지</button>
+
     <button id="login-btn" onclick="location.href='login.html'">로그인</button>
     <button id="logout-btn" style="display:none;" onclick="logoutUser()">로그아웃</button>
   </div>
@@ -146,7 +150,7 @@
       </div>
     </a>
 
-    <!-- 2행: 문법 학습 (문법 단계 선택 페이지) -->
+    <!-- 2행: 문법 학습 -->
     <a href="grammar-units.html">
       <div class="menu-card">
         <img src="video-learning.png" class="menu-icon" alt="문법 학습" />
@@ -154,7 +158,7 @@
       </div>
     </a>
 
-    <!-- 2행: 초바영 학습 -> 🔹 chobaeng-units.html 로 변경 -->
+    <!-- 2행: 초바영 학습 -->
     <a href="chobaeng-units.html">
       <div class="menu-card">
         <img src="chobaeng.png" class="menu-icon" alt="초바영 학습" />
@@ -193,8 +197,9 @@
     const loginName = document.getElementById("login-name");
     const loginBtn = document.getElementById("login-btn");
     const logoutBtn = document.getElementById("logout-btn");
+    const mypageBtn = document.getElementById("mypage-btn");  /* ⭐ 추가 */
 
-    // 1) 학생 로그인(localStorage)
+    // 학생 로그인(localStorage)
     const student = localStorage.getItem("blossom_student");
 
     if (student) {
@@ -202,10 +207,11 @@
       loginName.textContent = `${s.name} 학생`;
       loginBtn.style.display = "none";
       logoutBtn.style.display = "inline-block";
+      mypageBtn.style.display = "inline-block"; /* ⭐ 추가 */
       return;
     }
 
-    // 2) 선생님 로그인(supabase)
+    // 선생님 로그인(supabase)
     const { data } = await supa.auth.getUser();
 
     if (data.user) {
@@ -213,13 +219,15 @@
       loginName.textContent = `${name} 선생님`;
       loginBtn.style.display = "none";
       logoutBtn.style.display = "inline-block";
+      mypageBtn.style.display = "inline-block"; /* ⭐ 추가 */
       return;
     }
 
-    // 3) 로그인 없음
+    // 비로그인 상태
     loginName.textContent = "";
     loginBtn.style.display = "inline-block";
     logoutBtn.style.display = "none";
+    mypageBtn.style.display = "none"; /* ⭐ 추가 */
   }
 
   async function logoutUser() {
