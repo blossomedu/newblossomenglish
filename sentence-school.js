@@ -34,9 +34,17 @@
         const [question, answerEn, meaningKo] = rest;
         q = { id, type, question, answerEn, meaningKo };
       } else if (type === "type") {
+        // 형식:
+        // unit|type|id|question|answerEn|meaningKo
+        // 또는
+        // unit|type|id|question|answerEn|meaningKo|blankWords
+        //   예: blankWords = "doing, homework"
         if (rest.length < 3) continue;
-        const [question, answerEn, meaningKo] = rest;
+        const [question, answerEn, meaningKo, blankWords] = rest;
         q = { id, type, question, answerEn, meaningKo };
+        if (blankWords) {
+          q.blankWords = blankWords; // sentence-school-quiz에서 사용
+        }
       } else if (type === "choose") {
         if (rest.length < 7) continue;
         const [question, opt1, opt2, opt3, opt4, ansStr, explanation] = rest;
