@@ -27,7 +27,7 @@
       position: relative;
     }
 
-    /* 로그인 상태 박스 */
+    /* 로그인 상태 영역 */
     #login-status {
       position: absolute;
       top: 34px;
@@ -43,19 +43,41 @@
       font-weight: 600;
     }
 
+    /* 공통 버튼 스타일 */
     #login-status button {
       border: none;
-      background: #FF6FB5;
-      color: white;
       padding: 6px 14px;
       border-radius: 999px;
       cursor: pointer;
       font-size: 13px;
       font-weight: 600;
+      color: white;
+      transition: 0.15s;
     }
 
-    #login-status button:hover {
+    /* 로그인 버튼 (핑크) */
+    #login-btn {
+      background: #FF6FB5;
+    }
+    #login-btn:hover {
       background: #ff5aa8;
+    }
+
+    /* 로그아웃 버튼 (핑크) */
+    #logout-btn {
+      background: #FF6FB5;
+    }
+    #logout-btn:hover {
+      background: #ff5aa8;
+    }
+
+    /* 마이페이지 버튼 (블루) */
+    #mypage-btn {
+      background: #00AEEF;
+      display: none;
+    }
+    #mypage-btn:hover {
+      background: #0095d1; /* 블루 hover */
     }
 
     .title-big {
@@ -71,7 +93,6 @@
       margin-bottom: 32px;
     }
 
-    /* 2열 그리드 (총 6개 카드) */
     .grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
@@ -122,8 +143,7 @@
   <div id="login-status">
     <span id="login-name"></span>
 
-    <!-- ⭐⭐⭐ 추가된 마이페이지 버튼 ⭐⭐⭐ -->
-    <button id="mypage-btn" style="display:none;" onclick="location.href='mypage.html'">마이페이지</button>
+    <button id="mypage-btn" onclick="location.href='mypage.html'">마이페이지</button>
 
     <button id="login-btn" onclick="location.href='login.html'">로그인</button>
     <button id="logout-btn" style="display:none;" onclick="logoutUser()">로그아웃</button>
@@ -133,8 +153,6 @@
   <div class="subtitle">미래를 꽃 피우는 영어 교육</div>
 
   <div class="grid">
-
-    <!-- 1행: 어휘 학습 -->
     <a href="vocabulary.html">
       <div class="menu-card">
         <img src="vocab-book.png" class="menu-icon" alt="어휘 학습" />
@@ -142,7 +160,6 @@
       </div>
     </a>
 
-    <!-- 1행: 문장 학습 -->
     <a href="sentence.html">
       <div class="menu-card">
         <img src="pencil.png" class="menu-icon" alt="문장 학습" />
@@ -150,7 +167,6 @@
       </div>
     </a>
 
-    <!-- 2행: 문법 학습 -->
     <a href="grammar-units.html">
       <div class="menu-card">
         <img src="video-learning.png" class="menu-icon" alt="문법 학습" />
@@ -158,7 +174,6 @@
       </div>
     </a>
 
-    <!-- 2행: 초바영 학습 -->
     <a href="chobaeng-units.html">
       <div class="menu-card">
         <img src="chobaeng.png" class="menu-icon" alt="초바영 학습" />
@@ -166,7 +181,6 @@
       </div>
     </a>
 
-    <!-- 3행: 반별 게시판 -->
     <a href="board.html">
       <div class="menu-card">
         <img src="board.png" class="menu-icon" alt="반별 게시판" />
@@ -174,7 +188,6 @@
       </div>
     </a>
 
-    <!-- 3행: 온라인 서점 -->
     <a href="https://search.kyobobook.co.kr/search?keyword=%EC%B4%88%EB%B0%94%EC%98%81&gbCode=TOT&target=total" target="_blank">
       <div class="menu-card">
         <img src="store.png" class="menu-icon" alt="온라인 서점" />
@@ -197,37 +210,37 @@
     const loginName = document.getElementById("login-name");
     const loginBtn = document.getElementById("login-btn");
     const logoutBtn = document.getElementById("logout-btn");
-    const mypageBtn = document.getElementById("mypage-btn");  /* ⭐ 추가 */
+    const mypageBtn = document.getElementById("mypage-btn");
 
-    // 학생 로그인(localStorage)
+    // 1) 학생 로그인(localStorage)
     const student = localStorage.getItem("blossom_student");
-
     if (student) {
       const s = JSON.parse(student);
       loginName.textContent = `${s.name} 학생`;
+
       loginBtn.style.display = "none";
       logoutBtn.style.display = "inline-block";
-      mypageBtn.style.display = "inline-block"; /* ⭐ 추가 */
+      mypageBtn.style.display = "inline-block";
       return;
     }
 
-    // 선생님 로그인(supabase)
+    // 2) 선생님 로그인(Supabase)
     const { data } = await supa.auth.getUser();
-
     if (data.user) {
       const name = data.user.user_metadata?.display_name || data.user.email;
       loginName.textContent = `${name} 선생님`;
+
       loginBtn.style.display = "none";
       logoutBtn.style.display = "inline-block";
-      mypageBtn.style.display = "inline-block"; /* ⭐ 추가 */
+      mypageBtn.style.display = "inline-block";
       return;
     }
 
-    // 비로그인 상태
+    // 3) 로그인 없음
     loginName.textContent = "";
     loginBtn.style.display = "inline-block";
     logoutBtn.style.display = "none";
-    mypageBtn.style.display = "none"; /* ⭐ 추가 */
+    mypageBtn.style.display = "none";
   }
 
   async function logoutUser() {
