@@ -2,7 +2,7 @@
 <html lang="ko">
 <head>
   <meta charset="UTF-8" />
-  <title>문장 학습 - 학교 시험</title>
+  <title>학교 시험 - 문장 학습</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link href="https://cdn.jsdelivr.net/npm/pretendard/dist/web/variable/pretendardvariable.css" rel="stylesheet" />
 
@@ -61,12 +61,10 @@
       box-shadow: 0 12px 25px rgba(0, 174, 239, 0.35);
     }
 
-    /* 1~5번째 탭 색상 */
     .mode-tab:nth-child(1).active { background: #00AEEF; color: #fff; }
     .mode-tab:nth-child(2).active { background: #FF6FB5; color: #fff; }
-    .mode-tab:nth-child(3).active { background: #00AEEF; color: #fff; } /* 문장 완성(블루) */
+    .mode-tab:nth-child(3).active { background: #00AEEF; color: #fff; }
     .mode-tab:nth-child(4).active { background: #FF6FB5; color: #fff; }
-    .mode-tab:nth-child(5).active { background: #00AEEF; color: #fff; } /* 지문완성도 블루 */
 
     .card {
       background: #ffffff;
@@ -251,15 +249,6 @@
       width: 100%;
     }
 
-    .typing-input-wrap {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      width: 100%;
-      max-width: 520px;
-      margin-top: 16px;
-    }
-
     .inline-blank-input {
       display: inline-flex;
       align-items: center;
@@ -293,29 +282,6 @@
       border-color: #f97373;
     }
 
-    .typing-check-btn {
-      padding: 10px 18px;
-      border-radius: 999px;
-      border: none;
-      background: #9AD7A0;
-      color: #ffffff;
-      font-size: 16px;
-      cursor: pointer;
-      white-space: nowrap;
-      transition: background 0.15s ease, transform 0.1s ease;
-    }
-
-    .typing-check-btn:hover:not(:disabled) {
-      background: #86c48d;
-      transform: translateY(-1px);
-    }
-
-    .typing-check-btn:disabled {
-      opacity: 0.7;
-      cursor: default;
-      transform: none;
-    }
-
     .typing-hint {
       font-size: 16px;
       color: #6b7280;
@@ -332,151 +298,6 @@
       font-size: 16px;
       color: #4b5563;
       min-height: 22px;
-    }
-
-    /* ===== (4) 문장 고르기 ===== */
-
-    .choice-outer {
-      margin-top: 18px;
-      background: #eef4ff;
-      border-radius: 26px;
-      padding: 24px 26px;
-    }
-
-    .choice-option-list {
-      display: flex;
-      flex-direction: column;
-      gap: 16px;
-    }
-
-    .choice-option-btn {
-      width: 100%;
-      border-radius: 999px;
-      border: 1.5px solid #d0d7e6;
-      background: #ffffff;
-      padding: 14px 20px;
-      font-size: 16px;
-      cursor: pointer;
-      text-align: left;
-      transition: all 0.15s ease;
-      box-shadow: none;
-    }
-
-    .choice-option-btn:hover {
-      border-color: #8ab4ff;
-      background: #e8f0ff;
-      box-shadow: none;
-      transform: none;
-    }
-
-    .choice-option-btn.correct {
-      background: #dcfce7;
-      border-color: #22c55e;
-      color: #166534;
-      font-weight: 600;
-    }
-
-    .choice-option-btn.wrong {
-      background: #fee2e2;
-      border-color: #f97373;
-      color: #b91c1c;
-    }
-
-    .choice-option-btn.disabled {
-      opacity: 0.6;
-      cursor: not-allowed;
-      transform: none;
-    }
-
-    .choice-result {
-      margin-top: 18px;
-      min-height: 22px;
-      font-size: 15px;
-      font-weight: 600;
-    }
-
-    .choice-result.correct {
-      color: #16a34a;
-    }
-
-    .choice-result.wrong {
-      color: #ef4444;
-    }
-
-    .choice-result.timeover {
-      color: #ef4444;
-    }
-
-    /* ===== (5) 지문 빈칸 완성(passage) ===== */
-
-    .passage-text {
-      margin-top: 10px;
-      font-size: 18px;
-      white-space: pre-line;
-      line-height: 1.8;
-    }
-
-    .passage-area {
-      margin-top: 18px;
-      background: #eef4ff;
-      border-radius: 22px;
-      padding: 20px 22px;
-      display: flex;
-      flex-direction: column;
-      gap: 14px;
-    }
-
-    .passage-blank-row {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      gap: 10px;
-    }
-
-    .passage-blank-label {
-      font-size: 16px;
-      font-weight: 600;
-      min-width: 32px;
-    }
-
-    .passage-blank-options {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-    }
-
-    .passage-choice-btn {
-      border-radius: 999px;
-      border: 1.5px solid #d0d7e6;
-      background: #ffffff;
-      padding: 8px 14px;
-      font-size: 15px;
-      cursor: pointer;
-      transition: all 0.15s ease;
-      white-space: nowrap;
-    }
-
-    .passage-choice-btn:hover {
-      background: #e8f0ff;
-      border-color: #8ab4ff;
-    }
-
-    .passage-choice-btn.selected {
-      background: #d6e8ff;
-      border-color: #5c9dff;
-    }
-
-    .passage-choice-btn.correct {
-      background: #dcfce7;
-      border-color: #22c55e;
-      color: #166534;
-      font-weight: 600;
-    }
-
-    .passage-choice-btn.wrong {
-      background: #fee2e2;
-      border-color: #f97373;
-      color: #b91c1c;
     }
 
     .bottom-bar {
@@ -519,6 +340,78 @@
     .pill-back {
       background: #FF6FB5;
       color: #ffffff;
+    }
+
+    /* ===== (4) 문장 고르기 ===== */
+
+    .choice-outer {
+      margin-top: 18px;
+      background: #eef4ff;
+      border-radius: 26px;
+      padding: 24px 26px;
+    }
+
+    .choice-option-list {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .choice-option-btn {
+      width: 100%;
+      border-radius: 999px;
+      border: 1.5px solid #d0d7e6;
+      background: #ffffff;
+      padding: 14px 20px;
+      font-size: 16px;
+      cursor: pointer;
+      text-align: left;
+      box-shadow: 0 12px 28px rgba(15, 23, 42, 0.12);
+      transition: all 0.15s ease;
+    }
+
+    .choice-option-btn:hover {
+      border-color: #8ab4ff;
+      box-shadow: 0 16px 34px rgba(15, 23, 42, 0.18);
+      transform: translateY(-1px);
+    }
+
+    .choice-option-btn.correct {
+      background: #dcfce7;
+      border-color: #22c55e;
+      color: #166534;
+      font-weight: 600;
+    }
+
+    .choice-option-btn.wrong {
+      background: #fee2e2;
+      border-color: #f97373;
+      color: #b91c1c;
+    }
+
+    .choice-option-btn.disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+      transform: none;
+    }
+
+    .choice-result {
+      margin-top: 18px;
+      min-height: 22px;
+      font-size: 15px;
+      font-weight: 600;
+    }
+
+    .choice-result.correct {
+      color: #16a34a;
+    }
+
+    .choice-result.wrong {
+      color: #ef4444;
+    }
+
+    .choice-result.timeover {
+      color: #ef4444;
     }
 
     /* 📱 모바일 전용 */
@@ -572,25 +465,18 @@
         font-size: 15px;
         padding: 12px 14px;
       }
-
-      .passage-choice-btn {
-        font-size: 14px;
-        padding: 6px 12px;
-      }
     }
   </style>
 </head>
 <body>
 <div class="page">
-  <h1 class="main-title" id="mainTitle">문장 학습 - 학교 시험</h1>
+  <h1 class="main-title" id="mainTitle">학교 시험 - 문장 학습</h1>
 
   <div class="top-bar">
     <button class="mode-tab" data-mode="blank">🧩 빈칸 완성</button>
     <button class="mode-tab" data-mode="order">🔀 문장 배열</button>
     <button class="mode-tab" data-mode="type">⌨ 문장 완성</button>
-    <button class="mode-tab" data-mode="choice">문장 고르기</button>
-    <!-- 🔹 텍스트 "지문완성" 으로 변경 -->
-    <button class="mode-tab" data-mode="passage">📖 지문완성</button>
+    <button class="mode-tab" data-mode="choice">📚 문장 고르기</button>
   </div>
 
   <div class="card">
@@ -613,12 +499,13 @@
   </div>
 </div>
 
-<!-- 학교 시험용 DB -->
-<script src="sentence-school.js"></script>
+<!-- 🔁 여기 js 파일명은 네가 실제 쓰는 학교시험용 데이터 파일로 바꿔줘 -->
+<script src="sentence3.js"></script>
 
 <script>
 const params   = new URLSearchParams(window.location.search);
 const unitKey  = params.get("unit") || "1-1";
+const schoolId = params.get("school") || "";
 
 const mainTitle      = document.getElementById("mainTitle");
 const centerArea     = document.getElementById("centerArea");
@@ -628,35 +515,25 @@ const homeBtn        = document.getElementById("homeBtn");
 const modeResetBtn   = document.getElementById("modeResetBtn");
 const backToUnitsBtn = document.getElementById("backToUnitsBtn");
 
-mainTitle.textContent = `문장 학습 - 학교 시험 ${unitKey}`;
+mainTitle.textContent = `학교 시험 - 문장 학습 (${unitKey})`;
 
-const SENTENCE_DB  = window.SENTENCE_SCHOOL_DB || {};
+const SENTENCE_DB  = window.SENTENCE_DB || {};
 const allQuestions = SENTENCE_DB[unitKey] || [];
 
-// mode: blank / order / type / choice / passage
-const questionsByType = {
-  blank:   [],
-  order:   [],
-  type:    [],
-  choice:  [],
-  passage: []
-};
+// type: blank / order / type / choice
+const questionsByType = { blank: [], order: [], type: [], choice: [] };
 
 allQuestions.forEach(q => {
   if (!q || !q.type) return;
-
-  if (q.type === "choose") {
-    questionsByType.choice.push(q);
-  } else if (questionsByType[q.type]) {
+  if (questionsByType[q.type]) {
     questionsByType[q.type].push(q);
   }
 });
 
-// 기본 모드를 blank로 시작
-let currentMode = "blank";
-const modeIndex = { blank: 0, order: 0, type: 0, choice: 0, passage: 0 };
-
-const wrongQuestions = { blank: [], order: [], type: [], choice: [], passage: [] };
+// 기본 모드
+let currentMode = "type";
+const modeIndex = { blank: 0, order: 0, type: 0, choice: 0 };
+const wrongQuestions = { blank: [], order: [], type: [], choice: [] };
 
 function shuffle(arr) {
   const a = arr.slice();
@@ -704,7 +581,7 @@ function renderNoQuestion() {
   setProgress(0, 0);
 }
 
-const CIRCLED_NUMS = ["①", "②", "③", "④", "⑤"];
+const CIRCLED_NUMS = ["①", "②", "③", "④"];
 
 function enqueueRetryQuestion(type, q) {
   if (q._retryAddedFor && q._retryAddedFor[type]) return;
@@ -737,7 +614,7 @@ function goNext() {
   }
 }
 
-/* ========== (1) 빈칸 완성 ========== */
+/* (1) 빈칸 완성 */
 function renderBlankQuestion(q, idx, total) {
   clearTimers();
   clearCenter();
@@ -820,7 +697,7 @@ function renderBlankQuestion(q, idx, total) {
   setProgress(idx, total);
 }
 
-/* ========== (2) 문장 배열 ========== */
+/* (2) 문장 배열 */
 function renderOrderQuestion(q, idx, total) {
   clearTimers();
   clearCenter();
@@ -954,14 +831,14 @@ function renderOrderQuestion(q, idx, total) {
   setProgress(idx, total);
 }
 
-/* ========== (3) 문장 완성(타이핑) ========== */
+/* (3) 문장 완성(타이핑) – 확인 버튼 없이 엔터/스페이스 */
 function renderTypeQuestion(q, idx, total) {
   clearTimers();
   clearCenter();
 
   const qDiv = document.createElement("div");
   qDiv.className = "question-text";
-  qDiv.textContent = q.question || "빈칸을 채워 문장을 완성하세요.";
+  qDiv.textContent = "빈칸을 채워 문장을 완성하세요.";
   centerArea.appendChild(qDiv);
 
   if (q.meaningKo) {
@@ -970,6 +847,10 @@ function renderTypeQuestion(q, idx, total) {
     kr.textContent = q.meaningKo;
     centerArea.appendChild(kr);
   }
+
+  const typingHintTop = document.createElement("div");
+  typingHintTop.className = "typing-hint";
+  centerArea.appendChild(typingHintTop);
 
   const typingArea = document.createElement("div");
   typingArea.className = "typing-area";
@@ -997,6 +878,7 @@ function renderTypeQuestion(q, idx, total) {
       .filter(Boolean);
   }
 
+  // blankWords가 없으면 가운데 단어 하나를 기본 빈칸으로
   if (!blankTargets.length && tokens.length) {
     const midToken = tokens[Math.floor(tokens.length / 2)];
     const coreMid = midToken.replace(/[.,!?]+$/g, "");
@@ -1098,6 +980,7 @@ function renderTypeQuestion(q, idx, total) {
     }
   }
 
+  // ✅ 스페이스/엔터로 다음 칸 이동 & 마지막 칸에서 자동 채점
   blankInputs.forEach((input, idx) => {
     input.addEventListener("keydown", (e) => {
       if (e.key === " " || e.key === "Spacebar" || e.key === "Enter") {
@@ -1119,7 +1002,7 @@ function renderTypeQuestion(q, idx, total) {
   setProgress(idx, total);
 }
 
-/* ========== (4) 문장 고르기 (2분 제한) ========== */
+/* (4) 문장 고르기 */
 function renderChoiceQuestion(q, idx, total) {
   clearTimers();
   clearCenter();
@@ -1154,7 +1037,6 @@ function renderChoiceQuestion(q, idx, total) {
     const btn = document.createElement("button");
     btn.type = "button";
     btn.className = "choice-option-btn";
-
     btn.textContent = `${CIRCLED_NUMS[i]} ${text}`;
 
     btn.onclick = () => {
@@ -1181,6 +1063,7 @@ function renderChoiceQuestion(q, idx, total) {
     buttons.push(btn);
   });
 
+  // 2분 후 자동 정답 공개
   setTimer(() => {
     if (answered) return;
     answered = true;
@@ -1203,212 +1086,16 @@ function renderChoiceQuestion(q, idx, total) {
   setProgress(idx, total);
 }
 
-/* ========== (5) 지문 빈칸 완성(passage) ========== */
-function renderPassageQuestion(q, idx, total) {
-  clearTimers();
-  clearCenter();
-
-  const qDiv = document.createElement("div");
-  qDiv.className = "question-text";
-  qDiv.textContent = "지문을 읽고 빈칸에 알맞은 말을 고르세요.";
-  centerArea.appendChild(qDiv);
-
-  const blanks  = (q.blanks  || []).slice();   // ["live","get","eat"]
-  const options = (q.options || []).slice();   // ["live","lives","get","gets","eat","eats"]
-
-  const passageDiv = document.createElement("div");
-  passageDiv.className = "passage-text";
-  centerArea.appendChild(passageDiv);
-
-  // (1) ____ / (2) ____ / (3) ____ 자리에 알약(span)을 끼워 넣기
-  const lines = (q.passage || "").split("\n");
-  const blankPills = [];
-  let activeBlankIndex = 0;
-  let finished = false;
-
-  function updateActivePill() {
-    blankPills.forEach((pill, i) => {
-      if (!pill) return;
-      if (pill.dataset.locked === "true") {
-        pill.style.boxShadow = "none";
-        return;
-      }
-      if (i === activeBlankIndex) {
-        pill.style.boxShadow = "0 0 0 2px rgba(0,174,239,0.25)";
-        pill.style.borderColor = "#00AEEF";
-      } else {
-        pill.style.boxShadow = "none";
-        pill.style.borderColor = "#cbd5e1";
-      }
-    });
-  }
-
-  lines.forEach((line, lineIdx) => {
-    if (lineIdx > 0) {
-      passageDiv.appendChild(document.createElement("br"));
-    }
-
-    const regex = /\((\d+)\)\s*____/g;
-    let lastIndex = 0;
-    let match;
-
-    while ((match = regex.exec(line)) !== null) {
-      const before = line.slice(lastIndex, match.index);
-      if (before) {
-        passageDiv.appendChild(document.createTextNode(before));
-      }
-
-      const num = parseInt(match[1], 10); // 1,2,3
-      const blankIdx = num - 1;
-
-      // 번호 텍스트 "(1) "
-      const labelSpan = document.createElement("span");
-      labelSpan.textContent = `(${num}) `;
-      passageDiv.appendChild(labelSpan);
-
-      // 알약 빈칸
-      const pill = document.createElement("span");
-      pill.className = "passage-pill-placeholder";
-      pill.textContent = ""; // 안에 글자는 없이 pill만 보이게
-      pill.dataset.index = String(blankIdx);
-
-      pill.onclick = () => {
-        if (finished) return;
-        if (pill.dataset.locked === "true") return;
-        activeBlankIndex = blankIdx;
-        updateActivePill();
-      };
-
-      blankPills[blankIdx] = pill;
-      passageDiv.appendChild(pill);
-
-      lastIndex = regex.lastIndex;
-    }
-
-    const rest = line.slice(lastIndex);
-    if (rest) {
-      passageDiv.appendChild(document.createTextNode(rest));
-    }
-  });
-
-  // 보기 영역 (아래쪽: 공통 보기 1줄)
-  const passageArea = document.createElement("div");
-  passageArea.className = "passage-area";
-  centerArea.appendChild(passageArea);
-
-  const optionsRow = document.createElement("div");
-  optionsRow.className = "passage-blank-options";
-  passageArea.appendChild(optionsRow);
-
-  const hintDiv = document.createElement("div");
-  hintDiv.className = "hint-text";
-  centerArea.appendChild(hintDiv);
-
-  const expDiv = document.createElement("div");
-  expDiv.className = "explanation-text";
-  centerArea.appendChild(expDiv);
-
-  if (!blanks.length || !options.length) {
-    hintDiv.textContent = "지문 데이터에 빈칸 정보가 없습니다.";
-    setProgress(idx, total);
-    return;
-  }
-
-  const userAnswers = new Array(blanks.length).fill(null);
-
-  function allLockedCorrect() {
-    return blanks.every((ans, i) => userAnswers[i] === ans);
-  }
-
-  options.forEach(opt => {
-    const btn = document.createElement("button");
-    btn.type = "button";
-    btn.className = "passage-choice-btn";
-    btn.textContent = opt;
-
-    btn.onclick = () => {
-      if (finished) return;
-
-      const i = activeBlankIndex;
-      const pill = blankPills[i];
-      if (!pill) return;
-      if (pill.dataset.locked === "true") return; // 이미 정답 확정된 칸이면 변경 불가
-
-      const correct = blanks[i];
-
-      // 정답
-      if (opt === correct) {
-        userAnswers[i] = opt;
-
-        pill.textContent = opt;
-        pill.dataset.locked = "true";
-        pill.style.background = "#dcfce7";
-        pill.style.borderColor = "#22c55e";
-        pill.style.color = "#166534";
-        pill.style.boxShadow = "none";
-
-        // 다음 빈칸으로 자동 이동
-        let next = i + 1;
-        while (next < blanks.length && blankPills[next] && blankPills[next].dataset.locked === "true") {
-          next++;
-        }
-        if (next < blanks.length) {
-          activeBlankIndex = next;
-          updateActivePill();
-        } else {
-          // 마지막까지 모두 맞춘 경우
-          if (allLockedCorrect()) {
-            finished = true;
-            hintDiv.textContent = "";
-            expDiv.textContent = q.explanation || "정답입니다! 👏";
-            setTimer(goNext, 1500);
-          }
-        }
-      }
-      // 오답
-      else {
-        // pill에 잠깐 표시했다가 다시 비우기 (정답은 아니니까 고정 X)
-        pill.textContent = opt;
-        pill.style.background = "#fee2e2";
-        pill.style.borderColor = "#f97373";
-        pill.style.color = "#b91c1c";
-
-        setTimeout(() => {
-          if (pill.dataset.locked === "true") return; // 그 사이에 맞춘 경우 보호
-          pill.textContent = "";
-          pill.style.background = "#e5edff";
-          pill.style.borderColor = "#cbd5e1";
-          pill.style.color = "#9ca3af";
-        }, 500);
-
-        hintDiv.textContent = "다시 한 번 생각해 보세요.";
-        if (!q._countedWrongPassage) {
-          q._countedWrongPassage = true;
-          wrongQuestions.passage.push(q);
-          enqueueRetryQuestion("passage", q);
-        }
-      }
-    };
-
-    optionsRow.appendChild(btn);
-  });
-
-  // 처음엔 (1)번 칸이 선택된 상태
-  updateActivePill();
-  setProgress(idx, total);
-}
-
-/* ========== 공통 렌더링 ========== */
+/* 공통 렌더링 */
 function renderQuestionObj(q, type) {
   const list  = questionsByType[type];
   const idx   = list.indexOf(q);
   const total = list.length;
 
-  if (type === "blank")    return renderBlankQuestion(q, idx, total);
-  if (type === "order")    return renderOrderQuestion(q, idx, total);
-  if (type === "type")     return renderTypeQuestion(q, idx, total);
-  if (type === "choice")   return renderChoiceQuestion(q, idx, total);
-  if (type === "passage")  return renderPassageQuestion(q, idx, total);
+  if (type === "blank")  return renderBlankQuestion(q, idx, total);
+  if (type === "order")  return renderOrderQuestion(q, idx, total);
+  if (type === "type")   return renderTypeQuestion(q, idx, total);
+  if (type === "choice") return renderChoiceQuestion(q, idx, total);
 
   renderNoQuestion();
 }
@@ -1448,7 +1135,8 @@ modeTabs.forEach(tab => {
 
 homeBtn.onclick = () => {
   clearTimers();
-  window.location.href = "index.html"; // 필요 시 경로 조정
+  // 홈 경로는 프로젝트에 맞게 수정
+  window.location.href = "index.html";
 };
 
 modeResetBtn.onclick = () => {
@@ -1467,12 +1155,15 @@ modeResetBtn.onclick = () => {
 
 backToUnitsBtn.onclick = () => {
   clearTimers();
-  window.history.back();
+  if (schoolId) {
+    window.location.href =
+      `sentence-school-detail.html?school=${encodeURIComponent(schoolId)}`;
+  } else {
+    window.history.back();
+  }
 };
 
 renderCurrent();
 </script>
 </body>
 </html>
-
-
