@@ -1213,51 +1213,36 @@ function renderPassageQuestion(q, idx, total) {
   qDiv.textContent = "지문을 읽고 빈칸에 알맞은 말을 고르세요.";
   centerArea.appendChild(qDiv);
 
-  // ---- 지문 영역 (위쪽) ----
+  const blanks  = (q.blanks  || []).slice();   // ["live","get","eat"]
+  const options = (q.options || []).slice();   // ["live","lives","get","gets","eat","eats"]
+
   const passageDiv = document.createElement("div");
   passageDiv.className = "passage-text";
+  centerArea.appendChild(passageDiv);
 
-  const rawPassage = q.passage || "";
-  const lines = rawPassage.split("\n");
-
-  const blanks = (q.blanks || []).slice();   // 정답 배열 예: ["live","get","eat"]
-  const options = (q.options || []).slice(); // 보기 배열 예: ["eat","eats","live","lives","get","gets"]
-
-  // 각 번호별로 화면에 표시되는 pill span 저장
+  // (1) ____ / (2) ____ / (3) ____ 자리에 알약(span)을 끼워 넣기
+  const lines = (q.passage || "").split("\n");
   const blankPills = [];
   let activeBlankIndex = 0;
-
-  // 알약 모양 스타일(인라인) 공통 적용 함수
-  function stylePill(span) {
-    span.style.display = "inline-flex";
-    span.style.alignItems = "center";
-    span.style.justifyContent = "center";
-    span.style.minWidth = "60px";
-    span.style.height = "22px";
-    span.style.padding = "0 10px";
-    span.style.margin = "0 4px";
-    span.style.borderRadius = "999px";
-    span.style.border = "1.5px dashed #cbd5e1";
-    span.style.background = "#e5edff";
-    span.style.fontSize = "14px";
-    span.style.color = "#9ca3af";
-    span.style.cursor = "pointer";
-  }
+  let finished = false;
 
   function updateActivePill() {
-    blankPills.forEach((p, i) => {
-      if (!p) return;
+    blankPills.forEach((pill, i) => {
+      if (!pill) return;
+      if (pill.dataset.locked === "true") {
+        pill.style.boxShadow = "none";
+        return;
+      }
       if (i === activeBlankIndex) {
-        p.style.borderColor = "#00AEEF";
-        p.style.boxShadow = "0 0 0 2px rgba(0,174,239,0.2)";
+        pill.style.boxShadow = "0 0 0 2px rgba(0,174,239,0.25)";
+        pill.style.borderColor = "#00AEEF";
       } else {
-        p.style.borderColor = "#cbd5e1";
-        p.style.boxShadow = "none";
+        pill.style.boxShadow = "none";
+        pill.style.borderColor = "#cbd5e1";
       }
     });
   }
 
-  // (1) ____ , (2) ____ , (3) ____ 부분을 찾아 알약 placeholder로 대체
   lines.forEach((line, lineIdx) => {
     if (lineIdx > 0) {
       passageDiv.appendChild(document.createElement("br"));
@@ -1274,21 +1259,27 @@ function renderPassageQuestion(q, idx, total) {
       }
 
       const num = parseInt(match[1], 10); // 1,2,3
+      const blankIdx = num - 1;
+
+      // 번호 텍스트 "(1) "
       const labelSpan = document.createElement("span");
       labelSpan.textContent = `(${num}) `;
       passageDiv.appendChild(labelSpan);
 
+      // 알약 빈칸
       const pill = document.createElement("span");
-      stylePill(pill);
-      pill.textContent = ""; // 선택 전에는 빈칸처럼 보이게
-      const idxBlank = num - 1;
-      blankPills[idxBlank] = pill;
+      pill.className = "passage-pill-placeholder";
+      pill.textContent = ""; // 안에 글자는 없이 pill만 보이게
+      pill.dataset.index = String(blankIdx);
 
       pill.onclick = () => {
-        activeBlankIndex = idxBlank;
+        if (finished) return;
+        if (pill.dataset.locked === "true") return;
+        activeBlankIndex = blankIdx;
         updateActivePill();
       };
 
+      blankPills[blankIdx] = pill;
       passageDiv.appendChild(pill);
 
       lastIndex = regex.lastIndex;
@@ -1300,10 +1291,7 @@ function renderPassageQuestion(q, idx, total) {
     }
   });
 
-  centerArea.appendChild(passageDiv);
-  updateActivePill(); // 처음에는 (1) 선택 상태
-
-  // ---- 보기 영역 (아래쪽) : 한 줄만 있음 ----
+  // 보기 영역 (아래쪽: 공통 보기 1줄)
   const passageArea = document.createElement("div");
   passageArea.className = "passage-area";
   centerArea.appendChild(passageArea);
@@ -1321,51 +1309,15 @@ function renderPassageQuestion(q, idx, total) {
   centerArea.appendChild(expDiv);
 
   if (!blanks.length || !options.length) {
-    hintDiv.textContent = "지문 데이터에 빈칸 또는 보기 정보가 없습니다.";
+    hintDiv.textContent = "지문 데이터에 빈칸 정보가 없습니다.";
     setProgress(idx, total);
     return;
   }
 
   const userAnswers = new Array(blanks.length).fill(null);
-  let finished = false;
 
-  function checkAllSelected() {
-    if (finished) return;
-    if (userAnswers.some(a => !a)) return;
-
-    let allCorrect = true;
-
-    userAnswers.forEach((ans, i) => {
-      const correct = blanks[i];
-      const pill = blankPills[i];
-      if (!pill) return;
-
-      if (ans === correct) {
-        pill.style.background = "#dcfce7";
-        pill.style.borderColor = "#22c55e";
-        pill.style.color = "#166534";
-      } else {
-        allCorrect = false;
-        pill.style.background = "#fee2e2";
-        pill.style.borderColor = "#f97373";
-        pill.style.color = "#b91c1c";
-      }
-    });
-
-    if (allCorrect) {
-      finished = true;
-      hintDiv.textContent = "";
-      expDiv.textContent = q.explanation || "정답입니다! 👏";
-      setTimer(goNext, 1500);
-    } else {
-      hintDiv.textContent = "틀린 번호가 있습니다. 다시 확인해 보세요.";
-      expDiv.textContent = q.explanation || "";
-      if (!q._countedWrongPassage) {
-        q._countedWrongPassage = true;
-        wrongQuestions.passage.push(q);
-        enqueueRetryQuestion("passage", q);
-      }
-    }
+  function allLockedCorrect() {
+    return blanks.every((ans, i) => userAnswers[i] === ans);
   }
 
   options.forEach(opt => {
@@ -1376,23 +1328,73 @@ function renderPassageQuestion(q, idx, total) {
 
     btn.onclick = () => {
       if (finished) return;
-      const idxBlank = activeBlankIndex;
-      if (idxBlank == null || !blankPills[idxBlank]) return;
 
-      userAnswers[idxBlank] = opt;
-      const pill = blankPills[idxBlank];
+      const i = activeBlankIndex;
+      const pill = blankPills[i];
+      if (!pill) return;
+      if (pill.dataset.locked === "true") return; // 이미 정답 확정된 칸이면 변경 불가
 
-      pill.textContent = opt;
-      pill.style.background = "#d6e8ff";
-      pill.style.borderColor = "#5c9dff";
-      pill.style.color = "#1f2933";
+      const correct = blanks[i];
 
-      checkAllSelected();
+      // 정답
+      if (opt === correct) {
+        userAnswers[i] = opt;
+
+        pill.textContent = opt;
+        pill.dataset.locked = "true";
+        pill.style.background = "#dcfce7";
+        pill.style.borderColor = "#22c55e";
+        pill.style.color = "#166534";
+        pill.style.boxShadow = "none";
+
+        // 다음 빈칸으로 자동 이동
+        let next = i + 1;
+        while (next < blanks.length && blankPills[next] && blankPills[next].dataset.locked === "true") {
+          next++;
+        }
+        if (next < blanks.length) {
+          activeBlankIndex = next;
+          updateActivePill();
+        } else {
+          // 마지막까지 모두 맞춘 경우
+          if (allLockedCorrect()) {
+            finished = true;
+            hintDiv.textContent = "";
+            expDiv.textContent = q.explanation || "정답입니다! 👏";
+            setTimer(goNext, 1500);
+          }
+        }
+      }
+      // 오답
+      else {
+        // pill에 잠깐 표시했다가 다시 비우기 (정답은 아니니까 고정 X)
+        pill.textContent = opt;
+        pill.style.background = "#fee2e2";
+        pill.style.borderColor = "#f97373";
+        pill.style.color = "#b91c1c";
+
+        setTimeout(() => {
+          if (pill.dataset.locked === "true") return; // 그 사이에 맞춘 경우 보호
+          pill.textContent = "";
+          pill.style.background = "#e5edff";
+          pill.style.borderColor = "#cbd5e1";
+          pill.style.color = "#9ca3af";
+        }, 500);
+
+        hintDiv.textContent = "다시 한 번 생각해 보세요.";
+        if (!q._countedWrongPassage) {
+          q._countedWrongPassage = true;
+          wrongQuestions.passage.push(q);
+          enqueueRetryQuestion("passage", q);
+        }
+      }
     };
 
     optionsRow.appendChild(btn);
   });
 
+  // 처음엔 (1)번 칸이 선택된 상태
+  updateActivePill();
   setProgress(idx, total);
 }
 
@@ -1472,4 +1474,5 @@ renderCurrent();
 </script>
 </body>
 </html>
+
 
