@@ -292,6 +292,7 @@
       border-color: #f97373;
     }
 
+    /* 확인 버튼 스타일은 남겨두지만 이제 화면엔 안 씀 */
     .typing-check-btn {
       padding: 10px 18px;
       border-radius: 999px;
@@ -390,24 +391,23 @@
       gap: 16px;
     }
 
-    /* 🔹 여기부터 빈칸 완성(.choice-btn)과 동일하게 맞춤 */
     .choice-option-btn {
       width: 100%;
-      min-height: 52px;
-      padding: 12px 18px;
       border-radius: 999px;
       border: 1.5px solid #d0d7e6;
       background: #ffffff;
-      font-size: 18px;
+      padding: 14px 20px;
+      font-size: 16px;
       cursor: pointer;
       text-align: left;
+      box-shadow: 0 12px 28px rgba(15, 23, 42, 0.12);
       transition: all 0.15s ease;
-      white-space: nowrap;
     }
 
     .choice-option-btn:hover {
-      background: #e8f0ff;
       border-color: #8ab4ff;
+      box-shadow: 0 16px 34px rgba(15, 23, 42, 0.18);
+      transform: translateY(-1px);
     }
 
     .choice-option-btn.correct {
@@ -458,6 +458,7 @@
         font-size: 21px;
       }
 
+      /* 빈칸 완성: 모바일에서는 한 줄에 하나씩 */
       .choices-grid {
         grid-template-columns: 1fr;
       }
@@ -1013,6 +1014,7 @@ function renderTypeQuestion(q, idx, total) {
     }
   }
 
+  // 스페이스/엔터로 다음 칸 이동, 마지막 칸에서는 채점
   blankInputs.forEach((input, idx) => {
     input.addEventListener("keydown", (e) => {
       if (e.key === " " || e.key === "Spacebar" || e.key === "Enter") {
@@ -1070,6 +1072,7 @@ function renderChoiceQuestion(q, idx, total) {
     btn.type = "button";
     btn.className = "choice-option-btn";
 
+    // 빈칸 완성과 동일한 형식
     btn.textContent = `${CIRCLED_NUMS[i]} ${text}`;
 
     btn.onclick = () => {
@@ -1096,6 +1099,7 @@ function renderChoiceQuestion(q, idx, total) {
     buttons.push(btn);
   });
 
+  // 2분 후 자동 정답 공개
   setTimer(() => {
     if (answered) return;
     answered = true;
@@ -1167,6 +1171,7 @@ modeTabs.forEach(tab => {
 
 homeBtn.onclick = () => {
   clearTimers();
+  // 필요하면 경로 수정
   window.location.href = "index.html";
 };
 
@@ -1187,3 +1192,9 @@ modeResetBtn.onclick = () => {
 backToUnitsBtn.onclick = () => {
   clearTimers();
   window.history.back();
+};
+
+renderCurrent();
+</script>
+</body>
+</html>
