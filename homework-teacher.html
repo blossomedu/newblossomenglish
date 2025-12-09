@@ -54,12 +54,35 @@
     .link-btn {
       border-radius: 999px;
       border: none;
-      padding: 8px 16px;
+      padding: 10px 20px;
       font-size: 14px;
       cursor: pointer;
-      background: var(--blue); /* Home 버튼 색 */
+      background: var(--blue);
       color: #ffffff;
       white-space: nowrap;
+    }
+
+    /* 상단 버튼 묶음 */
+    .top-actions {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+    }
+
+    /* Home 버튼만 민트색 */
+    #home-btn {
+      background: var(--mint);
+      color: #ffffff;
+    }
+
+    /* 뒤로 버튼: 회색 */
+    #back-btn {
+      background: #e5e7eb;
+      color: #374151;
+    }
+
+    #back-btn:hover {
+      background: #d1d5db;
     }
 
     .card {
@@ -85,8 +108,8 @@
       align-items: center;
       padding: 3px 10px;
       border-radius: 999px;
-      background: #ffe4f6;      /* 연한 핑크 배경 */
-      color: var(--pink);        /* 핑크 텍스트 */
+      background: #ffe4f6;      
+      color: var(--pink);        
       font-size: 12px;
       margin-left: 6px;
       font-weight: 600;
@@ -109,7 +132,7 @@
       font-size: 13px;
       color: #4b5563;
       margin-bottom: 4px;
-      text-align: center; /* 1~5 라벨 가운데 정렬 */
+      text-align: center;
     }
 
     select,
@@ -148,7 +171,7 @@
     }
 
     .pill-btn.active {
-      background: var(--blue); /* 어휘/문장 pill 활성 색 */
+      background: var(--blue);
       color: #ffffff;
       box-shadow: 0 8px 18px rgba(0, 174, 239, 0.35);
     }
@@ -159,7 +182,7 @@
       padding: 9px 18px;
       font-size: 14px;
       cursor: pointer;
-      background: #10b981; /* 기본 버튼 색 */
+      background: #10b981; /* 기본값 */
       color: #ffffff;
       white-space: nowrap;
     }
@@ -169,7 +192,7 @@
       cursor: default;
     }
 
-    /* ✅ 숙제 등록 버튼: 민트색 */
+    /* 숙제 등록 버튼만 민트색 */
     #save-btn {
       background: var(--mint);
       color: #ffffff;
@@ -257,7 +280,7 @@
       color: #ffffff;
     }
 
-    /* ✅ 단어 시험지 출력: 핑크색 */
+    /* 단어 시험지 출력: 핑크색 */
     #btn-print-test {
       background: var(--pink);
       color: #ffffff;
@@ -294,10 +317,16 @@
         반을 선택하고 어휘/문장 숙제를 등록하면, 나중에 학생 진도와 연결해서 볼 수 있어요.
       </div>
     </div>
-    <!-- ✅ 메인으로 → Home -->
-    <button class="link-btn" onclick="window.location.href='index.html'">
-      Home
-    </button>
+    <div class="top-actions">
+      <!-- 뒤로: 바로 이전 페이지(보드)로 -->
+      <button class="link-btn" id="back-btn" type="button" onclick="history.back()">
+        뒤로
+      </button>
+      <!-- Home: 메인으로 -->
+      <button class="link-btn" id="home-btn" type="button" onclick="window.location.href='index.html'">
+        Home
+      </button>
+    </div>
   </div>
 
   <!-- 1. 숙제 등록 카드 -->
