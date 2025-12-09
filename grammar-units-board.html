@@ -127,7 +127,7 @@
       box-shadow: 0 0 0 2px rgba(96, 165, 250, 0.3);
     }
 
-    /* 추가하기 버튼: 회색 (관리용, 주로 선생님) */
+    /* 추가하기/수정하기 버튼 */
     .write-box button {
       border: none;
       background: #6B7280;
@@ -176,6 +176,12 @@
       color: #9ca3af;
     }
 
+    .post-actions {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
     /* 영상 보기 버튼: 블루 (학생 메인 액션) */
     .post-actions a {
       border-radius: 999px;
@@ -192,6 +198,22 @@
 
     .post-actions a:hover {
       background: #0099D4;
+    }
+
+    /* 수정 버튼 (선생님 전용) */
+    .post-actions button {
+      border-radius: 999px;
+      border: none;
+      background: #e5e7eb;
+      color: #374151;
+      padding: 6px 10px;
+      font-size: 12px;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    .post-actions button:hover {
+      background: #d1d5db;
     }
 
     .empty-text {
@@ -242,7 +264,7 @@
       <div class="form-row">
         <input type="url" id="url-input" placeholder="유튜브 링크를 붙여넣기 해주세요" required />
       </div>
-      <button type="submit">추가하기</button>
+      <button type="submit" id="submit-btn">추가하기</button>
     </form>
   </div>
 
@@ -260,6 +282,9 @@
     "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJwZGlzeGpoaGlicmdmcHZ0bG12Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjM5NTkxODQsImV4cCI6MjA3OTUzNTE4NH0.jDZ6BGirOPuWUnt4ykjhng4PLft2ZjBuYAFzApUnlYU"
   );
 
+  // 현재 로그인 역할: teacher / student / guest
+  let currentRole = "guest";
+
   async function checkLogin() {
     const loginName = document.getElementById("login-name");
     const loginBtn = document.getElementById("login-btn");
@@ -270,6 +295,7 @@
 
     if (student) {
       const s = JSON.parse(student);
+      currentRole = "student";
       loginName.textContent = `${s.name} 학생`;
       loginBtn.style.display = "none";
       logoutBtn.style.display = "inline-block";
@@ -281,6 +307,7 @@
 
     if (data.user) {
       const name = data.user.user_metadata?.display_name || data.user.email;
+      currentRole = "teacher";
       loginName.textContent = `${name} 선생님`;
       loginBtn.style.display = "none";
       logoutBtn.style.display = "inline-block";
@@ -288,6 +315,7 @@
     }
 
     // 3) 로그인 없음
+    currentRole = "guest";
     loginName.textContent = "";
     loginBtn.style.display = "inline-block";
     logoutBtn.style.display = "none";
@@ -298,8 +326,6 @@
     await supa.auth.signOut();
     location.reload();
   }
-
-  checkLogin();
 
   // ---------- 레벨 정보 읽기 ----------
   const LEVEL_LABELS = {
@@ -388,8 +414,24 @@
       link.target = "_blank";
       link.rel = "noopener noreferrer";
       link.textContent = "영상 보기";
-
       actions.appendChild(link);
+
+      // ✅ 선생님일 때만 수정 버튼 표시
+      if (currentRole === "teacher") {
+        const editBtn = document.createElement("button");
+        editBtn.type = "button";
+        editBtn.textContent = "수정";
+
+        editBtn.onclick = () => {
+          editingPostId = post.id;
+          titleInput.value = post.title;
+          urlInput.value = post.url;
+          submitBtn.textContent = "수정 완료";
+          window.scrollTo({ top: 0, behavior: "smooth" });
+        };
+
+        actions.appendChild(editBtn);
+      }
 
       card.appendChild(main);
       card.appendChild(actions);
@@ -402,6 +444,10 @@
   const form = document.getElementById("post-form");
   const titleInput = document.getElementById("title-input");
   const urlInput = document.getElementById("url-input");
+  const submitBtn = document.getElementById("submit-btn");
+
+  // 현재 수정 중인 게시글 id (없으면 null)
+  let editingPostId = null;
 
   form.addEventListener("submit", function (e) {
     e.preventDefault();
@@ -412,12 +458,27 @@
     if (!title || !url) return;
 
     const posts = loadPosts();
-    posts.push({
-      id: Date.now(),
-      title,
-      url,
-      createdAt: Date.now()
-    });
+
+    if (editingPostId !== null) {
+      // ✅ 수정 모드: 해당 id 찾아서 내용 변경
+      const idx = posts.findIndex((p) => p.id === editingPostId);
+      if (idx !== -1) {
+        posts[idx].title = title;
+        posts[idx].url = url;
+        // createdAt은 그대로 유지
+      }
+      editingPostId = null;
+      submitBtn.textContent = "추가하기";
+    } else {
+      // 새 글 추가
+      const now = Date.now();
+      posts.push({
+        id: now,
+        title,
+        url,
+        createdAt: now
+      });
+    }
 
     savePosts(posts);
     titleInput.value = "";
@@ -425,8 +486,11 @@
     renderPosts();
   });
 
-  // 첫 렌더링
-  renderPosts();
+  // 초기 실행: 로그인 확인 후 렌더
+  (async function init() {
+    await checkLogin();
+    renderPosts();
+  })();
 </script>
 </body>
 </html>
