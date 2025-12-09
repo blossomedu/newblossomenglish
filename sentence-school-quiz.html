@@ -1213,14 +1213,104 @@ function renderPassageQuestion(q, idx, total) {
   qDiv.textContent = "지문을 읽고 빈칸에 알맞은 말을 고르세요.";
   centerArea.appendChild(qDiv);
 
+  // ---- 지문 영역 (위쪽) ----
   const passageDiv = document.createElement("div");
   passageDiv.className = "passage-text";
-  passageDiv.textContent = q.passage || "";
-  centerArea.appendChild(passageDiv);
 
+  const rawPassage = q.passage || "";
+  const lines = rawPassage.split("\n");
+
+  const blanks = (q.blanks || []).slice();   // 정답 배열 예: ["live","get","eat"]
+  const options = (q.options || []).slice(); // 보기 배열 예: ["eat","eats","live","lives","get","gets"]
+
+  // 각 번호별로 화면에 표시되는 pill span 저장
+  const blankPills = [];
+  let activeBlankIndex = 0;
+
+  // 알약 모양 스타일(인라인) 공통 적용 함수
+  function stylePill(span) {
+    span.style.display = "inline-flex";
+    span.style.alignItems = "center";
+    span.style.justifyContent = "center";
+    span.style.minWidth = "60px";
+    span.style.height = "22px";
+    span.style.padding = "0 10px";
+    span.style.margin = "0 4px";
+    span.style.borderRadius = "999px";
+    span.style.border = "1.5px dashed #cbd5e1";
+    span.style.background = "#e5edff";
+    span.style.fontSize = "14px";
+    span.style.color = "#9ca3af";
+    span.style.cursor = "pointer";
+  }
+
+  function updateActivePill() {
+    blankPills.forEach((p, i) => {
+      if (!p) return;
+      if (i === activeBlankIndex) {
+        p.style.borderColor = "#00AEEF";
+        p.style.boxShadow = "0 0 0 2px rgba(0,174,239,0.2)";
+      } else {
+        p.style.borderColor = "#cbd5e1";
+        p.style.boxShadow = "none";
+      }
+    });
+  }
+
+  // (1) ____ , (2) ____ , (3) ____ 부분을 찾아 알약 placeholder로 대체
+  lines.forEach((line, lineIdx) => {
+    if (lineIdx > 0) {
+      passageDiv.appendChild(document.createElement("br"));
+    }
+
+    const regex = /\((\d+)\)\s*____/g;
+    let lastIndex = 0;
+    let match;
+
+    while ((match = regex.exec(line)) !== null) {
+      const before = line.slice(lastIndex, match.index);
+      if (before) {
+        passageDiv.appendChild(document.createTextNode(before));
+      }
+
+      const num = parseInt(match[1], 10); // 1,2,3
+      const labelSpan = document.createElement("span");
+      labelSpan.textContent = `(${num}) `;
+      passageDiv.appendChild(labelSpan);
+
+      const pill = document.createElement("span");
+      stylePill(pill);
+      pill.textContent = ""; // 선택 전에는 빈칸처럼 보이게
+      const idxBlank = num - 1;
+      blankPills[idxBlank] = pill;
+
+      pill.onclick = () => {
+        activeBlankIndex = idxBlank;
+        updateActivePill();
+      };
+
+      passageDiv.appendChild(pill);
+
+      lastIndex = regex.lastIndex;
+    }
+
+    const rest = line.slice(lastIndex);
+    if (rest) {
+      passageDiv.appendChild(document.createTextNode(rest));
+    }
+  });
+
+  centerArea.appendChild(passageDiv);
+  updateActivePill(); // 처음에는 (1) 선택 상태
+
+  // ---- 보기 영역 (아래쪽) : 한 줄만 있음 ----
   const passageArea = document.createElement("div");
   passageArea.className = "passage-area";
   centerArea.appendChild(passageArea);
+
+  const optionsRow = document.createElement("div");
+  optionsRow.className = "passage-blank-options";
+  passageArea.appendChild(optionsRow);
 
   const hintDiv = document.createElement("div");
   hintDiv.className = "hint-text";
@@ -1230,58 +1320,14 @@ function renderPassageQuestion(q, idx, total) {
   expDiv.className = "explanation-text";
   centerArea.appendChild(expDiv);
 
-  const blanks  = (q.blanks  || []).slice();
-  const options = (q.options || []).slice();
-
   if (!blanks.length || !options.length) {
-    hintDiv.textContent = "지문 데이터에 빈칸 정보가 없습니다.";
+    hintDiv.textContent = "지문 데이터에 빈칸 또는 보기 정보가 없습니다.";
     setProgress(idx, total);
     return;
   }
 
   const userAnswers = new Array(blanks.length).fill(null);
-  const rowsInfo = [];
   let finished = false;
-
-  blanks.forEach((answerWord, blankIdx) => {
-    const row = document.createElement("div");
-    row.className = "passage-blank-row";
-
-    const label = document.createElement("div");
-    label.className = "passage-blank-label";
-    label.textContent = `(${blankIdx + 1})`;
-    row.appendChild(label);
-
-    const optWrap = document.createElement("div");
-    optWrap.className = "passage-blank-options";
-    row.appendChild(optWrap);
-
-    const btns = [];
-
-    options.forEach(opt => {
-      const btn = document.createElement("button");
-      btn.type = "button";
-      btn.className = "passage-choice-btn";
-      btn.textContent = opt;
-
-      btn.onclick = () => {
-        if (finished) return;
-
-        userAnswers[blankIdx] = opt;
-
-        btns.forEach(b => b.classList.remove("selected"));
-        btn.classList.add("selected");
-
-        checkAllSelected();
-      };
-
-      optWrap.appendChild(btn);
-      btns.push(btn);
-    });
-
-    passageArea.appendChild(row);
-    rowsInfo.push({ buttons: btns, answer: answerWord });
-  });
 
   function checkAllSelected() {
     if (finished) return;
@@ -1289,25 +1335,20 @@ function renderPassageQuestion(q, idx, total) {
 
     let allCorrect = true;
 
-    rowsInfo.forEach((rowInfo, idxRow) => {
-      const { buttons, answer } = rowInfo;
-      const chosen = userAnswers[idxRow];
+    userAnswers.forEach((ans, i) => {
+      const correct = blanks[i];
+      const pill = blankPills[i];
+      if (!pill) return;
 
-      buttons.forEach(btn => {
-        btn.classList.remove("correct", "wrong");
-      });
-
-      buttons.forEach(btn => {
-        if (btn.textContent === answer && chosen === answer) {
-          btn.classList.add("correct");
-        }
-        if (btn.textContent === chosen && chosen !== answer) {
-          btn.classList.add("wrong");
-        }
-      });
-
-      if (chosen !== answer) {
+      if (ans === correct) {
+        pill.style.background = "#dcfce7";
+        pill.style.borderColor = "#22c55e";
+        pill.style.color = "#166534";
+      } else {
         allCorrect = false;
+        pill.style.background = "#fee2e2";
+        pill.style.borderColor = "#f97373";
+        pill.style.color = "#b91c1c";
       }
     });
 
@@ -1326,6 +1367,31 @@ function renderPassageQuestion(q, idx, total) {
       }
     }
   }
+
+  options.forEach(opt => {
+    const btn = document.createElement("button");
+    btn.type = "button";
+    btn.className = "passage-choice-btn";
+    btn.textContent = opt;
+
+    btn.onclick = () => {
+      if (finished) return;
+      const idxBlank = activeBlankIndex;
+      if (idxBlank == null || !blankPills[idxBlank]) return;
+
+      userAnswers[idxBlank] = opt;
+      const pill = blankPills[idxBlank];
+
+      pill.textContent = opt;
+      pill.style.background = "#d6e8ff";
+      pill.style.borderColor = "#5c9dff";
+      pill.style.color = "#1f2933";
+
+      checkAllSelected();
+    };
+
+    optionsRow.appendChild(btn);
+  });
 
   setProgress(idx, total);
 }
@@ -1406,3 +1472,4 @@ renderCurrent();
 </script>
 </body>
 </html>
+
