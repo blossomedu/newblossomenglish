@@ -105,11 +105,11 @@
 1-1|order|R5|다음 단어를 바르게 배열하여 문장을 만드시오.|I am doing homework.|나는 숙제를 하고 있습니다.
 
 # 3) 문장 완성(타이핑)
-1-1|type|T1|빈칸을 채워 문장을 완성하세요.|She reads books every day.|그녀는 매일 책을 읽습니다.
-1-1|type|T2|빈칸을 채워 문장을 완성하세요.|He goes to school at 8.|그는 8시에 학교에 갑니다.
-1-1|type|T3|빈칸을 채워 문장을 완성하세요.|The children play in the park.|그 아이들은 공원에서 놉니다.
-1-1|type|T4|빈칸을 채워 문장을 완성하세요.|Mom is cooking dinner.|엄마는 저녁을 요리하고 있습니다.
-1-1|type|T5|빈칸을 채워 문장을 완성하세요.|I am doing homework.|나는 숙제를 하고 있습니다.
+1-1|type|T1|빈칸을 채워 문장을 완성하세요.|She reads books every day.|그녀는 매일 책을 읽습니다.|reads,books
+1-1|type|T2|빈칸을 채워 문장을 완성하세요.|He goes to school at 8.|그는 8시에 학교에 갑니다.|goes,to,school,at
+1-1|type|T3|빈칸을 채워 문장을 완성하세요.|The children play in the park.|그 아이들은 공원에서 놉니다.|play,in,the,park
+1-1|type|T4|빈칸을 채워 문장을 완성하세요.|Mom is cooking dinner.|엄마는 저녁을 요리하고 있습니다.|is,cooking,dinner
+1-1|type|T5|빈칸을 채워 문장을 완성하세요.|I am doing homework.|나는 숙제를 하고 있습니다.|doing,homework
 
 # 4) 문장 고르기
 1-1|choose|C1|다음 중 올바른 문장을 고르시오.|He go to school.|She plays the piano.|They walks fast.|I am goes home.|1|She + plays가 올바른 형태입니다.
@@ -124,3 +124,4 @@
 
   window.SENTENCE_SCHOOL_DB = buildSentenceDB(RAW_SENTENCES);
 })();
+
