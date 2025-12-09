@@ -391,6 +391,7 @@
       gap: 16px;
     }
 
+    /* 🔹 빈칸 완성(.choice-btn)과 같은 느낌으로 변경 */
     .choice-option-btn {
       width: 100%;
       border-radius: 999px;
@@ -400,14 +401,17 @@
       font-size: 16px;
       cursor: pointer;
       text-align: left;
-      box-shadow: 0 12px 28px rgba(15, 23, 42, 0.12);
       transition: all 0.15s ease;
+      /* box-shadow 제거해서 평평한 알약 스타일로 */
+      box-shadow: none;
     }
 
     .choice-option-btn:hover {
       border-color: #8ab4ff;
-      box-shadow: 0 16px 34px rgba(15, 23, 42, 0.18);
-      transform: translateY(-1px);
+      background: #e8f0ff;   /* 빈칸 완성과 동일한 hover */
+      /* 기존 그림자/살짝 떠오르는 효과 제거 */
+      box-shadow: none;
+      transform: none;
     }
 
     .choice-option-btn.correct {
