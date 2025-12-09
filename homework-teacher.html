@@ -69,7 +69,7 @@
       align-items: center;
     }
 
-    /* Home 버튼만 민트색 */
+    /* Home 버튼: 민트색 */
     #home-btn {
       background: var(--mint);
       color: #ffffff;
@@ -108,8 +108,8 @@
       align-items: center;
       padding: 3px 10px;
       border-radius: 999px;
-      background: #ffe4f6;      
-      color: var(--pink);        
+      background: #ffe4f6;
+      color: var(--pink);
       font-size: 12px;
       margin-left: 6px;
       font-weight: 600;
@@ -192,9 +192,9 @@
       cursor: default;
     }
 
-    /* 숙제 등록 버튼만 민트색 */
+    /* 숙제 등록 버튼: 핑크색 */
     #save-btn {
-      background: var(--mint);
+      background: var(--pink);
       color: #ffffff;
     }
 
@@ -269,10 +269,11 @@
       text-align: center;
     }
 
-    /* 버튼별 색 지정 */
+    /* 로그아웃 버튼: 숨김 */
     #logout-btn {
       background: var(--pink);
       color: #ffffff;
+      display: none;
     }
 
     #btn-print-note {
@@ -318,7 +319,7 @@
       </div>
     </div>
     <div class="top-actions">
-      <!-- 뒤로: 바로 이전 페이지(보드)로 -->
+      <!-- 뒤로: 직전 페이지 -->
       <button class="link-btn" id="back-btn" type="button" onclick="history.back()">
         뒤로
       </button>
