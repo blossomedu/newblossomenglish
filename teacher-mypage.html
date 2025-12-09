@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <title>선생님 마이페이지 - 블라썸잉글리쉬</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="https://cdn.jsdelivr.net/npm/pretendard/dist/web/variable/pretendardvariable.css" rel="stylesheet" />
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: "Pretendard Variable", -apple-system, BlinkMacSystemFont,
+        system-ui, "Apple SD Gothic Neo", "Noto Sans KR", sans-serif;
+    }
+
+    body {
+      background: #f4f6fb;
+      padding: 30px 0 60px;
+    }
+
+    .page {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 20px;
+      position: relative;
+    }
+
+    /* 로그인 상태 박스 */
+    #login-status {
+      position: absolute;
+      top: 34px;
+      right: 20px;
+      display: flex;
+      gap: 10px;
+      align-items: center;
+    }
+
+    #login-status span {
+      font-size: 14px;
+      color: #374151;
+      font-weight: 600;
+    }
+
+    #login-status button {
+      border: none;
+      background: #FF6FB5;
+      color: white;
+      padding: 6px 14px;
+      border-radius: 999px;
+      cursor: pointer;
+      font-size: 13px;
+      font-weight: 600;
+      transition: 0.2s ease;
+    }
+
+    #login-status button:hover {
+      background: #ff5aa8;
+    }
+
+    .title-big {
+      font-size: 34px;
+      font-weight: 900;
+      margin-bottom: 6px;
+      margin-top: 34px;
+    }
+
+    .subtitle {
+      font-size: 16px;
+      color: #6b7280;
+      margin-bottom: 32px;
+    }
+
+    /* 2열 그리드 */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 22px;
+    }
+
+    .menu-card {
+      background: #ffffff;
+      border-radius: 26px;
+      height: 180px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      box-shadow: 0 15px 32px rgba(15, 23, 42, 0.08);
+      transition: all 0.2s ease;
+      cursor: pointer;
+    }
+
+    .menu-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 22px 40px rgba(15, 23, 42, 0.12);
+    }
+
+    .menu-text {
+      font-size: 20px;
+      font-weight: 700;
+      color: #111827;
+      margin-top: 10px;
+    }
+
+    .menu-icon {
+      width: 80px;
+      height: 80px;
+      opacity: 0.92;
+    }
+
+    a {
+      text-decoration: none;
+    }
+  </style>
+</head>
+
+<body>
+<div class="page">
+
+  <!-- 로그인 영역 -->
+  <div id="login-status">
+    <span id="login-name"></span>
+    <button id="logout-btn" onclick="logoutUser()">로그아웃</button>
+  </div>
+
+  <div class="title-big">선생님 마이페이지</div>
+  <div class="subtitle">관리 및 업로드 기능을 선택하세요</div>
+
+  <div class="grid">
+
+    <!-- 1 온라인 숙제 업로드 -->
+    <a href="homework-onlilne.html">
+      <div class="menu-card">
+        <img src="upload.png" class="menu-icon" />
+        <div class="menu-text">온라인 숙제 / 글쓰기 업로드</div>
+      </div>
+    </a>
+
+    <!-- 2 숙제 검사 -->
+    <a href="homework-result.html">
+      <div class="menu-card">
+        <img src="check.png" class="menu-icon" />
+        <div class="menu-text">숙제 검사 / 제출 확인</div>
+      </div>
+    </a>
+
+    <!-- 3 어휘 업로드 -->
+    <a href="vocab-upload.html">
+      <div class="menu-card">
+        <img src="vocab-book.png" class="menu-icon" />
+        <div class="menu-text">어휘 학습 업로드</div>
+      </div>
+    </a>
+
+    <!-- 4 문법 업로드 -->
+    <a href="grammar-upload.html">
+      <div class="menu-card">
+        <img src="video-learning.png" class="menu-icon" />
+        <div class="menu-text">문법 학습 업로드</div>
+      </div>
+    </a>
+
+    <!-- 5 문장 업로드 -->
+    <a href="sentecne-upload.html">
+      <div class="menu-card">
+        <img src="pencil.png" class="menu-icon" />
+        <div class="menu-text">문장 학습 업로드</div>
+      </div>
+    </a>
+
+    <!-- 6 초바영 업로드 -->
+    <a href="chobaeng-upload.html">
+      <div class="menu-card">
+        <img src="chobaeng.png" class="menu-icon" />
+        <div class="menu-text">초바영 학습 업로드</div>
+      </div>
+    </a>
+
+    <!-- 7 반 배정 -->
+    <a href="class-admin.html">
+      <div class="menu-card">
+        <img src="board.png" class="menu-icon" />
+        <div class="menu-text">신입생 반 배정하기</div>
+      </div>
+    </a>
+
+  </div>
+</div>
+
+<!-- Supabase -->
+<script src="https://unpkg.com/@supabase/supabase-js@2.48.0/dist/umd/supabase.js"></script>
+<script>
+  const supa = supabase.createClient(
+    "https://bpdisxjhhibrgfpvtlmv.supabase.co",
+    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJwZGlzeGpoaGlicmdmcHZ0bG12Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjM5NTkxODQsImV4cCI6MjA3OTUzNTE4NH0.jDZ6BGirOPuWUnt4ykjhng4PLft2ZjBuYAFzApUnlYU"
+  );
+
+  async function checkTeacher() {
+    const loginName = document.getElementById("login-name");
+
+    // 학생 로그인이라면 접근 불가
+    if (localStorage.getItem("blossom_student")) {
+      alert("학생 계정으로는 접근할 수 없습니다.");
+      location.href = "index.html";
+      return;
+    }
+
+    // 선생님 로그인 확인
+    const { data } = await supa.auth.getUser();
+
+    if (!data.user) {
+      alert("선생님 로그인이 필요합니다.");
+      location.href = "login.html";
+      return;
+    }
+
+    const name = data.user.user_metadata?.display_name || data.user.email;
+    loginName.textContent = `${name} 선생님`;
+  }
+
+  async function logoutUser() {
+    localStorage.removeItem("blossom_student");
+    await supa.auth.signOut();
+    location.href = "index.html";
+  }
+
+  checkTeacher();
+</script>
+
+</body>
+</html>
