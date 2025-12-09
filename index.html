@@ -27,7 +27,7 @@
       position: relative;
     }
 
-    /* 로그인 상태 영역 */
+    /* 로그인 상태 박스 */
     #login-status {
       position: absolute;
       top: 34px;
@@ -43,7 +43,7 @@
       font-weight: 600;
     }
 
-    /* 공통 버튼 스타일 */
+    /* 버튼 공통 */
     #login-status button {
       border: none;
       padding: 6px 14px;
@@ -51,33 +51,36 @@
       cursor: pointer;
       font-size: 13px;
       font-weight: 600;
-      color: white;
-      transition: 0.15s;
+      transition: background 0.15s ease;
     }
 
-    /* 로그인 버튼 (핑크) */
+    /* 마이페이지 버튼 (파랑) */
+    #mypage-btn {
+      background: #00AEEF;
+      color: white;
+      display: none; /* 기본 숨김 → 선생님일 때만 보임 */
+    }
+    #mypage-btn:hover {
+      background: #0095c9;
+    }
+
+    /* 로그인 버튼 */
     #login-btn {
-      background: #FF6FB5;
+      background: #00AEEF;
+      color: #fff;
     }
     #login-btn:hover {
-      background: #ff5aa8;
+      background: #0095c9;
     }
 
-    /* 로그아웃 버튼 (핑크) */
+    /* 로그아웃 버튼 (핑크색) */
     #logout-btn {
       background: #FF6FB5;
+      color: white;
+      display: none;
     }
     #logout-btn:hover {
       background: #ff5aa8;
-    }
-
-    /* 마이페이지 버튼 (블루) */
-    #mypage-btn {
-      background: #00AEEF;
-      display: none;
-    }
-    #mypage-btn:hover {
-      background: #0095d1; /* 블루 hover */
     }
 
     .title-big {
@@ -93,6 +96,7 @@
       margin-bottom: 32px;
     }
 
+    /* 2열 그리드 (총 6개 카드) */
     .grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
@@ -143,54 +147,68 @@
   <div id="login-status">
     <span id="login-name"></span>
 
-    <button id="mypage-btn" onclick="location.href='mypage.html'">마이페이지</button>
+    <button id="mypage-btn" onclick="location.href='teacher-mypage.html'">
+      마이페이지
+    </button>
 
-    <button id="login-btn" onclick="location.href='login.html'">로그인</button>
-    <button id="logout-btn" style="display:none;" onclick="logoutUser()">로그아웃</button>
+    <button id="login-btn" onclick="location.href='login.html'">
+      로그인
+    </button>
+
+    <button id="logout-btn" onclick="logoutUser()">
+      로그아웃
+    </button>
   </div>
 
   <div class="title-big">블라썸잉글리쉬</div>
   <div class="subtitle">미래를 꽃 피우는 영어 교육</div>
 
   <div class="grid">
+
+    <!-- 어휘 학습 -->
     <a href="vocabulary.html">
       <div class="menu-card">
-        <img src="vocab-book.png" class="menu-icon" alt="어휘 학습" />
+        <img src="vocab-book.png" class="menu-icon" />
         <div class="menu-text">어휘 학습</div>
       </div>
     </a>
 
+    <!-- 문장 학습 -->
     <a href="sentence.html">
       <div class="menu-card">
-        <img src="pencil.png" class="menu-icon" alt="문장 학습" />
+        <img src="pencil.png" class="menu-icon" />
         <div class="menu-text">문장 학습</div>
       </div>
     </a>
 
+    <!-- 문법 학습 -->
     <a href="grammar-units.html">
       <div class="menu-card">
-        <img src="video-learning.png" class="menu-icon" alt="문법 학습" />
+        <img src="video-learning.png" class="menu-icon" />
         <div class="menu-text">문법 학습</div>
       </div>
     </a>
 
+    <!-- 초바영 학습 -->
     <a href="chobaeng-units.html">
       <div class="menu-card">
-        <img src="chobaeng.png" class="menu-icon" alt="초바영 학습" />
+        <img src="chobaeng.png" class="menu-icon" />
         <div class="menu-text">초바영 학습</div>
       </div>
     </a>
 
+    <!-- 반별 게시판 -->
     <a href="board.html">
       <div class="menu-card">
-        <img src="board.png" class="menu-icon" alt="반별 게시판" />
+        <img src="board.png" class="menu-icon" />
         <div class="menu-text">반별 게시판</div>
       </div>
     </a>
 
-    <a href="https://search.kyobobook.co.kr/search?keyword=%EC%B4%88%EB%B0%94%EC%98%81&gbCode=TOT&target=total" target="_blank">
+    <!-- 온라인 서점 -->
+    <a href="https://search.kyobobook.co.kr/search?keyword=%EC%B4%88%EB%B0%94%EC%98%81" target="_blank">
       <div class="menu-card">
-        <img src="store.png" class="menu-icon" alt="온라인 서점" />
+        <img src="store.png" class="menu-icon" />
         <div class="menu-text">온라인 서점</div>
       </div>
     </a>
@@ -212,31 +230,33 @@
     const logoutBtn = document.getElementById("logout-btn");
     const mypageBtn = document.getElementById("mypage-btn");
 
-    // 1) 학생 로그인(localStorage)
+    // 학생 로그인(localStorage)
     const student = localStorage.getItem("blossom_student");
+
     if (student) {
       const s = JSON.parse(student);
       loginName.textContent = `${s.name} 학생`;
 
       loginBtn.style.display = "none";
       logoutBtn.style.display = "inline-block";
-      mypageBtn.style.display = "inline-block";
+      mypageBtn.style.display = "none"; // 학생은 마이페이지 없음
       return;
     }
 
-    // 2) 선생님 로그인(Supabase)
+    // 선생님 로그인(supabase)
     const { data } = await supa.auth.getUser();
+
     if (data.user) {
       const name = data.user.user_metadata?.display_name || data.user.email;
       loginName.textContent = `${name} 선생님`;
 
       loginBtn.style.display = "none";
       logoutBtn.style.display = "inline-block";
-      mypageBtn.style.display = "inline-block";
+      mypageBtn.style.display = "inline-block"; // 선생님만 마이페이지 표시
       return;
     }
 
-    // 3) 로그인 없음
+    // 로그인 없음
     loginName.textContent = "";
     loginBtn.style.display = "inline-block";
     logoutBtn.style.display = "none";
