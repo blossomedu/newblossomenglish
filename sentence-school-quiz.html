@@ -2,7 +2,7 @@
 <html lang="ko">
 <head>
   <meta charset="UTF-8" />
-  <title>학교 시험 - 문장 학습</title>
+  <title>문장 학습 - 학교 시험</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link href="https://cdn.jsdelivr.net/npm/pretendard/dist/web/variable/pretendardvariable.css" rel="stylesheet" />
 
@@ -61,10 +61,12 @@
       box-shadow: 0 12px 25px rgba(0, 174, 239, 0.35);
     }
 
+    /* 각 탭별 색상 */
     .mode-tab:nth-child(1).active { background: #00AEEF; color: #fff; }
     .mode-tab:nth-child(2).active { background: #FF6FB5; color: #fff; }
     .mode-tab:nth-child(3).active { background: #00AEEF; color: #fff; }
     .mode-tab:nth-child(4).active { background: #FF6FB5; color: #fff; }
+    .mode-tab:nth-child(5).active { background: #00C896; color: #fff; }
 
     .card {
       background: #ffffff;
@@ -249,6 +251,15 @@
       width: 100%;
     }
 
+    .typing-input-wrap {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      width: 100%;
+      max-width: 520px;
+      margin-top: 16px;
+    }
+
     .inline-blank-input {
       display: inline-flex;
       align-items: center;
@@ -299,6 +310,8 @@
       color: #4b5563;
       min-height: 22px;
     }
+
+    /* ===== 공통 하단 ===== */
 
     .bottom-bar {
       display: flex;
@@ -366,14 +379,15 @@
       font-size: 16px;
       cursor: pointer;
       text-align: left;
-      box-shadow: 0 12px 28px rgba(15, 23, 42, 0.12);
       transition: all 0.15s ease;
+      box-shadow: none;
     }
 
     .choice-option-btn:hover {
       border-color: #8ab4ff;
-      box-shadow: 0 16px 34px rgba(15, 23, 42, 0.18);
-      transform: translateY(-1px);
+      background: #e8f0ff;
+      box-shadow: none;
+      transform: none;
     }
 
     .choice-option-btn.correct {
@@ -412,6 +426,93 @@
 
     .choice-result.timeover {
       color: #ef4444;
+    }
+
+    /* ===== (5) 지문 완성 ===== */
+
+    .passage-area {
+      margin-top: 16px;
+      background: #eef4ff;
+      border-radius: 26px;
+      padding: 20px 22px;
+    }
+
+    .passage-text {
+      font-size: 18px;
+      line-height: 1.6;
+      white-space: pre-line;
+    }
+
+    .passage-blank-list {
+      margin-top: 18px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .passage-blank-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 16px;
+    }
+
+    .passage-blank-label {
+      font-weight: 600;
+      min-width: 48px;
+    }
+
+    .passage-select {
+      min-width: 120px;
+      height: 38px;
+      border-radius: 999px;
+      border: 1.5px solid #d0d7e6;
+      padding: 0 12px;
+      font-size: 16px;
+      background: #ffffff;
+      outline: none;
+      transition: all 0.15s ease;
+    }
+
+    .passage-select:focus {
+      border-color: #8ab4ff;
+      background: #e8f0ff;
+    }
+
+    .passage-select.correct {
+      background: #dcfce7;
+      border-color: #22c55e;
+      color: #166534;
+    }
+
+    .passage-select.wrong {
+      background: #fee2e2;
+      border-color: #f97373;
+      color: #b91c1c;
+    }
+
+    .passage-check-btn {
+      margin-top: 12px;
+      align-self: flex-start;
+      padding: 9px 18px;
+      border-radius: 999px;
+      border: none;
+      background: #00C896;
+      color: #ffffff;
+      font-size: 14px;
+      cursor: pointer;
+      transition: background 0.15s ease, transform 0.1s ease;
+    }
+
+    .passage-check-btn:hover:not(:disabled) {
+      background: #00b184;
+      transform: translateY(-1px);
+    }
+
+    .passage-check-btn:disabled {
+      opacity: 0.7;
+      cursor: default;
+      transform: none;
     }
 
     /* 📱 모바일 전용 */
@@ -470,13 +571,14 @@
 </head>
 <body>
 <div class="page">
-  <h1 class="main-title" id="mainTitle">학교 시험 - 문장 학습</h1>
+  <h1 class="main-title" id="mainTitle">문장 학습 - 학교 시험</h1>
 
   <div class="top-bar">
     <button class="mode-tab" data-mode="blank">🧩 빈칸 완성</button>
     <button class="mode-tab" data-mode="order">🔀 문장 배열</button>
     <button class="mode-tab" data-mode="type">⌨ 문장 완성</button>
-    <button class="mode-tab" data-mode="choice">📚 문장 고르기</button>
+    <button class="mode-tab" data-mode="choice">문장 고르기</button>
+    <button class="mode-tab" data-mode="passage">📖 지문 완성</button>
   </div>
 
   <div class="card">
@@ -485,27 +587,21 @@
     <div class="bottom-bar">
       <div id="progressText">0 / 0</div>
       <div class="bottom-right">
-        <button type="button" class="nav-pill pill-home" id="homeBtn">
-          Home
-        </button>
-        <button type="button" class="nav-pill pill-reset" id="modeResetBtn">
-          다시 풀기
-        </button>
-        <button type="button" class="nav-pill pill-back" id="backToUnitsBtn">
-          돌아가기
-        </button>
+        <button type="button" class="nav-pill pill-home" id="homeBtn">Home</button>
+        <button type="button" class="nav-pill pill-reset" id="modeResetBtn">다시 풀기</button>
+        <button type="button" class="nav-pill pill-back" id="backToUnitsBtn">돌아가기</button>
       </div>
     </div>
   </div>
 </div>
 
-<!-- 🔁 여기 js 파일명은 네가 실제 쓰는 학교시험용 데이터 파일로 바꿔줘 -->
-<script src="sentence3.js"></script>
+<!-- 학교 시험용 데이터 파일 -->
+<script src="sentence-school.js"></script>
 
 <script>
 const params   = new URLSearchParams(window.location.search);
-const unitKey  = params.get("unit") || "1-1";
-const schoolId = params.get("school") || "";
+// 예: ?unit=잠신중%201-1
+const unitKey  = params.get("unit") || "잠신중 1-1";
 
 const mainTitle      = document.getElementById("mainTitle");
 const centerArea     = document.getElementById("centerArea");
@@ -515,25 +611,28 @@ const homeBtn        = document.getElementById("homeBtn");
 const modeResetBtn   = document.getElementById("modeResetBtn");
 const backToUnitsBtn = document.getElementById("backToUnitsBtn");
 
-mainTitle.textContent = `학교 시험 - 문장 학습 (${unitKey})`;
+mainTitle.textContent = `문장 학습 - 학교 시험 (${unitKey})`;
 
-const SENTENCE_DB  = window.SENTENCE_DB || {};
-const allQuestions = SENTENCE_DB[unitKey] || [];
+const SENTENCE_SCHOOL_DB = window.SENTENCE_SCHOOL_DB || {};
+const allQuestions       = SENTENCE_SCHOOL_DB[unitKey] || [];
 
-// type: blank / order / type / choice
-const questionsByType = { blank: [], order: [], type: [], choice: [] };
+// type: blank / order / type / choice / passage
+const questionsByType = { blank: [], order: [], type: [], choice: [], passage: [] };
 
 allQuestions.forEach(q => {
   if (!q || !q.type) return;
-  if (questionsByType[q.type]) {
-    questionsByType[q.type].push(q);
+  let t = q.type;
+  if (t === "choose") t = "choice";  // choose → choice 매핑
+  if (questionsByType[t]) {
+    questionsByType[t].push(q);
   }
 });
 
-// 기본 모드
-let currentMode = "type";
-const modeIndex = { blank: 0, order: 0, type: 0, choice: 0 };
-const wrongQuestions = { blank: [], order: [], type: [], choice: [] };
+// 기본 모드는 빈칸 완성부터
+let currentMode = "blank";
+const modeIndex = { blank: 0, order: 0, type: 0, choice: 0, passage: 0 };
+
+const wrongQuestions = { blank: [], order: [], type: [], choice: [], passage: [] };
 
 function shuffle(arr) {
   const a = arr.slice();
@@ -544,7 +643,7 @@ function shuffle(arr) {
   return a;
 }
 
-/* 타이머 */
+/* 타이머 관리 */
 let activeTimers = [];
 
 function clearTimers() {
@@ -583,6 +682,7 @@ function renderNoQuestion() {
 
 const CIRCLED_NUMS = ["①", "②", "③", "④"];
 
+// 재도전 큐 넣기
 function enqueueRetryQuestion(type, q) {
   if (q._retryAddedFor && q._retryAddedFor[type]) return;
   if (!q._retryAddedFor) q._retryAddedFor = {};
@@ -590,7 +690,7 @@ function enqueueRetryQuestion(type, q) {
   questionsByType[type].push(q);
 }
 
-/* 다음 문제 */
+/* ========== 공통: 다음 문제로 ========== */
 function goNext() {
   const list = questionsByType[currentMode];
   if (!list || !list.length) {
@@ -614,7 +714,7 @@ function goNext() {
   }
 }
 
-/* (1) 빈칸 완성 */
+/* ========== (1) 빈칸 완성 ========== */
 function renderBlankQuestion(q, idx, total) {
   clearTimers();
   clearCenter();
@@ -678,6 +778,7 @@ function renderBlankQuestion(q, idx, total) {
     };
   });
 
+  // 15초 후 자동 정답 공개
   setTimer(() => {
     if (answered) return;
     answered = true;
@@ -697,7 +798,7 @@ function renderBlankQuestion(q, idx, total) {
   setProgress(idx, total);
 }
 
-/* (2) 문장 배열 */
+/* ========== (2) 문장 배열 ========== */
 function renderOrderQuestion(q, idx, total) {
   clearTimers();
   clearCenter();
@@ -809,6 +910,7 @@ function renderOrderQuestion(q, idx, total) {
     });
   }
 
+  // 30초 후 자동 정답 공개
   setTimer(() => {
     if (finished) return;
     finished = true;
@@ -831,7 +933,7 @@ function renderOrderQuestion(q, idx, total) {
   setProgress(idx, total);
 }
 
-/* (3) 문장 완성(타이핑) – 확인 버튼 없이 엔터/스페이스 */
+/* ========== (3) 문장 완성(타이핑) ========== */
 function renderTypeQuestion(q, idx, total) {
   clearTimers();
   clearCenter();
@@ -878,7 +980,6 @@ function renderTypeQuestion(q, idx, total) {
       .filter(Boolean);
   }
 
-  // blankWords가 없으면 가운데 단어 하나를 기본 빈칸으로
   if (!blankTargets.length && tokens.length) {
     const midToken = tokens[Math.floor(tokens.length / 2)];
     const coreMid = midToken.replace(/[.,!?]+$/g, "");
@@ -980,7 +1081,7 @@ function renderTypeQuestion(q, idx, total) {
     }
   }
 
-  // ✅ 스페이스/엔터로 다음 칸 이동 & 마지막 칸에서 자동 채점
+  // 스페이스/엔터로 다음 칸 이동, 마지막 칸에서 채점
   blankInputs.forEach((input, idx) => {
     input.addEventListener("keydown", (e) => {
       if (e.key === " " || e.key === "Spacebar" || e.key === "Enter") {
@@ -1002,7 +1103,7 @@ function renderTypeQuestion(q, idx, total) {
   setProgress(idx, total);
 }
 
-/* (4) 문장 고르기 */
+/* ========== (4) 문장 고르기 ========== */
 function renderChoiceQuestion(q, idx, total) {
   clearTimers();
   clearCenter();
@@ -1037,6 +1138,7 @@ function renderChoiceQuestion(q, idx, total) {
     const btn = document.createElement("button");
     btn.type = "button";
     btn.className = "choice-option-btn";
+
     btn.textContent = `${CIRCLED_NUMS[i]} ${text}`;
 
     btn.onclick = () => {
@@ -1086,16 +1188,165 @@ function renderChoiceQuestion(q, idx, total) {
   setProgress(idx, total);
 }
 
-/* 공통 렌더링 */
+/* ========== (5) 지문 완성(passage) ========== */
+function renderPassageQuestion(q, idx, total) {
+  clearTimers();
+  clearCenter();
+
+  const qDiv = document.createElement("div");
+  qDiv.className = "question-text";
+  qDiv.textContent = "지문을 읽고 (1)~(3)에 알맞은 말을 고르세요.";
+  centerArea.appendChild(qDiv);
+
+  const passageArea = document.createElement("div");
+  passageArea.className = "passage-area";
+  centerArea.appendChild(passageArea);
+
+  const passageText = document.createElement("div");
+  passageText.className = "passage-text";
+  passageText.innerHTML = (q.passage || "").replace(/\n/g, "<br>");
+  passageArea.appendChild(passageText);
+
+  const blankList = document.createElement("div");
+  blankList.className = "passage-blank-list";
+  passageArea.appendChild(blankList);
+
+  const blanks  = q.blanks  || [];   // 정답 배열 (예: ["live","get","eat"])
+  const options = q.options || [];   // 보기 배열
+
+  const selects = [];
+
+  blanks.forEach((ans, i) => {
+    const row = document.createElement("div");
+    row.className = "passage-blank-row";
+
+    const label = document.createElement("div");
+    label.className = "passage-blank-label";
+    label.textContent = `(${i + 1}) 번`;
+    row.appendChild(label);
+
+    const select = document.createElement("select");
+    select.className = "passage-select";
+    select.dataset.answer = String(ans).trim().toLowerCase();
+
+    const defaultOpt = document.createElement("option");
+    defaultOpt.value = "";
+    defaultOpt.textContent = "선택";
+    select.appendChild(defaultOpt);
+
+    options.forEach(opt => {
+      const o = document.createElement("option");
+      o.value = opt;
+      o.textContent = opt;
+      select.appendChild(o);
+    });
+
+    row.appendChild(select);
+    blankList.appendChild(row);
+    selects.push(select);
+  });
+
+  const checkBtn = document.createElement("button");
+  checkBtn.type = "button";
+  checkBtn.className = "passage-check-btn";
+  checkBtn.textContent = "답 확인하기";
+  passageArea.appendChild(checkBtn);
+
+  const hintDiv = document.createElement("div");
+  hintDiv.className = "hint-text";
+  centerArea.appendChild(hintDiv);
+
+  const expDiv = document.createElement("div");
+  expDiv.className = "explanation-text";
+  centerArea.appendChild(expDiv);
+
+  let finished = false;
+
+  function handleCheck() {
+    if (finished) return;
+
+    let allSelected = true;
+    let allCorrect  = true;
+
+    selects.forEach(select => {
+      const val = String(select.value || "").trim().toLowerCase();
+      const ans = String(select.dataset.answer || "").trim().toLowerCase();
+
+      if (!val) {
+        allSelected = false;
+        select.classList.remove("correct", "wrong");
+        return;
+      }
+
+      if (val === ans) {
+        select.classList.remove("wrong");
+        select.classList.add("correct");
+      } else {
+        allCorrect = false;
+        select.classList.remove("correct");
+        select.classList.add("wrong");
+      }
+    });
+
+    if (!allSelected) {
+      hintDiv.textContent = "모든 번호의 답을 먼저 선택해 보세요.";
+      return;
+    }
+
+    if (allCorrect) {
+      finished = true;
+      checkBtn.disabled = true;
+      hintDiv.textContent = "";
+      expDiv.textContent = q.explanation || "정답입니다! 👏";
+      setTimer(goNext, 1500);
+    } else {
+      hintDiv.textContent = "힌트: 지문을 다시 한 번 천천히 읽어 보세요.";
+      expDiv.textContent = "";
+      if (!q._countedWrongPassage) {
+        q._countedWrongPassage = true;
+        wrongQuestions.passage.push(q);
+        enqueueRetryQuestion("passage", q);
+      }
+    }
+  }
+
+  checkBtn.onclick = handleCheck;
+
+  // 1분 후 자동 정답 공개
+  setTimer(() => {
+    if (finished) return;
+    finished = true;
+    checkBtn.disabled = true;
+
+    selects.forEach(select => {
+      const ans = String(select.dataset.answer || "").trim().toLowerCase();
+      select.value = ans;
+      select.classList.remove("wrong");
+      select.classList.add("correct");
+    });
+
+    hintDiv.textContent = "시간이 지나 정답이 공개되었습니다.";
+    expDiv.textContent = q.explanation || "";
+
+    enqueueRetryQuestion("passage", q);
+
+    setTimer(goNext, 5000);
+  }, 60000);
+
+  setProgress(idx, total);
+}
+
+/* ========== 공통 렌더링 ========== */
 function renderQuestionObj(q, type) {
   const list  = questionsByType[type];
   const idx   = list.indexOf(q);
   const total = list.length;
 
-  if (type === "blank")  return renderBlankQuestion(q, idx, total);
-  if (type === "order")  return renderOrderQuestion(q, idx, total);
-  if (type === "type")   return renderTypeQuestion(q, idx, total);
-  if (type === "choice") return renderChoiceQuestion(q, idx, total);
+  if (type === "blank")   return renderBlankQuestion(q, idx, total);
+  if (type === "order")   return renderOrderQuestion(q, idx, total);
+  if (type === "type")    return renderTypeQuestion(q, idx, total);
+  if (type === "choice")  return renderChoiceQuestion(q, idx, total);
+  if (type === "passage") return renderPassageQuestion(q, idx, total);
 
   renderNoQuestion();
 }
@@ -1135,7 +1386,7 @@ modeTabs.forEach(tab => {
 
 homeBtn.onclick = () => {
   clearTimers();
-  // 홈 경로는 프로젝트에 맞게 수정
+  // 필요하면 경로 수정
   window.location.href = "index.html";
 };
 
@@ -1155,12 +1406,7 @@ modeResetBtn.onclick = () => {
 
 backToUnitsBtn.onclick = () => {
   clearTimers();
-  if (schoolId) {
-    window.location.href =
-      `sentence-school-detail.html?school=${encodeURIComponent(schoolId)}`;
-  } else {
-    window.history.back();
-  }
+  window.history.back();
 };
 
 renderCurrent();
