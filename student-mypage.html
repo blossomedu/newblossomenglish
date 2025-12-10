@@ -12,6 +12,7 @@
       --mint: #9FE6B8;
       --pink: #FF6FB5;
       --bg: #f4f6fb;
+      --gray: #6b7280;
     }
 
     * {
@@ -24,47 +25,33 @@
 
     body {
       background: var(--bg);
-      padding: 24px 0 40px;
+      padding: 30px 0 60px;
     }
 
     .page {
       max-width: 1100px;
       margin: 0 auto;
       padding: 0 20px;
+      position: relative;
     }
 
-    .top-row {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 18px;
-      gap: 10px;
-    }
-
-    .title-big {
-      font-size: 28px;
-      font-weight: 900;
-    }
-
-    .subtitle {
-      font-size: 14px;
-      color: #6b7280;
-      margin-top: 4px;
-    }
-
+    /* 상단 버튼 */
     .top-actions {
+      position: absolute;
+      top: 20px;
+      right: 20px;
       display: flex;
       gap: 8px;
-      align-items: center;
     }
 
     .pill-btn {
-      padding: 8px 16px;
       border-radius: 999px;
       border: none;
+      padding: 8px 18px;
       font-size: 14px;
       cursor: pointer;
       white-space: nowrap;
+      font-weight: 600;
     }
 
     #home-btn {
@@ -81,18 +68,37 @@
       background: #d1d5db;
     }
 
-    .card {
+    h1.title {
+      font-size: 32px;
+      font-weight: 900;
+      margin-bottom: 4px;
+    }
+
+    .subtitle-main {
+      font-size: 15px;
+      color: #6b7280;
+      margin-bottom: 20px;
+    }
+
+    .section-card {
       background: #ffffff;
       border-radius: 24px;
-      padding: 18px 20px 20px;
-      box-shadow: 0 15px 32px rgba(15, 23, 42, 0.08);
+      padding: 20px 22px 22px;
+      box-shadow: 0 15px 32px rgba(15, 23, 42, 0.06);
       margin-bottom: 18px;
     }
 
+    .section-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 10px;
+      gap: 8px;
+    }
+
     .section-title {
-      font-size: 17px;
-      font-weight: 700;
-      margin-bottom: 6px;
+      font-size: 18px;
+      font-weight: 800;
       display: flex;
       align-items: center;
       gap: 6px;
@@ -101,400 +107,469 @@
     .section-sub {
       font-size: 13px;
       color: #6b7280;
-      margin-bottom: 10px;
+      margin-bottom: 12px;
     }
 
-    .badge {
-      display: inline-flex;
-      align-items: center;
-      padding: 3px 10px;
-      border-radius: 999px;
-      background: #e5e7eb;
-      color: #4b5563;
-      font-size: 12px;
-      margin-left: 6px;
-    }
-
-    .badge-class {
-      background: #eef2ff;
-      color: #3730a3;
-    }
-
-    .info-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      font-size: 14px;
-      color: #4b5563;
-      align-items: center;
-    }
-
-    .info-row span + span::before {
-      content: "· ";
-      margin: 0 4px;
-    }
-
-    /* 게시판 스타일 (board.html에서 가져옴, 학생용으로 축소) */
-    .post-list {
-      display: flex;
-      flex-direction: column;
-      gap: 16px;
-      margin-top: 6px;
-    }
-
-    .post-card {
-      background: #ffffff;
-      border-radius: 20px;
-      padding: 14px 16px;
-      box-shadow: 0 10px 26px rgba(15, 23, 42, 0.06);
-    }
-
-    .post-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: baseline;
-      gap: 8px;
-      margin-bottom: 4px;
-    }
-
-    .post-title {
-      font-size: 18px;
-      font-weight: 800;
-      color: #111827;
-    }
-
-    .post-meta {
-      font-size: 12px;
-      color: #6b7280;
-      text-align: right;
-    }
-
-    .post-meta span + span::before {
-      content: "· ";
-      margin: 0 2px;
-    }
-
-    .post-class-badge {
-      display: inline-flex;
-      align-items: center;
-      padding: 2px 10px;
-      border-radius: 999px;
-      background: #eef2ff;
-      color: #3730a3;
-      font-size: 12px;
-      margin-bottom: 4px;
-    }
-
-    .post-type-badge {
-      display: inline-flex;
-      align-items: center;
-      padding: 1px 8px;
-      border-radius: 999px;
-      font-size: 11px;
-      margin-left: 6px;
-      background: #ffe5f3;
-      color: #ff6fb5;
-    }
-
-    .post-section-label {
+    .badge-small {
       display: inline-flex;
       align-items: center;
       padding: 2px 8px;
       border-radius: 999px;
       font-size: 11px;
-      margin-bottom: 4px;
+      font-weight: 600;
+      background: #e5e7eb;
+      color: #4b5563;
     }
 
-    .sec-offline {
+    .info-row {
+      font-size: 14px;
+      color: #111827;
+      line-height: 1.7;
+    }
+
+    .info-row span.label {
+      color: #6b7280;
+      margin-right: 6px;
+    }
+
+    .info-message {
+      margin-top: 6px;
+      font-size: 13px;
+      color: #6b7280;
+    }
+
+    .info-message.emph {
+      color: #047857;
+      font-weight: 600;
+    }
+
+    .info-message.warn {
+      color: #b91c1c;
+    }
+
+    /* 우리 반 숙제 카드 안 리스트 */
+    .class-hw-empty,
+    .my-result-empty,
+    .my-hw-empty,
+    .class-online-empty {
+      padding: 16px 14px;
+      border-radius: 16px;
+      background: #f3f4f6;
+      font-size: 14px;
+      color: #6b7280;
+      text-align: center;
+    }
+
+    .hw-group-card {
+      background: #f9fafb;
+      border-radius: 18px;
+      padding: 14px 16px;
+      margin-bottom: 10px;
+    }
+
+    .hw-group-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 6px;
+      gap: 8px;
+    }
+
+    .hw-group-date {
+      font-size: 17px;
+      font-weight: 800;
+    }
+
+    .hw-group-meta {
+      font-size: 12px;
+      color: #6b7280;
+    }
+
+    .chip {
+      display: inline-flex;
+      align-items: center;
+      padding: 2px 8px;
+      border-radius: 999px;
+      font-size: 11px;
+      font-weight: 600;
+      margin-right: 4px;
+    }
+
+    .chip-class {
+      background: #eef2ff;
+      color: #3730a3;
+    }
+
+    .chip-type {
       background: #ffe5f3;
       color: #ff6fb5;
     }
 
-    .sec-vocab {
+    .chip-online-vocab {
       background: #d1fae5;
       color: #047857;
     }
 
-    .sec-sentence {
+    .chip-online-sentence {
       background: #e0f2fe;
       color: #0369a1;
     }
 
-    .post-content {
+    .chip-warning {
+      background: #fee2e2;
+      color: #b91c1c;
+    }
+
+    .hw-text-line {
       font-size: 14px;
       color: #374151;
       white-space: pre-wrap;
-      margin-top: 2px;
-      margin-bottom: 2px;
+      margin: 2px 0;
     }
 
-    .hw-row {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 6px;
-    }
-
-    .empty-box {
-      margin-top: 16px;
-      padding: 10px 12px;
-      border-radius: 18px;
-      background: #e5e7eb;
-      font-size: 14px;
-      color: #4b5563;
-      text-align: center;
-    }
-
-    /* 결과 테이블 */
+    /* 테이블 스타일 (내 온라인 숙제 결과) */
     .table-wrap {
       overflow-x: auto;
-      margin-top: 6px;
     }
 
     table {
       width: 100%;
       border-collapse: collapse;
       font-size: 13px;
-      min-width: 650px;
+      min-width: 600px;
     }
 
     th, td {
-      padding: 8px 10px;
+      padding: 10px 8px;
       border-bottom: 1px solid #e5e7eb;
       text-align: left;
     }
 
     th {
       background: #f9fafb;
+      font-weight: 600;
       color: #4b5563;
+    }
+
+    td {
+      color: #374151;
+    }
+
+    /* 내 개인 숙제 등록 폼 */
+    .form-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: flex-end;
+      margin-bottom: 8px;
+    }
+
+    .field {
+      min-width: 130px;
+    }
+
+    .field label {
+      font-size: 12px;
+      color: #4b5563;
+      margin-bottom: 3px;
+      display: block;
+    }
+
+    .input, .select, .input-date {
+      width: 100%;
+      padding: 7px 10px;
+      border-radius: 999px;
+      border: 1px solid #d1d5db;
+      font-size: 13px;
+      outline: none;
+      background: #ffffff;
+    }
+
+    .input:focus, .input-date:focus {
+      border-color: #2563eb;
+    }
+
+    .pill-group {
+      display: inline-flex;
+      background: #e5e7eb;
+      border-radius: 999px;
+      padding: 3px;
+      gap: 3px;
+    }
+
+    .pill-type-btn {
+      border: none;
+      border-radius: 999px;
+      padding: 5px 12px;
+      font-size: 12px;
+      cursor: pointer;
+      background: transparent;
+      color: #4b5563;
+      white-space: nowrap;
+    }
+
+    .pill-type-btn.active {
+      background: var(--blue);
+      color: #ffffff;
+      box-shadow: 0 8px 18px rgba(0, 174, 239, 0.35);
+    }
+
+    .btn-primary {
+      border-radius: 999px;
+      border: none;
+      padding: 9px 16px;
+      font-size: 13px;
+      cursor: pointer;
+      white-space: nowrap;
+      background: var(--pink);
+      color: #ffffff;
       font-weight: 600;
     }
 
-    .empty-cell {
-      text-align: center;
-      padding: 18px 10px;
+    .btn-primary[disabled] {
+      opacity: 0.6;
+      cursor: default;
+    }
+
+    .status-text {
+      font-size: 12px;
       color: #6b7280;
+      margin-bottom: 6px;
+      min-height: 16px;
     }
 
-    /* 온라인 숙제 목록 스타일 (homework-teacher에서 일부 가져옴) */
-    .hw-list {
-      font-size: 13px;
-      color: #4b5563;
-      margin-top: 6px;
-    }
-
-    .hw-item {
-      padding: 6px 0;
-      border-bottom: 1px solid #e5e7eb;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 8px;
-    }
-
-    .hw-item:last-child {
-      border-bottom: none;
-    }
-
-    .hw-tag {
-      display: inline-block;
-      padding: 2px 8px;
-      border-radius: 999px;
-      font-size: 11px;
-      margin-right: 4px;
-    }
-
-    .hw-tag.vocab {
-      background: #fee2e2;
+    .status-text.error {
       color: #b91c1c;
     }
 
-    .hw-tag.sentence {
-      background: #e0f2fe;
-      color: #0369a1;
+    .status-text.success {
+      color: #15803d;
     }
 
     .hint {
       font-size: 12px;
       color: #9ca3af;
-      margin-top: 4px;
+      margin-bottom: 8px;
     }
 
-    .status-text {
-      font-size: 13px;
-      color: #6b7280;
+    .my-hw-list {
       margin-top: 6px;
     }
 
+    .my-hw-item {
+      padding: 6px 0;
+      border-bottom: 1px solid #e5e7eb;
+      font-size: 13px;
+      color: #374151;
+      display: flex;
+      justify-content: space-between;
+      gap: 8px;
+      align-items: center;
+    }
+
+    .my-hw-item:last-child {
+      border-bottom: none;
+    }
+
+    .my-hw-main {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      flex-wrap: wrap;
+    }
+
+    .my-hw-meta {
+      font-size: 12px;
+      color: #6b7280;
+    }
+
+    .tag-type-vocab {
+      background: #fee2e2;
+      color: #b91c1c;
+    }
+
+    .tag-type-sentence {
+      background: #e0f2fe;
+      color: #0369a1;
+    }
+
     @media (max-width: 768px) {
-      .top-row {
-        flex-direction: column;
-        align-items: flex-start;
+      .top-actions {
+        position: static;
+        justify-content: flex-end;
+        margin-bottom: 10px;
       }
-      .post-header {
-        flex-direction: column;
-        align-items: flex-start;
+      .page {
+        padding-top: 10px;
       }
-      .post-meta {
-        text-align: left;
+      .section-card {
+        padding: 16px 14px 18px;
       }
     }
   </style>
 </head>
 <body>
 <div class="page">
-  <div class="top-row">
-    <div>
-      <div class="title-big">학생 마이페이지</div>
-      <div class="subtitle">
-        오늘 숙제와 온라인 학습 결과를 한 곳에서 확인해 보세요.
-      </div>
-    </div>
-    <div class="top-actions">
-      <button class="pill-btn" id="logout-btn">로그아웃</button>
-      <button class="pill-btn" id="home-btn" type="button" onclick="window.location.href='index.html'">Home</button>
-    </div>
+  <div class="top-actions">
+    <button id="logout-btn" class="pill-btn">로그아웃</button>
+    <button id="home-btn" class="pill-btn">Home</button>
   </div>
 
-  <!-- 학생 정보 카드 -->
-  <div class="card">
-    <div class="section-title">
-      👤 내 정보
+  <h1 class="title">학생 마이페이지</h1>
+  <div class="subtitle-main">
+    오늘 숙제와 온라인 학습 결과를 한 곳에서 확인해 보세요.
+  </div>
+
+  <!-- 1. 내 정보 -->
+  <div class="section-card">
+    <div class="section-header">
+      <div class="section-title">👤 내 정보</div>
     </div>
     <div class="info-row">
-      <span>이름: <strong id="student-name">확인 중…</strong></span>
-      <span>반: <strong id="student-class">-</strong></span>
-      <span>아이디: <span id="student-login-id">-</span></span>
+      <div><span class="label">이름:</span><span id="info-name">-</span></div>
+      <div><span class="label">반:</span><span id="info-class">-</span></div>
+      <div><span class="label">아이디:</span><span id="info-id">-</span></div>
     </div>
-    <div class="status-text" id="student-status"></div>
+    <div id="info-message" class="info-message"></div>
   </div>
 
-  <!-- 1. 우리 반 숙제 카드 (필기 + 온라인) -->
-  <div class="card">
-    <div class="section-title">
-      📅 우리 반 숙제
-      <span class="badge badge-class" id="class-badge">반 확인 중…</span>
+  <!-- 2. 우리 반 숙제 (선생님이 올린 필기 + 온라인 숙제) -->
+  <div class="section-card">
+    <div class="section-header">
+      <div class="section-title">
+        📚 우리 반 숙제
+        <span id="class-badge" class="badge-small">-</span>
+      </div>
     </div>
     <div class="section-sub">
       선생님이 올린 필기 숙제와 온라인 어휘/문장 숙제가 날짜별로 함께 표시돼요.
     </div>
-
-    <div id="class-homework-list" class="post-list"></div>
-    <div id="class-homework-empty" class="empty-box" style="display:none;">
-      아직 우리 반에 등록된 숙제가 없어요.
-    </div>
+    <div id="class-hw-area"></div>
   </div>
 
-  <!-- 2. 내 온라인 숙제 결과 -->
-  <div class="card">
-    <div class="section-title">
-      📊 내 온라인 숙제 결과
+  <!-- 3. 내 온라인 숙제 결과 (vocab_results 기준) -->
+  <div class="section-card">
+    <div class="section-header">
+      <div class="section-title">📊 내 온라인 숙제 결과</div>
     </div>
     <div class="section-sub">
       단어 시험 등 온라인으로 풀었던 결과를 확인할 수 있어요. (어휘 기준)
     </div>
-
     <div class="table-wrap">
       <table>
         <thead>
-          <tr>
-            <th width="22%">제출 날짜</th>
-            <th width="18%">단원(Unit)</th>
-            <th width="20%">점수 / 모드</th>
-            <th width="20%">제출 시간</th>
-            <th width="20%">비고</th>
-          </tr>
+        <tr>
+          <th width="20%">제출 날짜</th>
+          <th width="20%">단원(Unit)</th>
+          <th width="20%">점수 / 모드</th>
+          <th width="20%">제출 시간</th>
+          <th width="20%">비고</th>
+        </tr>
         </thead>
-        <tbody id="result-table-body">
-          <tr>
-            <td colspan="5" class="empty-cell">결과를 불러오는 중입니다…</td>
-          </tr>
+        <tbody id="my-result-tbody">
+        <tr><td colspan="5" class="my-result-empty">아직 제출한 온라인 숙제가 없습니다.</td></tr>
         </tbody>
       </table>
     </div>
   </div>
 
-  <!-- 3. 우리 반 온라인 숙제 목록 (향후 '숙제 풀기'와 연결 예정) -->
-  <div class="card">
-    <div class="section-title">
-      📝 우리 반 온라인 숙제 목록
+  <!-- 4. 내가 등록한 온라인 숙제 (개인 To-do) -->
+  <div class="section-card">
+    <div class="section-header">
+      <div class="section-title">✍️ 내가 등록한 온라인 숙제</div>
+    </div>
+    <div class="section-sub">
+      선생님이 말로 알려준 숙제를 내가 직접 적어둘 수 있어요. (반 숙제와는 별도로, 나만의 온라인 숙제 목록입니다.)
+    </div>
+
+    <div class="form-row">
+      <div class="field" style="min-width:150px;">
+        <label>숙제 종류</label>
+        <div class="pill-group">
+          <button type="button" id="type-vocab" class="pill-type-btn active">어휘</button>
+          <button type="button" id="type-sentence" class="pill-type-btn">문장</button>
+        </div>
+      </div>
+
+      <div class="field" style="flex:1; min-width:180px;">
+        <label>단계-세트 (예: 1-1 또는 1-1, 1-2)</label>
+        <input id="my-hw-set" class="input" type="text" placeholder="예: 1-1 또는 1-1, 1-2" />
+      </div>
+
+      <div class="field" style="min-width:150px;">
+        <label>마감일</label>
+        <input id="my-hw-due" class="input-date" type="date" />
+      </div>
+
+      <div class="field" style="min-width:120px;">
+        <label>&nbsp;</label>
+        <button id="my-hw-save-btn" class="btn-primary">숙제 등록</button>
+      </div>
+    </div>
+    <div class="hint">
+      같은 단계만 여러 개 입력할 수 있어요. 예: 1-1, 1-2, 1-3
+    </div>
+    <div id="my-hw-status" class="status-text"></div>
+
+    <div id="my-hw-list-wrapper">
+      <div id="my-hw-empty" class="my-hw-empty">아직 내가 등록한 온라인 숙제가 없습니다.</div>
+      <div id="my-hw-list" class="my-hw-list"></div>
+    </div>
+  </div>
+
+  <!-- 5. 우리 반 온라인 숙제 목록 (선생님이 반 전체에 올린 것만) -->
+  <div class="section-card">
+    <div class="section-header">
+      <div class="section-title">📝 우리 반 온라인 숙제 목록</div>
     </div>
     <div class="section-sub">
       선생님이 등록한 온라인 어휘/문장 숙제를 한 번에 볼 수 있어요.
+      나중에 어휘/문장 학습 페이지와 연결해서, 여기에서 바로 숙제 풀기 버튼을 만들 수 있어요.
     </div>
-    <div class="hint">
-      나중에 어휘/문장 학습 페이지와 연결해서, 여기에서 바로 <strong>숙제 풀기</strong> 버튼을 만들 수 있어요.
-    </div>
-    <div id="online-hw-list" class="hw-list">
-      불러오는 중입니다…
-    </div>
+    <div id="class-online-area"></div>
   </div>
 </div>
 
 <!-- Supabase JS -->
 <script src="https://unpkg.com/@supabase/supabase-js@2.48.0/dist/umd/supabase.js"></script>
 <script>
-  // Supabase 설정
   const SUPABASE_URL = "https://bpdisxjhhibrgfpvtlmv.supabase.co";
   const SUPABASE_ANON_KEY =
     "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJwZGlzeGpoaGlicmdmcHZ0bG12Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjM5NTkxODQsImV4cCI6MjA3OTUzNTE4NH0.jDZ6BGirOPuWUnt4ykjhng4PLft2ZjBuYAFzApUnlYU";
 
-  const supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
-  const DEFAULT_AUTHOR_LABEL = "Stella쌤";
+  const client = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
   // DOM
-  const studentNameEl   = document.getElementById("student-name");
-  const studentClassEl  = document.getElementById("student-class");
-  const studentLoginEl  = document.getElementById("student-login-id");
-  const studentStatusEl = document.getElementById("student-status");
-  const classBadgeEl    = document.getElementById("class-badge");
+  const infoNameEl   = document.getElementById("info-name");
+  const infoClassEl  = document.getElementById("info-class");
+  const infoIdEl     = document.getElementById("info-id");
+  const infoMsgEl    = document.getElementById("info-message");
+  const classBadgeEl = document.getElementById("class-badge");
 
-  const classHwListEl   = document.getElementById("class-homework-list");
-  const classHwEmptyEl  = document.getElementById("class-homework-empty");
+  const classHwArea  = document.getElementById("class-hw-area");
+  const myResultTbody = document.getElementById("my-result-tbody");
 
-  const resultTableBody = document.getElementById("result-table-body");
-  const onlineHwListEl  = document.getElementById("online-hw-list");
+  const myHwSetEl      = document.getElementById("my-hw-set");
+  const myHwDueEl      = document.getElementById("my-hw-due");
+  const myHwSaveBtn    = document.getElementById("my-hw-save-btn");
+  const myHwStatusEl   = document.getElementById("my-hw-status");
+  const myHwEmptyEl    = document.getElementById("my-hw-empty");
+  const myHwListEl     = document.getElementById("my-hw-list");
+
+  const classOnlineArea = document.getElementById("class-online-area");
+
+  const typeVocabBtn    = document.getElementById("type-vocab");
+  const typeSentenceBtn = document.getElementById("type-sentence");
 
   const logoutBtn = document.getElementById("logout-btn");
+  const homeBtn   = document.getElementById("home-btn");
 
-  // 상태값
-  let currentStudent = null; // {id, name, class_id, login_id}
-  let currentClass   = null; // {id, name}
-  let groups         = [];   // 날짜+반으로 묶은 숙제들
+  let currentStudent = null;
+  let currentClass   = null;
+  let currentType    = "vocab"; // 'vocab' | 'sentence'
 
-  // 로그아웃: localStorage 비우고 홈으로
-  logoutBtn.onclick = () => {
-    try {
-      localStorage.removeItem("blossom_student");
-    } catch (e) {
-      console.error(e);
-    }
-    window.location.href = "index.html";
-  };
-
-  function setStudentStatus(msg, isError = false) {
-    studentStatusEl.textContent = msg || "";
-    if (isError) {
-      studentStatusEl.style.color = "#b91c1c";
-    } else {
-      studentStatusEl.style.color = "#6b7280";
-    }
-  }
-
-  // 날짜/시간 포맷 공통 함수
-  function formatDateTime(iso) {
-    if (!iso) return "";
-    const d = new Date(iso);
-    if (Number.isNaN(d.getTime())) return "";
-    const y = d.getFullYear();
-    const m = String(d.getMonth() + 1).padStart(2, "0");
-    const day = String(d.getDate()).padStart(2, "0");
-    const hh = String(d.getHours()).padStart(2, "0");
-    const mm = String(d.getMinutes()).padStart(2, "0");
-    return `${y}-${m}-${day} ${hh}:${mm}`;
-  }
-
-  function toDateKeyFromISO(iso) {
+  // ---------- 공통 유틸 ----------
+  function formatDate(iso) {
     if (!iso) return "";
     const d = new Date(iso);
     if (Number.isNaN(d.getTime())) return "";
@@ -502,6 +577,19 @@
     const m = String(d.getMonth() + 1).padStart(2, "0");
     const day = String(d.getDate()).padStart(2, "0");
     return `${y}-${m}-${day}`;
+  }
+
+  function formatTime(iso) {
+    if (!iso) return "";
+    const d = new Date(iso);
+    if (Number.isNaN(d.getTime())) return "";
+    const hh = String(d.getHours()).padStart(2, "0");
+    const mm = String(d.getMinutes()).padStart(2, "0");
+    return `${hh}:${mm}`;
+  }
+
+  function toDateKey(iso) {
+    return formatDate(iso);
   }
 
   function dateKeyFromTitle(title) {
@@ -512,131 +600,113 @@
     return "";
   }
 
-  // --- 1. localStorage에서 학생 정보 읽기 + DB에서 상세 정보 가져오기 ---
-  async function loadCurrentStudent() {
-    let stored = null;
+  function setMyHwStatus(msg, type) {
+    myHwStatusEl.textContent = msg || "";
+    myHwStatusEl.className = "status-text" + (type ? " " + type : "");
+  }
+
+  function parseLevelAndSets(setStr) {
+    const parts = setStr
+      .split(",")
+      .map(s => s.trim())
+      .filter(Boolean);
+    if (!parts.length) return null;
+
+    const first = parts[0].split("-");
+    if (first.length !== 2) return null;
+    const baseLevel = Number(first[0]);
+    if (!baseLevel) return null;
+
+    for (const p of parts) {
+      const [lvStr, setNumStr] = p.split("-");
+      const lv = Number(lvStr);
+      const sn = Number(setNumStr);
+      if (!lv || !sn || lv !== baseLevel) return null;
+    }
+    return {
+      level: baseLevel,
+      raw: parts.join(", ")
+    };
+  }
+
+  // ---------- 1. 학생 정보 / 반 정보 ----------
+  async function loadStudentFromLocalStorage() {
     try {
-      const raw = localStorage.getItem("blossom_student");
-      if (raw) {
-        stored = JSON.parse(raw);
+      const stored = localStorage.getItem("blossom_student");
+      if (!stored) {
+        alert("학생 로그인이 필요합니다.");
+        window.location.href = "login.html";
+        return;
       }
-    } catch (e) {
-      console.error("학생 localStorage 파싱 오류:", e);
-    }
+      const s = JSON.parse(stored);
+      currentStudent = s;
 
-    if (!stored || !stored.login_id) {
-      alert("학생 로그인이 필요합니다. 메인 화면으로 이동합니다.");
-      window.location.href = "index.html";
-      return;
-    }
+      infoNameEl.textContent = s.name || "-";
+      infoIdEl.textContent   = s.login_id || "-";
 
-    const loginId = stored.login_id;
-    const storedName = stored.name || "";
-
-    try {
-      const { data, error } = await supabaseClient
-        .from("students")
-        .select("id, name, class_id, login_id")
-        .eq("login_id", loginId)
-        .limit(1);
-
-      if (error) {
-        console.error("students 조회 오류:", error);
-        setStudentStatus("학생 정보를 불러오는 중 오류가 발생했어요.", true);
+      if (!s.class_id) {
+        infoClassEl.textContent = "미배정";
+        infoMsgEl.textContent = "아직 반이 배정되지 않았어요. 선생님께 문의해 주세요.";
+        infoMsgEl.classList.add("warn");
+        classBadgeEl.textContent = "반 미배정";
+        classHwArea.innerHTML =
+          '<div class="class-hw-empty">반이 아직 배정되지 않아 숙제를 볼 수 없어요.</div>';
+        classOnlineArea.innerHTML =
+          '<div class="class-online-empty">반이 아직 배정되지 않아 온라인 숙제를 볼 수 없어요.</div>';
         return;
       }
 
-      if (!data || data.length === 0) {
-        setStudentStatus("학생 정보가 시스템에 없습니다. 관리자에게 문의해 주세요.", true);
-        currentStudent = {
-          id: null,
-          name: storedName || "학생",
-          class_id: null,
-          login_id: loginId
-        };
-      } else {
-        currentStudent = data[0];
-      }
-
-      // 화면 반영
-      studentNameEl.textContent = currentStudent.name || storedName || "학생";
-      studentLoginEl.textContent = currentStudent.login_id || loginId;
-
-      if (!currentStudent.class_id) {
-        studentClassEl.textContent = "미배정";
-        classBadgeEl.textContent = "반 미배정";
-        setStudentStatus("아직 반이 배정되지 않았어요. 선생님께 문의해 주세요.");
-      } else {
-        await loadCurrentClass();
-      }
-    } catch (e) {
-      console.error("loadCurrentStudent 예외:", e);
-      setStudentStatus("학생 정보를 불러오는 중 오류가 발생했어요.", true);
-    }
-  }
-
-  // --- 2. 학생의 반 정보 가져오기 ---
-  async function loadCurrentClass() {
-    if (!currentStudent || !currentStudent.class_id) return;
-
-    try {
-      const { data, error } = await supabaseClient
+      // 반 정보 가져오기
+      const { data: cls, error } = await client
         .from("classes")
         .select("id, name")
-        .eq("id", currentStudent.class_id)
-        .limit(1);
+        .eq("id", s.class_id)
+        .maybeSingle();
 
       if (error) {
         console.error("classes 조회 오류:", error);
-        studentClassEl.textContent = "알 수 없음";
-        classBadgeEl.textContent = "반 정보 오류";
-        return;
       }
 
-      if (!data || data.length === 0) {
-        studentClassEl.textContent = "알 수 없음";
+      if (cls) {
+        currentClass = cls;
+        infoClassEl.textContent = cls.name || "-";
+        infoMsgEl.textContent = `환영합니다! ${cls.name} 학생입니다.`;
+        infoMsgEl.classList.add("emph");
+        classBadgeEl.textContent = cls.name;
+      } else {
+        currentClass = null;
+        infoClassEl.textContent = "미배정";
+        infoMsgEl.textContent = "반 정보를 찾을 수 없어요. 선생님께 문의해 주세요.";
+        infoMsgEl.classList.add("warn");
         classBadgeEl.textContent = "반 정보 없음";
-        return;
       }
-
-      currentClass = data[0];
-      studentClassEl.textContent = currentClass.name;
-      classBadgeEl.textContent = currentClass.name;
-      setStudentStatus(`환영합니다! ${currentClass.name} 학생입니다.`);
     } catch (e) {
-      console.error("loadCurrentClass 예외:", e);
-      studentClassEl.textContent = "알 수 없음";
-      classBadgeEl.textContent = "반 정보 오류";
+      console.error("학생 정보 확인 오류:", e);
+      alert("로그인 정보를 확인하는 중 오류가 발생했습니다. 다시 로그인해 주세요.");
+      window.location.href = "login.html";
     }
   }
 
-  // --- 3. 우리 반 숙제(필기 + 온라인) 불러오기 (board.html 로직 축약) ---
+  // ---------- 2. 우리 반 숙제 (board_posts + vocab_homework + sentence_homework) ----------
   async function loadClassHomework() {
-    classHwListEl.innerHTML = "";
-    classHwEmptyEl.style.display = "none";
+    if (!currentClass || !currentClass.id) return;
 
-    if (!currentStudent || !currentStudent.class_id) {
-      classHwEmptyEl.style.display = "block";
-      classHwEmptyEl.textContent = "반이 아직 배정되지 않아 숙제를 볼 수 없어요.";
-      return;
-    }
-
-    const classId = currentStudent.class_id;
+    classHwArea.innerHTML =
+      '<div class="class-hw-empty">우리 반 숙제를 불러오는 중입니다...</div>';
 
     try {
+      const classId = currentClass.id;
+
       const [postsRes, vocabRes, sentenceRes] = await Promise.all([
-        supabaseClient
-          .from("board_posts")
+        client.from("board_posts")
           .select("id, class_id, title, content, created_at")
           .eq("class_id", classId)
           .order("created_at", { ascending: false }),
-        supabaseClient
-          .from("vocab_homework")
+        client.from("vocab_homework")
           .select("id, class_id, level, set_numbers, due_date, created_at")
           .eq("class_id", classId)
           .order("created_at", { ascending: false }),
-        supabaseClient
-          .from("sentence_homework")
+        client.from("sentence_homework")
           .select("id, class_id, level, set_numbers, due_date, created_at")
           .eq("class_id", classId)
           .order("created_at", { ascending: false })
@@ -644,374 +714,462 @@
 
       if (postsRes.error)   console.error("board_posts 오류:", postsRes.error);
       if (vocabRes.error)   console.error("vocab_homework 오류:", vocabRes.error);
-      if (sentenceRes.error)console.error("sentence_homework 오류:", sentenceRes.error);
+      if (sentenceRes.error) console.error("sentence_homework 오류:", sentenceRes.error);
 
-      const map = {}; // key = class_id + '__' + dateKey
+      const groupsMap = {}; // key = dateKey
 
-      function ensureGroup(class_id, dateKey, created_at) {
-        const key = `${class_id}__${dateKey}`;
-        if (!map[key]) {
-          map[key] = {
-            key,
-            class_id,
-            class_name: currentClass ? currentClass.name : "",
+      function ensureGroup(dateKey) {
+        if (!groupsMap[dateKey]) {
+          groupsMap[dateKey] = {
             dateKey,
-            latestTime: created_at || null,
+            latestTime: null,
             posts: [],
             vocab: [],
             sentence: []
           };
-        } else if (created_at) {
-          if (!map[key].latestTime || new Date(created_at) > new Date(map[key].latestTime)) {
-            map[key].latestTime = created_at;
-          }
         }
-        return map[key];
+        return groupsMap[dateKey];
       }
 
-      // 필기
+      // 필기 숙제
       (postsRes.data || []).forEach(row => {
-        const titleDate = dateKeyFromTitle(row.title);
-        const dateKey = titleDate || toDateKeyFromISO(row.created_at);
-        if (!dateKey) return;
-        const g = ensureGroup(row.class_id, dateKey, row.created_at);
-        g.posts.push({
-          id: row.id,
-          title: row.title,
-          content: row.content || "",
-          created_at: row.created_at
-        });
+        const dk = dateKeyFromTitle(row.title) || toDateKey(row.created_at);
+        if (!dk) return;
+        const g = ensureGroup(dk);
+        g.posts.push(row);
+        if (!g.latestTime || new Date(row.created_at) > new Date(g.latestTime)) {
+          g.latestTime = row.created_at;
+        }
       });
 
       // 온라인 어휘
       (vocabRes.data || []).forEach(row => {
         const baseDate = row.due_date || row.created_at;
-        const dateKey = row.due_date || toDateKeyFromISO(row.created_at);
-        if (!dateKey) return;
-        const g = ensureGroup(row.class_id, dateKey, baseDate);
-        g.vocab.push({
-          id: row.id,
-          level: row.level,
-          sets: row.set_numbers,
-          due_date: row.due_date,
-          created_at: row.created_at
-        });
+        const dk = row.due_date || toDateKey(row.created_at);
+        if (!dk) return;
+        const g = ensureGroup(dk);
+        g.vocab.push(row);
+        if (!g.latestTime || new Date(baseDate) > new Date(g.latestTime)) {
+          g.latestTime = baseDate;
+        }
       });
 
       // 온라인 문장
       (sentenceRes.data || []).forEach(row => {
         const baseDate = row.due_date || row.created_at;
-        const dateKey = row.due_date || toDateKeyFromISO(row.created_at);
-        if (!dateKey) return;
-        const g = ensureGroup(row.class_id, dateKey, baseDate);
-        g.sentence.push({
-          id: row.id,
-          level: row.level,
-          sets: row.set_numbers,
-          due_date: row.due_date,
-          created_at: row.created_at
-        });
+        const dk = row.due_date || toDateKey(row.created_at);
+        if (!dk) return;
+        const g = ensureGroup(dk);
+        g.sentence.push(row);
+        if (!g.latestTime || new Date(baseDate) > new Date(g.latestTime)) {
+          g.latestTime = baseDate;
+        }
       });
 
-      groups = Object.values(map).sort((a, b) => {
+      const groups = Object.values(groupsMap).sort((a, b) => {
         return new Date(b.latestTime || 0) - new Date(a.latestTime || 0);
       });
 
-      renderClassHomework();
+      if (!groups.length) {
+        classHwArea.innerHTML =
+          '<div class="class-hw-empty">아직 우리 반에 등록된 숙제가 없어요.</div>';
+        return;
+      }
+
+      classHwArea.innerHTML = "";
+      groups.forEach(g => {
+        const card = document.createElement("div");
+        card.className = "hw-group-card";
+
+        const header = document.createElement("div");
+        header.className = "hw-group-header";
+
+        const left = document.createElement("div");
+        const dt = document.createElement("div");
+        dt.className = "hw-group-date";
+        dt.textContent = g.dateKey;
+        left.appendChild(dt);
+
+        const chips = document.createElement("div");
+        const chipClass = document.createElement("span");
+        chipClass.className = "chip chip-class";
+        chipClass.textContent = currentClass ? currentClass.name : "우리 반";
+        chips.appendChild(chipClass);
+
+        const chipType = document.createElement("span");
+        chipType.className = "chip chip-type";
+        const hasOffline = g.posts.length > 0;
+        const hasVocab   = g.vocab.length > 0;
+        const hasSentence= g.sentence.length > 0;
+
+        if (hasOffline && (hasVocab || hasSentence)) {
+          chipType.textContent = "필기 + 온라인 숙제";
+        } else if (hasOffline) {
+          chipType.textContent = "필기 숙제";
+        } else {
+          chipType.textContent = "온라인 숙제";
+        }
+        chips.appendChild(chipType);
+        left.appendChild(chips);
+
+        const meta = document.createElement("div");
+        meta.className = "hw-group-meta";
+        meta.textContent = g.latestTime ? `Stella쌤 · ${formatDate(g.latestTime)} ${formatTime(g.latestTime)}` : "";
+
+        header.appendChild(left);
+        header.appendChild(meta);
+        card.appendChild(header);
+
+        // 필기 숙제 텍스트
+        if (g.posts.length > 0) {
+          const chip = document.createElement("div");
+          chip.className = "chip chip-warning";
+          chip.textContent = "✏️ 필기 숙제 / 공지";
+          card.appendChild(chip);
+
+          g.posts.forEach(p => {
+            const line = document.createElement("div");
+            line.className = "hw-text-line";
+            line.textContent = p.content || p.title || "";
+            card.appendChild(line);
+          });
+        }
+
+        // 온라인 어휘
+        if (g.vocab.length > 0) {
+          const chip = document.createElement("div");
+          chip.className = "chip chip-online-vocab";
+          chip.textContent = "📚 온라인 어휘 숙제";
+          chip.style.marginTop = "6px";
+          card.appendChild(chip);
+
+          g.vocab.forEach(h => {
+            const line = document.createElement("div");
+            line.className = "hw-text-line";
+            const dueTxt = h.due_date ? ` / 마감일: ${h.due_date}` : "";
+            line.textContent = `단계 ${h.level} / 세트: ${h.set_numbers}${dueTxt}`;
+            card.appendChild(line);
+          });
+        }
+
+        // 온라인 문장
+        if (g.sentence.length > 0) {
+          const chip = document.createElement("div");
+          chip.className = "chip chip-online-sentence";
+          chip.textContent = "💬 온라인 문장 숙제";
+          chip.style.marginTop = "6px";
+          card.appendChild(chip);
+
+          g.sentence.forEach(h => {
+            const line = document.createElement("div");
+            line.className = "hw-text-line";
+            const dueTxt = h.due_date ? ` / 마감일: ${h.due_date}` : "";
+            line.textContent = `단계 ${h.level} / 세트: ${h.set_numbers}${dueTxt}`;
+            card.appendChild(line);
+          });
+        }
+
+        classHwArea.appendChild(card);
+      });
     } catch (e) {
-      console.error("loadClassHomework 예외:", e);
-      classHwEmptyEl.style.display = "block";
-      classHwEmptyEl.textContent = "숙제를 불러오는 중 오류가 발생했어요.";
+      console.error("우리 반 숙제 로딩 오류:", e);
+      classHwArea.innerHTML =
+        '<div class="class-hw-empty">숙제를 불러오는 중 오류가 발생했습니다.</div>';
     }
   }
 
-  function renderClassHomework() {
-    classHwListEl.innerHTML = "";
-
-    if (!groups || groups.length === 0) {
-      classHwEmptyEl.style.display = "block";
-      classHwEmptyEl.textContent = "아직 우리 반에 등록된 숙제가 없어요.";
-      return;
-    }
-
-    classHwEmptyEl.style.display = "none";
-
-    groups.forEach(g => {
-      const card = document.createElement("div");
-      card.className = "post-card";
-
-      const header = document.createElement("div");
-      header.className = "post-header";
-
-      const left = document.createElement("div");
-      const classBadge = document.createElement("div");
-      classBadge.className = "post-class-badge";
-      classBadge.textContent = g.class_name || "우리 반";
-
-      const typeBadge = document.createElement("span");
-      typeBadge.className = "post-type-badge";
-      const hasOffline = g.posts.length > 0;
-      const hasOnline = g.vocab.length > 0 || g.sentence.length > 0;
-      if (hasOffline && hasOnline) {
-        typeBadge.textContent = "필기 + 온라인 숙제";
-      } else if (hasOffline) {
-        typeBadge.textContent = "필기 숙제";
-      } else {
-        typeBadge.textContent = "온라인 숙제";
-      }
-
-      const titleEl = document.createElement("div");
-      titleEl.className = "post-title";
-      titleEl.textContent = g.dateKey;
-
-      left.appendChild(classBadge);
-      left.appendChild(typeBadge);
-      left.appendChild(titleEl);
-
-      const meta = document.createElement("div");
-      meta.className = "post-meta";
-      meta.innerHTML = `
-        <span>${DEFAULT_AUTHOR_LABEL}</span>
-        <span>${formatDateTime(g.latestTime)}</span>
-      `;
-
-      header.appendChild(left);
-      header.appendChild(meta);
-      card.appendChild(header);
-
-      const body = document.createElement("div");
-
-      // 필기 숙제 / 공지
-      if (g.posts.length > 0) {
-        const secLabel = document.createElement("div");
-        secLabel.className = "post-section-label sec-offline";
-        secLabel.textContent = "✏️ 필기 숙제 / 공지";
-        body.appendChild(secLabel);
-
-        g.posts.forEach(p => {
-          const c = document.createElement("div");
-          c.className = "post-content";
-          c.textContent = p.content || p.title || "";
-          body.appendChild(c);
-        });
-      }
-
-      // 온라인 어휘 숙제
-      if (g.vocab.length > 0) {
-        const secLabel = document.createElement("div");
-        secLabel.className = "post-section-label sec-vocab";
-        secLabel.textContent = "📚 온라인 어휘 숙제";
-        body.appendChild(secLabel);
-
-        g.vocab.forEach(h => {
-          const row = document.createElement("div");
-          row.className = "post-content hw-row";
-
-          const levelTxt = h.level != null ? `단계 ${h.level}` : "";
-          const setTxt   = h.sets ? ` / 세트 ${h.sets}` : "";
-          const dueTxt   = h.due_date ? ` (마감일: ${h.due_date})` : "";
-
-          const textSpan = document.createElement("span");
-          textSpan.textContent = `${levelTxt}${setTxt}${dueTxt}`;
-          row.appendChild(textSpan);
-
-          body.appendChild(row);
-        });
-      }
-
-      // 온라인 문장 숙제
-      if (g.sentence.length > 0) {
-        const secLabel = document.createElement("div");
-        secLabel.className = "post-section-label sec-sentence";
-        secLabel.textContent = "💬 온라인 문장 숙제";
-        body.appendChild(secLabel);
-
-        g.sentence.forEach(h => {
-          const row = document.createElement("div");
-          row.className = "post-content hw-row";
-
-          const levelTxt = h.level != null ? `단계 ${h.level}` : "";
-          const setTxt   = h.sets ? ` / 세트 ${h.sets}` : "";
-          const dueTxt   = h.due_date ? ` (마감일: ${h.due_date})` : "";
-
-          const textSpan = document.createElement("span");
-          textSpan.textContent = `${levelTxt}${setTxt}${dueTxt}`;
-          row.appendChild(textSpan);
-
-          body.appendChild(row);
-        });
-      }
-
-      card.appendChild(body);
-      classHwListEl.appendChild(card);
-    });
-  }
-
-  // --- 4. 내 온라인 숙제 결과 (vocab_results) ---
+  // ---------- 3. 내 온라인 숙제 결과 (vocab_results) ----------
   async function loadMyResults() {
-    resultTableBody.innerHTML =
-      '<tr><td colspan="5" class="empty-cell">결과를 불러오는 중입니다…</td></tr>';
-
-    if (!currentStudent || !currentStudent.login_id) {
-      resultTableBody.innerHTML =
-        '<tr><td colspan="5" class="empty-cell">학생 아이디를 찾을 수 없어요.</td></tr>';
-      return;
-    }
+    if (!currentStudent || !currentStudent.login_id) return;
 
     try {
-      const { data, error } = await supabaseClient
+      const { data, error } = await client
         .from("vocab_results")
         .select("*")
         .eq("student_login_id", currentStudent.login_id)
         .order("submitted_at", { ascending: false })
-        .limit(100);
+        .limit(50);
 
       if (error) {
-        console.error("vocab_results 조회 오류:", error);
-        resultTableBody.innerHTML =
-          '<tr><td colspan="5" class="empty-cell">결과를 불러오는 중 오류가 발생했어요.</td></tr>';
+        console.error("vocab_results 오류:", error);
+        myResultTbody.innerHTML =
+          '<tr><td colspan="5" class="my-result-empty">결과를 불러오는 중 오류가 발생했습니다.</td></tr>';
         return;
       }
 
-      if (!data || data.length === 0) {
-        resultTableBody.innerHTML =
-          '<tr><td colspan="5" class="empty-cell">아직 제출한 온라인 숙제가 없습니다.</td></tr>';
+      if (!data || !data.length) {
+        myResultTbody.innerHTML =
+          '<tr><td colspan="5" class="my-result-empty">아직 제출한 온라인 숙제가 없습니다.</td></tr>';
         return;
       }
 
-      resultTableBody.innerHTML = "";
-
+      myResultTbody.innerHTML = "";
       data.forEach(row => {
         const tr = document.createElement("tr");
-
-        const d = new Date(row.submitted_at);
-        const dateStr = isNaN(d.getTime())
-          ? "-"
-          : `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}-${String(d.getDate()).padStart(2, "0")}`;
-        const timeStr = isNaN(d.getTime())
-          ? "-"
-          : d.toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" });
+        const dateStr = formatDate(row.submitted_at);
+        const timeStr = formatTime(row.submitted_at);
 
         tr.innerHTML = `
           <td>${dateStr}</td>
           <td>${row.unit || "-"}</td>
-          <td>${row.correct_count != null ? row.correct_count + "점" : "-"} <span style="color:#6b7280; font-size:12px;">(${row.mode || "-"})</span></td>
+          <td>${row.correct_count ?? "-"}점 <span style="font-size:11px; color:#6b7280;">(${row.mode || "-"})</span></td>
           <td>${timeStr}</td>
-          <td>${row.homework_id ? "숙제와 연결됨" : "-"}</td>
+          <td>-</td>
         `;
-        resultTableBody.appendChild(tr);
+        myResultTbody.appendChild(tr);
       });
     } catch (e) {
-      console.error("loadMyResults 예외:", e);
-      resultTableBody.innerHTML =
-        '<tr><td colspan="5" class="empty-cell">결과를 불러오는 중 오류가 발생했어요.</td></tr>';
+      console.error("내 결과 로딩 예외:", e);
+      myResultTbody.innerHTML =
+        '<tr><td colspan="5" class="my-result-empty">결과를 불러오는 중 오류가 발생했습니다.</td></tr>';
     }
   }
 
-  // --- 5. 우리 반 온라인 숙제 목록 (어휘 + 문장) ---
-  async function loadOnlineHomeworkList() {
-    onlineHwListEl.textContent = "불러오는 중입니다…";
+  // ---------- 4. 내가 등록한 온라인 숙제 (student_homework) ----------
+  function setType(nextType) {
+    currentType = nextType;
+    if (nextType === "vocab") {
+      typeVocabBtn.classList.add("active");
+      typeSentenceBtn.classList.remove("active");
+    } else {
+      typeSentenceBtn.classList.add("active");
+      typeVocabBtn.classList.remove("active");
+    }
+  }
 
-    if (!currentStudent || !currentStudent.class_id) {
-      onlineHwListEl.textContent = "반이 배정되지 않아 온라인 숙제를 볼 수 없어요.";
+  typeVocabBtn.onclick = () => setType("vocab");
+  typeSentenceBtn.onclick = () => setType("sentence");
+
+  async function saveMyHomework(evt) {
+    evt.preventDefault();
+
+    if (!currentStudent || !currentStudent.login_id) {
+      setMyHwStatus("학생 정보를 찾을 수 없어요. 다시 로그인해 주세요.", "error");
       return;
     }
 
-    const classId = currentStudent.class_id;
+    const rawSet = myHwSetEl.value.trim();
+    const due    = myHwDueEl.value;
+
+    if (!rawSet) {
+      setMyHwStatus("단계-세트를 입력해 주세요. (예: 1-1 또는 1-1, 1-2)", "error");
+      return;
+    }
+
+    const parsed = parseLevelAndSets(rawSet);
+    if (!parsed) {
+      setMyHwStatus("세트 형식이 올바르지 않아요. 예: 1-1, 1-2, 1-3", "error");
+      return;
+    }
+
+    if (!due) {
+      setMyHwStatus("마감일을 선택해 주세요.", "error");
+      return;
+    }
+
+    setMyHwStatus("숙제를 저장 중입니다…", "");
+
+    myHwSaveBtn.disabled = true;
 
     try {
+      const { error } = await client
+        .from("student_homework")
+        .insert({
+          student_login_id: currentStudent.login_id,
+          type: currentType,
+          level: parsed.level,
+          set_numbers: parsed.raw,
+          due_date: due
+        });
+
+      if (error) {
+        console.error("student_homework 저장 오류:", error);
+        setMyHwStatus("숙제를 저장하는 중 오류가 발생했어요.", "error");
+        return;
+      }
+
+      setMyHwStatus("나의 온라인 숙제가 등록되었어요!", "success");
+      myHwSetEl.value = "";
+      // 마감일은 유지해도 되고, 비워도 됨. 여기서는 그대로 둠.
+
+      await loadMyHomeworkList();
+    } catch (e) {
+      console.error("student_homework 저장 예외:", e);
+      setMyHwStatus("숙제를 저장하는 중 오류가 발생했어요.", "error");
+    } finally {
+      myHwSaveBtn.disabled = false;
+    }
+  }
+
+  myHwSaveBtn.onclick = saveMyHomework;
+
+  async function loadMyHomeworkList() {
+    if (!currentStudent || !currentStudent.login_id) return;
+
+    try {
+      const { data, error } = await client
+        .from("student_homework")
+        .select("*")
+        .eq("student_login_id", currentStudent.login_id)
+        .order("due_date", { ascending: true })
+        .order("created_at", { ascending: false });
+
+      if (error) {
+        console.error("student_homework 목록 오류:", error);
+        myHwEmptyEl.textContent = "나의 온라인 숙제를 불러오는 중 오류가 발생했습니다.";
+        myHwEmptyEl.style.display = "block";
+        myHwListEl.innerHTML = "";
+        return;
+      }
+
+      if (!data || !data.length) {
+        myHwEmptyEl.textContent = "아직 내가 등록한 온라인 숙제가 없습니다.";
+        myHwEmptyEl.style.display = "block";
+        myHwListEl.innerHTML = "";
+        return;
+      }
+
+      myHwEmptyEl.style.display = "none";
+      myHwListEl.innerHTML = "";
+
+      data.forEach(row => {
+        const item = document.createElement("div");
+        item.className = "my-hw-item";
+
+        const main = document.createElement("div");
+        main.className = "my-hw-main";
+
+        const tag = document.createElement("span");
+        tag.className = "chip " + (row.type === "sentence" ? "tag-type-sentence" : "tag-type-vocab");
+        tag.textContent = row.type === "sentence" ? "문장" : "어휘";
+        main.appendChild(tag);
+
+        const txt = document.createElement("span");
+        txt.textContent = `레벨 ${row.level} / 세트: ${row.set_numbers}`;
+        main.appendChild(txt);
+
+        const meta = document.createElement("div");
+        meta.className = "my-hw-meta";
+        meta.textContent = row.due_date ? `마감일: ${row.due_date}` : "마감일: -";
+
+        item.appendChild(main);
+        item.appendChild(meta);
+
+        myHwListEl.appendChild(item);
+      });
+    } catch (e) {
+      console.error("student_homework 목록 예외:", e);
+      myHwEmptyEl.textContent = "나의 온라인 숙제를 불러오는 중 오류가 발생했습니다.";
+      myHwEmptyEl.style.display = "block";
+      myHwListEl.innerHTML = "";
+    }
+  }
+
+  // ---------- 5. 우리 반 온라인 숙제 목록 (선생님 용) ----------
+  async function loadClassOnlineHomeworkList() {
+    if (!currentClass || !currentClass.id) return;
+
+    classOnlineArea.innerHTML =
+      '<div class="class-online-empty">우리 반 온라인 숙제를 불러오는 중입니다...</div>';
+
+    try {
+      const classId = currentClass.id;
+
       const [vocabRes, sentenceRes] = await Promise.all([
-        supabaseClient
-          .from("vocab_homework")
+        client.from("vocab_homework")
           .select("id, level, set_numbers, due_date, created_at")
           .eq("class_id", classId)
           .order("created_at", { ascending: false }),
-        supabaseClient
-          .from("sentence_homework")
+        client.from("sentence_homework")
           .select("id, level, set_numbers, due_date, created_at")
           .eq("class_id", classId)
           .order("created_at", { ascending: false })
       ]);
 
       if (vocabRes.error)   console.error("vocab_homework 목록 오류:", vocabRes.error);
-      if (sentenceRes.error)console.error("sentence_homework 목록 오류:", sentenceRes.error);
+      if (sentenceRes.error) console.error("sentence_homework 목록 오류:", sentenceRes.error);
 
-      const merged = [];
-
+      const list = [];
       (vocabRes.data || []).forEach(row => {
-        merged.push({
+        list.push({
           type: "vocab",
-          id: row.id,
           level: row.level,
           sets: row.set_numbers,
-          due_date: row.due_date,
+          due: row.due_date,
           created_at: row.created_at
         });
       });
-
       (sentenceRes.data || []).forEach(row => {
-        merged.push({
+        list.push({
           type: "sentence",
-          id: row.id,
           level: row.level,
           sets: row.set_numbers,
-          due_date: row.due_date,
+          due: row.due_date,
           created_at: row.created_at
         });
       });
 
-      if (merged.length === 0) {
-        onlineHwListEl.textContent = "우리 반에는 아직 등록된 온라인 숙제가 없어요.";
+      list.sort((a, b) => new Date(b.created_at || 0) - new Date(a.created_at || 0));
+
+      if (!list.length) {
+        classOnlineArea.innerHTML =
+          '<div class="class-online-empty">이 반에는 아직 등록된 온라인 숙제가 없습니다.</div>';
         return;
       }
 
-      merged.sort((a, b) => {
-        const da = a.due_date || a.created_at || "";
-        const db = b.due_date || b.created_at || "";
-        return new Date(db) - new Date(da);
-      });
+      classOnlineArea.innerHTML = "";
+      list.forEach(row => {
+        const item = document.createElement("div");
+        item.className = "my-hw-item";
 
-      onlineHwListEl.innerHTML = "";
-      merged.forEach(row => {
-        const div = document.createElement("div");
-        div.className = "hw-item";
+        const main = document.createElement("div");
+        main.className = "my-hw-main";
 
-        const left = document.createElement("div");
         const tag = document.createElement("span");
-        tag.className = "hw-tag " + (row.type === "vocab" ? "vocab" : "sentence");
-        tag.textContent = row.type === "vocab" ? "어휘" : "문장";
+        tag.className = "chip " + (row.type === "sentence" ? "tag-type-sentence" : "tag-type-vocab");
+        tag.textContent = row.type === "sentence" ? "문장" : "어휘";
+        main.appendChild(tag);
 
-        const text = document.createElement("span");
-        const levelTxt = row.level != null ? `레벨 ${row.level}` : "";
-        const setTxt   = row.sets ? ` / 세트: ${row.sets}` : "";
-        const dueTxt   = row.due_date ? ` / 마감일: ${row.due_date}` : "";
+        const txt = document.createElement("span");
+        txt.textContent = `레벨 ${row.level} / 세트: ${row.sets}`;
+        main.appendChild(txt);
 
-        text.textContent = `${levelTxt}${setTxt}${dueTxt}`;
-        left.appendChild(tag);
-        left.appendChild(text);
+        const meta = document.createElement("div");
+        meta.className = "my-hw-meta";
+        const dateTxt = row.due ? `마감일: ${row.due}` : "마감일: -";
+        meta.textContent = dateTxt;
 
-        // 여기 오른쪽에 나중에 "숙제 풀기" 버튼을 붙이면 됨.
-        const right = document.createElement("div");
-        right.style.fontSize = "11px";
-        right.style.color = "#9ca3af";
-        right.textContent = "온라인 학습 페이지와 연동 예정";
+        item.appendChild(main);
+        item.appendChild(meta);
 
-        div.appendChild(left);
-        div.appendChild(right);
-        onlineHwListEl.appendChild(div);
+        classOnlineArea.appendChild(item);
       });
     } catch (e) {
-      console.error("loadOnlineHomeworkList 예외:", e);
-      onlineHwListEl.textContent = "온라인 숙제를 불러오는 중 오류가 발생했어요.";
+      console.error("반 온라인 숙제 목록 예외:", e);
+      classOnlineArea.innerHTML =
+        '<div class="class-online-empty">온라인 숙제를 불러오는 중 오류가 발생했습니다.</div>';
     }
   }
 
-  // --- 초기 실행 ---
+  // ---------- 로그아웃 / 홈 ----------
+  logoutBtn.onclick = () => {
+    localStorage.removeItem("blossom_student");
+    window.location.href = "index.html";
+  };
+  homeBtn.onclick = () => {
+    window.location.href = "index.html";
+  };
+
+  // ---------- 초기 실행 ----------
   (async function init() {
-    await loadCurrentStudent();     // currentStudent, currentClass 설정
-    await loadClassHomework();      // 1. 우리 반 숙제
-    await loadMyResults();          // 2. 내 결과
-    await loadOnlineHomeworkList(); // 3. 온라인 숙제 목록
+    await loadStudentFromLocalStorage();
+    // 반이 배정된 경우에만 반 관련 데이터를 로드
+    if (currentClass && currentClass.id) {
+      await loadClassHomework();
+      await loadClassOnlineHomeworkList();
+    }
+    await loadMyResults();
+    await loadMyHomeworkList();
   })();
 </script>
 </body>
