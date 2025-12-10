@@ -58,6 +58,11 @@
     .input-ui { padding: 8px 12px; border: 1px solid #d1d5db; border-radius: 6px; font-size: 14px; height: 38px; outline: none; }
     .btn-search { background: var(--blue); color: white; border: none; padding: 0 20px; border-radius: 6px; font-weight: 600; cursor: pointer; height: 38px; }
     .btn-search:hover { filter: brightness(0.9); }
+
+    /* ✅ 학생 이름 입력칸 너비 조정 */
+    #studentNameInput {
+      width: 160px; /* 필요하면 140~200px 안에서 조정 가능 */
+    }
     
     /* 뱃지 */
     .badge { padding: 4px 8px; border-radius: 99px; font-size: 11px; font-weight: 700; display: inline-block; }
@@ -87,7 +92,7 @@
         <option value="">반 선택</option>
       </select>
 
-      <!-- ✅ 추가: 학생 이름(선택) -->
+      <!-- ✅ 학생 이름(선택) -->
       <input 
         type="text" 
         id="studentNameInput" 
