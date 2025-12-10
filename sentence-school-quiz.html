@@ -430,7 +430,6 @@
 
     /* ===== (5) 지문 완성 UI ===== */
 
-    /* 지문이 들어가는 연보라 박스 */
     .passage-area {
       margin-top: 16px;
       background: #eef4ff;
@@ -444,25 +443,26 @@
       white-space: normal;
     }
 
-    /* 지문 안의 빈칸 (알약, 높이 크게) */
+    /* 🔹 지문 안의 빈칸 알약 – 아래 선다 알약과 동일 느낌으로 정리 */
     .passage-blank {
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      min-width: 90px;
-      height: 36px;
-      padding: 0 14px;
+      padding: 10px 18px;
       border-radius: 999px;
       background: #ffffff;
-      border: 2px solid #c7d2fe;
+      border: 1.5px solid #d0d7e6;
       margin: 0 4px;
-      font-weight: 600;
+      font-size: 18px;
+      font-weight: 500;
       box-sizing: border-box;
+      vertical-align: middle;   /* 줄 안에서 세로 위치 맞추기 */
+      min-width: 70px;
     }
 
     .passage-blank.active {
-      background: #e0edff;
-      border-color: #5c9dff;
+      background: #e8f0ff;
+      border-color: #8ab4ff;
     }
 
     .passage-blank.correct {
