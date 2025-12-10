@@ -58,7 +58,7 @@
     #mypage-btn {
       background: #00AEEF;
       color: white;
-      display: none; /* 기본 숨김 → 선생님일 때만 보임 */
+      display: none; /* 기본 숨김 */
     }
     #mypage-btn:hover {
       background: #0095c9;
@@ -147,7 +147,8 @@
   <div id="login-status">
     <span id="login-name"></span>
 
-    <button id="mypage-btn" onclick="location.href='teacher-mypage.html'">
+    <!-- ✅ onclick 제거: JS에서 역할(학생/선생님)에 따라 경로 설정 -->
+    <button id="mypage-btn">
       마이페이지
     </button>
 
@@ -226,41 +227,54 @@
 
   async function checkLogin() {
     const loginName = document.getElementById("login-name");
-    const loginBtn = document.getElementById("login-btn");
+    const loginBtn  = document.getElementById("login-btn");
     const logoutBtn = document.getElementById("logout-btn");
     const mypageBtn = document.getElementById("mypage-btn");
 
-    // 학생 로그인(localStorage)
+    // 기본 상태 초기화
+    loginName.textContent = "";
+    loginBtn.style.display  = "inline-block";
+    logoutBtn.style.display = "none";
+    mypageBtn.style.display = "none";
+    mypageBtn.onclick = null;
+
+    // 1) 학생 로그인(localStorage)
     const student = localStorage.getItem("blossom_student");
 
     if (student) {
       const s = JSON.parse(student);
       loginName.textContent = `${s.name} 학생`;
 
-      loginBtn.style.display = "none";
+      loginBtn.style.display  = "none";
       logoutBtn.style.display = "inline-block";
-      mypageBtn.style.display = "none"; // 학생은 마이페이지 없음
+
+      // ✅ 학생 마이페이지 이동
+      mypageBtn.style.display = "inline-block";
+      mypageBtn.onclick = () => {
+        location.href = "student-mypage.html";
+      };
       return;
     }
 
-    // 선생님 로그인(supabase)
+    // 2) 선생님 로그인(supabase)
     const { data } = await supa.auth.getUser();
 
     if (data.user) {
       const name = data.user.user_metadata?.display_name || data.user.email;
       loginName.textContent = `${name} 선생님`;
 
-      loginBtn.style.display = "none";
+      loginBtn.style.display  = "none";
       logoutBtn.style.display = "inline-block";
-      mypageBtn.style.display = "inline-block"; // 선생님만 마이페이지 표시
+
+      // ✅ 선생님 마이페이지 이동
+      mypageBtn.style.display = "inline-block";
+      mypageBtn.onclick = () => {
+        location.href = "teacher-mypage.html";
+      };
       return;
     }
 
-    // 로그인 없음
-    loginName.textContent = "";
-    loginBtn.style.display = "inline-block";
-    logoutBtn.style.display = "none";
-    mypageBtn.style.display = "none";
+    // 3) 로그인 없음 → 기본 상태 유지 (마이페이지 숨김)
   }
 
   async function logoutUser() {
