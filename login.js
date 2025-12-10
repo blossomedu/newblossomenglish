@@ -123,7 +123,8 @@ if (studentLoginBtn) {
         localStorage.setItem("blossom_student", JSON.stringify(data));
 
         setTimeout(() => {
-          window.location.href = "index.html";
+          // ✅ 여기만 변경: index.html → student-mypage.html
+          window.location.href = "student-mypage.html";
         }, 1000);
       }
     } catch (e) {
