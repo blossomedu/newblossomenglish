@@ -119,8 +119,9 @@
 잠신중 1-1|choose|C5|다음 중 올바른 문장을 고르시오.|She eat breakfast.|They are happy today.|He don’t like music.|I goes to bed early.|1|They are.
 
 # 5) 지문 완성 (1문제)
-잠신중 1-1|passage|P1|My name is Tom. I (1) ____ in a small town.\\nEvery morning, I (2) ____ up at 7 a.m.\\nI (3) ____ breakfast with my family.|live|lives|get|gets|eat|eats|live|get|eat|I(1인칭) → live, get, eat 원형. 
+잠신중 1-1|passage|P1|My name is Tom. I (1) ____ in a small town.\\nEvery morning, I (2) ____ up at 7 a.m.\\nI (3) ____ breakfast with my family.|live|lives|get|gets|eat|eats|live|get|(1인칭) → live, get, eat 원형.  
 `;
 
   window.SENTENCE_SCHOOL_DB = buildSentenceDB(RAW_SENTENCES);
 })();
+
