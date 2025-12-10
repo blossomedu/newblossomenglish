@@ -17,7 +17,7 @@
     .header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 30px; }
     .brand { font-size: 24px; font-weight: 800; color: #1f2937; }
 
-    /* 상단 버튼 공통 스타일 (homework-teacher.html 과 동일 컨셉) */
+    /* 상단 버튼 공통 스타일 */
     .top-actions {
       display: flex;
       gap: 8px;
@@ -33,12 +33,10 @@
       color: #ffffff;
       white-space: nowrap;
     }
-    /* Home 버튼: 민트색 */
     #home-btn {
       background: var(--mint);
       color: #ffffff;
     }
-    /* 뒤로 버튼: 회색 */
     #back-btn {
       background: #e5e7eb;
       color: #374151;
@@ -56,7 +54,7 @@
     td { padding: 12px; border-bottom: 1px solid #e5e7eb; vertical-align: middle; }
     
     /* 컨트롤러 */
-    .controls { display: flex; gap: 8px; margin-bottom: 16px; align-items: center; }
+    .controls { display: flex; gap: 8px; margin-bottom: 16px; align-items: center; flex-wrap: wrap; }
     .input-ui { padding: 8px 12px; border: 1px solid #d1d5db; border-radius: 6px; font-size: 14px; height: 38px; outline: none; }
     .btn-search { background: var(--blue); color: white; border: none; padding: 0 20px; border-radius: 6px; font-weight: 600; cursor: pointer; height: 38px; }
     .btn-search:hover { filter: brightness(0.9); }
@@ -76,21 +74,27 @@
   <div class="header">
     <div class="brand">👨‍🏫 선생님 관리 페이지</div>
     <div class="top-actions">
-      <!-- 뒤로: 직전 페이지로 -->
       <button class="link-btn" id="back-btn" type="button" onclick="history.back()">뒤로</button>
-      <!-- Home: 메인 페이지로 -->
       <button class="link-btn" id="home-btn" type="button" onclick="window.location.href='index.html'">Home</button>
     </div>
   </div>
 
-  <!-- ✅ 1. 날짜별 숙제 검사 카드가 위로 올라옴 -->
+  <!-- ✅ 1. 날짜별 숙제 검사 카드 -->
   <div class="section-card">
     <div class="card-title">📅 날짜별 숙제 검사</div>
     <div class="controls">
       <select id="classSelect" class="input-ui">
         <option value="">반 선택</option>
       </select>
-      
+
+      <!-- ✅ 추가: 학생 이름(선택) -->
+      <input 
+        type="text" 
+        id="studentNameInput" 
+        class="input-ui" 
+        placeholder="학생 이름 (선택)"
+      >
+
       <input type="date" id="dateInput" class="input-ui">
       
       <button class="btn-search" onclick="loadHomework()">조회하기</button>
@@ -108,13 +112,13 @@
           </tr>
         </thead>
         <tbody>
-          <tr><td colspan="5" style="text-align:center; padding:20px;">반과 날짜를 선택하고 [조회하기]를 누르세요.</td></tr>
+          <tr><td colspan="5" style="text-align:center; padding:20px;">반 또는 이름, 날짜를 선택하고 [조회하기]를 누르세요.</td></tr>
         </tbody>
       </table>
     </div>
   </div>
 
-  <!-- ✅ 2. 신입생 반 배정하기 카드는 아래로 이동 -->
+  <!-- ✅ 2. 신입생 반 배정하기 카드 -->
   <div class="section-card">
     <div class="card-title">🌱 신입생 반 배정하기</div>
     <div class="table-wrap">
@@ -131,7 +135,7 @@
 </div>
 
 <script>
-  // 1. Supabase 설정 (변수명 충돌 방지: supabaseClient로 사용)
+  // 1. Supabase 설정
   const SUPABASE_URL = "https://bpdisxjhhibrgfpvtlmv.supabase.co";
   const SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJwZGlzeGpoaGlicmdmcHZ0bG12Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjM5NTkxODQsImV4cCI6MjA3OTUzNTE4NH0.jDZ6BGirOPuWUnt4ykjhng4PLft2ZjBuYAFzApUnlYU";
   
@@ -182,7 +186,7 @@
       .from('students')
       .select('*')
       .is('class_id', null)
-      .order('created_at', { ascending: false }); // ✅ 최신 가입 순으로 정렬
+      .order('created_at', { ascending: false }); // 최신 가입 순
 
     if (error) { 
       console.error(error); 
@@ -234,37 +238,56 @@
     loadNewStudents(); // 목록 새로고침
   }
 
-  // --- [4] 숙제 결과 조회 (날짜 기준) ---
+  // --- [4] 숙제 결과 조회 (반/이름 중 하나만 선택해도 OK) ---
   async function loadHomework() {
     const classId = document.getElementById("classSelect").value;
     const dateVal = document.getElementById("dateInput").value;
+    const nameFilter = document.getElementById("studentNameInput").value.trim();
     const tbody = document.querySelector("#homeworkTable tbody");
 
-    if (!classId) { alert("반을 선택해주세요."); return; }
-    if (!dateVal) { alert("날짜를 선택해주세요."); return; }
+    // ✅ 반/이름 둘 중 하나만 있어도 OK, 둘 다 없으면 경고
+    if (!classId && !nameFilter) {
+      alert("반 또는 학생 이름 중 하나는 입력해주세요.");
+      return;
+    }
+    if (!dateVal) { 
+      alert("날짜를 선택해주세요."); 
+      return; 
+    }
 
     tbody.innerHTML = `<tr><td colspan="5" style="text-align:center; padding:20px;">조회 중...</td></tr>`;
 
     try {
-      // 1. 반 학생 명단
-      const { data: students } = await supabaseClient
+      // 1. 학생 명단 조회 (조건 조합)
+      let query = supabaseClient
         .from('students')
         .select('id, name, login_id')
-        .eq('class_id', classId)
         .order('name');
 
+      if (classId) {
+        query = query.eq('class_id', classId);
+      }
+      if (nameFilter) {
+        // 부분 일치 검색
+        query = query.ilike('name', `%${nameFilter}%`);
+      }
+
+      const { data: students, error: studentError } = await query;
+
+      if (studentError) throw studentError;
+
       if (!students || students.length === 0) {
-        tbody.innerHTML = `<tr><td colspan="5" style="text-align:center; padding:20px;">이 반에 학생이 없습니다.</td></tr>`;
+        tbody.innerHTML = `<tr><td colspan="5" style="text-align:center; padding:20px;">조건에 맞는 학생이 없습니다.</td></tr>`;
         return;
       }
 
-      // 2. 해당 날짜(00:00 ~ 23:59)의 숙제 결과 조회
+      // 2. 해당 날짜의 숙제 결과 조회
       const loginIds = students.map(s => s.login_id);
       
       const start = dateVal + " 00:00:00";
       const end   = dateVal + " 23:59:59";
 
-      const { data: results, error } = await supabaseClient
+      const { data: results, error: resultError } = await supabaseClient
         .from('vocab_results')
         .select('*')
         .in('student_login_id', loginIds)
@@ -272,13 +295,13 @@
         .lte('submitted_at', end)
         .order('submitted_at', { ascending: false });
 
-      if (error) throw error;
+      if (resultError) throw resultError;
 
       // 3. 표 만들기
       tbody.innerHTML = "";
       
       students.forEach(std => {
-        const myResults = results.filter(r => r.student_login_id === std.login_id);
+        const myResults = (results || []).filter(r => r.student_login_id === std.login_id);
         
         if (myResults.length > 0) {
           myResults.forEach(res => {
