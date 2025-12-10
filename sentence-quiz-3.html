@@ -538,10 +538,26 @@
   </div>
 </div>
 
-<!-- 3단계 데이터 파일 -->
 <script src="sentence3.js"></script>
 
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
 <script>
+// Supabase 설정 (당신의 실제 Project URL과 Public Key로 대체하세요)
+const SUPABASE_URL = "YOUR_SUPABASE_PROJECT_URL"; // 예: https://abcdefg.supabase.co
+const SUPABASE_KEY = "YOUR_SUPABASE_PUBLIC_ANON_KEY"; // 예: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...
+
+const supabase = Supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+
+// 로컬 저장소에서 로그인 정보 로드 (login.js에서 저장했다는 가정 하에)
+const studentLoginId = localStorage.getItem('blossom_login_id');
+
+// 로그인 체크 (필요시)
+if (!studentLoginId) {
+  // console.log("로그인 정보 없음. 홈으로 이동.");
+  // window.location.href = "login.html"; // 실제 구현 시 필요
+}
+
 const params   = new URLSearchParams(window.location.search);
 const unitKey  = params.get("unit") || "10-1";
 
@@ -568,8 +584,8 @@ allQuestions.forEach(q => {
   }
 });
 
-// 기본 모드를 choice로 시작
-let currentMode = "choice";
+// ⭐️ 기본 모드를 'blank'로 시작하도록 수정했습니다.
+let currentMode = "blank";
 const modeIndex = { blank: 0, order: 0, type: 0, choice: 0 };
 
 const wrongQuestions = { blank: [], order: [], type: [], choice: [] };
@@ -629,6 +645,33 @@ function enqueueRetryQuestion(type, q) {
   questionsByType[type].push(q);
 }
 
+/* ========== Supabase 결과 저장 ========== */
+async function saveResultToSupabase(unitKey, mode, score) {
+  if (!studentLoginId) {
+    console.error("로그인 ID가 없어 결과를 저장할 수 없습니다.");
+    return;
+  }
+  
+  const resultData = {
+    // DB 스키마: id (uuid), student_login_id (text), unit_key, score, mode (추가)
+    student_login_id: studentLoginId, // 로컬 저장소에서 가져온 ID
+    unit_key: `${unitKey}_${mode}`,   // 예: 10-1_choice (유닛+모드 결합)
+    score: score,                    // 점수 (0 또는 100)
+    // created_at 필드는 Supabase에서 자동으로 채워집니다.
+  };
+
+  // Supabase에 데이터 삽입
+  const { data, error } = await supabase
+    .from('vocab_results')
+    .insert([resultData]);
+
+  if (error) {
+    console.error("Supabase 결과 저장 실패:", error);
+  } else {
+    // console.log("Supabase 결과 저장 성공:", data);
+  }
+}
+
 /* 다음 문제 */
 function goNext() {
   const list = questionsByType[currentMode];
@@ -642,6 +685,9 @@ function goNext() {
   const total = list.length;
 
   if (idx >= total) {
+    // ⭐️ 모든 문제를 풀었을 때, Supabase에 결과 저장 (100점 처리)
+    saveResultToSupabase(unitKey, currentMode, 100); 
+    
     clearCenter();
     const done = document.createElement("div");
     done.className = "question-text";
