@@ -61,7 +61,7 @@
       box-shadow: 0 12px 25px rgba(0, 174, 239, 0.35);
     }
 
-    /* 각 탭별 색상 (지문 완성도 파란색으로 통일) */
+    /* 각 탭별 색상 (지문 완성도 파란색으로) */
     .mode-tab:nth-child(1).active { background: #00AEEF; color: #fff; }
     .mode-tab:nth-child(2).active { background: #FF6FB5; color: #fff; }
     .mode-tab:nth-child(3).active { background: #00AEEF; color: #fff; }
@@ -595,22 +595,28 @@
   </div>
 </div>
 
-<!-- 학교 시험용 데이터 파일 -->
 <script src="sentence-school.js"></script>
 
 <script>
 const params = new URLSearchParams(window.location.search);
 
-// URL 규칙:
-// sentence-school-quiz.html?school=잠신중&unit=1-1
-const schoolParam = params.get("school") || "잠신중";
-const unitParam   = params.get("unit")   || "1-1";
+// URL 예시: sentence-school-quiz.html?school=jsm1&unit=1-1
+const rawSchoolParam = params.get("school") || "jsm1";
+const unitParam      = params.get("unit")   || "1-1";
 
-// DB에서 쓸 키: "잠신중 1-1"
-const unitKey = `${schoolParam} ${unitParam}`;
+// 코드 → 실제 학교명 매핑
+const SCHOOL_NAME_MAP = {
+  jsm1:  "잠신중",
+  jsmg1: "잠신고",
+  scc1:  "신천중",
+};
 
-// 제목에는 "잠신중 1-1" 식으로 표시
-const titleUnitText = `${schoolParam} ${unitParam}`;
+const schoolName = SCHOOL_NAME_MAP[rawSchoolParam] || rawSchoolParam;
+
+// DB 키: "잠신중 1-1" 처럼 한글 이름 + 단원
+const unitKey = `${schoolName} ${unitParam}`;
+// 화면 제목에는 코드 그대로 표시: (jsm1 1-1)
+const titleUnitText = `${rawSchoolParam} ${unitParam}`;
 
 const mainTitle      = document.getElementById("mainTitle");
 const centerArea     = document.getElementById("centerArea");
@@ -631,13 +637,12 @@ const questionsByType = { blank: [], order: [], type: [], choice: [], passage: [
 allQuestions.forEach(q => {
   if (!q || !q.type) return;
   let t = q.type;
-  if (t === "choose") t = "choice"; // choose → choice
+  if (t === "choose") t = "choice";
   if (questionsByType[t]) {
     questionsByType[t].push(q);
   }
 });
 
-// 기본 모드는 빈칸 완성
 let currentMode = "blank";
 const modeIndex = { blank: 0, order: 0, type: 0, choice: 0, passage: 0 };
 
@@ -652,7 +657,6 @@ function shuffle(arr) {
   return a;
 }
 
-/* 타이머 관리 */
 let activeTimers = [];
 
 function clearTimers() {
@@ -698,7 +702,6 @@ function enqueueRetryQuestion(type, q) {
   questionsByType[type].push(q);
 }
 
-/* 공통: 다음 문제로 */
 function goNext() {
   const list = questionsByType[currentMode];
   if (!list || !list.length) {
@@ -722,7 +725,7 @@ function goNext() {
   }
 }
 
-/* ========== (1) 빈칸 완성 ========== */
+/* ===== (1) 빈칸 완성 ===== */
 function renderBlankQuestion(q, idx, total) {
   clearTimers();
   clearCenter();
@@ -805,7 +808,7 @@ function renderBlankQuestion(q, idx, total) {
   setProgress(idx, total);
 }
 
-/* ========== (2) 문장 배열 ========== */
+/* ===== (2) 문장 배열 ===== */
 function renderOrderQuestion(q, idx, total) {
   clearTimers();
   clearCenter();
@@ -939,7 +942,7 @@ function renderOrderQuestion(q, idx, total) {
   setProgress(idx, total);
 }
 
-/* ========== (3) 문장 완성(타이핑) ========== */
+/* ===== (3) 문장 완성(타이핑) ===== */
 function renderTypeQuestion(q, idx, total) {
   clearTimers();
   clearCenter();
@@ -1108,7 +1111,7 @@ function renderTypeQuestion(q, idx, total) {
   setProgress(idx, total);
 }
 
-/* ========== (4) 문장 고르기 ========== */
+/* ===== (4) 문장 고르기 ===== */
 function renderChoiceQuestion(q, idx, total) {
   clearTimers();
   clearCenter();
@@ -1192,7 +1195,7 @@ function renderChoiceQuestion(q, idx, total) {
   setProgress(idx, total);
 }
 
-/* ========== (5) 지문 완성(passage) ========== */
+/* ===== (5) 지문 완성 ===== */
 function renderPassageQuestion(q, idx, total) {
   clearTimers();
   clearCenter();
@@ -1389,7 +1392,7 @@ modeTabs.forEach(tab => {
 
 homeBtn.onclick = () => {
   clearTimers();
-  window.location.href = "index.html"; // 필요하면 경로 수정
+  window.location.href = "index.html"; // 필요하면 수정
 };
 
 modeResetBtn.onclick = () => {
