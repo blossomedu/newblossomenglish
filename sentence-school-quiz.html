@@ -418,7 +418,7 @@
       white-space: normal;
     }
 
-    /* 🔹 지문 빈칸 / 보기 알약 크기 완전 동일 */
+    /* 🔹 지문 빈칸 / 보기 알약 크기 완전 동일 + line-height 고정 */
     .passage-blank,
     .passage-option-chip {
       display: inline-flex;
@@ -433,6 +433,7 @@
       box-sizing: border-box;
       vertical-align: middle;
       min-width: 70px;
+      line-height: 1.2; /* ← 요거 때문에 이제 안 커짐 */
     }
 
     .passage-blank {
@@ -1166,7 +1167,7 @@ function renderPassageQuestion(q, idx, total) {
   passageArea.appendChild(passageText);
 
   const blanksAnswer = q.blanks || [];
-  const options      = shuffle(q.options || []);   // 🔹 보기 순서 섞기
+  const options      = shuffle(q.options || []);   // 보기 순서 섞기
 
   const blankEls = Array.from(passageText.querySelectorAll(".passage-blank"));
 
