@@ -61,7 +61,7 @@
       box-shadow: 0 12px 25px rgba(0, 174, 239, 0.35);
     }
 
-    /* 각 탭별 색상 (지문 완성도 파란색으로) */
+    /* 각 탭별 색상 (지문 완성도 파랑) */
     .mode-tab:nth-child(1).active { background: #00AEEF; color: #fff; }
     .mode-tab:nth-child(2).active { background: #FF6FB5; color: #fff; }
     .mode-tab:nth-child(3).active { background: #00AEEF; color: #fff; }
@@ -428,23 +428,43 @@
       color: #ef4444;
     }
 
-    /* ===== (5) 지문 완성 ===== */
+    /* ===== (5) 지문 완성 UI ===== */
 
+    /* 지문이 들어가는 연보라 박스 */
     .passage-area {
       margin-top: 16px;
       background: #eef4ff;
       border-radius: 26px;
-      padding: 20px 22px;
+      padding: 20px 24px;
     }
 
     .passage-text {
       font-size: 18px;
-      line-height: 1.6;
-      white-space: pre-line;
+      line-height: 1.7;
+      white-space: normal;
+    }
+
+    /* 지문 안의 빈칸 (알약) */
+    .passage-blank {
+      display: inline-block;
+      min-width: 80px;
+      padding: 4px 12px;
+      border-radius: 999px;
+      background: #ffffff;
+      border: 2px solid #c7d2fe;
+      margin: 0 4px;
+    }
+
+    /* 아래 흰색 선택지 영역 */
+    .passage-select-area {
+      margin-top: 18px;
+      background: #ffffff;
+      border-radius: 22px;
+      border: 1px solid #e5e7eb;
+      padding: 18px 22px;
     }
 
     .passage-blank-list {
-      margin-top: 18px;
       display: flex;
       flex-direction: column;
       gap: 10px;
@@ -459,16 +479,16 @@
 
     .passage-blank-label {
       font-weight: 600;
-      min-width: 48px;
+      min-width: 52px;
     }
 
     .passage-select {
-      min-width: 120px;
+      min-width: 140px;
       height: 38px;
       border-radius: 999px;
-      border: 1.5px solid #d0d7e6;
+      border: 2px solid #cbd5e1;
       padding: 0 12px;
-      font-size: 16px;
+      font-size: 15px;
       background: #ffffff;
       outline: none;
       transition: all 0.15s ease;
@@ -492,8 +512,7 @@
     }
 
     .passage-check-btn {
-      margin-top: 12px;
-      align-self: flex-start;
+      margin-top: 14px;
       padding: 9px 18px;
       border-radius: 999px;
       border: none;
@@ -595,6 +614,7 @@
   </div>
 </div>
 
+<!-- 학교 시험용 데이터 파일 -->
 <script src="sentence-school.js"></script>
 
 <script>
@@ -613,9 +633,9 @@ const SCHOOL_NAME_MAP = {
 
 const schoolName = SCHOOL_NAME_MAP[rawSchoolParam] || rawSchoolParam;
 
-// DB 키: "잠신중 1-1" 처럼 한글 이름 + 단원
+// DB 키: "잠신중 1-1"
 const unitKey = `${schoolName} ${unitParam}`;
-// 화면 제목에는 코드 그대로 표시: (jsm1 1-1)
+// 제목에는 코드 그대로: (jsm1 1-1)
 const titleUnitText = `${rawSchoolParam} ${unitParam}`;
 
 const mainTitle      = document.getElementById("mainTitle");
@@ -637,12 +657,13 @@ const questionsByType = { blank: [], order: [], type: [], choice: [], passage: [
 allQuestions.forEach(q => {
   if (!q || !q.type) return;
   let t = q.type;
-  if (t === "choose") t = "choice";
+  if (t === "choose") t = "choice";  // choose -> choice 통일
   if (questionsByType[t]) {
     questionsByType[t].push(q);
   }
 });
 
+// 기본 모드: 빈칸 완성
 let currentMode = "blank";
 const modeIndex = { blank: 0, order: 0, type: 0, choice: 0, passage: 0 };
 
@@ -657,6 +678,7 @@ function shuffle(arr) {
   return a;
 }
 
+/* 타이머 관리 */
 let activeTimers = [];
 
 function clearTimers() {
@@ -702,6 +724,7 @@ function enqueueRetryQuestion(type, q) {
   questionsByType[type].push(q);
 }
 
+/* 공통: 다음 문제로 */
 function goNext() {
   const list = questionsByType[currentMode];
   if (!list || !list.length) {
@@ -725,7 +748,7 @@ function goNext() {
   }
 }
 
-/* ===== (1) 빈칸 완성 ===== */
+/* ========== (1) 빈칸 완성 ========== */
 function renderBlankQuestion(q, idx, total) {
   clearTimers();
   clearCenter();
@@ -808,7 +831,7 @@ function renderBlankQuestion(q, idx, total) {
   setProgress(idx, total);
 }
 
-/* ===== (2) 문장 배열 ===== */
+/* ========== (2) 문장 배열 ========== */
 function renderOrderQuestion(q, idx, total) {
   clearTimers();
   clearCenter();
@@ -942,7 +965,7 @@ function renderOrderQuestion(q, idx, total) {
   setProgress(idx, total);
 }
 
-/* ===== (3) 문장 완성(타이핑) ===== */
+/* ========== (3) 문장 완성(타이핑) ========== */
 function renderTypeQuestion(q, idx, total) {
   clearTimers();
   clearCenter();
@@ -1111,7 +1134,7 @@ function renderTypeQuestion(q, idx, total) {
   setProgress(idx, total);
 }
 
-/* ===== (4) 문장 고르기 ===== */
+/* ========== (4) 문장 고르기 ========== */
 function renderChoiceQuestion(q, idx, total) {
   clearTimers();
   clearCenter();
@@ -1184,18 +1207,18 @@ function renderChoiceQuestion(q, idx, total) {
       }
     });
 
-    resultDiv.textContent = "시간이 지나 정답이 공개되었습니다.";
-    resultDiv.className = "choice-result timeover";
+  resultDiv.textContent = "시간이 지나 정답이 공개되었습니다.";
+  resultDiv.className = "choice-result timeover";
 
-    enqueueRetryQuestion("choice", q);
+  enqueueRetryQuestion("choice", q);
 
-    setTimer(goNext, 1500);
+  setTimer(goNext, 1500);
   }, 120000);
 
   setProgress(idx, total);
 }
 
-/* ===== (5) 지문 완성 ===== */
+/* ========== (5) 지문 완성 (passage) ========== */
 function renderPassageQuestion(q, idx, total) {
   clearTimers();
   clearCenter();
@@ -1205,25 +1228,37 @@ function renderPassageQuestion(q, idx, total) {
   qDiv.textContent = "지문을 읽고 (1)~(3)에 알맞은 말을 고르세요.";
   centerArea.appendChild(qDiv);
 
+  // 연보라 지문 박스
   const passageArea = document.createElement("div");
   passageArea.className = "passage-area";
   centerArea.appendChild(passageArea);
 
   const passageText = document.createElement("div");
   passageText.className = "passage-text";
-  passageText.innerHTML = (q.passage || "").replace(/\n/g, "<br>");
+
+  let html = String(q.passage || "");
+  // 줄바꿈 처리
+  html = html.replace(/\n/g, "<br>");
+  // ____ 를 알약 빈칸으로
+  html = html.replace(/____/g, "<span class=\"passage-blank\"></span>");
+
+  passageText.innerHTML = html;
   passageArea.appendChild(passageText);
+
+  // 아래 흰색 선택지 박스
+  const selectArea = document.createElement("div");
+  selectArea.className = "passage-select-area";
+  centerArea.appendChild(selectArea);
 
   const blankList = document.createElement("div");
   blankList.className = "passage-blank-list";
-  passageArea.appendChild(blankList);
+  selectArea.appendChild(blankList);
 
   const blanks  = q.blanks  || [];
   const options = q.options || [];
-
   const selects = [];
 
-  blanks.forEach((ans, i) => {
+  blanks.forEach((ansWord, i) => {
     const row = document.createElement("div");
     row.className = "passage-blank-row";
 
@@ -1234,7 +1269,7 @@ function renderPassageQuestion(q, idx, total) {
 
     const select = document.createElement("select");
     select.className = "passage-select";
-    select.dataset.answer = String(ans).trim().toLowerCase();
+    select.dataset.answer = String(ansWord || "").trim(); // 원형 저장
 
     const defaultOpt = document.createElement("option");
     defaultOpt.value = "";
@@ -1257,7 +1292,7 @@ function renderPassageQuestion(q, idx, total) {
   checkBtn.type = "button";
   checkBtn.className = "passage-check-btn";
   checkBtn.textContent = "답 확인하기";
-  passageArea.appendChild(checkBtn);
+  selectArea.appendChild(checkBtn);
 
   const hintDiv = document.createElement("div");
   hintDiv.className = "hint-text";
@@ -1276,8 +1311,8 @@ function renderPassageQuestion(q, idx, total) {
     let allCorrect  = true;
 
     selects.forEach(select => {
-      const val = String(select.value || "").trim().toLowerCase();
-      const ans = String(select.dataset.answer || "").trim().toLowerCase();
+      const val = String(select.value || "").trim();
+      const ans = String(select.dataset.answer || "").trim();
 
       if (!val) {
         allSelected = false;
@@ -1285,7 +1320,10 @@ function renderPassageQuestion(q, idx, total) {
         return;
       }
 
-      if (val === ans) {
+      const valLower = val.toLowerCase();
+      const ansLower = ans.toLowerCase();
+
+      if (valLower === ansLower) {
         select.classList.remove("wrong");
         select.classList.add("correct");
       } else {
@@ -1319,14 +1357,17 @@ function renderPassageQuestion(q, idx, total) {
 
   checkBtn.onclick = handleCheck;
 
+  // 60초 후 자동 정답 공개
   setTimer(() => {
     if (finished) return;
     finished = true;
     checkBtn.disabled = true;
 
     selects.forEach(select => {
-      const ans = String(select.dataset.answer || "").trim().toLowerCase();
-      select.value = ans;
+      const ans = String(select.dataset.answer || "").trim();
+      if (ans) {
+        select.value = ans;
+      }
       select.classList.remove("wrong");
       select.classList.add("correct");
     });
