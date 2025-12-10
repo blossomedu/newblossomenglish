@@ -61,7 +61,6 @@
       box-shadow: 0 12px 25px rgba(0, 174, 239, 0.35);
     }
 
-    /* 각 탭별 색상 (지문 완성도 파랑) */
     .mode-tab:nth-child(1).active { background: #00AEEF; color: #fff; }
     .mode-tab:nth-child(2).active { background: #FF6FB5; color: #fff; }
     .mode-tab:nth-child(3).active { background: #00AEEF; color: #fff; }
@@ -116,7 +115,6 @@
     }
 
     /* ===== (1) 빈칸 완성 ===== */
-
     .blank-choice-area {
       min-height: 140px;
       background: #eef4ff;
@@ -169,7 +167,6 @@
     }
 
     /* ===== (2) 문장 배열 ===== */
-
     .answer-row {
       min-height: 80px;
       background: #eef4ff;
@@ -202,6 +199,7 @@
       font-size: 20px;
       font-weight: 500;
       transition: 0.15s ease;
+      box-sizing: border-box;
     }
 
     .word-chip:hover {
@@ -216,7 +214,6 @@
     }
 
     /* ===== (3) 문장 완성(타이핑) ===== */
-
     .typing-area {
       margin-top: 10px;
       display: flex;
@@ -312,7 +309,6 @@
     }
 
     /* ===== 공통 하단 버튼 ===== */
-
     .bottom-bar {
       display: flex;
       justify-content: space-between;
@@ -340,23 +336,11 @@
       text-align: center;
     }
 
-    .pill-home {
-      background: #9AD7A0;
-      color: #ffffff;
-    }
-
-    .pill-reset {
-      background: #00AEEF;
-      color: #ffffff;
-    }
-
-    .pill-back {
-      background: #FF6FB5;
-      color: #ffffff;
-    }
+    .pill-home { background: #9AD7A0; color: #ffffff; }
+    .pill-reset { background: #00AEEF; color: #ffffff; }
+    .pill-back { background: #FF6FB5; color: #ffffff; }
 
     /* ===== (4) 문장 고르기 ===== */
-
     .choice-outer {
       margin-top: 18px;
       background: #eef4ff;
@@ -416,20 +400,11 @@
       font-weight: 600;
     }
 
-    .choice-result.correct {
-      color: #16a34a;
-    }
-
-    .choice-result.wrong {
-      color: #ef4444;
-    }
-
-    .choice-result.timeover {
-      color: #ef4444;
-    }
+    .choice-result.correct { color: #16a34a; }
+    .choice-result.wrong   { color: #ef4444; }
+    .choice-result.timeover{ color: #ef4444; }
 
     /* ===== (5) 지문 완성 UI ===== */
-
     .passage-area {
       margin-top: 16px;
       background: #eef4ff;
@@ -443,8 +418,9 @@
       white-space: normal;
     }
 
-    /* 🔹 지문 안의 빈칸 알약 – 아래 선다 알약과 동일 느낌으로 정리 */
-    .passage-blank {
+    /* 🔹 지문 빈칸 / 보기 알약 크기 완전 동일 */
+    .passage-blank,
+    .passage-option-chip {
       display: inline-flex;
       align-items: center;
       justify-content: center;
@@ -452,12 +428,15 @@
       border-radius: 999px;
       background: #ffffff;
       border: 1.5px solid #d0d7e6;
-      margin: 0 4px;
-      font-size: 18px;
+      font-size: 16px;
       font-weight: 500;
       box-sizing: border-box;
-      vertical-align: middle;   /* 줄 안에서 세로 위치 맞추기 */
+      vertical-align: middle;
       min-width: 70px;
+    }
+
+    .passage-blank {
+      margin: 0 4px;
     }
 
     .passage-blank.active {
@@ -477,26 +456,11 @@
       color: #b91c1c;
     }
 
-    /* 보기(선다) 알약 버튼들 */
     .passage-options-wrap {
       margin-top: 16px;
       display: flex;
       flex-wrap: wrap;
       gap: 10px;
-    }
-
-    .passage-option-chip {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      padding: 10px 18px;
-      border-radius: 999px;
-      background: #ffffff;
-      border: 1.5px solid #d0d7e6;
-      cursor: pointer;
-      font-size: 16px;
-      transition: 0.15s ease;
-      box-shadow: none;
     }
 
     .passage-option-chip:hover {
@@ -510,31 +474,15 @@
 
     /* 📱 모바일 전용 */
     @media (max-width: 600px) {
-      .card {
-        padding: 24px 18px 20px;
-      }
+      .card { padding: 24px 18px 20px; }
+      .sentence-en { font-size: 21px; }
 
-      .sentence-en {
-        font-size: 21px;
-      }
+      .choices-grid { grid-template-columns: 1fr; }
+      .choice-btn { font-size: 16px; min-height: 48px; }
 
-      .choices-grid {
-        grid-template-columns: 1fr;
-      }
+      .word-chip { font-size: 18px; }
 
-      .choice-btn {
-        font-size: 16px;
-        min-height: 48px;
-      }
-
-      .word-chip {
-        font-size: 18px;
-      }
-
-      .typing-sentence-box {
-        font-size: 20px;
-      }
-
+      .typing-sentence-box { font-size: 20px; }
       .inline-blank-input {
         font-size: 18px;
         min-width: 70px;
@@ -588,17 +536,15 @@
   </div>
 </div>
 
-<!-- 학교 시험용 데이터 파일 -->
 <script src="sentence-school.js"></script>
 
 <script>
 const params = new URLSearchParams(window.location.search);
 
-// URL 예시: sentence-school-quiz.html?school=jsm1&unit=1-1
+// URL 예: ?school=jsm1&unit=1-1
 const rawSchoolParam = params.get("school") || "jsm1";
 const unitParam      = params.get("unit")   || "1-1";
 
-// 코드 → 실제 학교명 매핑
 const SCHOOL_NAME_MAP = {
   jsm1:  "잠신중",
   jsmg1: "잠신고",
@@ -609,7 +555,7 @@ const schoolName = SCHOOL_NAME_MAP[rawSchoolParam] || rawSchoolParam;
 
 // DB 키: "잠신중 1-1"
 const unitKey = `${schoolName} ${unitParam}`;
-// 제목에는 코드 그대로: (jsm1 1-1)
+// 화면 타이틀: 코드 그대로
 const titleUnitText = `${rawSchoolParam} ${unitParam}`;
 
 const mainTitle      = document.getElementById("mainTitle");
@@ -631,7 +577,7 @@ const questionsByType = { blank: [], order: [], type: [], choice: [], passage: [
 allQuestions.forEach(q => {
   if (!q || !q.type) return;
   let t = q.type;
-  if (t === "choose") t = "choice";  // choose -> choice 통일
+  if (t === "choose") t = "choice";
   if (questionsByType[t]) {
     questionsByType[t].push(q);
   }
@@ -652,7 +598,7 @@ function shuffle(arr) {
   return a;
 }
 
-/* 타이머 관리 */
+/* 타이머 */
 let activeTimers = [];
 
 function clearTimers() {
@@ -698,7 +644,7 @@ function enqueueRetryQuestion(type, q) {
   questionsByType[type].push(q);
 }
 
-/* 공통: 다음 문제로 */
+/* 다음 문제 */
 function goNext() {
   const list = questionsByType[currentMode];
   if (!list || !list.length) {
@@ -722,7 +668,7 @@ function goNext() {
   }
 }
 
-/* ========== (1) 빈칸 완성 ========== */
+/* (1) 빈칸 완성 */
 function renderBlankQuestion(q, idx, total) {
   clearTimers();
   clearCenter();
@@ -805,7 +751,7 @@ function renderBlankQuestion(q, idx, total) {
   setProgress(idx, total);
 }
 
-/* ========== (2) 문장 배열 ========== */
+/* (2) 문장 배열 */
 function renderOrderQuestion(q, idx, total) {
   clearTimers();
   clearCenter();
@@ -939,7 +885,7 @@ function renderOrderQuestion(q, idx, total) {
   setProgress(idx, total);
 }
 
-/* ========== (3) 문장 완성(타이핑) ========== */
+/* (3) 문장 완성(타이핑) */
 function renderTypeQuestion(q, idx, total) {
   clearTimers();
   clearCenter();
@@ -1108,7 +1054,7 @@ function renderTypeQuestion(q, idx, total) {
   setProgress(idx, total);
 }
 
-/* ========== (4) 문장 고르기 ========== */
+/* (4) 문장 고르기 */
 function renderChoiceQuestion(q, idx, total) {
   clearTimers();
   clearCenter();
@@ -1136,14 +1082,12 @@ function renderChoiceQuestion(q, idx, total) {
   centerArea.appendChild(resultDiv);
 
   let answered = false;
-
   const buttons = [];
 
   options.forEach((text, i) => {
     const btn = document.createElement("button");
     btn.type = "button";
     btn.className = "choice-option-btn";
-
     btn.textContent = `${CIRCLED_NUMS[i]} ${text}`;
 
     btn.onclick = () => {
@@ -1192,7 +1136,7 @@ function renderChoiceQuestion(q, idx, total) {
   setProgress(idx, total);
 }
 
-/* ========== (5) 지문 완성 (passage) ========== */
+/* (5) 지문 완성 */
 function renderPassageQuestion(q, idx, total) {
   clearTimers();
   clearCenter();
@@ -1212,7 +1156,6 @@ function renderPassageQuestion(q, idx, total) {
   let html = String(q.passage || "");
   html = html.replace(/\n/g, "<br>");
 
-  // "____" 자리에 알약 빈칸 삽입 + data-blank-index 달기
   let blankCounter = 0;
   html = html.replace(/____/g, () => {
     const idxBlank = blankCounter++;
@@ -1223,11 +1166,10 @@ function renderPassageQuestion(q, idx, total) {
   passageArea.appendChild(passageText);
 
   const blanksAnswer = q.blanks || [];
-  const options      = q.options || [];
+  const options      = shuffle(q.options || []);   // 🔹 보기 순서 섞기
 
   const blankEls = Array.from(passageText.querySelectorAll(".passage-blank"));
 
-  // 보기(선다) 알약들
   const optionsWrap = document.createElement("div");
   optionsWrap.className = "passage-options-wrap";
   centerArea.appendChild(optionsWrap);
@@ -1251,7 +1193,6 @@ function renderPassageQuestion(q, idx, total) {
   expDiv.className = "explanation-text";
   centerArea.appendChild(expDiv);
 
-  // 상태 관리
   const blankState = blanksAnswer.map(() => ({ value: null, correct: false }));
   let currentBlankIndex = 0;
   let finished = false;
@@ -1263,7 +1204,6 @@ function renderPassageQuestion(q, idx, total) {
     if (target) target.classList.add("active");
   }
 
-  // 처음에는 1번 빈칸 선택 상태
   if (blankEls[0]) setActiveBlank(0);
 
   blankEls.forEach(blankEl => {
@@ -1313,7 +1253,6 @@ function renderPassageQuestion(q, idx, total) {
     const userWord    = String(word || "").trim();
 
     blankEl.textContent = userWord;
-
     blankEl.classList.remove("correct", "wrong");
 
     const isCorrect =
@@ -1335,7 +1274,6 @@ function renderPassageQuestion(q, idx, total) {
     btn.addEventListener("click", () => {
       if (finished) return;
 
-      // 현재 선택된 빈칸이 없으면 첫 번째 비어 있는 칸으로
       if (currentBlankIndex == null || !blankEls[currentBlankIndex]) {
         const firstEmpty = blankState.findIndex(st => !st.value);
         if (firstEmpty >= 0) {
@@ -1346,7 +1284,7 @@ function renderPassageQuestion(q, idx, total) {
       }
 
       fillBlankWithWord(currentBlankIndex, btn.textContent || "");
-      // 다음 빈칸 자동 선택
+
       const nextBlank = blankState.findIndex(
         (st, i) => !st.value && i > currentBlankIndex
       );
@@ -1429,7 +1367,7 @@ modeTabs.forEach(tab => {
 
 homeBtn.onclick = () => {
   clearTimers();
-  window.location.href = "index.html"; // 필요하면 수정
+  window.location.href = "index.html";
 };
 
 modeResetBtn.onclick = () => {
