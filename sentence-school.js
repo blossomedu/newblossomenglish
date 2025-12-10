@@ -29,22 +29,22 @@
           answerIndex,
           explanation,
         };
+
       } else if (type === "order") {
         if (rest.length < 3) continue;
         const [question, answerEn, meaningKo] = rest;
         q = { id, type, question, answerEn, meaningKo };
+
       } else if (type === "type") {
-        // 형식:
         // unit|type|id|question|answerEn|meaningKo
-        // 또는
-        // unit|type|id|question|answerEn|meaningKo|blankWords
-        //   예: blankWords = "doing, homework"
+        // 또는 unit|type|id|question|answerEn|meaningKo|blankWords
         if (rest.length < 3) continue;
         const [question, answerEn, meaningKo, blankWords] = rest;
         q = { id, type, question, answerEn, meaningKo };
         if (blankWords) {
           q.blankWords = blankWords; // sentence-school-quiz에서 사용
         }
+
       } else if (type === "choose") {
         if (rest.length < 7) continue;
         const [question, opt1, opt2, opt3, opt4, ansStr, explanation] = rest;
@@ -58,26 +58,23 @@
           answerIndex,
           explanation,
         };
-      } else if (type === "passage") {
-        // unit|passage|id|passage|opt1|opt2|opt3|opt4|opt5|b1|b2|b3|explanation
-        if (rest.length < 10) continue;
-        const [
-          passageRaw,
-          opt1,
-          opt2,
-          opt3,
-          opt4,
-          opt5,
-          b1,
-          b2,
-          b3,
-          explanation,
-        ] = rest;
 
-        // \\n → 실제 줄바꿈으로 변환
+      } else if (type === "passage") {
+        // 형식(가변 옵션 수 지원):
+        // unit|passage|id|passage|opt1|opt2|...|optN|b1|b2|b3|explanation
+        // rest = [passageRaw, opt1..optN, b1, b2, b3, explanation]
+        if (rest.length < 8) continue; // 최소 옵션 3개 + 3개 빈칸 + 설명
+
+        const passageRaw  = rest[0];
+        const explanation = rest[rest.length - 1];
+        const b3          = rest[rest.length - 2];
+        const b2          = rest[rest.length - 3];
+        const b1          = rest[rest.length - 4];
+        const options     = rest.slice(1, rest.length - 4);
+
         const passage = passageRaw.replace(/\\n/g, "\n");
         const blanks  = [b1, b2, b3].filter(Boolean);
-        const options = [opt1, opt2, opt3, opt4, opt5];
+
         q = { id, type, passage, options, blanks, explanation };
       }
 
@@ -119,9 +116,8 @@
 잠신중 1-1|choose|C5|다음 중 올바른 문장을 고르시오.|She eat breakfast.|They are happy today.|He don’t like music.|I goes to bed early.|1|They are.
 
 # 5) 지문 완성 (1문제)
-잠신중 1-1|passage|P1|My name is Tom. I (1) ____ in a small town.\\nEvery morning, I (2) ____ up at 7 a.m.\\nI (3) ____ breakfast with my family.|live|lives|get|gets|eat|eats|live|get|(1인칭) → live, get, eat 원형.  
+잠신중 1-1|passage|P1|My name is Tom. I (1) ____ in a small town.\\nEvery morning, I (2) ____ up at 7 a.m.\\nI (3) ____ breakfast with my family.|eat|eats|get|gets|live|lives|live|get|eat|(1인칭) → live, get, eat 원형.  
 `;
 
   window.SENTENCE_SCHOOL_DB = buildSentenceDB(RAW_SENTENCES);
 })();
-
