@@ -61,12 +61,12 @@
       box-shadow: 0 12px 25px rgba(0, 174, 239, 0.35);
     }
 
-    /* 각 탭별 색상 */
+    /* 각 탭별 색상 (지문 완성도 파란색으로 통일) */
     .mode-tab:nth-child(1).active { background: #00AEEF; color: #fff; }
     .mode-tab:nth-child(2).active { background: #FF6FB5; color: #fff; }
     .mode-tab:nth-child(3).active { background: #00AEEF; color: #fff; }
     .mode-tab:nth-child(4).active { background: #FF6FB5; color: #fff; }
-    .mode-tab:nth-child(5).active { background: #00C896; color: #fff; }
+    .mode-tab:nth-child(5).active { background: #00AEEF; color: #fff; }
 
     .card {
       background: #ffffff;
@@ -311,7 +311,7 @@
       min-height: 22px;
     }
 
-    /* ===== 공통 하단 ===== */
+    /* ===== 공통 하단 버튼 ===== */
 
     .bottom-bar {
       display: flex;
@@ -497,7 +497,7 @@
       padding: 9px 18px;
       border-radius: 999px;
       border: none;
-      background: #00C896;
+      background: #00AEEF;
       color: #ffffff;
       font-size: 14px;
       cursor: pointer;
@@ -505,7 +505,7 @@
     }
 
     .passage-check-btn:hover:not(:disabled) {
-      background: #00b184;
+      background: #0093c8;
       transform: translateY(-1px);
     }
 
@@ -599,9 +599,18 @@
 <script src="sentence-school.js"></script>
 
 <script>
-const params   = new URLSearchParams(window.location.search);
-// 예: ?unit=잠신중%201-1
-const unitKey  = params.get("unit") || "잠신중 1-1";
+const params = new URLSearchParams(window.location.search);
+
+// URL 규칙:
+// sentence-school-quiz.html?school=잠신중&unit=1-1
+const schoolParam = params.get("school") || "잠신중";
+const unitParam   = params.get("unit")   || "1-1";
+
+// DB에서 쓸 키: "잠신중 1-1"
+const unitKey = `${schoolParam} ${unitParam}`;
+
+// 제목에는 "잠신중 1-1" 식으로 표시
+const titleUnitText = `${schoolParam} ${unitParam}`;
 
 const mainTitle      = document.getElementById("mainTitle");
 const centerArea     = document.getElementById("centerArea");
@@ -611,7 +620,7 @@ const homeBtn        = document.getElementById("homeBtn");
 const modeResetBtn   = document.getElementById("modeResetBtn");
 const backToUnitsBtn = document.getElementById("backToUnitsBtn");
 
-mainTitle.textContent = `문장 학습 - 학교 시험 (${unitKey})`;
+mainTitle.textContent = `문장 학습 - 학교 시험 (${titleUnitText})`;
 
 const SENTENCE_SCHOOL_DB = window.SENTENCE_SCHOOL_DB || {};
 const allQuestions       = SENTENCE_SCHOOL_DB[unitKey] || [];
@@ -622,13 +631,13 @@ const questionsByType = { blank: [], order: [], type: [], choice: [], passage: [
 allQuestions.forEach(q => {
   if (!q || !q.type) return;
   let t = q.type;
-  if (t === "choose") t = "choice";  // choose → choice 매핑
+  if (t === "choose") t = "choice"; // choose → choice
   if (questionsByType[t]) {
     questionsByType[t].push(q);
   }
 });
 
-// 기본 모드는 빈칸 완성부터
+// 기본 모드는 빈칸 완성
 let currentMode = "blank";
 const modeIndex = { blank: 0, order: 0, type: 0, choice: 0, passage: 0 };
 
@@ -682,7 +691,6 @@ function renderNoQuestion() {
 
 const CIRCLED_NUMS = ["①", "②", "③", "④"];
 
-// 재도전 큐 넣기
 function enqueueRetryQuestion(type, q) {
   if (q._retryAddedFor && q._retryAddedFor[type]) return;
   if (!q._retryAddedFor) q._retryAddedFor = {};
@@ -690,7 +698,7 @@ function enqueueRetryQuestion(type, q) {
   questionsByType[type].push(q);
 }
 
-/* ========== 공통: 다음 문제로 ========== */
+/* 공통: 다음 문제로 */
 function goNext() {
   const list = questionsByType[currentMode];
   if (!list || !list.length) {
@@ -778,7 +786,6 @@ function renderBlankQuestion(q, idx, total) {
     };
   });
 
-  // 15초 후 자동 정답 공개
   setTimer(() => {
     if (answered) return;
     answered = true;
@@ -910,7 +917,6 @@ function renderOrderQuestion(q, idx, total) {
     });
   }
 
-  // 30초 후 자동 정답 공개
   setTimer(() => {
     if (finished) return;
     finished = true;
@@ -1081,7 +1087,6 @@ function renderTypeQuestion(q, idx, total) {
     }
   }
 
-  // 스페이스/엔터로 다음 칸 이동, 마지막 칸에서 채점
   blankInputs.forEach((input, idx) => {
     input.addEventListener("keydown", (e) => {
       if (e.key === " " || e.key === "Spacebar" || e.key === "Enter") {
@@ -1165,7 +1170,6 @@ function renderChoiceQuestion(q, idx, total) {
     buttons.push(btn);
   });
 
-  // 2분 후 자동 정답 공개
   setTimer(() => {
     if (answered) return;
     answered = true;
@@ -1211,8 +1215,8 @@ function renderPassageQuestion(q, idx, total) {
   blankList.className = "passage-blank-list";
   passageArea.appendChild(blankList);
 
-  const blanks  = q.blanks  || [];   // 정답 배열 (예: ["live","get","eat"])
-  const options = q.options || [];   // 보기 배열
+  const blanks  = q.blanks  || [];
+  const options = q.options || [];
 
   const selects = [];
 
@@ -1312,7 +1316,6 @@ function renderPassageQuestion(q, idx, total) {
 
   checkBtn.onclick = handleCheck;
 
-  // 1분 후 자동 정답 공개
   setTimer(() => {
     if (finished) return;
     finished = true;
@@ -1336,7 +1339,7 @@ function renderPassageQuestion(q, idx, total) {
   setProgress(idx, total);
 }
 
-/* ========== 공통 렌더링 ========== */
+/* 공통 렌더링 */
 function renderQuestionObj(q, type) {
   const list  = questionsByType[type];
   const idx   = list.indexOf(q);
@@ -1386,8 +1389,7 @@ modeTabs.forEach(tab => {
 
 homeBtn.onclick = () => {
   clearTimers();
-  // 필요하면 경로 수정
-  window.location.href = "index.html";
+  window.location.href = "index.html"; // 필요하면 경로 수정
 };
 
 modeResetBtn.onclick = () => {
