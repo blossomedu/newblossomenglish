@@ -227,130 +227,32 @@
       margin: 2px 0;
     }
 
-    /* ✅ [변경] 내 온라인 숙제 결과 - 요약 리스트 */
-    .unit-result-wrap {
-      margin-top: 6px;
+    /* 테이블 스타일 (기존) */
+    .table-wrap {
+      overflow-x: auto;
     }
 
-    .unit-result-head {
-      display: grid;
-      grid-template-columns: 1.1fr 1fr 0.8fr 0.8fr;
-      gap: 10px;
-      padding: 10px 12px;
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13px;
+      min-width: 600px;
+    }
+
+    th, td {
+      padding: 10px 8px;
       border-bottom: 1px solid #e5e7eb;
+      text-align: left;
+    }
+
+    th {
       background: #f9fafb;
-      border-radius: 14px;
-      font-size: 12px;
-      font-weight: 700;
+      font-weight: 600;
       color: #4b5563;
     }
 
-    .unit-result-row {
-      border-bottom: 1px solid #e5e7eb;
-      padding: 10px 12px;
-      display: grid;
-      grid-template-columns: 1.1fr 1fr 0.8fr 0.8fr;
-      gap: 10px;
-      align-items: center;
-      cursor: pointer;
-      user-select: none;
-    }
-
-    .unit-result-row:hover {
-      background: #f9fafb;
-    }
-
-    .unit-result-date {
-      font-size: 13px;
+    td {
       color: #374151;
-      font-weight: 600;
-    }
-
-    .unit-result-unit {
-      font-size: 13px;
-      font-weight: 800;
-      color: #111827;
-    }
-
-    .status-pill {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      padding: 3px 10px;
-      border-radius: 999px;
-      font-size: 12px;
-      font-weight: 900;
-      width: fit-content;
-    }
-
-    .status-x {
-      background: #e5e7eb;
-      color: #374151;
-    }
-
-    .status-tri {
-      background: #FEF3C7;
-      color: #92400E;
-    }
-
-    .status-o {
-      background: #D1FAE5;
-      color: #065F46;
-    }
-
-    .unit-result-time {
-      font-size: 13px;
-      color: #374151;
-      font-weight: 700;
-      text-align: right;
-    }
-
-    .unit-detail {
-      display: none;
-      padding: 10px 12px 12px;
-      background: #ffffff;
-      border-bottom: 1px solid #e5e7eb;
-    }
-
-    .unit-detail.show {
-      display: block;
-    }
-
-    .detail-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 10px;
-      margin-top: 6px;
-    }
-
-    .detail-card {
-      background: #f9fafb;
-      border: 1px solid #e5e7eb;
-      border-radius: 14px;
-      padding: 10px 12px;
-    }
-
-    .detail-title {
-      font-size: 12px;
-      font-weight: 900;
-      color: #111827;
-      margin-bottom: 4px;
-      display: flex;
-      justify-content: space-between;
-      gap: 8px;
-    }
-
-    .detail-sub {
-      font-size: 12px;
-      color: #6b7280;
-      display: flex;
-      justify-content: space-between;
-      gap: 8px;
-    }
-
-    .detail-score {
-      font-weight: 900;
-      color: #111827;
     }
 
     /* 내 개인 숙제 등록 폼 */
@@ -491,6 +393,132 @@
       color: #0369a1;
     }
 
+    /* ==============================
+       ✅ [NEW] 유닛 통합 결과(요약 + 상세) - HTML only
+       ============================== */
+    .unit-result-wrap {
+      border-radius: 16px;
+      overflow: hidden;
+      border: 1px solid #e5e7eb;
+      background: #ffffff;
+    }
+
+    .unit-result-head {
+      display: grid;
+      grid-template-columns: 1.2fr 0.9fr 0.7fr 1.6fr;
+      gap: 0;
+      background: #f9fafb;
+      color: #4b5563;
+      font-weight: 700;
+      font-size: 13px;
+      border-bottom: 1px solid #e5e7eb;
+    }
+
+    .unit-result-head > div,
+    .unit-result-summary > div {
+      padding: 10px 12px;
+      border-right: 1px solid #eef2f7;
+    }
+    .unit-result-head > div:last-child,
+    .unit-result-summary > div:last-child {
+      border-right: none;
+    }
+
+    .unit-row {
+      border-bottom: 1px solid #e5e7eb;
+    }
+    .unit-row:last-child {
+      border-bottom: none;
+    }
+
+    details.unit-row summary {
+      list-style: none;
+      cursor: pointer;
+      user-select: none;
+    }
+    details.unit-row summary::-webkit-details-marker {
+      display: none;
+    }
+
+    .unit-result-summary {
+      display: grid;
+      grid-template-columns: 1.2fr 0.9fr 0.7fr 1.6fr;
+      align-items: center;
+      font-size: 13px;
+      color: #374151;
+    }
+
+    .unit-result-summary:hover {
+      background: #f9fafb;
+    }
+
+    .unit-cell-strong {
+      font-weight: 800;
+      color: #111827;
+    }
+
+    .status-pill {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 34px;
+      height: 22px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 900;
+    }
+    .status-o { background: #dcfce7; color: #166534; }
+    .status-d { background: #fef3c7; color: #92400e; } /* △ */
+    .status-x { background: #fee2e2; color: #991b1b; }
+
+    .unit-detail {
+      padding: 10px 12px 12px;
+      background: #ffffff;
+    }
+
+    .unit-detail-grid {
+      border-radius: 14px;
+      background: #f9fafb;
+      padding: 10px 10px;
+      display: grid;
+      gap: 8px;
+    }
+
+    .task-row {
+      display: grid;
+      grid-template-columns: 1fr 80px 160px;
+      gap: 8px;
+      align-items: center;
+      padding: 8px 10px;
+      border-radius: 12px;
+      background: #ffffff;
+      border: 1px solid #eef2f7;
+      font-size: 13px;
+    }
+
+    .task-name {
+      font-weight: 700;
+      color: #111827;
+    }
+
+    .task-status {
+      text-align: center;
+      font-weight: 900;
+    }
+
+    .task-time {
+      text-align: right;
+      color: #6b7280;
+      font-size: 12px;
+    }
+
+    .unit-guide {
+      font-size: 12px;
+      color: #6b7280;
+      margin-top: 8px;
+      line-height: 1.4;
+    }
+
     @media (max-width: 768px) {
       .top-actions {
         position: static;
@@ -504,18 +532,17 @@
         padding: 16px 14px 18px;
       }
 
+      /* 모바일에서는 제출시간 칸이 너무 길어질 수 있어서 줄바꿈 허용 */
       .unit-result-head,
-      .unit-result-row {
-        grid-template-columns: 1fr 0.9fr 0.7fr 0.7fr;
+      .unit-result-summary {
+        grid-template-columns: 1.1fr 0.8fr 0.7fr 1.4fr;
       }
-
-      .detail-grid {
-        grid-template-columns: 1fr;
+      .task-row {
+        grid-template-columns: 1fr 70px 130px;
       }
     }
   </style>
 </head>
-
 <body>
 <div class="page">
   <div class="top-actions">
@@ -555,18 +582,127 @@
     <div id="class-hw-area"></div>
   </div>
 
-  <!-- ✅ 3. 내 온라인 숙제 결과 (요약 + 클릭 상세) -->
+  <!-- ✅ 3. 내 온라인 숙제 결과 (유닛 통합 요약 + 상세) -->
   <div class="section-card">
     <div class="section-header">
       <div class="section-title">📊 내 온라인 숙제 결과</div>
     </div>
     <div class="section-sub">
-      유닛별로 숙제를 다 했는지(O/△/X)를 먼저 보고, 클릭하면 (뜻/영어/듣기/문장) 세부 결과를 볼 수 있어요.
-      <br>※ 아직 제출한 기록이 없으면 제출 시간은 “-”로 표시돼요.
+      유닛별 숙제를 다 했는지(⭕/△/❌) 먼저 보고, 클릭하면 (뜻/영어/듣기/문장) 상세를 볼 수 있어요.<br/>
+      * 제출 시간은 “마지막으로 완료한 시간”이에요. 아직 시작 안 했으면 “--”로 표시돼요.
     </div>
 
-    <div id="my-unit-results" class="unit-result-wrap">
-      <div class="my-result-empty">결과를 불러오는 중입니다...</div>
+    <!-- ✅ HTML only(더미 데이터) -->
+    <div class="unit-result-wrap" id="unit-result-wrap">
+      <div class="unit-result-head">
+        <div>마감 날짜</div>
+        <div>단원(Unit)</div>
+        <div>Unit 전체</div>
+        <div>제출 시간</div>
+      </div>
+
+      <!-- Row 1 -->
+      <details class="unit-row" open>
+        <summary class="unit-result-summary">
+          <div>2025-12-26</div>
+          <div class="unit-cell-strong">1-1</div>
+          <div><span class="status-pill status-x">❌</span></div>
+          <div>--</div>
+        </summary>
+        <div class="unit-detail">
+          <div class="unit-detail-grid">
+            <div class="task-row">
+              <div class="task-name">뜻 찾기</div>
+              <div class="task-status" style="color:#991b1b;">❌</div>
+              <div class="task-time">--</div>
+            </div>
+            <div class="task-row">
+              <div class="task-name">영어 찾기</div>
+              <div class="task-status" style="color:#991b1b;">❌</div>
+              <div class="task-time">--</div>
+            </div>
+            <div class="task-row">
+              <div class="task-name">듣고 찾기</div>
+              <div class="task-status" style="color:#991b1b;">❌</div>
+              <div class="task-time">--</div>
+            </div>
+            <div class="task-row">
+              <div class="task-name">문장 빈칸</div>
+              <div class="task-status" style="color:#991b1b;">❌</div>
+              <div class="task-time">--</div>
+            </div>
+          </div>
+          <div class="unit-guide">※ 2단계에서 Supabase 연결하면 실제 데이터로 자동 표시됩니다.</div>
+        </div>
+      </details>
+
+      <!-- Row 2 -->
+      <details class="unit-row">
+        <summary class="unit-result-summary">
+          <div>2025-12-25</div>
+          <div class="unit-cell-strong">1-2</div>
+          <div><span class="status-pill status-d">△</span></div>
+          <div>2025-12-26 18:42</div>
+        </summary>
+        <div class="unit-detail">
+          <div class="unit-detail-grid">
+            <div class="task-row">
+              <div class="task-name">뜻 찾기</div>
+              <div class="task-status" style="color:#166534;">⭕</div>
+              <div class="task-time">2025-12-26 18:10</div>
+            </div>
+            <div class="task-row">
+              <div class="task-name">영어 찾기</div>
+              <div class="task-status" style="color:#991b1b;">❌</div>
+              <div class="task-time">--</div>
+            </div>
+            <div class="task-row">
+              <div class="task-name">듣고 찾기</div>
+              <div class="task-status" style="color:#166534;">⭕</div>
+              <div class="task-time">2025-12-26 18:42</div>
+            </div>
+            <div class="task-row">
+              <div class="task-name">문장 빈칸</div>
+              <div class="task-status" style="color:#991b1b;">❌</div>
+              <div class="task-time">--</div>
+            </div>
+          </div>
+        </div>
+      </details>
+
+      <!-- Row 3 -->
+      <details class="unit-row">
+        <summary class="unit-result-summary">
+          <div>2025-12-24</div>
+          <div class="unit-cell-strong">1-3</div>
+          <div><span class="status-pill status-o">⭕</span></div>
+          <div>2025-12-26 19:05</div>
+        </summary>
+        <div class="unit-detail">
+          <div class="unit-detail-grid">
+            <div class="task-row">
+              <div class="task-name">뜻 찾기</div>
+              <div class="task-status" style="color:#166534;">⭕</div>
+              <div class="task-time">2025-12-26 18:20</div>
+            </div>
+            <div class="task-row">
+              <div class="task-name">영어 찾기</div>
+              <div class="task-status" style="color:#166534;">⭕</div>
+              <div class="task-time">2025-12-26 18:33</div>
+            </div>
+            <div class="task-row">
+              <div class="task-name">듣고 찾기</div>
+              <div class="task-status" style="color:#166534;">⭕</div>
+              <div class="task-time">2025-12-26 18:51</div>
+            </div>
+            <div class="task-row">
+              <div class="task-name">문장 빈칸</div>
+              <div class="task-status" style="color:#166534;">⭕</div>
+              <div class="task-time">2025-12-26 19:05</div>
+            </div>
+          </div>
+        </div>
+      </details>
     </div>
   </div>
 
@@ -644,8 +780,6 @@
   const classBadgeEl = document.getElementById("class-badge");
 
   const classHwArea  = document.getElementById("class-hw-area");
-
-  const myUnitResultsEl = document.getElementById("my-unit-results");
 
   const myHwSetEl      = document.getElementById("my-hw-set");
   const myHwDueEl      = document.getElementById("my-hw-due");
@@ -725,37 +859,6 @@
       level: baseLevel,
       raw: parts.join(", ")
     };
-  }
-
-  // ✅ 모드 매핑(저장된 mode 문자열이 어떤 값이든 최대한 유연하게 잡음)
-  function normalizeVocabMode(modeRaw) {
-    const m = String(modeRaw || "").toLowerCase();
-    if (!m) return null;
-
-    // 뜻찾기
-    if (m.includes("뜻") || m.includes("meaning") || m.includes("kor") || m.includes("korean")) return "meaning";
-    // 영어찾기
-    if (m.includes("영어") || m.includes("eng") || m.includes("english")) return "english";
-    // 듣고찾기
-    if (m.includes("듣") || m.includes("listen") || m.includes("hearing") || m.includes("audio")) return "listening";
-    // 문장 빈칸
-    if (m.includes("문장") || m.includes("sentence") || m.includes("blank") || m.includes("cloze")) return "sentence";
-
-    return null;
-  }
-
-  function modeLabel(modeKey) {
-    if (modeKey === "meaning") return "뜻찾기";
-    if (modeKey === "english") return "영어찾기";
-    if (modeKey === "listening") return "듣고찾기";
-    if (modeKey === "sentence") return "문장 빈칸";
-    return "기타";
-  }
-
-  function pickStatus(completedCount) {
-    if (completedCount <= 0) return { key: "x", text: "X" };
-    if (completedCount >= 4) return { key: "o", text: "O" };
-    return { key: "tri", text: "△" };
   }
 
   // ---------- 1. 학생 정보 / 반 정보 ----------
@@ -1007,174 +1110,6 @@
     }
   }
 
-  // ✅ [변경] 3. 내 온라인 숙제 결과 (유닛 요약 + 클릭 상세)
-  async function loadMyResults() {
-    if (!currentStudent || !currentStudent.login_id) return;
-
-    myUnitResultsEl.innerHTML = '<div class="my-result-empty">결과를 불러오는 중입니다...</div>';
-
-    try {
-      const { data, error } = await client
-        .from("vocab_results")
-        .select("*")
-        .eq("student_login_id", currentStudent.login_id)
-        .order("submitted_at", { ascending: false })
-        .limit(200);
-
-      if (error) {
-        console.error("vocab_results 오류:", error);
-        myUnitResultsEl.innerHTML =
-          '<div class="my-result-empty">결과를 불러오는 중 오류가 발생했습니다.</div>';
-        return;
-      }
-
-      if (!data || !data.length) {
-        myUnitResultsEl.innerHTML =
-          '<div class="my-result-empty">아직 제출한 온라인 숙제가 없습니다.</div>';
-        return;
-      }
-
-      // unit별로 4모드 최신 기록만 묶기
-      // unitKey = row.unit (예: "1-1")
-      const unitMap = new Map();
-
-      function ensureUnit(unitKey) {
-        if (!unitMap.has(unitKey)) {
-          unitMap.set(unitKey, {
-            unit: unitKey,
-            // 4개 모드별 최신 결과
-            modes: {
-              meaning: null,
-              english: null,
-              listening: null,
-              sentence: null
-            },
-            lastCompletedAt: null
-          });
-        }
-        return unitMap.get(unitKey);
-      }
-
-      (data || []).forEach(row => {
-        const unitKey = row.unit || "-";
-        const modeKey = normalizeVocabMode(row.mode);
-
-        // 4개 모드가 아니면 요약 계산엔 포함 안 함(표시는 상세에도 안 함)
-        if (!modeKey) return;
-
-        const u = ensureUnit(unitKey);
-
-        // 같은 유닛/모드에서 가장 최신 제출만 유지
-        const prev = u.modes[modeKey];
-        if (!prev || new Date(row.submitted_at) > new Date(prev.submitted_at)) {
-          u.modes[modeKey] = row;
-        }
-
-        // 유닛 마지막 완료 시간(4개 중 가장 늦은 제출 시간)
-        if (row.submitted_at) {
-          if (!u.lastCompletedAt || new Date(row.submitted_at) > new Date(u.lastCompletedAt)) {
-            u.lastCompletedAt = row.submitted_at;
-          }
-        }
-      });
-
-      // unitMap이 비어버릴 수 있음(모드 문자열이 예상과 다르면)
-      const units = Array.from(unitMap.values());
-      if (!units.length) {
-        myUnitResultsEl.innerHTML =
-          '<div class="my-result-empty">결과는 있으나 모드 형식을 인식하지 못했어요. (mode 값을 확인해 주세요)</div>';
-        return;
-      }
-
-      // 최신 유닛 순(마지막 완료 시간 기준)
-      units.sort((a, b) => new Date(b.lastCompletedAt || 0) - new Date(a.lastCompletedAt || 0));
-
-      // 렌더
-      myUnitResultsEl.innerHTML = "";
-
-      const head = document.createElement("div");
-      head.className = "unit-result-head";
-      head.innerHTML = `
-        <div>제출 날짜</div>
-        <div>단원(Unit)</div>
-        <div>Unit 상태</div>
-        <div style="text-align:right;">제출 시간</div>
-      `;
-      myUnitResultsEl.appendChild(head);
-
-      units.forEach((u, idx) => {
-        const completedCount = ["meaning","english","listening","sentence"].filter(k => !!u.modes[k]).length;
-        const status = pickStatus(completedCount);
-
-        const dateStr = u.lastCompletedAt ? formatDate(u.lastCompletedAt) : "-";
-        const timeStr = u.lastCompletedAt ? formatTime(u.lastCompletedAt) : "-";
-
-        const rowEl = document.createElement("div");
-        rowEl.className = "unit-result-row";
-        rowEl.setAttribute("data-idx", String(idx));
-
-        rowEl.innerHTML = `
-          <div class="unit-result-date">${dateStr || "-"}</div>
-          <div class="unit-result-unit">${u.unit || "-"}</div>
-          <div>
-            <span class="status-pill ${
-              status.key === "o" ? "status-o" : (status.key === "tri" ? "status-tri" : "status-x")
-            }">${status.text}</span>
-          </div>
-          <div class="unit-result-time">${timeStr || "-"}</div>
-        `;
-
-        const detailEl = document.createElement("div");
-        detailEl.className = "unit-detail";
-        detailEl.id = `unit-detail-${idx}`;
-
-        function detailCardHtml(modeKey) {
-          const r = u.modes[modeKey];
-          const score = (r && (r.correct_count ?? r.score ?? null) !== null)
-            ? `${r.correct_count ?? r.score}`
-            : "-";
-          const t = r && r.submitted_at ? `${formatDate(r.submitted_at)} ${formatTime(r.submitted_at)}` : "-";
-          return `
-            <div class="detail-card">
-              <div class="detail-title">
-                <span>${modeLabel(modeKey)}</span>
-                <span class="detail-score">${score}${score !== "-" ? "점" : ""}</span>
-              </div>
-              <div class="detail-sub">
-                <span>완료 시간</span>
-                <span>${t}</span>
-              </div>
-            </div>
-          `;
-        }
-
-        detailEl.innerHTML = `
-          <div style="font-size:12px; color:#6b7280; font-weight:700;">
-            ※ 아래는 (뜻/영어/듣기/문장) 모드별 최신 기록입니다.
-          </div>
-          <div class="detail-grid">
-            ${detailCardHtml("meaning")}
-            ${detailCardHtml("english")}
-            ${detailCardHtml("listening")}
-            ${detailCardHtml("sentence")}
-          </div>
-        `;
-
-        rowEl.onclick = () => {
-          detailEl.classList.toggle("show");
-        };
-
-        myUnitResultsEl.appendChild(rowEl);
-        myUnitResultsEl.appendChild(detailEl);
-      });
-
-    } catch (e) {
-      console.error("내 결과 로딩 예외:", e);
-      myUnitResultsEl.innerHTML =
-        '<div class="my-result-empty">결과를 불러오는 중 오류가 발생했습니다.</div>';
-    }
-  }
-
   // ---------- 4. 내가 등록한 온라인 숙제 (student_homework) ----------
   function setType(nextType) {
     currentType = nextType;
@@ -1416,7 +1351,6 @@
       await loadClassHomework();
       await loadClassOnlineHomeworkList();
     }
-    await loadMyResults();
     await loadMyHomeworkList();
   })();
 </script>
