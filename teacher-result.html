@@ -9,7 +9,13 @@
 
   <style>
     /* === 스타일 === */
-    :root { --pink: #FF6FB5; --mint: #9AD7A0; --blue: #00AEEF; --bg: #f3f4f6; }
+    :root {
+      --blue: #00AEEF;
+      --mint: #9FE6B8;
+      --pink: #FF6FB5;
+      --gray: #f3f4f6;
+      --bg: var(--gray);
+    }
     * { box-sizing: border-box; margin: 0; padding: 0; font-family: "Pretendard Variable", sans-serif; }
     body { background: var(--bg); padding: 40px 20px; color: #111827; }
     .page { max-width: 1000px; margin: 0 auto; }
@@ -18,11 +24,7 @@
     .brand { font-size: 24px; font-weight: 800; color: #1f2937; }
 
     /* 상단 버튼 공통 스타일 */
-    .top-actions {
-      display: flex;
-      gap: 8px;
-      align-items: center;
-    }
+    .top-actions { display: flex; gap: 8px; align-items: center; }
     .link-btn {
       border-radius: 999px;
       border: none;
@@ -33,17 +35,9 @@
       color: #ffffff;
       white-space: nowrap;
     }
-    #home-btn {
-      background: var(--mint);
-      color: #ffffff;
-    }
-    #back-btn {
-      background: #e5e7eb;
-      color: #374151;
-    }
-    #back-btn:hover {
-      background: #d1d5db;
-    }
+    #home-btn { background: var(--mint); color: #ffffff; }
+    #back-btn { background: #e5e7eb; color: #374151; }
+    #back-btn:hover { background: #d1d5db; }
 
     .section-card { background: white; border-radius: 16px; padding: 24px; margin-bottom: 24px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1); }
     .card-title { font-size: 18px; font-weight: 700; margin-bottom: 16px; padding-bottom: 12px; border-bottom: 2px solid #f3f4f6; color: #374151; }
@@ -59,11 +53,12 @@
     .btn-search { background: var(--blue); color: white; border: none; padding: 0 20px; border-radius: 6px; font-weight: 600; cursor: pointer; height: 38px; }
     .btn-search:hover { filter: brightness(0.9); }
 
+    /* ✅ 반별 학생 보기 조회하기 버튼(핑크) */
+    .btn-search-pink { background: var(--pink); color: white; border: none; padding: 0 20px; border-radius: 6px; font-weight: 700; cursor: pointer; height: 38px; }
+    .btn-search-pink:hover { filter: brightness(0.93); }
+
     /* ✅ 학생 이름 입력칸 너비 조정 */
-    #studentNameInput,
-    #studentNameInput2 {
-      width: 160px;
-    }
+    #studentNameInput, #studentNameInput2 { width: 160px; }
 
     /* 뱃지 */
     .badge { padding: 4px 8px; border-radius: 99px; font-size: 11px; font-weight: 700; display: inline-block; }
@@ -72,7 +67,19 @@
     .badge-new { background: #fee2e2; color: #991b1b; }
 
     .assign-select { padding: 6px; border-radius: 4px; border: 1px solid #d1d5db; }
-    .btn-save { padding: 6px 10px; background: var(--mint); color: #064e3b; border: none; border-radius: 4px; cursor: pointer; font-weight: 700; font-size: 12px; margin-left: 4px; }
+
+    /* ✅ 저장 버튼(민트) - 기존 버튼 그대로 사용 */
+    .btn-save {
+      padding: 6px 10px;
+      background: var(--mint);
+      color: #064e3b;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-weight: 700;
+      font-size: 12px;
+      margin-left: 4px;
+    }
   </style>
 </head>
 <body>
@@ -124,7 +131,7 @@
     </div>
   </div>
 
-  <!-- ✅ 2. 반별 학생 보기 카드 (추가) -->
+  <!-- ✅ 2. 반별 학생 보기 카드 -->
   <div class="section-card">
     <div class="card-title">👥 반별 학생 보기</div>
     <div class="controls">
@@ -139,22 +146,26 @@
         placeholder="학생 이름 (선택)"
       >
 
-      <button class="btn-search" onclick="loadStudentsByClass()">조회하기</button>
+      <!-- ✅ 여기만 핑크 -->
+      <button class="btn-search-pink" onclick="loadStudentsByClass()">조회하기</button>
     </div>
 
     <div class="table-wrap">
       <table id="studentsTable">
         <thead>
           <tr>
-            <th width="18%">이름</th>
-            <th width="20%">아이디</th>
-            <th width="22%">연락처</th>
-            <th width="20%">반</th>
-            <th width="20%">가입일</th>
+            <th width="14%">이름</th>
+            <th width="16%">아이디</th>
+            <th width="18%">연락처</th>
+            <th width="14%">반</th>
+            <th width="14%">가입일</th>
+            <!-- ✅ 기능 추가: 반 변경 + 저장 -->
+            <th width="14%">반 변경</th>
+            <th width="10%">저장</th>
           </tr>
         </thead>
         <tbody>
-          <tr><td colspan="5" style="text-align:center; padding:20px;">반 또는 이름으로 학생을 조회할 수 있어요.</td></tr>
+          <tr><td colspan="7" style="text-align:center; padding:20px;">반 또는 이름으로 학생을 조회할 수 있어요.</td></tr>
         </tbody>
       </table>
     </div>
@@ -185,6 +196,9 @@
 
   let classList = [];
 
+  // ✅ 반별 학생 보기 “최근 조회 조건” 저장 (저장 후 자동 재조회용)
+  let lastStudentsQuery = { classId: "", nameFilter: "" };
+
   // 페이지 시작 시 자동 실행
   document.addEventListener("DOMContentLoaded", async () => {
     // 오늘 날짜로 세팅 (YYYY-MM-DD)
@@ -194,13 +208,18 @@
     const dd = String(today.getDate()).padStart(2, '0');
     document.getElementById("dateInput").value = `${yyyy}-${mm}-${dd}`;
 
-    await loadClasses(); // 반 목록 가져오기 (두 개 select 모두 채움)
+    await loadClasses(); // 반 목록 가져오기
     loadNewStudents();   // 신입생 가져오기
   });
 
-  // --- [1] 반 목록 가져오기 (classSelect, classSelect2 채우기) ---
+  // --- [1] 반 목록 가져오기 ---
   async function loadClasses() {
     const { data, error } = await supabaseClient.from('classes').select('*').order('name');
+
+    const select1 = document.getElementById("classSelect");
+    const select2 = document.getElementById("classSelect2");
+    if (select1) select1.innerHTML = '<option value="">반 선택</option>';
+    if (select2) select2.innerHTML = '<option value="">반 선택</option>';
 
     if (error) {
       console.error("반 목록 에러:", error);
@@ -208,12 +227,6 @@
     }
 
     classList = data;
-
-    const select1 = document.getElementById("classSelect");
-    const select2 = document.getElementById("classSelect2");
-
-    if (select1) select1.innerHTML = '<option value="">반 선택</option>';
-    if (select2) select2.innerHTML = '<option value="">반 선택</option>';
 
     data.forEach(cls => {
       const opt1 = document.createElement("option");
@@ -273,7 +286,7 @@
   // --- [3] 반 배정 저장 ---
   async function saveClass(studentId) {
     const sel = document.getElementById(`sel-${studentId}`);
-    if (!sel || !sel.value) { alert("반을 선택해주세요."); return; }
+    if (!sel.value) { alert("반을 선택해주세요."); return; }
 
     const { error } = await supabaseClient
       .from('students')
@@ -286,11 +299,15 @@
     }
 
     alert("반 배정이 완료되었습니다.");
-    loadNewStudents(); // 미배정 목록 새로고침(배정되면 사라지는 게 정상)
+    loadNewStudents(); // 미배정 목록 새로고침
+    // ✅ 반별 학생 보기에서 실시간으로 확인하고 있을 수도 있으니 유지
+    if (lastStudentsQuery.classId || lastStudentsQuery.nameFilter) {
+      loadStudentsByClass(true);
+    }
   }
 
-  // --- [4] 반별 학생 조회 (추가 기능) ---
-  async function loadStudentsByClass() {
+  // --- [4] 반별 학생 조회 ---
+  async function loadStudentsByClass(isRerun = false) {
     const classId = document.getElementById("classSelect2").value;
     const nameFilter = document.getElementById("studentNameInput2").value.trim();
     const tbody = document.querySelector("#studentsTable tbody");
@@ -301,7 +318,15 @@
       return;
     }
 
-    tbody.innerHTML = `<tr><td colspan="5" style="text-align:center; padding:20px;">조회 중...</td></tr>`;
+    // ✅ 최초 조회시에만 조건 저장 (저장 후 재조회 시에는 기존 조건 유지)
+    if (!isRerun) {
+      lastStudentsQuery = { classId, nameFilter };
+    }
+
+    const activeClassId = isRerun ? lastStudentsQuery.classId : classId;
+    const activeNameFilter = isRerun ? lastStudentsQuery.nameFilter : nameFilter;
+
+    tbody.innerHTML = `<tr><td colspan="7" style="text-align:center; padding:20px;">조회 중...</td></tr>`;
 
     try {
       let query = supabaseClient
@@ -309,8 +334,8 @@
         .select('id, name, login_id, parent_phone, class_id, created_at')
         .order('name');
 
-      if (classId) query = query.eq('class_id', classId);
-      if (nameFilter) query = query.ilike('name', `%${nameFilter}%`);
+      if (activeClassId) query = query.eq('class_id', activeClassId);
+      if (activeNameFilter) query = query.ilike('name', `%${activeNameFilter}%`);
 
       const { data: students, error } = await query;
       if (error) throw error;
@@ -318,7 +343,7 @@
       tbody.innerHTML = "";
 
       if (!students || students.length === 0) {
-        tbody.innerHTML = `<tr><td colspan="5" style="text-align:center; padding:20px;">조건에 맞는 학생이 없습니다.</td></tr>`;
+        tbody.innerHTML = `<tr><td colspan="7" style="text-align:center; padding:20px;">조건에 맞는 학생이 없습니다.</td></tr>`;
         return;
       }
 
@@ -329,20 +354,60 @@
         const className = s.class_id ? (classNameById.get(s.class_id) || s.class_id) : '미배정';
         const joinDate = s.created_at ? new Date(s.created_at).toLocaleDateString('ko-KR') : '-';
 
+        // ✅ 반 변경 select 옵션(미배정 포함)
+        let options = `<option value="">미배정</option>`;
+        classList.forEach(c => {
+          const selected = s.class_id === c.id ? "selected" : "";
+          options += `<option value="${c.id}" ${selected}>${c.name}</option>`;
+        });
+
         tr.innerHTML = `
           <td style="font-weight:700;">${s.name}</td>
           <td>${s.login_id || '-'}</td>
           <td>${s.parent_phone || '-'}</td>
           <td>${className}</td>
           <td>${joinDate}</td>
+          <td>
+            <select class="assign-select" id="cls-${s.id}">
+              ${options}
+            </select>
+          </td>
+          <td>
+            <button class="btn-save" onclick="updateStudentClass('${s.id}')">저장</button>
+          </td>
         `;
         tbody.appendChild(tr);
       });
 
     } catch (err) {
       console.error(err);
-      tbody.innerHTML = `<tr><td colspan="5" style="text-align:center; padding:20px;">오류: ${err.message}</td></tr>`;
+      tbody.innerHTML = `<tr><td colspan="7" style="text-align:center; padding:20px;">오류: ${err.message}</td></tr>`;
     }
+  }
+
+  // ✅ [추가 기능] 반별 학생 보기에서 반 변경 저장
+  async function updateStudentClass(studentId) {
+    const sel = document.getElementById(`cls-${studentId}`);
+    if (!sel) return;
+
+    // ""이면 미배정(null)으로 되돌리기
+    const newClassId = sel.value ? sel.value : null;
+
+    const { error } = await supabaseClient
+      .from('students')
+      .update({ class_id: newClassId })
+      .eq('id', studentId);
+
+    if (error) {
+      alert("저장 실패: " + error.message);
+      return;
+    }
+
+    alert("반 변경이 저장되었습니다.");
+
+    // ✅ 둘 다 갱신 (실수 배정 수정 후 바로 반영)
+    loadNewStudents();
+    loadStudentsByClass(true);
   }
 
   // --- [5] 숙제 결과 조회 (반/이름 중 하나만 선택해도 OK) ---
@@ -384,6 +449,7 @@
 
       // 2. 해당 날짜의 숙제 결과 조회
       const loginIds = students.map(s => s.login_id);
+
       const start = dateVal + " 00:00:00";
       const end   = dateVal + " 23:59:59";
 
