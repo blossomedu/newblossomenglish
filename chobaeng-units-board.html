@@ -15,213 +15,85 @@
         system-ui, "Apple SD Gothic Neo", "Noto Sans KR", sans-serif;
     }
 
-    body {
-      background: #f4f6fb;
-      padding: 30px 0 60px;
-    }
+    body { background: #f4f6fb; padding: 30px 0 60px; }
 
-    .page {
-      max-width: 900px;
-      margin: 0 auto;
-      padding: 0 20px;
-      position: relative;
-    }
+    .page { max-width: 900px; margin: 0 auto; padding: 0 20px; position: relative; }
 
-    .top-bar {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 20px;
-    }
+    .top-bar { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; }
 
     .home-btn {
-      background: #9AD7A0;
-      color: white;
-      padding: 6px 16px;
-      border-radius: 999px;
-      border: none;
-      cursor: pointer;
-      font-size: 13px;
-      font-weight: 600;
+      background: #9AD7A0; color: white; padding: 6px 16px; border-radius: 999px;
+      border: none; cursor: pointer; font-size: 13px; font-weight: 600;
     }
-
     .home-btn:hover { background: #7EC987; }
 
-    #login-status {
-      display: flex;
-      gap: 10px;
-      align-items: center;
-    }
-
-    #login-status span {
-      font-size: 14px;
-      color: #374151;
-      font-weight: 600;
-    }
-
+    #login-status { display: flex; gap: 10px; align-items: center; }
+    #login-status span { font-size: 14px; color: #374151; font-weight: 600; }
     #login-status button {
-      border: none;
-      background: #FF6FB5;
-      color: white;
-      padding: 6px 14px;
-      border-radius: 999px;
-      cursor: pointer;
-      font-size: 13px;
-      font-weight: 600;
+      border: none; background: #FF6FB5; color: white; padding: 6px 14px;
+      border-radius: 999px; cursor: pointer; font-size: 13px; font-weight: 600;
     }
-
     #login-status button:hover { background: #ff5aa8; }
 
-    .title-big {
-      font-size: 28px;
-      font-weight: 900;
-      margin-bottom: 6px;
-      margin-top: 16px;
-    }
-
-    .subtitle {
-      font-size: 15px;
-      color: #6b7280;
-      margin-bottom: 24px;
-    }
+    .title-big { font-size: 28px; font-weight: 900; margin-bottom: 6px; margin-top: 16px; }
+    .subtitle { font-size: 15px; color: #6b7280; margin-bottom: 24px; }
 
     .write-box {
-      background: #ffffff;
-      border-radius: 20px;
-      padding: 18px 20px 20px;
-      box-shadow: 0 12px 28px rgba(15, 23, 42, 0.08);
-      margin-bottom: 24px;
+      background: #ffffff; border-radius: 20px; padding: 18px 20px 20px;
+      box-shadow: 0 12px 28px rgba(15, 23, 42, 0.08); margin-bottom: 24px;
     }
+    .write-title { font-size: 16px; font-weight: 700; margin-bottom: 12px; }
 
-    .write-title {
-      font-size: 16px;
-      font-weight: 700;
-      margin-bottom: 12px;
-    }
-
-    .form-row {
-      display: flex;
-      gap: 10px;
-      margin-bottom: 10px;
-    }
-
+    .form-row { display: flex; gap: 10px; margin-bottom: 10px; }
     .form-row input {
-      flex: 1;
-      border-radius: 999px;
-      border: 1px solid #e5e7eb;
-      padding: 8px 14px;
-      font-size: 14px;
+      flex: 1; border-radius: 999px; border: 1px solid #e5e7eb;
+      padding: 8px 14px; font-size: 14px;
     }
-
     .form-row input:focus {
-      outline: none;
-      border-color: #60a5fa;
+      outline: none; border-color: #60a5fa;
       box-shadow: 0 0 0 2px rgba(96, 165, 250, 0.3);
     }
 
     .write-box button {
-      border: none;
-      background: #6B7280;
-      color: white;
-      padding: 8px 18px;
-      border-radius: 999px;
-      cursor: pointer;
-      font-size: 14px;
-      font-weight: 600;
+      border: none; background: #6B7280; color: white; padding: 8px 18px;
+      border-radius: 999px; cursor: pointer; font-size: 14px; font-weight: 600;
     }
-
     .write-box button:hover { background: #4B5563; }
 
-    .post-list {
-      display: flex;
-      flex-direction: column;
-      gap: 14px;
-    }
+    .post-list { display: flex; flex-direction: column; gap: 14px; }
 
     .post-card {
-      background: #ffffff;
-      border-radius: 18px;
-      padding: 14px 16px;
+      background: #ffffff; border-radius: 18px; padding: 14px 16px;
       box-shadow: 0 8px 20px rgba(15, 23, 42, 0.06);
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 12px;
+      display: flex; justify-content: space-between; align-items: center; gap: 12px;
     }
 
     .post-main { flex: 1; }
+    .post-title { font-size: 15px; font-weight: 700; margin-bottom: 4px; }
+    .post-meta { font-size: 12px; color: #9ca3af; }
 
-    .post-title {
-      font-size: 15px;
-      font-weight: 700;
-      margin-bottom: 4px;
-    }
-
-    .post-meta {
-      font-size: 12px;
-      color: #9ca3af;
-    }
-
-    .post-actions {
-      display: flex;
-      align-items: center;
-      gap: 6px;
-    }
-
+    .post-actions { display: flex; align-items: center; gap: 6px; }
     .post-actions a {
-      border-radius: 999px;
-      border: none;
-      background: #00AEEF;
-      color: white;
-      padding: 7px 14px;
-      font-size: 13px;
-      font-weight: 600;
-      text-decoration: none;
-      cursor: pointer;
-      display: inline-block;
+      border-radius: 999px; border: none; background: #00AEEF; color: white;
+      padding: 7px 14px; font-size: 13px; font-weight: 600; text-decoration: none;
+      cursor: pointer; display: inline-block;
     }
-
     .post-actions a:hover { background: #0099D4; }
 
     .post-actions button {
-      border-radius: 999px;
-      border: none;
-      background: #e5e7eb;
-      color: #374151;
-      padding: 6px 10px;
-      font-size: 12px;
-      font-weight: 600;
-      cursor: pointer;
+      border-radius: 999px; border: none; background: #e5e7eb; color: #374151;
+      padding: 6px 10px; font-size: 12px; font-weight: 600; cursor: pointer;
     }
-
     .post-actions button:hover { background: #d1d5db; }
 
-    .post-actions .danger {
-      background: #ffe4e6;
-      color: #9f1239;
-    }
+    .post-actions .danger { background: #ffe4e6; color: #9f1239; }
     .post-actions .danger:hover { background: #fecdd3; }
 
-    .empty-text {
-      font-size: 14px;
-      color: #9ca3af;
-      text-align: center;
-      margin-top: 20px;
-    }
-
-    .loading-text {
-      font-size: 14px;
-      color: #6b7280;
-      text-align: center;
-      margin-top: 20px;
-    }
+    .empty-text { font-size: 14px; color: #9ca3af; text-align: center; margin-top: 20px; }
+    .loading-text { font-size: 14px; color: #6b7280; text-align: center; margin-top: 20px; }
 
     @media (max-width: 600px) {
-      .top-bar {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 10px;
-      }
+      .top-bar { flex-direction: column; align-items: flex-start; gap: 10px; }
       .form-row { flex-direction: column; }
     }
   </style>
@@ -243,7 +115,7 @@
   <div id="chobaeng-title" class="title-big">초바영 학습 게시판</div>
   <div id="chobaeng-subtitle" class="subtitle">초바영 학습 영상을 모아서 한 번에 볼 수 있어요.</div>
 
-  <!-- 글쓰기 영역 (선생님 전용) -->
+  <!-- 글쓰기 (선생님 전용) -->
   <div class="write-box" id="write-box">
     <div class="write-title">새 초바영 영상 추가 (유튜브 링크)</div>
     <form id="post-form">
@@ -265,59 +137,17 @@
 
 <script src="https://unpkg.com/@supabase/supabase-js@2.48.0/dist/umd/supabase.js"></script>
 <script>
+  // ✅ 프로젝트/anon 키는 문법 게시판에서 쓰던 것과 동일하게 유지
   const supa = supabase.createClient(
     "https://bpdisxjhhibrgfpvtlmv.supabase.co",
     "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJwZGlzeGpoaGlicmdmcHZ0bG12Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjM5NTkxODQsImV4cCI6MjA3OTUzNTE4NH0.jDZ6BGirOPuWUnt4ykjhng4PLft2ZjBuYAFzApUnlYU"
   );
 
+  // ✅ 이 페이지는 chobaeng_videos만 사용
   const TABLE_NAME = "chobaeng_videos";
 
-  // role: teacher / student / guest
   let currentRole = "guest";
-
-  async function checkLogin() {
-    const loginName = document.getElementById("login-name");
-    const loginBtn = document.getElementById("login-btn");
-    const logoutBtn = document.getElementById("logout-btn");
-
-    // 1) 학생 로그인(localStorage)
-    const student = localStorage.getItem("blossom_student");
-    if (student) {
-      try {
-        const s = JSON.parse(student);
-        currentRole = "student";
-        loginName.textContent = `${s.name} 학생`;
-        loginBtn.style.display = "none";
-        logoutBtn.style.display = "inline-block";
-        return;
-      } catch {
-        localStorage.removeItem("blossom_student");
-      }
-    }
-
-    // 2) 선생님 로그인(supabase)
-    const { data } = await supa.auth.getUser();
-    if (data && data.user) {
-      const name = data.user.user_metadata?.display_name || data.user.email;
-      currentRole = "teacher";
-      loginName.textContent = `${name} 선생님`;
-      loginBtn.style.display = "none";
-      logoutBtn.style.display = "inline-block";
-      return;
-    }
-
-    // 3) 게스트
-    currentRole = "guest";
-    loginName.textContent = "";
-    loginBtn.style.display = "inline-block";
-    logoutBtn.style.display = "none";
-  }
-
-  async function logoutUser() {
-    localStorage.removeItem("blossom_student");
-    await supa.auth.signOut();
-    location.reload();
-  }
+  let editingPostId = null;
 
   // ---------- 레벨 ----------
   const LEVEL_LABELS = {
@@ -343,6 +173,53 @@
   document.getElementById("chobaeng-subtitle").textContent =
     `${CURRENT_LEVEL_LABEL} 초바영 학습 영상을 모아서 한 번에 볼 수 있어요.`;
 
+  // ---------- 로그인 ----------
+  async function checkLogin() {
+    const loginName = document.getElementById("login-name");
+    const loginBtn = document.getElementById("login-btn");
+    const logoutBtn = document.getElementById("logout-btn");
+
+    // 학생(localStorage)
+    const student = localStorage.getItem("blossom_student");
+    if (student) {
+      try {
+        const s = JSON.parse(student);
+        currentRole = "student";
+        loginName.textContent = `${s.name} 학생`;
+        loginBtn.style.display = "none";
+        logoutBtn.style.display = "inline-block";
+        return;
+      } catch {
+        localStorage.removeItem("blossom_student");
+      }
+    }
+
+    // 선생님(supabase auth)
+    const { data, error } = await supa.auth.getUser();
+    if (error) console.warn("getUser error:", error.message);
+
+    if (data && data.user) {
+      const name = data.user.user_metadata?.display_name || data.user.email;
+      currentRole = "teacher";
+      loginName.textContent = `${name} 선생님`;
+      loginBtn.style.display = "none";
+      logoutBtn.style.display = "inline-block";
+      return;
+    }
+
+    // 게스트
+    currentRole = "guest";
+    loginName.textContent = "";
+    loginBtn.style.display = "inline-block";
+    logoutBtn.style.display = "none";
+  }
+
+  async function logoutUser() {
+    localStorage.removeItem("blossom_student");
+    await supa.auth.signOut();
+    location.reload();
+  }
+
   // ---------- UI ----------
   const writeBoxEl = document.getElementById("write-box");
   const form = document.getElementById("post-form");
@@ -350,13 +227,11 @@
   const urlInput = document.getElementById("url-input");
   const submitBtn = document.getElementById("submit-btn");
 
-  let editingPostId = null;
-
   function applyRoleUi() {
     writeBoxEl.style.display = (currentRole === "teacher") ? "block" : "none";
   }
 
-  // ---------- CRUD ----------
+  // ---------- DB ----------
   async function fetchPosts() {
     const loadingEl = document.getElementById("loading-text");
     const emptyEl = document.getElementById("empty-text");
@@ -375,7 +250,7 @@
     loadingEl.style.display = "none";
 
     if (error) {
-      console.error(error);
+      console.error("fetch error:", error);
       emptyEl.style.display = "block";
       emptyEl.textContent = "불러오기 실패: " + error.message;
       return [];
@@ -477,7 +352,7 @@
       .insert([{ level: CURRENT_LEVEL, title, url }]);
 
     if (error) {
-      console.error(error);
+      console.error("insert error:", error);
       alert("저장 실패: " + error.message);
       return false;
     }
@@ -491,7 +366,7 @@
       .eq("id", id);
 
     if (error) {
-      console.error(error);
+      console.error("update error:", error);
       alert("수정 실패: " + error.message);
       return false;
     }
@@ -505,7 +380,7 @@
       .eq("id", id);
 
     if (error) {
-      console.error(error);
+      console.error("delete error:", error);
       alert("삭제 실패: " + error.message);
       return;
     }
@@ -520,7 +395,7 @@
     await refresh();
   }
 
-  // ---------- form submit ----------
+  // ---------- submit ----------
   form.addEventListener("submit", async function (e) {
     e.preventDefault();
 
@@ -561,6 +436,7 @@
     submitBtn.disabled = false;
   });
 
+  // ---------- init ----------
   (async function init() {
     await checkLogin();
     applyRoleUi();
