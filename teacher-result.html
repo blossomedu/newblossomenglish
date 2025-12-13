@@ -13,7 +13,7 @@
     * { box-sizing: border-box; margin: 0; padding: 0; font-family: "Pretendard Variable", sans-serif; }
     body { background: var(--bg); padding: 40px 20px; color: #111827; }
     .page { max-width: 1000px; margin: 0 auto; }
-    
+
     .header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 30px; }
     .brand { font-size: 24px; font-weight: 800; color: #1f2937; }
 
@@ -44,7 +44,7 @@
     #back-btn:hover {
       background: #d1d5db;
     }
-    
+
     .section-card { background: white; border-radius: 16px; padding: 24px; margin-bottom: 24px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1); }
     .card-title { font-size: 18px; font-weight: 700; margin-bottom: 16px; padding-bottom: 12px; border-bottom: 2px solid #f3f4f6; color: #374151; }
 
@@ -52,7 +52,7 @@
     table { width: 100%; border-collapse: collapse; font-size: 14px; min-width: 700px; }
     th { background: #f9fafb; color: #4b5563; font-weight: 600; text-align: left; padding: 12px; border-bottom: 1px solid #e5e7eb; }
     td { padding: 12px; border-bottom: 1px solid #e5e7eb; vertical-align: middle; }
-    
+
     /* 컨트롤러 */
     .controls { display: flex; gap: 8px; margin-bottom: 16px; align-items: center; flex-wrap: wrap; }
     .input-ui { padding: 8px 12px; border: 1px solid #d1d5db; border-radius: 6px; font-size: 14px; height: 38px; outline: none; }
@@ -60,16 +60,17 @@
     .btn-search:hover { filter: brightness(0.9); }
 
     /* ✅ 학생 이름 입력칸 너비 조정 */
-    #studentNameInput {
-      width: 160px; /* 필요하면 140~200px 안에서 조정 가능 */
+    #studentNameInput,
+    #studentNameInput2 {
+      width: 160px;
     }
-    
+
     /* 뱃지 */
     .badge { padding: 4px 8px; border-radius: 99px; font-size: 11px; font-weight: 700; display: inline-block; }
     .badge-done { background: #dcfce7; color: #166534; }
     .badge-yet { background: #f3f4f6; color: #9ca3af; }
     .badge-new { background: #fee2e2; color: #991b1b; }
-    
+
     .assign-select { padding: 6px; border-radius: 4px; border: 1px solid #d1d5db; }
     .btn-save { padding: 6px 10px; background: var(--mint); color: #064e3b; border: none; border-radius: 4px; cursor: pointer; font-weight: 700; font-size: 12px; margin-left: 4px; }
   </style>
@@ -93,15 +94,15 @@
       </select>
 
       <!-- ✅ 학생 이름(선택) -->
-      <input 
-        type="text" 
-        id="studentNameInput" 
-        class="input-ui" 
+      <input
+        type="text"
+        id="studentNameInput"
+        class="input-ui"
         placeholder="학생 이름 (선택)"
       >
 
       <input type="date" id="dateInput" class="input-ui">
-      
+
       <button class="btn-search" onclick="loadHomework()">조회하기</button>
     </div>
 
@@ -123,7 +124,43 @@
     </div>
   </div>
 
-  <!-- ✅ 2. 신입생 반 배정하기 카드 -->
+  <!-- ✅ 2. 반별 학생 보기 카드 (추가) -->
+  <div class="section-card">
+    <div class="card-title">👥 반별 학생 보기</div>
+    <div class="controls">
+      <select id="classSelect2" class="input-ui">
+        <option value="">반 선택</option>
+      </select>
+
+      <input
+        type="text"
+        id="studentNameInput2"
+        class="input-ui"
+        placeholder="학생 이름 (선택)"
+      >
+
+      <button class="btn-search" onclick="loadStudentsByClass()">조회하기</button>
+    </div>
+
+    <div class="table-wrap">
+      <table id="studentsTable">
+        <thead>
+          <tr>
+            <th width="18%">이름</th>
+            <th width="20%">아이디</th>
+            <th width="22%">연락처</th>
+            <th width="20%">반</th>
+            <th width="20%">가입일</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td colspan="5" style="text-align:center; padding:20px;">반 또는 이름으로 학생을 조회할 수 있어요.</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- ✅ 3. 신입생 반 배정하기 카드 -->
   <div class="section-card">
     <div class="card-title">🌱 신입생 반 배정하기</div>
     <div class="table-wrap">
@@ -143,7 +180,7 @@
   // 1. Supabase 설정
   const SUPABASE_URL = "https://bpdisxjhhibrgfpvtlmv.supabase.co";
   const SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJwZGlzeGpoaGlicmdmcHZ0bG12Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjM5NTkxODQsImV4cCI6MjA3OTUzNTE4NH0.jDZ6BGirOPuWUnt4ykjhng4PLft2ZjBuYAFzApUnlYU";
-  
+
   const supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
   let classList = [];
@@ -156,46 +193,55 @@
     const mm = String(today.getMonth() + 1).padStart(2, '0');
     const dd = String(today.getDate()).padStart(2, '0');
     document.getElementById("dateInput").value = `${yyyy}-${mm}-${dd}`;
-    
-    await loadClasses(); // 반 목록 가져오기
+
+    await loadClasses(); // 반 목록 가져오기 (두 개 select 모두 채움)
     loadNewStudents();   // 신입생 가져오기
   });
 
-  // --- [1] 반 목록 가져오기 ---
+  // --- [1] 반 목록 가져오기 (classSelect, classSelect2 채우기) ---
   async function loadClasses() {
     const { data, error } = await supabaseClient.from('classes').select('*').order('name');
-    
-    const select = document.getElementById("classSelect");
-    select.innerHTML = '<option value="">반 선택</option>';
 
-    if (error) { 
+    if (error) {
       console.error("반 목록 에러:", error);
-      return; 
+      return;
     }
-    
+
     classList = data;
-    
+
+    const select1 = document.getElementById("classSelect");
+    const select2 = document.getElementById("classSelect2");
+
+    if (select1) select1.innerHTML = '<option value="">반 선택</option>';
+    if (select2) select2.innerHTML = '<option value="">반 선택</option>';
+
     data.forEach(cls => {
-      const opt = document.createElement("option");
-      opt.value = cls.id;
-      opt.textContent = cls.name;
-      select.appendChild(opt);
+      const opt1 = document.createElement("option");
+      opt1.value = cls.id;
+      opt1.textContent = cls.name;
+      if (select1) select1.appendChild(opt1);
+
+      const opt2 = document.createElement("option");
+      opt2.value = cls.id;
+      opt2.textContent = cls.name;
+      if (select2) select2.appendChild(opt2);
     });
   }
 
   // --- [2] 신입생(반 없는 학생) 가져오기 ---
   async function loadNewStudents() {
     const tbody = document.querySelector("#newStudentTable tbody");
-    
+
     const { data, error } = await supabaseClient
       .from('students')
       .select('*')
       .is('class_id', null)
       .order('created_at', { ascending: false }); // 최신 가입 순
 
-    if (error) { 
-      console.error(error); 
-      return; 
+    if (error) {
+      console.error(error);
+      tbody.innerHTML = `<tr><td colspan="6" style="text-align:center; padding:20px; color:#999;">불러오기 오류</td></tr>`;
+      return;
     }
 
     tbody.innerHTML = "";
@@ -206,7 +252,7 @@
 
     data.forEach(student => {
       const tr = document.createElement("tr");
-      
+
       let options = '<option value="">선택</option>';
       classList.forEach(c => {
         options += `<option value="${c.id}">${c.name}</option>`;
@@ -227,37 +273,93 @@
   // --- [3] 반 배정 저장 ---
   async function saveClass(studentId) {
     const sel = document.getElementById(`sel-${studentId}`);
-    if (!sel.value) { alert("반을 선택해주세요."); return; }
+    if (!sel || !sel.value) { alert("반을 선택해주세요."); return; }
 
     const { error } = await supabaseClient
       .from('students')
       .update({ class_id: sel.value })
       .eq('id', studentId);
 
-    if (error) { 
-      alert("저장 실패: " + error.message); 
-      return; 
+    if (error) {
+      alert("저장 실패: " + error.message);
+      return;
     }
-    
+
     alert("반 배정이 완료되었습니다.");
-    loadNewStudents(); // 목록 새로고침
+    loadNewStudents(); // 미배정 목록 새로고침(배정되면 사라지는 게 정상)
   }
 
-  // --- [4] 숙제 결과 조회 (반/이름 중 하나만 선택해도 OK) ---
+  // --- [4] 반별 학생 조회 (추가 기능) ---
+  async function loadStudentsByClass() {
+    const classId = document.getElementById("classSelect2").value;
+    const nameFilter = document.getElementById("studentNameInput2").value.trim();
+    const tbody = document.querySelector("#studentsTable tbody");
+
+    // 반/이름 둘 중 하나만 있어도 OK
+    if (!classId && !nameFilter) {
+      alert("반 또는 학생 이름 중 하나는 입력해주세요.");
+      return;
+    }
+
+    tbody.innerHTML = `<tr><td colspan="5" style="text-align:center; padding:20px;">조회 중...</td></tr>`;
+
+    try {
+      let query = supabaseClient
+        .from('students')
+        .select('id, name, login_id, parent_phone, class_id, created_at')
+        .order('name');
+
+      if (classId) query = query.eq('class_id', classId);
+      if (nameFilter) query = query.ilike('name', `%${nameFilter}%`);
+
+      const { data: students, error } = await query;
+      if (error) throw error;
+
+      tbody.innerHTML = "";
+
+      if (!students || students.length === 0) {
+        tbody.innerHTML = `<tr><td colspan="5" style="text-align:center; padding:20px;">조건에 맞는 학생이 없습니다.</td></tr>`;
+        return;
+      }
+
+      const classNameById = new Map(classList.map(c => [c.id, c.name]));
+
+      students.forEach(s => {
+        const tr = document.createElement("tr");
+        const className = s.class_id ? (classNameById.get(s.class_id) || s.class_id) : '미배정';
+        const joinDate = s.created_at ? new Date(s.created_at).toLocaleDateString('ko-KR') : '-';
+
+        tr.innerHTML = `
+          <td style="font-weight:700;">${s.name}</td>
+          <td>${s.login_id || '-'}</td>
+          <td>${s.parent_phone || '-'}</td>
+          <td>${className}</td>
+          <td>${joinDate}</td>
+        `;
+        tbody.appendChild(tr);
+      });
+
+    } catch (err) {
+      console.error(err);
+      tbody.innerHTML = `<tr><td colspan="5" style="text-align:center; padding:20px;">오류: ${err.message}</td></tr>`;
+    }
+  }
+
+  // --- [5] 숙제 결과 조회 (반/이름 중 하나만 선택해도 OK) ---
   async function loadHomework() {
     const classId = document.getElementById("classSelect").value;
     const dateVal = document.getElementById("dateInput").value;
     const nameFilter = document.getElementById("studentNameInput").value.trim();
     const tbody = document.querySelector("#homeworkTable tbody");
 
-    // ✅ 반/이름 둘 중 하나만 있어도 OK, 둘 다 없으면 경고
+    // 반/이름 둘 중 하나만 있어도 OK, 둘 다 없으면 경고
     if (!classId && !nameFilter) {
       alert("반 또는 학생 이름 중 하나는 입력해주세요.");
       return;
     }
-    if (!dateVal) { 
-      alert("날짜를 선택해주세요."); 
-      return; 
+    if (!dateVal) {
+      alert("날짜를 선택해주세요.");
+      return;
     }
 
     tbody.innerHTML = `<tr><td colspan="5" style="text-align:center; padding:20px;">조회 중...</td></tr>`;
@@ -269,16 +371,10 @@
         .select('id, name, login_id')
         .order('name');
 
-      if (classId) {
-        query = query.eq('class_id', classId);
-      }
-      if (nameFilter) {
-        // 부분 일치 검색
-        query = query.ilike('name', `%${nameFilter}%`);
-      }
+      if (classId) query = query.eq('class_id', classId);
+      if (nameFilter) query = query.ilike('name', `%${nameFilter}%`);
 
       const { data: students, error: studentError } = await query;
-
       if (studentError) throw studentError;
 
       if (!students || students.length === 0) {
@@ -288,7 +384,6 @@
 
       // 2. 해당 날짜의 숙제 결과 조회
       const loginIds = students.map(s => s.login_id);
-      
       const start = dateVal + " 00:00:00";
       const end   = dateVal + " 23:59:59";
 
@@ -304,15 +399,15 @@
 
       // 3. 표 만들기
       tbody.innerHTML = "";
-      
+
       students.forEach(std => {
         const myResults = (results || []).filter(r => r.student_login_id === std.login_id);
-        
+
         if (myResults.length > 0) {
           myResults.forEach(res => {
             const tr = document.createElement("tr");
             const timeStr = new Date(res.submitted_at).toLocaleTimeString([], {hour:'2-digit', minute:'2-digit'});
-            
+
             tr.innerHTML = `
               <td style="font-weight:700;">${std.name}</td>
               <td><span class="badge badge-done">제출 완료</span></td>
