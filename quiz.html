@@ -404,7 +404,7 @@
     try {
       await client.from("vocab_results").insert({
         student_login_id: currentStudentLoginId,
-        unit: unitKey,
+        unit_key: unitKey,
         mode: currentMode,
         correct_count: wordCount,
         total_count: wordCount,
@@ -807,3 +807,4 @@
 </script>
 </body>
 </html>
+
