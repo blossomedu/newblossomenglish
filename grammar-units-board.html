@@ -200,7 +200,7 @@
       background: #0099D4;
     }
 
-    /* 수정 버튼 (선생님 전용) */
+    /* 수정/삭제 버튼 (선생님 전용) */
     .post-actions button {
       border-radius: 999px;
       border: none;
@@ -216,9 +216,24 @@
       background: #d1d5db;
     }
 
+    .post-actions .danger {
+      background: #ffe4e6;
+      color: #9f1239;
+    }
+    .post-actions .danger:hover {
+      background: #fecdd3;
+    }
+
     .empty-text {
       font-size: 14px;
       color: #9ca3af;
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    .loading-text {
+      font-size: 14px;
+      color: #6b7280;
       text-align: center;
       margin-top: 20px;
     }
@@ -241,7 +256,6 @@
 
   <!-- 상단: Home + 로그인 영역 -->
   <div class="top-bar">
-    <!-- 🔽 여기만 index.html 로 수정 -->
     <button class="home-btn" onclick="location.href='index.html'">Home</button>
 
     <div id="login-status">
@@ -254,8 +268,8 @@
   <div id="grammar-title" class="title-big">문법 학습 게시판</div>
   <div id="grammar-subtitle" class="subtitle">유튜브 문법 강의 링크를 모아서 한 번에 볼 수 있어요.</div>
 
-  <!-- 글쓰기 영역 (선생님이 링크 넣는 용도) -->
-  <div class="write-box">
+  <!-- 글쓰기 영역 (선생님 전용) -->
+  <div class="write-box" id="write-box">
     <div class="write-title">새 문법 영상 추가 (유튜브 링크)</div>
     <form id="post-form">
       <div class="form-row">
@@ -270,11 +284,12 @@
 
   <!-- 게시글 리스트 -->
   <div id="post-list" class="post-list"></div>
+  <div id="loading-text" class="loading-text" style="display:none;">불러오는 중...</div>
   <div id="empty-text" class="empty-text" style="display:none;">등록된 문법 영상이 아직 없어요.</div>
 
 </div>
 
-<!-- Supabase (로그인 상태 확인용) -->
+<!-- Supabase -->
 <script src="https://unpkg.com/@supabase/supabase-js@2.48.0/dist/umd/supabase.js"></script>
 <script>
   const supa = supabase.createClient(
@@ -284,48 +299,6 @@
 
   // 현재 로그인 역할: teacher / student / guest
   let currentRole = "guest";
-
-  async function checkLogin() {
-    const loginName = document.getElementById("login-name");
-    const loginBtn = document.getElementById("login-btn");
-    const logoutBtn = document.getElementById("logout-btn");
-
-    // 1) 학생 로그인(localStorage)
-    const student = localStorage.getItem("blossom_student");
-
-    if (student) {
-      const s = JSON.parse(student);
-      currentRole = "student";
-      loginName.textContent = `${s.name} 학생`;
-      loginBtn.style.display = "none";
-      logoutBtn.style.display = "inline-block";
-      return;
-    }
-
-    // 2) 선생님 로그인(supabase)
-    const { data } = await supa.auth.getUser();
-
-    if (data.user) {
-      const name = data.user.user_metadata?.display_name || data.user.email;
-      currentRole = "teacher";
-      loginName.textContent = `${name} 선생님`;
-      loginBtn.style.display = "none";
-      logoutBtn.style.display = "inline-block";
-      return;
-    }
-
-    // 3) 로그인 없음
-    currentRole = "guest";
-    loginName.textContent = "";
-    loginBtn.style.display = "inline-block";
-    logoutBtn.style.display = "none";
-  }
-
-  async function logoutUser() {
-    localStorage.removeItem("blossom_student");
-    await supa.auth.signOut();
-    location.reload();
-  }
 
   // ---------- 레벨 정보 읽기 ----------
   const LEVEL_LABELS = {
@@ -352,36 +325,101 @@
   titleEl.textContent = `문법 학습 ${CURRENT_LEVEL_LABEL} 게시판`;
   subtitleEl.textContent = `${CURRENT_LEVEL_LABEL} 문법 강의 링크를 모아서 한 번에 볼 수 있어요.`;
 
-  // ---------- 문법 게시판 (localStorage, 레벨별 분리) ----------
-  const STORAGE_KEY = `grammar_posts_level_${CURRENT_LEVEL}`;
+  // ---------- 로그인 ----------
+  async function checkLogin() {
+    const loginName = document.getElementById("login-name");
+    const loginBtn = document.getElementById("login-btn");
+    const logoutBtn = document.getElementById("logout-btn");
 
-  function loadPosts() {
-    const raw = localStorage.getItem(STORAGE_KEY);
-    if (!raw) return [];
+    // 1) 학생 로그인(localStorage)
+    const student = localStorage.getItem("blossom_student");
+    if (student) {
+      try {
+        const s = JSON.parse(student);
+        currentRole = "student";
+        loginName.textContent = `${s.name} 학생`;
+        loginBtn.style.display = "none";
+        logoutBtn.style.display = "inline-block";
+        return;
+      } catch (e) {
+        // 파싱 실패 시 초기화
+        localStorage.removeItem("blossom_student");
+      }
+    }
 
-    try {
-      const arr = JSON.parse(raw);
-      if (!Array.isArray(arr)) return [];
-      return arr;
-    } catch (e) {
-      console.error("Failed to parse grammar posts", e);
+    // 2) 선생님 로그인(supabase)
+    const { data, error } = await supa.auth.getUser();
+    if (error) {
+      console.warn("getUser error:", error.message);
+    }
+
+    if (data && data.user) {
+      const name = data.user.user_metadata?.display_name || data.user.email;
+      currentRole = "teacher";
+      loginName.textContent = `${name} 선생님`;
+      loginBtn.style.display = "none";
+      logoutBtn.style.display = "inline-block";
+      return;
+    }
+
+    // 3) 로그인 없음
+    currentRole = "guest";
+    loginName.textContent = "";
+    loginBtn.style.display = "inline-block";
+    logoutBtn.style.display = "none";
+  }
+
+  async function logoutUser() {
+    localStorage.removeItem("blossom_student");
+    await supa.auth.signOut();
+    location.reload();
+  }
+
+  // ---------- Supabase CRUD (grammar_videos) ----------
+  const TABLE_NAME = "grammar_videos";
+
+  async function fetchPosts() {
+    const loadingEl = document.getElementById("loading-text");
+    const emptyEl = document.getElementById("empty-text");
+    const listEl = document.getElementById("post-list");
+
+    loadingEl.style.display = "block";
+    emptyEl.style.display = "none";
+    listEl.innerHTML = "";
+
+    const { data, error } = await supa
+      .from(TABLE_NAME)
+      .select("id, level, title, url, created_at")
+      .eq("level", CURRENT_LEVEL)
+      .order("created_at", { ascending: false });
+
+    loadingEl.style.display = "none";
+
+    if (error) {
+      console.error(error);
+      emptyEl.style.display = "block";
+      emptyEl.textContent = "불러오기 실패: " + error.message;
       return [];
     }
+
+    if (!data || data.length === 0) {
+      emptyEl.style.display = "block";
+      emptyEl.textContent = "등록된 문법 영상이 아직 없어요.";
+      return [];
+    }
+
+    return data;
   }
 
-  function savePosts(posts) {
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(posts));
-  }
-
-  function renderPosts() {
-    const posts = loadPosts().sort((a, b) => b.createdAt - a.createdAt);
+  function renderPosts(posts) {
     const listEl = document.getElementById("post-list");
     const emptyEl = document.getElementById("empty-text");
 
     listEl.innerHTML = "";
 
-    if (posts.length === 0) {
+    if (!posts || posts.length === 0) {
       emptyEl.style.display = "block";
+      emptyEl.textContent = "등록된 문법 영상이 아직 없어요.";
       return;
     } else {
       emptyEl.style.display = "none";
@@ -400,8 +438,10 @@
 
       const meta = document.createElement("div");
       meta.className = "post-meta";
-      const date = new Date(post.createdAt);
-      meta.textContent = `등록: ${date.toLocaleDateString()} ${date.toLocaleTimeString()}`;
+      const date = post.created_at ? new Date(post.created_at) : null;
+      meta.textContent = date
+        ? `등록: ${date.toLocaleDateString()} ${date.toLocaleTimeString()}`
+        : `등록: -`;
 
       main.appendChild(title);
       main.appendChild(meta);
@@ -416,12 +456,11 @@
       link.textContent = "영상 보기";
       actions.appendChild(link);
 
-      // ✅ 선생님일 때만 수정 버튼 표시
+      // ✅ 선생님일 때만 수정/삭제 버튼 표시
       if (currentRole === "teacher") {
         const editBtn = document.createElement("button");
         editBtn.type = "button";
         editBtn.textContent = "수정";
-
         editBtn.onclick = () => {
           editingPostId = post.id;
           titleInput.value = post.title;
@@ -429,8 +468,18 @@
           submitBtn.textContent = "수정 완료";
           window.scrollTo({ top: 0, behavior: "smooth" });
         };
-
         actions.appendChild(editBtn);
+
+        const delBtn = document.createElement("button");
+        delBtn.type = "button";
+        delBtn.className = "danger";
+        delBtn.textContent = "삭제";
+        delBtn.onclick = async () => {
+          const ok = confirm("정말 삭제할까요?");
+          if (!ok) return;
+          await deletePost(post.id);
+        };
+        actions.appendChild(delBtn);
       }
 
       card.appendChild(main);
@@ -440,7 +489,63 @@
     });
   }
 
-  // 폼 이벤트
+  async function refresh() {
+    const posts = await fetchPosts();
+    renderPosts(posts);
+  }
+
+  async function insertPost({ title, url }) {
+    const { error } = await supa
+      .from(TABLE_NAME)
+      .insert([{ level: CURRENT_LEVEL, title, url }]);
+
+    if (error) {
+      console.error(error);
+      alert("저장 실패: " + error.message);
+      return false;
+    }
+    return true;
+  }
+
+  async function updatePost(id, { title, url }) {
+    const { error } = await supa
+      .from(TABLE_NAME)
+      .update({ title, url })
+      .eq("id", id);
+
+    if (error) {
+      console.error(error);
+      alert("수정 실패: " + error.message);
+      return false;
+    }
+    return true;
+  }
+
+  async function deletePost(id) {
+    const { error } = await supa
+      .from(TABLE_NAME)
+      .delete()
+      .eq("id", id);
+
+    if (error) {
+      console.error(error);
+      alert("삭제 실패: " + error.message);
+      return;
+    }
+
+    // 삭제 중이던 글이면 상태 초기화
+    if (editingPostId === id) {
+      editingPostId = null;
+      submitBtn.textContent = "추가하기";
+      titleInput.value = "";
+      urlInput.value = "";
+    }
+
+    await refresh();
+  }
+
+  // ---------- 폼 ----------
+  const writeBoxEl = document.getElementById("write-box");
   const form = document.getElementById("post-form");
   const titleInput = document.getElementById("title-input");
   const urlInput = document.getElementById("url-input");
@@ -449,47 +554,64 @@
   // 현재 수정 중인 게시글 id (없으면 null)
   let editingPostId = null;
 
-  form.addEventListener("submit", function (e) {
+  function applyRoleUi() {
+    // 선생님만 글쓰기 박스 노출
+    if (currentRole === "teacher") {
+      writeBoxEl.style.display = "block";
+    } else {
+      writeBoxEl.style.display = "none";
+    }
+  }
+
+  form.addEventListener("submit", async function (e) {
     e.preventDefault();
+
+    // 선생님만 작성 가능 (UI 숨김이지만 안전장치)
+    if (currentRole !== "teacher") {
+      alert("선생님만 등록/수정할 수 있어요.");
+      return;
+    }
 
     const title = titleInput.value.trim();
     const url = urlInput.value.trim();
-
     if (!title || !url) return;
 
-    const posts = loadPosts();
-
-    if (editingPostId !== null) {
-      // ✅ 수정 모드: 해당 id 찾아서 내용 변경
-      const idx = posts.findIndex((p) => p.id === editingPostId);
-      if (idx !== -1) {
-        posts[idx].title = title;
-        posts[idx].url = url;
-        // createdAt은 그대로 유지
-      }
-      editingPostId = null;
-      submitBtn.textContent = "추가하기";
-    } else {
-      // 새 글 추가
-      const now = Date.now();
-      posts.push({
-        id: now,
-        title,
-        url,
-        createdAt: now
-      });
+    // 유튜브 링크 기본 검증(너무 엄격하진 않게)
+    try {
+      new URL(url);
+    } catch {
+      alert("올바른 링크(URL)를 입력해 주세요.");
+      return;
     }
 
-    savePosts(posts);
-    titleInput.value = "";
-    urlInput.value = "";
-    renderPosts();
+    submitBtn.disabled = true;
+
+    if (editingPostId) {
+      const ok = await updatePost(editingPostId, { title, url });
+      if (ok) {
+        editingPostId = null;
+        submitBtn.textContent = "추가하기";
+        titleInput.value = "";
+        urlInput.value = "";
+        await refresh();
+      }
+    } else {
+      const ok = await insertPost({ title, url });
+      if (ok) {
+        titleInput.value = "";
+        urlInput.value = "";
+        await refresh();
+      }
+    }
+
+    submitBtn.disabled = false;
   });
 
-  // 초기 실행: 로그인 확인 후 렌더
+  // 초기 실행
   (async function init() {
     await checkLogin();
-    renderPosts();
+    applyRoleUi();
+    await refresh();
   })();
 </script>
 </body>
