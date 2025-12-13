@@ -150,8 +150,7 @@
     /* 우리 반 숙제 카드 안 리스트 */
     .class-hw-empty,
     .my-result-empty,
-    .my-hw-empty,
-    .class-online-empty {
+    .my-hw-empty {
       padding: 16px 14px;
       border-radius: 16px;
       background: #f3f4f6;
@@ -394,7 +393,7 @@
     }
 
     /* ==============================
-       ✅ [NEW] 유닛 통합 결과(요약 + 상세) - HTML only
+       ✅ 유닛 통합 결과(요약 + 상세) - HTML only
        ============================== */
     .unit-result-wrap {
       border-radius: 16px;
@@ -532,7 +531,6 @@
         padding: 16px 14px 18px;
       }
 
-      /* 모바일에서는 제출시간 칸이 너무 길어질 수 있어서 줄바꿈 허용 */
       .unit-result-head,
       .unit-result-summary {
         grid-template-columns: 1.1fr 0.8fr 0.7fr 1.4fr;
@@ -555,20 +553,7 @@
     오늘 숙제와 온라인 학습 결과를 한 곳에서 확인해 보세요.
   </div>
 
-  <!-- 1. 내 정보 -->
-  <div class="section-card">
-    <div class="section-header">
-      <div class="section-title">👤 내 정보</div>
-    </div>
-    <div class="info-row">
-      <div><span class="label">이름:</span><span id="info-name">-</span></div>
-      <div><span class="label">반:</span><span id="info-class">-</span></div>
-      <div><span class="label">아이디:</span><span id="info-id">-</span></div>
-    </div>
-    <div id="info-message" class="info-message"></div>
-  </div>
-
-  <!-- 2. 우리 반 숙제 (선생님이 올린 필기 + 온라인 숙제) -->
+  <!-- ✅ 1. 우리 반 숙제 -->
   <div class="section-card">
     <div class="section-header">
       <div class="section-title">
@@ -582,7 +567,7 @@
     <div id="class-hw-area"></div>
   </div>
 
-  <!-- ✅ 3. 내 온라인 숙제 결과 (유닛 통합 요약 + 상세) -->
+  <!-- ✅ 2. 내 온라인 숙제 결과 -->
   <div class="section-card">
     <div class="section-header">
       <div class="section-title">📊 내 온라인 숙제 결과</div>
@@ -592,7 +577,7 @@
       * 제출 시간은 “마지막으로 완료한 시간”이에요. 아직 시작 안 했으면 “--”로 표시돼요.
     </div>
 
-    <!-- ✅ HTML only(더미 데이터) -->
+    <!-- 더미 UI -->
     <div class="unit-result-wrap" id="unit-result-wrap">
       <div class="unit-result-head">
         <div>마감 날짜</div>
@@ -601,7 +586,6 @@
         <div>제출 시간</div>
       </div>
 
-      <!-- Row 1 -->
       <details class="unit-row" open>
         <summary class="unit-result-summary">
           <div>2025-12-26</div>
@@ -636,7 +620,6 @@
         </div>
       </details>
 
-      <!-- Row 2 -->
       <details class="unit-row">
         <summary class="unit-result-summary">
           <div>2025-12-25</div>
@@ -670,7 +653,6 @@
         </div>
       </details>
 
-      <!-- Row 3 -->
       <details class="unit-row">
         <summary class="unit-result-summary">
           <div>2025-12-24</div>
@@ -706,7 +688,7 @@
     </div>
   </div>
 
-  <!-- 4. 내가 등록한 온라인 숙제 (개인 To-do) -->
+  <!-- ✅ 3. 내가 등록한 온라인 숙제 -->
   <div class="section-card">
     <div class="section-header">
       <div class="section-title">✍️ 내가 등록한 온라인 숙제</div>
@@ -750,17 +732,19 @@
     </div>
   </div>
 
-  <!-- 5. 우리 반 온라인 숙제 목록 (선생님이 반 전체에 올린 것만) -->
+  <!-- ✅ 4. 내 정보 -->
   <div class="section-card">
     <div class="section-header">
-      <div class="section-title">📝 우리 반 온라인 숙제 목록</div>
+      <div class="section-title">👤 내 정보</div>
     </div>
-    <div class="section-sub">
-      선생님이 등록한 온라인 어휘/문장 숙제를 한 번에 볼 수 있어요.
-      나중에 어휘/문장 학습 페이지와 연결해서, 여기에서 바로 숙제 풀기 버튼을 만들 수 있어요.
+    <div class="info-row">
+      <div><span class="label">이름:</span><span id="info-name">-</span></div>
+      <div><span class="label">반:</span><span id="info-class">-</span></div>
+      <div><span class="label">아이디:</span><span id="info-id">-</span></div>
     </div>
-    <div id="class-online-area"></div>
+    <div id="info-message" class="info-message"></div>
   </div>
+
 </div>
 
 <!-- Supabase JS -->
@@ -787,8 +771,6 @@
   const myHwStatusEl   = document.getElementById("my-hw-status");
   const myHwEmptyEl    = document.getElementById("my-hw-empty");
   const myHwListEl     = document.getElementById("my-hw-list");
-
-  const classOnlineArea = document.getElementById("class-online-area");
 
   const typeVocabBtn    = document.getElementById("type-vocab");
   const typeSentenceBtn = document.getElementById("type-sentence");
@@ -861,7 +843,7 @@
     };
   }
 
-  // ---------- 1. 학생 정보 / 반 정보 ----------
+  // ---------- 학생 정보 / 반 정보 ----------
   async function loadStudentFromLocalStorage() {
     try {
       const stored = localStorage.getItem("blossom_student");
@@ -883,21 +865,16 @@
         classBadgeEl.textContent = "반 미배정";
         classHwArea.innerHTML =
           '<div class="class-hw-empty">반이 아직 배정되지 않아 숙제를 볼 수 없어요.</div>';
-        classOnlineArea.innerHTML =
-          '<div class="class-online-empty">반이 아직 배정되지 않아 온라인 숙제를 볼 수 없어요.</div>';
         return;
       }
 
-      // 반 정보 가져오기
       const { data: cls, error } = await client
         .from("classes")
         .select("id, name")
         .eq("id", s.class_id)
         .maybeSingle();
 
-      if (error) {
-        console.error("classes 조회 오류:", error);
-      }
+      if (error) console.error("classes 조회 오류:", error);
 
       if (cls) {
         currentClass = cls;
@@ -919,7 +896,7 @@
     }
   }
 
-  // ---------- 2. 우리 반 숙제 (board_posts + vocab_homework + sentence_homework) ----------
+  // ---------- 우리 반 숙제 (board_posts + vocab_homework + sentence_homework) ----------
   async function loadClassHomework() {
     if (!currentClass || !currentClass.id) return;
 
@@ -949,53 +926,37 @@
       if (sentenceRes.error) console.error("sentence_homework 오류:", sentenceRes.error);
 
       const groupsMap = {}; // key = dateKey
-
       function ensureGroup(dateKey) {
         if (!groupsMap[dateKey]) {
-          groupsMap[dateKey] = {
-            dateKey,
-            latestTime: null,
-            posts: [],
-            vocab: [],
-            sentence: []
-          };
+          groupsMap[dateKey] = { dateKey, latestTime: null, posts: [], vocab: [], sentence: [] };
         }
         return groupsMap[dateKey];
       }
 
-      // 필기 숙제
       (postsRes.data || []).forEach(row => {
         const dk = dateKeyFromTitle(row.title) || toDateKey(row.created_at);
         if (!dk) return;
         const g = ensureGroup(dk);
         g.posts.push(row);
-        if (!g.latestTime || new Date(row.created_at) > new Date(g.latestTime)) {
-          g.latestTime = row.created_at;
-        }
+        if (!g.latestTime || new Date(row.created_at) > new Date(g.latestTime)) g.latestTime = row.created_at;
       });
 
-      // 온라인 어휘
       (vocabRes.data || []).forEach(row => {
         const baseDate = row.due_date || row.created_at;
         const dk = row.due_date || toDateKey(row.created_at);
         if (!dk) return;
         const g = ensureGroup(dk);
         g.vocab.push(row);
-        if (!g.latestTime || new Date(baseDate) > new Date(g.latestTime)) {
-          g.latestTime = baseDate;
-        }
+        if (!g.latestTime || new Date(baseDate) > new Date(g.latestTime)) g.latestTime = baseDate;
       });
 
-      // 온라인 문장
       (sentenceRes.data || []).forEach(row => {
         const baseDate = row.due_date || row.created_at;
         const dk = row.due_date || toDateKey(row.created_at);
         if (!dk) return;
         const g = ensureGroup(dk);
         g.sentence.push(row);
-        if (!g.latestTime || new Date(baseDate) > new Date(g.latestTime)) {
-          g.latestTime = baseDate;
-        }
+        if (!g.latestTime || new Date(baseDate) > new Date(g.latestTime)) g.latestTime = baseDate;
       });
 
       const groups = Object.values(groupsMap).sort((a, b) => {
@@ -1034,13 +995,10 @@
         const hasVocab   = g.vocab.length > 0;
         const hasSentence= g.sentence.length > 0;
 
-        if (hasOffline && (hasVocab || hasSentence)) {
-          chipType.textContent = "필기 + 온라인 숙제";
-        } else if (hasOffline) {
-          chipType.textContent = "필기 숙제";
-        } else {
-          chipType.textContent = "온라인 숙제";
-        }
+        if (hasOffline && (hasVocab || hasSentence)) chipType.textContent = "필기 + 온라인 숙제";
+        else if (hasOffline) chipType.textContent = "필기 숙제";
+        else chipType.textContent = "온라인 숙제";
+
         chips.appendChild(chipType);
         left.appendChild(chips);
 
@@ -1052,7 +1010,6 @@
         header.appendChild(meta);
         card.appendChild(header);
 
-        // 필기 숙제 텍스트
         if (g.posts.length > 0) {
           const chip = document.createElement("div");
           chip.className = "chip chip-warning";
@@ -1067,7 +1024,6 @@
           });
         }
 
-        // 온라인 어휘
         if (g.vocab.length > 0) {
           const chip = document.createElement("div");
           chip.className = "chip chip-online-vocab";
@@ -1084,7 +1040,6 @@
           });
         }
 
-        // 온라인 문장
         if (g.sentence.length > 0) {
           const chip = document.createElement("div");
           chip.className = "chip chip-online-sentence";
@@ -1110,7 +1065,7 @@
     }
   }
 
-  // ---------- 4. 내가 등록한 온라인 숙제 (student_homework) ----------
+  // ---------- 내가 등록한 온라인 숙제 (student_homework) ----------
   function setType(nextType) {
     currentType = nextType;
     if (nextType === "vocab") {
@@ -1121,7 +1076,6 @@
       typeVocabBtn.classList.remove("active");
     }
   }
-
   typeVocabBtn.onclick = () => setType("vocab");
   typeSentenceBtn.onclick = () => setType("sentence");
 
@@ -1153,7 +1107,6 @@
     }
 
     setMyHwStatus("숙제를 저장 중입니다…", "");
-
     myHwSaveBtn.disabled = true;
 
     try {
@@ -1175,7 +1128,6 @@
 
       setMyHwStatus("나의 온라인 숙제가 등록되었어요!", "success");
       myHwSetEl.value = "";
-
       await loadMyHomeworkList();
     } catch (e) {
       console.error("student_homework 저장 예외:", e);
@@ -1184,7 +1136,6 @@
       myHwSaveBtn.disabled = false;
     }
   }
-
   myHwSaveBtn.onclick = saveMyHomework;
 
   async function loadMyHomeworkList() {
@@ -1249,92 +1200,6 @@
     }
   }
 
-  // ---------- 5. 우리 반 온라인 숙제 목록 (선생님 용) ----------
-  async function loadClassOnlineHomeworkList() {
-    if (!currentClass || !currentClass.id) return;
-
-    classOnlineArea.innerHTML =
-      '<div class="class-online-empty">우리 반 온라인 숙제를 불러오는 중입니다...</div>';
-
-    try {
-      const classId = currentClass.id;
-
-      const [vocabRes, sentenceRes] = await Promise.all([
-        client.from("vocab_homework")
-          .select("id, level, set_numbers, due_date, created_at")
-          .eq("class_id", classId)
-          .order("created_at", { ascending: false }),
-        client.from("sentence_homework")
-          .select("id, level, set_numbers, due_date, created_at")
-          .eq("class_id", classId)
-          .order("created_at", { ascending: false })
-      ]);
-
-      if (vocabRes.error)   console.error("vocab_homework 목록 오류:", vocabRes.error);
-      if (sentenceRes.error) console.error("sentence_homework 목록 오류:", sentenceRes.error);
-
-      const list = [];
-      (vocabRes.data || []).forEach(row => {
-        list.push({
-          type: "vocab",
-          level: row.level,
-          sets: row.set_numbers,
-          due: row.due_date,
-          created_at: row.created_at
-        });
-      });
-      (sentenceRes.data || []).forEach(row => {
-        list.push({
-          type: "sentence",
-          level: row.level,
-          sets: row.set_numbers,
-          due: row.due_date,
-          created_at: row.created_at
-        });
-      });
-
-      list.sort((a, b) => new Date(b.created_at || 0) - new Date(a.created_at || 0));
-
-      if (!list.length) {
-        classOnlineArea.innerHTML =
-          '<div class="class-online-empty">이 반에는 아직 등록된 온라인 숙제가 없습니다.</div>';
-        return;
-      }
-
-      classOnlineArea.innerHTML = "";
-      list.forEach(row => {
-        const item = document.createElement("div");
-        item.className = "my-hw-item";
-
-        const main = document.createElement("div");
-        main.className = "my-hw-main";
-
-        const tag = document.createElement("span");
-        tag.className = "chip " + (row.type === "sentence" ? "tag-type-sentence" : "tag-type-vocab");
-        tag.textContent = row.type === "sentence" ? "문장" : "어휘";
-        main.appendChild(tag);
-
-        const txt = document.createElement("span");
-        txt.textContent = `레벨 ${row.level} / 세트: ${row.sets}`;
-        main.appendChild(txt);
-
-        const meta = document.createElement("div");
-        meta.className = "my-hw-meta";
-        const dateTxt = row.due ? `마감일: ${row.due}` : "마감일: -";
-        meta.textContent = dateTxt;
-
-        item.appendChild(main);
-        item.appendChild(meta);
-
-        classOnlineArea.appendChild(item);
-      });
-    } catch (e) {
-      console.error("반 온라인 숙제 목록 예외:", e);
-      classOnlineArea.innerHTML =
-        '<div class="class-online-empty">온라인 숙제를 불러오는 중 오류가 발생했습니다.</div>';
-    }
-  }
-
   // ---------- 로그아웃 / 홈 ----------
   logoutBtn.onclick = () => {
     localStorage.removeItem("blossom_student");
@@ -1349,7 +1214,6 @@
     await loadStudentFromLocalStorage();
     if (currentClass && currentClass.id) {
       await loadClassHomework();
-      await loadClassOnlineHomeworkList();
     }
     await loadMyHomeworkList();
   })();
