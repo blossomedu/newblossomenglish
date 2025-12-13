@@ -27,7 +27,6 @@
       position: relative;
     }
 
-    /* 상단 Home + 로그인 영역 */
     .top-bar {
       display: flex;
       justify-content: space-between;
@@ -35,7 +34,6 @@
       margin-bottom: 20px;
     }
 
-    /* Home 버튼: 민트 */
     .home-btn {
       background: #9AD7A0;
       color: white;
@@ -47,11 +45,8 @@
       font-weight: 600;
     }
 
-    .home-btn:hover {
-      background: #7EC987;
-    }
+    .home-btn:hover { background: #7EC987; }
 
-    /* 로그인 상태 박스 */
     #login-status {
       display: flex;
       gap: 10px;
@@ -66,7 +61,7 @@
 
     #login-status button {
       border: none;
-      background: #FF6FB5; /* 핑크 */
+      background: #FF6FB5;
       color: white;
       padding: 6px 14px;
       border-radius: 999px;
@@ -75,9 +70,7 @@
       font-weight: 600;
     }
 
-    #login-status button:hover {
-      background: #ff5aa8;
-    }
+    #login-status button:hover { background: #ff5aa8; }
 
     .title-big {
       font-size: 28px;
@@ -92,7 +85,6 @@
       margin-bottom: 24px;
     }
 
-    /* 글쓰기 박스 */
     .write-box {
       background: #ffffff;
       border-radius: 20px;
@@ -127,7 +119,6 @@
       box-shadow: 0 0 0 2px rgba(96, 165, 250, 0.3);
     }
 
-    /* 추가하기/수정하기 버튼 */
     .write-box button {
       border: none;
       background: #6B7280;
@@ -139,11 +130,8 @@
       font-weight: 600;
     }
 
-    .write-box button:hover {
-      background: #4B5563;
-    }
+    .write-box button:hover { background: #4B5563; }
 
-    /* 게시글 리스트 */
     .post-list {
       display: flex;
       flex-direction: column;
@@ -161,9 +149,7 @@
       gap: 12px;
     }
 
-    .post-main {
-      flex: 1;
-    }
+    .post-main { flex: 1; }
 
     .post-title {
       font-size: 15px;
@@ -182,7 +168,6 @@
       gap: 6px;
     }
 
-    /* 영상 보기 버튼: 블루 (학생 메인 액션) */
     .post-actions a {
       border-radius: 999px;
       border: none;
@@ -196,11 +181,8 @@
       display: inline-block;
     }
 
-    .post-actions a:hover {
-      background: #0099D4;
-    }
+    .post-actions a:hover { background: #0099D4; }
 
-    /* 수정 버튼 (선생님 전용) */
     .post-actions button {
       border-radius: 999px;
       border: none;
@@ -212,13 +194,24 @@
       cursor: pointer;
     }
 
-    .post-actions button:hover {
-      background: #d1d5db;
+    .post-actions button:hover { background: #d1d5db; }
+
+    .post-actions .danger {
+      background: #ffe4e6;
+      color: #9f1239;
     }
+    .post-actions .danger:hover { background: #fecdd3; }
 
     .empty-text {
       font-size: 14px;
       color: #9ca3af;
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    .loading-text {
+      font-size: 14px;
+      color: #6b7280;
       text-align: center;
       margin-top: 20px;
     }
@@ -229,19 +222,15 @@
         align-items: flex-start;
         gap: 10px;
       }
-
-      .form-row {
-        flex-direction: column;
-      }
+      .form-row { flex-direction: column; }
     }
   </style>
 </head>
+
 <body>
 <div class="page">
 
-  <!-- 상단: Home + 로그인 영역 -->
   <div class="top-bar">
-    <!-- Home은 메인(index)으로 -->
     <button class="home-btn" onclick="location.href='index.html'">Home</button>
 
     <div id="login-status">
@@ -254,8 +243,8 @@
   <div id="chobaeng-title" class="title-big">초바영 학습 게시판</div>
   <div id="chobaeng-subtitle" class="subtitle">초바영 학습 영상을 모아서 한 번에 볼 수 있어요.</div>
 
-  <!-- 글쓰기 영역 (선생님이 링크 넣는 용도) -->
-  <div class="write-box">
+  <!-- 글쓰기 영역 (선생님 전용) -->
+  <div class="write-box" id="write-box">
     <div class="write-title">새 초바영 영상 추가 (유튜브 링크)</div>
     <form id="post-form">
       <div class="form-row">
@@ -268,13 +257,12 @@
     </form>
   </div>
 
-  <!-- 게시글 리스트 -->
   <div id="post-list" class="post-list"></div>
+  <div id="loading-text" class="loading-text" style="display:none;">불러오는 중...</div>
   <div id="empty-text" class="empty-text" style="display:none;">등록된 초바영 영상이 아직 없어요.</div>
 
 </div>
 
-<!-- Supabase (로그인 상태 확인용) -->
 <script src="https://unpkg.com/@supabase/supabase-js@2.48.0/dist/umd/supabase.js"></script>
 <script>
   const supa = supabase.createClient(
@@ -282,7 +270,9 @@
     "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJwZGlzeGpoaGlicmdmcHZ0bG12Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjM5NTkxODQsImV4cCI6MjA3OTUzNTE4NH0.jDZ6BGirOPuWUnt4ykjhng4PLft2ZjBuYAFzApUnlYU"
   );
 
-  // 현재 로그인 역할: teacher / student / guest
+  const TABLE_NAME = "chobaeng_videos";
+
+  // role: teacher / student / guest
   let currentRole = "guest";
 
   async function checkLogin() {
@@ -292,20 +282,22 @@
 
     // 1) 학생 로그인(localStorage)
     const student = localStorage.getItem("blossom_student");
-
     if (student) {
-      const s = JSON.parse(student);
-      currentRole = "student";
-      loginName.textContent = `${s.name} 학생`;
-      loginBtn.style.display = "none";
-      logoutBtn.style.display = "inline-block";
-      return;
+      try {
+        const s = JSON.parse(student);
+        currentRole = "student";
+        loginName.textContent = `${s.name} 학생`;
+        loginBtn.style.display = "none";
+        logoutBtn.style.display = "inline-block";
+        return;
+      } catch {
+        localStorage.removeItem("blossom_student");
+      }
     }
 
     // 2) 선생님 로그인(supabase)
     const { data } = await supa.auth.getUser();
-
-    if (data.user) {
+    if (data && data.user) {
       const name = data.user.user_metadata?.display_name || data.user.email;
       currentRole = "teacher";
       loginName.textContent = `${name} 선생님`;
@@ -314,7 +306,7 @@
       return;
     }
 
-    // 3) 로그인 없음
+    // 3) 게스트
     currentRole = "guest";
     loginName.textContent = "";
     loginBtn.style.display = "inline-block";
@@ -327,7 +319,7 @@
     location.reload();
   }
 
-  // ---------- 레벨 정보 읽기 ----------
+  // ---------- 레벨 ----------
   const LEVEL_LABELS = {
     "1": "1단계 파닉스",
     "2": "2단계 패턴편",
@@ -339,51 +331,74 @@
 
   function getLevelFromUrl() {
     const params = new URLSearchParams(window.location.search);
-    const level = params.get("level") || "1";
-    if (!LEVEL_LABELS[level]) return "1";
-    return level;
+    const lv = params.get("level") || "1";
+    if (!LEVEL_LABELS[lv]) return "1";
+    return lv;
   }
 
   const CURRENT_LEVEL = getLevelFromUrl();
   const CURRENT_LEVEL_LABEL = LEVEL_LABELS[CURRENT_LEVEL];
 
-  // 제목/부제에 레벨 표시
-  const titleEl = document.getElementById("chobaeng-title");
-  const subtitleEl = document.getElementById("chobaeng-subtitle");
+  document.getElementById("chobaeng-title").textContent = `초바영 ${CURRENT_LEVEL_LABEL} 게시판`;
+  document.getElementById("chobaeng-subtitle").textContent =
+    `${CURRENT_LEVEL_LABEL} 초바영 학습 영상을 모아서 한 번에 볼 수 있어요.`;
 
-  titleEl.textContent = `초바영 ${CURRENT_LEVEL_LABEL} 게시판`;
-  subtitleEl.textContent = `${CURRENT_LEVEL_LABEL} 초바영 학습 영상을 모아서 한 번에 볼 수 있어요.`;
+  // ---------- UI ----------
+  const writeBoxEl = document.getElementById("write-box");
+  const form = document.getElementById("post-form");
+  const titleInput = document.getElementById("title-input");
+  const urlInput = document.getElementById("url-input");
+  const submitBtn = document.getElementById("submit-btn");
 
-  // ---------- 초바영 게시판 (localStorage, 레벨별 분리) ----------
-  const STORAGE_KEY = `chobaeng_posts_level_${CURRENT_LEVEL}`;
+  let editingPostId = null;
 
-  function loadPosts() {
-    const raw = localStorage.getItem(STORAGE_KEY);
-    if (!raw) return [];
+  function applyRoleUi() {
+    writeBoxEl.style.display = (currentRole === "teacher") ? "block" : "none";
+  }
 
-    try {
-      const arr = JSON.parse(raw);
-      if (!Array.isArray(arr)) return [];
-      return arr;
-    } catch (e) {
-      console.error("Failed to parse chobaeng posts", e);
+  // ---------- CRUD ----------
+  async function fetchPosts() {
+    const loadingEl = document.getElementById("loading-text");
+    const emptyEl = document.getElementById("empty-text");
+    const listEl = document.getElementById("post-list");
+
+    loadingEl.style.display = "block";
+    emptyEl.style.display = "none";
+    listEl.innerHTML = "";
+
+    const { data, error } = await supa
+      .from(TABLE_NAME)
+      .select("id, level, title, url, created_at")
+      .eq("level", CURRENT_LEVEL)
+      .order("created_at", { ascending: false });
+
+    loadingEl.style.display = "none";
+
+    if (error) {
+      console.error(error);
+      emptyEl.style.display = "block";
+      emptyEl.textContent = "불러오기 실패: " + error.message;
       return [];
     }
+
+    if (!data || data.length === 0) {
+      emptyEl.style.display = "block";
+      emptyEl.textContent = "등록된 초바영 영상이 아직 없어요.";
+      return [];
+    }
+
+    return data;
   }
 
-  function savePosts(posts) {
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(posts));
-  }
-
-  function renderPosts() {
-    const posts = loadPosts().sort((a, b) => b.createdAt - a.createdAt);
+  function renderPosts(posts) {
     const listEl = document.getElementById("post-list");
     const emptyEl = document.getElementById("empty-text");
 
     listEl.innerHTML = "";
 
-    if (posts.length === 0) {
+    if (!posts || posts.length === 0) {
       emptyEl.style.display = "block";
+      emptyEl.textContent = "등록된 초바영 영상이 아직 없어요.";
       return;
     } else {
       emptyEl.style.display = "none";
@@ -402,8 +417,10 @@
 
       const meta = document.createElement("div");
       meta.className = "post-meta";
-      const date = new Date(post.createdAt);
-      meta.textContent = `등록: ${date.toLocaleDateString()} ${date.toLocaleTimeString()}`;
+      const date = post.created_at ? new Date(post.created_at) : null;
+      meta.textContent = date
+        ? `등록: ${date.toLocaleDateString()} ${date.toLocaleTimeString()}`
+        : "등록: -";
 
       main.appendChild(title);
       main.appendChild(meta);
@@ -418,80 +435,136 @@
       link.textContent = "영상 보기";
       actions.appendChild(link);
 
-      // ✅ 선생님일 때만 수정 버튼 표시
       if (currentRole === "teacher") {
         const editBtn = document.createElement("button");
         editBtn.type = "button";
         editBtn.textContent = "수정";
-
         editBtn.onclick = () => {
-          // 수정 모드로 전환: 폼에 기존 값 채워넣기
           editingPostId = post.id;
           titleInput.value = post.title;
           urlInput.value = post.url;
           submitBtn.textContent = "수정 완료";
+          window.scrollTo({ top: 0, behavior: "smooth" });
         };
-
         actions.appendChild(editBtn);
+
+        const delBtn = document.createElement("button");
+        delBtn.type = "button";
+        delBtn.className = "danger";
+        delBtn.textContent = "삭제";
+        delBtn.onclick = async () => {
+          const ok = confirm("정말 삭제할까요?");
+          if (!ok) return;
+          await deletePost(post.id);
+        };
+        actions.appendChild(delBtn);
       }
 
       card.appendChild(main);
       card.appendChild(actions);
-
       listEl.appendChild(card);
     });
   }
 
-  // 폼 이벤트
-  const form = document.getElementById("post-form");
-  const titleInput = document.getElementById("title-input");
-  const urlInput = document.getElementById("url-input");
-  const submitBtn = document.getElementById("submit-btn");
+  async function refresh() {
+    const posts = await fetchPosts();
+    renderPosts(posts);
+  }
 
-  // 현재 수정 중인 게시글 id (없으면 null)
-  let editingPostId = null;
+  async function insertPost({ title, url }) {
+    const { error } = await supa
+      .from(TABLE_NAME)
+      .insert([{ level: CURRENT_LEVEL, title, url }]);
 
-  form.addEventListener("submit", function (e) {
+    if (error) {
+      console.error(error);
+      alert("저장 실패: " + error.message);
+      return false;
+    }
+    return true;
+  }
+
+  async function updatePost(id, { title, url }) {
+    const { error } = await supa
+      .from(TABLE_NAME)
+      .update({ title, url })
+      .eq("id", id);
+
+    if (error) {
+      console.error(error);
+      alert("수정 실패: " + error.message);
+      return false;
+    }
+    return true;
+  }
+
+  async function deletePost(id) {
+    const { error } = await supa
+      .from(TABLE_NAME)
+      .delete()
+      .eq("id", id);
+
+    if (error) {
+      console.error(error);
+      alert("삭제 실패: " + error.message);
+      return;
+    }
+
+    if (editingPostId === id) {
+      editingPostId = null;
+      submitBtn.textContent = "추가하기";
+      titleInput.value = "";
+      urlInput.value = "";
+    }
+
+    await refresh();
+  }
+
+  // ---------- form submit ----------
+  form.addEventListener("submit", async function (e) {
     e.preventDefault();
+
+    if (currentRole !== "teacher") {
+      alert("선생님만 등록/수정할 수 있어요.");
+      return;
+    }
 
     const title = titleInput.value.trim();
     const url = urlInput.value.trim();
-
     if (!title || !url) return;
 
-    const posts = loadPosts();
-
-    if (editingPostId) {
-      // ✅ 수정 모드: 해당 id 찾아서 내용 변경
-      const idx = posts.findIndex((p) => p.id === editingPostId);
-      if (idx !== -1) {
-        posts[idx].title = title;
-        posts[idx].url = url;
-        // createdAt은 그대로 둠
-      }
-      editingPostId = null;
-      submitBtn.textContent = "추가하기";
-    } else {
-      // 새 글 추가
-      const now = Date.now();
-      posts.push({
-        id: now,
-        title,
-        url,
-        createdAt: now
-      });
+    try { new URL(url); } catch {
+      alert("올바른 링크(URL)를 입력해 주세요.");
+      return;
     }
 
-    savePosts(posts);
-    titleInput.value = "";
-    urlInput.value = "";
-    renderPosts();
+    submitBtn.disabled = true;
+
+    if (editingPostId) {
+      const ok = await updatePost(editingPostId, { title, url });
+      if (ok) {
+        editingPostId = null;
+        submitBtn.textContent = "추가하기";
+        titleInput.value = "";
+        urlInput.value = "";
+        await refresh();
+      }
+    } else {
+      const ok = await insertPost({ title, url });
+      if (ok) {
+        titleInput.value = "";
+        urlInput.value = "";
+        await refresh();
+      }
+    }
+
+    submitBtn.disabled = false;
   });
 
-  // 초기 실행: 로그인 확인 후 렌더
   (async function init() {
     await checkLogin();
-    renderPosts();
+    applyRoleUi();
+    await refresh();
   })();
 </script>
 </body>
