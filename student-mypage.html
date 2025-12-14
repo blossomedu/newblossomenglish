@@ -768,7 +768,7 @@
       });
 
       const groups = Object.values(groupsMap).sort((a, b) => {
-        return new Date(b.latestTime || 0) - new Date(a.latestTime || 0);
+        return new Date(a.dateKey) - new Date(b.dateKey);
       });
 
       if (!groups.length) {
@@ -1257,3 +1257,4 @@
 </script>
 </body>
 </html>
+
