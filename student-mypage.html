@@ -13,6 +13,11 @@
       --pink: #FF6FB5;
       --bg: #f4f6fb;
       --gray: #6b7280;
+
+      /* ✅ 통일 규칙: 파랑=날짜, 핑크=실제 숙제 */
+      --dateBlue: var(--blue);
+      --taskPink: #db2777;      /* 진한 핑크 */
+      --taskPinkSoft: #ffe5f3;  /* 연핑크 배경 */
     }
 
     * {
@@ -136,6 +141,7 @@
       margin-top: 6px;
       font-size: 13px;
       color: #6b7280;
+      display: none; /* ✅ 기본 숨김 (경고 때만 표시) */
     }
 
     .info-message.emph {
@@ -539,8 +545,71 @@
         grid-template-columns: 1fr 70px 130px;
       }
     }
+
+    /* =======================================================
+       ✅ 디자인 통일: 파랑=날짜 / 핑크=실제 숙제
+       ======================================================= */
+
+    /* 우리 반 숙제: 날짜 파랑 */
+    .hw-group-date {
+      color: var(--dateBlue);
+      font-weight: 900;
+    }
+
+    /* 우리 반 숙제: 실제 숙제(내용) 핑크 */
+    .hw-text-line {
+      color: var(--taskPink);
+      font-weight: 700;
+    }
+
+    /* 내가 등록한 온라인 숙제: 날짜별 카드(우리 반 숙제 카드 느낌) */
+    .my-hw-group-card {
+      background: #f9fafb;
+      border-radius: 18px;
+      padding: 14px 16px;
+      margin-bottom: 10px;
+    }
+
+    .my-hw-group-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 6px;
+      gap: 8px;
+    }
+
+    .my-hw-group-date {
+      font-size: 17px;
+      font-weight: 900;
+      color: var(--dateBlue);
+    }
+
+    .my-hw-group-meta {
+      font-size: 12px;
+      color: #6b7280;
+    }
+
+    /* 내 숙제: 레벨/세트 텍스트(실제 숙제) 핑크 */
+    .my-hw-item .my-hw-main span:last-child {
+      color: var(--taskPink);
+      font-weight: 700;
+    }
+
+    /* 내 온라인 숙제 결과: 날짜(1열) 파랑 */
+    .unit-result-summary > div:nth-child(1) {
+      color: var(--dateBlue);
+      font-weight: 900;
+    }
+
+    /* 내 온라인 숙제 결과: 단원(2열), 제출시간(4열) 핑크 */
+    .unit-result-summary > div:nth-child(2),
+    .unit-result-summary > div:nth-child(4) {
+      color: var(--taskPink);
+      font-weight: 800;
+    }
   </style>
 </head>
+
 <body>
 <div class="page">
   <div class="top-actions">
@@ -553,7 +622,7 @@
     오늘 숙제와 온라인 학습 결과를 한 곳에서 확인해 보세요.
   </div>
 
-  <!-- ✅ 1. 우리 반 숙제 -->
+  <!-- ✅ 1. 우리 반 숙제 (설명 문구 삭제) -->
   <div class="section-card">
     <div class="section-header">
       <div class="section-title">
@@ -561,19 +630,13 @@
         <span id="class-badge" class="badge-small">-</span>
       </div>
     </div>
-    <div class="section-sub">
-      선생님이 올린 필기 숙제와 온라인 어휘/문장 숙제가 날짜별로 함께 표시돼요.
-    </div>
     <div id="class-hw-area"></div>
   </div>
 
-  <!-- ✅ 3. 내가 등록한 온라인 숙제 (✅ 여기로 올림: 결과 위) -->
+  <!-- ✅ 2. 내가 등록한 온라인 숙제 (설명 문구 삭제 / 날짜-숙제 디자인 통일) -->
   <div class="section-card">
     <div class="section-header">
       <div class="section-title">✍️ 내가 등록한 온라인 숙제</div>
-    </div>
-    <div class="section-sub">
-      선생님이 말로 알려준 숙제를 내가 직접 적어둘 수 있어요. (반 숙제와는 별도로, 나만의 온라인 숙제 목록입니다.)
     </div>
 
     <div class="form-row">
@@ -600,6 +663,7 @@
         <button id="my-hw-save-btn" class="btn-primary">숙제 등록</button>
       </div>
     </div>
+
     <div class="hint">
       같은 단계만 여러 개 입력할 수 있어요. 예: 1-1, 1-2, 1-3
     </div>
@@ -611,14 +675,10 @@
     </div>
   </div>
 
-  <!-- ✅ 2. 내 온라인 숙제 결과 (✅ 아래로 내려감) -->
+  <!-- ✅ 3. 내 온라인 숙제 결과 (설명 문구 삭제) -->
   <div class="section-card">
     <div class="section-header">
       <div class="section-title">📊 내 온라인 숙제 결과</div>
-    </div>
-    <div class="section-sub">
-      유닛별 숙제를 다 했는지(⭕/△/❌) 먼저 보고, 클릭하면 (뜻/영어/듣기/문장) 상세를 볼 수 있어요.<br/>
-      * 제출 시간은 “마지막으로 완료한 시간”이에요. 아직 시작 안 했으면 “--”로 표시돼요.
     </div>
 
     <!-- 더미 UI -->
@@ -732,7 +792,7 @@
     </div>
   </div>
 
-  <!-- ✅ 4. 내 정보 -->
+  <!-- ✅ 4. 내 정보 (환영 문구 숨김, 경고만 표시) -->
   <div class="section-card">
     <div class="section-header">
       <div class="section-title">👤 내 정보</div>
@@ -819,6 +879,12 @@
     myHwStatusEl.className = "status-text" + (type ? " " + type : "");
   }
 
+  function setInfoMessage(msg, mode) {
+    infoMsgEl.textContent = msg || "";
+    infoMsgEl.className = "info-message" + (mode ? " " + mode : "");
+    infoMsgEl.style.display = msg ? "block" : "none";
+  }
+
   function parseLevelAndSets(setStr) {
     const parts = setStr
       .split(",")
@@ -858,10 +924,12 @@
       infoNameEl.textContent = s.name || "-";
       infoIdEl.textContent   = s.login_id || "-";
 
+      // 기본: 안내/환영 문구 숨김
+      setInfoMessage("", "");
+
       if (!s.class_id) {
         infoClassEl.textContent = "미배정";
-        infoMsgEl.textContent = "아직 반이 배정되지 않았어요. 선생님께 문의해 주세요.";
-        infoMsgEl.classList.add("warn");
+        setInfoMessage("아직 반이 배정되지 않았어요. 선생님께 문의해 주세요.", "warn");
         classBadgeEl.textContent = "반 미배정";
         classHwArea.innerHTML =
           '<div class="class-hw-empty">반이 아직 배정되지 않아 숙제를 볼 수 없어요.</div>';
@@ -879,14 +947,13 @@
       if (cls) {
         currentClass = cls;
         infoClassEl.textContent = cls.name || "-";
-        infoMsgEl.textContent = `환영합니다! ${cls.name} 학생입니다.`;
-        infoMsgEl.classList.add("emph");
         classBadgeEl.textContent = cls.name;
+        // ✅ 환영 문구는 표시 안 함
+        setInfoMessage("", "");
       } else {
         currentClass = null;
         infoClassEl.textContent = "미배정";
-        infoMsgEl.textContent = "반 정보를 찾을 수 없어요. 선생님께 문의해 주세요.";
-        infoMsgEl.classList.add("warn");
+        setInfoMessage("반 정보를 찾을 수 없어요. 선생님께 문의해 주세요.", "warn");
         classBadgeEl.textContent = "반 정보 없음";
       }
     } catch (e) {
@@ -1138,6 +1205,7 @@
   }
   myHwSaveBtn.onclick = saveMyHomework;
 
+  // ✅ 날짜(파랑) / 숙제(핑크) 통일을 위해: 마감일 기준으로 카드 그룹핑해서 표시
   async function loadMyHomeworkList() {
     if (!currentStudent || !currentStudent.login_id) return;
 
@@ -1167,31 +1235,54 @@
       myHwEmptyEl.style.display = "none";
       myHwListEl.innerHTML = "";
 
-      data.forEach(row => {
-        const item = document.createElement("div");
-        item.className = "my-hw-item";
-
-        const main = document.createElement("div");
-        main.className = "my-hw-main";
-
-        const tag = document.createElement("span");
-        tag.className = "chip " + (row.type === "sentence" ? "tag-type-sentence" : "tag-type-vocab");
-        tag.textContent = row.type === "sentence" ? "문장" : "어휘";
-        main.appendChild(tag);
-
-        const txt = document.createElement("span");
-        txt.textContent = `레벨 ${row.level} / 세트: ${row.set_numbers}`;
-        main.appendChild(txt);
-
-        const meta = document.createElement("div");
-        meta.className = "my-hw-meta";
-        meta.textContent = row.due_date ? `마감일: ${row.due_date}` : "마감일: -";
-
-        item.appendChild(main);
-        item.appendChild(meta);
-
-        myHwListEl.appendChild(item);
+      const groups = {};
+      (data || []).forEach(row => {
+        const key = row.due_date || "마감일 없음";
+        if (!groups[key]) groups[key] = [];
+        groups[key].push(row);
       });
+
+      Object.keys(groups).sort((a, b) => {
+        if (a === "마감일 없음") return 1;
+        if (b === "마감일 없음") return -1;
+        return new Date(a) - new Date(b);
+      }).forEach(date => {
+        const card = document.createElement("div");
+        card.className = "my-hw-group-card";
+
+        const header = document.createElement("div");
+        header.className = "my-hw-group-header";
+
+        const dt = document.createElement("div");
+        dt.className = "my-hw-group-date";
+        dt.textContent = date;
+
+        header.appendChild(dt);
+        card.appendChild(header);
+
+        groups[date].forEach(row => {
+          const item = document.createElement("div");
+          item.className = "my-hw-item";
+
+          const main = document.createElement("div");
+          main.className = "my-hw-main";
+
+          const tag = document.createElement("span");
+          tag.className = "chip " + (row.type === "sentence" ? "tag-type-sentence" : "tag-type-vocab");
+          tag.textContent = row.type === "sentence" ? "문장" : "어휘";
+          main.appendChild(tag);
+
+          const txt = document.createElement("span");
+          txt.textContent = `레벨 ${row.level} / 세트: ${row.set_numbers}`;
+          main.appendChild(txt);
+
+          item.appendChild(main);
+          card.appendChild(item);
+        });
+
+        myHwListEl.appendChild(card);
+      });
+
     } catch (e) {
       console.error("student_homework 목록 예외:", e);
       myHwEmptyEl.textContent = "나의 온라인 숙제를 불러오는 중 오류가 발생했습니다.";
