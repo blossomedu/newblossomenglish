@@ -142,6 +142,10 @@
     .chip-online-sentence { background: #e0f2fe; color: #0369a1; }
     .chip-warning { background: #fee2e2; color: #b91c1c; }
 
+    /* ✅ 출처 뱃지 */
+    .chip-src-teacher { background:#ede9fe; color:#5b21b6; }
+    .chip-src-student { background:#ecfeff; color:#155e75; }
+
     .hw-text-line {
       font-size: 14px;
       color: #111827;
@@ -256,7 +260,7 @@
 
     .unit-result-head {
       display: grid;
-      grid-template-columns: 1.2fr 0.75fr 0.9fr 0.7fr 1.6fr;
+      grid-template-columns: 1.2fr 0.9fr 0.75fr 0.9fr 0.7fr 1.4fr;
       gap: 0;
       background: #f9fafb;
       color: #4b5563;
@@ -285,7 +289,7 @@
 
     .unit-result-summary {
       display: grid;
-      grid-template-columns: 1.2fr 0.75fr 0.9fr 0.7fr 1.6fr;
+      grid-template-columns: 1.2fr 0.9fr 0.75fr 0.9fr 0.7fr 1.4fr;
       align-items: center;
       font-size: 13px;
       color: #111827;
@@ -451,7 +455,7 @@
 
       .unit-result-head,
       .unit-result-summary {
-        grid-template-columns: 1.1fr 0.8fr 0.8fr 0.7fr 1.4fr;
+        grid-template-columns: 1.1fr 1fr 0.8fr 0.9fr 0.7fr 1.3fr;
       }
       .task-row { grid-template-columns: 1fr 70px 130px; }
 
@@ -534,6 +538,7 @@
     <div class="unit-result-wrap" id="unit-result-wrap">
       <div class="unit-result-head">
         <div>마감 날짜</div>
+        <div>출처</div>
         <div>구분</div>
         <div>단원(Unit)</div>
         <div>Unit 전체</div>
@@ -626,13 +631,6 @@
     const hh = String(d.getHours()).padStart(2, "0");
     const mm = String(d.getMinutes()).padStart(2, "0");
     return `${hh}:${mm}`;
-  }
-
-  function formatDateTime(iso) {
-    if (!iso) return "";
-    const d = new Date(iso);
-    if (Number.isNaN(d.getTime())) return "";
-    return `${formatDate(iso)} ${formatTime(iso)}`;
   }
 
   function toDateKey(iso) { return formatDate(iso); }
@@ -875,17 +873,33 @@
     }
   }
 
-  // ---------- 내 온라인 숙제 결과(실데이터 렌더) ----------
-  function renderMyHomeworkResults(rows) {
-    // rows: student_homework
+  // ---------- 결과: 선생님 숙제 + 내 숙제 합치기 ----------
+  function normalizeHomeworkRow(row, from) {
+    // from: "teacher_vocab" | "teacher_sentence" | "student"
+    const isStudent = from === "student";
+    const type = isStudent ? row.type : (from === "teacher_sentence" ? "sentence" : "vocab");
+
+    return {
+      source: isStudent ? "student" : "teacher",
+      sourceLabel: isStudent ? "내가 등록" : "선생님",
+      type,
+      due_date: row.due_date || null,
+      created_at: row.created_at || null,
+      // 표시에만 쓰는 값
+      unit_text: (row.set_numbers || "-"),
+      raw: row
+    };
+  }
+
+  function renderUnifiedResults(items) {
     unitResultBody.innerHTML = "";
 
-    if (!rows || rows.length === 0) {
-      unitResultBody.innerHTML = '<div class="class-hw-empty">아직 등록한 온라인 숙제가 없어요.</div>';
+    if (!items || items.length === 0) {
+      unitResultBody.innerHTML = '<div class="class-hw-empty">표시할 숙제가 없어요.</div>';
       return;
     }
 
-    rows.forEach(row => {
+    items.forEach(item => {
       const details = document.createElement("details");
       details.className = "unit-row";
       details.open = false;
@@ -893,24 +907,29 @@
       const summary = document.createElement("summary");
       summary.className = "unit-result-summary";
 
-      const due = row.due_date || "-";
       const typeChip = document.createElement("span");
-      typeChip.className = "chip " + (row.type === "sentence" ? "chip-online-sentence" : "chip-online-vocab");
-      typeChip.textContent = row.type === "sentence" ? "문장" : "어휘";
+      typeChip.className = "chip " + (item.type === "sentence" ? "chip-online-sentence" : "chip-online-vocab");
+      typeChip.textContent = item.type === "sentence" ? "문장" : "어휘";
 
-      // 지금은 결과 테이블이 없으니 "미제출" 기본값으로 표시(원하면 추후 result 테이블 붙이면 됨)
+      const srcChip = document.createElement("span");
+      srcChip.className = "chip " + (item.source === "teacher" ? "chip-src-teacher" : "chip-src-student");
+      srcChip.textContent = item.sourceLabel;
+
+      // 지금 단계에서는 결과 테이블과 매칭 안 했으므로 기본값
       const statusClass = "status-x";
       const statusText = "❌";
       const submittedText = "--";
 
       summary.innerHTML = `
-        <div>${due}</div>
+        <div>${item.due_date || "-"}</div>
         <div></div>
-        <div>${row.level}-${(row.set_numbers || "").replaceAll(" ", "")}</div>
+        <div></div>
+        <div>${item.unit_text}</div>
         <div><span class="status-pill ${statusClass}">${statusText}</span></div>
         <div>${submittedText}</div>
       `;
-      summary.children[1].appendChild(typeChip);
+      summary.children[1].appendChild(srcChip);
+      summary.children[2].appendChild(typeChip);
 
       const detail = document.createElement("div");
       detail.className = "unit-detail";
@@ -937,7 +956,7 @@
             <div class="task-time">--</div>
           </div>
         </div>
-        <div class="unit-guide">※ 현재는 숙제 등록 데이터로 “목록/정렬/자동표시”만 구현되어 있어요. (제출/채점 데이터 테이블 연결 시 자동 반영)</div>
+        <div class="unit-guide">※ 다음 단계에서 vocab_results / sentence_results 같은 “제출 결과 테이블”과 연결하면 ⭕/△/❌, 제출시간이 자동 표시됩니다.</div>
       `;
 
       details.appendChild(summary);
@@ -946,26 +965,65 @@
     });
   }
 
-  async function loadMyHomeworkResults() {
+  async function loadUnifiedHomeworkResults() {
     if (!currentStudent || !currentStudent.login_id) return;
 
     unitResultBody.innerHTML = '<div class="class-hw-empty">결과를 불러오는 중...</div>';
 
-    const { data, error } = await client
-      .from("student_homework")
-      .select("id, type, level, set_numbers, due_date, created_at")
-      .eq("student_login_id", currentStudent.login_id)
-      // ✅ 최근 날짜가 위로
-      .order("due_date", { ascending: false })
-      .order("created_at", { ascending: false });
+    try {
+      // 1) 학생 개인 숙제
+      const studentReq = client
+        .from("student_homework")
+        .select("id, type, level, set_numbers, due_date, created_at")
+        .eq("student_login_id", currentStudent.login_id);
 
-    if (error) {
-      console.error("내 온라인 숙제 결과 로딩 오류:", error);
+      // 2) 선생님 반 숙제 (학생이 반 배정되어 있을 때만)
+      let teacherVocabReq = null;
+      let teacherSentenceReq = null;
+
+      if (currentClass && currentClass.id) {
+        teacherVocabReq = client
+          .from("vocab_homework")
+          .select("id, class_id, level, set_numbers, due_date, created_at")
+          .eq("class_id", currentClass.id);
+
+        teacherSentenceReq = client
+          .from("sentence_homework")
+          .select("id, class_id, level, set_numbers, due_date, created_at")
+          .eq("class_id", currentClass.id);
+      }
+
+      const [studentRes, tvRes, tsRes] = await Promise.all([
+        studentReq,
+        teacherVocabReq ? teacherVocabReq : Promise.resolve({ data: [], error: null }),
+        teacherSentenceReq ? teacherSentenceReq : Promise.resolve({ data: [], error: null })
+      ]);
+
+      if (studentRes.error) throw studentRes.error;
+      if (tvRes.error) throw tvRes.error;
+      if (tsRes.error) throw tsRes.error;
+
+      const items = []
+        .concat((studentRes.data || []).map(r => normalizeHomeworkRow(r, "student")))
+        .concat((tvRes.data || []).map(r => normalizeHomeworkRow(r, "teacher_vocab")))
+        .concat((tsRes.data || []).map(r => normalizeHomeworkRow(r, "teacher_sentence")));
+
+      // ✅ 1번 요구사항: "가장 빠른 마감일이 위" => due_date ASC
+      // due_date 없는 데이터는 맨 아래로 보내기
+      items.sort((a, b) => {
+        const ad = a.due_date ? new Date(a.due_date).getTime() : Number.POSITIVE_INFINITY;
+        const bd = b.due_date ? new Date(b.due_date).getTime() : Number.POSITIVE_INFINITY;
+        if (ad !== bd) return ad - bd; // ASC
+        const at = a.created_at ? new Date(a.created_at).getTime() : 0;
+        const bt = b.created_at ? new Date(b.created_at).getTime() : 0;
+        return at - bt; // 같은 날짜면 생성도 오래된 것 먼저(원하면 반대로 바꿀 수 있음)
+      });
+
+      renderUnifiedResults(items);
+    } catch (e) {
+      console.error("통합 결과 로딩 오류:", e);
       unitResultBody.innerHTML = '<div class="class-hw-empty">결과를 불러오는 중 오류가 발생했어요.</div>';
-      return;
     }
-
-    renderMyHomeworkResults(data || []);
   }
 
   // ---------- 타입 토글 ----------
@@ -1025,8 +1083,8 @@
       myHwDueEl.value = "";
       setMyHwStatus("", "");
 
-      // ✅ 등록 즉시: 결과표/반숙제/관리목록 갱신
-      await loadMyHomeworkResults();
+      // ✅ 등록 즉시 갱신
+      await loadUnifiedHomeworkResults();
       if (currentClass && currentClass.id) await loadClassHomework();
       if (manageBackdrop.style.display === "flex") await loadManageList();
     } catch (e) {
@@ -1071,9 +1129,9 @@
       .from("student_homework")
       .select("id, type, level, set_numbers, due_date, created_at")
       .eq("student_login_id", currentStudent.login_id)
-      // ✅ 최근 날짜가 위로 (요구사항 1)
-      .order("due_date", { ascending: false })
-      .order("created_at", { ascending: false });
+      // ✅ 요구사항: 가장 빠른 마감일이 위 => ASC
+      .order("due_date", { ascending: true })
+      .order("created_at", { ascending: true });
 
     if (error) {
       console.error("student_homework 목록 오류:", error);
@@ -1155,7 +1213,7 @@
         }
 
         await loadManageList();
-        await loadMyHomeworkResults();
+        await loadUnifiedHomeworkResults();
         if (currentClass && currentClass.id) await loadClassHomework();
       };
 
@@ -1193,8 +1251,8 @@
     if (currentClass && currentClass.id) {
       await loadClassHomework();
     }
-    // ✅ 페이지 들어오면 결과도 DB에서 로드
-    await loadMyHomeworkResults();
+    // ✅ 페이지 들어오면 "선생님+학생" 통합 숙제 결과 로드
+    await loadUnifiedHomeworkResults();
   })();
 </script>
 </body>
