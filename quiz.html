@@ -141,6 +141,9 @@
       margin-bottom: 8px;
     }
 
+    /* 듣고 찾기 제목 전용 클래스 */
+    .listening-title { }
+
     .choices-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
@@ -330,7 +333,7 @@
   const modeResetBtn = document.getElementById("modeResetBtn");
   const backToUnitsBtn = document.getElementById("backToUnitsBtn");
 
-  // 어휘 보기 버튼
+  // --- 어휘 보기 버튼: 어휘 리스트 페이지로 이동 ---
   const printVocabBtn = document.getElementById("printVocabBtn");
   if (printVocabBtn) {
     printVocabBtn.onclick = function () {
@@ -351,7 +354,7 @@
   let sentencePos = 0;
   let answerTimer = null;
 
-  // ✅ 저장이 “한 번만” 되도록
+  // ✅ 결과 저장 중복 방지
   let didSaveResult = false;
 
   function setProgress(current, total) {
@@ -384,7 +387,7 @@
     nextRoundQueue = [];
     quizPos = 0;
     quizFinished = false;
-    didSaveResult = false; // 다시 시작하면 저장 플래그 초기화
+    didSaveResult = false;
   }
 
   function resetSentenceFlow() {
@@ -393,38 +396,43 @@
     for (let i = 0; i < wordCount; i++) base.push(i);
     sentenceOrder = shuffleArray(base);
     sentencePos = 0;
-    didSaveResult = false; // 다시 시작하면 저장 플래그 초기화
+    didSaveResult = false;
   }
 
+  // ✅ 결과 저장 (unit_key 컬럼 사용)
   async function saveVocabResult() {
     // 1) 로그인 확인
     if (!currentStudentLoginId) {
       console.warn("학생 로그인 정보가 없습니다. localStorage(blossom_student)를 확인하세요.");
-      // 화면에 표시 (사용자도 바로 알게)
       centerArea.insertAdjacentHTML(
         "beforeend",
         '<div style="margin-top:14px;font-size:13px;color:#b91c1c;">⚠️ 학생 로그인 정보가 없어 결과 저장이 되지 않았어요. 다시 로그인 후 이용해 주세요.</div>'
       );
       return;
     }
+
     if (!wordCount) return;
-    if (didSaveResult) return; // 중복 저장 방지
-    didSaveResult = true;
+    if (didSaveResult) return;
+
+    const payload = {
+      student_login_id: currentStudentLoginId,
+      unit_key: unitKey,               // ✅ DB 컬럼명 그대로
+      mode: currentMode,
+      correct_count: wordCount,
+      total_count: wordCount,
+      submitted_at: new Date().toISOString()
+    };
 
     try {
-      const payload = {
-        student_login_id: currentStudentLoginId,
-        unit_key: unitKey,            // ✅ 테이블 컬럼과 동일하게 유지
-        mode: currentMode,
-        correct_count: wordCount,
-        total_count: wordCount,
-        submitted_at: new Date().toISOString()
-      };
+      // ✅ .select()를 붙여서 RLS/정책 이슈가 있을 때도 결과를 더 확실히 확인
+      const { data, error } = await client
+        .from("vocab_results")
+        .insert(payload)
+        .select();
 
-      const { error } = await client.from("vocab_results").insert(payload);
+      console.log("vocab_results insert result:", { data, error, payload });
+
       if (error) {
-        console.error("vocab_results 저장 오류:", error);
-        didSaveResult = false; // 실패했으면 다시 시도 가능하게
         centerArea.insertAdjacentHTML(
           "beforeend",
           `<div style="margin-top:14px;font-size:13px;color:#b91c1c;">⚠️ 결과 저장 실패: ${error.message}</div>`
@@ -432,13 +440,15 @@
         return;
       }
 
+      // ✅ 성공했을 때만 true
+      didSaveResult = true;
+
       centerArea.insertAdjacentHTML(
         "beforeend",
         `<div style="margin-top:14px;font-size:13px;color:#6b7280;">✅ 결과 저장 완료 (학생:${currentStudentLoginId}, unit:${unitKey})</div>`
       );
     } catch (e) {
       console.error("vocab_results 저장 예외:", e);
-      didSaveResult = false;
       centerArea.insertAdjacentHTML(
         "beforeend",
         `<div style="margin-top:14px;font-size:13px;color:#b91c1c;">⚠️ 결과 저장 중 예외 발생</div>`
@@ -480,7 +490,7 @@
     }
   }
 
-  // === TTS(음성) 관련 ===
+  // === TTS(음성) 관련: 영어만, 2번, 0.8배속, 사이 간격 1초 ===
   let TTS_VOICES = [];
 
   function loadVoices() {
@@ -518,6 +528,7 @@
     return enVoices[0];
   }
 
+  // ✅ 단어를 두 Utterance로 2번 읽기 (중간에 1초 쉬기)
   function speakWordTwice(word, cb) {
     const synth = window.speechSynthesis;
     if (!synth) {
@@ -548,11 +559,14 @@
       }, 1000);
     };
 
-    u2.onend = function () { if (cb) cb(); };
+    u2.onend = function () {
+      if (cb) cb();
+    };
 
     try { synth.speak(u1); } catch (e) { console.error(e); if (cb) cb(); }
   }
 
+  // 음성 엔진/voice 로딩
   (function initTTS() {
     if (!("speechSynthesis" in window)) return;
     const synth = window.speechSynthesis;
@@ -562,6 +576,7 @@
       synth.onvoiceschanged = loadVoices;
     }
   })();
+  // === TTS 설정 끝 ===
 
   function renderStudy() {
     stopSpeech();
@@ -589,6 +604,7 @@
     });
   }
 
+  // --- 보기 텍스트 포맷: 9자 이상 + 쉼표 있으면 줄바꿈 ---
   function formatChoiceText(txt) {
     const MAX_LEN = 9;
     if (txt.length < MAX_LEN) return txt;
@@ -699,6 +715,7 @@
     });
 
     setProgress(Math.min(quizPos + 1, wordCount), wordCount);
+
     if (type === "listening") {
       speakWordTwice(item.word, null);
     }
@@ -714,12 +731,15 @@
   function renderSentenceQuiz() {
     stopSpeech();
     if (answerTimer) clearTimeout(answerTimer);
+
     if (!words.length) {
       centerArea.textContent = "단어가 없습니다.";
       setProgress(0, 0);
       return;
     }
+
     if (!sentenceOrder.length) resetSentenceFlow();
+
     if (sentencePos >= wordCount) {
       showQuizFinished();
       return;
@@ -757,6 +777,7 @@
     function check() {
       const val = input.value.trim().toLowerCase();
       if (!val) return;
+
       if (val === item.word.toLowerCase()) {
         input.style.borderColor = "#22c55e";
         res.textContent = "정답! 👍";
@@ -771,6 +792,7 @@
         res.textContent = "다시 해보세요.";
       }
     }
+
     btn.onclick = check;
     input.onkeydown = function (e) {
       if (e.key === "Enter") check();
@@ -782,6 +804,7 @@
     modeTabs.forEach(function (t) {
       t.classList.toggle("active", t.dataset.mode === currentMode);
     });
+
     if (currentMode === "study") renderStudy();
     else if (currentMode === "meaning") renderQuizCommon("meaning");
     else if (currentMode === "english") renderQuizCommon("english");
