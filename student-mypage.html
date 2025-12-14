@@ -121,7 +121,7 @@
     .hw-group-date {
       font-size: 17px;
       font-weight: 900;
-      color: var(--blue); /* ✅ 날짜 파랑 */
+      color: var(--blue);
     }
 
     .hw-group-meta { font-size: 12px; color: #6b7280; }
@@ -142,7 +142,6 @@
     .chip-online-sentence { background: #e0f2fe; color: #0369a1; }
     .chip-warning { background: #fee2e2; color: #b91c1c; }
 
-    /* ✅ 숙제 텍스트는 검정 */
     .hw-text-line {
       font-size: 14px;
       color: #111827;
@@ -247,7 +246,7 @@
 
     .hint { font-size: 12px; color: #9ca3af; margin-bottom: 0; }
 
-    /* 내 온라인 숙제 결과(더미) */
+    /* 내 온라인 숙제 결과 */
     .unit-result-wrap {
       border-radius: 16px;
       overflow: hidden;
@@ -289,12 +288,11 @@
       grid-template-columns: 1.2fr 0.75fr 0.9fr 0.7fr 1.6fr;
       align-items: center;
       font-size: 13px;
-      color: #111827; /* ✅ 검정 */
+      color: #111827;
       font-weight: 700;
     }
     .unit-result-summary:hover { background: #f9fafb; }
 
-    /* ✅ 날짜만 파랑 */
     .unit-result-summary > div:nth-child(1) {
       color: var(--blue);
       font-weight: 900;
@@ -347,9 +345,7 @@
     .info-row span.label { color: #6b7280; margin-right: 6px; }
     .info-message { display: none; }
 
-    /* =========================
-       ✅ 관리 모달
-       ========================= */
+    /* 관리 모달 */
     .modal-backdrop {
       position: fixed;
       inset: 0;
@@ -476,7 +472,7 @@
     오늘 숙제와 온라인 학습 결과를 한 곳에서 확인해 보세요.
   </div>
 
-  <!-- ✅ 1. 우리 반 숙제 -->
+  <!-- 1. 우리 반 숙제 -->
   <div class="section-card">
     <div class="section-header">
       <div class="section-title">
@@ -487,7 +483,7 @@
     <div id="class-hw-area"></div>
   </div>
 
-  <!-- ✅ 2. 내 온라인 숙제 (등록 폼 + 관리 버튼) -->
+  <!-- 2. 내 온라인 숙제 -->
   <div class="section-card">
     <div class="section-header">
       <div class="section-title">✍️ 내 온라인 숙제</div>
@@ -529,7 +525,7 @@
     <div id="my-hw-status" class="status-text"></div>
   </div>
 
-  <!-- ✅ 3. 내 온라인 숙제 결과 (더미 UI, 기본 접힘) -->
+  <!-- 3. 내 온라인 숙제 결과 -->
   <div class="section-card">
     <div class="section-header">
       <div class="section-title">📊 내 온라인 숙제 결과</div>
@@ -543,113 +539,11 @@
         <div>Unit 전체</div>
         <div>제출 시간</div>
       </div>
-
-      <details class="unit-row">
-        <summary class="unit-result-summary">
-          <div>2025-12-26</div>
-          <div><span class="chip chip-online-vocab">어휘</span></div>
-          <div>2-5</div>
-          <div><span class="status-pill status-x">❌</span></div>
-          <div>--</div>
-        </summary>
-        <div class="unit-detail">
-          <div class="unit-detail-grid">
-            <div class="task-row">
-              <div class="task-name">뜻 찾기</div>
-              <div class="task-status" style="color:#991b1b;">❌</div>
-              <div class="task-time">--</div>
-            </div>
-            <div class="task-row">
-              <div class="task-name">영어 찾기</div>
-              <div class="task-status" style="color:#991b1b;">❌</div>
-              <div class="task-time">--</div>
-            </div>
-            <div class="task-row">
-              <div class="task-name">듣고 찾기</div>
-              <div class="task-status" style="color:#991b1b;">❌</div>
-              <div class="task-time">--</div>
-            </div>
-            <div class="task-row">
-              <div class="task-name">문장 빈칸</div>
-              <div class="task-status" style="color:#991b1b;">❌</div>
-              <div class="task-time">--</div>
-            </div>
-          </div>
-          <div class="unit-guide">※ 2단계에서 Supabase 연결하면 실제 데이터로 자동 표시됩니다.</div>
-        </div>
-      </details>
-
-      <details class="unit-row">
-        <summary class="unit-result-summary">
-          <div>2025-12-25</div>
-          <div><span class="chip chip-online-sentence">문장</span></div>
-          <div>1-2</div>
-          <div><span class="status-pill status-d">△</span></div>
-          <div>2025-12-26 18:42</div>
-        </summary>
-        <div class="unit-detail">
-          <div class="unit-detail-grid">
-            <div class="task-row">
-              <div class="task-name">뜻 찾기</div>
-              <div class="task-status" style="color:#166534;">⭕</div>
-              <div class="task-time">2025-12-26 18:10</div>
-            </div>
-            <div class="task-row">
-              <div class="task-name">영어 찾기</div>
-              <div class="task-status" style="color:#991b1b;">❌</div>
-              <div class="task-time">--</div>
-            </div>
-            <div class="task-row">
-              <div class="task-name">듣고 찾기</div>
-              <div class="task-status" style="color:#166534;">⭕</div>
-              <div class="task-time">2025-12-26 18:42</div>
-            </div>
-            <div class="task-row">
-              <div class="task-name">문장 빈칸</div>
-              <div class="task-status" style="color:#991b1b;">❌</div>
-              <div class="task-time">--</div>
-            </div>
-          </div>
-        </div>
-      </details>
-
-      <details class="unit-row">
-        <summary class="unit-result-summary">
-          <div>2025-12-24</div>
-          <div><span class="chip chip-online-vocab">어휘</span></div>
-          <div>1-3</div>
-          <div><span class="status-pill status-o">⭕</span></div>
-          <div>2025-12-26 19:05</div>
-        </summary>
-        <div class="unit-detail">
-          <div class="unit-detail-grid">
-            <div class="task-row">
-              <div class="task-name">뜻 찾기</div>
-              <div class="task-status" style="color:#166534;">⭕</div>
-              <div class="task-time">2025-12-26 18:20</div>
-            </div>
-            <div class="task-row">
-              <div class="task-name">영어 찾기</div>
-              <div class="task-status" style="color:#166534;">⭕</div>
-              <div class="task-time">2025-12-26 18:33</div>
-            </div>
-            <div class="task-row">
-              <div class="task-name">듣고 찾기</div>
-              <div class="task-status" style="color:#166534;">⭕</div>
-              <div class="task-time">2025-12-26 18:51</div>
-            </div>
-            <div class="task-row">
-              <div class="task-name">문장 빈칸</div>
-              <div class="task-status" style="color:#166534;">⭕</div>
-              <div class="task-time">2025-12-26 19:05</div>
-            </div>
-          </div>
-        </div>
-      </details>
+      <div id="unit-result-body"></div>
     </div>
   </div>
 
-  <!-- ✅ 4. 내 정보 -->
+  <!-- 4. 내 정보 -->
   <div class="section-card">
     <div class="section-header">
       <div class="section-title">👤 내 정보</div>
@@ -663,7 +557,7 @@
   </div>
 </div>
 
-<!-- ✅ 관리 모달 -->
+<!-- 관리 모달 -->
 <div id="manage-backdrop" class="modal-backdrop" aria-hidden="true">
   <div class="modal" role="dialog" aria-modal="true" aria-labelledby="manage-title">
     <div class="modal-head">
@@ -703,6 +597,8 @@
   const logoutBtn = document.getElementById("logout-btn");
   const homeBtn   = document.getElementById("home-btn");
 
+  const unitResultBody = document.getElementById("unit-result-body");
+
   // modal
   const manageBackdrop = document.getElementById("manage-backdrop");
   const manageCloseBtn = document.getElementById("manage-close");
@@ -730,6 +626,13 @@
     const hh = String(d.getHours()).padStart(2, "0");
     const mm = String(d.getMinutes()).padStart(2, "0");
     return `${hh}:${mm}`;
+  }
+
+  function formatDateTime(iso) {
+    if (!iso) return "";
+    const d = new Date(iso);
+    if (Number.isNaN(d.getTime())) return "";
+    return `${formatDate(iso)} ${formatTime(iso)}`;
   }
 
   function toDateKey(iso) { return formatDate(iso); }
@@ -972,6 +875,99 @@
     }
   }
 
+  // ---------- 내 온라인 숙제 결과(실데이터 렌더) ----------
+  function renderMyHomeworkResults(rows) {
+    // rows: student_homework
+    unitResultBody.innerHTML = "";
+
+    if (!rows || rows.length === 0) {
+      unitResultBody.innerHTML = '<div class="class-hw-empty">아직 등록한 온라인 숙제가 없어요.</div>';
+      return;
+    }
+
+    rows.forEach(row => {
+      const details = document.createElement("details");
+      details.className = "unit-row";
+      details.open = false;
+
+      const summary = document.createElement("summary");
+      summary.className = "unit-result-summary";
+
+      const due = row.due_date || "-";
+      const typeChip = document.createElement("span");
+      typeChip.className = "chip " + (row.type === "sentence" ? "chip-online-sentence" : "chip-online-vocab");
+      typeChip.textContent = row.type === "sentence" ? "문장" : "어휘";
+
+      // 지금은 결과 테이블이 없으니 "미제출" 기본값으로 표시(원하면 추후 result 테이블 붙이면 됨)
+      const statusClass = "status-x";
+      const statusText = "❌";
+      const submittedText = "--";
+
+      summary.innerHTML = `
+        <div>${due}</div>
+        <div></div>
+        <div>${row.level}-${(row.set_numbers || "").replaceAll(" ", "")}</div>
+        <div><span class="status-pill ${statusClass}">${statusText}</span></div>
+        <div>${submittedText}</div>
+      `;
+      summary.children[1].appendChild(typeChip);
+
+      const detail = document.createElement("div");
+      detail.className = "unit-detail";
+      detail.innerHTML = `
+        <div class="unit-detail-grid">
+          <div class="task-row">
+            <div class="task-name">뜻 찾기</div>
+            <div class="task-status" style="color:#991b1b;">❌</div>
+            <div class="task-time">--</div>
+          </div>
+          <div class="task-row">
+            <div class="task-name">영어 찾기</div>
+            <div class="task-status" style="color:#991b1b;">❌</div>
+            <div class="task-time">--</div>
+          </div>
+          <div class="task-row">
+            <div class="task-name">듣고 찾기</div>
+            <div class="task-status" style="color:#991b1b;">❌</div>
+            <div class="task-time">--</div>
+          </div>
+          <div class="task-row">
+            <div class="task-name">문장 빈칸</div>
+            <div class="task-status" style="color:#991b1b;">❌</div>
+            <div class="task-time">--</div>
+          </div>
+        </div>
+        <div class="unit-guide">※ 현재는 숙제 등록 데이터로 “목록/정렬/자동표시”만 구현되어 있어요. (제출/채점 데이터 테이블 연결 시 자동 반영)</div>
+      `;
+
+      details.appendChild(summary);
+      details.appendChild(detail);
+      unitResultBody.appendChild(details);
+    });
+  }
+
+  async function loadMyHomeworkResults() {
+    if (!currentStudent || !currentStudent.login_id) return;
+
+    unitResultBody.innerHTML = '<div class="class-hw-empty">결과를 불러오는 중...</div>';
+
+    const { data, error } = await client
+      .from("student_homework")
+      .select("id, type, level, set_numbers, due_date, created_at")
+      .eq("student_login_id", currentStudent.login_id)
+      // ✅ 최근 날짜가 위로
+      .order("due_date", { ascending: false })
+      .order("created_at", { ascending: false });
+
+    if (error) {
+      console.error("내 온라인 숙제 결과 로딩 오류:", error);
+      unitResultBody.innerHTML = '<div class="class-hw-empty">결과를 불러오는 중 오류가 발생했어요.</div>';
+      return;
+    }
+
+    renderMyHomeworkResults(data || []);
+  }
+
   // ---------- 타입 토글 ----------
   function setType(nextType) {
     currentType = nextType;
@@ -1025,10 +1021,14 @@
         return;
       }
 
-      // 성공 문구 없이 초기화
       myHwSetEl.value = "";
       myHwDueEl.value = "";
       setMyHwStatus("", "");
+
+      // ✅ 등록 즉시: 결과표/반숙제/관리목록 갱신
+      await loadMyHomeworkResults();
+      if (currentClass && currentClass.id) await loadClassHomework();
+      if (manageBackdrop.style.display === "flex") await loadManageList();
     } catch (e) {
       console.error("student_homework 저장 예외:", e);
       setMyHwStatus("숙제를 저장하는 중 오류가 발생했어요.", "error");
@@ -1056,10 +1056,7 @@
     if (e.key === "Escape" && manageBackdrop.style.display === "flex") closeManageModal();
   });
 
-  // 모달에서 “수정” 누르면 -> 폼에 채워 넣고 닫기
   function fillFormForEdit(row) {
-    // row.set_numbers: "1-1, 1-2" 형태 (레벨 포함)
-    // 폼에는 그대로 넣어도 parse가 되도록 "1-1, 1-2"를 넣는 게 안전
     myHwSetEl.value = row.set_numbers || "";
     myHwDueEl.value = row.due_date || "";
     setType(row.type === "sentence" ? "sentence" : "vocab");
@@ -1074,7 +1071,8 @@
       .from("student_homework")
       .select("id, type, level, set_numbers, due_date, created_at")
       .eq("student_login_id", currentStudent.login_id)
-      .order("due_date", { ascending: true })
+      // ✅ 최근 날짜가 위로 (요구사항 1)
+      .order("due_date", { ascending: false })
       .order("created_at", { ascending: false });
 
     if (error) {
@@ -1120,7 +1118,6 @@
       tr.appendChild(tdType);
 
       const tdSet = document.createElement("td");
-      // ✅ “레벨 X / 세트:” 같은 문구 없이, 깔끔하게 set_numbers만
       tdSet.textContent = row.set_numbers || "-";
       tr.appendChild(tdSet);
 
@@ -1134,11 +1131,8 @@
       editBtn.className = "btn-mini btn-edit";
       editBtn.textContent = "수정";
       editBtn.onclick = async () => {
-        // 1) 폼에 채우고
         fillFormForEdit(row);
-        // 2) 안내: 수정은 “현재는 폼에서 다시 등록(추가)”이 아니라 “진짜 수정”이 필요함
-        //    그래서 여기서는 “바로 업데이트”를 같이 처리할 수 있도록 confirm 후 업데이트로 진행
-        const ok = confirm("이 숙제를 수정할까요?\n(확인 누르면 입력칸에 값이 채워집니다. 수정 후 ‘숙제 등록’을 누르면 새로 추가됩니다.)");
+        const ok = confirm("이 숙제를 수정할까요?\n(입력칸에 값이 채워집니다. 수정 후 ‘숙제 등록’을 누르면 새로 추가됩니다.)");
         if (ok) closeManageModal();
       };
 
@@ -1159,7 +1153,10 @@
           alert("삭제 중 오류가 발생했어요.");
           return;
         }
+
         await loadManageList();
+        await loadMyHomeworkResults();
+        if (currentClass && currentClass.id) await loadClassHomework();
       };
 
       actWrap.appendChild(editBtn);
@@ -1192,13 +1189,12 @@
 
   // ---------- 초기 실행 ----------
   (async function init() {
-    // ✅ 결과는 기본 접힘
-    document.querySelectorAll("details.unit-row").forEach(d => d.open = false);
-
     await loadStudentFromLocalStorage();
     if (currentClass && currentClass.id) {
       await loadClassHomework();
     }
+    // ✅ 페이지 들어오면 결과도 DB에서 로드
+    await loadMyHomeworkResults();
   })();
 </script>
 </body>
