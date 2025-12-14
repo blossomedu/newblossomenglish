@@ -5,16 +5,544 @@
   <title>학생 마이페이지 - 블라썸잉글리쉬</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link href="https://cdn.jsdelivr.net/npm/pretendard/dist/web/variable/pretendardvariable.css" rel="stylesheet" />
+
   <style>
-    /* ===== (CSS 전체 원본 그대로, 변경 없음) ===== */
-    /* 너무 길어서 생략 안 함 – 네 코드 그대로 */
+    :root {
+      --blue: #00AEEF;
+      --mint: #9FE6B8;
+      --pink: #FF6FB5;
+      --bg: #f4f6fb;
+      --gray: #6b7280;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: "Pretendard Variable", -apple-system, BlinkMacSystemFont,
+        system-ui, "Apple SD Gothic Neo", "Noto Sans KR", sans-serif;
+    }
+
+    body {
+      background: var(--bg);
+      padding: 30px 0 60px;
+    }
+
+    .page {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 20px;
+      position: relative;
+    }
+
+    /* 상단 버튼 */
+    .top-actions {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      display: flex;
+      gap: 8px;
+    }
+
+    .pill-btn {
+      border-radius: 999px;
+      border: none;
+      padding: 8px 18px;
+      font-size: 14px;
+      cursor: pointer;
+      white-space: nowrap;
+      font-weight: 600;
+    }
+
+    #home-btn {
+      background: var(--mint);
+      color: #ffffff;
+    }
+
+    #logout-btn {
+      background: #e5e7eb;
+      color: #374151;
+    }
+
+    #logout-btn:hover {
+      background: #d1d5db;
+    }
+
+    h1.title {
+      font-size: 32px;
+      font-weight: 900;
+      margin-bottom: 4px;
+    }
+
+    .subtitle-main {
+      font-size: 15px;
+      color: #6b7280;
+      margin-bottom: 20px;
+    }
+
+    .section-card {
+      background: #ffffff;
+      border-radius: 24px;
+      padding: 20px 22px 22px;
+      box-shadow: 0 15px 32px rgba(15, 23, 42, 0.06);
+      margin-bottom: 18px;
+    }
+
+    .section-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 10px;
+      gap: 8px;
+    }
+
+    .section-title {
+      font-size: 18px;
+      font-weight: 800;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .section-sub {
+      font-size: 13px;
+      color: #6b7280;
+      margin-bottom: 12px;
+    }
+
+    .badge-small {
+      display: inline-flex;
+      align-items: center;
+      padding: 2px 8px;
+      border-radius: 999px;
+      font-size: 11px;
+      font-weight: 600;
+      background: #e5e7eb;
+      color: #4b5563;
+    }
+
+    .info-row {
+      font-size: 14px;
+      color: #111827;
+      line-height: 1.7;
+    }
+
+    .info-row span.label {
+      color: #6b7280;
+      margin-right: 6px;
+    }
+
+    .info-message {
+      margin-top: 6px;
+      font-size: 13px;
+      color: #6b7280;
+    }
+
+    .info-message.emph {
+      color: #047857;
+      font-weight: 600;
+    }
+
+    .info-message.warn {
+      color: #b91c1c;
+    }
+
+    /* 우리 반 숙제 카드 안 리스트 */
+    .class-hw-empty,
+    .my-result-empty,
+    .my-hw-empty {
+      padding: 16px 14px;
+      border-radius: 16px;
+      background: #f3f4f6;
+      font-size: 14px;
+      color: #6b7280;
+      text-align: center;
+    }
+
+    .hw-group-card {
+      background: #f9fafb;
+      border-radius: 18px;
+      padding: 14px 16px;
+      margin-bottom: 10px;
+    }
+
+    .hw-group-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 6px;
+      gap: 8px;
+    }
+
+    .hw-group-date {
+      font-size: 17px;
+      font-weight: 800;
+    }
+
+    .hw-group-meta {
+      font-size: 12px;
+      color: #6b7280;
+    }
+
+    .chip {
+      display: inline-flex;
+      align-items: center;
+      padding: 2px 8px;
+      border-radius: 999px;
+      font-size: 11px;
+      font-weight: 600;
+      margin-right: 4px;
+    }
+
+    .chip-class {
+      background: #eef2ff;
+      color: #3730a3;
+    }
+
+    .chip-type {
+      background: #ffe5f3;
+      color: #ff6fb5;
+    }
+
+    .chip-online-vocab {
+      background: #d1fae5;
+      color: #047857;
+    }
+
+    .chip-online-sentence {
+      background: #e0f2fe;
+      color: #0369a1;
+    }
+
+    .chip-warning {
+      background: #fee2e2;
+      color: #b91c1c;
+    }
+
+    .hw-text-line {
+      font-size: 14px;
+      color: #374151;
+      white-space: pre-wrap;
+      margin: 2px 0;
+    }
+
+    /* 테이블 스타일 (기존) */
+    .table-wrap {
+      overflow-x: auto;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13px;
+      min-width: 600px;
+    }
+
+    th, td {
+      padding: 10px 8px;
+      border-bottom: 1px solid #e5e7eb;
+      text-align: left;
+    }
+
+    th {
+      background: #f9fafb;
+      font-weight: 600;
+      color: #4b5563;
+    }
+
+    td {
+      color: #374151;
+    }
+
+    /* 내 개인 숙제 등록 폼 */
+    .form-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: flex-end;
+      margin-bottom: 8px;
+    }
+
+    .field {
+      min-width: 130px;
+    }
+
+    .field label {
+      font-size: 12px;
+      color: #4b5563;
+      margin-bottom: 3px;
+      display: block;
+    }
+
+    .input, .select, .input-date {
+      width: 100%;
+      padding: 7px 10px;
+      border-radius: 999px;
+      border: 1px solid #d1d5db;
+      font-size: 13px;
+      outline: none;
+      background: #ffffff;
+    }
+
+    .input:focus, .input-date:focus {
+      border-color: #2563eb;
+    }
+
+    .pill-group {
+      display: inline-flex;
+      background: #e5e7eb;
+      border-radius: 999px;
+      padding: 3px;
+      gap: 3px;
+    }
+
+    .pill-type-btn {
+      border: none;
+      border-radius: 999px;
+      padding: 5px 12px;
+      font-size: 12px;
+      cursor: pointer;
+      background: transparent;
+      color: #4b5563;
+      white-space: nowrap;
+    }
+
+    .pill-type-btn.active {
+      background: var(--blue);
+      color: #ffffff;
+      box-shadow: 0 8px 18px rgba(0, 174, 239, 0.35);
+    }
+
+    .btn-primary {
+      border-radius: 999px;
+      border: none;
+      padding: 9px 16px;
+      font-size: 13px;
+      cursor: pointer;
+      white-space: nowrap;
+      background: var(--pink);
+      color: #ffffff;
+      font-weight: 600;
+    }
+
+    .btn-primary[disabled] {
+      opacity: 0.6;
+      cursor: default;
+    }
+
+    .status-text {
+      font-size: 12px;
+      color: #6b7280;
+      margin-bottom: 6px;
+      min-height: 16px;
+    }
+
+    .status-text.error {
+      color: #b91c1c;
+    }
+
+    .status-text.success {
+      color: #15803d;
+    }
+
+    .hint {
+      font-size: 12px;
+      color: #9ca3af;
+      margin-bottom: 8px;
+    }
+
+    .my-hw-list {
+      margin-top: 6px;
+    }
+
+    .my-hw-item {
+      padding: 6px 0;
+      border-bottom: 1px solid #e5e7eb;
+      font-size: 13px;
+      color: #374151;
+      display: flex;
+      justify-content: space-between;
+      gap: 8px;
+      align-items: center;
+    }
+
+    .my-hw-item:last-child {
+      border-bottom: none;
+    }
+
+    .my-hw-main {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      flex-wrap: wrap;
+    }
+
+    .my-hw-meta {
+      font-size: 12px;
+      color: #6b7280;
+    }
+
+    .tag-type-vocab {
+      background: #fee2e2;
+      color: #b91c1c;
+    }
+
+    .tag-type-sentence {
+      background: #e0f2fe;
+      color: #0369a1;
+    }
+
+    /* ==============================
+       ✅ 유닛 통합 결과(요약 + 상세) - HTML only
+       ============================== */
+    .unit-result-wrap {
+      border-radius: 16px;
+      overflow: hidden;
+      border: 1px solid #e5e7eb;
+      background: #ffffff;
+    }
+
+    .unit-result-head {
+      display: grid;
+      grid-template-columns: 1.2fr 0.9fr 0.7fr 1.6fr;
+      gap: 0;
+      background: #f9fafb;
+      color: #4b5563;
+      font-weight: 700;
+      font-size: 13px;
+      border-bottom: 1px solid #e5e7eb;
+    }
+
+    .unit-result-head > div,
+    .unit-result-summary > div {
+      padding: 10px 12px;
+      border-right: 1px solid #eef2f7;
+    }
+    .unit-result-head > div:last-child,
+    .unit-result-summary > div:last-child {
+      border-right: none;
+    }
+
+    .unit-row {
+      border-bottom: 1px solid #e5e7eb;
+    }
+    .unit-row:last-child {
+      border-bottom: none;
+    }
+
+    details.unit-row summary {
+      list-style: none;
+      cursor: pointer;
+      user-select: none;
+    }
+    details.unit-row summary::-webkit-details-marker {
+      display: none;
+    }
+
+    .unit-result-summary {
+      display: grid;
+      grid-template-columns: 1.2fr 0.9fr 0.7fr 1.6fr;
+      align-items: center;
+      font-size: 13px;
+      color: #374151;
+    }
+
+    .unit-result-summary:hover {
+      background: #f9fafb;
+    }
+
+    .unit-cell-strong {
+      font-weight: 800;
+      color: #111827;
+    }
+
+    .status-pill {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 34px;
+      height: 22px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 900;
+    }
+    .status-o { background: #dcfce7; color: #166534; }
+    .status-d { background: #fef3c7; color: #92400e; } /* △ */
+    .status-x { background: #fee2e2; color: #991b1b; }
+
+    .unit-detail {
+      padding: 10px 12px 12px;
+      background: #ffffff;
+    }
+
+    .unit-detail-grid {
+      border-radius: 14px;
+      background: #f9fafb;
+      padding: 10px 10px;
+      display: grid;
+      gap: 8px;
+    }
+
+    .task-row {
+      display: grid;
+      grid-template-columns: 1fr 80px 160px;
+      gap: 8px;
+      align-items: center;
+      padding: 8px 10px;
+      border-radius: 12px;
+      background: #ffffff;
+      border: 1px solid #eef2f7;
+      font-size: 13px;
+    }
+
+    .task-name {
+      font-weight: 700;
+      color: #111827;
+    }
+
+    .task-status {
+      text-align: center;
+      font-weight: 900;
+    }
+
+    .task-time {
+      text-align: right;
+      color: #6b7280;
+      font-size: 12px;
+    }
+
+    .unit-guide {
+      font-size: 12px;
+      color: #6b7280;
+      margin-top: 8px;
+      line-height: 1.4;
+    }
+
+    @media (max-width: 768px) {
+      .top-actions {
+        position: static;
+        justify-content: flex-end;
+        margin-bottom: 10px;
+      }
+      .page {
+        padding-top: 10px;
+      }
+      .section-card {
+        padding: 16px 14px 18px;
+      }
+
+      .unit-result-head,
+      .unit-result-summary {
+        grid-template-columns: 1.1fr 0.8fr 0.7fr 1.4fr;
+      }
+      .task-row {
+        grid-template-columns: 1fr 70px 130px;
+      }
+    }
   </style>
 </head>
-
 <body>
 <div class="page">
-
-  <!-- 상단 버튼 -->
   <div class="top-actions">
     <button id="logout-btn" class="pill-btn">로그아웃</button>
     <button id="home-btn" class="pill-btn">Home</button>
@@ -39,15 +567,13 @@
     <div id="class-hw-area"></div>
   </div>
 
-  <!-- ✅ 2. 내가 등록한 온라인 숙제 (⬆️ 위로 이동됨) -->
+  <!-- ✅ 3. 내가 등록한 온라인 숙제 (✅ 여기로 올림: 결과 위) -->
   <div class="section-card">
     <div class="section-header">
       <div class="section-title">✍️ 내가 등록한 온라인 숙제</div>
     </div>
     <div class="section-sub">
-      선생님이 말로 알려준 숙제를 내가 직접 적어둘 수 있어요.
-      <br />
-      <strong>※ 우리 반 숙제에 온라인 숙제가 없을 때 꼭 여기 확인하세요.</strong>
+      선생님이 말로 알려준 숙제를 내가 직접 적어둘 수 있어요. (반 숙제와는 별도로, 나만의 온라인 숙제 목록입니다.)
     </div>
 
     <div class="form-row">
@@ -60,7 +586,7 @@
       </div>
 
       <div class="field" style="flex:1; min-width:180px;">
-        <label>단계-세트</label>
+        <label>단계-세트 (예: 1-1 또는 1-1, 1-2)</label>
         <input id="my-hw-set" class="input" type="text" placeholder="예: 1-1 또는 1-1, 1-2" />
       </div>
 
@@ -74,33 +600,135 @@
         <button id="my-hw-save-btn" class="btn-primary">숙제 등록</button>
       </div>
     </div>
-
     <div class="hint">
       같은 단계만 여러 개 입력할 수 있어요. 예: 1-1, 1-2, 1-3
     </div>
-
     <div id="my-hw-status" class="status-text"></div>
 
     <div id="my-hw-list-wrapper">
-      <div id="my-hw-empty" class="my-hw-empty">
-        아직 내가 등록한 온라인 숙제가 없습니다.
-      </div>
+      <div id="my-hw-empty" class="my-hw-empty">아직 내가 등록한 온라인 숙제가 없습니다.</div>
       <div id="my-hw-list" class="my-hw-list"></div>
     </div>
   </div>
 
-  <!-- ✅ 3. 내 온라인 숙제 결과 -->
+  <!-- ✅ 2. 내 온라인 숙제 결과 (✅ 아래로 내려감) -->
   <div class="section-card">
     <div class="section-header">
       <div class="section-title">📊 내 온라인 숙제 결과</div>
     </div>
     <div class="section-sub">
-      유닛별 숙제를 다 했는지 확인할 수 있어요.
+      유닛별 숙제를 다 했는지(⭕/△/❌) 먼저 보고, 클릭하면 (뜻/영어/듣기/문장) 상세를 볼 수 있어요.<br/>
+      * 제출 시간은 “마지막으로 완료한 시간”이에요. 아직 시작 안 했으면 “--”로 표시돼요.
     </div>
 
-    <!-- (결과 UI 더미 그대로 유지) -->
+    <!-- 더미 UI -->
     <div class="unit-result-wrap" id="unit-result-wrap">
-      <!-- 기존 HTML 그대로 -->
+      <div class="unit-result-head">
+        <div>마감 날짜</div>
+        <div>단원(Unit)</div>
+        <div>Unit 전체</div>
+        <div>제출 시간</div>
+      </div>
+
+      <details class="unit-row" open>
+        <summary class="unit-result-summary">
+          <div>2025-12-26</div>
+          <div class="unit-cell-strong">1-1</div>
+          <div><span class="status-pill status-x">❌</span></div>
+          <div>--</div>
+        </summary>
+        <div class="unit-detail">
+          <div class="unit-detail-grid">
+            <div class="task-row">
+              <div class="task-name">뜻 찾기</div>
+              <div class="task-status" style="color:#991b1b;">❌</div>
+              <div class="task-time">--</div>
+            </div>
+            <div class="task-row">
+              <div class="task-name">영어 찾기</div>
+              <div class="task-status" style="color:#991b1b;">❌</div>
+              <div class="task-time">--</div>
+            </div>
+            <div class="task-row">
+              <div class="task-name">듣고 찾기</div>
+              <div class="task-status" style="color:#991b1b;">❌</div>
+              <div class="task-time">--</div>
+            </div>
+            <div class="task-row">
+              <div class="task-name">문장 빈칸</div>
+              <div class="task-status" style="color:#991b1b;">❌</div>
+              <div class="task-time">--</div>
+            </div>
+          </div>
+          <div class="unit-guide">※ 2단계에서 Supabase 연결하면 실제 데이터로 자동 표시됩니다.</div>
+        </div>
+      </details>
+
+      <details class="unit-row">
+        <summary class="unit-result-summary">
+          <div>2025-12-25</div>
+          <div class="unit-cell-strong">1-2</div>
+          <div><span class="status-pill status-d">△</span></div>
+          <div>2025-12-26 18:42</div>
+        </summary>
+        <div class="unit-detail">
+          <div class="unit-detail-grid">
+            <div class="task-row">
+              <div class="task-name">뜻 찾기</div>
+              <div class="task-status" style="color:#166534;">⭕</div>
+              <div class="task-time">2025-12-26 18:10</div>
+            </div>
+            <div class="task-row">
+              <div class="task-name">영어 찾기</div>
+              <div class="task-status" style="color:#991b1b;">❌</div>
+              <div class="task-time">--</div>
+            </div>
+            <div class="task-row">
+              <div class="task-name">듣고 찾기</div>
+              <div class="task-status" style="color:#166534;">⭕</div>
+              <div class="task-time">2025-12-26 18:42</div>
+            </div>
+            <div class="task-row">
+              <div class="task-name">문장 빈칸</div>
+              <div class="task-status" style="color:#991b1b;">❌</div>
+              <div class="task-time">--</div>
+            </div>
+          </div>
+        </div>
+      </details>
+
+      <details class="unit-row">
+        <summary class="unit-result-summary">
+          <div>2025-12-24</div>
+          <div class="unit-cell-strong">1-3</div>
+          <div><span class="status-pill status-o">⭕</span></div>
+          <div>2025-12-26 19:05</div>
+        </summary>
+        <div class="unit-detail">
+          <div class="unit-detail-grid">
+            <div class="task-row">
+              <div class="task-name">뜻 찾기</div>
+              <div class="task-status" style="color:#166534;">⭕</div>
+              <div class="task-time">2025-12-26 18:20</div>
+            </div>
+            <div class="task-row">
+              <div class="task-name">영어 찾기</div>
+              <div class="task-status" style="color:#166534;">⭕</div>
+              <div class="task-time">2025-12-26 18:33</div>
+            </div>
+            <div class="task-row">
+              <div class="task-name">듣고 찾기</div>
+              <div class="task-status" style="color:#166534;">⭕</div>
+              <div class="task-time">2025-12-26 18:51</div>
+            </div>
+            <div class="task-row">
+              <div class="task-name">문장 빈칸</div>
+              <div class="task-status" style="color:#166534;">⭕</div>
+              <div class="task-time">2025-12-26 19:05</div>
+            </div>
+          </div>
+        </div>
+      </details>
     </div>
   </div>
 
@@ -119,11 +747,476 @@
 
 </div>
 
-<!-- ===== JS 전체 원본 그대로 (변경 없음) ===== -->
+<!-- Supabase JS -->
 <script src="https://unpkg.com/@supabase/supabase-js@2.48.0/dist/umd/supabase.js"></script>
 <script>
-  /* 네가 준 JS 코드 전체 그대로 */
-</script>
+  const SUPABASE_URL = "https://bpdisxjhhibrgfpvtlmv.supabase.co";
+  const SUPABASE_ANON_KEY =
+    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJwZGlzeGpoaGlicmdmcHZ0bG12Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjM5NTkxODQsImV4cCI6MjA3OTUzNTE4NH0.jDZ6BGirOPuWUnt4ykjhng4PLft2ZjBuYAFzApUnlYU";
 
+  const client = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
+  // DOM
+  const infoNameEl   = document.getElementById("info-name");
+  const infoClassEl  = document.getElementById("info-class");
+  const infoIdEl     = document.getElementById("info-id");
+  const infoMsgEl    = document.getElementById("info-message");
+  const classBadgeEl = document.getElementById("class-badge");
+
+  const classHwArea  = document.getElementById("class-hw-area");
+
+  const myHwSetEl      = document.getElementById("my-hw-set");
+  const myHwDueEl      = document.getElementById("my-hw-due");
+  const myHwSaveBtn    = document.getElementById("my-hw-save-btn");
+  const myHwStatusEl   = document.getElementById("my-hw-status");
+  const myHwEmptyEl    = document.getElementById("my-hw-empty");
+  const myHwListEl     = document.getElementById("my-hw-list");
+
+  const typeVocabBtn    = document.getElementById("type-vocab");
+  const typeSentenceBtn = document.getElementById("type-sentence");
+
+  const logoutBtn = document.getElementById("logout-btn");
+  const homeBtn   = document.getElementById("home-btn");
+
+  let currentStudent = null;
+  let currentClass   = null;
+  let currentType    = "vocab"; // 'vocab' | 'sentence'
+
+  // ---------- 공통 유틸 ----------
+  function formatDate(iso) {
+    if (!iso) return "";
+    const d = new Date(iso);
+    if (Number.isNaN(d.getTime())) return "";
+    const y = d.getFullYear();
+    const m = String(d.getMonth() + 1).padStart(2, "0");
+    const day = String(d.getDate()).padStart(2, "0");
+    return `${y}-${m}-${day}`;
+  }
+
+  function formatTime(iso) {
+    if (!iso) return "";
+    const d = new Date(iso);
+    if (Number.isNaN(d.getTime())) return "";
+    const hh = String(d.getHours()).padStart(2, "0");
+    const mm = String(d.getMinutes()).padStart(2, "0");
+    return `${hh}:${mm}`;
+  }
+
+  function toDateKey(iso) {
+    return formatDate(iso);
+  }
+
+  function dateKeyFromTitle(title) {
+    if (!title) return "";
+    const trimmed = title.trim();
+    const m = trimmed.match(/^(\d{4})-(\d{2})-(\d{2})/);
+    if (m) return `${m[1]}-${m[2]}-${m[3]}`;
+    return "";
+  }
+
+  function setMyHwStatus(msg, type) {
+    myHwStatusEl.textContent = msg || "";
+    myHwStatusEl.className = "status-text" + (type ? " " + type : "");
+  }
+
+  function parseLevelAndSets(setStr) {
+    const parts = setStr
+      .split(",")
+      .map(s => s.trim())
+      .filter(Boolean);
+    if (!parts.length) return null;
+
+    const first = parts[0].split("-");
+    if (first.length !== 2) return null;
+    const baseLevel = Number(first[0]);
+    if (!baseLevel) return null;
+
+    for (const p of parts) {
+      const [lvStr, setNumStr] = p.split("-");
+      const lv = Number(lvStr);
+      const sn = Number(setNumStr);
+      if (!lv || !sn || lv !== baseLevel) return null;
+    }
+    return {
+      level: baseLevel,
+      raw: parts.join(", ")
+    };
+  }
+
+  // ---------- 학생 정보 / 반 정보 ----------
+  async function loadStudentFromLocalStorage() {
+    try {
+      const stored = localStorage.getItem("blossom_student");
+      if (!stored) {
+        alert("학생 로그인이 필요합니다.");
+        window.location.href = "login.html";
+        return;
+      }
+      const s = JSON.parse(stored);
+      currentStudent = s;
+
+      infoNameEl.textContent = s.name || "-";
+      infoIdEl.textContent   = s.login_id || "-";
+
+      if (!s.class_id) {
+        infoClassEl.textContent = "미배정";
+        infoMsgEl.textContent = "아직 반이 배정되지 않았어요. 선생님께 문의해 주세요.";
+        infoMsgEl.classList.add("warn");
+        classBadgeEl.textContent = "반 미배정";
+        classHwArea.innerHTML =
+          '<div class="class-hw-empty">반이 아직 배정되지 않아 숙제를 볼 수 없어요.</div>';
+        return;
+      }
+
+      const { data: cls, error } = await client
+        .from("classes")
+        .select("id, name")
+        .eq("id", s.class_id)
+        .maybeSingle();
+
+      if (error) console.error("classes 조회 오류:", error);
+
+      if (cls) {
+        currentClass = cls;
+        infoClassEl.textContent = cls.name || "-";
+        infoMsgEl.textContent = `환영합니다! ${cls.name} 학생입니다.`;
+        infoMsgEl.classList.add("emph");
+        classBadgeEl.textContent = cls.name;
+      } else {
+        currentClass = null;
+        infoClassEl.textContent = "미배정";
+        infoMsgEl.textContent = "반 정보를 찾을 수 없어요. 선생님께 문의해 주세요.";
+        infoMsgEl.classList.add("warn");
+        classBadgeEl.textContent = "반 정보 없음";
+      }
+    } catch (e) {
+      console.error("학생 정보 확인 오류:", e);
+      alert("로그인 정보를 확인하는 중 오류가 발생했습니다. 다시 로그인해 주세요.");
+      window.location.href = "login.html";
+    }
+  }
+
+  // ---------- 우리 반 숙제 (board_posts + vocab_homework + sentence_homework) ----------
+  async function loadClassHomework() {
+    if (!currentClass || !currentClass.id) return;
+
+    classHwArea.innerHTML =
+      '<div class="class-hw-empty">우리 반 숙제를 불러오는 중입니다...</div>';
+
+    try {
+      const classId = currentClass.id;
+
+      const [postsRes, vocabRes, sentenceRes] = await Promise.all([
+        client.from("board_posts")
+          .select("id, class_id, title, content, created_at")
+          .eq("class_id", classId)
+          .order("created_at", { ascending: false }),
+        client.from("vocab_homework")
+          .select("id, class_id, level, set_numbers, due_date, created_at")
+          .eq("class_id", classId)
+          .order("created_at", { ascending: false }),
+        client.from("sentence_homework")
+          .select("id, class_id, level, set_numbers, due_date, created_at")
+          .eq("class_id", classId)
+          .order("created_at", { ascending: false })
+      ]);
+
+      if (postsRes.error)   console.error("board_posts 오류:", postsRes.error);
+      if (vocabRes.error)   console.error("vocab_homework 오류:", vocabRes.error);
+      if (sentenceRes.error) console.error("sentence_homework 오류:", sentenceRes.error);
+
+      const groupsMap = {}; // key = dateKey
+      function ensureGroup(dateKey) {
+        if (!groupsMap[dateKey]) {
+          groupsMap[dateKey] = { dateKey, latestTime: null, posts: [], vocab: [], sentence: [] };
+        }
+        return groupsMap[dateKey];
+      }
+
+      (postsRes.data || []).forEach(row => {
+        const dk = dateKeyFromTitle(row.title) || toDateKey(row.created_at);
+        if (!dk) return;
+        const g = ensureGroup(dk);
+        g.posts.push(row);
+        if (!g.latestTime || new Date(row.created_at) > new Date(g.latestTime)) g.latestTime = row.created_at;
+      });
+
+      (vocabRes.data || []).forEach(row => {
+        const baseDate = row.due_date || row.created_at;
+        const dk = row.due_date || toDateKey(row.created_at);
+        if (!dk) return;
+        const g = ensureGroup(dk);
+        g.vocab.push(row);
+        if (!g.latestTime || new Date(baseDate) > new Date(g.latestTime)) g.latestTime = baseDate;
+      });
+
+      (sentenceRes.data || []).forEach(row => {
+        const baseDate = row.due_date || row.created_at;
+        const dk = row.due_date || toDateKey(row.created_at);
+        if (!dk) return;
+        const g = ensureGroup(dk);
+        g.sentence.push(row);
+        if (!g.latestTime || new Date(baseDate) > new Date(g.latestTime)) g.latestTime = baseDate;
+      });
+
+      const groups = Object.values(groupsMap).sort((a, b) => {
+        return new Date(b.latestTime || 0) - new Date(a.latestTime || 0);
+      });
+
+      if (!groups.length) {
+        classHwArea.innerHTML =
+          '<div class="class-hw-empty">아직 우리 반에 등록된 숙제가 없어요.</div>';
+        return;
+      }
+
+      classHwArea.innerHTML = "";
+      groups.forEach(g => {
+        const card = document.createElement("div");
+        card.className = "hw-group-card";
+
+        const header = document.createElement("div");
+        header.className = "hw-group-header";
+
+        const left = document.createElement("div");
+        const dt = document.createElement("div");
+        dt.className = "hw-group-date";
+        dt.textContent = g.dateKey;
+        left.appendChild(dt);
+
+        const chips = document.createElement("div");
+        const chipClass = document.createElement("span");
+        chipClass.className = "chip chip-class";
+        chipClass.textContent = currentClass ? currentClass.name : "우리 반";
+        chips.appendChild(chipClass);
+
+        const chipType = document.createElement("span");
+        chipType.className = "chip chip-type";
+        const hasOffline = g.posts.length > 0;
+        const hasVocab   = g.vocab.length > 0;
+        const hasSentence= g.sentence.length > 0;
+
+        if (hasOffline && (hasVocab || hasSentence)) chipType.textContent = "필기 + 온라인 숙제";
+        else if (hasOffline) chipType.textContent = "필기 숙제";
+        else chipType.textContent = "온라인 숙제";
+
+        chips.appendChild(chipType);
+        left.appendChild(chips);
+
+        const meta = document.createElement("div");
+        meta.className = "hw-group-meta";
+        meta.textContent = g.latestTime ? `Stella쌤 · ${formatDate(g.latestTime)} ${formatTime(g.latestTime)}` : "";
+
+        header.appendChild(left);
+        header.appendChild(meta);
+        card.appendChild(header);
+
+        if (g.posts.length > 0) {
+          const chip = document.createElement("div");
+          chip.className = "chip chip-warning";
+          chip.textContent = "✏️ 필기 숙제 / 공지";
+          card.appendChild(chip);
+
+          g.posts.forEach(p => {
+            const line = document.createElement("div");
+            line.className = "hw-text-line";
+            line.textContent = p.content || p.title || "";
+            card.appendChild(line);
+          });
+        }
+
+        if (g.vocab.length > 0) {
+          const chip = document.createElement("div");
+          chip.className = "chip chip-online-vocab";
+          chip.textContent = "📚 온라인 어휘 숙제";
+          chip.style.marginTop = "6px";
+          card.appendChild(chip);
+
+          g.vocab.forEach(h => {
+            const line = document.createElement("div");
+            line.className = "hw-text-line";
+            const dueTxt = h.due_date ? ` / 마감일: ${h.due_date}` : "";
+            line.textContent = `단계 ${h.level} / 세트: ${h.set_numbers}${dueTxt}`;
+            card.appendChild(line);
+          });
+        }
+
+        if (g.sentence.length > 0) {
+          const chip = document.createElement("div");
+          chip.className = "chip chip-online-sentence";
+          chip.textContent = "💬 온라인 문장 숙제";
+          chip.style.marginTop = "6px";
+          card.appendChild(chip);
+
+          g.sentence.forEach(h => {
+            const line = document.createElement("div");
+            line.className = "hw-text-line";
+            const dueTxt = h.due_date ? ` / 마감일: ${h.due_date}` : "";
+            line.textContent = `단계 ${h.level} / 세트: ${h.set_numbers}${dueTxt}`;
+            card.appendChild(line);
+          });
+        }
+
+        classHwArea.appendChild(card);
+      });
+    } catch (e) {
+      console.error("우리 반 숙제 로딩 오류:", e);
+      classHwArea.innerHTML =
+        '<div class="class-hw-empty">숙제를 불러오는 중 오류가 발생했습니다.</div>';
+    }
+  }
+
+  // ---------- 내가 등록한 온라인 숙제 (student_homework) ----------
+  function setType(nextType) {
+    currentType = nextType;
+    if (nextType === "vocab") {
+      typeVocabBtn.classList.add("active");
+      typeSentenceBtn.classList.remove("active");
+    } else {
+      typeSentenceBtn.classList.add("active");
+      typeVocabBtn.classList.remove("active");
+    }
+  }
+  typeVocabBtn.onclick = () => setType("vocab");
+  typeSentenceBtn.onclick = () => setType("sentence");
+
+  async function saveMyHomework(evt) {
+    evt.preventDefault();
+
+    if (!currentStudent || !currentStudent.login_id) {
+      setMyHwStatus("학생 정보를 찾을 수 없어요. 다시 로그인해 주세요.", "error");
+      return;
+    }
+
+    const rawSet = myHwSetEl.value.trim();
+    const due    = myHwDueEl.value;
+
+    if (!rawSet) {
+      setMyHwStatus("단계-세트를 입력해 주세요. (예: 1-1 또는 1-1, 1-2)", "error");
+      return;
+    }
+
+    const parsed = parseLevelAndSets(rawSet);
+    if (!parsed) {
+      setMyHwStatus("세트 형식이 올바르지 않아요. 예: 1-1, 1-2, 1-3", "error");
+      return;
+    }
+
+    if (!due) {
+      setMyHwStatus("마감일을 선택해 주세요.", "error");
+      return;
+    }
+
+    setMyHwStatus("숙제를 저장 중입니다…", "");
+    myHwSaveBtn.disabled = true;
+
+    try {
+      const { error } = await client
+        .from("student_homework")
+        .insert({
+          student_login_id: currentStudent.login_id,
+          type: currentType,
+          level: parsed.level,
+          set_numbers: parsed.raw,
+          due_date: due
+        });
+
+      if (error) {
+        console.error("student_homework 저장 오류:", error);
+        setMyHwStatus("숙제를 저장하는 중 오류가 발생했어요.", "error");
+        return;
+      }
+
+      setMyHwStatus("나의 온라인 숙제가 등록되었어요!", "success");
+      myHwSetEl.value = "";
+      await loadMyHomeworkList();
+    } catch (e) {
+      console.error("student_homework 저장 예외:", e);
+      setMyHwStatus("숙제를 저장하는 중 오류가 발생했어요.", "error");
+    } finally {
+      myHwSaveBtn.disabled = false;
+    }
+  }
+  myHwSaveBtn.onclick = saveMyHomework;
+
+  async function loadMyHomeworkList() {
+    if (!currentStudent || !currentStudent.login_id) return;
+
+    try {
+      const { data, error } = await client
+        .from("student_homework")
+        .select("*")
+        .eq("student_login_id", currentStudent.login_id)
+        .order("due_date", { ascending: true })
+        .order("created_at", { ascending: false });
+
+      if (error) {
+        console.error("student_homework 목록 오류:", error);
+        myHwEmptyEl.textContent = "나의 온라인 숙제를 불러오는 중 오류가 발생했습니다.";
+        myHwEmptyEl.style.display = "block";
+        myHwListEl.innerHTML = "";
+        return;
+      }
+
+      if (!data || !data.length) {
+        myHwEmptyEl.textContent = "아직 내가 등록한 온라인 숙제가 없습니다.";
+        myHwEmptyEl.style.display = "block";
+        myHwListEl.innerHTML = "";
+        return;
+      }
+
+      myHwEmptyEl.style.display = "none";
+      myHwListEl.innerHTML = "";
+
+      data.forEach(row => {
+        const item = document.createElement("div");
+        item.className = "my-hw-item";
+
+        const main = document.createElement("div");
+        main.className = "my-hw-main";
+
+        const tag = document.createElement("span");
+        tag.className = "chip " + (row.type === "sentence" ? "tag-type-sentence" : "tag-type-vocab");
+        tag.textContent = row.type === "sentence" ? "문장" : "어휘";
+        main.appendChild(tag);
+
+        const txt = document.createElement("span");
+        txt.textContent = `레벨 ${row.level} / 세트: ${row.set_numbers}`;
+        main.appendChild(txt);
+
+        const meta = document.createElement("div");
+        meta.className = "my-hw-meta";
+        meta.textContent = row.due_date ? `마감일: ${row.due_date}` : "마감일: -";
+
+        item.appendChild(main);
+        item.appendChild(meta);
+
+        myHwListEl.appendChild(item);
+      });
+    } catch (e) {
+      console.error("student_homework 목록 예외:", e);
+      myHwEmptyEl.textContent = "나의 온라인 숙제를 불러오는 중 오류가 발생했습니다.";
+      myHwEmptyEl.style.display = "block";
+      myHwListEl.innerHTML = "";
+    }
+  }
+
+  // ---------- 로그아웃 / 홈 ----------
+  logoutBtn.onclick = () => {
+    localStorage.removeItem("blossom_student");
+    window.location.href = "index.html";
+  };
+  homeBtn.onclick = () => {
+    window.location.href = "index.html";
+  };
+
+  // ---------- 초기 실행 ----------
+  (async function init() {
+    await loadStudentFromLocalStorage();
+    if (currentClass && currentClass.id) {
+      await loadClassHomework();
+    }
+    await loadMyHomeworkList();
+  })();
+</script>
 </body>
 </html>
