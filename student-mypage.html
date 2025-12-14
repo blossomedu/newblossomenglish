@@ -14,10 +14,8 @@
       --bg: #f4f6fb;
       --gray: #6b7280;
 
-      /* ✅ 통일 규칙: 파랑=날짜, 핑크=실제 숙제 */
+      /* ✅ 통일 규칙: 파랑=날짜 */
       --dateBlue: var(--blue);
-      --taskPink: #db2777;      /* 진한 핑크 */
-      --taskPinkSoft: #ffe5f3;  /* 연핑크 배경 */
     }
 
     * {
@@ -109,12 +107,6 @@
       gap: 6px;
     }
 
-    .section-sub {
-      font-size: 13px;
-      color: #6b7280;
-      margin-bottom: 12px;
-    }
-
     .badge-small {
       display: inline-flex;
       align-items: center;
@@ -144,16 +136,11 @@
       display: none; /* ✅ 기본 숨김 (경고 때만 표시) */
     }
 
-    .info-message.emph {
-      color: #047857;
-      font-weight: 600;
-    }
-
     .info-message.warn {
       color: #b91c1c;
     }
 
-    /* 우리 반 숙제 카드 안 리스트 */
+    /* 빈 상태 */
     .class-hw-empty,
     .my-result-empty,
     .my-hw-empty {
@@ -165,6 +152,7 @@
       text-align: center;
     }
 
+    /* ===== 우리 반 숙제 ===== */
     .hw-group-card {
       background: #f9fafb;
       border-radius: 18px;
@@ -182,7 +170,8 @@
 
     .hw-group-date {
       font-size: 17px;
-      font-weight: 800;
+      font-weight: 900;
+      color: var(--dateBlue); /* ✅ 날짜 파랑 */
     }
 
     .hw-group-meta {
@@ -225,42 +214,16 @@
       color: #b91c1c;
     }
 
+    /* ✅ 숙제 내용은 검정(눈 편하게) */
     .hw-text-line {
       font-size: 14px;
-      color: #374151;
+      color: #111827;
+      font-weight: 600;
       white-space: pre-wrap;
       margin: 2px 0;
     }
 
-    /* 테이블 스타일 (기존) */
-    .table-wrap {
-      overflow-x: auto;
-    }
-
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      font-size: 13px;
-      min-width: 600px;
-    }
-
-    th, td {
-      padding: 10px 8px;
-      border-bottom: 1px solid #e5e7eb;
-      text-align: left;
-    }
-
-    th {
-      background: #f9fafb;
-      font-weight: 600;
-      color: #4b5563;
-    }
-
-    td {
-      color: #374151;
-    }
-
-    /* 내 개인 숙제 등록 폼 */
+    /* ===== 내 온라인 숙제(등록 폼) ===== */
     .form-row {
       display: flex;
       flex-wrap: wrap;
@@ -269,9 +232,7 @@
       margin-bottom: 8px;
     }
 
-    .field {
-      min-width: 130px;
-    }
+    .field { min-width: 130px; }
 
     .field label {
       font-size: 12px;
@@ -280,7 +241,7 @@
       display: block;
     }
 
-    .input, .select, .input-date {
+    .input, .input-date {
       width: 100%;
       padding: 7px 10px;
       border-radius: 999px;
@@ -290,9 +251,7 @@
       background: #ffffff;
     }
 
-    .input:focus, .input-date:focus {
-      border-color: #2563eb;
-    }
+    .input:focus, .input-date:focus { border-color: #2563eb; }
 
     .pill-group {
       display: inline-flex;
@@ -328,7 +287,7 @@
       white-space: nowrap;
       background: var(--pink);
       color: #ffffff;
-      font-weight: 600;
+      font-weight: 700;
     }
 
     .btn-primary[disabled] {
@@ -342,14 +301,7 @@
       margin-bottom: 6px;
       min-height: 16px;
     }
-
-    .status-text.error {
-      color: #b91c1c;
-    }
-
-    .status-text.success {
-      color: #15803d;
-    }
+    .status-text.error { color: #b91c1c; }
 
     .hint {
       font-size: 12px;
@@ -357,35 +309,52 @@
       margin-bottom: 8px;
     }
 
-    .my-hw-list {
-      margin-top: 6px;
+    /* ===== 내 온라인 숙제(목록) : 날짜별 카드 ===== */
+    .my-hw-group-card {
+      background: #f9fafb;
+      border-radius: 18px;
+      padding: 14px 16px;
+      margin-bottom: 10px;
+    }
+
+    .my-hw-group-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 6px;
+      gap: 8px;
+    }
+
+    .my-hw-group-date {
+      font-size: 17px;
+      font-weight: 900;
+      color: var(--dateBlue); /* ✅ 날짜 파랑 */
     }
 
     .my-hw-item {
-      padding: 6px 0;
+      padding: 8px 0;
       border-bottom: 1px solid #e5e7eb;
-      font-size: 13px;
-      color: #374151;
       display: flex;
       justify-content: space-between;
-      gap: 8px;
+      gap: 10px;
       align-items: center;
     }
-
-    .my-hw-item:last-child {
-      border-bottom: none;
-    }
+    .my-hw-item:last-child { border-bottom: none; }
 
     .my-hw-main {
       display: flex;
       align-items: center;
-      gap: 6px;
+      gap: 8px;
       flex-wrap: wrap;
+      min-width: 0;
     }
 
-    .my-hw-meta {
-      font-size: 12px;
-      color: #6b7280;
+    /* ✅ 숙제 텍스트는 검정 */
+    .my-hw-text {
+      color: #111827;
+      font-weight: 600;
+      font-size: 13px;
+      word-break: break-word;
     }
 
     .tag-type-vocab {
@@ -398,9 +367,42 @@
       color: #0369a1;
     }
 
-    /* ==============================
-       ✅ 유닛 통합 결과(요약 + 상세) - HTML only
-       ============================== */
+    /* 수정/삭제 버튼 */
+    .row-actions {
+      display: flex;
+      gap: 8px;
+      flex-shrink: 0;
+    }
+
+    .mini-btn {
+      border: none;
+      border-radius: 999px;
+      padding: 6px 10px;
+      font-size: 12px;
+      font-weight: 700;
+      cursor: pointer;
+      white-space: nowrap;
+    }
+
+    .mini-btn.edit {
+      background: #e5e7eb;
+      color: #374151;
+    }
+    .mini-btn.edit:hover { background: #d1d5db; }
+
+    .mini-btn.delete {
+      background: #fee2e2;
+      color: #b91c1c;
+    }
+    .mini-btn.delete:hover { background: #fecaca; }
+
+    .mini-btn.cancel {
+      background: #f3f4f6;
+      color: #374151;
+    }
+    .mini-btn.cancel:hover { background: #e5e7eb; }
+
+    /* ===== 내 온라인 숙제 결과(테이블/디테일) ===== */
     .unit-result-wrap {
       border-radius: 16px;
       overflow: hidden;
@@ -425,42 +427,35 @@
       border-right: 1px solid #eef2f7;
     }
     .unit-result-head > div:last-child,
-    .unit-result-summary > div:last-child {
-      border-right: none;
-    }
+    .unit-result-summary > div:last-child { border-right: none; }
 
-    .unit-row {
-      border-bottom: 1px solid #e5e7eb;
-    }
-    .unit-row:last-child {
-      border-bottom: none;
-    }
+    .unit-row { border-bottom: 1px solid #e5e7eb; }
+    .unit-row:last-child { border-bottom: none; }
 
     details.unit-row summary {
       list-style: none;
       cursor: pointer;
       user-select: none;
     }
-    details.unit-row summary::-webkit-details-marker {
-      display: none;
-    }
+    details.unit-row summary::-webkit-details-marker { display: none; }
 
     .unit-result-summary {
       display: grid;
       grid-template-columns: 1.2fr 0.9fr 0.7fr 1.6fr;
       align-items: center;
       font-size: 13px;
-      color: #374151;
+      color: #111827; /* ✅ 기본 검정 */
     }
 
-    .unit-result-summary:hover {
-      background: #f9fafb;
+    .unit-result-summary:hover { background: #f9fafb; }
+
+    /* ✅ 날짜만 파랑 */
+    .unit-result-summary > div:nth-child(1) {
+      color: var(--dateBlue);
+      font-weight: 900;
     }
 
-    .unit-cell-strong {
-      font-weight: 800;
-      color: #111827;
-    }
+    .unit-cell-strong { font-weight: 800; }
 
     .status-pill {
       display: inline-flex;
@@ -473,7 +468,7 @@
       font-weight: 900;
     }
     .status-o { background: #dcfce7; color: #166534; }
-    .status-d { background: #fef3c7; color: #92400e; } /* △ */
+    .status-d { background: #fef3c7; color: #92400e; }
     .status-x { background: #fee2e2; color: #991b1b; }
 
     .unit-detail {
@@ -501,21 +496,9 @@
       font-size: 13px;
     }
 
-    .task-name {
-      font-weight: 700;
-      color: #111827;
-    }
-
-    .task-status {
-      text-align: center;
-      font-weight: 900;
-    }
-
-    .task-time {
-      text-align: right;
-      color: #6b7280;
-      font-size: 12px;
-    }
+    .task-name { font-weight: 700; color: #111827; }
+    .task-status { text-align: center; font-weight: 900; }
+    .task-time { text-align: right; color: #6b7280; font-size: 12px; }
 
     .unit-guide {
       font-size: 12px;
@@ -530,82 +513,15 @@
         justify-content: flex-end;
         margin-bottom: 10px;
       }
-      .page {
-        padding-top: 10px;
-      }
-      .section-card {
-        padding: 16px 14px 18px;
-      }
+      .page { padding-top: 10px; }
+      .section-card { padding: 16px 14px 18px; }
 
       .unit-result-head,
       .unit-result-summary {
         grid-template-columns: 1.1fr 0.8fr 0.7fr 1.4fr;
       }
-      .task-row {
-        grid-template-columns: 1fr 70px 130px;
-      }
-    }
 
-    /* =======================================================
-       ✅ 디자인 통일: 파랑=날짜 / 핑크=실제 숙제
-       ======================================================= */
-
-    /* 우리 반 숙제: 날짜 파랑 */
-    .hw-group-date {
-      color: var(--dateBlue);
-      font-weight: 900;
-    }
-
-    /* 우리 반 숙제: 실제 숙제(내용) 핑크 */
-    .hw-text-line {
-      color: var(--taskPink);
-      font-weight: 700;
-    }
-
-    /* 내가 등록한 온라인 숙제: 날짜별 카드(우리 반 숙제 카드 느낌) */
-    .my-hw-group-card {
-      background: #f9fafb;
-      border-radius: 18px;
-      padding: 14px 16px;
-      margin-bottom: 10px;
-    }
-
-    .my-hw-group-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: baseline;
-      margin-bottom: 6px;
-      gap: 8px;
-    }
-
-    .my-hw-group-date {
-      font-size: 17px;
-      font-weight: 900;
-      color: var(--dateBlue);
-    }
-
-    .my-hw-group-meta {
-      font-size: 12px;
-      color: #6b7280;
-    }
-
-    /* 내 숙제: 레벨/세트 텍스트(실제 숙제) 핑크 */
-    .my-hw-item .my-hw-main span:last-child {
-      color: var(--taskPink);
-      font-weight: 700;
-    }
-
-    /* 내 온라인 숙제 결과: 날짜(1열) 파랑 */
-    .unit-result-summary > div:nth-child(1) {
-      color: var(--dateBlue);
-      font-weight: 900;
-    }
-
-    /* 내 온라인 숙제 결과: 단원(2열), 제출시간(4열) 핑크 */
-    .unit-result-summary > div:nth-child(2),
-    .unit-result-summary > div:nth-child(4) {
-      color: var(--taskPink);
-      font-weight: 800;
+      .task-row { grid-template-columns: 1fr 70px 130px; }
     }
   </style>
 </head>
@@ -622,7 +538,7 @@
     오늘 숙제와 온라인 학습 결과를 한 곳에서 확인해 보세요.
   </div>
 
-  <!-- ✅ 1. 우리 반 숙제 (설명 문구 삭제) -->
+  <!-- ✅ 1. 우리 반 숙제 -->
   <div class="section-card">
     <div class="section-header">
       <div class="section-title">
@@ -633,10 +549,10 @@
     <div id="class-hw-area"></div>
   </div>
 
-  <!-- ✅ 2. 내가 등록한 온라인 숙제 (설명 문구 삭제 / 날짜-숙제 디자인 통일) -->
+  <!-- ✅ 2. 내 온라인 숙제 (제목 변경 + 수정/삭제 추가) -->
   <div class="section-card">
     <div class="section-header">
-      <div class="section-title">✍️ 내가 등록한 온라인 숙제</div>
+      <div class="section-title">✍️ 내 온라인 숙제</div>
     </div>
 
     <div class="form-row">
@@ -662,11 +578,18 @@
         <label>&nbsp;</label>
         <button id="my-hw-save-btn" class="btn-primary">숙제 등록</button>
       </div>
+
+      <div class="field" style="min-width:120px; display:none;" id="my-hw-cancel-wrap">
+        <label>&nbsp;</label>
+        <button id="my-hw-cancel-btn" class="mini-btn cancel" type="button">수정 취소</button>
+      </div>
     </div>
 
+    <!-- ✅ 3번 문구는 유지 -->
     <div class="hint">
       같은 단계만 여러 개 입력할 수 있어요. 예: 1-1, 1-2, 1-3
     </div>
+
     <div id="my-hw-status" class="status-text"></div>
 
     <div id="my-hw-list-wrapper">
@@ -675,7 +598,7 @@
     </div>
   </div>
 
-  <!-- ✅ 3. 내 온라인 숙제 결과 (설명 문구 삭제) -->
+  <!-- ✅ 3. 내 온라인 숙제 결과 -->
   <div class="section-card">
     <div class="section-header">
       <div class="section-title">📊 내 온라인 숙제 결과</div>
@@ -690,7 +613,8 @@
         <div>제출 시간</div>
       </div>
 
-      <details class="unit-row" open>
+      <!-- ✅ 기본은 접힘: open 제거 -->
+      <details class="unit-row">
         <summary class="unit-result-summary">
           <div>2025-12-26</div>
           <div class="unit-cell-strong">1-1</div>
@@ -792,7 +716,7 @@
     </div>
   </div>
 
-  <!-- ✅ 4. 내 정보 (환영 문구 숨김, 경고만 표시) -->
+  <!-- ✅ 4. 내 정보 -->
   <div class="section-card">
     <div class="section-header">
       <div class="section-title">👤 내 정보</div>
@@ -832,6 +756,9 @@
   const myHwEmptyEl    = document.getElementById("my-hw-empty");
   const myHwListEl     = document.getElementById("my-hw-list");
 
+  const myHwCancelWrap = document.getElementById("my-hw-cancel-wrap");
+  const myHwCancelBtn  = document.getElementById("my-hw-cancel-btn");
+
   const typeVocabBtn    = document.getElementById("type-vocab");
   const typeSentenceBtn = document.getElementById("type-sentence");
 
@@ -841,6 +768,7 @@
   let currentStudent = null;
   let currentClass   = null;
   let currentType    = "vocab"; // 'vocab' | 'sentence'
+  let editingId      = null;    // ✅ 수정 모드일 때 student_homework.id
 
   // ---------- 공통 유틸 ----------
   function formatDate(iso) {
@@ -909,6 +837,45 @@
     };
   }
 
+  function setType(nextType) {
+    currentType = nextType;
+    if (nextType === "vocab") {
+      typeVocabBtn.classList.add("active");
+      typeSentenceBtn.classList.remove("active");
+    } else {
+      typeSentenceBtn.classList.add("active");
+      typeVocabBtn.classList.remove("active");
+    }
+  }
+  typeVocabBtn.onclick = () => setType("vocab");
+  typeSentenceBtn.onclick = () => setType("sentence");
+
+  function enterEditMode(row) {
+    editingId = row.id;
+    setType(row.type === "sentence" ? "sentence" : "vocab");
+    myHwSetEl.value = `${row.level}-${String(row.set_numbers || "").split(",")[0]?.trim()?.split("-")[1] || ""}`.includes("-")
+      ? (row.set_numbers ? row.set_numbers : "")
+      : (row.set_numbers || "");
+    // row.set_numbers는 "1-1, 1-2" 형태라 그대로 사용
+    myHwSetEl.value = row.set_numbers || "";
+    myHwDueEl.value = row.due_date || "";
+
+    myHwSaveBtn.textContent = "수정 저장";
+    myHwCancelWrap.style.display = "block";
+    setMyHwStatus("", "");
+    myHwSetEl.focus();
+  }
+
+  function exitEditMode() {
+    editingId = null;
+    myHwSaveBtn.textContent = "숙제 등록";
+    myHwCancelWrap.style.display = "none";
+    myHwSetEl.value = "";
+    myHwDueEl.value = "";
+    setMyHwStatus("", "");
+  }
+  myHwCancelBtn.onclick = exitEditMode;
+
   // ---------- 학생 정보 / 반 정보 ----------
   async function loadStudentFromLocalStorage() {
     try {
@@ -923,8 +890,6 @@
 
       infoNameEl.textContent = s.name || "-";
       infoIdEl.textContent   = s.login_id || "-";
-
-      // 기본: 안내/환영 문구 숨김
       setInfoMessage("", "");
 
       if (!s.class_id) {
@@ -948,7 +913,6 @@
         currentClass = cls;
         infoClassEl.textContent = cls.name || "-";
         classBadgeEl.textContent = cls.name;
-        // ✅ 환영 문구는 표시 안 함
         setInfoMessage("", "");
       } else {
         currentClass = null;
@@ -963,7 +927,7 @@
     }
   }
 
-  // ---------- 우리 반 숙제 (board_posts + vocab_homework + sentence_homework) ----------
+  // ---------- 우리 반 숙제 ----------
   async function loadClassHomework() {
     if (!currentClass || !currentClass.id) return;
 
@@ -992,7 +956,7 @@
       if (vocabRes.error)   console.error("vocab_homework 오류:", vocabRes.error);
       if (sentenceRes.error) console.error("sentence_homework 오류:", sentenceRes.error);
 
-      const groupsMap = {}; // key = dateKey
+      const groupsMap = {};
       function ensureGroup(dateKey) {
         if (!groupsMap[dateKey]) {
           groupsMap[dateKey] = { dateKey, latestTime: null, posts: [], vocab: [], sentence: [] };
@@ -1132,20 +1096,7 @@
     }
   }
 
-  // ---------- 내가 등록한 온라인 숙제 (student_homework) ----------
-  function setType(nextType) {
-    currentType = nextType;
-    if (nextType === "vocab") {
-      typeVocabBtn.classList.add("active");
-      typeSentenceBtn.classList.remove("active");
-    } else {
-      typeSentenceBtn.classList.add("active");
-      typeVocabBtn.classList.remove("active");
-    }
-  }
-  typeVocabBtn.onclick = () => setType("vocab");
-  typeSentenceBtn.onclick = () => setType("sentence");
-
+  // ---------- 내 온라인 숙제 저장(등록/수정 공용) ----------
   async function saveMyHomework(evt) {
     evt.preventDefault();
 
@@ -1173,39 +1124,89 @@
       return;
     }
 
-    setMyHwStatus("숙제를 저장 중입니다…", "");
+    setMyHwStatus("", "");
     myHwSaveBtn.disabled = true;
 
     try {
-      const { error } = await client
-        .from("student_homework")
-        .insert({
-          student_login_id: currentStudent.login_id,
-          type: currentType,
-          level: parsed.level,
-          set_numbers: parsed.raw,
-          due_date: due
-        });
+      if (editingId) {
+        // ✅ 수정
+        const { error } = await client
+          .from("student_homework")
+          .update({
+            type: currentType,
+            level: parsed.level,
+            set_numbers: parsed.raw,
+            due_date: due
+          })
+          .eq("id", editingId);
 
-      if (error) {
-        console.error("student_homework 저장 오류:", error);
-        setMyHwStatus("숙제를 저장하는 중 오류가 발생했어요.", "error");
-        return;
+        if (error) {
+          console.error("student_homework 수정 오류:", error);
+          setMyHwStatus("숙제를 수정하는 중 오류가 발생했어요.", "error");
+          return;
+        }
+
+        await loadMyHomeworkList();
+        exitEditMode();
+      } else {
+        // ✅ 등록
+        const { error } = await client
+          .from("student_homework")
+          .insert({
+            student_login_id: currentStudent.login_id,
+            type: currentType,
+            level: parsed.level,
+            set_numbers: parsed.raw,
+            due_date: due
+          });
+
+        if (error) {
+          console.error("student_homework 저장 오류:", error);
+          setMyHwStatus("숙제를 저장하는 중 오류가 발생했어요.", "error");
+          return;
+        }
+
+        // ✅ 성공 메시지 제거: 화면 갱신이 곧 성공
+        myHwSetEl.value = "";
+        await loadMyHomeworkList();
       }
-
-      setMyHwStatus("나의 온라인 숙제가 등록되었어요!", "success");
-      myHwSetEl.value = "";
-      await loadMyHomeworkList();
     } catch (e) {
-      console.error("student_homework 저장 예외:", e);
-      setMyHwStatus("숙제를 저장하는 중 오류가 발생했어요.", "error");
+      console.error("student_homework 저장/수정 예외:", e);
+      setMyHwStatus("처리 중 오류가 발생했어요.", "error");
     } finally {
       myHwSaveBtn.disabled = false;
     }
   }
   myHwSaveBtn.onclick = saveMyHomework;
 
-  // ✅ 날짜(파랑) / 숙제(핑크) 통일을 위해: 마감일 기준으로 카드 그룹핑해서 표시
+  async function deleteMyHomework(row) {
+    const ok = confirm("이 숙제를 삭제할까요?");
+    if (!ok) return;
+
+    try {
+      const { error } = await client
+        .from("student_homework")
+        .delete()
+        .eq("id", row.id);
+
+      if (error) {
+        console.error("student_homework 삭제 오류:", error);
+        setMyHwStatus("삭제 중 오류가 발생했어요.", "error");
+        return;
+      }
+
+      // 수정 중이던 항목을 삭제했다면 편집 모드 종료
+      if (editingId === row.id) exitEditMode();
+
+      await loadMyHomeworkList();
+      setMyHwStatus("", "");
+    } catch (e) {
+      console.error("student_homework 삭제 예외:", e);
+      setMyHwStatus("삭제 중 오류가 발생했어요.", "error");
+    }
+  }
+
+  // ---------- 내 온라인 숙제 목록(날짜별 그룹 + 수정/삭제 버튼) ----------
   async function loadMyHomeworkList() {
     if (!currentStudent || !currentStudent.login_id) return;
 
@@ -1219,7 +1220,7 @@
 
       if (error) {
         console.error("student_homework 목록 오류:", error);
-        myHwEmptyEl.textContent = "나의 온라인 숙제를 불러오는 중 오류가 발생했습니다.";
+        myHwEmptyEl.textContent = "내 온라인 숙제를 불러오는 중 오류가 발생했습니다.";
         myHwEmptyEl.style.display = "block";
         myHwListEl.innerHTML = "";
         return;
@@ -1273,10 +1274,31 @@
           main.appendChild(tag);
 
           const txt = document.createElement("span");
+          txt.className = "my-hw-text";
           txt.textContent = `레벨 ${row.level} / 세트: ${row.set_numbers}`;
           main.appendChild(txt);
 
+          const actions = document.createElement("div");
+          actions.className = "row-actions";
+
+          const editBtn = document.createElement("button");
+          editBtn.type = "button";
+          editBtn.className = "mini-btn edit";
+          editBtn.textContent = "수정";
+          editBtn.onclick = () => enterEditMode(row);
+
+          const delBtn = document.createElement("button");
+          delBtn.type = "button";
+          delBtn.className = "mini-btn delete";
+          delBtn.textContent = "삭제";
+          delBtn.onclick = () => deleteMyHomework(row);
+
+          actions.appendChild(editBtn);
+          actions.appendChild(delBtn);
+
           item.appendChild(main);
+          item.appendChild(actions);
+
           card.appendChild(item);
         });
 
@@ -1285,7 +1307,7 @@
 
     } catch (e) {
       console.error("student_homework 목록 예외:", e);
-      myHwEmptyEl.textContent = "나의 온라인 숙제를 불러오는 중 오류가 발생했습니다.";
+      myHwEmptyEl.textContent = "내 온라인 숙제를 불러오는 중 오류가 발생했습니다.";
       myHwEmptyEl.style.display = "block";
       myHwListEl.innerHTML = "";
     }
