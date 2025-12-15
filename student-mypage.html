@@ -5,7 +5,6 @@
   <title>학생 마이페이지 - 블라썸잉글리쉬</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link href="https://cdn.jsdelivr.net/npm/pretendard/dist/web/variable/pretendardvariable.css" rel="stylesheet" />
-
   <style>
     :root {
       --blue: #00AEEF;
@@ -14,7 +13,6 @@
       --bg: #f4f6fb;
       --gray: #6b7280;
     }
-
     * {
       box-sizing: border-box;
       margin: 0;
@@ -22,16 +20,13 @@
       font-family: "Pretendard Variable", -apple-system, BlinkMacSystemFont,
         system-ui, "Apple SD Gothic Neo", "Noto Sans KR", sans-serif;
     }
-
     body { background: var(--bg); padding: 30px 0 60px; }
-
     .page {
       max-width: 1100px;
       margin: 0 auto;
       padding: 0 20px;
       position: relative;
     }
-
     .top-actions {
       position: absolute;
       top: 20px;
@@ -39,7 +34,6 @@
       display: flex;
       gap: 8px;
     }
-
     .pill-btn {
       border-radius: 999px;
       border: none;
@@ -49,14 +43,11 @@
       white-space: nowrap;
       font-weight: 600;
     }
-
     #home-btn { background: var(--mint); color: #ffffff; }
     #logout-btn { background: #e5e7eb; color: #374151; }
     #logout-btn:hover { background: #d1d5db; }
-
     h1.title { font-size: 32px; font-weight: 900; margin-bottom: 4px; }
     .subtitle-main { font-size: 15px; color: #6b7280; margin-bottom: 20px; }
-
     .section-card {
       background: #ffffff;
       border-radius: 24px;
@@ -64,7 +55,6 @@
       box-shadow: 0 15px 32px rgba(15, 23, 42, 0.06);
       margin-bottom: 18px;
     }
-
     .section-header {
       display: flex;
       align-items: center;
@@ -72,7 +62,6 @@
       margin-bottom: 10px;
       gap: 8px;
     }
-
     .section-title {
       font-size: 18px;
       font-weight: 800;
@@ -80,7 +69,6 @@
       align-items: center;
       gap: 6px;
     }
-
     .badge-small {
       display: inline-flex;
       align-items: center;
@@ -91,8 +79,6 @@
       background: #e5e7eb;
       color: #4b5563;
     }
-
-    /* 빈 상태 */
     .class-hw-empty {
       padding: 16px 14px;
       border-radius: 16px;
@@ -101,15 +87,12 @@
       color: #6b7280;
       text-align: center;
     }
-
-    /* 우리 반 숙제 */
     .hw-group-card {
       background: #f9fafb;
       border-radius: 18px;
       padding: 14px 16px;
       margin-bottom: 10px;
     }
-
     .hw-group-header {
       display: flex;
       justify-content: space-between;
@@ -117,15 +100,12 @@
       margin-bottom: 6px;
       gap: 8px;
     }
-
     .hw-group-date {
       font-size: 17px;
       font-weight: 900;
       color: var(--blue);
     }
-
     .hw-group-meta { font-size: 12px; color: #6b7280; }
-
     .chip {
       display: inline-flex;
       align-items: center;
@@ -135,17 +115,13 @@
       font-weight: 700;
       margin-right: 6px;
     }
-
     .chip-class { background: #eef2ff; color: #3730a3; }
     .chip-type { background: #ffe5f3; color: #ff6fb5; }
     .chip-online-vocab { background: #fee2e2; color: #b91c1c; }
     .chip-online-sentence { background: #e0f2fe; color: #0369a1; }
     .chip-warning { background: #fee2e2; color: #b91c1c; }
-
-    /* ✅ 출처 뱃지 */
     .chip-src-teacher { background:#ede9fe; color:#5b21b6; }
     .chip-src-student { background:#ecfeff; color:#155e75; }
-
     .hw-text-line {
       font-size: 14px;
       color: #111827;
@@ -153,8 +129,6 @@
       white-space: pre-wrap;
       margin: 2px 0;
     }
-
-    /* 내 온라인 숙제(등록) */
     .form-row {
       display: flex;
       flex-wrap: wrap;
@@ -162,16 +136,13 @@
       align-items: flex-end;
       margin-bottom: 8px;
     }
-
     .field { min-width: 130px; }
-
     .field label {
       font-size: 12px;
       color: #4b5563;
       margin-bottom: 3px;
       display: block;
     }
-
     .input, .input-date {
       width: 100%;
       padding: 7px 10px;
@@ -181,9 +152,7 @@
       outline: none;
       background: #ffffff;
     }
-
     .input:focus, .input-date:focus { border-color: #2563eb; }
-
     .pill-group {
       display: inline-flex;
       background: #e5e7eb;
@@ -191,7 +160,6 @@
       padding: 3px;
       gap: 3px;
     }
-
     .pill-type-btn {
       border: none;
       border-radius: 999px;
@@ -203,13 +171,11 @@
       white-space: nowrap;
       font-weight: 700;
     }
-
     .pill-type-btn.active {
       background: var(--blue);
       color: #ffffff;
       box-shadow: 0 8px 18px rgba(0, 174, 239, 0.35);
     }
-
     .btn-primary {
       border-radius: 999px;
       border: none;
@@ -221,7 +187,6 @@
       color: #ffffff;
       font-weight: 800;
     }
-
     .btn-soft {
       border-radius: 999px;
       border: none;
@@ -234,12 +199,10 @@
       font-weight: 800;
     }
     .btn-soft:hover { background: #d1d5db; }
-
     .btn-primary[disabled], .btn-soft[disabled] {
       opacity: 0.6;
       cursor: default;
     }
-
     .status-text {
       font-size: 12px;
       color: #6b7280;
@@ -247,17 +210,13 @@
       min-height: 16px;
     }
     .status-text.error { color: #b91c1c; }
-
     .hint { font-size: 12px; color: #9ca3af; margin-bottom: 0; }
-
-    /* 내 온라인 숙제 결과 */
     .unit-result-wrap {
       border-radius: 16px;
       overflow: hidden;
       border: 1px solid #e5e7eb;
       background: #ffffff;
     }
-
     .unit-result-head {
       display: grid;
       grid-template-columns: 1.2fr 0.9fr 0.75fr 0.9fr 0.7fr 1.4fr;
@@ -268,7 +227,6 @@
       font-size: 13px;
       border-bottom: 1px solid #e5e7eb;
     }
-
     .unit-result-head > div,
     .unit-result-summary > div {
       padding: 10px 12px;
@@ -276,17 +234,14 @@
     }
     .unit-result-head > div:last-child,
     .unit-result-summary > div:last-child { border-right: none; }
-
     .unit-row { border-bottom: 1px solid #e5e7eb; }
     .unit-row:last-child { border-bottom: none; }
-
     details.unit-row summary {
       list-style: none;
       cursor: pointer;
       user-select: none;
     }
     details.unit-row summary::-webkit-details-marker { display: none; }
-
     .unit-result-summary {
       display: grid;
       grid-template-columns: 1.2fr 0.9fr 0.75fr 0.9fr 0.7fr 1.4fr;
@@ -296,12 +251,10 @@
       font-weight: 700;
     }
     .unit-result-summary:hover { background: #f9fafb; }
-
     .unit-result-summary > div:nth-child(1) {
       color: var(--blue);
       font-weight: 900;
     }
-
     .status-pill {
       display: inline-flex;
       align-items: center;
@@ -315,9 +268,7 @@
     .status-o { background: #dcfce7; color: #166534; }
     .status-d { background: #fef3c7; color: #92400e; }
     .status-x { background: #fee2e2; color: #991b1b; }
-
     .unit-detail { padding: 10px 12px 12px; background: #ffffff; }
-
     .unit-detail-grid {
       border-radius: 14px;
       background: #f9fafb;
@@ -325,7 +276,6 @@
       display: grid;
       gap: 8px;
     }
-
     .task-row {
       display: grid;
       grid-template-columns: 1fr 80px 160px;
@@ -337,12 +287,11 @@
       border: 1px solid #eef2f7;
       font-size: 13px;
     }
-
     .task-name { font-weight: 800; color: #111827; }
     .task-status { text-align: center; font-weight: 900; }
     .task-time { text-align: right; color: #6b7280; font-size: 12px; }
 
-    /* ✅ 문장 단계 요약 행 */
+    /* 문장 단계 요약 */
     .stage-row {
       display: grid;
       grid-template-columns: 1fr 90px 160px;
@@ -360,12 +309,10 @@
 
     .unit-guide { font-size: 12px; color: #6b7280; margin-top: 8px; line-height: 1.4; }
 
-    /* 내 정보 */
     .info-row { font-size: 14px; color: #111827; line-height: 1.7; }
     .info-row span.label { color: #6b7280; margin-right: 6px; }
     .info-message { display: none; }
 
-    /* 관리 모달 */
     .modal-backdrop {
       position: fixed;
       inset: 0;
@@ -376,7 +323,6 @@
       padding: 20px;
       z-index: 1000;
     }
-
     .modal {
       width: min(820px, 100%);
       background: #fff;
@@ -384,7 +330,6 @@
       box-shadow: 0 24px 60px rgba(0,0,0,0.25);
       overflow: hidden;
     }
-
     .modal-head {
       padding: 16px 18px;
       display: flex;
@@ -394,7 +339,6 @@
       border-bottom: 1px solid #e5e7eb;
       background: #f9fafb;
     }
-
     .modal-title {
       font-size: 16px;
       font-weight: 900;
@@ -403,9 +347,7 @@
       align-items: center;
       gap: 8px;
     }
-
     .modal-body { padding: 14px 16px 16px; }
-
     .modal-empty {
       padding: 16px 14px;
       border-radius: 16px;
@@ -414,38 +356,32 @@
       color: #6b7280;
       text-align: center;
     }
-
     .manage-table {
       width: 100%;
       border-collapse: collapse;
       font-size: 13px;
     }
-
     .manage-table th, .manage-table td {
       padding: 10px 10px;
       border-bottom: 1px solid #e5e7eb;
       text-align: left;
       vertical-align: middle;
     }
-
     .manage-table th {
       background: #f9fafb;
       color: #4b5563;
       font-weight: 800;
     }
-
     .manage-date {
       color: var(--blue);
       font-weight: 900;
       white-space: nowrap;
     }
-
     .manage-actions {
       display: flex;
       gap: 8px;
       justify-content: flex-end;
     }
-
     .btn-mini {
       border: none;
       border-radius: 999px;
@@ -468,14 +404,12 @@
       }
       .page { padding-top: 10px; }
       .section-card { padding: 16px 14px 18px; }
-
       .unit-result-head,
       .unit-result-summary {
         grid-template-columns: 1.1fr 1fr 0.8fr 0.9fr 0.7fr 1.3fr;
       }
       .task-row { grid-template-columns: 1fr 70px 130px; }
       .stage-row { grid-template-columns: 1fr 80px 130px; }
-
       .manage-actions { justify-content: flex-start; flex-wrap: wrap; }
     }
   </style>
@@ -630,18 +564,16 @@
   let currentClass   = null;
   let currentType    = "vocab";
 
-  /* ==========================================================
-     ✅ 문장 단계 정의 (UI 기준)
-     - 단계별 섹션 개수: 2 / 3 / 4 / 5
-     - 아직 저장 방식이 "sentence_stage1" (통합)이어도 표시 가능하도록 호환 처리
-  ========================================================== */
+  /* ==========================
+     문장 단계 정의
+     - 여기 "count"가 UI의 (0/2)(0/3)... 분모가 됨
+  ========================== */
   const SENTENCE_STAGES = [
     { key: "stage1", label: "문장 1단계", count: 2, acceptModes: ["sentence_stage1"] },
     { key: "stage2", label: "문장 2단계", count: 3, acceptModes: ["sentence_stage2"] },
     { key: "stage3", label: "문장 3단계", count: 4, acceptModes: ["sentence_stage3"] },
     { key: "school", label: "학교 시험", count: 5, acceptModes: ["sentence_school"] },
   ];
-  const SENTENCE_TOTAL = SENTENCE_STAGES.reduce((s, x) => s + x.count, 0);
 
   // ---------- 유틸 ----------
   function formatDate(iso) {
@@ -653,7 +585,6 @@
     const day = String(d.getDate()).padStart(2, "0");
     return `${y}-${m}-${day}`;
   }
-
   function formatTime(iso) {
     if (!iso) return "";
     const d = new Date(iso);
@@ -662,9 +593,7 @@
     const mm = String(d.getMinutes()).padStart(2, "0");
     return `${hh}:${mm}`;
   }
-
   function toDateKey(iso) { return formatDate(iso); }
-
   function dateKeyFromTitle(title) {
     if (!title) return "";
     const trimmed = title.trim();
@@ -672,22 +601,17 @@
     if (m) return `${m[1]}-${m[2]}-${m[3]}`;
     return "";
   }
-
   function setMyHwStatus(msg, type) {
     myHwStatusEl.textContent = msg || "";
     myHwStatusEl.className = "status-text" + (type ? " " + type : "");
   }
-
   function parseLevelAndSets(setStr) {
     const parts = setStr.split(",").map(s => s.trim()).filter(Boolean);
     if (!parts.length) return null;
-
     const first = parts[0].split("-");
     if (first.length !== 2) return null;
-
     const baseLevel = Number(first[0]);
     if (!baseLevel) return null;
-
     for (const p of parts) {
       const [lvStr, setNumStr] = p.split("-");
       const lv = Number(lvStr);
@@ -696,7 +620,6 @@
     }
     return { level: baseLevel, raw: parts.join(", ") };
   }
-
   function parseUnitKeysFromSetNumbers(setNumbers) {
     if (!setNumbers) return [];
     return String(setNumbers)
@@ -705,7 +628,6 @@
       .filter(Boolean)
       .map(s => s.replace(/\s+/g, ""));
   }
-
   function scoreTextFromResult(r) {
     if (!r) return "--";
     const total = Number(r.total_count || 0);
@@ -714,11 +636,36 @@
     const score = Math.round((correct / total) * 100);
     return `${score}점`;
   }
-
   function safeLatestBySubmittedAt(arr) {
     const list = (arr || []).filter(x => x && x.submitted_at);
     if (!list.length) return null;
     return list.sort((a,b) => new Date(b.submitted_at) - new Date(a.submitted_at))[0];
+  }
+
+  /* ==========================================================
+     ✅ 핵심 추가: unit_key(예: 1-1, 11-10, 잠신고 3-1)로
+     "딱 1개의 문장 단계"를 결정한다.
+     - 숫자 앞부분(6-1의 6)을 기준으로:
+       1~9: stage1 / 10~18: stage2 / 19~27: stage3
+     - 한글/학교명 포함이면 school
+  ========================================================== */
+  function detectSentenceStageFromUnitKey(unitKey) {
+    const raw = String(unitKey || "").trim();
+
+    // 학교시험(한글 포함 또는 "잠신고"/"잠신중"/"신천중" 같은 케이스)
+    if (/[가-힣]/.test(raw)) return "school";
+
+    // "6-1" => 6, "11-10" => 11
+    const firstToken = raw.split("-")[0];
+    const n = Number(firstToken);
+
+    if (!Number.isFinite(n) || n <= 0) return "stage1";
+    if (n >= 1 && n <= 9) return "stage1";
+    if (n >= 10 && n <= 18) return "stage2";
+    if (n >= 19 && n <= 27) return "stage3";
+
+    // 범위 밖이면 일단 3단계로(원하면 stage1로 바꿔도 됨)
+    return "stage3";
   }
 
   // ---------- 학생 정보 ----------
@@ -821,13 +768,10 @@
         if (!g.latestTime || new Date(baseDate) > new Date(g.latestTime)) g.latestTime = baseDate;
       });
 
-      const groups = Object.values(groupsMap).sort((a, b) => {
-        return new Date(a.dateKey) - new Date(b.dateKey);
-      });
+      const groups = Object.values(groupsMap).sort((a, b) => new Date(a.dateKey) - new Date(b.dateKey));
 
       if (!groups.length) {
-        classHwArea.innerHTML =
-          '<div class="class-hw-empty">아직 우리 반에 등록된 숙제가 없어요.</div>';
+        classHwArea.innerHTML = '<div class="class-hw-empty">아직 우리 반에 등록된 숙제가 없어요.</div>';
         return;
       }
 
@@ -979,44 +923,35 @@
   }
 
   /* ==========================================================
-     ✅ 문장: stage 단위 완료 판정 + UI 데이터 만들기
-     - sentence_results mode가 ["sentence_stage1", ...] 들어오면 해당 단계 완료로 처리
-     - 아직 섹션별 결과가 없어도 UI는 "단계 4줄"로 고정 표시
+     ✅ 수정 핵심: 문장은 "해당되는 단계 1개만" 보여준다.
   ========================================================== */
   function buildSentenceStageView(unitKey, sentenceByUnitByMode) {
+    const stageKey = detectSentenceStageFromUnitKey(unitKey);
+    const st = SENTENCE_STAGES.find(x => x.key === stageKey) || SENTENCE_STAGES[0];
+
     const modeMap = (sentenceByUnitByMode && sentenceByUnitByMode[unitKey]) ? sentenceByUnitByMode[unitKey] : {};
+    const hit = (st.acceptModes || []).find(m => modeMap[m]);
+    const r = hit ? modeMap[hit] : null;
 
-    // 단계별 완료 여부(현재는 통합 모드만 인정)
-    const stages = SENTENCE_STAGES.map(st => {
-      const hit = st.acceptModes.find(m => modeMap[m]);
-      const r = hit ? modeMap[hit] : null;
+    const doneCount = r ? st.count : 0;
+    const totalCount = st.count;
 
-      const doneCount = r ? st.count : 0; // 통합 저장이면 그 단계의 섹션 수만큼 완료로 간주(UI 호환)
-      const totalCount = st.count;
-
-      const status = (doneCount === 0)
-        ? { cls: "status-x", text: "❌" }
-        : (doneCount === totalCount)
-          ? { cls: "status-o", text: "⭕" }
-          : { cls: "status-d", text: "△" };
-
-      const time = r?.submitted_at ? `${formatDate(r.submitted_at)} ${formatTime(r.submitted_at)}` : "--";
-      return { ...st, result: r, doneCount, totalCount, status, time };
-    });
-
-    const doneAll = stages.reduce((s, x) => s + x.doneCount, 0);
-    const overall = (doneAll === 0)
+    const status = (doneCount === 0)
       ? { cls: "status-x", text: "❌" }
-      : (doneAll === SENTENCE_TOTAL)
-        ? { cls: "status-o", text: "⭕" }
-        : { cls: "status-d", text: "△" };
+      : { cls: "status-o", text: "⭕" };
 
-    const latest = safeLatestBySubmittedAt(stages.map(s => s.result).filter(Boolean));
-    const submittedText = latest
-      ? `${scoreTextFromResult(latest)} · ${formatDate(latest.submitted_at)} ${formatTime(latest.submitted_at)}`
+    const time = r?.submitted_at ? `${formatDate(r.submitted_at)} ${formatTime(r.submitted_at)}` : "--";
+
+    const overall = status;
+    const submittedText = r
+      ? `${scoreTextFromResult(r)} · ${formatDate(r.submitted_at)} ${formatTime(r.submitted_at)}`
       : "--";
 
-    return { stages, doneAll, totalAll: SENTENCE_TOTAL, overall, submittedText, latest };
+    return {
+      stage: { ...st, result: r, doneCount, totalCount, status, time },
+      overall,
+      submittedText
+    };
   }
 
   function renderUnifiedResults(items, vocabByUnitByMode, sentenceByUnitByMode) {
@@ -1112,24 +1047,23 @@
         `;
       } else if (item.type === "sentence" && item.unit_key) {
         const view = buildSentenceStageView(item.unit_key, sentenceByUnitByMode);
+        const st = view.stage;
 
         const grid = document.createElement("div");
         grid.className = "unit-detail-grid";
 
-        view.stages.forEach(st => {
-          const row = document.createElement("div");
-          row.className = "stage-row";
-          row.innerHTML = `
-            <div class="stage-name">${st.label} <span class="stage-count">(${st.doneCount}/${st.totalCount})</span></div>
-            <div class="task-status"><span class="status-pill ${st.status.cls}">${st.status.text}</span></div>
-            <div class="task-time">${st.time}</div>
-          `;
-          grid.appendChild(row);
-        });
+        const row = document.createElement("div");
+        row.className = "stage-row";
+        row.innerHTML = `
+          <div class="stage-name">${st.label} <span class="stage-count">(${st.doneCount}/${st.totalCount})</span></div>
+          <div class="task-status"><span class="status-pill ${st.status.cls}">${st.status.text}</span></div>
+          <div class="task-time">${st.time}</div>
+        `;
+        grid.appendChild(row);
 
         const guide = document.createElement("div");
         guide.className = "stage-guide";
-        guide.textContent = "※ 문장은 단계별로 필요한 섹션 수가 다릅니다. (1단계 2개 / 2단계 3개 / 3단계 4개 / 학교시험 5개)";
+        guide.textContent = "※ 이 Unit에 해당하는 문장 단계만 표시됩니다.";
 
         detail.innerHTML = "";
         detail.appendChild(grid);
@@ -1202,12 +1136,8 @@
         return at - bt;
       });
 
-      const vocabUnitKeys = Array.from(new Set(
-        items.filter(x => x.type === "vocab" && x.unit_key).map(x => x.unit_key)
-      ));
-      const sentenceUnitKeys = Array.from(new Set(
-        items.filter(x => x.type === "sentence" && x.unit_key).map(x => x.unit_key)
-      ));
+      const vocabUnitKeys = Array.from(new Set(items.filter(x => x.type === "vocab" && x.unit_key).map(x => x.unit_key)));
+      const sentenceUnitKeys = Array.from(new Set(items.filter(x => x.type === "sentence" && x.unit_key).map(x => x.unit_key)));
 
       let vocabByUnitByMode = {};
       if (vocabUnitKeys.length > 0) {
@@ -1230,7 +1160,7 @@
         });
       }
 
-      // ✅ sentence_results는 "없어도(테이블/권한/데이터)" UI가 깨지지 않도록 안전 처리
+      // sentence_results는 없어도 UI 유지
       let sentenceByUnitByMode = {};
       if (sentenceUnitKeys.length > 0) {
         try {
@@ -1338,8 +1268,10 @@
   function openManageModal() {
     manageBackdrop.style.display = "flex";
     manageBackdrop.setAttribute("aria-hidden", "false");
+    setTimeout(() => manageCloseBtn.focus(), 0);
   }
   function closeManageModal() {
+    try { myHwManageBtn.focus(); } catch(e) {}
     manageBackdrop.style.display = "none";
     manageBackdrop.setAttribute("aria-hidden", "true");
   }
