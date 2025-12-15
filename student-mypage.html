@@ -342,6 +342,22 @@
     .task-status { text-align: center; font-weight: 900; }
     .task-time { text-align: right; color: #6b7280; font-size: 12px; }
 
+    /* ✅ 문장 단계 요약 행 */
+    .stage-row {
+      display: grid;
+      grid-template-columns: 1fr 90px 160px;
+      gap: 8px;
+      align-items: center;
+      padding: 9px 10px;
+      border-radius: 12px;
+      background: #ffffff;
+      border: 1px solid #eef2f7;
+      font-size: 13px;
+    }
+    .stage-name { font-weight: 900; color: #111827; display:flex; gap:8px; align-items:center; }
+    .stage-count { font-size: 12px; color:#6b7280; font-weight:800; }
+    .stage-guide { font-size: 12px; color:#6b7280; margin-top: 6px; line-height: 1.4; }
+
     .unit-guide { font-size: 12px; color: #6b7280; margin-top: 8px; line-height: 1.4; }
 
     /* 내 정보 */
@@ -458,6 +474,7 @@
         grid-template-columns: 1.1fr 1fr 0.8fr 0.9fr 0.7fr 1.3fr;
       }
       .task-row { grid-template-columns: 1fr 70px 130px; }
+      .stage-row { grid-template-columns: 1fr 80px 130px; }
 
       .manage-actions { justify-content: flex-start; flex-wrap: wrap; }
     }
@@ -613,6 +630,19 @@
   let currentClass   = null;
   let currentType    = "vocab";
 
+  /* ==========================================================
+     ✅ 문장 단계 정의 (UI 기준)
+     - 단계별 섹션 개수: 2 / 3 / 4 / 5
+     - 아직 저장 방식이 "sentence_stage1" (통합)이어도 표시 가능하도록 호환 처리
+  ========================================================== */
+  const SENTENCE_STAGES = [
+    { key: "stage1", label: "문장 1단계", count: 2, acceptModes: ["sentence_stage1"] },
+    { key: "stage2", label: "문장 2단계", count: 3, acceptModes: ["sentence_stage2"] },
+    { key: "stage3", label: "문장 3단계", count: 4, acceptModes: ["sentence_stage3"] },
+    { key: "school", label: "학교 시험", count: 5, acceptModes: ["sentence_school"] },
+  ];
+  const SENTENCE_TOTAL = SENTENCE_STAGES.reduce((s, x) => s + x.count, 0);
+
   // ---------- 유틸 ----------
   function formatDate(iso) {
     if (!iso) return "";
@@ -668,14 +698,12 @@
   }
 
   function parseUnitKeysFromSetNumbers(setNumbers) {
-    // "1-1, 1-2, 1-3" -> ["1-1","1-2","1-3"]
-    // "5-1" -> ["5-1"]
     if (!setNumbers) return [];
     return String(setNumbers)
       .split(",")
       .map(s => s.trim())
       .filter(Boolean)
-      .map(s => s.replace(/\s+/g, "")); // 공백 제거
+      .map(s => s.replace(/\s+/g, ""));
   }
 
   function scoreTextFromResult(r) {
@@ -685,6 +713,12 @@
     if (!total) return "--";
     const score = Math.round((correct / total) * 100);
     return `${score}점`;
+  }
+
+  function safeLatestBySubmittedAt(arr) {
+    const list = (arr || []).filter(x => x && x.submitted_at);
+    if (!list.length) return null;
+    return list.sort((a,b) => new Date(b.submitted_at) - new Date(a.submitted_at))[0];
   }
 
   // ---------- 학생 정보 ----------
@@ -787,7 +821,6 @@
         if (!g.latestTime || new Date(baseDate) > new Date(g.latestTime)) g.latestTime = baseDate;
       });
 
-      // ✅ 가장 빠른 날짜가 위
       const groups = Object.values(groupsMap).sort((a, b) => {
         return new Date(a.dateKey) - new Date(b.dateKey);
       });
@@ -896,7 +929,6 @@
 
   // ---------- 결과: 선생님 숙제 + 내 숙제 합치기 ----------
   function normalizeAndExpandHomeworkRows(row, from) {
-    // from: "teacher_vocab" | "teacher_sentence" | "student"
     const isStudent = from === "student";
     const type = isStudent ? row.type : (from === "teacher_sentence" ? "sentence" : "vocab");
 
@@ -927,7 +959,6 @@
   }
 
   function computeOverallStatusFromVocabModes(modeMap) {
-    // modeMap: { meaning?: result, english?: result, listening?: result, sentence?: result }
     const modes = ["meaning", "english", "listening", "sentence"];
     const doneCount = modes.filter(m => modeMap[m]).length;
     if (doneCount === 0) return { cls: "status-x", text: "❌" };
@@ -947,7 +978,48 @@
     };
   }
 
-  function renderUnifiedResults(items, vocabByUnitByMode) {
+  /* ==========================================================
+     ✅ 문장: stage 단위 완료 판정 + UI 데이터 만들기
+     - sentence_results mode가 ["sentence_stage1", ...] 들어오면 해당 단계 완료로 처리
+     - 아직 섹션별 결과가 없어도 UI는 "단계 4줄"로 고정 표시
+  ========================================================== */
+  function buildSentenceStageView(unitKey, sentenceByUnitByMode) {
+    const modeMap = (sentenceByUnitByMode && sentenceByUnitByMode[unitKey]) ? sentenceByUnitByMode[unitKey] : {};
+
+    // 단계별 완료 여부(현재는 통합 모드만 인정)
+    const stages = SENTENCE_STAGES.map(st => {
+      const hit = st.acceptModes.find(m => modeMap[m]);
+      const r = hit ? modeMap[hit] : null;
+
+      const doneCount = r ? st.count : 0; // 통합 저장이면 그 단계의 섹션 수만큼 완료로 간주(UI 호환)
+      const totalCount = st.count;
+
+      const status = (doneCount === 0)
+        ? { cls: "status-x", text: "❌" }
+        : (doneCount === totalCount)
+          ? { cls: "status-o", text: "⭕" }
+          : { cls: "status-d", text: "△" };
+
+      const time = r?.submitted_at ? `${formatDate(r.submitted_at)} ${formatTime(r.submitted_at)}` : "--";
+      return { ...st, result: r, doneCount, totalCount, status, time };
+    });
+
+    const doneAll = stages.reduce((s, x) => s + x.doneCount, 0);
+    const overall = (doneAll === 0)
+      ? { cls: "status-x", text: "❌" }
+      : (doneAll === SENTENCE_TOTAL)
+        ? { cls: "status-o", text: "⭕" }
+        : { cls: "status-d", text: "△" };
+
+    const latest = safeLatestBySubmittedAt(stages.map(s => s.result).filter(Boolean));
+    const submittedText = latest
+      ? `${scoreTextFromResult(latest)} · ${formatDate(latest.submitted_at)} ${formatTime(latest.submitted_at)}`
+      : "--";
+
+    return { stages, doneAll, totalAll: SENTENCE_TOTAL, overall, submittedText, latest };
+  }
+
+  function renderUnifiedResults(items, vocabByUnitByMode, sentenceByUnitByMode) {
     unitResultBody.innerHTML = "";
 
     if (!items || items.length === 0) {
@@ -978,18 +1050,18 @@
         const modeMap = (vocabByUnitByMode && vocabByUnitByMode[item.unit_key]) ? vocabByUnitByMode[item.unit_key] : {};
         overall = computeOverallStatusFromVocabModes(modeMap);
 
-        // 제출시간 칸에는 "점수 · 제출시간" 형태로 표시(가장 최신 제출 기준)
-        const latest = Object.values(modeMap || {}).sort((a,b) => new Date(b.submitted_at) - new Date(a.submitted_at))[0];
+        const latest = safeLatestBySubmittedAt(Object.values(modeMap || {}));
         if (latest) {
-          const scoreTxt = scoreTextFromResult(latest);
-          submittedText = `${scoreTxt} · ${formatDate(latest.submitted_at)} ${formatTime(latest.submitted_at)}`;
+          submittedText = `${scoreTextFromResult(latest)} · ${formatDate(latest.submitted_at)} ${formatTime(latest.submitted_at)}`;
         } else {
           submittedText = "--";
         }
-      } else {
-        // sentence 결과는 아직 테이블 없으니 기본 표시
-        overall = { cls: "status-x", text: "❌" };
-        submittedText = "--";
+      }
+
+      if (item.type === "sentence" && item.unit_key) {
+        const view = buildSentenceStageView(item.unit_key, sentenceByUnitByMode);
+        overall = view.overall;
+        submittedText = view.submittedText;
       }
 
       summary.innerHTML = `
@@ -1038,16 +1110,39 @@
           </div>
           <div class="unit-guide">※ 어휘 4개 모드를 모두 완료하면 Unit 전체가 ⭕로 바뀝니다.</div>
         `;
+      } else if (item.type === "sentence" && item.unit_key) {
+        const view = buildSentenceStageView(item.unit_key, sentenceByUnitByMode);
+
+        const grid = document.createElement("div");
+        grid.className = "unit-detail-grid";
+
+        view.stages.forEach(st => {
+          const row = document.createElement("div");
+          row.className = "stage-row";
+          row.innerHTML = `
+            <div class="stage-name">${st.label} <span class="stage-count">(${st.doneCount}/${st.totalCount})</span></div>
+            <div class="task-status"><span class="status-pill ${st.status.cls}">${st.status.text}</span></div>
+            <div class="task-time">${st.time}</div>
+          `;
+          grid.appendChild(row);
+        });
+
+        const guide = document.createElement("div");
+        guide.className = "stage-guide";
+        guide.textContent = "※ 문장은 단계별로 필요한 섹션 수가 다릅니다. (1단계 2개 / 2단계 3개 / 3단계 4개 / 학교시험 5개)";
+
+        detail.innerHTML = "";
+        detail.appendChild(grid);
+        detail.appendChild(guide);
       } else {
         detail.innerHTML = `
           <div class="unit-detail-grid">
             <div class="task-row">
-              <div class="task-name">문장 결과</div>
+              <div class="task-name">결과</div>
               <div class="task-status" style="color:#991b1b;">❌</div>
               <div class="task-time">--</div>
             </div>
           </div>
-          <div class="unit-guide">※ 문장 학습 결과 테이블(sentence_results)이 준비되면 여기에도 자동 표시됩니다.</div>
         `;
       }
 
@@ -1063,13 +1158,11 @@
     unitResultBody.innerHTML = '<div class="class-hw-empty">결과를 불러오는 중...</div>';
 
     try {
-      // 1) 학생 개인 숙제
       const studentReq = client
         .from("student_homework")
         .select("id, type, level, set_numbers, due_date, created_at")
         .eq("student_login_id", currentStudent.login_id);
 
-      // 2) 선생님 반 숙제
       let teacherVocabReq = null;
       let teacherSentenceReq = null;
 
@@ -1095,13 +1188,11 @@
       if (tvRes.error) throw tvRes.error;
       if (tsRes.error) throw tsRes.error;
 
-      // ✅ 세트가 여러 개인 경우 unit별로 쪼개서 행 생성
       const items = []
         .concat((studentRes.data || []).flatMap(r => normalizeAndExpandHomeworkRows(r, "student")))
         .concat((tvRes.data || []).flatMap(r => normalizeAndExpandHomeworkRows(r, "teacher_vocab")))
         .concat((tsRes.data || []).flatMap(r => normalizeAndExpandHomeworkRows(r, "teacher_sentence")));
 
-      // ✅ 가장 빠른 마감일이 위
       items.sort((a, b) => {
         const ad = a.due_date ? new Date(a.due_date).getTime() : Number.POSITIVE_INFINITY;
         const bd = b.due_date ? new Date(b.due_date).getTime() : Number.POSITIVE_INFINITY;
@@ -1111,15 +1202,15 @@
         return at - bt;
       });
 
-      // ✅ vocab_results 연결 (어휘만)
       const vocabUnitKeys = Array.from(new Set(
         items.filter(x => x.type === "vocab" && x.unit_key).map(x => x.unit_key)
       ));
+      const sentenceUnitKeys = Array.from(new Set(
+        items.filter(x => x.type === "sentence" && x.unit_key).map(x => x.unit_key)
+      ));
 
-      let vocabByUnitByMode = {}; // { "1-1": { english: {...}, meaning: {...} } }
-
+      let vocabByUnitByMode = {};
       if (vocabUnitKeys.length > 0) {
-        // unit_key IN (...) 으로 한번에 가져오고, JS에서 unit+mode별 최신만 남김
         const { data: vr, error: vrErr } = await client
           .from("vocab_results")
           .select("id, student_login_id, unit_key, mode, correct_count, total_count, submitted_at")
@@ -1134,17 +1225,40 @@
           const uk = r.unit_key;
           const md = r.mode || "unknown";
           if (!uk) return;
-
           if (!vocabByUnitByMode[uk]) vocabByUnitByMode[uk] = {};
-
-          // 이미 더 최신이 들어있으면 스킵 (order desc라서 첫번째가 최신)
-          if (!vocabByUnitByMode[uk][md]) {
-            vocabByUnitByMode[uk][md] = r;
-          }
+          if (!vocabByUnitByMode[uk][md]) vocabByUnitByMode[uk][md] = r;
         });
       }
 
-      renderUnifiedResults(items, vocabByUnitByMode);
+      // ✅ sentence_results는 "없어도(테이블/권한/데이터)" UI가 깨지지 않도록 안전 처리
+      let sentenceByUnitByMode = {};
+      if (sentenceUnitKeys.length > 0) {
+        try {
+          const { data: sr, error: srErr } = await client
+            .from("sentence_results")
+            .select("id, student_login_id, unit_key, mode, correct_count, total_count, submitted_at")
+            .eq("student_login_id", currentStudent.login_id)
+            .in("unit_key", sentenceUnitKeys)
+            .order("submitted_at", { ascending: false });
+
+          if (srErr) {
+            console.warn("[mypage] sentence_results 조회 오류(무시하고 UI 계속):", srErr);
+          } else {
+            sentenceByUnitByMode = {};
+            (sr || []).forEach(r => {
+              const uk = r.unit_key;
+              const md = r.mode || "unknown";
+              if (!uk) return;
+              if (!sentenceByUnitByMode[uk]) sentenceByUnitByMode[uk] = {};
+              if (!sentenceByUnitByMode[uk][md]) sentenceByUnitByMode[uk][md] = r;
+            });
+          }
+        } catch (e) {
+          console.warn("[mypage] sentence_results 조회 예외(무시하고 UI 계속):", e);
+        }
+      }
+
+      renderUnifiedResults(items, vocabByUnitByMode, sentenceByUnitByMode);
     } catch (e) {
       console.error("통합 결과 로딩 오류:", e);
       unitResultBody.innerHTML = '<div class="class-hw-empty">결과를 불러오는 중 오류가 발생했어요.</div>';
@@ -1208,7 +1322,6 @@
       myHwDueEl.value = "";
       setMyHwStatus("", "");
 
-      // ✅ 등록 즉시 갱신
       await loadUnifiedHomeworkResults();
       if (currentClass && currentClass.id) await loadClassHomework();
       if (manageBackdrop.style.display === "flex") await loadManageList();
@@ -1375,7 +1488,6 @@
     if (currentClass && currentClass.id) {
       await loadClassHomework();
     }
-    // ✅ 페이지 들어오면 "선생님+학생" 통합 숙제 결과 로드 + vocab_results 연동
     await loadUnifiedHomeworkResults();
   })();
 </script>
