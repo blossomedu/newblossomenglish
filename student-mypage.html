@@ -633,6 +633,62 @@
   // ✅ “수정 모드” 상태
   let editingHomeworkId = null;
 
+  // ✅ (추가) 관리 버튼 이벤트 위임 리스너 1회만
+  let manageClickBound = false;
+  function bindManageClickOnce() {
+    if (manageClickBound) return;
+    manageClickBound = true;
+
+    manageArea.addEventListener("click", async (e) => {
+      const btn = e.target.closest("button[data-act]");
+      if (!btn) return;
+
+      e.preventDefault();
+      e.stopPropagation();
+
+      const act = btn.dataset.act;   // edit | delete
+      const id  = btn.dataset.id;
+
+      if (act === "edit") {
+        const rowJson = btn.dataset.row || "";
+        const row = rowJson ? JSON.parse(rowJson) : null;
+        if (!row) return;
+        fillFormForEdit(row);
+        closeManageModal();
+        return;
+      }
+
+      if (act === "delete") {
+        const ok = confirm("정말 삭제할까요?");
+        if (!ok) return;
+
+        const { error: delErr } = await client
+          .from("student_homework")
+          .delete()
+          .eq("id", id)
+          .eq("student_login_id", currentStudent.login_id);
+
+        if (delErr) {
+          console.error("삭제 오류:", delErr);
+          alert("삭제 중 오류가 발생했어요.");
+          return;
+        }
+
+        if (editingHomeworkId === id) {
+          editingHomeworkId = null;
+          setSaveButtonMode(false);
+          myHwSetEl.value = "";
+          myHwDueEl.value = "";
+        }
+
+        await loadManageList();
+        await loadUnifiedHomeworkResults();
+        if (currentClass && currentClass.id) await loadClassHomework();
+        return;
+      }
+    });
+  }
+
   function setMyHwStatus(msg, type) {
     myHwStatusEl.textContent = msg || "";
     myHwStatusEl.className = "status-text" + (type ? " " + type : "");
@@ -1324,7 +1380,6 @@
 
     try {
       if (editingHomeworkId) {
-        // ✅ 업데이트(진짜 수정)
         const { error } = await client
           .from("student_homework")
           .update({
@@ -1348,7 +1403,6 @@
         myHwDueEl.value = "";
         setMyHwStatus("✅ 수정 완료!", "");
       } else {
-        // ✅ 신규 등록
         const { error } = await client
           .from("student_homework")
           .insert({
@@ -1402,7 +1456,6 @@
   });
 
   function fillFormForEdit(row) {
-    // ✅ 수정 모드로 전환
     editingHomeworkId = row.id;
     myHwSetEl.value = row.set_numbers || "";
     myHwDueEl.value = row.due_date || "";
@@ -1474,52 +1527,21 @@
       const actWrap = document.createElement("div");
       actWrap.className = "manage-actions";
 
+      // ✅ (변경) onclick 제거 + data-act/data-id/data-row만 세팅
       const editBtn = document.createElement("button");
       editBtn.type = "button";
       editBtn.className = "btn-mini btn-edit";
       editBtn.textContent = "수정";
-      editBtn.onclick = (ev) => {
-        ev.preventDefault();
-        ev.stopPropagation();
-        fillFormForEdit(row);
-        closeManageModal();
-      };
+      editBtn.dataset.act = "edit";
+      editBtn.dataset.id = String(row.id);
+      editBtn.dataset.row = JSON.stringify(row);
 
       const delBtn = document.createElement("button");
       delBtn.type = "button";
       delBtn.className = "btn-mini btn-del";
       delBtn.textContent = "삭제";
-      delBtn.onclick = async (ev) => {
-        ev.preventDefault();
-        ev.stopPropagation();
-
-        const ok = confirm("정말 삭제할까요?");
-        if (!ok) return;
-
-        const { error: delErr } = await client
-          .from("student_homework")
-          .delete()
-          .eq("id", row.id)
-          .eq("student_login_id", currentStudent.login_id);
-
-        if (delErr) {
-          console.error("삭제 오류:", delErr);
-          alert("삭제 중 오류가 발생했어요.");
-          return;
-        }
-
-        // 수정 중이던 항목을 삭제했다면 수정모드 해제
-        if (editingHomeworkId === row.id) {
-          editingHomeworkId = null;
-          setSaveButtonMode(false);
-          myHwSetEl.value = "";
-          myHwDueEl.value = "";
-        }
-
-        await loadManageList();
-        await loadUnifiedHomeworkResults();
-        if (currentClass && currentClass.id) await loadClassHomework();
-      };
+      delBtn.dataset.act = "delete";
+      delBtn.dataset.id = String(row.id);
 
       actWrap.appendChild(editBtn);
       actWrap.appendChild(delBtn);
@@ -1538,6 +1560,7 @@
       alert("학생 로그인이 필요합니다.");
       return;
     }
+    bindManageClickOnce();   // ✅ (추가)
     openManageModal();
     await loadManageList();
   };
