@@ -111,8 +111,6 @@
       margin: 0 4px;
     }
 
-    /* ===== 빈칸 완성 4지선다 레이아웃 ===== */
-
     .blank-choice-area {
       min-height: 140px;
       background: #eef4ff;
@@ -164,7 +162,6 @@
       color: #b91c1c;
     }
 
-    /* ------ 문장 배열 ------ */
     .answer-row {
       min-height: 80px;
       background: #eef4ff;
@@ -272,7 +269,6 @@
         font-size: 21px;
       }
 
-      /* 모바일: 보기 한 줄에 하나씩 */
       .choices-grid {
         grid-template-columns: 1fr;
       }
@@ -285,7 +281,6 @@
         font-size: 18px;
       }
 
-      /* 문장 배열: 모바일에서 슬롯 3개 + 글자 살짝 작게 */
       .answer-row {
         padding: 16px 16px;
         gap: 10px;
@@ -354,7 +349,7 @@ const SENTENCE_DB  = window.SENTENCE_DB || {};
 const allQuestions = SENTENCE_DB[unitKey] || [];
 
 /* 유형별 저장 */
-const questionsByType = {
+let questionsByType = {
   blank: [],
   order: [],
 };
@@ -365,6 +360,84 @@ allQuestions.forEach(q => {
     questionsByType[q.type].push(q);
   }
 });
+
+/* ✅ 원래 문제 수(재출제 제외) 고정 */
+const baseTotalByType = {
+  blank: questionsByType.blank.length,
+  order: questionsByType.order.length,
+};
+
+/* ✅ 스테이지(1단계) 전체 채점/저장 상태 */
+const requiredTypes = Object.keys(baseTotalByType).filter(t => baseTotalByType[t] > 0);
+const stageDone = {};
+const stageMistake = {};
+requiredTypes.forEach(t => { stageDone[t] = false; stageMistake[t] = false; });
+let stageSaved = false;
+
+/* ✅ 학생 로그인 id */
+function getStudentLoginId() {
+  try {
+    const raw = localStorage.getItem("blossom_student");
+    if (!raw) return null;
+    const obj = JSON.parse(raw);
+    return obj?.login_id || null;
+  } catch (e) {
+    return null;
+  }
+}
+
+/* ✅ Supabase client (어휘에서 쓰던 window.client 기준) */
+function getClient() {
+  return window.client || null;
+}
+
+/* ✅ 100점 완료 시 저장 (스테이지당 1회) */
+async function trySaveStageResultIfPerfect() {
+  if (stageSaved) return;
+  if (!requiredTypes.length) return;
+
+  const allDone = requiredTypes.every(t => stageDone[t]);
+  if (!allDone) return;
+
+  const hasMistake = requiredTypes.some(t => stageMistake[t]);
+  if (hasMistake) return; // 100점 아니면 저장 안 함 (어휘와 동일 정책)
+
+  const student_login_id = getStudentLoginId();
+  if (!student_login_id) {
+    console.warn("[sentence] 로그인 정보 없음: blossom_student.login_id");
+    return;
+  }
+
+  const client = getClient();
+  if (!client) {
+    console.warn("[sentence] Supabase client(window.client) 없음");
+    return;
+  }
+
+  const total_count = requiredTypes.reduce((sum, t) => sum + (baseTotalByType[t] || 0), 0);
+  const correct_count = total_count;
+
+  const payload = {
+    student_login_id,
+    unit_key: unitKey,
+    mode: "sentence_stage1",
+    correct_count,
+    total_count,
+    submitted_at: new Date().toISOString(),
+  };
+
+  try {
+    const { error } = await client.from("sentence_results").insert(payload);
+    if (error) {
+      console.error("[sentence] 저장 실패:", error);
+      return;
+    }
+    stageSaved = true;
+    console.log("[sentence] 저장 완료:", payload);
+  } catch (e) {
+    console.error("[sentence] 저장 중 예외:", e);
+  }
+}
 
 /* 현재 모드 / 인덱스 */
 let currentMode = "blank";
@@ -436,6 +509,13 @@ function enqueueRetryQuestion(type, q) {
   questionsByType[type].push(q);
 }
 
+/* ✅ 모드(유형) 완료 처리 */
+function markTypeDone(type) {
+  if (!requiredTypes.includes(type)) return;
+  stageDone[type] = true;
+  trySaveStageResultIfPerfect();
+}
+
 /* 다음 문제 */
 function goNext() {
   const list = questionsByType[currentMode];
@@ -455,6 +535,9 @@ function goNext() {
     done.textContent = "이 유형의 문제를 모두 풀었습니다. 😊";
     centerArea.appendChild(done);
     setProgress(total, total);
+
+    // ✅ 이 타입 완료 체크
+    markTypeDone(currentMode);
   } else {
     renderCurrent();
   }
@@ -519,6 +602,9 @@ function renderBlankQuestion(q, idx, total) {
         expDiv.textContent = q.explanation || "정답입니다!";
         setTimer(goNext, 1000);
       } else {
+        // ✅ 100점 깨짐
+        stageMistake.blank = true;
+
         btn.classList.add("wrong");
         hintDiv.textContent = "힌트: 다시 생각해 보세요.";
         enqueueRetryQuestion("blank", q);
@@ -530,6 +616,9 @@ function renderBlankQuestion(q, idx, total) {
   setTimer(() => {
     if (answered) return;
     answered = true;
+
+    // ✅ 100점 깨짐(시간초과)
+    stageMistake.blank = true;
 
     [...grid.children].forEach((b, idxBtn) => {
       if (idxBtn === correctIndex) b.classList.add("correct");
@@ -636,6 +725,9 @@ function renderOrderQuestion(q, idx, total) {
             setTimer(goNext, 1000);
           }
         } else {
+          // ✅ 100점 깨짐
+          stageMistake.order = true;
+
           const originalBg     = chip.style.background;
           const originalBorder = chip.style.borderColor;
 
@@ -664,6 +756,9 @@ function renderOrderQuestion(q, idx, total) {
   setTimer(() => {
     if (finished) return;
     finished = true;
+
+    // ✅ 100점 깨짐(시간초과)
+    stageMistake.order = true;
 
     correctWords.forEach((w, idxWord) => {
       const slot = slots[idxWord];
@@ -736,14 +831,28 @@ modeTabs.forEach(tab => {
 
 homeBtn.onclick = () => {
   clearTimers();
-  // 홈 경로는 상황에 맞게 수정 가능
   window.location.href = "index.html";
 };
 
 modeResetBtn.onclick = () => {
   clearTimers();
+
+  // ✅ 상태 초기화
+  stageSaved = false;
+  requiredTypes.forEach(t => { stageDone[t] = false; stageMistake[t] = false; });
+
+  // ✅ 문제/인덱스 초기화
   Object.keys(modeIndex).forEach(k => (modeIndex[k] = 0));
   Object.keys(wrongQuestions).forEach(k => (wrongQuestions[k] = []));
+
+  // ✅ questionsByType를 "원본 allQuestions 기준으로 재구성" (재출제 섞임 제거)
+  questionsByType = { blank: [], order: [] };
+  allQuestions.forEach(q => {
+    if (!q || !q.type) return;
+    if (questionsByType[q.type]) questionsByType[q.type].push(q);
+  });
+
+  // ✅ 셔플 마킹 초기화 후 셔플
   Object.keys(questionsByType).forEach(type => {
     const list = questionsByType[type];
     if (list && list.length) {
@@ -751,6 +860,7 @@ modeResetBtn.onclick = () => {
       questionsByType[type]._shuffled = true;
     }
   });
+
   renderCurrent();
 };
 
