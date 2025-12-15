@@ -92,7 +92,6 @@
       color: #4b5563;
     }
 
-    /* 빈 상태 */
     .class-hw-empty {
       padding: 16px 14px;
       border-radius: 16px;
@@ -102,7 +101,6 @@
       text-align: center;
     }
 
-    /* 우리 반 숙제 */
     .hw-group-card {
       background: #f9fafb;
       border-radius: 18px;
@@ -142,7 +140,6 @@
     .chip-online-sentence { background: #e0f2fe; color: #0369a1; }
     .chip-warning { background: #fee2e2; color: #b91c1c; }
 
-    /* ✅ 출처 뱃지 */
     .chip-src-teacher { background:#ede9fe; color:#5b21b6; }
     .chip-src-student { background:#ecfeff; color:#155e75; }
 
@@ -154,7 +151,6 @@
       margin: 2px 0;
     }
 
-    /* 내 온라인 숙제(등록) */
     .form-row {
       display: flex;
       flex-wrap: wrap;
@@ -250,7 +246,6 @@
 
     .hint { font-size: 12px; color: #9ca3af; margin-bottom: 0; }
 
-    /* 내 온라인 숙제 결과 */
     .unit-result-wrap {
       border-radius: 16px;
       overflow: hidden;
@@ -342,30 +337,12 @@
     .task-status { text-align: center; font-weight: 900; }
     .task-time { text-align: right; color: #6b7280; font-size: 12px; }
 
-    /* ✅ 문장 단계 요약 행 */
-    .stage-row {
-      display: grid;
-      grid-template-columns: 1fr 90px 160px;
-      gap: 8px;
-      align-items: center;
-      padding: 9px 10px;
-      border-radius: 12px;
-      background: #ffffff;
-      border: 1px solid #eef2f7;
-      font-size: 13px;
-    }
-    .stage-name { font-weight: 900; color: #111827; display:flex; gap:8px; align-items:center; }
-    .stage-count { font-size: 12px; color:#6b7280; font-weight:800; }
-    .stage-guide { font-size: 12px; color:#6b7280; margin-top: 6px; line-height: 1.4; }
-
     .unit-guide { font-size: 12px; color: #6b7280; margin-top: 8px; line-height: 1.4; }
 
-    /* 내 정보 */
     .info-row { font-size: 14px; color: #111827; line-height: 1.7; }
     .info-row span.label { color: #6b7280; margin-right: 6px; }
     .info-message { display: none; }
 
-    /* 관리 모달 */
     .modal-backdrop {
       position: fixed;
       inset: 0;
@@ -474,7 +451,6 @@
         grid-template-columns: 1.1fr 1fr 0.8fr 0.9fr 0.7fr 1.3fr;
       }
       .task-row { grid-template-columns: 1fr 70px 130px; }
-      .stage-row { grid-template-columns: 1fr 80px 130px; }
 
       .manage-actions { justify-content: flex-start; flex-wrap: wrap; }
     }
@@ -493,7 +469,6 @@
     오늘 숙제와 온라인 학습 결과를 한 곳에서 확인해 보세요.
   </div>
 
-  <!-- 1. 우리 반 숙제 -->
   <div class="section-card">
     <div class="section-header">
       <div class="section-title">
@@ -504,7 +479,6 @@
     <div id="class-hw-area"></div>
   </div>
 
-  <!-- 2. 내 온라인 숙제 -->
   <div class="section-card">
     <div class="section-header">
       <div class="section-title">✍️ 내 온라인 숙제</div>
@@ -546,7 +520,6 @@
     <div id="my-hw-status" class="status-text"></div>
   </div>
 
-  <!-- 3. 내 온라인 숙제 결과 -->
   <div class="section-card">
     <div class="section-header">
       <div class="section-title">📊 내 온라인 숙제 결과</div>
@@ -565,7 +538,6 @@
     </div>
   </div>
 
-  <!-- 4. 내 정보 -->
   <div class="section-card">
     <div class="section-header">
       <div class="section-title">👤 내 정보</div>
@@ -579,7 +551,6 @@
   </div>
 </div>
 
-<!-- 관리 모달 -->
 <div id="manage-backdrop" class="modal-backdrop" aria-hidden="true">
   <div class="modal" role="dialog" aria-modal="true" aria-labelledby="manage-title">
     <div class="modal-head">
@@ -600,7 +571,6 @@
 
   const client = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
-  // DOM
   const infoNameEl   = document.getElementById("info-name");
   const infoClassEl  = document.getElementById("info-class");
   const infoIdEl     = document.getElementById("info-id");
@@ -621,7 +591,6 @@
 
   const unitResultBody = document.getElementById("unit-result-body");
 
-  // modal
   const manageBackdrop = document.getElementById("manage-backdrop");
   const manageCloseBtn = document.getElementById("manage-close");
   const manageArea     = document.getElementById("manage-area");
@@ -630,64 +599,7 @@
   let currentClass   = null;
   let currentType    = "vocab";
 
-  // ✅ “수정 모드” 상태
   let editingHomeworkId = null;
-
-  // ✅ (추가) 관리 버튼 이벤트 위임 리스너 1회만
-  let manageClickBound = false;
-  function bindManageClickOnce() {
-    if (manageClickBound) return;
-    manageClickBound = true;
-
-    manageArea.addEventListener("click", async (e) => {
-      const btn = e.target.closest("button[data-act]");
-      if (!btn) return;
-
-      e.preventDefault();
-      e.stopPropagation();
-
-      const act = btn.dataset.act;   // edit | delete
-      const id  = btn.dataset.id;
-
-      if (act === "edit") {
-        const rowJson = btn.dataset.row || "";
-        const row = rowJson ? JSON.parse(rowJson) : null;
-        if (!row) return;
-        fillFormForEdit(row);
-        closeManageModal();
-        return;
-      }
-
-      if (act === "delete") {
-        const ok = confirm("정말 삭제할까요?");
-        if (!ok) return;
-
-        const { error: delErr } = await client
-          .from("student_homework")
-          .delete()
-          .eq("id", id)
-          .eq("student_login_id", currentStudent.login_id);
-
-        if (delErr) {
-          console.error("삭제 오류:", delErr);
-          alert("삭제 중 오류가 발생했어요.");
-          return;
-        }
-
-        if (editingHomeworkId === id) {
-          editingHomeworkId = null;
-          setSaveButtonMode(false);
-          myHwSetEl.value = "";
-          myHwDueEl.value = "";
-        }
-
-        await loadManageList();
-        await loadUnifiedHomeworkResults();
-        if (currentClass && currentClass.id) await loadClassHomework();
-        return;
-      }
-    });
-  }
 
   function setMyHwStatus(msg, type) {
     myHwStatusEl.textContent = msg || "";
@@ -738,7 +650,7 @@
       .split(",")
       .map(s => s.trim())
       .filter(Boolean)
-      .map(s => s.replace(/\s+/g, "")); // 공백 제거 통일
+      .map(s => s.replace(/\s+/g, ""));
   }
 
   function safeLatestBySubmittedAt(arr) {
@@ -756,15 +668,13 @@
     return `${score}점`;
   }
 
-  // ✅ 문장 입력 검증(학교시험 포함)
   function isValidSentenceUnitKey(text) {
     const t = String(text || "").trim();
-    if (/^\d+\s*-\s*\d+$/.test(t)) return true;                         // 1-1
-    if (/^(잠신중|잠신고)\s*\d+\s*-\s*\d+$/.test(t)) return true;        // 잠신중 1-1
+    if (/^\d+\s*-\s*\d+$/.test(t)) return true;
+    if (/^(잠신중|잠신고)\s*\d+\s*-\s*\d+$/.test(t)) return true;
     return false;
   }
 
-  // ✅ 저장용 파서(어휘/문장 분기)
   function parseSetsForSave(setStr, type) {
     const parts = String(setStr || "").split(",").map(s => s.trim()).filter(Boolean);
     if (!parts.length) return null;
@@ -785,21 +695,18 @@
       return { level: baseLevel, raw: parts.join(", ") };
     }
 
-    // sentence
     for (const p of parts) {
       if (!isValidSentenceUnitKey(p)) return null;
     }
 
-    // level은 int 컬럼 보호용(학교시험 대비)
     let level = 0;
     const m = parts[0].match(/^(\d+)\s*-\s*\d+$/);
     if (m) level = Number(m[1]) || 0;
 
-    const normalized = parts.map(p => p.replace(/\s+/g, "")); // 잠신중 1-1 -> 잠신중1-1
+    const normalized = parts.map(p => p.replace(/\s+/g, ""));
     return { level, raw: normalized.join(", ") };
   }
 
-  // ---------- 학생 정보 ----------
   async function loadStudentFromLocalStorage() {
     const stored = localStorage.getItem("blossom_student");
     if (!stored) {
@@ -840,7 +747,6 @@
     }
   }
 
-  // ---------- 타입 토글 ----------
   function setType(nextType) {
     currentType = nextType;
     if (nextType === "vocab") {
@@ -854,7 +760,6 @@
   typeVocabBtn.onclick = () => setType("vocab");
   typeSentenceBtn.onclick = () => setType("sentence");
 
-  // ---------- 우리 반 숙제 ----------
   async function loadClassHomework() {
     if (!currentClass || !currentClass.id) return;
 
@@ -1019,7 +924,6 @@
     }
   }
 
-  // ---------- 결과: 선생님 숙제 + 내 숙제 합치기 ----------
   function normalizeAndExpandHomeworkRows(row, from) {
     const isStudent = from === "student";
     const type = isStudent ? row.type : (from === "teacher_sentence" ? "sentence" : "vocab");
@@ -1070,47 +974,49 @@
     };
   }
 
-  const SENTENCE_STAGES = [
-    { key: "stage1", label: "문장 1단계", count: 2, acceptModes: ["sentence_stage1"] },
-    { key: "stage2", label: "문장 2단계", count: 3, acceptModes: ["sentence_stage2"] },
-    { key: "stage3", label: "문장 3단계", count: 4, acceptModes: ["sentence_stage3"] },
-    { key: "school", label: "학교 시험", count: 5, acceptModes: ["sentence_school"] },
+  // ✅ 문장 상세는 "어휘처럼" (고정 2개/또는 학교시험 5개)
+  const SENTENCE_TASKS_NORMAL = [
+    { mode: "blank",   label: "빈칸 완성" },
+    { mode: "arrange", label: "문장 배열" }
   ];
-  const SENTENCE_TOTAL = SENTENCE_STAGES.reduce((s, x) => s + x.count, 0);
+  const SENTENCE_TASKS_SCHOOL = [
+    { mode: "school1", label: "학교 시험 1" },
+    { mode: "school2", label: "학교 시험 2" },
+    { mode: "school3", label: "학교 시험 3" },
+    { mode: "school4", label: "학교 시험 4" },
+    { mode: "school5", label: "학교 시험 5" }
+  ];
 
-  function buildSentenceStageView(unitKey, sentenceByUnitByMode) {
+  function isSchoolUnitKey(unitKey) {
+    const t = String(unitKey || "");
+    return /^(잠신중|잠신고)\d+-\d+$/.test(t);
+  }
+
+  function buildSentenceTaskView(unitKey, sentenceByUnitByMode) {
     const modeMap = (sentenceByUnitByMode && sentenceByUnitByMode[unitKey]) ? sentenceByUnitByMode[unitKey] : {};
+    const tasks = isSchoolUnitKey(unitKey) ? SENTENCE_TASKS_SCHOOL : SENTENCE_TASKS_NORMAL;
 
-    const stages = SENTENCE_STAGES.map(st => {
-      const hit = st.acceptModes.find(m => modeMap && modeMap[m]);
-      const r = hit ? modeMap[hit] : null;
-
-      const doneCount = r ? st.count : 0;
-      const totalCount = st.count;
-
-      const status = (doneCount === 0)
-        ? { cls: "status-x", text: "❌" }
-        : (doneCount === totalCount)
-          ? { cls: "status-o", text: "⭕" }
-          : { cls: "status-d", text: "△" };
-
-      const time = r?.submitted_at ? `${formatDate(r.submitted_at)} ${formatTime(r.submitted_at)}` : "--";
-      return { ...st, result: r, doneCount, totalCount, status, time };
+    const rows = tasks.map(t => {
+      const r = modeMap ? modeMap[t.mode] : null;
+      const cell = taskCell(r);
+      return { ...t, result: r, cell };
     });
 
-    const doneAll = stages.reduce((s, x) => s + x.doneCount, 0);
-    const overall = (doneAll === 0)
+    const doneCount = rows.filter(x => x.result).length;
+    const totalCount = rows.length;
+
+    const overall = (doneCount === 0)
       ? { cls: "status-x", text: "❌" }
-      : (doneAll === SENTENCE_TOTAL)
+      : (doneCount === totalCount)
         ? { cls: "status-o", text: "⭕" }
         : { cls: "status-d", text: "△" };
 
-    const latest = safeLatestBySubmittedAt(stages.map(s => s.result).filter(Boolean));
+    const latest = safeLatestBySubmittedAt(rows.map(r => r.result).filter(Boolean));
     const submittedText = latest
       ? `${scoreTextFromResult(latest)} · ${formatDate(latest.submitted_at)} ${formatTime(latest.submitted_at)}`
       : "--";
 
-    return { stages, overall, submittedText };
+    return { rows, overall, submittedText };
   }
 
   function renderUnifiedResults(items, vocabByUnitByMode, sentenceByUnitByMode) {
@@ -1149,7 +1055,7 @@
       }
 
       if (item.type === "sentence" && item.unit_key) {
-        const view = buildSentenceStageView(item.unit_key, sentenceByUnitByMode);
+        const view = buildSentenceTaskView(item.unit_key, sentenceByUnitByMode);
         overall = view.overall;
         submittedText = view.submittedText;
       }
@@ -1201,29 +1107,24 @@
           <div class="unit-guide">※ 어휘 4개 모드를 모두 완료하면 Unit 전체가 ⭕로 바뀝니다.</div>
         `;
       } else if (item.type === "sentence" && item.unit_key) {
-        const view = buildSentenceStageView(item.unit_key, sentenceByUnitByMode);
+        const view = buildSentenceTaskView(item.unit_key, sentenceByUnitByMode);
 
         const grid = document.createElement("div");
         grid.className = "unit-detail-grid";
 
-        view.stages.forEach(st => {
+        view.rows.forEach(r => {
           const row = document.createElement("div");
-          row.className = "stage-row";
+          row.className = "task-row";
           row.innerHTML = `
-            <div class="stage-name">${st.label} <span class="stage-count">(${st.doneCount}/${st.totalCount})</span></div>
-            <div class="task-status"><span class="status-pill ${st.status.cls}">${st.status.text}</span></div>
-            <div class="task-time">${st.time}</div>
+            <div class="task-name">${r.label}</div>
+            <div class="task-status" style="color:${r.cell.color};">${r.cell.mark}</div>
+            <div class="task-time">${r.cell.time}</div>
           `;
           grid.appendChild(row);
         });
 
-        const guide = document.createElement("div");
-        guide.className = "stage-guide";
-        guide.textContent = "※ 문장은 단계별로 필요한 섹션 수가 다릅니다. (1단계 2개 / 2단계 3개 / 3단계 4개 / 학교시험 5개)";
-
         detail.innerHTML = "";
         detail.appendChild(grid);
-        detail.appendChild(guide);
       } else {
         detail.innerHTML = `
           <div class="unit-detail-grid">
@@ -1326,9 +1227,7 @@
             .in("unit_key", sentenceUnitKeys)
             .order("submitted_at", { ascending: false });
 
-          if (srErr) {
-            console.warn("[mypage] sentence_results 조회 오류(무시):", srErr);
-          } else {
+          if (!srErr) {
             sentenceByUnitByMode = {};
             (sr || []).forEach(r => {
               const uk = r.unit_key;
@@ -1338,9 +1237,7 @@
               if (!sentenceByUnitByMode[uk][md]) sentenceByUnitByMode[uk][md] = r;
             });
           }
-        } catch (e) {
-          console.warn("[mypage] sentence_results 조회 예외(무시):", e);
-        }
+        } catch (e) {}
       }
 
       renderUnifiedResults(items, vocabByUnitByMode, sentenceByUnitByMode);
@@ -1351,7 +1248,6 @@
     }
   }
 
-  // ---------- 등록/수정 저장 ----------
   async function saveMyHomework() {
     if (!currentStudent || !currentStudent.login_id) {
       setMyHwStatus("학생 정보를 찾을 수 없어요. 다시 로그인해 주세요.", "error");
@@ -1437,7 +1333,6 @@
   }
   myHwSaveBtn.onclick = saveMyHomework;
 
-  // ---------- 관리 모달 ----------
   function openManageModal() {
     manageBackdrop.style.display = "flex";
     manageBackdrop.setAttribute("aria-hidden", "false");
@@ -1456,11 +1351,63 @@
   });
 
   function fillFormForEdit(row) {
-    editingHomeworkId = row.id;
+    editingHomeworkId = String(row.id);
     myHwSetEl.value = row.set_numbers || "";
     myHwDueEl.value = row.due_date || "";
     setType(row.type === "sentence" ? "sentence" : "vocab");
     setSaveButtonMode(true);
+  }
+
+  // ✅ 수정/삭제: document 위임으로 100% 클릭 잡기
+  function bindManageButtons() {
+    document.addEventListener("click", async (e) => {
+      const btn = e.target.closest("button.btn-mini[data-act]");
+      if (!btn) return;
+      if (!manageBackdrop || manageBackdrop.style.display !== "flex") return;
+
+      e.preventDefault();
+      e.stopPropagation();
+
+      const act = btn.dataset.act;
+      const rowJson = btn.dataset.row || "";
+      const id = String(btn.dataset.id || "");
+
+      if (act === "edit") {
+        const row = rowJson ? JSON.parse(rowJson) : null;
+        if (!row) return;
+        fillFormForEdit(row);
+        closeManageModal();
+        return;
+      }
+
+      if (act === "delete") {
+        const ok = confirm("정말 삭제할까요?");
+        if (!ok) return;
+
+        const { error: delErr } = await client
+          .from("student_homework")
+          .delete()
+          .eq("id", id)
+          .eq("student_login_id", currentStudent.login_id);
+
+        if (delErr) {
+          console.error("삭제 오류:", delErr);
+          alert("삭제 중 오류가 발생했어요.");
+          return;
+        }
+
+        if (editingHomeworkId === id) {
+          editingHomeworkId = null;
+          setSaveButtonMode(false);
+          myHwSetEl.value = "";
+          myHwDueEl.value = "";
+        }
+
+        await loadManageList();
+        await loadUnifiedHomeworkResults();
+        if (currentClass && currentClass.id) await loadClassHomework();
+      }
+    }, true);
   }
 
   async function loadManageList() {
@@ -1527,7 +1474,6 @@
       const actWrap = document.createElement("div");
       actWrap.className = "manage-actions";
 
-      // ✅ (변경) onclick 제거 + data-act/data-id/data-row만 세팅
       const editBtn = document.createElement("button");
       editBtn.type = "button";
       editBtn.className = "btn-mini btn-edit";
@@ -1560,20 +1506,18 @@
       alert("학생 로그인이 필요합니다.");
       return;
     }
-    bindManageClickOnce();   // ✅ (추가)
     openManageModal();
     await loadManageList();
   };
 
-  // ---------- 로그아웃 / 홈 ----------
   logoutBtn.onclick = () => {
     localStorage.removeItem("blossom_student");
     window.location.href = "index.html";
   };
   homeBtn.onclick = () => { window.location.href = "index.html"; };
 
-  // ---------- 초기 실행 ----------
   (async function init() {
+    bindManageButtons();
     await loadStudentFromLocalStorage();
     if (currentClass && currentClass.id) {
       await loadClassHomework();
