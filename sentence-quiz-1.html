@@ -246,47 +246,21 @@
       text-align: center;
     }
 
-    .pill-home {
-      background: #9AD7A0;
-      color: #ffffff;
-    }
-
-    .pill-reset {
-      background: #00AEEF;
-      color: #ffffff;
-    }
-
-    .pill-back {
-      background: #FF6FB5;
-      color: #ffffff;
-    }
+    .pill-home { background: #9AD7A0; color: #ffffff; }
+    .pill-reset { background: #00AEEF; color: #ffffff; }
+    .pill-back { background: #FF6FB5; color: #ffffff; }
 
     @media (max-width: 600px) {
-      .card {
-        padding: 24px 18px 20px;
-      }
-      .sentence-en {
-        font-size: 21px;
-      }
-
-      .choices-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .choice-btn {
-        font-size: 16px;
-        min-height: 48px;
-      }
-      .word-chip {
-        font-size: 18px;
-      }
-
+      .card { padding: 24px 18px 20px; }
+      .sentence-en { font-size: 21px; }
+      .choices-grid { grid-template-columns: 1fr; }
+      .choice-btn { font-size: 16px; min-height: 48px; }
+      .word-chip { font-size: 18px; }
       .answer-row {
         padding: 16px 16px;
         gap: 10px;
         justify-content: flex-start;
       }
-
       .answer-row > div {
         flex: 0 0 calc((100% - 20px) / 3);
         max-width: calc((100% - 20px) / 3);
@@ -311,15 +285,9 @@
     <div class="bottom-bar">
       <div id="progressText">0 / 0</div>
       <div class="bottom-right">
-        <button type="button" class="nav-pill pill-home" id="homeBtn">
-          Home
-        </button>
-        <button type="button" class="nav-pill pill-reset" id="modeResetBtn">
-          다시 풀기
-        </button>
-        <button type="button" class="nav-pill pill-back" id="backToUnitsBtn">
-          돌아가기
-        </button>
+        <button type="button" class="nav-pill pill-home" id="homeBtn">Home</button>
+        <button type="button" class="nav-pill pill-reset" id="modeResetBtn">다시 풀기</button>
+        <button type="button" class="nav-pill pill-back" id="backToUnitsBtn">돌아가기</button>
       </div>
     </div>
   </div>
@@ -327,6 +295,9 @@
 
 <!-- 문제 데이터 -->
 <script src="sentence.js"></script>
+
+<!-- ✅ Supabase (어휘처럼 이 페이지 안에서 직접 초기화) -->
+<script src="https://unpkg.com/@supabase/supabase-js@2.48.0/dist/umd/supabase.js"></script>
 
 <script>
 /* ============================================
@@ -348,17 +319,38 @@ mainTitle.textContent = `문장 학습 1단계 ${unitKey}`;
 const SENTENCE_DB  = window.SENTENCE_DB || {};
 const allQuestions = SENTENCE_DB[unitKey] || [];
 
-/* 유형별 저장 */
-let questionsByType = {
-  blank: [],
-  order: [],
-};
+/* ============================================
+   ✅ Supabase 설정 (어휘와 동일 방식)
+   - 여기 키/URL은 어휘 페이지에서 가져온 값 그대로 사용
+============================================ */
+const SUPABASE_URL = "https://bpdisxjhhibrgfpvtlmv.supabase.co";
+const SUPABASE_ANON_KEY =
+  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJwZGlzeGpoaGlicmdmcHZ0bG12Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjM5NTkxODQsImV4cCI6MjA3OTUzNTE4NH0.jDZ6BGirOPuWUnt4ykjhng4PLft2ZjBuYAFzApUnlYU";
+
+const client = (window.supabase && window.supabase.createClient)
+  ? window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY)
+  : null;
+
+/* ✅ 학생 로그인 id */
+function getStudentLoginId() {
+  try {
+    const raw = localStorage.getItem("blossom_student");
+    if (!raw) return null;
+    const obj = JSON.parse(raw);
+    return obj?.login_id || obj?.id || null;
+  } catch (e) {
+    return null;
+  }
+}
+
+/* ============================================
+   유형별 문제 분리
+============================================ */
+let questionsByType = { blank: [], order: [] };
 
 allQuestions.forEach(q => {
   if (!q || !q.type) return;
-  if (questionsByType[q.type]) {
-    questionsByType[q.type].push(q);
-  }
+  if (questionsByType[q.type]) questionsByType[q.type].push(q);
 });
 
 /* ✅ 원래 문제 수(재출제 제외) 고정 */
@@ -367,40 +359,33 @@ const baseTotalByType = {
   order: questionsByType.order.length,
 };
 
-/* ✅ 스테이지(1단계) 전체 채점/저장 상태 */
+/* ✅ 100점 정책(유형별) */
 const requiredTypes = Object.keys(baseTotalByType).filter(t => baseTotalByType[t] > 0);
 const stageDone = {};
 const stageMistake = {};
 requiredTypes.forEach(t => { stageDone[t] = false; stageMistake[t] = false; });
-let stageSaved = false;
 
-/* ✅ 학생 로그인 id */
-function getStudentLoginId() {
-  try {
-    const raw = localStorage.getItem("blossom_student");
-    if (!raw) return null;
-    const obj = JSON.parse(raw);
-    return obj?.login_id || null;
-  } catch (e) {
-    return null;
-  }
+/* ✅ 유형별 저장 중복 방지 */
+const didSaveByType = {};
+requiredTypes.forEach(t => { didSaveByType[t] = false; });
+
+/* ✅ 타입 → 저장 mode 매핑 */
+function modeForType(type) {
+  if (type === "blank") return "sentence_stage1_blank";
+  if (type === "order") return "sentence_stage1_order";
+  return "sentence_stage1_unknown";
 }
 
-/* ✅ Supabase client (어휘에서 쓰던 window.client 기준) */
-function getClient() {
-  return window.client || null;
-}
+/* ✅ 유형 100점 완료 시 1회 저장 */
+async function trySaveTypeResultIfPerfect(type) {
+  if (!requiredTypes.includes(type)) return;
+  if (didSaveByType[type]) return;
 
-/* ✅ 100점 완료 시 저장 (스테이지당 1회) */
-async function trySaveStageResultIfPerfect() {
-  if (stageSaved) return;
-  if (!requiredTypes.length) return;
+  // 1) 그 유형의 문제를 다 풀었는지
+  if (!stageDone[type]) return;
 
-  const allDone = requiredTypes.every(t => stageDone[t]);
-  if (!allDone) return;
-
-  const hasMistake = requiredTypes.some(t => stageMistake[t]);
-  if (hasMistake) return; // 100점 아니면 저장 안 함 (어휘와 동일 정책)
+  // 2) 그 유형에서 실수(오답/시간초과)가 있었는지
+  if (stageMistake[type]) return; // 100점 아니면 저장 안 함 (어휘와 동일 정책)
 
   const student_login_id = getStudentLoginId();
   if (!student_login_id) {
@@ -408,49 +393,53 @@ async function trySaveStageResultIfPerfect() {
     return;
   }
 
-  const client = getClient();
   if (!client) {
-    console.warn("[sentence] Supabase client(window.client) 없음");
+    console.warn("[sentence] Supabase client 생성 실패");
     return;
   }
 
-  const total_count = requiredTypes.reduce((sum, t) => sum + (baseTotalByType[t] || 0), 0);
-  const correct_count = total_count;
+  const total_count = baseTotalByType[type] || 0;
+  if (!total_count) return;
 
   const payload = {
     student_login_id,
     unit_key: unitKey,
-    mode: "sentence_stage1",
-    correct_count,
-    total_count,
+    mode: modeForType(type),
+    correct_count: total_count,
+    total_count: total_count,
     submitted_at: new Date().toISOString(),
   };
 
   try {
-    const { error } = await client.from("sentence_results").insert(payload);
+    const { data, error } = await client
+      .from("sentence_results")
+      .insert(payload)
+      .select();
+
+    console.log("[sentence] insert result:", { data, error, payload });
+
     if (error) {
       console.error("[sentence] 저장 실패:", error);
       return;
     }
-    stageSaved = true;
+
+    didSaveByType[type] = true;
     console.log("[sentence] 저장 완료:", payload);
   } catch (e) {
     console.error("[sentence] 저장 중 예외:", e);
   }
 }
 
+/* ============================================
+   퀴즈 공통
+============================================ */
+
 /* 현재 모드 / 인덱스 */
 let currentMode = "blank";
-const modeIndex = {
-  blank: 0,
-  order: 0,
-};
+const modeIndex = { blank: 0, order: 0 };
 
 /* 틀린 문제 다시 */
-const wrongQuestions = {
-  blank: [],
-  order: [],
-};
+const wrongQuestions = { blank: [], order: [] };
 
 /* 셔플 */
 function shuffle(arr) {
@@ -513,7 +502,9 @@ function enqueueRetryQuestion(type, q) {
 function markTypeDone(type) {
   if (!requiredTypes.includes(type)) return;
   stageDone[type] = true;
-  trySaveStageResultIfPerfect();
+
+  // ✅ 여기서 "유형별 저장" 시도
+  trySaveTypeResultIfPerfect(type);
 }
 
 /* 다음 문제 */
@@ -536,7 +527,7 @@ function goNext() {
     centerArea.appendChild(done);
     setProgress(total, total);
 
-    // ✅ 이 타입 완료 체크
+    // ✅ 이 타입 완료 체크(=유형별 저장 트리거)
     markTypeDone(currentMode);
   } else {
     renderCurrent();
@@ -820,7 +811,6 @@ function renderCurrent() {
 }
 
 /* 탭/버튼 이벤트 */
-
 modeTabs.forEach(tab => {
   tab.onclick = () => {
     currentMode = tab.dataset.mode;
@@ -838,8 +828,11 @@ modeResetBtn.onclick = () => {
   clearTimers();
 
   // ✅ 상태 초기화
-  stageSaved = false;
-  requiredTypes.forEach(t => { stageDone[t] = false; stageMistake[t] = false; });
+  requiredTypes.forEach(t => {
+    stageDone[t] = false;
+    stageMistake[t] = false;
+    didSaveByType[t] = false;
+  });
 
   // ✅ 문제/인덱스 초기화
   Object.keys(modeIndex).forEach(k => (modeIndex[k] = 0));
