@@ -355,12 +355,18 @@
     }
 
     .modal {
-      width: min(820px, 100%);
-      background: #fff;
-      border-radius: 22px;
-      box-shadow: 0 24px 60px rgba(0,0,0,0.25);
-      overflow: hidden;
-    }
+  width: min(820px, 100%);
+  background: #fff;
+  border-radius: 22px;
+  box-shadow: 0 24px 60px rgba(0,0,0,0.25);
+  overflow: hidden;
+
+  /* ✅ 추가 */
+  max-height: 80vh;
+  display: flex;
+  flex-direction: column;
+}
+
 
     .modal-head {
       padding: 16px 18px;
@@ -381,16 +387,14 @@
       gap: 8px;
     }
 
-    .modal-body { padding: 14px 16px 16px; }
+    .modal-body {
+  padding: 14px 16px 16px;
 
-    .modal-empty {
-      padding: 16px 14px;
-      border-radius: 16px;
-      background: #f3f4f6;
-      font-size: 14px;
-      color: #6b7280;
-      text-align: center;
-    }
+  /* ✅ 추가 */
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
 
     .manage-table {
       width: 100%;
@@ -1528,3 +1532,4 @@
 </script>
 </body>
 </html>
+
