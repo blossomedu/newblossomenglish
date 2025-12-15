@@ -92,6 +92,7 @@
       color: #4b5563;
     }
 
+    /* 빈 상태 */
     .class-hw-empty {
       padding: 16px 14px;
       border-radius: 16px;
@@ -101,6 +102,7 @@
       text-align: center;
     }
 
+    /* 우리 반 숙제 */
     .hw-group-card {
       background: #f9fafb;
       border-radius: 18px;
@@ -140,6 +142,7 @@
     .chip-online-sentence { background: #e0f2fe; color: #0369a1; }
     .chip-warning { background: #fee2e2; color: #b91c1c; }
 
+    /* ✅ 출처 뱃지 */
     .chip-src-teacher { background:#ede9fe; color:#5b21b6; }
     .chip-src-student { background:#ecfeff; color:#155e75; }
 
@@ -151,6 +154,7 @@
       margin: 2px 0;
     }
 
+    /* 내 온라인 숙제(등록) */
     .form-row {
       display: flex;
       flex-wrap: wrap;
@@ -246,6 +250,7 @@
 
     .hint { font-size: 12px; color: #9ca3af; margin-bottom: 0; }
 
+    /* 내 온라인 숙제 결과 */
     .unit-result-wrap {
       border-radius: 16px;
       overflow: hidden;
@@ -337,12 +342,30 @@
     .task-status { text-align: center; font-weight: 900; }
     .task-time { text-align: right; color: #6b7280; font-size: 12px; }
 
+    /* ✅ 문장 단계 요약 행 */
+    .stage-row {
+      display: grid;
+      grid-template-columns: 1fr 90px 160px;
+      gap: 8px;
+      align-items: center;
+      padding: 9px 10px;
+      border-radius: 12px;
+      background: #ffffff;
+      border: 1px solid #eef2f7;
+      font-size: 13px;
+    }
+    .stage-name { font-weight: 900; color: #111827; display:flex; gap:8px; align-items:center; }
+    .stage-count { font-size: 12px; color:#6b7280; font-weight:800; }
+    .stage-guide { font-size: 12px; color:#6b7280; margin-top: 6px; line-height: 1.4; }
+
     .unit-guide { font-size: 12px; color: #6b7280; margin-top: 8px; line-height: 1.4; }
 
+    /* 내 정보 */
     .info-row { font-size: 14px; color: #111827; line-height: 1.7; }
     .info-row span.label { color: #6b7280; margin-right: 6px; }
     .info-message { display: none; }
 
+    /* 관리 모달 */
     .modal-backdrop {
       position: fixed;
       inset: 0;
@@ -451,6 +474,9 @@
         grid-template-columns: 1.1fr 1fr 0.8fr 0.9fr 0.7fr 1.3fr;
       }
       .task-row { grid-template-columns: 1fr 70px 130px; }
+      .stage-row { grid-template-columns: 1fr 80px 130px; }
+
+      .manage-actions { justify-content: flex-start; flex-wrap: wrap; }
     }
   </style>
 </head>
@@ -458,8 +484,8 @@
 <body>
 <div class="page">
   <div class="top-actions">
-    <button id="logout-btn" class="pill-btn">로그아웃</button>
-    <button id="home-btn" class="pill-btn">Home</button>
+    <button id="logout-btn" class="pill-btn" type="button">로그아웃</button>
+    <button id="home-btn" class="pill-btn" type="button">Home</button>
   </div>
 
   <h1 class="title">학생 마이페이지</h1>
@@ -467,6 +493,7 @@
     오늘 숙제와 온라인 학습 결과를 한 곳에서 확인해 보세요.
   </div>
 
+  <!-- 1. 우리 반 숙제 -->
   <div class="section-card">
     <div class="section-header">
       <div class="section-title">
@@ -477,6 +504,7 @@
     <div id="class-hw-area"></div>
   </div>
 
+  <!-- 2. 내 온라인 숙제 -->
   <div class="section-card">
     <div class="section-header">
       <div class="section-title">✍️ 내 온라인 숙제</div>
@@ -492,8 +520,8 @@
       </div>
 
       <div class="field" style="flex:1; min-width:180px;">
-        <label>단계-세트 (예: 1-1 또는 1-1, 1-2)</label>
-        <input id="my-hw-set" class="input" type="text" placeholder="예: 1-1 또는 1-1, 1-2" />
+        <label>단계-세트 (예: 1-1 또는 잠신중1-1)</label>
+        <input id="my-hw-set" class="input" type="text" placeholder="예: 1-1 또는 1-1, 1-2 또는 잠신중1-1" />
       </div>
 
       <div class="field" style="min-width:150px;">
@@ -503,21 +531,22 @@
 
       <div class="field" style="min-width:120px;">
         <label>&nbsp;</label>
-        <button id="my-hw-save-btn" class="btn-primary">숙제 등록</button>
+        <button id="my-hw-save-btn" class="btn-primary" type="button">숙제 등록</button>
       </div>
 
       <div class="field" style="min-width:140px;">
         <label>&nbsp;</label>
-        <button id="my-hw-manage-btn" class="btn-soft">내 숙제 관리</button>
+        <button id="my-hw-manage-btn" class="btn-soft" type="button">내 숙제 관리</button>
       </div>
     </div>
 
     <div class="hint">
-      같은 단계만 여러 개 입력할 수 있어요. 예: 1-1, 1-2, 1-3
+      어휘는 같은 단계만 여러 개 입력 가능(예: 1-1, 1-2). 문장은 1-1 또는 잠신중1-1처럼 입력 가능.
     </div>
     <div id="my-hw-status" class="status-text"></div>
   </div>
 
+  <!-- 3. 내 온라인 숙제 결과 -->
   <div class="section-card">
     <div class="section-header">
       <div class="section-title">📊 내 온라인 숙제 결과</div>
@@ -536,6 +565,7 @@
     </div>
   </div>
 
+  <!-- 4. 내 정보 -->
   <div class="section-card">
     <div class="section-header">
       <div class="section-title">👤 내 정보</div>
@@ -549,11 +579,12 @@
   </div>
 </div>
 
+<!-- 관리 모달 -->
 <div id="manage-backdrop" class="modal-backdrop" aria-hidden="true">
   <div class="modal" role="dialog" aria-modal="true" aria-labelledby="manage-title">
     <div class="modal-head">
       <div class="modal-title" id="manage-title">🛠️ 내 온라인 숙제 관리 (수정/삭제)</div>
-      <button id="manage-close" class="btn-soft">닫기</button>
+      <button id="manage-close" class="btn-soft" type="button">닫기</button>
     </div>
     <div class="modal-body">
       <div id="manage-area"></div>
@@ -569,6 +600,7 @@
 
   const client = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
+  // DOM
   const infoNameEl   = document.getElementById("info-name");
   const infoClassEl  = document.getElementById("info-class");
   const infoIdEl     = document.getElementById("info-id");
@@ -589,6 +621,7 @@
 
   const unitResultBody = document.getElementById("unit-result-body");
 
+  // modal
   const manageBackdrop = document.getElementById("manage-backdrop");
   const manageCloseBtn = document.getElementById("manage-close");
   const manageArea     = document.getElementById("manage-area");
@@ -597,7 +630,23 @@
   let currentClass   = null;
   let currentType    = "vocab";
 
-  // ---------------- 유틸 ----------------
+  // ✅ “수정 모드” 상태
+  let editingHomeworkId = null;
+
+  function setMyHwStatus(msg, type) {
+    myHwStatusEl.textContent = msg || "";
+    myHwStatusEl.className = "status-text" + (type ? " " + type : "");
+  }
+
+  function setSaveButtonMode(isEdit) {
+    if (isEdit) {
+      myHwSaveBtn.textContent = "수정 저장";
+      setMyHwStatus("✏️ 수정 모드: 값 수정 후 ‘수정 저장’을 눌러주세요.", "");
+    } else {
+      myHwSaveBtn.textContent = "숙제 등록";
+    }
+  }
+
   function formatDate(iso) {
     if (!iso) return "";
     const d = new Date(iso);
@@ -627,37 +676,13 @@
     return "";
   }
 
-  function setMyHwStatus(msg, type) {
-    myHwStatusEl.textContent = msg || "";
-    myHwStatusEl.className = "status-text" + (type ? " " + type : "");
-  }
-
-  function parseLevelAndSets(setStr) {
-    const parts = setStr.split(",").map(s => s.trim()).filter(Boolean);
-    if (!parts.length) return null;
-
-    const first = parts[0].split("-");
-    if (first.length !== 2) return null;
-
-    const baseLevel = Number(first[0]);
-    if (!baseLevel) return null;
-
-    for (const p of parts) {
-      const [lvStr, setNumStr] = p.split("-");
-      const lv = Number(lvStr);
-      const sn = Number(setNumStr);
-      if (!lv || !sn || lv !== baseLevel) return null;
-    }
-    return { level: baseLevel, raw: parts.join(", ") };
-  }
-
   function parseUnitKeysFromSetNumbers(setNumbers) {
     if (!setNumbers) return [];
     return String(setNumbers)
       .split(",")
       .map(s => s.trim())
       .filter(Boolean)
-      .map(s => s.replace(/\s+/g, ""));
+      .map(s => s.replace(/\s+/g, "")); // 공백 제거 통일
   }
 
   function safeLatestBySubmittedAt(arr) {
@@ -675,20 +700,50 @@
     return `${score}점`;
   }
 
-  // ✅ 결과 1개를 ⭕/△/❌ + 시간으로 변환
-  function taskCell(result) {
-    if (!result) return { mark: "❌", color: "#991b1b", time: "--" };
-    const total = Number(result.total_count || 0);
-    const correct = Number(result.correct_count || 0);
-    const ok = total > 0 && correct >= total;
-    return {
-      mark: ok ? "⭕" : "△",
-      color: ok ? "#166534" : "#92400e",
-      time: result.submitted_at ? `${formatDate(result.submitted_at)} ${formatTime(result.submitted_at)}` : "--"
-    };
+  // ✅ 문장 입력 검증(학교시험 포함)
+  function isValidSentenceUnitKey(text) {
+    const t = String(text || "").trim();
+    if (/^\d+\s*-\s*\d+$/.test(t)) return true;                         // 1-1
+    if (/^(잠신중|잠신고)\s*\d+\s*-\s*\d+$/.test(t)) return true;        // 잠신중 1-1
+    return false;
   }
 
-  // ---------------- 학생 정보 ----------------
+  // ✅ 저장용 파서(어휘/문장 분기)
+  function parseSetsForSave(setStr, type) {
+    const parts = String(setStr || "").split(",").map(s => s.trim()).filter(Boolean);
+    if (!parts.length) return null;
+
+    if (type === "vocab") {
+      const first = parts[0].split("-");
+      if (first.length !== 2) return null;
+
+      const baseLevel = Number(first[0]);
+      if (!baseLevel) return null;
+
+      for (const p of parts) {
+        const [lvStr, setNumStr] = p.split("-");
+        const lv = Number(lvStr);
+        const sn = Number(setNumStr);
+        if (!lv || !sn || lv !== baseLevel) return null;
+      }
+      return { level: baseLevel, raw: parts.join(", ") };
+    }
+
+    // sentence
+    for (const p of parts) {
+      if (!isValidSentenceUnitKey(p)) return null;
+    }
+
+    // level은 int 컬럼 보호용(학교시험 대비)
+    let level = 0;
+    const m = parts[0].match(/^(\d+)\s*-\s*\d+$/);
+    if (m) level = Number(m[1]) || 0;
+
+    const normalized = parts.map(p => p.replace(/\s+/g, "")); // 잠신중 1-1 -> 잠신중1-1
+    return { level, raw: normalized.join(", ") };
+  }
+
+  // ---------- 학생 정보 ----------
   async function loadStudentFromLocalStorage() {
     const stored = localStorage.getItem("blossom_student");
     if (!stored) {
@@ -729,7 +784,21 @@
     }
   }
 
-  // ---------------- 우리 반 숙제 ----------------
+  // ---------- 타입 토글 ----------
+  function setType(nextType) {
+    currentType = nextType;
+    if (nextType === "vocab") {
+      typeVocabBtn.classList.add("active");
+      typeSentenceBtn.classList.remove("active");
+    } else {
+      typeSentenceBtn.classList.add("active");
+      typeVocabBtn.classList.remove("active");
+    }
+  }
+  typeVocabBtn.onclick = () => setType("vocab");
+  typeSentenceBtn.onclick = () => setType("sentence");
+
+  // ---------- 우리 반 숙제 ----------
   async function loadClassHomework() {
     if (!currentClass || !currentClass.id) return;
 
@@ -818,6 +887,7 @@
 
         const chipType = document.createElement("span");
         chipType.className = "chip chip-type";
+
         const hasOffline = g.posts.length > 0;
         const hasVocab   = g.vocab.length > 0;
         const hasSentence= g.sentence.length > 0;
@@ -885,6 +955,7 @@
 
         classHwArea.appendChild(card);
       });
+
     } catch (e) {
       console.error("우리 반 숙제 로딩 오류:", e);
       classHwArea.innerHTML =
@@ -892,7 +963,7 @@
     }
   }
 
-  // ---------------- 숙제 row 펼치기 ----------------
+  // ---------- 결과: 선생님 숙제 + 내 숙제 합치기 ----------
   function normalizeAndExpandHomeworkRows(row, from) {
     const isStudent = from === "student";
     const type = isStudent ? row.type : (from === "teacher_sentence" ? "sentence" : "vocab");
@@ -923,129 +994,69 @@
     }));
   }
 
-  // ---------------- 어휘 overall ----------------
   function computeOverallStatusFromVocabModes(modeMap) {
     const modes = ["meaning", "english", "listening", "sentence"];
-    const doneCount = modes.filter(m => modeMap[m]).length;
+    const doneCount = modes.filter(m => modeMap && modeMap[m]).length;
     if (doneCount === 0) return { cls: "status-x", text: "❌" };
     if (doneCount === modes.length) return { cls: "status-o", text: "⭕" };
     return { cls: "status-d", text: "△" };
   }
 
-  // ==========================================================
-  // ✅ 문장: "UnitKey → 단계" 판별 + 단계별 항목 리스트
-  // ==========================================================
-  function detectSentenceStageFromUnitKey(unitKey) {
-    // 1) "숫자-숫자"면 앞 숫자로 1/2/3단계 판별
-    const m = String(unitKey || "").match(/^(\d+)\s*-\s*(\d+)$/);
-    if (m) {
-      const n = Number(m[1]);
-      if (n >= 1 && n <= 9) return "stage1";
-      if (n >= 10 && n <= 18) return "stage2";
-      if (n >= 19 && n <= 27) return "stage3";
-      // 숫자인데 범위 밖이면 일단 stage3로 처리(안전)
-      return "stage3";
-    }
-    // 2) 그 외(예: "잠신고 3-1")는 학교시험
-    return "school";
-  }
-
-  function getSentenceTasksForStage(stageKey) {
-    // 어휘처럼 "펼치면 항목 리스트"만 보여주기
-    // (단계별로 필요한 항목이 다름)
-    const base = [
-      { key: "blank",   label: "빈칸 완성" },
-      { key: "arrange", label: "문장 배열" }
-    ];
-    if (stageKey === "stage1") return base;
-
-    if (stageKey === "stage2") return [
-      ...base,
-      { key: "complete", label: "문장 완성" }
-    ];
-
-    if (stageKey === "stage3") return [
-      ...base,
-      { key: "complete", label: "문장 완성" },
-      { key: "choose",   label: "문장 고르기" }
-    ];
-
-    // school
-    return [
-      ...base,
-      { key: "complete", label: "문장 완성" },
-      { key: "choose",   label: "문장 고르기" },
-      { key: "passage",  label: "지문 완성" }
-    ];
-  }
-
-  // ==========================================================
-  // ✅ 문장: 항목별 결과 찾기
-  //  - 항목별 mode가 있으면 그걸 사용 (정확)
-  //  - 없으면 단계 통합 mode(sentence_stage1 등)가 있으면 그 결과를 항목들에 적용(너 스샷 같은 상황)
-  // ==========================================================
-  function findSentenceResultForTask(modeMap, taskKey, stageKey) {
-    if (!modeMap) return null;
-
-    // 항목별로 가능한 mode 이름 후보들(여기서 DB mode에 맞게 계속 추가 가능)
-    const candidatesByTask = {
-      blank:   ["blank", "sentence_blank", "sentence_fill_blank", "sentence_task_blank"],
-      arrange: ["arrange", "sentence_arrange", "sentence_reorder", "sentence_task_arrange"],
-      complete:["complete", "sentence_complete", "sentence_make_sentence", "sentence_task_complete"],
-      choose:  ["choose", "sentence_choose", "sentence_select", "sentence_task_choose"],
-      passage: ["passage", "sentence_passage", "sentence_paragraph", "sentence_task_passage"]
+  function taskCell(result) {
+    if (!result) return { mark: "❌", color: "#991b1b", time: "--" };
+    const total = Number(result.total_count || 0);
+    const correct = Number(result.correct_count || 0);
+    const ok = total > 0 && correct >= total;
+    return {
+      mark: ok ? "⭕" : "△",
+      color: ok ? "#166534" : "#92400e",
+      time: result.submitted_at ? `${formatDate(result.submitted_at)} ${formatTime(result.submitted_at)}` : "--"
     };
-
-    const stageFallback = {
-      stage1: ["sentence_stage1", "stage1"],
-      stage2: ["sentence_stage2", "stage2"],
-      stage3: ["sentence_stage3", "stage3"],
-      school: ["sentence_school", "school"]
-    };
-
-    // 1) 항목별 mode 우선
-    const candidates = candidatesByTask[taskKey] || [];
-    for (const key of candidates) {
-      if (modeMap[key]) return modeMap[key];
-    }
-
-    // 2) 항목별 없으면 단계 통합 결과로 fallback
-    const fb = stageFallback[stageKey] || [];
-    for (const key of fb) {
-      if (modeMap[key]) return modeMap[key];
-    }
-
-    return null;
   }
 
-  function buildSentenceTaskView(unitKey, sentenceByUnitByMode) {
-    const stageKey = detectSentenceStageFromUnitKey(unitKey);
-    const tasks = getSentenceTasksForStage(stageKey);
+  const SENTENCE_STAGES = [
+    { key: "stage1", label: "문장 1단계", count: 2, acceptModes: ["sentence_stage1"] },
+    { key: "stage2", label: "문장 2단계", count: 3, acceptModes: ["sentence_stage2"] },
+    { key: "stage3", label: "문장 3단계", count: 4, acceptModes: ["sentence_stage3"] },
+    { key: "school", label: "학교 시험", count: 5, acceptModes: ["sentence_school"] },
+  ];
+  const SENTENCE_TOTAL = SENTENCE_STAGES.reduce((s, x) => s + x.count, 0);
 
+  function buildSentenceStageView(unitKey, sentenceByUnitByMode) {
     const modeMap = (sentenceByUnitByMode && sentenceByUnitByMode[unitKey]) ? sentenceByUnitByMode[unitKey] : {};
 
-    const rows = tasks.map(t => {
-      const r = findSentenceResultForTask(modeMap, t.key, stageKey);
-      const cell = taskCell(r);
-      return { ...t, result: r, cell };
+    const stages = SENTENCE_STAGES.map(st => {
+      const hit = st.acceptModes.find(m => modeMap && modeMap[m]);
+      const r = hit ? modeMap[hit] : null;
+
+      const doneCount = r ? st.count : 0;
+      const totalCount = st.count;
+
+      const status = (doneCount === 0)
+        ? { cls: "status-x", text: "❌" }
+        : (doneCount === totalCount)
+          ? { cls: "status-o", text: "⭕" }
+          : { cls: "status-d", text: "△" };
+
+      const time = r?.submitted_at ? `${formatDate(r.submitted_at)} ${formatTime(r.submitted_at)}` : "--";
+      return { ...st, result: r, doneCount, totalCount, status, time };
     });
 
-    const doneCount = rows.filter(x => x.result).length;
-    const overall = (doneCount === 0)
+    const doneAll = stages.reduce((s, x) => s + x.doneCount, 0);
+    const overall = (doneAll === 0)
       ? { cls: "status-x", text: "❌" }
-      : (doneCount === rows.length)
+      : (doneAll === SENTENCE_TOTAL)
         ? { cls: "status-o", text: "⭕" }
         : { cls: "status-d", text: "△" };
 
-    const latest = safeLatestBySubmittedAt(rows.map(r => r.result).filter(Boolean));
+    const latest = safeLatestBySubmittedAt(stages.map(s => s.result).filter(Boolean));
     const submittedText = latest
       ? `${scoreTextFromResult(latest)} · ${formatDate(latest.submitted_at)} ${formatTime(latest.submitted_at)}`
       : "--";
 
-    return { stageKey, rows, overall, submittedText };
+    return { stages, overall, submittedText };
   }
 
-  // ---------------- 렌더 ----------------
   function renderUnifiedResults(items, vocabByUnitByMode, sentenceByUnitByMode) {
     unitResultBody.innerHTML = "";
 
@@ -1076,12 +1087,13 @@
       if (item.type === "vocab" && item.unit_key) {
         const modeMap = (vocabByUnitByMode && vocabByUnitByMode[item.unit_key]) ? vocabByUnitByMode[item.unit_key] : {};
         overall = computeOverallStatusFromVocabModes(modeMap);
+
         const latest = safeLatestBySubmittedAt(Object.values(modeMap || {}));
-        if (latest) submittedText = `${scoreTextFromResult(latest)} · ${formatDate(latest.submitted_at)} ${formatTime(latest.submitted_at)}`;
+        submittedText = latest ? `${scoreTextFromResult(latest)} · ${formatDate(latest.submitted_at)} ${formatTime(latest.submitted_at)}` : "--";
       }
 
       if (item.type === "sentence" && item.unit_key) {
-        const view = buildSentenceTaskView(item.unit_key, sentenceByUnitByMode);
+        const view = buildSentenceStageView(item.unit_key, sentenceByUnitByMode);
         overall = view.overall;
         submittedText = view.submittedText;
       }
@@ -1100,7 +1112,6 @@
       const detail = document.createElement("div");
       detail.className = "unit-detail";
 
-      // 어휘 상세(4모드)
       if (item.type === "vocab" && item.unit_key) {
         const modeMap = (vocabByUnitByMode && vocabByUnitByMode[item.unit_key]) ? vocabByUnitByMode[item.unit_key] : {};
         const tMeaning   = taskCell(modeMap.meaning);
@@ -1133,36 +1144,29 @@
           </div>
           <div class="unit-guide">※ 어휘 4개 모드를 모두 완료하면 Unit 전체가 ⭕로 바뀝니다.</div>
         `;
-      }
-      // ✅ 문장 상세: “해당 단계 항목 리스트”만 (어휘처럼)
-      else if (item.type === "sentence" && item.unit_key) {
-        const view = buildSentenceTaskView(item.unit_key, sentenceByUnitByMode);
+      } else if (item.type === "sentence" && item.unit_key) {
+        const view = buildSentenceStageView(item.unit_key, sentenceByUnitByMode);
 
         const grid = document.createElement("div");
         grid.className = "unit-detail-grid";
 
-        view.rows.forEach(r => {
+        view.stages.forEach(st => {
           const row = document.createElement("div");
-          row.className = "task-row";
+          row.className = "stage-row";
           row.innerHTML = `
-            <div class="task-name">${r.label}</div>
-            <div class="task-status" style="color:${r.cell.color};">${r.cell.mark}</div>
-            <div class="task-time">${r.cell.time}</div>
+            <div class="stage-name">${st.label} <span class="stage-count">(${st.doneCount}/${st.totalCount})</span></div>
+            <div class="task-status"><span class="status-pill ${st.status.cls}">${st.status.text}</span></div>
+            <div class="task-time">${st.time}</div>
           `;
           grid.appendChild(row);
         });
 
+        const guide = document.createElement("div");
+        guide.className = "stage-guide";
+        guide.textContent = "※ 문장은 단계별로 필요한 섹션 수가 다릅니다. (1단계 2개 / 2단계 3개 / 3단계 4개 / 학교시험 5개)";
+
         detail.innerHTML = "";
         detail.appendChild(grid);
-
-        const stageName = (view.stageKey === "stage1") ? "문장 1단계"
-                        : (view.stageKey === "stage2") ? "문장 2단계"
-                        : (view.stageKey === "stage3") ? "문장 3단계"
-                        : "학교 시험";
-
-        const guide = document.createElement("div");
-        guide.className = "unit-guide";
-        guide.textContent = `※ 이 Unit(${item.unit_key})은 "${stageName}" 항목이 표시됩니다.`;
         detail.appendChild(guide);
       } else {
         detail.innerHTML = `
@@ -1182,7 +1186,6 @@
     });
   }
 
-  // ---------------- 결과 로드 ----------------
   async function loadUnifiedHomeworkResults() {
     if (!currentStudent || !currentStudent.login_id) return;
 
@@ -1233,12 +1236,8 @@
         return at - bt;
       });
 
-      const vocabUnitKeys = Array.from(new Set(
-        items.filter(x => x.type === "vocab" && x.unit_key).map(x => x.unit_key)
-      ));
-      const sentenceUnitKeys = Array.from(new Set(
-        items.filter(x => x.type === "sentence" && x.unit_key).map(x => x.unit_key)
-      ));
+      const vocabUnitKeys = Array.from(new Set(items.filter(x => x.type === "vocab" && x.unit_key).map(x => x.unit_key)));
+      const sentenceUnitKeys = Array.from(new Set(items.filter(x => x.type === "sentence" && x.unit_key).map(x => x.unit_key)));
 
       let vocabByUnitByMode = {};
       if (vocabUnitKeys.length > 0) {
@@ -1272,7 +1271,7 @@
             .order("submitted_at", { ascending: false });
 
           if (srErr) {
-            console.warn("[mypage] sentence_results 조회 오류(무시하고 UI 계속):", srErr);
+            console.warn("[mypage] sentence_results 조회 오류(무시):", srErr);
           } else {
             sentenceByUnitByMode = {};
             (sr || []).forEach(r => {
@@ -1284,35 +1283,20 @@
             });
           }
         } catch (e) {
-          console.warn("[mypage] sentence_results 조회 예외(무시하고 UI 계속):", e);
+          console.warn("[mypage] sentence_results 조회 예외(무시):", e);
         }
       }
 
       renderUnifiedResults(items, vocabByUnitByMode, sentenceByUnitByMode);
+
     } catch (e) {
       console.error("통합 결과 로딩 오류:", e);
       unitResultBody.innerHTML = '<div class="class-hw-empty">결과를 불러오는 중 오류가 발생했어요.</div>';
     }
   }
 
-  // ---------------- 타입 토글 ----------------
-  function setType(nextType) {
-    currentType = nextType;
-    if (nextType === "vocab") {
-      typeVocabBtn.classList.add("active");
-      typeSentenceBtn.classList.remove("active");
-    } else {
-      typeSentenceBtn.classList.add("active");
-      typeVocabBtn.classList.remove("active");
-    }
-  }
-  typeVocabBtn.onclick = () => setType("vocab");
-  typeSentenceBtn.onclick = () => setType("sentence");
-
-  // ---------------- 등록 ----------------
-  async function saveMyHomework(evt) {
-    evt.preventDefault();
-
+  // ---------- 등록/수정 저장 ----------
+  async function saveMyHomework() {
     if (!currentStudent || !currentStudent.login_id) {
       setMyHwStatus("학생 정보를 찾을 수 없어요. 다시 로그인해 주세요.", "error");
       return;
@@ -1322,49 +1306,84 @@
     const due    = myHwDueEl.value;
 
     if (!rawSet) { setMyHwStatus("단계-세트를 입력해 주세요.", "error"); return; }
-
-    const parsed = parseLevelAndSets(rawSet);
-    if (!parsed) { setMyHwStatus("세트 형식이 올바르지 않아요. 예: 1-1, 1-2, 1-3", "error"); return; }
-
     if (!due) { setMyHwStatus("마감일을 선택해 주세요.", "error"); return; }
+
+    const parsed = parseSetsForSave(rawSet, currentType);
+    if (!parsed) {
+      setMyHwStatus(
+        currentType === "sentence"
+          ? "문장 세트 형식이 올바르지 않아요. 예: 1-1, 11-10 또는 잠신중1-1"
+          : "세트 형식이 올바르지 않아요. 예: 1-1, 1-2, 1-3",
+        "error"
+      );
+      return;
+    }
 
     setMyHwStatus("", "");
     myHwSaveBtn.disabled = true;
 
     try {
-      const { error } = await client
-        .from("student_homework")
-        .insert({
-          student_login_id: currentStudent.login_id,
-          type: currentType,
-          level: parsed.level,
-          set_numbers: parsed.raw,
-          due_date: due
-        });
+      if (editingHomeworkId) {
+        // ✅ 업데이트(진짜 수정)
+        const { error } = await client
+          .from("student_homework")
+          .update({
+            type: currentType,
+            level: parsed.level,
+            set_numbers: parsed.raw,
+            due_date: due
+          })
+          .eq("id", editingHomeworkId)
+          .eq("student_login_id", currentStudent.login_id);
 
-      if (error) {
-        console.error("student_homework 저장 오류:", error);
-        setMyHwStatus("숙제를 저장하는 중 오류가 발생했어요.", "error");
-        return;
+        if (error) {
+          console.error("student_homework 수정 오류:", error);
+          setMyHwStatus("수정 중 오류가 발생했어요.", "error");
+          return;
+        }
+
+        editingHomeworkId = null;
+        setSaveButtonMode(false);
+        myHwSetEl.value = "";
+        myHwDueEl.value = "";
+        setMyHwStatus("✅ 수정 완료!", "");
+      } else {
+        // ✅ 신규 등록
+        const { error } = await client
+          .from("student_homework")
+          .insert({
+            student_login_id: currentStudent.login_id,
+            type: currentType,
+            level: parsed.level,
+            set_numbers: parsed.raw,
+            due_date: due
+          });
+
+        if (error) {
+          console.error("student_homework 저장 오류:", error);
+          setMyHwStatus("숙제를 저장하는 중 오류가 발생했어요.", "error");
+          return;
+        }
+
+        myHwSetEl.value = "";
+        myHwDueEl.value = "";
+        setMyHwStatus("✅ 숙제가 등록됐어요!", "");
       }
-
-      myHwSetEl.value = "";
-      myHwDueEl.value = "";
-      setMyHwStatus("", "");
 
       await loadUnifiedHomeworkResults();
       if (currentClass && currentClass.id) await loadClassHomework();
       if (manageBackdrop.style.display === "flex") await loadManageList();
+
     } catch (e) {
-      console.error("student_homework 저장 예외:", e);
-      setMyHwStatus("숙제를 저장하는 중 오류가 발생했어요.", "error");
+      console.error("student_homework 저장/수정 예외:", e);
+      setMyHwStatus("저장/수정 중 오류가 발생했어요.", "error");
     } finally {
       myHwSaveBtn.disabled = false;
     }
   }
   myHwSaveBtn.onclick = saveMyHomework;
 
-  // ---------------- 관리 모달 ----------------
+  // ---------- 관리 모달 ----------
   function openManageModal() {
     manageBackdrop.style.display = "flex";
     manageBackdrop.setAttribute("aria-hidden", "false");
@@ -1383,9 +1402,12 @@
   });
 
   function fillFormForEdit(row) {
+    // ✅ 수정 모드로 전환
+    editingHomeworkId = row.id;
     myHwSetEl.value = row.set_numbers || "";
     myHwDueEl.value = row.due_date || "";
     setType(row.type === "sentence" ? "sentence" : "vocab");
+    setSaveButtonMode(true);
   }
 
   async function loadManageList() {
@@ -1453,30 +1475,45 @@
       actWrap.className = "manage-actions";
 
       const editBtn = document.createElement("button");
+      editBtn.type = "button";
       editBtn.className = "btn-mini btn-edit";
       editBtn.textContent = "수정";
-      editBtn.onclick = async () => {
+      editBtn.onclick = (ev) => {
+        ev.preventDefault();
+        ev.stopPropagation();
         fillFormForEdit(row);
-        const ok = confirm("이 숙제를 수정할까요?\n(입력칸에 값이 채워집니다. 수정 후 ‘숙제 등록’을 누르면 새로 추가됩니다.)");
-        if (ok) closeManageModal();
+        closeManageModal();
       };
 
       const delBtn = document.createElement("button");
+      delBtn.type = "button";
       delBtn.className = "btn-mini btn-del";
       delBtn.textContent = "삭제";
-      delBtn.onclick = async () => {
+      delBtn.onclick = async (ev) => {
+        ev.preventDefault();
+        ev.stopPropagation();
+
         const ok = confirm("정말 삭제할까요?");
         if (!ok) return;
 
         const { error: delErr } = await client
           .from("student_homework")
           .delete()
-          .eq("id", row.id);
+          .eq("id", row.id)
+          .eq("student_login_id", currentStudent.login_id);
 
         if (delErr) {
           console.error("삭제 오류:", delErr);
           alert("삭제 중 오류가 발생했어요.");
           return;
+        }
+
+        // 수정 중이던 항목을 삭제했다면 수정모드 해제
+        if (editingHomeworkId === row.id) {
+          editingHomeworkId = null;
+          setSaveButtonMode(false);
+          myHwSetEl.value = "";
+          myHwDueEl.value = "";
         }
 
         await loadManageList();
@@ -1505,18 +1542,21 @@
     await loadManageList();
   };
 
-  // ---------------- 로그아웃 / 홈 ----------------
+  // ---------- 로그아웃 / 홈 ----------
   logoutBtn.onclick = () => {
     localStorage.removeItem("blossom_student");
     window.location.href = "index.html";
   };
   homeBtn.onclick = () => { window.location.href = "index.html"; };
 
-  // ---------------- 초기 실행 ----------------
+  // ---------- 초기 실행 ----------
   (async function init() {
     await loadStudentFromLocalStorage();
-    if (currentClass && currentClass.id) await loadClassHomework();
+    if (currentClass && currentClass.id) {
+      await loadClassHomework();
+    }
     await loadUnifiedHomeworkResults();
+    setSaveButtonMode(false);
   })();
 </script>
 </body>
