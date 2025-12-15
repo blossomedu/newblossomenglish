@@ -305,6 +305,8 @@
 ============================================ */
 const params   = new URLSearchParams(window.location.search);
 const unitKey  = params.get("unit") || "1-1";
+/* ✅ 추가: 중복 숙제 분리용 키 */
+const assignmentKey = params.get("ak") || null;
 
 const mainTitle      = document.getElementById("mainTitle");
 const centerArea     = document.getElementById("centerArea");
@@ -321,7 +323,6 @@ const allQuestions = SENTENCE_DB[unitKey] || [];
 
 /* ============================================
    ✅ Supabase 설정 (어휘와 동일 방식)
-   - 여기 키/URL은 어휘 페이지에서 가져온 값 그대로 사용
 ============================================ */
 const SUPABASE_URL = "https://bpdisxjhhibrgfpvtlmv.supabase.co";
 const SUPABASE_ANON_KEY =
@@ -404,6 +405,7 @@ async function trySaveTypeResultIfPerfect(type) {
   const payload = {
     student_login_id,
     unit_key: unitKey,
+    assignment_key: assignmentKey, // ✅ 추가 (중복 숙제 분리 핵심)
     mode: modeForType(type),
     correct_count: total_count,
     total_count: total_count,
