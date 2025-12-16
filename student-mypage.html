@@ -339,25 +339,6 @@
 
     .unit-guide { font-size: 12px; color: #6b7280; margin-top: 8px; line-height: 1.4; }
 
-    .play-row {
-      display: flex;
-      gap: 8px;
-      justify-content: flex-end;
-      margin-top: 10px;
-    }
-    .btn-play {
-      border: none;
-      border-radius: 999px;
-      padding: 9px 14px;
-      font-size: 13px;
-      cursor: pointer;
-      background: var(--blue);
-      color: #fff;
-      font-weight: 900;
-      white-space: nowrap;
-    }
-    .btn-play:hover { filter: brightness(0.95); }
-
     .info-row { font-size: 14px; color: #111827; line-height: 1.7; }
     .info-row span.label { color: #6b7280; margin-right: 6px; }
     .info-message { display: none; }
@@ -374,15 +355,18 @@
     }
 
     .modal {
-      width: min(820px, 100%);
-      background: #fff;
-      border-radius: 22px;
-      box-shadow: 0 24px 60px rgba(0,0,0,0.25);
-      overflow: hidden;
-      max-height: 80vh;
-      display: flex;
-      flex-direction: column;
-    }
+  width: min(820px, 100%);
+  background: #fff;
+  border-radius: 22px;
+  box-shadow: 0 24px 60px rgba(0,0,0,0.25);
+  overflow: hidden;
+
+  /* ✅ 추가 */
+  max-height: 80vh;
+  display: flex;
+  flex-direction: column;
+}
+
 
     .modal-head {
       padding: 16px 18px;
@@ -404,10 +388,13 @@
     }
 
     .modal-body {
-      padding: 14px 16px 16px;
-      overflow-y: auto;
-      -webkit-overflow-scrolling: touch;
-    }
+  padding: 14px 16px 16px;
+
+  /* ✅ 추가 */
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
 
     .manage-table {
       width: 100%;
@@ -481,7 +468,7 @@
     <button id="home-btn" class="pill-btn" type="button">Home</button>
   </div>
 
-    <h1 class="title">학생 마이페이지</h1>
+  <h1 class="title">학생 마이페이지</h1>
   <div class="subtitle-main">
     오늘 숙제와 온라인 학습 결과를 한 곳에서 확인해 보세요.
   </div>
@@ -513,27 +500,6 @@
       <div class="field" style="flex:1; min-width:180px;">
         <label>단계-세트 (예: 1-1 또는 잠신중1-1)</label>
         <input id="my-hw-set" class="input" type="text" placeholder="예: 1-1 또는 1-1, 1-2 또는 잠신중1-1" />
-      </div>
-
-      <!-- ✅ 추가: 어휘 숙제 구성(작업 횟수) -->
-      <div class="field" id="vocab-task-field" style="min-width:260px;">
-        <label>어휘 숙제 구성</label>
-
-        <!-- 프리셋(선택) -->
-        <div style="display:flex; gap:6px; flex-wrap:wrap; margin-bottom:8px;">
-          <button type="button" id="preset-default" class="btn-soft" style="padding:7px 10px; font-size:12px;">기본 4종</button>
-          <button type="button" id="preset-sentence4" class="btn-soft" style="padding:7px 10px; font-size:12px;">문장빈칸×4</button>
-          <button type="button" id="preset-clear" class="btn-soft" style="padding:7px 10px; font-size:12px;">초기화</button>
-        </div>
-
-        <!-- 스텝퍼 -->
-        <div id="vocab-task-stepper" style="display:grid; gap:8px;">
-          <!-- JS가 렌더 -->
-        </div>
-
-        <div class="hint" style="margin-top:8px;">
-          ※ 선택을 안 건드리면 기본(뜻/영어/듣기/문장빈칸 각 1회)으로 등록됩니다.
-        </div>
       </div>
 
       <div class="field" style="min-width:150px;">
@@ -632,13 +598,6 @@
   const manageBackdrop = document.getElementById("manage-backdrop");
   const manageCloseBtn = document.getElementById("manage-close");
   const manageArea     = document.getElementById("manage-area");
-
-  // ✅ 추가: 어휘 숙제 구성 UI 요소
-  const vocabTaskField   = document.getElementById("vocab-task-field");
-  const vocabStepperWrap = document.getElementById("vocab-task-stepper");
-  const presetDefaultBtn = document.getElementById("preset-default");
-  const presetSentence4Btn = document.getElementById("preset-sentence4");
-  const presetClearBtn   = document.getElementById("preset-clear");
 
   let currentStudent = null;
   let currentClass   = null;
@@ -792,128 +751,19 @@
     }
   }
 
-  /* ===========================
-     ✅ 추가: 어휘 숙제 구성(스텝퍼)
-  =========================== */
-  const VOCAB_TASKS = [
-    { key: "meaning",   label: "뜻 찾기" },
-    { key: "english",   label: "영어 찾기" },
-    { key: "listening", label: "듣고 찾기" },
-    { key: "sentence",  label: "문장 빈칸" },
-  ];
-
-  let vocabTaskCounts = { meaning: 1, english: 1, listening: 1, sentence: 1 };
-
-  function sanitizeCounts(obj) {
-    const out = { meaning: 0, english: 0, listening: 0, sentence: 0 };
-    VOCAB_TASKS.forEach(t => {
-      const v = Number(obj?.[t.key] ?? 0);
-      out[t.key] = Number.isFinite(v) ? Math.max(0, Math.min(20, Math.floor(v))) : 0;
-    });
-    return out;
-  }
-
-  function renderVocabStepper() {
-    if (!vocabStepperWrap) return;
-    vocabStepperWrap.innerHTML = "";
-
-    VOCAB_TASKS.forEach(t => {
-      const row = document.createElement("div");
-      row.style.display = "grid";
-      row.style.gridTemplateColumns = "1fr auto";
-      row.style.alignItems = "center";
-      row.style.gap = "10px";
-      row.style.padding = "10px 12px";
-      row.style.border = "1px solid #e5e7eb";
-      row.style.borderRadius = "14px";
-      row.style.background = "#ffffff";
-
-      const left = document.createElement("div");
-      left.style.fontSize = "13px";
-      left.style.fontWeight = "900";
-      left.style.color = "#111827";
-      left.textContent = t.label;
-
-      const right = document.createElement("div");
-      right.style.display = "inline-flex";
-      right.style.alignItems = "center";
-      right.style.gap = "8px";
-
-      const minus = document.createElement("button");
-      minus.type = "button";
-      minus.className = "btn-soft";
-      minus.style.padding = "6px 10px";
-      minus.style.fontSize = "14px";
-      minus.textContent = "−";
-
-      const count = document.createElement("div");
-      count.style.minWidth = "30px";
-      count.style.textAlign = "center";
-      count.style.fontWeight = "900";
-      count.style.color = "#111827";
-      count.textContent = String(vocabTaskCounts[t.key] ?? 0);
-
-      const plus = document.createElement("button");
-      plus.type = "button";
-      plus.className = "btn-soft";
-      plus.style.padding = "6px 10px";
-      plus.style.fontSize = "14px";
-      plus.textContent = "+";
-
-      minus.onclick = () => {
-        vocabTaskCounts[t.key] = Math.max(0, (vocabTaskCounts[t.key] || 0) - 1);
-        renderVocabStepper();
-      };
-      plus.onclick = () => {
-        vocabTaskCounts[t.key] = Math.min(20, (vocabTaskCounts[t.key] || 0) + 1);
-        renderVocabStepper();
-      };
-
-      right.appendChild(minus);
-      right.appendChild(count);
-      right.appendChild(plus);
-
-      row.appendChild(left);
-      row.appendChild(right);
-      vocabStepperWrap.appendChild(row);
-    });
-  }
-
-  function setVocabPresetDefault() {
-    vocabTaskCounts = { meaning: 1, english: 1, listening: 1, sentence: 1 };
-    renderVocabStepper();
-  }
-  function setVocabPresetSentence4() {
-    vocabTaskCounts = { meaning: 0, english: 0, listening: 0, sentence: 4 };
-    renderVocabStepper();
-  }
-  function setVocabPresetClear() {
-    vocabTaskCounts = { meaning: 0, english: 0, listening: 0, sentence: 0 };
-    renderVocabStepper();
-  }
-
   function setType(nextType) {
     currentType = nextType;
     if (nextType === "vocab") {
       typeVocabBtn.classList.add("active");
       typeSentenceBtn.classList.remove("active");
-      if (vocabTaskField) vocabTaskField.style.display = "";
     } else {
       typeSentenceBtn.classList.add("active");
       typeVocabBtn.classList.remove("active");
-      if (vocabTaskField) vocabTaskField.style.display = "none";
     }
   }
   typeVocabBtn.onclick = () => setType("vocab");
   typeSentenceBtn.onclick = () => setType("sentence");
 
-  presetDefaultBtn && (presetDefaultBtn.onclick = setVocabPresetDefault);
-  presetSentence4Btn && (presetSentence4Btn.onclick = setVocabPresetSentence4);
-  presetClearBtn && (presetClearBtn.onclick = setVocabPresetClear);
-
-  /* ===========================
-     아래는 기존 로직들 (그대로)
-  =========================== */
   async function loadClassHomework() {
     if (!currentClass || !currentClass.id) return;
 
@@ -1305,7 +1155,7 @@
     try {
       const studentReq = client
         .from("student_homework")
-        .select("id, type, level, set_numbers, due_date, created_at, tasks")
+        .select("id, type, level, set_numbers, due_date, created_at")
         .eq("student_login_id", currentStudent.login_id);
 
       let teacherVocabReq = null;
@@ -1425,36 +1275,19 @@
       return;
     }
 
-    // ✅ 추가: 어휘면 tasks 함께 저장
-    const tasksPayload = (currentType === "vocab")
-      ? sanitizeCounts(vocabTaskCounts)
-      : null;
-
-    // ✅ 어휘인데 전부 0이면 방지
-    if (currentType === "vocab") {
-      const sum = Object.values(tasksPayload).reduce((a,b) => a + (Number(b)||0), 0);
-      if (sum <= 0) {
-        setMyHwStatus("어휘 숙제 구성을 최소 1개 이상 설정해 주세요.", "error");
-        return;
-      }
-    }
-
     setMyHwStatus("", "");
     myHwSaveBtn.disabled = true;
 
     try {
       if (editingHomeworkId) {
-        const updatePayload = {
-          type: currentType,
-          level: parsed.level,
-          set_numbers: parsed.raw,
-          due_date: due
-        };
-        if (currentType === "vocab") updatePayload.tasks = tasksPayload;
-
         const { error } = await client
           .from("student_homework")
-          .update(updatePayload)
+          .update({
+            type: currentType,
+            level: parsed.level,
+            set_numbers: parsed.raw,
+            due_date: due
+          })
           .eq("id", editingHomeworkId)
           .eq("student_login_id", currentStudent.login_id);
 
@@ -1470,18 +1303,15 @@
         myHwDueEl.value = "";
         setMyHwStatus("✅ 수정 완료!", "");
       } else {
-        const insertPayload = {
-          student_login_id: currentStudent.login_id,
-          type: currentType,
-          level: parsed.level,
-          set_numbers: parsed.raw,
-          due_date: due
-        };
-        if (currentType === "vocab") insertPayload.tasks = tasksPayload;
-
         const { error } = await client
           .from("student_homework")
-          .insert(insertPayload);
+          .insert({
+            student_login_id: currentStudent.login_id,
+            type: currentType,
+            level: parsed.level,
+            set_numbers: parsed.raw,
+            due_date: due
+          });
 
         if (error) {
           console.error("student_homework 저장 오류:", error);
@@ -1530,12 +1360,6 @@
     myHwDueEl.value = row.due_date || "";
     setType(row.type === "sentence" ? "sentence" : "vocab");
     setSaveButtonMode(true);
-
-    // ✅ 추가: 어휘 수정 시 tasks 복원
-    if (row.type === "vocab") {
-      vocabTaskCounts = sanitizeCounts(row.tasks || { meaning:1, english:1, listening:1, sentence:1 });
-      renderVocabStepper();
-    }
   }
 
   // ✅ 수정/삭제: document 위임으로 100% 클릭 잡기
@@ -1581,7 +1405,6 @@
           setSaveButtonMode(false);
           myHwSetEl.value = "";
           myHwDueEl.value = "";
-          setVocabPresetDefault();
         }
 
         await loadManageList();
@@ -1598,7 +1421,7 @@
 
     const { data, error } = await client
       .from("student_homework")
-      .select("id, type, level, set_numbers, due_date, created_at, tasks")
+      .select("id, type, level, set_numbers, due_date, created_at")
       .eq("student_login_id", currentStudent.login_id)
       .order("due_date", { ascending: true })
       .order("created_at", { ascending: true });
@@ -1700,11 +1523,6 @@
   (async function init() {
     bindManageButtons();
     await loadStudentFromLocalStorage();
-
-    // ✅ 추가: 초기 렌더
-    renderVocabStepper();
-    setType("vocab"); // 처음은 어휘로 시작
-
     if (currentClass && currentClass.id) {
       await loadClassHomework();
     }
@@ -1714,3 +1532,4 @@
 </script>
 </body>
 </html>
+
