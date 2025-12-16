@@ -596,7 +596,7 @@
       margin-bottom: 8px;
     }
 
-    /* ✅ 오른쪽 버튼 영역: 살짝 위로 + 세로 가운데 정렬 느낌 */
+    /* ✅ 오른쪽 버튼 영역 */
     .myhw-actions-wrap {
       align-self: center;
     }
@@ -606,9 +606,15 @@
       flex-direction: column;
       gap: 8px;
       justify-content: center;
+
+      /* ✅ (요청 1,2,3 해결) 버튼이 커지지 않게 + 등록은 오른쪽 유지 */
+      align-items: flex-end;
     }
 
-    .btn-block { width: 100%; }
+    /* ✅ (요청 1 해결) 갑자기 커진 문제 해결: 이 블록에서만 버튼 폭 고정 */
+    .myhw-actions .btn-block{
+      width: 160px;
+    }
 
     .vocab-config {
       margin: 6px 0 10px;
@@ -673,26 +679,28 @@
       min-width: 110px;
     }
 
-    /* ✅ (요청 반영) 숙제 관리 버튼만: 민트색 + 가운데 정렬 */
+    /* ✅ (요청 2,3,4 해결) 숙제 관리는 아래 + 가운데 */
     #my-hw-manage-btn{
       background: var(--mint);
       color: #ffffff;
-      align-self: center;
-      width: 160px;
+      align-self: center;     /* ✅ 가운데 */
+      margin-top: 14px;       /* ✅ 아래 빈칸으로 내려가게 */
     }
 
     @media (max-width: 900px) {
       .myhw-grid { grid-template-columns: 160px 1fr; }
       .myhw-actions-wrap { grid-column: 1 / -1; }
-      .myhw-actions { flex-direction: row; }
-      .btn-block { width: auto; }
+      .myhw-actions { flex-direction: row; align-items: center; }
+      .myhw-actions .btn-block{ width: 160px; }
       .mini-select-row { grid-template-columns: repeat(2, minmax(160px, 1fr)); }
+      #my-hw-manage-btn{ margin-top: 0; } /* 모바일에서는 아래로 내리는 여백 제거 */
     }
 
     @media (max-width: 520px) {
       .mini-select-row { grid-template-columns: 1fr; }
-      .myhw-actions { flex-direction: column; }
-      .btn-block { width: 100%; }
+      .myhw-actions { flex-direction: column; align-items: center; }
+      .myhw-actions .btn-block{ width: 100%; } /* 작은 화면은 꽉 차게 */
+      #my-hw-manage-btn{ margin-top: 0; }
     }
   </style>
 
@@ -719,8 +727,12 @@
     <div class="field myhw-actions-wrap" style="min-width:190px;">
       <label>&nbsp;</label>
       <div class="myhw-actions">
+        <!-- ✅ (요청 2) 숙제 등록은 원래 위(=숙제 관리 자리였던 곳) -->
         <button id="my-hw-save-btn" class="btn-primary btn-block" type="button">숙제 등록</button>
+
+        <!-- ✅ (요청 3,4) 숙제 관리는 아래 + 가운데 -->
         <button id="my-hw-manage-btn" class="btn-soft btn-block" type="button">숙제 관리</button>
+
         <button id="my-hw-cancel-btn" class="btn-soft btn-block" type="button" style="display:none;">수정 취소</button>
       </div>
     </div>
@@ -1618,7 +1630,6 @@
           .eq("id", editingHomeworkId)
           .eq("student_login_id", currentStudent.login_id);
 
-        // ✅ tasks 컬럼 없으면 fallback
         if (error && currentType === "vocab" && isMissingTasksColumnError(error)) {
           const { error: e2 } = await client
             .from("student_homework")
@@ -1660,7 +1671,6 @@
           .from("student_homework")
           .insert(payload);
 
-        // ✅ tasks 컬럼 없으면 fallback
         if (error && currentType === "vocab" && isMissingTasksColumnError(error)) {
           const { error: e2 } = await client
             .from("student_homework")
