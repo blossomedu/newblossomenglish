@@ -730,15 +730,37 @@
       <input id="my-hw-due" class="input-date" type="date" />
     </div>
 
-    <div class="field myhw-actions-wrap" style="min-width:190px;">
-      <label>&nbsp;</label>
-      <div class="myhw-actions">
-        <button id="my-hw-save-btn" class="btn-primary btn-block" type="button">숙제 등록</button>
-        <button id="my-hw-manage-btn" class="btn-soft btn-block" type="button">숙제 관리</button>
-        <button id="my-hw-cancel-btn" class="btn-soft btn-block" type="button" style="display:none;">수정 취소</button>
-      </div>
-    </div>
+   <div class="field myhw-actions-wrap" style="min-width:190px;">
+  <label>&nbsp;</label>
+
+  <div class="myhw-actions">
+    <!-- 숙제 등록: 기존 그대로 -->
+    <button
+      id="my-hw-save-btn"
+      class="btn-primary btn-block"
+      type="button">
+      숙제 등록
+    </button>
+
+    <!-- 숙제 관리: 가운데 정렬만 -->
+    <button
+      id="my-hw-manage-btn"
+      class="btn-soft"
+      type="button"
+      style="width:160px; margin: 0 auto;">
+      숙제 관리
+    </button>
+
+    <button
+      id="my-hw-cancel-btn"
+      class="btn-soft btn-block"
+      type="button"
+      style="display:none;">
+      수정 취소
+    </button>
   </div>
+</div>
+</div>
 
   <!-- ✅ 어휘 숙제 구성: 프리셋 + 4개 선택 (vocab일 때만 표시) -->
   <div id="vocab-config" class="vocab-config">
@@ -1930,4 +1952,5 @@
 </script>
 </body>
 </html>
+
 
