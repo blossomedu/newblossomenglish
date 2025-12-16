@@ -694,6 +694,20 @@
       .myhw-actions { flex-direction: column; }
       .btn-block { width: 100%; }
     }
+    /* ===== 내 온라인 숙제 버튼 최종 정리 ===== */
+
+/* 버튼 공통: 크기 통일 */
+#my-hw-save-btn,
+#my-hw-manage-btn {
+  width: 160px;          /* ✔ 갑자기 커진 문제 해결 */
+}
+
+/* 숙제 관리 버튼만 가운데 정렬 */
+#my-hw-manage-btn {
+  align-self: center;    /* ✔ 박스 안에서 가운데 */
+  background: var(--mint);
+  color: #ffffff;
+}
   </style>
 
   <!-- ✅ 열 정렬 grid -->
@@ -1916,3 +1930,4 @@
 </script>
 </body>
 </html>
+
