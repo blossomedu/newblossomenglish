@@ -581,123 +581,221 @@
     }
   </style>
 
-  <div class="section-card">
-    <div class="section-header">
-      <div class="section-title">✍️ 내 온라인 숙제</div>
-    </div>
-
-    <!-- ✅ 1줄: 숙제종류 / 단계-세트 / 마감일 -->
-    <div class="myhw-grid">
-      <div class="field" style="min-width:150px;">
-        <label>숙제 종류</label>
-        <div class="pill-group">
-          <button type="button" id="type-vocab" class="pill-type-btn active">어휘</button>
-          <button type="button" id="type-sentence" class="pill-type-btn">문장</button>
-        </div>
-      </div>
-
-      <div class="field" style="min-width:180px;">
-        <label>단계-세트 (예: 1-1 또는 잠신중1-1)</label>
-        <input id="my-hw-set" class="input" type="text" placeholder="예: 1-1 또는 1-1, 1-2 또는 잠신중1-1" />
-      </div>
-
-      <div class="field" style="min-width:150px;">
-        <label>마감일</label>
-        <input id="my-hw-due" class="input-date" type="date" />
-      </div>
-    </div>
-
-    <!-- ✅ 2줄: 왼쪽(어휘구성) / 오른쪽(버튼) -->
-    <div class="myhw-bottom">
-      <div>
-        <div id="vocab-config" class="vocab-config">
-          <div class="preset-row">
-            <button type="button" id="preset-default" class="preset-btn">기본 4종</button>
-            <button type="button" id="preset-blank4" class="preset-btn">문장빈칸×4</button>
-            <button type="button" id="preset-reset" class="preset-btn">초기화</button>
-          </div>
-
-          <div class="mini-select-row">
-            <div class="mini-item" id="mini-meaning">
-              <div class="mini-label">뜻찾기</div>
-              <select id="sel-meaning" class="mini-select">
-                <option value="0">0</option><option value="1">1</option><option value="2">2</option>
-                <option value="3">3</option><option value="4">4</option><option value="5">5</option>
-              </select>
-            </div>
-
-            <div class="mini-item" id="mini-english">
-              <div class="mini-label">영어찾기</div>
-              <select id="sel-english" class="mini-select">
-                <option value="0">0</option><option value="1">1</option><option value="2">2</option>
-                <option value="3">3</option><option value="4">4</option><option value="5">5</option>
-              </select>
-            </div>
-
-            <div class="mini-item" id="mini-listening">
-              <div class="mini-label">듣고찾기</div>
-              <select id="sel-listening" class="mini-select">
-                <option value="0">0</option><option value="1">1</option><option value="2">2</option>
-                <option value="3">3</option><option value="4">4</option><option value="5">5</option>
-              </select>
-            </div>
-
-            <div class="mini-item" id="mini-sentence">
-              <div class="mini-label">문장빈칸</div>
-              <select id="sel-sentence" class="mini-select">
-                <option value="0">0</option><option value="1">1</option><option value="2">2</option>
-                <option value="3">3</option><option value="4">4</option><option value="5">5</option>
-              </select>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="field" style="min-width:180px;">
-        <label>&nbsp;</label>
-        <div class="myhw-actions">
-          <button id="my-hw-save-btn" class="btn-primary btn-block" type="button">숙제 등록</button>
-          <button id="my-hw-manage-btn" class="btn-soft btn-block" type="button">숙제 관리</button>
-          <button id="my-hw-cancel-btn" class="btn-soft btn-block" type="button" style="display:none;">수정 취소</button>
-        </div>
-      </div>
-    </div>
-
-    <div class="hint">
-      어휘는 같은 단계만 여러 개 입력 가능(예: 1-1, 1-2). 문장은 1-1 또는 잠신중1-1처럼 입력 가능.
-    </div>
-    <div id="my-hw-status" class="status-text"></div>
+ <div class="section-card">
+  <div class="section-header">
+    <div class="section-title">✍️ 내 온라인 숙제</div>
   </div>
 
-  <div class="section-card">
-    <div class="section-header">
-      <div class="section-title">📊 내 온라인 숙제 결과</div>
-    </div>
+  <!-- ✅ "내 온라인 숙제" 전용: 칼각 정렬 + 어휘 구성 스타일 -->
+  <style>
+    .myhw-grid {
+      display: grid;
+      grid-template-columns: 160px 1fr 160px 190px;
+      gap: 10px;
+      align-items: end;
+      margin-bottom: 8px;
+    }
 
-    <div class="unit-result-wrap" id="unit-result-wrap">
-      <div class="unit-result-head">
-        <div>마감 날짜</div>
-        <div>출처</div>
-        <div>구분</div>
-        <div>단원(Unit)</div>
-        <div>Unit 전체</div>
-        <div>제출 시간</div>
+    /* ✅ 오른쪽 버튼 영역: 살짝 위로 + 세로 가운데 정렬 느낌 */
+    .myhw-actions-wrap {
+      align-self: center;
+    }
+
+    .myhw-actions {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      justify-content: center;
+    }
+
+    .btn-block { width: 100%; }
+
+    .vocab-config {
+      margin: 6px 0 10px;
+      display: none; /* vocab일 때만 표시 */
+    }
+
+    .preset-row {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 6px;
+      flex-wrap: wrap;
+    }
+
+    .preset-btn {
+      border: 1px solid #e5e7eb;
+      background: #f9fafb;
+      color: #374151;
+      font-size: 11px;
+      font-weight: 800;
+      padding: 5px 10px;
+      border-radius: 999px;
+      cursor: pointer;
+      white-space: nowrap;
+    }
+    .preset-btn:hover { background: #f3f4f6; }
+
+    .mini-select-row {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(160px, 1fr));
+      gap: 8px;
+    }
+
+    .mini-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      border: 1px solid #e5e7eb;
+      background: #fff;
+      border-radius: 14px;
+      padding: 8px 10px;
+    }
+    .mini-item.off { opacity: 0.55; background: #f9fafb; }
+
+    .mini-label {
+      font-size: 12px;
+      font-weight: 900;
+      color: #111827;
+      white-space: nowrap;
+    }
+
+    .mini-select {
+      margin-left: auto;
+      border: 1px solid #d1d5db;
+      border-radius: 999px;
+      padding: 6px 10px;
+      font-size: 12px;
+      outline: none;
+      background: #fff;
+      font-weight: 800;
+      color: #111827;
+      min-width: 110px;
+    }
+
+    @media (max-width: 900px) {
+      .myhw-grid { grid-template-columns: 160px 1fr; }
+      .myhw-actions-wrap { grid-column: 1 / -1; }
+      .myhw-actions { flex-direction: row; }
+      .btn-block { width: auto; }
+      .mini-select-row { grid-template-columns: repeat(2, minmax(160px, 1fr)); }
+    }
+
+    @media (max-width: 520px) {
+      .mini-select-row { grid-template-columns: 1fr; }
+      .myhw-actions { flex-direction: column; }
+      .btn-block { width: 100%; }
+    }
+  </style>
+
+  <!-- ✅ 열 정렬 grid -->
+  <div class="myhw-grid">
+    <div class="field" style="min-width:150px;">
+      <label>숙제 종류</label>
+      <div class="pill-group">
+        <button type="button" id="type-vocab" class="pill-type-btn active">어휘</button>
+        <button type="button" id="type-sentence" class="pill-type-btn">문장</button>
       </div>
-      <div id="unit-result-body"></div>
+    </div>
+
+    <div class="field" style="min-width:180px;">
+      <label>단계-세트 (예: 1-1 또는 잠신중1-1)</label>
+      <input id="my-hw-set" class="input" type="text" placeholder="예: 1-1 또는 1-1, 1-2 또는 잠신중1-1" />
+    </div>
+
+    <div class="field" style="min-width:150px;">
+      <label>마감일</label>
+      <input id="my-hw-due" class="input-date" type="date" />
+    </div>
+
+    <div class="field myhw-actions-wrap" style="min-width:190px;">
+      <label>&nbsp;</label>
+      <div class="myhw-actions">
+        <button id="my-hw-save-btn" class="btn-primary btn-block" type="button">숙제 등록</button>
+        <button id="my-hw-manage-btn" class="btn-soft btn-block" type="button">숙제 관리</button>
+        <button id="my-hw-cancel-btn" class="btn-soft btn-block" type="button" style="display:none;">수정 취소</button>
+      </div>
     </div>
   </div>
 
-  <div class="section-card">
-    <div class="section-header">
-      <div class="section-title">👤 내 정보</div>
+  <!-- ✅ 어휘 숙제 구성: 프리셋 + 4개 선택 (vocab일 때만 표시) -->
+  <div id="vocab-config" class="vocab-config">
+    <div class="preset-row">
+      <button type="button" id="preset-default" class="preset-btn">기본 4종</button>
+      <button type="button" id="preset-blank3" class="preset-btn">문장 빈칸 ×3</button>
+      <button type="button" id="preset-reset" class="preset-btn">초기화</button>
     </div>
-    <div class="info-row">
-      <div><span class="label">이름:</span><span id="info-name">-</span></div>
-      <div><span class="label">반:</span><span id="info-class">-</span></div>
-      <div><span class="label">아이디:</span><span id="info-id">-</span></div>
+
+    <div class="mini-select-row">
+      <div class="mini-item" id="mini-meaning">
+        <div class="mini-label">뜻 찾기</div>
+        <select id="sel-meaning" class="mini-select">
+          <option value="0">0</option><option value="1">1</option><option value="2">2</option>
+          <option value="3">3</option><option value="4">4</option><option value="5">5</option>
+        </select>
+      </div>
+
+      <div class="mini-item" id="mini-english">
+        <div class="mini-label">영어 찾기</div>
+        <select id="sel-english" class="mini-select">
+          <option value="0">0</option><option value="1">1</option><option value="2">2</option>
+          <option value="3">3</option><option value="4">4</option><option value="5">5</option>
+        </select>
+      </div>
+
+      <div class="mini-item" id="mini-listening">
+        <div class="mini-label">듣고 찾기</div>
+        <select id="sel-listening" class="mini-select">
+          <option value="0">0</option><option value="1">1</option><option value="2">2</option>
+          <option value="3">3</option><option value="4">4</option><option value="5">5</option>
+        </select>
+      </div>
+
+      <div class="mini-item" id="mini-sentence">
+        <div class="mini-label">문장 빈칸</div>
+        <select id="sel-sentence" class="mini-select">
+          <option value="0">0</option><option value="1">1</option><option value="2">2</option>
+          <option value="3">3</option><option value="4">4</option><option value="5">5</option>
+        </select>
+      </div>
     </div>
-    <div id="info-message" class="info-message"></div>
   </div>
+
+  <div class="hint">
+    어휘는 같은 단계만 여러 개 입력 가능(예: 1-1, 1-2). 문장은 1-1 또는 잠신중1-1처럼 입력 가능.
+  </div>
+  <div id="my-hw-status" class="status-text"></div>
+</div>
+
+<div class="section-card">
+  <div class="section-header">
+    <div class="section-title">📊 내 온라인 숙제 결과</div>
+  </div>
+
+  <div class="unit-result-wrap" id="unit-result-wrap">
+    <div class="unit-result-head">
+      <div>마감 날짜</div>
+      <div>출처</div>
+      <div>구분</div>
+      <div>단원(Unit)</div>
+      <div>Unit 전체</div>
+      <div>제출 시간</div>
+    </div>
+    <div id="unit-result-body"></div>
+  </div>
+</div>
+
+<div class="section-card">
+  <div class="section-header">
+    <div class="section-title">👤 내 정보</div>
+  </div>
+  <div class="info-row">
+    <div><span class="label">이름:</span><span id="info-name">-</span></div>
+    <div><span class="label">반:</span><span id="info-class">-</span></div>
+    <div><span class="label">아이디:</span><span id="info-id">-</span></div>
+  </div>
+  <div id="info-message" class="info-message"></div>
+</div>
 </div>
 
 <div id="manage-backdrop" class="modal-backdrop" aria-hidden="true">
@@ -748,7 +846,7 @@
   // ✅ 어휘 구성 DOM
   const vocabConfigEl     = document.getElementById("vocab-config");
   const presetDefaultBtn  = document.getElementById("preset-default");
-  const presetBlank4Btn   = document.getElementById("preset-blank4");
+  const presetBlank3Btn   = document.getElementById("preset-blank3");
   const presetResetBtn    = document.getElementById("preset-reset");
 
   const selMeaning   = document.getElementById("sel-meaning");
@@ -912,7 +1010,7 @@
   }
 
   function setVocabTasksDefault() { vocabTasks = { meaning:1, english:1, listening:1, sentence:1 }; applyVocabTasksToUI(); }
-  function setVocabTasksBlank4()  { vocabTasks = { meaning:0, english:0, listening:0, sentence:4 }; applyVocabTasksToUI(); }
+  function setVocabTasksBlank3()  { vocabTasks = { meaning:0, english:0, listening:0, sentence:3 }; applyVocabTasksToUI(); }
   function setVocabTasksReset()   { vocabTasks = { meaning:0, english:0, listening:0, sentence:0 }; applyVocabTasksToUI(); }
 
   function normalizeVocabTasksBeforeSave(t) {
@@ -1146,7 +1244,6 @@
     }
   }
 
-  // 이하 로직 동일 (너가 올린 코드 그대로)
   function normalizeAndExpandHomeworkRows(row, from) {
     const isStudent = from === "student";
     const type = isStudent ? row.type : (from === "teacher_sentence" ? "sentence" : "vocab");
@@ -1513,6 +1610,7 @@
           .eq("id", editingHomeworkId)
           .eq("student_login_id", currentStudent.login_id);
 
+        // ✅ tasks 컬럼 없으면 fallback
         if (error && currentType === "vocab" && isMissingTasksColumnError(error)) {
           const { error: e2 } = await client
             .from("student_homework")
@@ -1554,6 +1652,7 @@
           .from("student_homework")
           .insert(payload);
 
+        // ✅ tasks 컬럼 없으면 fallback
         if (error && currentType === "vocab" && isMissingTasksColumnError(error)) {
           const { error: e2 } = await client
             .from("student_homework")
@@ -1600,7 +1699,6 @@
     manageBackdrop.style.display = "none";
     manageBackdrop.setAttribute("aria-hidden", "true");
   }
-
   manageCloseBtn.onclick = closeManageModal;
   manageBackdrop.addEventListener("click", (e) => {
     if (e.target === manageBackdrop) closeManageModal();
@@ -1794,7 +1892,7 @@
     selSentence.addEventListener("change", readVocabTasksFromUI);
 
     presetDefaultBtn.addEventListener("click", setVocabTasksDefault);
-    presetBlank4Btn.addEventListener("click", setVocabTasksBlank4);
+    presetBlank3Btn.addEventListener("click", setVocabTasksBlank3);
     presetResetBtn.addEventListener("click", setVocabTasksReset);
   }
 
