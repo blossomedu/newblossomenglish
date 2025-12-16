@@ -355,18 +355,15 @@
     }
 
     .modal {
-  width: min(820px, 100%);
-  background: #fff;
-  border-radius: 22px;
-  box-shadow: 0 24px 60px rgba(0,0,0,0.25);
-  overflow: hidden;
-
-  /* ✅ 추가 */
-  max-height: 80vh;
-  display: flex;
-  flex-direction: column;
-}
-
+      width: min(820px, 100%);
+      background: #fff;
+      border-radius: 22px;
+      box-shadow: 0 24px 60px rgba(0,0,0,0.25);
+      overflow: hidden;
+      max-height: 80vh;
+      display: flex;
+      flex-direction: column;
+    }
 
     .modal-head {
       padding: 16px 18px;
@@ -388,13 +385,10 @@
     }
 
     .modal-body {
-  padding: 14px 16px 16px;
-
-  /* ✅ 추가 */
-  overflow-y: auto;
-  -webkit-overflow-scrolling: touch;
-}
-
+      padding: 14px 16px 16px;
+      overflow-y: auto;
+      -webkit-overflow-scrolling: touch;
+    }
 
     .manage-table {
       width: 100%;
@@ -928,9 +922,25 @@
     }
   }
 
+  /* =========================================================
+     ✅ 숙제 인스턴스 키(assignment_key) 생성 규칙
+     - student_homework:   student:<type>:<id>
+     - teacher vocab:      teacher:vocab_homework:<id>
+     - teacher sentence:   teacher:sentence_homework:<id>
+  ========================================================= */
+  function buildAssignmentKey(from, row) {
+    const id = row && (row.id ?? "");
+    if (!id && id !== 0) return null;
+    if (from === "student") return `student:${row.type || "unknown"}:${id}`;
+    if (from === "teacher_vocab") return `teacher:vocab_homework:${id}`;
+    if (from === "teacher_sentence") return `teacher:sentence_homework:${id}`;
+    return `unknown:${id}`;
+  }
+
   function normalizeAndExpandHomeworkRows(row, from) {
     const isStudent = from === "student";
     const type = isStudent ? row.type : (from === "teacher_sentence" ? "sentence" : "vocab");
+    const assignment_key = buildAssignmentKey(from, row);
 
     const unitKeys = parseUnitKeysFromSetNumbers(row.set_numbers);
     if (unitKeys.length === 0) {
@@ -938,6 +948,7 @@
         source: isStudent ? "student" : "teacher",
         sourceLabel: isStudent ? "내가 등록" : "선생님",
         type,
+        assignment_key,
         due_date: row.due_date || null,
         created_at: row.created_at || null,
         unit_key: null,
@@ -950,6 +961,7 @@
       source: isStudent ? "student" : "teacher",
       sourceLabel: isStudent ? "내가 등록" : "선생님",
       type,
+      assignment_key,
       due_date: row.due_date || null,
       created_at: row.created_at || null,
       unit_key: uk,
@@ -978,17 +990,28 @@
     };
   }
 
-  // ✅ 문장 상세는 "어휘처럼" (고정 2개/또는 학교시험 5개)
-  const SENTENCE_TASKS_NORMAL = [
-    { mode: "blank",   label: "빈칸 완성" },
-    { mode: "arrange", label: "문장 배열" }
+  // ✅ 문장 상세 task 정의(표준 키로 통일)
+  const SENTENCE_TASKS_STAGE1 = [
+    { mode: "blank",    label: "빈칸 완성" },
+    { mode: "order",    label: "문장 배열" }
+  ];
+  const SENTENCE_TASKS_STAGE2 = [
+    { mode: "blank",    label: "빈칸 완성" },
+    { mode: "order",    label: "문장 배열" },
+    { mode: "complete", label: "문장 완성" }
+  ];
+  const SENTENCE_TASKS_STAGE3 = [
+    { mode: "blank",    label: "빈칸 완성" },
+    { mode: "order",    label: "문장 배열" },
+    { mode: "complete", label: "문장 완성" },
+    { mode: "choose",   label: "문장 고르기" }
   ];
   const SENTENCE_TASKS_SCHOOL = [
-    { mode: "school1", label: "학교 시험 1" },
-    { mode: "school2", label: "학교 시험 2" },
-    { mode: "school3", label: "학교 시험 3" },
-    { mode: "school4", label: "학교 시험 4" },
-    { mode: "school5", label: "학교 시험 5" }
+    { mode: "blank",    label: "빈칸 완성" },
+    { mode: "order",    label: "문장 배열" },
+    { mode: "complete", label: "문장 완성" },
+    { mode: "choose",   label: "문장 고르기" },
+    { mode: "passage",  label: "지문 문제" }
   ];
 
   function isSchoolUnitKey(unitKey) {
@@ -996,12 +1019,63 @@
     return /^(잠신중|잠신고)\d+-\d+$/.test(t);
   }
 
-  function buildSentenceTaskView(unitKey, sentenceByUnitByMode) {
-    const modeMap = (sentenceByUnitByMode && sentenceByUnitByMode[unitKey]) ? sentenceByUnitByMode[unitKey] : {};
-    const tasks = isSchoolUnitKey(unitKey) ? SENTENCE_TASKS_SCHOOL : SENTENCE_TASKS_NORMAL;
+  function stageFromUnitKey(unitKey) {
+    const t = String(unitKey || "");
+    if (isSchoolUnitKey(t)) return "school";
+    const m = t.match(/^(\d+)-(\d+)$/);
+    if (!m) return "unknown";
+    const setNo = Number(m[2] || 0);
+    if (!setNo) return "unknown";
+    if (setNo >= 1 && setNo <= 9) return "stage1";
+    if (setNo >= 10 && setNo <= 18) return "stage2";
+    if (setNo >= 19 && setNo <= 27) return "stage3";
+    return "unknown";
+  }
+
+  /* =========================================================
+     ✅ DB mode -> 표준 mode 정규화
+     - stage1 파일이 저장하는 값: sentence_stage1_blank / sentence_stage1_order
+     - 앞으로 stage2/3/school이 다양한 문자열로 저장해도
+       여기서 blank/order/complete/choose/passage로 통일해서 표시
+  ========================================================= */
+  function normalizeSentenceMode(dbMode) {
+    const m = String(dbMode || "").toLowerCase();
+    if (!m) return "unknown";
+
+    // 흔한 케이스들
+    if (m.includes("passage")) return "passage";
+    if (m.includes("choose")) return "choose";
+    if (m.includes("complete")) return "complete";
+
+    // order/arrange
+    if (m.includes("order") || m.includes("arrange")) return "order";
+
+    // blank
+    if (m.includes("blank")) return "blank";
+
+    return "unknown";
+  }
+
+  // sentenceByAssignmentUnitMode[assignment_key][unit_key][standardMode] = latestResult
+  function buildSentenceTaskView(unitKey, assignmentKey, sentenceByAssignmentUnitMode) {
+    const stage = stageFromUnitKey(unitKey);
+
+    let tasks = SENTENCE_TASKS_STAGE1;
+    if (stage === "stage2") tasks = SENTENCE_TASKS_STAGE2;
+    else if (stage === "stage3") tasks = SENTENCE_TASKS_STAGE3;
+    else if (stage === "school") tasks = SENTENCE_TASKS_SCHOOL;
+
+    const unitMap =
+      (sentenceByAssignmentUnitMode &&
+        assignmentKey &&
+        sentenceByAssignmentUnitMode[assignmentKey] &&
+        unitKey &&
+        sentenceByAssignmentUnitMode[assignmentKey][unitKey])
+        ? sentenceByAssignmentUnitMode[assignmentKey][unitKey]
+        : {};
 
     const rows = tasks.map(t => {
-      const r = modeMap ? modeMap[t.mode] : null;
+      const r = unitMap ? unitMap[t.mode] : null;
       const cell = taskCell(r);
       return { ...t, result: r, cell };
     });
@@ -1023,7 +1097,7 @@
     return { rows, overall, submittedText };
   }
 
-  function renderUnifiedResults(items, vocabByUnitByMode, sentenceByUnitByMode) {
+  function renderUnifiedResults(items, vocabByUnitByMode, sentenceByAssignmentUnitMode) {
     unitResultBody.innerHTML = "";
 
     if (!items || items.length === 0) {
@@ -1059,7 +1133,7 @@
       }
 
       if (item.type === "sentence" && item.unit_key) {
-        const view = buildSentenceTaskView(item.unit_key, sentenceByUnitByMode);
+        const view = buildSentenceTaskView(item.unit_key, item.assignment_key, sentenceByAssignmentUnitMode);
         overall = view.overall;
         submittedText = view.submittedText;
       }
@@ -1111,7 +1185,7 @@
           <div class="unit-guide">※ 어휘 4개 모드를 모두 완료하면 Unit 전체가 ⭕로 바뀝니다.</div>
         `;
       } else if (item.type === "sentence" && item.unit_key) {
-        const view = buildSentenceTaskView(item.unit_key, sentenceByUnitByMode);
+        const view = buildSentenceTaskView(item.unit_key, item.assignment_key, sentenceByAssignmentUnitMode);
 
         const grid = document.createElement("div");
         grid.className = "unit-detail-grid";
@@ -1198,7 +1272,11 @@
       });
 
       const vocabUnitKeys = Array.from(new Set(items.filter(x => x.type === "vocab" && x.unit_key).map(x => x.unit_key)));
-      const sentenceUnitKeys = Array.from(new Set(items.filter(x => x.type === "sentence" && x.unit_key).map(x => x.unit_key)));
+
+      // ✅ 문장은 unit_key만으론 부족. assignment_key가 핵심
+      const sentenceItems = items.filter(x => x.type === "sentence" && x.unit_key && x.assignment_key);
+      const sentenceAssignmentKeys = Array.from(new Set(sentenceItems.map(x => x.assignment_key)));
+      const sentenceUnitKeys = Array.from(new Set(sentenceItems.map(x => x.unit_key)));
 
       let vocabByUnitByMode = {};
       if (vocabUnitKeys.length > 0) {
@@ -1221,30 +1299,75 @@
         });
       }
 
-      let sentenceByUnitByMode = {};
-      if (sentenceUnitKeys.length > 0) {
+      let sentenceByAssignmentUnitMode = {};
+      if (sentenceAssignmentKeys.length > 0 && sentenceUnitKeys.length > 0) {
+        // 1) ✅ 우선: assignment_key까지 포함해서 정확히 조회
+        let usedFallback = false;
         try {
           const { data: sr, error: srErr } = await client
             .from("sentence_results")
-            .select("id, student_login_id, unit_key, mode, correct_count, total_count, submitted_at")
+            .select("id, student_login_id, assignment_key, unit_key, mode, correct_count, total_count, submitted_at")
             .eq("student_login_id", currentStudent.login_id)
+            .in("assignment_key", sentenceAssignmentKeys)
             .in("unit_key", sentenceUnitKeys)
             .order("submitted_at", { ascending: false });
 
-          if (!srErr) {
-            sentenceByUnitByMode = {};
-            (sr || []).forEach(r => {
-              const uk = r.unit_key;
-              const md = r.mode || "unknown";
-              if (!uk) return;
-              if (!sentenceByUnitByMode[uk]) sentenceByUnitByMode[uk] = {};
-              if (!sentenceByUnitByMode[uk][md]) sentenceByUnitByMode[uk][md] = r;
-            });
-          }
-        } catch (e) {}
+          if (srErr) throw srErr;
+
+          sentenceByAssignmentUnitMode = {};
+          (sr || []).forEach(r => {
+            const ak = r.assignment_key;
+            const uk = r.unit_key;
+            const md = normalizeSentenceMode(r.mode);
+            if (!ak || !uk) return;
+
+            if (!sentenceByAssignmentUnitMode[ak]) sentenceByAssignmentUnitMode[ak] = {};
+            if (!sentenceByAssignmentUnitMode[ak][uk]) sentenceByAssignmentUnitMode[ak][uk] = {};
+
+            // 최신 1개만 유지 (이미 submitted_at desc 정렬이긴 하지만 안전)
+            if (!sentenceByAssignmentUnitMode[ak][uk][md]) {
+              sentenceByAssignmentUnitMode[ak][uk][md] = r;
+            }
+          });
+        } catch (e) {
+          usedFallback = true;
+          console.warn("[mypage] sentence_results assignment_key 조회 실패. fallback 시도:", e);
+        }
+
+        // 2) ⚠️ fallback: 기존 방식(섞임 발생 가능). 그래도 화면이 아예 비는 건 방지.
+        if (usedFallback) {
+          try {
+            const { data: sr2, error: srErr2 } = await client
+              .from("sentence_results")
+              .select("id, student_login_id, unit_key, mode, correct_count, total_count, submitted_at")
+              .eq("student_login_id", currentStudent.login_id)
+              .in("unit_key", sentenceUnitKeys)
+              .order("submitted_at", { ascending: false });
+
+            if (!srErr2) {
+              sentenceByAssignmentUnitMode = {};
+              // fallback은 assignment_key가 없으니, 화면에서는 "모든 assignment_key가 같은 결과를 공유"하게 됨
+              // (하지만 최소한 mode 정규화는 반영)
+              sentenceAssignmentKeys.forEach(ak => {
+                sentenceByAssignmentUnitMode[ak] = {};
+              });
+
+              (sr2 || []).forEach(r => {
+                const uk = r.unit_key;
+                const md = normalizeSentenceMode(r.mode);
+                if (!uk) return;
+
+                sentenceAssignmentKeys.forEach(ak => {
+                  if (!sentenceByAssignmentUnitMode[ak][uk]) sentenceByAssignmentUnitMode[ak][uk] = {};
+                  if (!sentenceByAssignmentUnitMode[ak][uk][md]) sentenceByAssignmentUnitMode[ak][uk][md] = r;
+                });
+              });
+            }
+          } catch (e2) {}
+        }
       }
 
-      renderUnifiedResults(items, vocabByUnitByMode, sentenceByUnitByMode);
+      renderUnifiedResults(items, vocabByUnitByMode, sentenceByAssignmentUnitMode);
 
     } catch (e) {
       console.error("통합 결과 로딩 오류:", e);
@@ -1362,7 +1485,6 @@
     setSaveButtonMode(true);
   }
 
-  // ✅ 수정/삭제: document 위임으로 100% 클릭 잡기
   function bindManageButtons() {
     document.addEventListener("click", async (e) => {
       const btn = e.target.closest("button.btn-mini[data-act]");
@@ -1532,4 +1654,3 @@
 </script>
 </body>
 </html>
-
