@@ -596,7 +596,7 @@
       margin-bottom: 8px;
     }
 
-    /* ✅ 오른쪽 버튼 영역 */
+    /* ✅ 오른쪽 버튼 영역: 살짝 위로 + 세로 가운데 정렬 느낌 */
     .myhw-actions-wrap {
       align-self: center;
     }
@@ -606,15 +606,10 @@
       flex-direction: column;
       gap: 8px;
       justify-content: center;
-
-      /* ✅ (요청 1,2,3 해결) 버튼이 커지지 않게 + 등록은 오른쪽 유지 */
-      align-items: flex-end;
+      align-items: flex-end; /* 기본은 오른쪽 정렬 */
     }
 
-    /* ✅ (요청 1 해결) 갑자기 커진 문제 해결: 이 블록에서만 버튼 폭 고정 */
-    .myhw-actions .btn-block{
-      width: 160px;
-    }
+    .btn-block { width: 100%; }
 
     .vocab-config {
       margin: 6px 0 10px;
@@ -679,28 +674,40 @@
       min-width: 110px;
     }
 
-    /* ✅ (요청 2,3,4 해결) 숙제 관리는 아래 + 가운데 */
-    #my-hw-manage-btn{
-      background: var(--mint);
-      color: #ffffff;
-      align-self: center;     /* ✅ 가운데 */
-      margin-top: 14px;       /* ✅ 아래 빈칸으로 내려가게 */
-    }
-
     @media (max-width: 900px) {
       .myhw-grid { grid-template-columns: 160px 1fr; }
       .myhw-actions-wrap { grid-column: 1 / -1; }
-      .myhw-actions { flex-direction: row; align-items: center; }
-      .myhw-actions .btn-block{ width: 160px; }
+      .myhw-actions { flex-direction: row; }
+      .btn-block { width: auto; }
       .mini-select-row { grid-template-columns: repeat(2, minmax(160px, 1fr)); }
-      #my-hw-manage-btn{ margin-top: 0; } /* 모바일에서는 아래로 내리는 여백 제거 */
     }
 
     @media (max-width: 520px) {
       .mini-select-row { grid-template-columns: 1fr; }
-      .myhw-actions { flex-direction: column; align-items: center; }
-      .myhw-actions .btn-block{ width: 100%; } /* 작은 화면은 꽉 차게 */
-      #my-hw-manage-btn{ margin-top: 0; }
+      .myhw-actions { flex-direction: column; }
+      .btn-block { width: 100%; }
+    }
+
+    /* ===== ✅ 버튼 3개 최종 정리 (요청사항 반영) ===== */
+
+    /* 1) 숙제 등록 버튼 커짐 방지: 크기 통일 */
+    #my-hw-save-btn,
+    #my-hw-manage-btn,
+    #my-hw-cancel-btn {
+      width: 160px;
+    }
+
+    /* 2) 버튼 위치 바꾸기: 등록(위) / 관리(아래) */
+    #my-hw-save-btn { order: 1; }
+    #my-hw-manage-btn { order: 2; }
+    #my-hw-cancel-btn { order: 3; }
+
+    /* 3) 숙제 관리만: 민트색 + 가운데 정렬(오른쪽 버튼 박스 안에서) */
+    #my-hw-manage-btn {
+      background: var(--mint);
+      color: #ffffff;
+      border: none;
+      align-self: center; /* ✅ 오른쪽 190px 영역 안에서 가운데 */
     }
   </style>
 
@@ -727,10 +734,10 @@
     <div class="field myhw-actions-wrap" style="min-width:190px;">
       <label>&nbsp;</label>
       <div class="myhw-actions">
-        <!-- ✅ (요청 2) 숙제 등록은 원래 위(=숙제 관리 자리였던 곳) -->
+        <!-- ✅ 등록은 위(기존 숙제 관리 자리 느낌) -->
         <button id="my-hw-save-btn" class="btn-primary btn-block" type="button">숙제 등록</button>
 
-        <!-- ✅ (요청 3,4) 숙제 관리는 아래 + 가운데 -->
+        <!-- ✅ 관리는 아래 + 가운데 정렬 -->
         <button id="my-hw-manage-btn" class="btn-soft btn-block" type="button">숙제 관리</button>
 
         <button id="my-hw-cancel-btn" class="btn-soft btn-block" type="button" style="display:none;">수정 취소</button>
