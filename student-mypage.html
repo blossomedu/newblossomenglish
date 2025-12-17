@@ -478,108 +478,62 @@
     <div id="class-hw-area"></div>
   </div>
 
-  <style>
-    /* ✅ 윗줄은 3칸만(버튼 제거) */
-    .myhw-grid {
-      display: grid;
-      grid-template-columns: 160px 1fr 160px;
-      gap: 10px;
-      align-items: end;
-      margin-bottom: 8px;
-    }
+<style>
+  /* ✅ "내 온라인 숙제" 상단 1줄: [숙제종류][단계-세트][마감일][숙제 등록] */
+  .myhw-grid {
+    display: grid;
+    grid-template-columns: 160px 1fr 160px 160px; /* 마지막 칸 = 버튼칸 */
+    gap: 10px;
+    align-items: end;
+    margin-bottom: 8px;
+  }
 
-    /* ✅ 아래줄: 왼쪽(구성) + 오른쪽(버튼) */
-    .myhw-bottom {
-      display: grid;
-      grid-template-columns: 1fr 180px;
-      gap: 10px;
-      align-items: start;
-      margin-top: 6px;
-      margin-bottom: 6px;
-    }
+  .myhw-actions-wrap { align-self: end; }
 
-    .myhw-actions {
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
-      align-items: stretch;
-    }
-    .btn-block { width: 100%; }
+  /* ✅ 버튼은 세로로(등록 위 / 관리 아래) + 같은 x축(열) */
+  .myhw-actions{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;      /* ✅ 두 버튼 “오른쪽 끝” 기준으로 열 맞춤 */
+  }
 
-    /* 어휘 숙제 구성 */
-    .vocab-config {
-      display: none; /* vocab일 때만 표시 */
-    }
+  /* ✅ 알약(버튼) 크기 통일 + 글자 완전 가운데 */
+  #my-hw-save-btn,
+  #my-hw-manage-btn,
+  #my-hw-cancel-btn{
+    width: 130px;               /* ✅ 사이즈 줄이기 */
+    display: inline-flex;
+    align-items: center;        /* ✅ 세로 가운데 */
+    justify-content: center;    /* ✅ 가로 가운데 */
+  }
 
-    .preset-row {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      margin-bottom: 6px;
-      flex-wrap: wrap;
-    }
-    .preset-btn {
-      border: 1px solid #e5e7eb;
-      background: #f9fafb;
-      color: #374151;
-      font-size: 11px;
-      font-weight: 800;
-      padding: 5px 10px;
-      border-radius: 999px;
-      cursor: pointer;
-      white-space: nowrap;
-    }
-    .preset-btn:hover { background: #f3f4f6; }
+  /* ✅ 숙제 등록(핑크) */
+  #my-hw-save-btn{
+    background: var(--pink);
+    color:#fff;
+    border:none;
+  }
 
-    .mini-select-row {
-      display: grid;
-      grid-template-columns: repeat(4, minmax(160px, 1fr));
-      gap: 8px;
-    }
+  /* ✅ 숙제 관리(민트) + 지금보다 아래로 */
+  #my-hw-manage-btn{
+    background: var(--mint);
+    color:#fff;
+    border:none;
+    margin-top: 12px;           /* ✅ “아래로” 내려보내는 핵심 */
+  }
 
-    .mini-item {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      border: 1px solid #e5e7eb;
-      background: #fff;
-      border-radius: 14px;
-      padding: 8px 10px;
-    }
-    .mini-item.off { opacity: 0.55; background: #f9fafb; }
-    .mini-label {
-      font-size: 12px;
-      font-weight: 900;
-      color: #111827;
-      white-space: nowrap;
-    }
-    .mini-select {
-      margin-left: auto;
-      border: 1px solid #d1d5db;
-      border-radius: 999px;
-      padding: 6px 10px;
-      font-size: 12px;
-      outline: none;
-      background: #fff;
-      font-weight: 800;
-      color: #111827;
-      min-width: 110px;
-    }
+  @media (max-width: 900px){
+    .myhw-grid { grid-template-columns: 160px 1fr; }
+    .myhw-actions-wrap { grid-column: 1 / -1; }
+    .myhw-actions{ flex-direction: row; gap: 8px; align-items: center; }
+    #my-hw-manage-btn{ margin-top: 0; } /* 모바일에선 옆으로 붙으니까 margin 제거 */
+  }
 
-    @media (max-width: 900px) {
-      .myhw-grid { grid-template-columns: 160px 1fr; }
-      .myhw-bottom { grid-template-columns: 1fr; }
-      .myhw-actions { flex-direction: row; }
-      .btn-block { width: auto; }
-
-      .mini-select-row { grid-template-columns: repeat(2, minmax(160px, 1fr)); }
-    }
-    @media (max-width: 520px) {
-      .mini-select-row { grid-template-columns: 1fr; }
-      .myhw-actions { flex-direction: column; }
-      .btn-block { width: 100%; }
-    }
-  </style>
+  @media (max-width: 520px){
+    .myhw-actions{ flex-direction: column; align-items: flex-end; }
+    #my-hw-manage-btn{ margin-top: 12px; }
+  }
+</style>
 
  <div class="section-card">
   <div class="section-header">
@@ -1933,3 +1887,4 @@
 </script>
 </body>
 </html>
+
