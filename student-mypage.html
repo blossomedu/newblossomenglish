@@ -490,22 +490,26 @@
 
   .myhw-actions-wrap { align-self: end; }
 
-  /* ✅ 버튼은 세로로(등록 위 / 관리 아래) + 같은 x축(열) */
-  .myhw-actions{
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;      /* ✅ 두 버튼 “오른쪽 끝” 기준으로 열 맞춤 */
-  }
+ /* ✅ 버튼 영역(등록 위 / 관리 아래) + 같은 x축(오른쪽 끝 기준) */
+.myhw-actions{
+  display: flex;
+  flex-direction: column;
+  gap: 8px;                 /* ✅ 버튼 사이 간격 */
+  align-items: flex-end;    /* ✅ 두 버튼 오른쪽 끝 기준으로 “열 맞춤” */
+}
 
-  /* ✅ 알약(버튼) 크기 통일 + 글자 완전 가운데 */
-  #my-hw-save-btn,
-  #my-hw-manage-btn,
-  #my-hw-cancel-btn{
-    width: 130px;               /* ✅ 사이즈 줄이기 */
-    display: inline-flex;
-    align-items: center;        /* ✅ 세로 가운데 */
-    justify-content: center;    /* ✅ 가로 가운데 */
-  }
+/* ✅ 알약(버튼) 크기 통일 + 글자 완전 가운데 */
+#my-hw-save-btn,
+#my-hw-manage-btn,
+#my-hw-cancel-btn{
+  width: 130px;             /* ✅ 사이즈 줄이기 */
+  height: 36px;             /* ✅ (선택) 높이까지 통일하면 더 예쁨 */
+  padding: 0;               /* ✅ btn-primary/soft 기본 padding 영향 제거 */
+  display: inline-flex;
+  align-items: center;      /* ✅ 세로 가운데 */
+  justify-content: center;  /* ✅ 가로 가운데 */
+  text-align: center;
+}
 
   /* ✅ 숙제 등록(핑크) */
   #my-hw-save-btn{
@@ -1887,5 +1891,6 @@
 </script>
 </body>
 </html>
+
 
 
