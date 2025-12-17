@@ -1250,16 +1250,16 @@
     }
 
     return unitKeys.map(uk => ({
-      source: isStudent ? "student" : "teacher",
-      sourceLabel: isStudent ? "내가 등록" : "선생님",
-      type,
-      due_date: row.due_date || null,
-      created_at: row.created_at || null,
-      unit_key: uk,
-      unit_text: uk,
-      raw: row
-    }));
-  }
+  source: isStudent ? "student" : "teacher",
+  sourceLabel: isStudent ? "내가 등록" : "선생님",
+  type,
+  due_date: row.due_date || null,
+  created_at: row.created_at || null,
+  homework_id: isStudent ? row.id : null,   // ✅ 추가: 학생이 등록한 숙제만 id 저장
+  unit_key: uk,
+  unit_text: uk,
+  raw: row
+}));
 
   function computeOverallStatusFromVocabModes(modeMap) {
     const modes = ["meaning", "english", "listening", "sentence"];
@@ -1380,39 +1380,43 @@
       detail.className = "unit-detail";
 
       if (item.type === "vocab" && item.unit_key) {
-        const modeMap = (vocabByUnitByMode && vocabByUnitByMode[item.unit_key]) ? vocabByUnitByMode[item.unit_key] : {};
-        const tMeaning   = taskCell(modeMap.meaning);
-        const tEnglish   = taskCell(modeMap.english);
-        const tListening = taskCell(modeMap.listening);
-        const tSentence  = taskCell(modeMap.sentence);
+  const vocabKey = `${item.unit_key}__${item.homework_id || "none"}`;
+  const modeMap =
+    (vocabByUnitByMode && vocabByUnitByMode[vocabKey])
+      ? vocabByUnitByMode[vocabKey]
+      : {};
 
-        detail.innerHTML = `
-          <div class="unit-detail-grid">
-            <div class="task-row">
-              <div class="task-name">뜻 찾기</div>
-              <div class="task-status" style="color:${tMeaning.color};">${tMeaning.mark}</div>
-              <div class="task-time">${tMeaning.time}</div>
-            </div>
-            <div class="task-row">
-              <div class="task-name">영어 찾기</div>
-              <div class="task-status" style="color:${tEnglish.color};">${tEnglish.mark}</div>
-              <div class="task-time">${tEnglish.time}</div>
-            </div>
-            <div class="task-row">
-              <div class="task-name">듣고 찾기</div>
-              <div class="task-status" style="color:${tListening.color};">${tListening.mark}</div>
-              <div class="task-time">${tListening.time}</div>
-            </div>
-            <div class="task-row">
-              <div class="task-name">문장 빈칸</div>
-              <div class="task-status" style="color:${tSentence.color};">${tSentence.mark}</div>
-              <div class="task-time">${tSentence.time}</div>
-            </div>
-          </div>
-          <div class="unit-guide">※ 어휘 4개 모드를 모두 완료하면 Unit 전체가 ⭕로 바뀝니다.</div>
-        `;
-      } else if (item.type === "sentence" && item.unit_key) {
-        const view = buildSentenceTaskView(item.unit_key, sentenceByUnitByMode);
+  const tMeaning   = taskCell(modeMap.meaning);
+  const tEnglish   = taskCell(modeMap.english);
+  const tListening = taskCell(modeMap.listening);
+  const tSentence  = taskCell(modeMap.sentence);
+
+  detail.innerHTML = `
+    <div class="unit-detail-grid">
+      <div class="task-row">
+        <div class="task-name">뜻 찾기</div>
+        <div class="task-status" style="color:${tMeaning.color};">${tMeaning.mark}</div>
+        <div class="task-time">${tMeaning.time}</div>
+      </div>
+      <div class="task-row">
+        <div class="task-name">영어 찾기</div>
+        <div class="task-status" style="color:${tEnglish.color};">${tEnglish.mark}</div>
+        <div class="task-time">${tEnglish.time}</div>
+      </div>
+      <div class="task-row">
+        <div class="task-name">듣고 찾기</div>
+        <div class="task-status" style="color:${tListening.color};">${tListening.mark}</div>
+        <div class="task-time">${tListening.time}</div>
+      </div>
+      <div class="task-row">
+        <div class="task-name">문장 빈칸</div>
+        <div class="task-status" style="color:${tSentence.color};">${tSentence.mark}</div>
+        <div class="task-time">${tSentence.time}</div>
+      </div>
+    </div>
+    <div class="unit-guide">※ 설정된 어휘 숙제 기준으로 완료 여부가 계산됩니다.</div>
+  `;
+} else if (item.type === "sentence" && item.unit_key) {
 
         const grid = document.createElement("div");
         grid.className = "unit-detail-grid";
@@ -1893,6 +1897,7 @@
 </script>
 </body>
 </html>
+
 
 
 
