@@ -690,25 +690,37 @@
 
     /* ===== ✅ 버튼 3개 최종 정리 (요청사항 반영) ===== */
 
-    /* 1) 숙제 등록 버튼 커짐 방지: 크기 통일 */
-    #my-hw-save-btn,
-    #my-hw-manage-btn,
-    #my-hw-cancel-btn {
-      width: 130px;
-    }
+    /* 1) 버튼 크기 통일 */
+#my-hw-save-btn,
+#my-hw-manage-btn,
+#my-hw-cancel-btn {
+  width: 130px;
+}
 
-    /* 2) 버튼 위치 바꾸기: 등록(위) / 관리(아래) */
-    #my-hw-save-btn { order: 1; }
-    #my-hw-manage-btn { order: 2; }
-    #my-hw-cancel-btn { order: 3; }
+/* 2) 버튼 순서: 등록 → 관리 → 취소 */
+#my-hw-save-btn   { order: 1; }
+#my-hw-manage-btn { order: 2; }
+#my-hw-cancel-btn { order: 3; }
 
-    /* 3) 숙제 관리만: 민트색 + 가운데 정렬(오른쪽 버튼 박스 안에서) */
-    #my-hw-manage-btn {
-      background: var(--mint);
-      color: #ffffff;
-      border: none;
-      align-self: center; /* ✅ 오른쪽 190px 영역 안에서 가운데 */
-    }
+/* 🌸 숙제 등록 (핑크 버튼) */
+#my-hw-save-btn {
+  background: var(--pink);
+  color: #ffffff;
+  border: none;
+
+  /* 좌우, 상하 미세 조정 */
+  transform: translate(0px, 0px);
+}
+
+/* 🌿 숙제 관리 (민트 버튼) */
+#my-hw-manage-btn {
+  background: var(--mint);
+  color: #ffffff;
+  border: none;
+
+  /* 좌우, 상하 미세 조정 */
+  transform: translate(0px, 0px);
+}
   </style>
 
   <!-- ✅ 열 정렬 grid -->
@@ -1933,3 +1945,4 @@
 </script>
 </body>
 </html>
+
