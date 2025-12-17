@@ -103,6 +103,9 @@
   const rawSet = params.get("set");       // "1"~"27"
   const setNumber = Number(rawSet);
 
+  // ✅ 추가: 숙제 인스턴스 식별자(있으면 quiz로 전달)
+  const homeworkId = params.get("homework_id") || params.get("hw") || "";
+
   const titleEl = document.getElementById("page-title");
   const gridEl  = document.getElementById("unit-grid");
   const errorEl = document.getElementById("error-container");
@@ -132,8 +135,13 @@
       card.textContent = unitId;
 
       card.onclick = () => {
-        // 기존 quiz.html 규칙 유지
-        location.href = `quiz.html?stage=${stage}&unit=${unitId}`;
+        // ✅ 기존 quiz.html 규칙 유지 + homework_id 있으면 같이 전달
+        const next = new URLSearchParams();
+        next.set("stage", stage);
+        next.set("unit", unitId);
+        if (homeworkId) next.set("homework_id", homeworkId);
+
+        location.href = `quiz.html?${next.toString()}`;
       };
 
       gridEl.appendChild(card);
