@@ -518,13 +518,13 @@
     border:none;
   }
 
-  /* ✅ 숙제 관리(민트) + 지금보다 아래로 */
-  #my-hw-manage-btn{
-    background: var(--mint);
-    color:#fff;
-    border:none;
-    margin-top: 12px;           /* ✅ “아래로” 내려보내는 핵심 */
-  }
+  /* ✅ 숙제 관리(민트) + 조금 더 아래로만 */
+#my-hw-manage-btn{
+  background: var(--mint);
+  color: #fff;
+  border: none;
+  margin-top: 20px;   /* ← 아래로 더 내리고 싶으면 이 숫자만 조절 */
+}
 
   @media (max-width: 900px){
     .myhw-grid { grid-template-columns: 160px 1fr; }
@@ -1891,6 +1891,7 @@
 </script>
 </body>
 </html>
+
 
 
 
