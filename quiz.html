@@ -414,14 +414,16 @@
     if (!wordCount) return;
     if (didSaveResult) return;
 
-    const payload = {
-      student_login_id: currentStudentLoginId,
-      unit_key: unitKey,               // ✅ DB 컬럼명 그대로
-      mode: currentMode,
-      correct_count: wordCount,
-      total_count: wordCount,
-      submitted_at: new Date().toISOString()
-    };
+  const payload = {
+  student_login_id: currentStudentLoginId,
+  unit_key: unitKey,               // ✅ DB 컬럼명 그대로
+  mode: currentMode,
+  correct_count: wordCount,
+  total_count: wordCount,
+  submitted_at: new Date().toISOString(),
+
+  homework_id: new URLSearchParams(location.search).get("homework_id") // ⭐ 추가
+};
 
     try {
       // ✅ .select()를 붙여서 RLS/정책 이슈가 있을 때도 결과를 더 확실히 확인
@@ -842,3 +844,4 @@
 </script>
 </body>
 </html>
+
