@@ -581,202 +581,166 @@
     }
   </style>
 
-  <div class="section-card">
-    <div class="section-header">
-      <div class="section-title">✍️ 내 온라인 숙제</div>
+ <div class="section-card">
+  <div class="section-header">
+    <div class="section-title">✍️ 내 온라인 숙제</div>
+  </div>
+
+  <!-- ✅ "내 온라인 숙제" 전용: 칼각 정렬 + 어휘 구성 스타일 -->
+  <style>
+    .myhw-grid {
+      display: grid;
+      grid-template-columns: 160px 1fr 160px 190px;
+      gap: 10px;
+      align-items: end;
+      margin-bottom: 8px;
+    }
+
+    /* ✅ 오른쪽 버튼 영역: 살짝 위로 + 세로 가운데 정렬 느낌 */
+    .myhw-actions-wrap {
+      align-self: center;
+    }
+
+    .myhw-actions {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      justify-content: center;
+      align-items: flex-end; /* 기본은 오른쪽 정렬 */
+    }
+
+    .btn-block { width: 100%; }
+
+    .vocab-config {
+      margin: 6px 0 10px;
+      display: none; /* vocab일 때만 표시 */
+    }
+
+    .preset-row {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 6px;
+      flex-wrap: wrap;
+    }
+
+    .preset-btn {
+      border: 1px solid #e5e7eb;
+      background: #f9fafb;
+      color: #374151;
+      font-size: 11px;
+      font-weight: 800;
+      padding: 5px 10px;
+      border-radius: 999px;
+      cursor: pointer;
+      white-space: nowrap;
+    }
+    .preset-btn:hover { background: #f3f4f6; }
+
+    .mini-select-row {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(160px, 1fr));
+      gap: 8px;
+    }
+
+    .mini-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      border: 1px solid #e5e7eb;
+      background: #fff;
+      border-radius: 14px;
+      padding: 8px 10px;
+    }
+    .mini-item.off { opacity: 0.55; background: #f9fafb; }
+
+    .mini-label {
+      font-size: 12px;
+      font-weight: 900;
+      color: #111827;
+      white-space: nowrap;
+    }
+
+    .mini-select {
+      margin-left: auto;
+      border: 1px solid #d1d5db;
+      border-radius: 999px;
+      padding: 6px 10px;
+      font-size: 12px;
+      outline: none;
+      background: #fff;
+      font-weight: 800;
+      color: #111827;
+      min-width: 110px;
+    }
+
+    @media (max-width: 900px) {
+      .myhw-grid { grid-template-columns: 160px 1fr; }
+      .myhw-actions-wrap { grid-column: 1 / -1; }
+      .myhw-actions { flex-direction: row; }
+      .btn-block { width: auto; }
+      .mini-select-row { grid-template-columns: repeat(2, minmax(160px, 1fr)); }
+    }
+
+    @media (max-width: 520px) {
+      .mini-select-row { grid-template-columns: 1fr; }
+      .myhw-actions { flex-direction: column; }
+      .btn-block { width: 100%; }
+    }
+
+    /* ===== ✅ 버튼 3개 최종 정리 (요청사항 반영) ===== */
+
+    /* 1) 숙제 등록 버튼 커짐 방지: 크기 통일 */
+    #my-hw-save-btn,
+    #my-hw-manage-btn,
+    #my-hw-cancel-btn {
+      width: 160px;
+    }
+
+    /* 2) 버튼 위치 바꾸기: 등록(위) / 관리(아래) */
+    #my-hw-save-btn { order: 1; }
+    #my-hw-manage-btn { order: 2; }
+    #my-hw-cancel-btn { order: 3; }
+
+    /* 3) 숙제 관리만: 민트색 + 가운데 정렬(오른쪽 버튼 박스 안에서) */
+    #my-hw-manage-btn {
+      background: var(--mint);
+      color: #ffffff;
+      border: none;
+      align-self: center; /* ✅ 오른쪽 190px 영역 안에서 가운데 */
+    }
+  </style>
+
+  <!-- ✅ 열 정렬 grid -->
+  <div class="myhw-grid">
+    <div class="field" style="min-width:150px;">
+      <label>숙제 종류</label>
+      <div class="pill-group">
+        <button type="button" id="type-vocab" class="pill-type-btn active">어휘</button>
+        <button type="button" id="type-sentence" class="pill-type-btn">문장</button>
+      </div>
     </div>
 
-    <!-- ✅ "내 온라인 숙제" 전용: 수정은 여기 한 덩어리로 끝 -->
-    <style>
-      /* ✅ 1) 윗줄: 3개 입력 + 오른쪽에 "숙제 등록"만 (숙제 관리 열 기준 맞춤) */
-      .myhw-grid {
-        display: grid;
-        grid-template-columns: 160px 1fr 160px 160px; /* 마지막 칸 = 버튼 칸(열 기준) */
-        gap: 10px;
-        align-items: end;
-        margin-bottom: 8px;
-      }
-
-      /* ✅ 2) 아랫줄: 왼쪽(프리셋+셀렉트들) + 오른쪽(숙제 관리) */
-      .myhw-bottom {
-        display: grid;
-        grid-template-columns: 1fr 160px; /* 오른쪽 = 같은 버튼 열 */
-        gap: 10px;
-        align-items: start;
-      }
-
-      /* ✅ 아랫줄 오른쪽: 더 아래로 내리기 */
-      .myhw-bottom-right {
-        display: flex;
-        justify-content: flex-end;
-        padding-top: 22px;  /* ✅ "지금보다 아래로" */
-      }
-
-      /* ✅ 버튼 공통: 사이즈 줄이고(130px), 알약 안 글자 정중앙 */
-      #my-hw-save-btn,
-      #my-hw-manage-btn,
-      #my-hw-cancel-btn {
-        width: 130px;
-        display: inline-flex;
-        align-items: center;
-        justify-content: center; /* ✅ 버튼 안 글자 가운뎃정렬 */
-      }
-
-      /* ✅ 핑크 = 숙제 등록 */
-      #my-hw-save-btn {
-        background: var(--pink);
-        color: #fff;
-        border: none;
-      }
-
-      /* ✅ 민트 = 숙제 관리 */
-      #my-hw-manage-btn {
-        background: var(--mint);
-        color: #fff;
-        border: none;
-      }
-
-      /* 어휘 숙제 구성 */
-      .vocab-config { margin: 6px 0 10px; display: none; }
-      .preset-row { display:flex; align-items:center; gap:8px; margin-bottom:6px; flex-wrap:wrap; }
-      .preset-btn {
-        border: 1px solid #e5e7eb;
-        background: #f9fafb;
-        color: #374151;
-        font-size: 11px;
-        font-weight: 800;
-        padding: 5px 10px;
-        border-radius: 999px;
-        cursor: pointer;
-        white-space: nowrap;
-      }
-      .preset-btn:hover { background: #f3f4f6; }
-
-      .mini-select-row {
-        display: grid;
-        grid-template-columns: repeat(4, minmax(160px, 1fr));
-        gap: 8px;
-      }
-      .mini-item {
-        display: flex;
-        align-items: center;
-        gap: 10px;
-        border: 1px solid #e5e7eb;
-        background: #fff;
-        border-radius: 14px;
-        padding: 8px 10px;
-      }
-      .mini-item.off { opacity: 0.55; background: #f9fafb; }
-      .mini-label { font-size: 12px; font-weight: 900; color: #111827; white-space: nowrap; }
-      .mini-select {
-        margin-left: auto;
-        border: 1px solid #d1d5db;
-        border-radius: 999px;
-        padding: 6px 10px;
-        font-size: 12px;
-        outline: none;
-        background: #fff;
-        font-weight: 800;
-        color: #111827;
-        min-width: 110px;
-      }
-
-      @media (max-width: 900px) {
-        .myhw-grid { grid-template-columns: 160px 1fr; }
-        .myhw-bottom { grid-template-columns: 1fr; }
-        .myhw-bottom-right { justify-content: flex-start; padding-top: 8px; }
-        .mini-select-row { grid-template-columns: repeat(2, minmax(160px, 1fr)); }
-      }
-      @media (max-width: 520px) {
-        .mini-select-row { grid-template-columns: 1fr; }
-      }
-    </style>
-
-    <!-- ✅ 윗줄: 숙제 등록만 오른쪽(숙제 관리 열 자리) -->
-    <div class="myhw-grid">
-      <div class="field" style="min-width:150px;">
-        <label>숙제 종류</label>
-        <div class="pill-group">
-          <button type="button" id="type-vocab" class="pill-type-btn active">어휘</button>
-          <button type="button" id="type-sentence" class="pill-type-btn">문장</button>
-        </div>
-      </div>
-
-      <div class="field" style="min-width:180px;">
-        <label>단계-세트 (예: 1-1 또는 잠신중1-1)</label>
-        <input id="my-hw-set" class="input" type="text" placeholder="예: 1-1 또는 1-1, 1-2 또는 잠신중1-1" />
-      </div>
-
-      <div class="field" style="min-width:150px;">
-        <label>마감일</label>
-        <input id="my-hw-due" class="input-date" type="date" />
-      </div>
-
-      <div class="field" style="min-width:160px;">
-        <label>&nbsp;</label>
-        <!-- ✅ 핑크 = 숙제 등록 (숙제 관리 자리로 이동 완료) -->
-        <button id="my-hw-save-btn" class="btn-primary" type="button">숙제 등록</button>
-      </div>
+    <div class="field" style="min-width:180px;">
+      <label>단계-세트 (예: 1-1 또는 잠신중1-1)</label>
+      <input id="my-hw-set" class="input" type="text" placeholder="예: 1-1 또는 1-1, 1-2 또는 잠신중1-1" />
     </div>
 
-    <!-- ✅ 아랫줄: 왼쪽(구성) / 오른쪽(숙제 관리) -->
-    <div class="myhw-bottom">
-      <div>
-        <!-- ✅ 어휘 숙제 구성: 프리셋 + 4개 선택 (vocab일 때만 표시) -->
-        <div id="vocab-config" class="vocab-config">
-          <div class="preset-row">
-            <button type="button" id="preset-default" class="preset-btn">기본 4종</button>
-            <button type="button" id="preset-blank3" class="preset-btn">문장 빈칸 ×3</button>
-            <button type="button" id="preset-reset" class="preset-btn">초기화</button>
-          </div>
+    <div class="field" style="min-width:150px;">
+      <label>마감일</label>
+      <input id="my-hw-due" class="input-date" type="date" />
+    </div>
 
-          <div class="mini-select-row">
-            <div class="mini-item" id="mini-meaning">
-              <div class="mini-label">뜻 찾기</div>
-              <select id="sel-meaning" class="mini-select">
-                <option value="0">0</option><option value="1">1</option><option value="2">2</option>
-                <option value="3">3</option><option value="4">4</option><option value="5">5</option>
-              </select>
-            </div>
+    <div class="field myhw-actions-wrap" style="min-width:190px;">
+      <label>&nbsp;</label>
+      <div class="myhw-actions">
+        <!-- ✅ 등록은 위(기존 숙제 관리 자리 느낌) -->
+        <button id="my-hw-save-btn" class="btn-primary btn-block" type="button">숙제 등록</button>
 
-            <div class="mini-item" id="mini-english">
-              <div class="mini-label">영어 찾기</div>
-              <select id="sel-english" class="mini-select">
-                <option value="0">0</option><option value="1">1</option><option value="2">2</option>
-                <option value="3">3</option><option value="4">4</option><option value="5">5</option>
-              </select>
-            </div>
+        <!-- ✅ 관리는 아래 + 가운데 정렬 -->
+        <button id="my-hw-manage-btn" class="btn-soft btn-block" type="button">숙제 관리</button>
 
-            <div class="mini-item" id="mini-listening">
-              <div class="mini-label">듣고 찾기</div>
-              <select id="sel-listening" class="mini-select">
-                <option value="0">0</option><option value="1">1</option><option value="2">2</option>
-                <option value="3">3</option><option value="4">4</option><option value="5">5</option>
-              </select>
-            </div>
-
-            <div class="mini-item" id="mini-sentence">
-              <div class="mini-label">문장 빈칸</div>
-              <select id="sel-sentence" class="mini-select">
-                <option value="0">0</option><option value="1">1</option><option value="2">2</option>
-                <option value="3">3</option><option value="4">4</option><option value="5">5</option>
-              </select>
-            </div>
-          </div>
-        </div>
-
-        <div class="hint">
-          어휘는 같은 단계만 여러 개 입력 가능(예: 1-1, 1-2). 문장은 1-1 또는 잠신중1-1처럼 입력 가능.
-        </div>
-        <div id="my-hw-status" class="status-text"></div>
-      </div>
-
-      <!-- ✅ 숙제 관리: 오른쪽 열 + 아래로 + 버튼 안 글자 정중앙 -->
-      <div class="myhw-bottom-right">
-        <div>
-          <button id="my-hw-manage-btn" class="btn-soft" type="button">숙제 관리</button>
-          <button id="my-hw-cancel-btn" class="btn-soft" type="button" style="display:none; margin-top:8px;">수정 취소</button>
-        </div>
+        <button id="my-hw-cancel-btn" class="btn-soft btn-block" type="button" style="display:none;">수정 취소</button>
       </div>
     </div>
   </div>
