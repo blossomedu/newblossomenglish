@@ -62,20 +62,17 @@
       white-space: nowrap;
     }
 
-    /* 상단 버튼 묶음 */
     .top-actions {
       display: flex;
       gap: 8px;
       align-items: center;
     }
 
-    /* Home 버튼: 민트색 */
     #home-btn {
       background: var(--mint);
       color: #ffffff;
     }
 
-    /* 뒤로 버튼: 회색 */
     #back-btn {
       background: #e5e7eb;
       color: #374151;
@@ -176,7 +173,7 @@
       box-shadow: 0 8px 18px rgba(0, 174, 239, 0.35);
     }
 
-    /* ✅ 시험 유형 토글(민트 활성) */
+    /* ✅ 시험 유형 토글: Home과 같은 민트 active */
     .pill-btn.mint-active.active {
       background: var(--mint);
       color: #ffffff;
@@ -189,17 +186,16 @@
       padding: 9px 18px;
       font-size: 14px;
       cursor: pointer;
-      background: #10b981; /* 기본값 */
+      background: #10b981;
       color: #ffffff;
       white-space: nowrap;
     }
 
     .primary-btn[disabled] {
-      opacity: 0.6;
+      opacity: 0.55;
       cursor: default;
     }
 
-    /* 숙제 등록 버튼: 핑크색 */
     #save-btn {
       background: var(--pink);
       color: #ffffff;
@@ -259,7 +255,8 @@
       color: #0369a1;
     }
 
-    .print-controls {
+    /* ✅ 출력 한 줄 컨트롤 */
+    .print-row {
       margin-top: 12px;
       display: flex;
       flex-wrap: wrap;
@@ -267,16 +264,10 @@
       align-items: flex-end;
     }
 
-    .visually-hidden {
-      visibility: hidden;
-    }
-
-    /* 문항 수 input 가운데 정렬 */
     #word-count-input {
       text-align: center;
     }
 
-    /* 로그아웃 버튼: 숨김 */
     #logout-btn {
       background: var(--pink);
       color: #ffffff;
@@ -284,13 +275,30 @@
     }
 
     #btn-print-note {
-      background: var(--blue);  /* 단어 암기장 출력: 블루 */
+      background: var(--blue);
       color: #ffffff;
     }
 
-    /* 단어 시험지 출력: 핑크색 */
     #btn-print-test {
       background: var(--pink);
+      color: #ffffff;
+    }
+
+    /* ✅ 세트 표시(입력 아님) */
+    .set-display {
+      width: 100%;
+      padding: 8px 10px;
+      border-radius: 999px;
+      border: 1px solid #d1d5db;
+      font-size: 14px;
+      background: #ffffff;
+      text-align: center;
+      color: #111827;
+    }
+
+    /* ✅ "세트 수정" 버튼: Home 민트 */
+    .mint-btn {
+      background: var(--mint);
       color: #ffffff;
     }
 
@@ -303,11 +311,6 @@
       .form-row {
         flex-direction: column;
         align-items: stretch;
-      }
-
-      .print-controls {
-        flex-direction: column;
-        align-items: flex-start;
       }
 
       .wide-field {
@@ -326,14 +329,8 @@
       </div>
     </div>
     <div class="top-actions">
-      <!-- 뒤로: 직전 페이지 -->
-      <button class="link-btn" id="back-btn" type="button" onclick="history.back()">
-        뒤로
-      </button>
-      <!-- Home: 메인으로 -->
-      <button class="link-btn" id="home-btn" type="button" onclick="window.location.href='index.html'">
-        Home
-      </button>
+      <button class="link-btn" id="back-btn" type="button" onclick="history.back()">뒤로</button>
+      <button class="link-btn" id="home-btn" type="button" onclick="window.location.href='index.html'">Home</button>
     </div>
   </div>
 
@@ -364,6 +361,7 @@
         </div>
       </div>
 
+      <!-- ✅ 숙제 업로드용 세트 입력은 여기 그대로 유지 -->
       <div class="field wide-field">
         <label>학습 세트 (단계-세트)</label>
         <input id="set-input" type="text" placeholder="예: 1-1 또는 1-1, 1-2, 1-3" />
@@ -375,7 +373,7 @@
       </div>
 
       <div class="field" style="min-width:120px;">
-        <label class="visually-hidden">숙제 등록</label>
+        <label style="visibility:hidden;">숙제 등록</label>
         <button class="primary-btn" id="save-btn">숙제 등록</button>
       </div>
     </div>
@@ -392,19 +390,21 @@
     <div class="list-title">단어 시험지 / 암기장 출력</div>
 
     <div id="print-status" class="status" style="margin-top:6px;">
-      선택된 반: - / 숙제 종류: 어휘 / 세트 번호: -
+      선택된 반: - / 숙제 종류: 어휘 / 세트 번호: - / 시험 유형: 한글 쓰기(뜻)
     </div>
 
-    <div class="print-controls">
-      <button class="primary-btn" id="btn-print-note" style="min-width:180px;">
-        단어 암기장 출력
-      </button>
+    <!-- ✅ 한 줄 플로우: 세트(표시) → 시험유형 → 문항수 → 시험지 → 암기장 -->
+    <div class="print-row">
+      <div class="field" style="min-width:240px;">
+        <label>학습 세트</label>
+        <div class="set-display" id="set-display">-</div>
+        <div style="display:flex; justify-content:center; margin-top:6px;">
+          <button type="button" class="link-btn mint-btn" id="btn-edit-set" style="padding:8px 14px; font-size:13px;">
+            세트 수정
+          </button>
+        </div>
+      </div>
 
-      <button class="primary-btn" id="btn-print-test" style="min-width:160px;">
-        단어 시험지 출력
-      </button>
-
-      <!-- ✅ 시험 유형(한/영) 토글: Home 버튼과 같은 민트 계열 -->
       <div class="field" style="min-width:220px;">
         <label>시험 유형</label>
         <div class="pill-group" style="justify-content:center;">
@@ -415,14 +415,22 @@
 
       <div class="field wide-field">
         <label>문항 수</label>
-        <input
-          type="number"
-          min="1"
-          step="1"
-          id="word-count-input"
-          placeholder="예: 20"
-        />
+        <input type="number" min="1" step="1" id="word-count-input" placeholder="예: 20" />
       </div>
+
+      <div class="field" style="min-width:160px;">
+        <label style="visibility:hidden;">시험지 출력</label>
+        <button class="primary-btn" id="btn-print-test" style="width:100%;">단어 시험지 출력</button>
+      </div>
+
+      <div class="field" style="min-width:180px;">
+        <label style="visibility:hidden;">암기장 출력</label>
+        <button class="primary-btn" id="btn-print-note" style="width:100%;">단어 암기장 출력</button>
+      </div>
+    </div>
+
+    <div class="hint" style="margin-top:10px;">
+      * 출력은 어휘 숙제에서만 가능해요. 세트는 위 입력칸에서 바꾼 뒤 출력하세요.
     </div>
   </div>
 
@@ -436,7 +444,6 @@
   </div>
 </div>
 
-<!-- Supabase JS -->
 <script src="https://unpkg.com/@supabase/supabase-js@2.48.0/dist/umd/supabase.js"></script>
 <script>
   const SUPABASE_URL = "https://bpdisxjhhibrgfpvtlmv.supabase.co";
@@ -461,15 +468,13 @@
   const btnPrintNote     = document.getElementById("btn-print-note");
   const wordCountInput   = document.getElementById("word-count-input");
 
-  // ✅ 시험 유형 토글 요소
-  const modeKoBtn = document.getElementById("mode-ko");
-  const modeEnBtn = document.getElementById("mode-en");
+  const modeKoBtn        = document.getElementById("mode-ko");
+  const modeEnBtn        = document.getElementById("mode-en");
+  const setDisplayEl     = document.getElementById("set-display");
+  const btnEditSet       = document.getElementById("btn-edit-set");
 
   let currentType = "vocab";
-
-  // ✅ 기본값: 한글 쓰기(뜻)
-  // ko = Meaning(뜻) 쓰기 시험 / en = Word(철자) 쓰기 시험
-  let testMode = "ko";
+  let testMode = "ko"; // ko(뜻쓰기) / en(영어쓰기)
 
   function setStatus(msg, type = "") {
     statusMsgEl.textContent = msg || "";
@@ -477,15 +482,23 @@
   }
 
   function setPrintStatus() {
-    const classText =
-      classSelect.options[classSelect.selectedIndex]?.text || "-";
+    const classText = classSelect.options[classSelect.selectedIndex]?.text || "-";
     const setsText = setInput.value.trim() || "-";
     const typeText = currentType === "vocab" ? "어휘" : "문장";
     const modeText = testMode === "ko" ? "한글 쓰기(뜻)" : "영어 쓰기(철자)";
 
-    // 상태줄에 시험 유형도 같이 보여주면 선생님이 헷갈리지 않음
+    setDisplayEl.textContent = setsText;
+
     printStatusEl.textContent =
       `선택된 반: ${classText} / 숙제 종류: ${typeText} / 세트 번호: ${setsText} / 시험 유형: ${modeText}`;
+
+    // 출력은 어휘에서만 가능하게 (실수 방지)
+    const enablePrint = (currentType === "vocab");
+    btnPrintTest.disabled = !enablePrint;
+    btnPrintNote.disabled = !enablePrint;
+    modeKoBtn.disabled = !enablePrint;
+    modeEnBtn.disabled = !enablePrint;
+    wordCountInput.disabled = !enablePrint;
   }
 
   async function checkTeacher() {
@@ -514,8 +527,7 @@
       return;
     }
 
-    classSelect.innerHTML =
-      '<option value="">반을 선택하세요</option>';
+    classSelect.innerHTML = '<option value="">반을 선택하세요</option>';
 
     (data || []).forEach(c => {
       const opt = document.createElement("option");
@@ -535,6 +547,7 @@
 
     const first = parts[0].split("-");
     if (first.length !== 2) return null;
+
     const level = Number(first[0]);
     if (!level) return null;
 
@@ -554,30 +567,16 @@
     const rawSet  = setInput.value.trim();
     const due     = dueInput.value;
 
-    if (!classId) {
-      setStatus("반을 먼저 선택해 주세요.", "error");
-      return;
-    }
-    if (!rawSet) {
-      setStatus("학습 세트를 입력해 주세요. (예: 1-1 또는 1-1, 1-2)", "error");
-      return;
-    }
+    if (!classId) return setStatus("반을 먼저 선택해 주세요.", "error");
+    if (!rawSet) return setStatus("학습 세트를 입력해 주세요. (예: 1-1 또는 1-1, 1-2)", "error");
 
     const parsed = parseLevelAndSets(rawSet);
-    if (!parsed) {
-      setStatus("세트 형식이 올바르지 않아요. 예: 1-1, 1-2, 1-3", "error");
-      return;
-    }
-
-    if (!due) {
-      setStatus("마감일을 선택해 주세요.", "error");
-      return;
-    }
+    if (!parsed) return setStatus("세트 형식이 올바르지 않아요. 예: 1-1, 1-2, 1-3", "error");
+    if (!due) return setStatus("마감일을 선택해 주세요.", "error");
 
     setStatus("숙제를 저장 중입니다…");
 
-    const tableName =
-      currentType === "vocab" ? "vocab_homework" : "sentence_homework";
+    const tableName = currentType === "vocab" ? "vocab_homework" : "sentence_homework";
 
     const { error } = await client.from(tableName).insert({
       class_id: classId,
@@ -588,8 +587,7 @@
 
     if (error) {
       console.error("숙제 저장 오류:", error);
-      setStatus("숙제를 저장하는 중 오류가 발생했어요.", "error");
-      return;
+      return setStatus("숙제를 저장하는 중 오류가 발생했어요.", "error");
     }
 
     setStatus("숙제가 등록되었어요!", "success");
@@ -614,7 +612,6 @@
   typeVocabBtn.onclick = () => setType("vocab");
   typeSentenceBtn.onclick = () => setType("sentence");
 
-  // ✅ 시험 유형 토글 동작
   function setTestMode(nextMode) {
     testMode = nextMode;
     if (nextMode === "ko") {
@@ -637,8 +634,7 @@
       return;
     }
 
-    const tableName =
-      currentType === "vocab" ? "vocab_homework" : "sentence_homework";
+    const tableName = currentType === "vocab" ? "vocab_homework" : "sentence_homework";
 
     const { data, error } = await client
       .from(tableName)
@@ -664,10 +660,8 @@
       div.className = "hw-item";
 
       const tagSpan = document.createElement("span");
-      tagSpan.className =
-        "hw-tag " + (currentType === "vocab" ? "vocab" : "sentence");
-      tagSpan.textContent =
-        currentType === "vocab" ? "어휘" : "문장";
+      tagSpan.className = "hw-tag " + (currentType === "vocab" ? "vocab" : "sentence");
+      tagSpan.textContent = currentType === "vocab" ? "어휘" : "문장";
 
       const mainSpan = document.createElement("span");
       mainSpan.textContent =
@@ -683,10 +677,18 @@
     setPrintStatus();
     loadHomeworkList();
   };
-  setInput.oninput = setPrintStatus;
+
+  setInput.oninput = () => {
+    setPrintStatus();
+  };
+
+  // ✅ 세트 수정 버튼: 위 입력칸으로 이동 + 포커스
+  btnEditSet.onclick = () => {
+    setInput.scrollIntoView({ behavior: "smooth", block: "center" });
+    setTimeout(() => setInput.focus(), 250);
+  };
 
   function openPrintWindow(kind) {
-    // 단어 출력은 어휘 기준으로 동작하도록 안전장치
     if (currentType !== "vocab") {
       alert("단어 출력은 '어휘' 숙제에서만 사용할 수 있어요.");
       return;
@@ -710,30 +712,27 @@
         return;
       }
       const unit = `${level}-${setsArray[0]}`;
-      window.open(
-        `print-vocab-note.html?unit=${encodeURIComponent(unit)}`,
-        "_blank"
-      );
-    } else {
-      let countParam = "";
-      const rawCount = wordCountInput.value.trim();
-      if (rawCount) {
-        const n = Number(rawCount);
-        if (!n || n <= 0) {
-          alert("문항 수는 1 이상의 숫자로 입력해 주세요.");
-          return;
-        }
-        countParam = `&count=${encodeURIComponent(n)}`;
-      }
-
-      // ✅ 시험 유형(mode) 파라미터 추가
-      const modeParam = `&mode=${encodeURIComponent(testMode)}`;
-
-      window.open(
-        `print-vocab-test.html?level=${level}&sets=${encodeURIComponent(sets)}${countParam}${modeParam}`,
-        "_blank"
-      );
+      window.open(`print-vocab-note.html?unit=${encodeURIComponent(unit)}`, "_blank");
+      return;
     }
+
+    let countParam = "";
+    const rawCount = wordCountInput.value.trim();
+    if (rawCount) {
+      const n = Number(rawCount);
+      if (!n || n <= 0) {
+        alert("문항 수는 1 이상의 숫자로 입력해 주세요.");
+        return;
+      }
+      countParam = `&count=${encodeURIComponent(Math.floor(n))}`;
+    }
+
+    const modeParam = `&mode=${encodeURIComponent(testMode)}`;
+
+    window.open(
+      `print-vocab-test.html?level=${level}&sets=${encodeURIComponent(sets)}${countParam}${modeParam}`,
+      "_blank"
+    );
   }
 
   btnPrintNote.onclick = () => openPrintWindow("note");
@@ -743,7 +742,7 @@
     await checkTeacher();
     await loadClasses();
     setType("vocab");
-    setTestMode("ko"); // ✅ 기본값 세팅(표시/상태줄 반영)
+    setTestMode("ko");
     setPrintStatus();
   })();
 </script>
