@@ -11,39 +11,39 @@
     * { box-sizing: border-box; margin: 0; padding: 0; font-family: "Pretendard Variable", sans-serif; }
     body { background: #ffffff; padding: 24px; color: #111827; }
     .page { max-width: 900px; margin: 0 auto; }
-    
+
     /* 상단 영역 */
     .top-row { display: flex; align-items: center; justify-content: space-between; gap: 16px; margin-bottom: 16px; }
     .logo-area { display: flex; align-items: center; gap: 10px; }
     .logo-img { height: 40px; width: auto; }
     .logo-text { font-size: 28px; font-weight: 800; color: #111827; }
-    
+
     /* 레벨 표 */
-    .level-table { border-collapse: collapse; font-size: 13px; min-width: 120px; }
+    .level-table { border-collapse: collapse; font-size: 13px; min-width: 160px; }
     .level-table th, .level-table td { border: 1px solid #e5e7eb; padding: 6px 10px; text-align: center; }
     .level-table th { background: var(--pink); color: white; font-weight: 700; }
-    .level-table td { background: #ffe6f1; color: #9d174d; font-weight: 600; }
-    
+    .level-table td { background: #ffe6f1; color: #9d174d; font-weight: 600; line-height: 1.2; }
+
     /* 단어 표 */
     .word-table { width: 100%; border-collapse: collapse; font-size: 14px; }
     .word-table th, .word-table td { border: 1px solid #d1d5db; padding: 10px 8px; }
     .word-table thead th { background: var(--blue); color: white; font-weight: 700; text-align: center; }
-    
+
     tr:nth-child(odd) td { background: #ffffff; }
     tr:nth-child(even) td { background: #f9fafb; }
-    
+
     .col-num { width: 50px; text-align: center; font-weight: 600; background: var(--mint); color: #064e3b; }
     .col-word { width: 45%; font-weight: 600; }
     .col-meaning { width: auto; }
-    
+
     /* 빈칸(시험지용) 스타일 - 높이 확보 */
-    .col-meaning.blank-box { height: 40px; }
+    .blank-box { height: 40px; }
 
     .print-tip { font-size: 11px; color: #9ca3af; margin-top: 12px; text-align: right; }
-    
-    @media print { 
-      body { padding: 0; } 
-      .print-tip { display: none; } 
+
+    @media print {
+      body { padding: 0; }
+      .print-tip { display: none; }
       .page { margin: 0; width: 100%; max-width: none; }
     }
   </style>
@@ -56,14 +56,18 @@
       <div class="logo-text">Blossom English</div>
     </div>
     <table class="level-table">
-      <thead><tr><th>Level</th></tr></thead>
+      <thead><tr><th>Level / Set</th></tr></thead>
       <tbody><tr><td id="levelText"></td></tr></tbody>
     </table>
   </div>
 
   <table class="word-table">
     <thead>
-      <tr><th class="col-num">No.</th><th class="col-word">Word</th><th class="col-meaning">Meaning</th></tr>
+      <tr>
+        <th class="col-num">No.</th>
+        <th class="col-word">Word</th>
+        <th class="col-meaning">Meaning</th>
+      </tr>
     </thead>
     <tbody id="wordBody"></tbody>
   </table>
@@ -76,14 +80,29 @@
 <script src="words.js"></script>
 
 <script>
-  // 1. URL 파라미터 확인
+  // ===== 1) URL 파라미터 안전 파싱 =====
   const params = new URLSearchParams(window.location.search);
-  const unit = params.get("unit") || "1-1";
-  document.getElementById("levelText").textContent = unit;
 
-  // ✨ 핵심: 배열을 무작위로 섞는 함수 ✨
+  // 기존 호환: unit=1-1
+  const unitParam = (params.get("unit") || "").trim();
+
+  // 신규 방식: level=1&sets=1,2,3
+  const levelParam = (params.get("level") || "").trim();
+  const setsParam  = (params.get("sets")  || "").trim();
+
+  // 문항 수(선택)
+  const countParamRaw = (params.get("count") || "").trim();
+
+  // 시험 모드: ko(한글 뜻 쓰기) / en(영어 단어 쓰기)
+  const modeRaw = (params.get("mode") || "ko").trim().toLowerCase();
+  const testMode = (modeRaw === "en") ? "en" : "ko";
+
+  // 표시 텍스트
+  const levelTextEl = document.getElementById("levelText");
+
+  // ===== 2) 유틸: 배열 섞기 =====
   function shuffleArray(array) {
-    const arr = [...array]; 
+    const arr = Array.isArray(array) ? [...array] : [];
     for (let i = arr.length - 1; i > 0; i--) {
       const j = Math.floor(Math.random() * (i + 1));
       [arr[i], arr[j]] = [arr[j], arr[i]];
@@ -91,39 +110,135 @@
     return arr;
   }
 
+  // ===== 3) 유틸: unit 목록 만들기 (호환) =====
+  function parseUnitsFromParams() {
+    // 1) unit이 있으면 그걸 최우선 사용
+    if (unitParam) return [unitParam];
+
+    // 2) level/sets가 있으면 unit들 생성
+    const lv = Number(levelParam);
+    if (!lv || !setsParam) return []; // 아무것도 못 만들면 빈 배열
+
+    const setNums = setsParam
+      .split(",")
+      .map(s => Number(String(s).trim()))
+      .filter(n => Number.isFinite(n) && n > 0);
+
+    if (setNums.length === 0) return [];
+
+    return setNums.map(sn => `${lv}-${sn}`);
+  }
+
+  // ===== 4) 유틸: meaning 키가 다를 수도 있어서 안전하게 꺼내기 =====
+  function getMeaning(row) {
+    if (!row || typeof row !== "object") return "";
+    // words.js 구조가 다양할 수 있어 여러 후보를 확인
+    return (
+      row.meaning ??
+      row.mean ??
+      row.korean ??
+      row.kr ??
+      row.translation ??
+      ""
+    );
+  }
+
+  // ===== 5) count 파라미터 검증 =====
+  function parseCountOrNull() {
+    if (!countParamRaw) return null;
+    const n = Number(countParamRaw);
+    if (!Number.isFinite(n) || n <= 0) return null;
+    return Math.floor(n);
+  }
+
+  // ===== 6) 메인 로딩 =====
   function loadWords() {
     const db = window.WORD_DB || {};
-    const originalList = db[unit] || [];
     const tbody = document.getElementById("wordBody");
     tbody.innerHTML = "";
-    
-    if (!originalList.length) {
-      tbody.innerHTML = `<tr><td colspan="3" style="text-align:center; padding:20px;">'${unit}' 단어가 없습니다.</td></tr>`;
+
+    const units = parseUnitsFromParams();
+
+    // 화면 상단 표기
+    if (units.length === 0) {
+      levelTextEl.textContent = "파라미터 오류";
+      tbody.innerHTML = `<tr><td colspan="3" style="text-align:center; padding:20px;">
+        잘못된 접근입니다. (unit=1-1 또는 level=1&sets=1,2 형식)
+      </td></tr>`;
+      return;
+    } else if (units.length === 1) {
+      levelTextEl.textContent = units[0] + (testMode === "en" ? " / 영어쓰기" : " / 한글쓰기");
+    } else {
+      // 여러 세트면 보기 좋게 표시
+      const lv = units[0].split("-")[0];
+      const setList = units.map(u => u.split("-")[1]).join(", ");
+      levelTextEl.textContent = `${lv} - (${setList})` + (testMode === "en" ? " / 영어쓰기" : " / 한글쓰기");
+    }
+
+    // unit들에서 단어 합치기
+    let combined = [];
+    for (const u of units) {
+      const list = Array.isArray(db[u]) ? db[u] : [];
+      combined = combined.concat(list);
+    }
+
+    if (combined.length === 0) {
+      const label = units.join(", ");
+      tbody.innerHTML = `<tr><td colspan="3" style="text-align:center; padding:20px;">
+        '${label}' 단어가 없습니다.
+      </td></tr>`;
       return;
     }
-    
-    // ✨ 여기서 섞습니다! (새로고침 할 때마다 순서 바뀜) ✨
-    const shuffledList = shuffleArray(originalList);
-    
-    // 섞인 목록으로 표 만들기
-    shuffledList.forEach((row, idx) => {
+
+    // 랜덤 섞기
+    let shuffled = shuffleArray(combined);
+
+    // count 적용(있으면 그 개수만)
+    const count = parseCountOrNull();
+    if (count !== null && count < shuffled.length) {
+      shuffled = shuffled.slice(0, count);
+    }
+
+    // 표 만들기 (mode에 따라 빈칸 위치 변경)
+    shuffled.forEach((row, idx) => {
       const tr = document.createElement("tr");
-      
-      // 번호(idx+1)는 1,2,3... 순서대로 유지
-      // 단어(row.word)는 섞인 순서대로 출력
-      // 뜻 부분은 빈칸(blank-box)으로 비워둠
+
+      const wordText = (row && typeof row === "object" && row.word) ? String(row.word) : "";
+      const meaningText = String(getMeaning(row) || "");
+
+      // ko: Word 보여주고 Meaning 빈칸(뜻 쓰기)
+      // en: Meaning 보여주고 Word 빈칸(철자 쓰기)
+      const wordCell = (testMode === "en")
+        ? `<td class="col-word blank-box"></td>`
+        : `<td class="col-word">${escapeHtml(wordText)}</td>`;
+
+      const meaningCell = (testMode === "en")
+        ? `<td class="col-meaning">${escapeHtml(meaningText)}</td>`
+        : `<td class="col-meaning blank-box"></td>`;
+
       tr.innerHTML = `
         <td class="col-num">${idx + 1}</td>
-        <td class="col-word">${row.word}</td>
-        <td class="col-meaning blank-box"></td>`; 
+        ${wordCell}
+        ${meaningCell}
+      `;
       tbody.appendChild(tr);
     });
-    
+
     // 0.5초 뒤 인쇄창 자동 실행
     setTimeout(() => window.print(), 500);
   }
-  
-  // 데이터 로딩 대기
+
+  // ===== 7) XSS/특수문자 안전 처리 =====
+  function escapeHtml(str) {
+    return String(str)
+      .replaceAll("&", "&amp;")
+      .replaceAll("<", "&lt;")
+      .replaceAll(">", "&gt;")
+      .replaceAll('"', "&quot;")
+      .replaceAll("'", "&#039;");
+  }
+
+  // words.js 로딩 대기
   if (window.WORD_DB) loadWords();
   else window.addEventListener("load", loadWords);
 </script>
