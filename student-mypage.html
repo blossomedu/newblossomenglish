@@ -1690,9 +1690,23 @@
         if (currentType === "vocab") payload.tasks = tasksForSave;
 
         let { error } = await client
-          .from("student_homework")
-          .insert(payload);
+  .from("student_homework")
+  .insert(payload);
 
+if (error) {
+  // ✅ UNIQUE INDEX 충돌 (같은 학생 + 같은 타입 + 같은 마감일)
+  if (error.code === "23505") {
+    setMyHwStatus(
+      "⚠️ 같은 마감일에 이미 같은 종류의 숙제가 있어요.\n마감일을 바꾸거나 기존 숙제를 수정해 주세요.",
+      "error"
+    );
+    return;
+  }
+
+  console.error("student_homework 저장 오류:", error);
+  setMyHwStatus("숙제를 저장하는 중 오류가 발생했어요.", "error");
+  return;
+}
         if (error && currentType === "vocab" && isMissingTasksColumnError(error)) {
           const { error: e2 } = await client
             .from("student_homework")
@@ -1948,6 +1962,7 @@
 </script>
 </body>
 </html>
+
 
 
 
