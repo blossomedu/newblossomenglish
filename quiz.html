@@ -414,48 +414,7 @@
     if (!wordCount) return;
     if (didSaveResult) return;
 
-  // 1) homework_id 자동 매칭 (학생이 여러 날짜로 같은 unit을 등록했을 수 있으니 "가장 최근 due_date"로 잡음)
-let homeworkId = new URLSearchParams(location.search).get("homework_id");
-
-if (!homeworkId) {
-  const { data: hwRows, error: hwErr } = await client
-    .from("student_homework")
-    .select("id, due_date, set_numbers")
-    .eq("student_login_id", currentStudentLoginId)
-    .eq("type", "vocab")
-    .order("due_date", { ascending: false });
-
-  if (!hwErr && hwRows && hwRows.length) {
-    const norm = (s) => String(s || "").replace(/\s+/g, "");
-    const target = norm(unitKey);
-
-    // set_numbers가 "1-1,1-2" 같은 형식이라서 포함 여부로 찾음
-    const match = hwRows.find(r => norm(r.set_numbers).split(",").includes(target));
-    if (match) homeworkId = match.id;
-  }
-}
-
-let homeworkId = new URLSearchParams(location.search).get("homework_id");
-
-// ✅ URL에 homework_id 없으면, student_homework에서 자동으로 찾아서 붙이기
-if (!homeworkId) {
-  const { data: hwRows, error: hwErr } = await client
-    .from("student_homework")
-    .select("id, due_date, set_numbers")
-    .eq("student_login_id", currentStudentLoginId)
-    .eq("type", "vocab")
-    .order("due_date", { ascending: false });
-
-  if (!hwErr && hwRows && hwRows.length) {
-    const norm = (s) => String(s || "").replace(/\s+/g, "");
-    const target = norm(unitKey);
-
-    const match = hwRows.find(r => norm(r.set_numbers).split(",").includes(target));
-    if (match) homeworkId = match.id;
-  }
-}
-
-const payload = {
+  const payload = {
   student_login_id: currentStudentLoginId,
   unit_key: unitKey,               // ✅ DB 컬럼명 그대로
   mode: currentMode,
@@ -463,7 +422,7 @@ const payload = {
   total_count: wordCount,
   submitted_at: new Date().toISOString(),
 
-  homework_id: homeworkId || null  // ✅ 핵심
+  homework_id: new URLSearchParams(location.search).get("homework_id") // ⭐ 추가
 };
 
     try {
@@ -885,5 +844,4 @@ const payload = {
 </script>
 </body>
 </html>
-
 
