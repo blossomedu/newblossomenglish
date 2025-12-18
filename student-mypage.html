@@ -1679,67 +1679,39 @@
         if (currentType === "vocab") setVocabTasksDefault();
         setMyHwStatus("✅ 수정 완료!", "");
 
-     } else {
-  let payload = {
-    student_login_id: currentStudent.login_id,
-    type: currentType,
-    level: parsed.level,
-    set_numbers: parsed.raw,
-    due_date: due
-  };
-  if (currentType === "vocab") payload.tasks = tasksForSave;
+      } else {
+        let payload = {
+          student_login_id: currentStudent.login_id,
+          type: currentType,
+          level: parsed.level,
+          set_numbers: parsed.raw,
+          due_date: due
+        };
+        if (currentType === "vocab") payload.tasks = tasksForSave;
 
-  // ✅ [추가] 같은 마감일 due_date 중복 생성 차단
-  const { data: exists, error: existsErr } = await client
-    .from("student_homework")
-    .select("id")
-    .eq("student_login_id", currentStudent.login_id)
-    .eq("type", currentType)
-    .eq("due_date", due)
-    .limit(1);
+        let { error } = await client
+          .from("student_homework")
+          .insert(payload);
 
-  if (existsErr) {
-    console.error("중복 체크 오류:", existsErr);
-    setMyHwStatus("중복 여부를 확인하는 중 오류가 발생했어요. (콘솔 확인)", "error");
-    return;
-  }
+        if (error && currentType === "vocab" && isMissingTasksColumnError(error)) {
+          const { error: e2 } = await client
+            .from("student_homework")
+            .insert({
+              student_login_id: currentStudent.login_id,
+              type: currentType,
+              level: parsed.level,
+              set_numbers: parsed.raw,
+              due_date: due
+            });
+          error = e2 || null;
+        }
 
-  if (exists && exists.length > 0) {
-    setMyHwStatus(
-      `⚠️ 이미 ${due} 마감의 ${currentType === "vocab" ? "어휘" : "문장"} 숙제가 있어요. 마감일을 바꿔 주세요.`,
-      "error"
-    );
-    return;
-  }
+        if (error) {
+          console.error("student_homework 저장 오류:", error);
+          setMyHwStatus("숙제를 저장하는 중 오류가 발생했어요. (콘솔 에러 확인)", "error");
+          return;
+        }
 
-  let { error } = await client
-    .from("student_homework")
-    .insert(payload);
-
-  if (error && currentType === "vocab" && isMissingTasksColumnError(error)) {
-    const { error: e2 } = await client
-      .from("student_homework")
-      .insert({
-        student_login_id: currentStudent.login_id,
-        type: currentType,
-        level: parsed.level,
-        set_numbers: parsed.raw,
-        due_date: due
-      });
-    error = e2 || null;
-  }
-
-  if (error) {
-    console.error("student_homework 저장 오류:", error);
-    setMyHwStatus("숙제를 저장하는 중 오류가 발생했어요. (콘솔 에러 확인)", "error");
-    return;
-  }
-
-  myHwSetEl.value = "";
-  myHwDueEl.value = "";
-  if (currentType === "vocab") setVocabTasksDefault();
-  setMyHwStatus("✅ 숙제가 등록됐어요!", "");
-}
         myHwSetEl.value = "";
         myHwDueEl.value = "";
         if (currentType === "vocab") setVocabTasksDefault();
@@ -1976,7 +1948,6 @@
 </script>
 </body>
 </html>
-
 
 
 
