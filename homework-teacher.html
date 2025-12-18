@@ -148,19 +148,17 @@
       min-width: 260px;
     }
 
-    /* ✅ 문항 수 더 슬림하게 */
     .half-field {
       min-width: 140px;
       max-width: 160px;
     }
 
-    /* ✅ 알약(시험유형) 사이즈 줄이기 */
     .pill-group {
       display: inline-flex;
       background: #e5e7eb;
       border-radius: 999px;
-      padding: 2px;          /* 줄임 */
-      gap: 3px;              /* 줄임 */
+      padding: 2px;
+      gap: 3px;
       justify-content: center;
       width: 100%;
     }
@@ -168,8 +166,8 @@
     .pill-btn {
       border: none;
       border-radius: 999px;
-      padding: 5px 10px;     /* 줄임 */
-      font-size: 12px;       /* 줄임 */
+      padding: 5px 10px;
+      font-size: 12px;
       cursor: pointer;
       background: transparent;
       color: #4b5563;
@@ -292,11 +290,9 @@
       color: #ffffff;
     }
 
-    /* ✅ 출력 버튼 폭도 살짝 줄여서 한 줄에 더 잘 들어가게 */
     .btn-field-note { min-width: 160px; }
     .btn-field-test { min-width: 150px; }
 
-    /* ✅ 시험 유형 필드 최소폭도 살짝 줄임 */
     .mode-field { min-width: 200px; }
 
     @media (max-width: 768px) {
@@ -413,19 +409,17 @@
         <input type="number" min="1" step="1" id="word-count-input" placeholder="예: 20" />
       </div>
 
-      <!-- ✅ 같은 줄로 올라오게(폭 줄임) -->
-      <div class="field btn-field-note">
-        <label style="visibility:hidden;">암기장 출력</label>
-        <button class="primary-btn" id="btn-print-note" style="width:100%;">단어 암기장 출력</button>
-      </div>
-
+      <!-- ✅ 여기서 위치만 맞바꿈: 시험지(핑크) 먼저, 암기장(블루) 나중 -->
       <div class="field btn-field-test">
         <label style="visibility:hidden;">시험지 출력</label>
         <button class="primary-btn" id="btn-print-test" style="width:100%;">단어 시험지 출력</button>
       </div>
-    </div>
 
-    <!-- ✅ 빨간줄로 표시된 문구(힌트) 삭제 완료 -->
+      <div class="field btn-field-note">
+        <label style="visibility:hidden;">암기장 출력</label>
+        <button class="primary-btn" id="btn-print-note" style="width:100%;">단어 암기장 출력</button>
+      </div>
+    </div>
   </div>
 
   <!-- 3. 최근 숙제 카드 -->
@@ -451,7 +445,7 @@
   const classSelect      = document.getElementById("class-select");
   const typeVocabBtn     = document.getElementById("type-vocab");
   const typeSentenceBtn  = document.getElementById("type-sentence");
-  const setInput         = document.getElementById("set-input");          // 숙제 업로드용
+  const setInput         = document.getElementById("set-input");
   const dueInput         = document.getElementById("due-input");
   const saveBtn          = document.getElementById("save-btn");
   const statusMsgEl      = document.getElementById("status-msg");
@@ -465,10 +459,10 @@
   const modeKoBtn        = document.getElementById("mode-ko");
   const modeEnBtn        = document.getElementById("mode-en");
 
-  const printSetInput    = document.getElementById("print-set-input");    // 출력 전용(독립)
+  const printSetInput    = document.getElementById("print-set-input");
 
   let currentType = "vocab";
-  let testMode = "ko"; // ko(뜻쓰기) / en(영어쓰기)
+  let testMode = "ko";
 
   function setStatus(msg, type = "") {
     statusMsgEl.textContent = msg || "";
@@ -556,7 +550,7 @@
 
   async function saveHomework() {
     const classId = classSelect.value;
-    const rawSet  = setInput.value.trim(); // 숙제 업로드는 위 인풋 사용
+    const rawSet  = setInput.value.trim();
     const due     = dueInput.value;
 
     if (!classId) return setStatus("반을 먼저 선택해 주세요.", "error");
@@ -678,7 +672,7 @@
       return;
     }
 
-    const rawSet = printSetInput.value.trim(); // 출력은 아래 인풋 사용
+    const rawSet = printSetInput.value.trim();
     const parsed = parseLevelAndSets(rawSet);
 
     if (!parsed) {
