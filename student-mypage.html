@@ -1285,99 +1285,140 @@
         '<div class="class-hw-empty">숙제를 불러오는 중 오류가 발생했습니다.</div>';
     }
   }
+// ===============================
+function normalizeAndExpandHomeworkRows(row, from) {
+  const isStudent = from === "student";
+  const type = isStudent ? row.type : (from === "teacher_sentence" ? "sentence" : "vocab");
 
-  function normalizeAndExpandHomeworkRows(row, from) {
-    const isStudent = from === "student";
-    const type = isStudent ? row.type : (from === "teacher_sentence" ? "sentence" : "vocab");
+  const unitKeys = parseUnitKeysFromSetNumbers(row.set_numbers);
 
-    const unitKeys = parseUnitKeysFromSetNumbers(row.set_numbers);
-    if (unitKeys.length === 0) {
-      return [{
-        source: isStudent ? "student" : "teacher",
-        sourceLabel: isStudent ? "내가 등록" : "선생님",
-        type,
-        due_date: row.due_date || null,
-        created_at: row.created_at || null,
-        unit_key: null,
-        unit_text: (row.set_numbers || "-"),
-        raw: row
-      }];
-    }
+  // ✅ 학생이 등록한 어휘 숙제만 tasks가 의미가 있음
+  const tasks = (isStudent && type === "vocab") ? (row.tasks || null) : null;
 
-    return unitKeys.map(uk => ({
+  if (unitKeys.length === 0) {
+    return [{
       source: isStudent ? "student" : "teacher",
       sourceLabel: isStudent ? "내가 등록" : "선생님",
       type,
       due_date: row.due_date || null,
       created_at: row.created_at || null,
-      unit_key: uk,
-      unit_text: uk,
+      unit_key: null,
+      unit_text: (row.set_numbers || "-"),
+      tasks, // ✅ 전달
       raw: row
-    }));
+    }];
   }
 
-  function computeOverallStatusFromVocabModes(modeMap) {
-    const modes = ["meaning", "english", "listening", "sentence"];
-    const doneCount = modes.filter(m => modeMap && modeMap[m]).length;
-    if (doneCount === 0) return { cls: "status-x", text: "❌" };
-    if (doneCount === modes.length) return { cls: "status-o", text: "⭕" };
-    return { cls: "status-d", text: "△" };
-  }
+  return unitKeys.map(uk => ({
+    source: isStudent ? "student" : "teacher",
+    sourceLabel: isStudent ? "내가 등록" : "선생님",
+    type,
+    due_date: row.due_date || null,
+    created_at: row.created_at || null,
+    unit_key: uk,
+    unit_text: uk,
+    tasks, // ✅ 전달
+    raw: row
+  }));
+}
 
-  function taskCell(result) {
-    if (!result) return { mark: "❌", color: "#991b1b", time: "--" };
-    const total = Number(result.total_count || 0);
-    const correct = Number(result.correct_count || 0);
-    const ok = total > 0 && correct >= total;
-    return {
-      mark: ok ? "⭕" : "△",
-      color: ok ? "#166534" : "#92400e",
-      time: result.submitted_at ? `${formatDate(result.submitted_at)} ${formatTime(result.submitted_at)}` : "--"
-    };
-  }
+// ✅ tasks 기준 overall 판정
+function computeOverallStatusFromVocabTasks(aggMap, tasks) {
+  const t = tasks || { meaning: 1, english: 1, listening: 1, sentence: 1 };
 
-  const SENTENCE_TASKS_NORMAL = [
-    { mode: "blank",   label: "빈칸 완성" },
-    { mode: "arrange", label: "문장 배열" }
-  ];
-  const SENTENCE_TASKS_SCHOOL = [
-    { mode: "school1", label: "학교 시험 1" },
-    { mode: "school2", label: "학교 시험 2" },
-    { mode: "school3", label: "학교 시험 3" },
-    { mode: "school4", label: "학교 시험 4" },
-    { mode: "school5", label: "학교 시험 5" }
-  ];
-  function isSchoolUnitKey(unitKey) {
-    const t = String(unitKey || "");
-    return /^(잠신중|잠신고)\d+-\d+$/.test(t);
-  }
+  const requiredModes = Object.entries(t)
+    .filter(([, need]) => Number(need) > 0)
+    .map(([mode]) => mode);
 
-  function buildSentenceTaskView(unitKey, sentenceByUnitByMode) {
-    const modeMap = (sentenceByUnitByMode && sentenceByUnitByMode[unitKey]) ? sentenceByUnitByMode[unitKey] : {};
-    const tasks = isSchoolUnitKey(unitKey) ? SENTENCE_TASKS_SCHOOL : SENTENCE_TASKS_NORMAL;
+  if (requiredModes.length === 0) return { cls: "status-x", text: "❌" };
 
-    const rows = tasks.map(t => {
-      const r = modeMap ? modeMap[t.mode] : null;
-      const cell = taskCell(r);
-      return { ...t, result: r, cell };
-    });
+  let anyProgress = false;
+  let allDone = true;
 
-    const doneCount = rows.filter(x => x.result).length;
-    const totalCount = rows.length;
+  requiredModes.forEach(mode => {
+    const need = Number(t[mode] || 0);
+    const done = Number(aggMap?.[mode]?.count || 0);
+    if (done > 0) anyProgress = true;
+    if (done < need) allDone = false;
+  });
 
-    const overall = (doneCount === 0)
-      ? { cls: "status-x", text: "❌" }
-      : (doneCount === totalCount)
-        ? { cls: "status-o", text: "⭕" }
-        : { cls: "status-d", text: "△" };
+  if (!anyProgress) return { cls: "status-x", text: "❌" };
+  if (allDone) return { cls: "status-o", text: "⭕" };
+  return { cls: "status-d", text: "△" };
+}
 
-    const latest = safeLatestBySubmittedAt(rows.map(r => r.result).filter(Boolean));
-    const submittedText = latest
-      ? `${scoreTextFromResult(latest)} · ${formatDate(latest.submitted_at)} ${formatTime(latest.submitted_at)}`
-      : "--";
+// ✅ vocab 한 줄(모드) 표시: count vs tasks
+function vocabTaskCell(doneCount, taskCount, latestResult) {
+  const done = Number(doneCount || 0);
+  const need = Number(taskCount || 0);
 
-    return { rows, overall, submittedText };
-  }
+  let mark = "❌";
+  let color = "#991b1b";
+  if (done >= need) { mark = "⭕"; color = "#166534"; }
+  else if (done > 0) { mark = "△"; color = "#92400e"; }
+
+  const time = latestResult?.submitted_at
+    ? `${formatDate(latestResult.submitted_at)} ${formatTime(latestResult.submitted_at)}`
+    : "--";
+
+  return { mark, color, time };
+}
+
+function taskCell(result) {
+  if (!result) return { mark: "❌", color: "#991b1b", time: "--" };
+  const total = Number(result.total_count || 0);
+  const correct = Number(result.correct_count || 0);
+  const ok = total > 0 && correct >= total;
+  return {
+    mark: ok ? "⭕" : "△",
+    color: ok ? "#166534" : "#92400e",
+    time: result.submitted_at ? `${formatDate(result.submitted_at)} ${formatTime(result.submitted_at)}` : "--"
+  };
+}
+
+const SENTENCE_TASKS_NORMAL = [
+  { mode: "blank",   label: "빈칸 완성" },
+  { mode: "arrange", label: "문장 배열" }
+];
+const SENTENCE_TASKS_SCHOOL = [
+  { mode: "school1", label: "학교 시험 1" },
+  { mode: "school2", label: "학교 시험 2" },
+  { mode: "school3", label: "학교 시험 3" },
+  { mode: "school4", label: "학교 시험 4" },
+  { mode: "school5", label: "학교 시험 5" }
+];
+function isSchoolUnitKey(unitKey) {
+  const t = String(unitKey || "");
+  return /^(잠신중|잠신고)\d+-\d+$/.test(t);
+}
+
+function buildSentenceTaskView(unitKey, sentenceByUnitByMode) {
+  const modeMap = (sentenceByUnitByMode && sentenceByUnitByMode[unitKey]) ? sentenceByUnitByMode[unitKey] : {};
+  const tasks = isSchoolUnitKey(unitKey) ? SENTENCE_TASKS_SCHOOL : SENTENCE_TASKS_NORMAL;
+
+  const rows = tasks.map(t => {
+    const r = modeMap ? modeMap[t.mode] : null;
+    const cell = taskCell(r);
+    return { ...t, result: r, cell };
+  });
+
+  const doneCount = rows.filter(x => x.result).length;
+  const totalCount = rows.length;
+
+  const overall = (doneCount === 0)
+    ? { cls: "status-x", text: "❌" }
+    : (doneCount === totalCount)
+      ? { cls: "status-o", text: "⭕" }
+      : { cls: "status-d", text: "△" };
+
+  const latest = safeLatestBySubmittedAt(rows.map(r => r.result).filter(Boolean));
+  const submittedText = latest
+    ? `${scoreTextFromResult(latest)} · ${formatDate(latest.submitted_at)} ${formatTime(latest.submitted_at)}`
+    : "--";
+
+  return { rows, overall, submittedText };
+}
+
 // ===============================
 function renderUnifiedResults(items, vocabByUnitByMode, sentenceByUnitByMode) {
   unitResultBody.innerHTML = "";
@@ -1386,6 +1427,13 @@ function renderUnifiedResults(items, vocabByUnitByMode, sentenceByUnitByMode) {
     unitResultBody.innerHTML = '<div class="class-hw-empty">표시할 숙제가 없어요.</div>';
     return;
   }
+
+  const vocabLabels = {
+    meaning: "뜻 찾기",
+    english: "영어 찾기",
+    listening: "듣고 찾기",
+    sentence: "문장 빈칸"
+  };
 
   items.forEach(item => {
     const details = document.createElement("details");
@@ -1407,10 +1455,14 @@ function renderUnifiedResults(items, vocabByUnitByMode, sentenceByUnitByMode) {
     let submittedText = "--";
 
     if (item.type === "vocab" && item.unit_key) {
-      const modeMap = (vocabByUnitByMode && vocabByUnitByMode[item.unit_key]) ? vocabByUnitByMode[item.unit_key] : {};
-      overall = computeOverallStatusFromVocabModes(modeMap);
+      const aggMap = (vocabByUnitByMode && vocabByUnitByMode[item.unit_key]) ? vocabByUnitByMode[item.unit_key] : {};
+      // ✅ 학생이 등록한 숙제면 tasks 사용, 아니면 기본 4종(1회)로 표시
+      const tasks = item.tasks || { meaning: 1, english: 1, listening: 1, sentence: 1 };
 
-      const latest = safeLatestBySubmittedAt(Object.values(modeMap || {}));
+      overall = computeOverallStatusFromVocabTasks(aggMap, tasks);
+
+      const latestList = Object.values(aggMap || {}).map(x => x?.latest).filter(Boolean);
+      const latest = safeLatestBySubmittedAt(latestList);
       submittedText = latest
         ? `${scoreTextFromResult(latest)} · ${formatDate(latest.submitted_at)} ${formatTime(latest.submitted_at)}`
         : "--";
@@ -1437,37 +1489,39 @@ function renderUnifiedResults(items, vocabByUnitByMode, sentenceByUnitByMode) {
     detail.className = "unit-detail";
 
     if (item.type === "vocab" && item.unit_key) {
-      const modeMap = (vocabByUnitByMode && vocabByUnitByMode[item.unit_key]) ? vocabByUnitByMode[item.unit_key] : {};
-      const tMeaning   = taskCell(modeMap.meaning);
-      const tEnglish   = taskCell(modeMap.english);
-      const tListening = taskCell(modeMap.listening);
-      const tSentence  = taskCell(modeMap.sentence);
+      const aggMap = (vocabByUnitByMode && vocabByUnitByMode[item.unit_key]) ? vocabByUnitByMode[item.unit_key] : {};
+      const tasks = item.tasks || { meaning: 1, english: 1, listening: 1, sentence: 1 };
 
-      detail.innerHTML = `
-        <div class="unit-detail-grid">
-          <div class="task-row">
-            <div class="task-name">뜻 찾기</div>
-            <div class="task-status" style="color:${tMeaning.color};">${tMeaning.mark}</div>
-            <div class="task-time">${tMeaning.time}</div>
-          </div>
-          <div class="task-row">
-            <div class="task-name">영어 찾기</div>
-            <div class="task-status" style="color:${tEnglish.color};">${tEnglish.mark}</div>
-            <div class="task-time">${tEnglish.time}</div>
-          </div>
-          <div class="task-row">
-            <div class="task-name">듣고 찾기</div>
-            <div class="task-status" style="color:${tListening.color};">${tListening.mark}</div>
-            <div class="task-time">${tListening.time}</div>
-          </div>
-          <div class="task-row">
-            <div class="task-name">문장 빈칸</div>
-            <div class="task-status" style="color:${tSentence.color};">${tSentence.mark}</div>
-            <div class="task-time">${tSentence.time}</div>
-          </div>
-        </div>
-        <div class="unit-guide">※ 어휘 4개 모드를 모두 완료하면 Unit 전체가 ⭕로 바뀝니다.</div>
-      `;
+      const grid = document.createElement("div");
+      grid.className = "unit-detail-grid";
+
+      // ✅ tasks 기준으로만 줄 생성 (tasks=0은 아예 안 그림)
+      Object.entries(tasks).forEach(([mode, need]) => {
+        const taskCount = Number(need || 0);
+        if (taskCount === 0) return;
+
+        const doneCount = Number(aggMap?.[mode]?.count || 0);
+        const latest = aggMap?.[mode]?.latest || null;
+        const cell = vocabTaskCell(doneCount, taskCount, latest);
+
+        const row = document.createElement("div");
+        row.className = "task-row";
+        row.innerHTML = `
+          <div class="task-name">${vocabLabels[mode]} <span style="font-weight:900; color:#6b7280;">(${taskCount}회)</span></div>
+          <div class="task-status" style="color:${cell.color};">${cell.mark}</div>
+          <div class="task-time">${cell.time}</div>
+        `;
+        grid.appendChild(row);
+      });
+
+      detail.innerHTML = "";
+      detail.appendChild(grid);
+
+      const guide = document.createElement("div");
+      guide.className = "unit-guide";
+      guide.textContent = "※ 이 Unit은 ‘등록된 tasks’ 기준으로만 표시/판정됩니다.";
+      detail.appendChild(guide);
+
     } else if (item.type === "sentence" && item.unit_key) {
       const view = buildSentenceTaskView(item.unit_key, sentenceByUnitByMode);
 
@@ -1487,6 +1541,7 @@ function renderUnifiedResults(items, vocabByUnitByMode, sentenceByUnitByMode) {
 
       detail.innerHTML = "";
       detail.appendChild(grid);
+
     } else {
       detail.innerHTML = `
         <div class="unit-detail-grid">
@@ -1504,16 +1559,16 @@ function renderUnifiedResults(items, vocabByUnitByMode, sentenceByUnitByMode) {
     unitResultBody.appendChild(details);
   });
 }
-
 async function loadUnifiedHomeworkResults() {
   if (!currentStudent || !currentStudent.login_id) return;
 
   unitResultBody.innerHTML = '<div class="class-hw-empty">결과를 불러오는 중...</div>';
 
   try {
+    // ✅ tasks 포함해서 가져오기 (핵심!)
     const studentReq = client
       .from("student_homework")
-      .select("id, type, level, set_numbers, due_date, created_at")
+      .select("id, type, level, set_numbers, due_date, created_at, tasks")
       .eq("student_login_id", currentStudent.login_id);
 
     let teacherVocabReq = null;
@@ -1558,6 +1613,7 @@ async function loadUnifiedHomeworkResults() {
     const vocabUnitKeys = Array.from(new Set(items.filter(x => x.type === "vocab" && x.unit_key).map(x => x.unit_key)));
     const sentenceUnitKeys = Array.from(new Set(items.filter(x => x.type === "sentence" && x.unit_key).map(x => x.unit_key)));
 
+    // ✅ vocabByUnitByMode 구조: { unit: { mode: { count, latest } } }
     let vocabByUnitByMode = {};
     if (vocabUnitKeys.length > 0) {
       const { data: vr, error: vrErr } = await client
@@ -1573,8 +1629,13 @@ async function loadUnifiedHomeworkResults() {
         const uk = r.unit_key;
         const md = r.mode || "unknown";
         if (!uk) return;
+
         if (!vocabByUnitByMode[uk]) vocabByUnitByMode[uk] = {};
-        if (!vocabByUnitByMode[uk][md]) vocabByUnitByMode[uk][md] = r;
+        if (!vocabByUnitByMode[uk][md]) vocabByUnitByMode[uk][md] = { count: 0, latest: null };
+
+        vocabByUnitByMode[uk][md].count += 1;
+        // order desc라서 첫 번째가 최신
+        if (!vocabByUnitByMode[uk][md].latest) vocabByUnitByMode[uk][md].latest = r;
       });
     }
 
@@ -1594,7 +1655,7 @@ async function loadUnifiedHomeworkResults() {
             const md = r.mode || "unknown";
             if (!uk) return;
             if (!sentenceByUnitByMode[uk]) sentenceByUnitByMode[uk] = {};
-            if (!sentenceByUnitByMode[uk][md]) sentenceByUnitByMode[uk][md] = r;
+            if (!sentenceByUnitByMode[uk][md]) sentenceByUnitByMode[uk][md] = r; // 최신 1개
           });
         }
       } catch (e) {}
@@ -1968,4 +2029,5 @@ function bindVocabConfig() {
 </script>
 </body>
 </html>
+
 
