@@ -1378,578 +1378,164 @@
 
     return { rows, overall, submittedText };
   }
+// ===============================
+// ✅ 결과 렌더링 (NEW: v_assignment_detail 기반)
+//    - renderUnifiedResults() / 기존 loadUnifiedHomeworkResults() 교체용
+// ===============================
 
-  function renderUnifiedResults(items, vocabByUnitByMode, sentenceByUnitByMode) {
-    unitResultBody.innerHTML = "";
+function labelFromKind(kind) {
+  const map = {
+    meaning: "뜻 찾기",
+    english: "영어 찾기",
+    listening: "듣고 찾기",
+    blank: "문장 빈칸",
+    arrange: "문장 배열",
+    school1: "학교 시험 1",
+    school2: "학교 시험 2",
+    school3: "학교 시험 3",
+    school4: "학교 시험 4",
+    school5: "학교 시험 5",
+  };
+  return map[kind] || String(kind || "-");
+}
 
-    if (!items || items.length === 0) {
-      unitResultBody.innerHTML = '<div class="class-hw-empty">표시할 숙제가 없어요.</div>';
-      return;
-    }
+// ✅ 전체 O / △ / X 규칙
+function overallFromItems(items) {
+  const st = (items || []).map(x => x.status);
+  if (!st.length) return { cls: "status-x", text: "❌" };
 
-    items.forEach(item => {
-      const details = document.createElement("details");
-      details.className = "unit-row";
-      details.open = false;
+  const done = st.filter(s => s === "O").length;
+  if (done === 0) return { cls: "status-x", text: "❌" };
+  if (done === st.length) return { cls: "status-o", text: "⭕" };
+  return { cls: "status-d", text: "△" };
+}
 
-      const summary = document.createElement("summary");
-      summary.className = "unit-result-summary";
+function submittedTextFromItems(items) {
+  const times = (items || [])
+    .map(x => x.completed_at)
+    .filter(Boolean)
+    .map(t => new Date(t))
+    .filter(d => !Number.isNaN(d.getTime()))
+    .sort((a, b) => b - a);
 
-      const typeChip = document.createElement("span");
-      typeChip.className = "chip " + (item.type === "sentence" ? "chip-online-sentence" : "chip-online-vocab");
-      typeChip.textContent = item.type === "sentence" ? "문장" : "어휘";
+  if (!times.length) return "--";
+  const latest = times[0];
+  return `${formatDate(latest.toISOString())} ${formatTime(latest.toISOString())}`;
+}
 
-      const srcChip = document.createElement("span");
-      srcChip.className = "chip " + (item.source === "teacher" ? "chip-src-teacher" : "chip-src-student");
-      srcChip.textContent = item.sourceLabel;
+function renderAssignments(assignments) {
+  unitResultBody.innerHTML = "";
 
-      let overall = { cls: "status-x", text: "❌" };
-      let submittedText = "--";
-
-      if (item.type === "vocab" && item.unit_key) {
-        const modeMap = (vocabByUnitByMode && vocabByUnitByMode[item.unit_key]) ? vocabByUnitByMode[item.unit_key] : {};
-        overall = computeOverallStatusFromVocabModes(modeMap);
-
-        const latest = safeLatestBySubmittedAt(Object.values(modeMap || {}));
-        submittedText = latest ? `${scoreTextFromResult(latest)} · ${formatDate(latest.submitted_at)} ${formatTime(latest.submitted_at)}` : "--";
-      }
-
-      if (item.type === "sentence" && item.unit_key) {
-        const view = buildSentenceTaskView(item.unit_key, sentenceByUnitByMode);
-        overall = view.overall;
-        submittedText = view.submittedText;
-      }
-
-      summary.innerHTML = `
-        <div>${item.due_date || "-"}</div>
-        <div></div>
-        <div></div>
-        <div>${item.unit_text || "-"}</div>
-        <div><span class="status-pill ${overall.cls}">${overall.text}</span></div>
-        <div>${submittedText}</div>
-      `;
-      summary.children[1].appendChild(srcChip);
-      summary.children[2].appendChild(typeChip);
-
-      const detail = document.createElement("div");
-      detail.className = "unit-detail";
-
-      if (item.type === "vocab" && item.unit_key) {
-        const modeMap = (vocabByUnitByMode && vocabByUnitByMode[item.unit_key]) ? vocabByUnitByMode[item.unit_key] : {};
-        const tMeaning   = taskCell(modeMap.meaning);
-        const tEnglish   = taskCell(modeMap.english);
-        const tListening = taskCell(modeMap.listening);
-        const tSentence  = taskCell(modeMap.sentence);
-
-        detail.innerHTML = `
-          <div class="unit-detail-grid">
-            <div class="task-row">
-              <div class="task-name">뜻 찾기</div>
-              <div class="task-status" style="color:${tMeaning.color};">${tMeaning.mark}</div>
-              <div class="task-time">${tMeaning.time}</div>
-            </div>
-            <div class="task-row">
-              <div class="task-name">영어 찾기</div>
-              <div class="task-status" style="color:${tEnglish.color};">${tEnglish.mark}</div>
-              <div class="task-time">${tEnglish.time}</div>
-            </div>
-            <div class="task-row">
-              <div class="task-name">듣고 찾기</div>
-              <div class="task-status" style="color:${tListening.color};">${tListening.mark}</div>
-              <div class="task-time">${tListening.time}</div>
-            </div>
-            <div class="task-row">
-              <div class="task-name">문장 빈칸</div>
-              <div class="task-status" style="color:${tSentence.color};">${tSentence.mark}</div>
-              <div class="task-time">${tSentence.time}</div>
-            </div>
-          </div>
-          <div class="unit-guide">※ 어휘 4개 모드를 모두 완료하면 Unit 전체가 ⭕로 바뀝니다.</div>
-        `;
-      } else if (item.type === "sentence" && item.unit_key) {
-        const view = buildSentenceTaskView(item.unit_key, sentenceByUnitByMode);
-
-        const grid = document.createElement("div");
-        grid.className = "unit-detail-grid";
-
-        view.rows.forEach(r => {
-          const row = document.createElement("div");
-          row.className = "task-row";
-          row.innerHTML = `
-            <div class="task-name">${r.label}</div>
-            <div class="task-status" style="color:${r.cell.color};">${r.cell.mark}</div>
-            <div class="task-time">${r.cell.time}</div>
-          `;
-          grid.appendChild(row);
-        });
-
-        detail.innerHTML = "";
-        detail.appendChild(grid);
-      } else {
-        detail.innerHTML = `
-          <div class="unit-detail-grid">
-            <div class="task-row">
-              <div class="task-name">결과</div>
-              <div class="task-status" style="color:#991b1b;">❌</div>
-              <div class="task-time">--</div>
-            </div>
-          </div>
-        `;
-      }
-
-      details.appendChild(summary);
-      details.appendChild(detail);
-      unitResultBody.appendChild(details);
-    });
-  }
-
-  async function loadUnifiedHomeworkResults() {
-    if (!currentStudent || !currentStudent.login_id) return;
-
-    unitResultBody.innerHTML = '<div class="class-hw-empty">결과를 불러오는 중...</div>';
-
-    try {
-      const studentReq = client
-        .from("student_homework")
-        .select("id, type, level, set_numbers, due_date, created_at")
-        .eq("student_login_id", currentStudent.login_id);
-
-      let teacherVocabReq = null;
-      let teacherSentenceReq = null;
-
-      if (currentClass && currentClass.id) {
-        teacherVocabReq = client
-          .from("vocab_homework")
-          .select("id, class_id, level, set_numbers, due_date, created_at")
-          .eq("class_id", currentClass.id);
-
-        teacherSentenceReq = client
-          .from("sentence_homework")
-          .select("id, class_id, level, set_numbers, due_date, created_at")
-          .eq("class_id", currentClass.id);
-      }
-
-      const [studentRes, tvRes, tsRes] = await Promise.all([
-        studentReq,
-        teacherVocabReq ? teacherVocabReq : Promise.resolve({ data: [], error: null }),
-        teacherSentenceReq ? teacherSentenceReq : Promise.resolve({ data: [], error: null })
-      ]);
-
-      if (studentRes.error) throw studentRes.error;
-      if (tvRes.error) throw tvRes.error;
-      if (tsRes.error) throw tsRes.error;
-
-      const items = []
-        .concat((studentRes.data || []).flatMap(r => normalizeAndExpandHomeworkRows(r, "student")))
-        .concat((tvRes.data || []).flatMap(r => normalizeAndExpandHomeworkRows(r, "teacher_vocab")))
-        .concat((tsRes.data || []).flatMap(r => normalizeAndExpandHomeworkRows(r, "teacher_sentence")));
-
-      items.sort((a, b) => {
-        const ad = a.due_date ? new Date(a.due_date).getTime() : Number.POSITIVE_INFINITY;
-        const bd = b.due_date ? new Date(b.due_date).getTime() : Number.POSITIVE_INFINITY;
-        if (ad !== bd) return ad - bd;
-        const at = a.created_at ? new Date(a.created_at).getTime() : 0;
-        const bt = b.created_at ? new Date(b.created_at).getTime() : 0;
-        return at - bt;
-      });
-
-      const vocabUnitKeys = Array.from(new Set(items.filter(x => x.type === "vocab" && x.unit_key).map(x => x.unit_key)));
-      const sentenceUnitKeys = Array.from(new Set(items.filter(x => x.type === "sentence" && x.unit_key).map(x => x.unit_key)));
-
-      let vocabByUnitByMode = {};
-      if (vocabUnitKeys.length > 0) {
-        const { data: vr, error: vrErr } = await client
-          .from("vocab_results")
-          .select("id, student_login_id, unit_key, mode, correct_count, total_count, submitted_at")
-          .eq("student_login_id", currentStudent.login_id)
-          .in("unit_key", vocabUnitKeys)
-          .order("submitted_at", { ascending: false });
-
-        if (vrErr) throw vrErr;
-
-        (vr || []).forEach(r => {
-          const uk = r.unit_key;
-          const md = r.mode || "unknown";
-          if (!uk) return;
-          if (!vocabByUnitByMode[uk]) vocabByUnitByMode[uk] = {};
-          if (!vocabByUnitByMode[uk][md]) vocabByUnitByMode[uk][md] = r;
-        });
-      }
-
-      let sentenceByUnitByMode = {};
-      if (sentenceUnitKeys.length > 0) {
-        try {
-          const { data: sr, error: srErr } = await client
-            .from("sentence_results")
-            .select("id, student_login_id, unit_key, mode, correct_count, total_count, submitted_at")
-            .eq("student_login_id", currentStudent.login_id)
-            .in("unit_key", sentenceUnitKeys)
-            .order("submitted_at", { ascending: false });
-
-          if (!srErr) {
-            (sr || []).forEach(r => {
-              const uk = r.unit_key;
-              const md = r.mode || "unknown";
-              if (!uk) return;
-              if (!sentenceByUnitByMode[uk]) sentenceByUnitByMode[uk] = {};
-              if (!sentenceByUnitByMode[uk][md]) sentenceByUnitByMode[uk][md] = r;
-            });
-          }
-        } catch (e) {}
-      }
-
-      renderUnifiedResults(items, vocabByUnitByMode, sentenceByUnitByMode);
-
-    } catch (e) {
-      console.error("통합 결과 로딩 오류:", e);
-      unitResultBody.innerHTML = '<div class="class-hw-empty">결과를 불러오는 중 오류가 발생했어요.</div>';
-    }
-  }
-
-  async function saveMyHomework() {
-    if (!currentStudent || !currentStudent.login_id) {
-      setMyHwStatus("학생 정보를 찾을 수 없어요. 다시 로그인해 주세요.", "error");
-      return;
-    }
-
-    const rawSet = myHwSetEl.value.trim();
-    const due    = myHwDueEl.value;
-
-    if (!rawSet) { setMyHwStatus("단계-세트를 입력해 주세요.", "error"); return; }
-    if (!due) { setMyHwStatus("마감일을 선택해 주세요.", "error"); return; }
-
-    const parsed = parseSetsForSave(rawSet, currentType);
-    if (!parsed) {
-      setMyHwStatus(
-        currentType === "sentence"
-          ? "문장 세트 형식이 올바르지 않아요. 예: 1-1, 11-10 또는 잠신중1-1"
-          : "세트 형식이 올바르지 않아요. 예: 1-1, 1-2, 1-3",
-        "error"
-      );
-      return;
-    }
-
-    setMyHwStatus("", "");
-    myHwSaveBtn.disabled = true;
-
-    const tasksForSave = (currentType === "vocab")
-      ? normalizeVocabTasksBeforeSave(vocabTasks)
-      : null;
-
-    try {
-      if (editingHomeworkId) {
-        let payload = {
-          type: currentType,
-          level: parsed.level,
-          set_numbers: parsed.raw,
-          due_date: due
-        };
-        if (currentType === "vocab") payload.tasks = tasksForSave;
-
-        let { error } = await client
-          .from("student_homework")
-          .update(payload)
-          .eq("id", editingHomeworkId)
-          .eq("student_login_id", currentStudent.login_id);
-
-        if (error && currentType === "vocab" && isMissingTasksColumnError(error)) {
-          const { error: e2 } = await client
-            .from("student_homework")
-            .update({
-              type: currentType,
-              level: parsed.level,
-              set_numbers: parsed.raw,
-              due_date: due
-            })
-            .eq("id", editingHomeworkId)
-            .eq("student_login_id", currentStudent.login_id);
-          error = e2 || null;
-        }
-
-        if (error) {
-          console.error("student_homework 수정 오류:", error);
-          setMyHwStatus("수정 중 오류가 발생했어요. (콘솔 에러 확인)", "error");
-          return;
-        }
-
-        editingHomeworkId = null;
-        setSaveButtonMode(false);
-        myHwSetEl.value = "";
-        myHwDueEl.value = "";
-        if (currentType === "vocab") setVocabTasksDefault();
-        setMyHwStatus("✅ 수정 완료!", "");
-
-      } else {
-        let payload = {
-          student_login_id: currentStudent.login_id,
-          type: currentType,
-          level: parsed.level,
-          set_numbers: parsed.raw,
-          due_date: due
-        };
-        if (currentType === "vocab") payload.tasks = tasksForSave;
-
-        let { error } = await client
-  .from("student_homework")
-  .insert(payload);
-
-if (error) {
-  // ✅ UNIQUE INDEX 충돌 (같은 학생 + 같은 타입 + 같은 마감일)
-  if (error.code === "23505") {
-    setMyHwStatus(
-      "⚠️ 같은 마감일에 이미 같은 종류의 숙제가 있어요.\n마감일을 바꾸거나 기존 숙제를 수정해 주세요.",
-      "error"
-    );
+  if (!assignments || assignments.length === 0) {
+    unitResultBody.innerHTML = '<div class="class-hw-empty">표시할 숙제가 없어요.</div>';
     return;
   }
 
-  console.error("student_homework 저장 오류:", error);
-  setMyHwStatus("숙제를 저장하는 중 오류가 발생했어요.", "error");
-  return;
-}
-        if (error && currentType === "vocab" && isMissingTasksColumnError(error)) {
-          const { error: e2 } = await client
-            .from("student_homework")
-            .insert({
-              student_login_id: currentStudent.login_id,
-              type: currentType,
-              level: parsed.level,
-              set_numbers: parsed.raw,
-              due_date: due
-            });
-          error = e2 || null;
-        }
+  assignments.forEach(a => {
+    const details = document.createElement("details");
+    details.className = "unit-row";
+    details.open = false;
 
-        if (error) {
-          console.error("student_homework 저장 오류:", error);
-          setMyHwStatus("숙제를 저장하는 중 오류가 발생했어요. (콘솔 에러 확인)", "error");
-          return;
-        }
+    const summary = document.createElement("summary");
+    summary.className = "unit-result-summary";
 
-        myHwSetEl.value = "";
-        myHwDueEl.value = "";
-        if (currentType === "vocab") setVocabTasksDefault();
-        setMyHwStatus("✅ 숙제가 등록됐어요!", "");
-      }
+    const typeChip = document.createElement("span");
+    typeChip.className =
+      "chip " + (a.type === "sentence" ? "chip-online-sentence" : "chip-online-vocab");
+    typeChip.textContent = a.type === "sentence" ? "문장" : "어휘";
 
-      await loadUnifiedHomeworkResults();
-      if (currentClass && currentClass.id) await loadClassHomework();
-      if (manageBackdrop.style.display === "flex") await loadManageList();
+    const srcChip = document.createElement("span");
+    srcChip.className = "chip chip-src-teacher";
+    srcChip.textContent = "선생님/숙제";
 
-    } catch (e) {
-      console.error("student_homework 저장/수정 예외:", e);
-      setMyHwStatus("저장/수정 중 오류가 발생했어요. (콘솔 확인)", "error");
-    } finally {
-      myHwSaveBtn.disabled = false;
-    }
-  }
-  myHwSaveBtn.onclick = saveMyHomework;
+    const overall = overallFromItems(a.items);
+    const submittedText = submittedTextFromItems(a.items);
 
-  function openManageModal() {
-    manageBackdrop.style.display = "flex";
-    manageBackdrop.setAttribute("aria-hidden", "false");
-  }
-  function closeManageModal() {
-    manageBackdrop.style.display = "none";
-    manageBackdrop.setAttribute("aria-hidden", "true");
-  }
-  manageCloseBtn.onclick = closeManageModal;
-  manageBackdrop.addEventListener("click", (e) => {
-    if (e.target === manageBackdrop) closeManageModal();
-  });
-  window.addEventListener("keydown", (e) => {
-    if (e.key === "Escape" && manageBackdrop.style.display === "flex") closeManageModal();
-  });
-
-  myHwCancelBtn.onclick = () => {
-    editingHomeworkId = null;
-    setSaveButtonMode(false);
-    myHwSetEl.value = "";
-    myHwDueEl.value = "";
-    setMyHwStatus("수정이 취소됐어요.", "");
-    setVocabTasksDefault();
-  };
-
-  function fillFormForEdit(row) {
-    editingHomeworkId = String(row.id);
-    myHwSetEl.value = row.set_numbers || "";
-    myHwDueEl.value = row.due_date || "";
-    setType(row.type === "sentence" ? "sentence" : "vocab");
-    setSaveButtonMode(true, row);
-  }
-
-  function bindManageButtons() {
-    document.addEventListener("click", async (e) => {
-      const btn = e.target.closest("button.btn-mini[data-act]");
-      if (!btn) return;
-      if (!manageBackdrop || manageBackdrop.style.display !== "flex") return;
-
-      e.preventDefault();
-      e.stopPropagation();
-
-      const act = btn.dataset.act;
-      const rowJson = btn.dataset.row || "";
-      const id = String(btn.dataset.id || "");
-
-      if (act === "edit") {
-        const row = rowJson ? JSON.parse(rowJson) : null;
-        if (!row) return;
-        fillFormForEdit(row);
-        closeManageModal();
-        return;
-      }
-
-      if (act === "delete") {
-        const ok = confirm("정말 삭제할까요?");
-        if (!ok) return;
-
-        const { error: delErr } = await client
-          .from("student_homework")
-          .delete()
-          .eq("id", id)
-          .eq("student_login_id", currentStudent.login_id);
-
-        if (delErr) {
-          console.error("삭제 오류:", delErr);
-          alert("삭제 중 오류가 발생했어요.");
-          return;
-        }
-
-        if (editingHomeworkId === id) {
-          editingHomeworkId = null;
-          setSaveButtonMode(false);
-          myHwSetEl.value = "";
-          myHwDueEl.value = "";
-          setVocabTasksDefault();
-        }
-
-        await loadManageList();
-        await loadUnifiedHomeworkResults();
-        if (currentClass && currentClass.id) await loadClassHomework();
-      }
-    }, true);
-  }
-
-  async function loadManageList() {
-    if (!currentStudent || !currentStudent.login_id) return;
-
-    manageArea.innerHTML = '<div class="modal-empty">불러오는 중...</div>';
-
-    const { data, error } = await client
-      .from("student_homework")
-      .select("id, type, level, set_numbers, due_date, created_at")
-      .eq("student_login_id", currentStudent.login_id)
-      .order("due_date", { ascending: true })
-      .order("created_at", { ascending: true });
-
-    if (error) {
-      console.error("student_homework 목록 오류:", error);
-      manageArea.innerHTML = '<div class="modal-empty">목록을 불러오는 중 오류가 발생했어요.</div>';
-      return;
-    }
-
-    if (!data || data.length === 0) {
-      manageArea.innerHTML = '<div class="modal-empty">아직 등록한 숙제가 없어요.</div>';
-      return;
-    }
-
-    const table = document.createElement("table");
-    table.className = "manage-table";
-
-    table.innerHTML = `
-      <thead>
-        <tr>
-          <th style="width:140px;">마감일</th>
-          <th style="width:90px;">구분</th>
-          <th>세트</th>
-          <th style="width:170px; text-align:right;">관리</th>
-        </tr>
-      </thead>
-      <tbody></tbody>
+    summary.innerHTML = `
+      <div>${a.due_date || "-"}</div>
+      <div></div>
+      <div></div>
+      <div>${a.unit_text || "-"}</div>
+      <div><span class="status-pill ${overall.cls}">${overall.text}</span></div>
+      <div>${submittedText}</div>
     `;
+    summary.children[1].appendChild(srcChip);
+    summary.children[2].appendChild(typeChip);
 
-    const tbody = table.querySelector("tbody");
+    const detail = document.createElement("div");
+    detail.className = "unit-detail";
 
-    data.forEach(row => {
-      const tr = document.createElement("tr");
+    const grid = document.createElement("div");
+    grid.className = "unit-detail-grid";
 
-      const tdDate = document.createElement("td");
-      tdDate.innerHTML = `<span class="manage-date">${row.due_date || "-"}</span>`;
-      tr.appendChild(tdDate);
+    const itemsSorted = (a.items || [])
+      .slice()
+      .sort((x, y) => (x.order_index || 0) - (y.order_index || 0));
 
-      const tdType = document.createElement("td");
-      const chip = document.createElement("span");
-      chip.className = "chip " + (row.type === "sentence" ? "chip-online-sentence" : "chip-online-vocab");
-      chip.textContent = row.type === "sentence" ? "문장" : "어휘";
-      tdType.appendChild(chip);
-      tr.appendChild(tdType);
+    itemsSorted.forEach(it => {
+      const row = document.createElement("div");
+      row.className = "task-row";
 
-      const tdSet = document.createElement("td");
-      tdSet.textContent = row.set_numbers || "-";
-      tr.appendChild(tdSet);
+      const done = it.status === "O";
+      const mark = done ? "⭕" : "❌";
+      const color = done ? "#166534" : "#991b1b";
+      const time = it.completed_at
+        ? `${formatDate(it.completed_at)} ${formatTime(it.completed_at)}`
+        : "--";
 
-      const tdAct = document.createElement("td");
-      tdAct.style.textAlign = "right";
-
-      const actWrap = document.createElement("div");
-      actWrap.className = "manage-actions";
-
-      const editBtn = document.createElement("button");
-      editBtn.type = "button";
-      editBtn.className = "btn-mini btn-edit";
-      editBtn.textContent = "수정";
-      editBtn.dataset.act = "edit";
-      editBtn.dataset.id = String(row.id);
-      editBtn.dataset.row = JSON.stringify(row);
-
-      const delBtn = document.createElement("button");
-      delBtn.type = "button";
-      delBtn.className = "btn-mini btn-del";
-      delBtn.textContent = "삭제";
-      delBtn.dataset.act = "delete";
-      delBtn.dataset.id = String(row.id);
-
-      actWrap.appendChild(editBtn);
-      actWrap.appendChild(delBtn);
-      tdAct.appendChild(actWrap);
-      tr.appendChild(tdAct);
-
-      tbody.appendChild(tr);
+      row.innerHTML = `
+        <div class="task-name">${labelFromKind(it.kind)}</div>
+        <div class="task-status" style="color:${color};">${mark}</div>
+        <div class="task-time">${time}</div>
+      `;
+      grid.appendChild(row);
     });
 
-    manageArea.innerHTML = "";
-    manageArea.appendChild(table);
+    detail.appendChild(grid);
+    details.appendChild(summary);
+    details.appendChild(detail);
+    unitResultBody.appendChild(details);
+  });
+}
+
+// ===============================
+// 🔁 숙제 결과 로딩 (NEW: v_assignment_detail 기반)
+// ===============================
+async function loadUnifiedHomeworkResults() {
+  if (!currentClass || !currentClass.id) {
+    unitResultBody.innerHTML =
+      '<div class="class-hw-empty">반 정보가 없어 숙제를 볼 수 없어요.</div>';
+    return;
   }
 
-  myHwManageBtn.onclick = async () => {
-    if (!currentStudent || !currentStudent.login_id) {
-      alert("학생 로그인이 필요합니다.");
-      return;
-    }
-    openManageModal();
-    await loadManageList();
-  };
+  unitResultBody.innerHTML =
+    '<div class="class-hw-empty">결과를 불러오는 중...</div>';
 
-  logoutBtn.onclick = () => {
-    localStorage.removeItem("blossom_student");
-    window.location.href = "index.html";
-  };
-  homeBtn.onclick = () => { window.location.href = "index.html"; };
+  try {
+    const { data, error } = await client
+      .from("v_assignment_detail")
+      .select("id, class_id, due_date, assignment_type, target_unit, title, items")
+      .eq("class_id", currentClass.id)
+      .order("due_date", { ascending: true, nullsFirst: false });
 
-  function bindVocabConfig() {
-    setVocabTasksDefault();
-    syncVocabConfigVisibility();
+    if (error) throw error;
 
-    selMeaning.addEventListener("change", readVocabTasksFromUI);
-    selEnglish.addEventListener("change", readVocabTasksFromUI);
-    selListening.addEventListener("change", readVocabTasksFromUI);
-    selSentence.addEventListener("change", readVocabTasksFromUI);
+    const assignments = (data || []).map(a => ({
+      assignment_id: a.id,
+      type: a.assignment_type === "sentence" ? "sentence" : "vocab",
+      due_date: a.due_date || null,
+      unit_text: a.target_unit || a.title || "-",
+      items: Array.isArray(a.items) ? a.items : []
+    }));
 
-    presetDefaultBtn.addEventListener("click", setVocabTasksDefault);
-    presetBlank3Btn.addEventListener("click", setVocabTasksBlank3);
-    presetResetBtn.addEventListener("click", setVocabTasksReset);
+    renderAssignments(assignments);
+
+  } catch (e) {
+    console.error("숙제 결과 로딩 오류:", e);
+    unitResultBody.innerHTML =
+      '<div class="class-hw-empty">결과를 불러오는 중 오류가 발생했어요.</div>';
   }
-
+}
   (async function init() {
     bindManageButtons();
     bindVocabConfig();
@@ -1962,11 +1548,3 @@ if (error) {
 </script>
 </body>
 </html>
-
-
-
-
-
-
-
-
