@@ -1502,125 +1502,127 @@
       unitResultBody.appendChild(details);
     });
   }
+async function loadUnifiedHomeworkResults() {
+  if (!currentStudent || !currentStudent.login_id) return;
 
-  async function loadUnifiedHomeworkResults() {
-    if (!currentStudent || !currentStudent.login_id) return;
+  unitResultBody.innerHTML = '<div class="class-hw-empty">결과를 불러오는 중...</div>';
 
-    unitResultBody.innerHTML = '<div class="class-hw-empty">결과를 불러오는 중...</div>';
+  try {
+    // 1) 학생 숙제 + 선생님 숙제 불러오기
+    const studentReq = client
+      .from("student_homework")
+      .select("id, type, level, set_numbers, due_date, created_at")
+      .eq("student_login_id", currentStudent.login_id);
 
-    try {
-      const studentReq = client
-        .from("student_homework")
-        .select("id, type, level, set_numbers, due_date, created_at")
-        .eq("student_login_id", currentStudent.login_id);
+    let teacherVocabReq = Promise.resolve({ data: [], error: null });
+    let teacherSentenceReq = Promise.resolve({ data: [], error: null });
 
-      let teacherVocabReq = null;
-      let teacherSentenceReq = null;
+    if (currentClass && currentClass.id) {
+      teacherVocabReq = client
+        .from("vocab_homework")
+        .select("id, class_id, level, set_numbers, due_date, created_at")
+        .eq("class_id", currentClass.id);
 
-      if (currentClass && currentClass.id) {
-        teacherVocabReq = client
-          .from("vocab_homework")
-          .select("id, class_id, level, set_numbers, due_date, created_at")
-          .eq("class_id", currentClass.id);
+      teacherSentenceReq = client
+        .from("sentence_homework")
+        .select("id, class_id, level, set_numbers, due_date, created_at")
+        .eq("class_id", currentClass.id);
+    }
 
-        teacherSentenceReq = client
-          .from("sentence_homework")
-          .select("id, class_id, level, set_numbers, due_date, created_at")
-          .eq("class_id", currentClass.id);
-      }
+    const [studentRes, tvRes, tsRes] = await Promise.all([
+      studentReq,
+      teacherVocabReq,
+      teacherSentenceReq
+    ]);
 
-      const [studentRes, tvRes, tsRes] = await Promise.all([
-        studentReq,
-        teacherVocabReq ? teacherVocabReq : Promise.resolve({ data: [], error: null }),
-        teacherSentenceReq ? teacherSentenceReq : Promise.resolve({ data: [], error: null })
-      ]);
+    if (studentRes.error) throw studentRes.error;
+    if (tvRes.error) throw tvRes.error;
+    if (tsRes.error) throw tsRes.error;
 
-      if (studentRes.error) throw studentRes.error;
-      if (tvRes.error) throw tvRes.error;
-      if (tsRes.error) throw tsRes.error;
+    // 2) 통합 items 만들기
+    const items = []
+      .concat((studentRes.data || []).flatMap(r => normalizeAndExpandHomeworkRows(r, "student")))
+      .concat((tvRes.data || []).flatMap(r => normalizeAndExpandHomeworkRows(r, "teacher_vocab")))
+      .concat((tsRes.data || []).flatMap(r => normalizeAndExpandHomeworkRows(r, "teacher_sentence")));
 
-      const items = []
-  .concat((studentRes.data || []).flatMap(r => normalizeAndExpandHomeworkRows(r, "student")))
-  .concat((tvRes.data || []).flatMap(r => normalizeAndExpandHomeworkRows(r, "teacher_vocab")))
-  .concat((tsRes.data || []).flatMap(r => normalizeAndExpandHomeworkRows(r, "teacher_sentence")));
+    // 3) 정렬
+    items.sort((a, b) => {
+      const ad = a.due_date ? new Date(a.due_date).getTime() : Number.POSITIVE_INFINITY;
+      const bd = b.due_date ? new Date(b.due_date).getTime() : Number.POSITIVE_INFINITY;
+      if (ad !== bd) return ad - bd;
+      const at = a.created_at ? new Date(a.created_at).getTime() : 0;
+      const bt = b.created_at ? new Date(b.created_at).getTime() : 0;
+      return at - bt;
+    });
 
-items.sort((a, b) => {
-  const ad = a.due_date ? new Date(a.due_date).getTime() : Number.POSITIVE_INFINITY;
-  const bd = b.due_date ? new Date(b.due_date).getTime() : Number.POSITIVE_INFINITY;
-  if (ad !== bd) return ad - bd;
-  const at = a.created_at ? new Date(a.created_at).getTime() : 0;
-  const bt = b.created_at ? new Date(b.created_at).getTime() : 0;
-  return at - bt;
-});
+    // ✅ 표시할 숙제가 없다면 바로 렌더
+    if (!items.length) {
+      renderUnifiedResults([], {}, {});
+      return;
+    }
 
-/* ✅✅✅ 여기부터 추가 */
-console.log("[DEBUG] student_login_id =", currentStudent.login_id);
-console.log("[DEBUG] studentRes rows =", (studentRes.data || []).length);
-console.log("[DEBUG] teacher vocab rows =", (tvRes.data || []).length);
-console.log("[DEBUG] teacher sentence rows =", (tsRes.data || []).length);
-console.log("[DEBUG] items.length =", items.length);
-console.log("[DEBUG] sample item =", items + "" === "" ? null : items[0]);
-/* ✅✅✅ 여기까지 추가 */
+    // 4) unit_key 목록
+    const vocabUnitKeys = Array.from(new Set(
+      items.filter(x => x.type === "vocab" && x.unit_key).map(x => x.unit_key)
+    ));
+    const sentenceUnitKeys = Array.from(new Set(
+      items.filter(x => x.type === "sentence" && x.unit_key).map(x => x.unit_key)
+    ));
 
-const vocabUnitKeys = Array.from(new Set(items.filter(x => x.type === "vocab" && x.unit_key).map(x => x.unit_key)));
-const sentenceUnitKeys = Array.from(new Set(items.filter(x => x.type === "sentence" && x.unit_key).map(x => x.unit_key)));
+    // 5) vocab 결과 맵
+    let vocabByUnitByMode = {};
+    if (vocabUnitKeys.length > 0) {
+      const { data: vr, error: vrErr } = await client
+        .from("vocab_results")
+        .select("id, student_login_id, unit_key, mode, correct_count, total_count, submitted_at")
+        .eq("student_login_id", currentStudent.login_id)
+        .in("unit_key", vocabUnitKeys)
+        .order("submitted_at", { ascending: false });
 
-...
-renderUnifiedResults(items, vocabByUnitByMode, sentenceByUnitByMode);
+      if (vrErr) throw vrErr;
 
-      const vocabUnitKeys = Array.from(new Set(items.filter(x => x.type === "vocab" && x.unit_key).map(x => x.unit_key)));
-      const sentenceUnitKeys = Array.from(new Set(items.filter(x => x.type === "sentence" && x.unit_key).map(x => x.unit_key)));
+      (vr || []).forEach(r => {
+        const uk = r.unit_key;
+        const md = r.mode || "unknown";
+        if (!uk) return;
+        if (!vocabByUnitByMode[uk]) vocabByUnitByMode[uk] = {};
+        if (!vocabByUnitByMode[uk][md]) vocabByUnitByMode[uk][md] = r; // 최신 1개만
+      });
+    }
 
-      let vocabByUnitByMode = {};
-      if (vocabUnitKeys.length > 0) {
-        const { data: vr, error: vrErr } = await client
-          .from("vocab_results")
+    // 6) sentence 결과 맵
+    let sentenceByUnitByMode = {};
+    if (sentenceUnitKeys.length > 0) {
+      try {
+        const { data: sr, error: srErr } = await client
+          .from("sentence_results")
           .select("id, student_login_id, unit_key, mode, correct_count, total_count, submitted_at")
           .eq("student_login_id", currentStudent.login_id)
-          .in("unit_key", vocabUnitKeys)
+          .in("unit_key", sentenceUnitKeys)
           .order("submitted_at", { ascending: false });
 
-        if (vrErr) throw vrErr;
-
-        (vr || []).forEach(r => {
-          const uk = r.unit_key;
-          const md = r.mode || "unknown";
-          if (!uk) return;
-          if (!vocabByUnitByMode[uk]) vocabByUnitByMode[uk] = {};
-          if (!vocabByUnitByMode[uk][md]) vocabByUnitByMode[uk][md] = r;
-        });
+        if (!srErr) {
+          (sr || []).forEach(r => {
+            const uk = r.unit_key;
+            const md = r.mode || "unknown";
+            if (!uk) return;
+            if (!sentenceByUnitByMode[uk]) sentenceByUnitByMode[uk] = {};
+            if (!sentenceByUnitByMode[uk][md]) sentenceByUnitByMode[uk][md] = r; // 최신 1개만
+          });
+        }
+      } catch (e) {
+        // sentence_results 테이블/권한 문제여도 페이지 유지
       }
-
-      let sentenceByUnitByMode = {};
-      if (sentenceUnitKeys.length > 0) {
-        try {
-          const { data: sr, error: srErr } = await client
-            .from("sentence_results")
-            .select("id, student_login_id, unit_key, mode, correct_count, total_count, submitted_at")
-            .eq("student_login_id", currentStudent.login_id)
-            .in("unit_key", sentenceUnitKeys)
-            .order("submitted_at", { ascending: false });
-
-          if (!srErr) {
-            (sr || []).forEach(r => {
-              const uk = r.unit_key;
-              const md = r.mode || "unknown";
-              if (!uk) return;
-              if (!sentenceByUnitByMode[uk]) sentenceByUnitByMode[uk] = {};
-              if (!sentenceByUnitByMode[uk][md]) sentenceByUnitByMode[uk][md] = r;
-            });
-          }
-        } catch (e) {}
-      }
-
-      renderUnifiedResults(items, vocabByUnitByMode, sentenceByUnitByMode);
-
-    } catch (e) {
-      console.error("통합 결과 로딩 오류:", e);
-      unitResultBody.innerHTML = '<div class="class-hw-empty">결과를 불러오는 중 오류가 발생했어요.</div>';
     }
-  }
 
+    // ✅ 렌더링은 마지막에 딱 1번
+    renderUnifiedResults(items, vocabByUnitByMode, sentenceByUnitByMode);
+
+  } catch (e) {
+    console.error("통합 결과 로딩 오류:", e);
+    unitResultBody.innerHTML = '<div class="class-hw-empty">결과를 불러오는 중 오류가 발생했어요.</div>';
+  }
+}
   async function saveMyHomework() {
     if (!currentStudent || !currentStudent.login_id) {
       setMyHwStatus("학생 정보를 찾을 수 없어요. 다시 로그인해 주세요.", "error");
@@ -1652,6 +1654,7 @@ renderUnifiedResults(items, vocabByUnitByMode, sentenceByUnitByMode);
       : null;
 
     try {
+      // ===== 수정 모드 =====
       if (editingHomeworkId) {
         let payload = {
           type: currentType,
@@ -1667,6 +1670,7 @@ renderUnifiedResults(items, vocabByUnitByMode, sentenceByUnitByMode);
           .eq("id", editingHomeworkId)
           .eq("student_login_id", currentStudent.login_id);
 
+        // tasks 컬럼이 없으면 tasks 없이 재시도(임시 안전장치)
         if (error && currentType === "vocab" && isMissingTasksColumnError(error)) {
           const { error: e2 } = await client
             .from("student_homework")
@@ -1695,6 +1699,7 @@ renderUnifiedResults(items, vocabByUnitByMode, sentenceByUnitByMode);
         setMyHwStatus("✅ 수정 완료!", "");
 
       } else {
+        // ===== 등록 모드 =====
         let payload = {
           student_login_id: currentStudent.login_id,
           type: currentType,
@@ -1704,24 +1709,12 @@ renderUnifiedResults(items, vocabByUnitByMode, sentenceByUnitByMode);
         };
         if (currentType === "vocab") payload.tasks = tasksForSave;
 
+        // ✅ INSERT
         let { error } = await client
-  .from("student_homework")
-  .insert(payload);
+          .from("student_homework")
+          .insert(payload);
 
-if (error) {
-  // ✅ UNIQUE INDEX 충돌 (같은 학생 + 같은 타입 + 같은 마감일)
-  if (error.code === "23505") {
-    setMyHwStatus(
-      "⚠️ 같은 마감일에 이미 같은 종류의 숙제가 있어요.\n마감일을 바꾸거나 기존 숙제를 수정해 주세요.",
-      "error"
-    );
-    return;
-  }
-
-  console.error("student_homework 저장 오류:", error);
-  setMyHwStatus("숙제를 저장하는 중 오류가 발생했어요.", "error");
-  return;
-}
+        // ✅ tasks 컬럼이 없으면 tasks 없이 한번 더 시도
         if (error && currentType === "vocab" && isMissingTasksColumnError(error)) {
           const { error: e2 } = await client
             .from("student_homework")
@@ -1736,6 +1729,15 @@ if (error) {
         }
 
         if (error) {
+          // ✅ UNIQUE INDEX 충돌 (같은 학생 + 같은 타입 + 같은 마감일)
+          if (error.code === "23505") {
+            setMyHwStatus(
+              "⚠️ 같은 마감일에 이미 같은 종류의 숙제가 있어요.\n마감일을 바꾸거나 기존 숙제를 수정해 주세요.",
+              "error"
+            );
+            return;
+          }
+
           console.error("student_homework 저장 오류:", error);
           setMyHwStatus("숙제를 저장하는 중 오류가 발생했어요. (콘솔 에러 확인)", "error");
           return;
@@ -1747,6 +1749,7 @@ if (error) {
         setMyHwStatus("✅ 숙제가 등록됐어요!", "");
       }
 
+      // ✅ 저장/수정 후 새로고침
       await loadUnifiedHomeworkResults();
       if (currentClass && currentClass.id) await loadClassHomework();
       if (manageBackdrop.style.display === "flex") await loadManageList();
@@ -1760,6 +1763,7 @@ if (error) {
   }
   myHwSaveBtn.onclick = saveMyHomework;
 
+  // ===== 모달 열고닫기 =====
   function openManageModal() {
     manageBackdrop.style.display = "flex";
     manageBackdrop.setAttribute("aria-hidden", "false");
@@ -1776,6 +1780,7 @@ if (error) {
     if (e.key === "Escape" && manageBackdrop.style.display === "flex") closeManageModal();
   });
 
+  // ===== 수정 취소 =====
   myHwCancelBtn.onclick = () => {
     editingHomeworkId = null;
     setSaveButtonMode(false);
@@ -1793,6 +1798,7 @@ if (error) {
     setSaveButtonMode(true, row);
   }
 
+  // ===== 모달 안 수정/삭제 버튼 이벤트(이벤트 위임) =====
   function bindManageButtons() {
     document.addEventListener("click", async (e) => {
       const btn = e.target.closest("button.btn-mini[data-act]");
@@ -1845,6 +1851,7 @@ if (error) {
     }, true);
   }
 
+  // ===== 관리 목록 로딩 =====
   async function loadManageList() {
     if (!currentStudent || !currentStudent.login_id) return;
 
@@ -1936,6 +1943,7 @@ if (error) {
     manageArea.appendChild(table);
   }
 
+  // ===== “숙제 관리” 버튼 =====
   myHwManageBtn.onclick = async () => {
     if (!currentStudent || !currentStudent.login_id) {
       alert("학생 로그인이 필요합니다.");
@@ -1945,12 +1953,14 @@ if (error) {
     await loadManageList();
   };
 
+  // ===== 로그아웃/홈 =====
   logoutBtn.onclick = () => {
     localStorage.removeItem("blossom_student");
     window.location.href = "index.html";
   };
   homeBtn.onclick = () => { window.location.href = "index.html"; };
 
+  // ===== 어휘 구성 바인딩 =====
   function bindVocabConfig() {
     setVocabTasksDefault();
     syncVocabConfigVisibility();
@@ -1965,6 +1975,7 @@ if (error) {
     presetResetBtn.addEventListener("click", setVocabTasksReset);
   }
 
+  // ===== init =====
   (async function init() {
     bindManageButtons();
     bindVocabConfig();
@@ -1977,12 +1988,3 @@ if (error) {
 </script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
