@@ -1568,21 +1568,13 @@
         if (vrErr) throw vrErr;
 
         (vr || []).forEach(r => {
-  const uk = r.unit_key;
-  const md = r.mode || "unknown";
-  if (!uk) return;
-
-  if (!vocabByUnitByMode[uk]) vocabByUnitByMode[uk] = {};
-
-  // ✅ mode별로 여러 번 제출 기록을 쌓기
-  if (!vocabByUnitByMode[uk][md]) {
-    vocabByUnitByMode[uk][md] = { results: [], count: 0, latest: null };
-  }
-
-  vocabByUnitByMode[uk][md].results.push(r);   // order desc라 최신이 앞쪽
-  vocabByUnitByMode[uk][md].count += 1;
-  if (!vocabByUnitByMode[uk][md].latest) vocabByUnitByMode[uk][md].latest = r;
-});
+          const uk = r.unit_key;
+          const md = r.mode || "unknown";
+          if (!uk) return;
+          if (!vocabByUnitByMode[uk]) vocabByUnitByMode[uk] = {};
+          if (!vocabByUnitByMode[uk][md]) vocabByUnitByMode[uk][md] = r;
+        });
+      }
 
       let sentenceByUnitByMode = {};
       if (sentenceUnitKeys.length > 0) {
@@ -1970,4 +1962,3 @@ if (error) {
 </script>
 </body>
 </html>
-
