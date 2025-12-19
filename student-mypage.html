@@ -1607,7 +1607,6 @@ async function loadUnifiedHomeworkResults() {
     unitResultBody.innerHTML = '<div class="class-hw-empty">결과를 불러오는 중 오류가 발생했어요.</div>';
   }
 }
-
 async function saveMyHomework() {
   if (!currentStudent || !currentStudent.login_id) {
     setMyHwStatus("학생 정보를 찾을 수 없어요. 다시 로그인해 주세요.", "error");
@@ -1639,6 +1638,9 @@ async function saveMyHomework() {
     : null;
 
   try {
+    // =========================
+    // ✅ 수정 모드
+    // =========================
     if (editingHomeworkId) {
       let payload = {
         type: currentType,
@@ -1654,6 +1656,7 @@ async function saveMyHomework() {
         .eq("id", editingHomeworkId)
         .eq("student_login_id", currentStudent.login_id);
 
+      // ✅ tasks 컬럼 없으면 tasks 없이 재시도
       if (error && currentType === "vocab" && isMissingTasksColumnError(error)) {
         const { error: e2 } = await client
           .from("student_homework")
@@ -1681,6 +1684,9 @@ async function saveMyHomework() {
       if (currentType === "vocab") setVocabTasksDefault();
       setMyHwStatus("✅ 수정 완료!", "");
 
+    // =========================
+    // ✅ 등록 모드
+    // =========================
     } else {
       let payload = {
         student_login_id: currentStudent.login_id,
@@ -1691,24 +1697,12 @@ async function saveMyHomework() {
       };
       if (currentType === "vocab") payload.tasks = tasksForSave;
 
+      // 1차 insert (tasks 포함)
       let { error } = await client
         .from("student_homework")
         .insert(payload);
 
-      if (error) {
-        if (error.code === "23505") {
-          setMyHwStatus(
-            "⚠️ 같은 마감일에 이미 같은 종류의 숙제가 있어요.\n마감일을 바꾸거나 기존 숙제를 수정해 주세요.",
-            "error"
-          );
-          return;
-        }
-
-        console.error("student_homework 저장 오류:", error);
-        setMyHwStatus("숙제를 저장하는 중 오류가 발생했어요.", "error");
-        return;
-      }
-
+      // ✅ tasks 컬럼 없으면 tasks 없이 재시도 (여기가 핵심 수정)
       if (error && currentType === "vocab" && isMissingTasksColumnError(error)) {
         const { error: e2 } = await client
           .from("student_homework")
@@ -1722,7 +1716,17 @@ async function saveMyHomework() {
         error = e2 || null;
       }
 
+      // 최종 에러 처리
       if (error) {
+        // ✅ UNIQUE INDEX 충돌 (같은 학생 + 같은 타입 + 같은 마감일)
+        if (error.code === "23505") {
+          setMyHwStatus(
+            "⚠️ 같은 마감일에 이미 같은 종류의 숙제가 있어요.\n마감일을 바꾸거나 기존 숙제를 수정해 주세요.",
+            "error"
+          );
+          return;
+        }
+
         console.error("student_homework 저장 오류:", error);
         setMyHwStatus("숙제를 저장하는 중 오류가 발생했어요. (콘솔 에러 확인)", "error");
         return;
@@ -1780,7 +1784,6 @@ function fillFormForEdit(row) {
   setSaveButtonMode(true, row);
 }
 
-/** ✅ 여기! 콘솔 에러 났던 bindManageButtons를 “반드시” 다시 넣어둠 */
 function bindManageButtons() {
   document.addEventListener("click", async (e) => {
     const btn = e.target.closest("button.btn-mini[data-act]");
@@ -1965,3 +1968,4 @@ function bindVocabConfig() {
 </script>
 </body>
 </html>
+
