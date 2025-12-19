@@ -1497,23 +1497,36 @@ function renderUnifiedResults(items, vocabByUnitByMode, sentenceByUnitByMode) {
 
       // ✅ tasks 기준으로만 줄 생성 (tasks=0은 아예 안 그림)
       Object.entries(tasks).forEach(([mode, need]) => {
-        const taskCount = Number(need || 0);
-        if (taskCount === 0) return;
+  const taskCount = Number(need || 0);
+  if (taskCount === 0) return;
 
-        const doneCount = Number(aggMap?.[mode]?.count || 0);
-        const latest = aggMap?.[mode]?.latest || null;
-        const cell = vocabTaskCell(doneCount, taskCount, latest);
+  const results = aggMap?.[mode]?.list || [];
 
-        const row = document.createElement("div");
-        row.className = "task-row";
-        row.innerHTML = `
-          <div class="task-name">${vocabLabels[mode]} <span style="font-weight:900; color:#6b7280;">(${taskCount}회)</span></div>
-          <div class="task-status" style="color:${cell.color};">${cell.mark}</div>
-          <div class="task-time">${cell.time}</div>
-        `;
-        grid.appendChild(row);
-      });
+  for (let i = 0; i < taskCount; i++) {
+    const result = results[i] || null;
 
+    let mark = "❌";
+    let color = "#991b1b";
+    let time = "--";
+
+    if (result) {
+      mark = "⭕";
+      color = "#166534";
+      time = result.submitted_at
+        ? `${formatDate(result.submitted_at)} ${formatTime(result.submitted_at)}`
+        : "--";
+    }
+
+    const row = document.createElement("div");
+    row.className = "task-row";
+    row.innerHTML = `
+      <div class="task-name">${vocabLabels[mode]} ${i + 1}회</div>
+      <div class="task-status" style="color:${color};">${mark}</div>
+      <div class="task-time">${time}</div>
+    `;
+    grid.appendChild(row);
+  }
+});
       detail.innerHTML = "";
       detail.appendChild(grid);
 
@@ -2029,5 +2042,6 @@ function bindVocabConfig() {
 </script>
 </body>
 </html>
+
 
 
