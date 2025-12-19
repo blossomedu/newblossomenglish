@@ -1453,80 +1453,50 @@ function renderUnifiedResults(items, vocabByUnitByMode, sentenceByUnitByMode) {
 
     let overall = { cls: "status-x", text: "❌" };
     let submittedText = "--";
-
-    if (item.type === "vocab" && item.unit_key) {
-      const aggMap = (vocabByUnitByMode && vocabByUnitByMode[item.unit_key]) ? vocabByUnitByMode[item.unit_key] : {};
-      // ✅ 학생이 등록한 숙제면 tasks 사용, 아니면 기본 4종(1회)로 표시
-      const tasks = item.tasks || { meaning: 1, english: 1, listening: 1, sentence: 1 };
-
-      overall = computeOverallStatusFromVocabTasks(aggMap, tasks);
-
-      const latestList = Object.values(aggMap || {}).map(x => x?.latest).filter(Boolean);
-      const latest = safeLatestBySubmittedAt(latestList);
-      submittedText = latest
-        ? `${scoreTextFromResult(latest)} · ${formatDate(latest.submitted_at)} ${formatTime(latest.submitted_at)}`
-        : "--";
-    }
-
-    if (item.type === "sentence" && item.unit_key) {
-      const view = buildSentenceTaskView(item.unit_key, sentenceByUnitByMode);
-      overall = view.overall;
-      submittedText = view.submittedText;
-    }
-
-    summary.innerHTML = `
-      <div>${item.due_date || "-"}</div>
-      <div></div>
-      <div></div>
-      <div>${item.unit_text || "-"}</div>
-      <div><span class="status-pill ${overall.cls}">${overall.text}</span></div>
-      <div>${submittedText}</div>
-    `;
-    summary.children[1].appendChild(srcChip);
-    summary.children[2].appendChild(typeChip);
-
-    const detail = document.createElement("div");
-    detail.className = "unit-detail";
-
-    if (item.type === "vocab" && item.unit_key) {
+if (item.type === "vocab" && item.unit_key) {
       const aggMap = (vocabByUnitByMode && vocabByUnitByMode[item.unit_key]) ? vocabByUnitByMode[item.unit_key] : {};
       const tasks = item.tasks || { meaning: 1, english: 1, listening: 1, sentence: 1 };
 
       const grid = document.createElement("div");
       grid.className = "unit-detail-grid";
 
-      // ✅ tasks 기준으로만 줄 생성 (tasks=0은 아예 안 그림)
-      Object.entries(tasks).forEach(([mode, need]) => {
-  const taskCount = Number(need || 0);
-  if (taskCount === 0) return;
+      // ✅ (1) 표시 순서 고정: 뜻 → 영어 → 듣기 → 빈칸
+      const VOCAB_ORDER = ["meaning", "english", "listening", "sentence"];
 
-  const results = aggMap?.[mode]?.list || [];
+      VOCAB_ORDER.forEach((mode) => {
+        const need = Number(tasks?.[mode] || 0);
+        if (need <= 0) return;
 
-  for (let i = 0; i < taskCount; i++) {
-    const result = results[i] || null;
+        const modeBucket = aggMap?.[mode] || { results: [], count: 0, latest: null };
+        const results = Array.isArray(modeBucket.results) ? modeBucket.results : [];
+        const doneCount = Number(modeBucket.count || results.length || 0);
 
-    let mark = "❌";
-    let color = "#991b1b";
-    let time = "--";
+        // ✅ (2) need가 3이면 "3줄"로 뽑기 (1회당 한 줄)
+        for (let i = 0; i < need; i++) {
+          const nth = i + 1;
 
-    if (result) {
-      mark = "⭕";
-      color = "#166534";
-      time = result.submitted_at
-        ? `${formatDate(result.submitted_at)} ${formatTime(result.submitted_at)}`
-        : "--";
-    }
+          const isDone = doneCount >= nth;
+          const mark  = isDone ? "⭕" : "❌";
+          const color = isDone ? "#166534" : "#991b1b";
 
-    const row = document.createElement("div");
-    row.className = "task-row";
-    row.innerHTML = `
-      <div class="task-name">${vocabLabels[mode]} ${i + 1}회</div>
-      <div class="task-status" style="color:${color};">${mark}</div>
-      <div class="task-time">${time}</div>
-    `;
-    grid.appendChild(row);
-  }
-});
+          // ✅ 해당 n번째 완료의 시간 표시(최신부터 results[0], results[1]...)
+          // - 완료 안된 줄은 "--"
+          const r = isDone ? (results[i] || null) : null;
+          const time = (r && r.submitted_at)
+            ? `${formatDate(r.submitted_at)} ${formatTime(r.submitted_at)}`
+            : "--";
+
+          const row = document.createElement("div");
+          row.className = "task-row";
+          row.innerHTML = `
+            <div class="task-name">${vocabLabels[mode]} <span style="font-weight:900; color:#6b7280;">(${nth}회)</span></div>
+            <div class="task-status" style="color:${color};">${mark}</div>
+            <div class="task-time">${time}</div>
+          `;
+          grid.appendChild(row);
+        }
+      });
+
       detail.innerHTML = "";
       detail.appendChild(grid);
 
@@ -1534,7 +1504,7 @@ function renderUnifiedResults(items, vocabByUnitByMode, sentenceByUnitByMode) {
       guide.className = "unit-guide";
       guide.textContent = "※ 이 Unit은 ‘등록된 tasks’ 기준으로만 표시/판정됩니다.";
       detail.appendChild(guide);
-
+   
     } else if (item.type === "sentence" && item.unit_key) {
       const view = buildSentenceTaskView(item.unit_key, sentenceByUnitByMode);
 
@@ -1626,7 +1596,8 @@ async function loadUnifiedHomeworkResults() {
     const vocabUnitKeys = Array.from(new Set(items.filter(x => x.type === "vocab" && x.unit_key).map(x => x.unit_key)));
     const sentenceUnitKeys = Array.from(new Set(items.filter(x => x.type === "sentence" && x.unit_key).map(x => x.unit_key)));
 
-    // ✅ vocabByUnitByMode 구조: { unit: { mode: { count, latest } } }
+   // ✅ vocabByUnitByMode 구조: { unit: { mode: { results: [], count, latest } } }
+    // - results: submitted_at desc(최신부터) 전체 목록
     let vocabByUnitByMode = {};
     if (vocabUnitKeys.length > 0) {
       const { data: vr, error: vrErr } = await client
@@ -1644,14 +1615,17 @@ async function loadUnifiedHomeworkResults() {
         if (!uk) return;
 
         if (!vocabByUnitByMode[uk]) vocabByUnitByMode[uk] = {};
-        if (!vocabByUnitByMode[uk][md]) vocabByUnitByMode[uk][md] = { count: 0, latest: null };
+        if (!vocabByUnitByMode[uk][md]) {
+          vocabByUnitByMode[uk][md] = { results: [], count: 0, latest: null };
+        }
 
-        vocabByUnitByMode[uk][md].count += 1;
-        // order desc라서 첫 번째가 최신
-        if (!vocabByUnitByMode[uk][md].latest) vocabByUnitByMode[uk][md].latest = r;
+        vocabByUnitByMode[uk][md].results.push(r);      // ✅ 목록 누적
+        vocabByUnitByMode[uk][md].count += 1;           // ✅ 횟수
+        if (!vocabByUnitByMode[uk][md].latest) {        // ✅ 최신 1개
+          vocabByUnitByMode[uk][md].latest = r;
+        }
       });
     }
-
     let sentenceByUnitByMode = {};
     if (sentenceUnitKeys.length > 0) {
       try {
@@ -2042,6 +2016,7 @@ function bindVocabConfig() {
 </script>
 </body>
 </html>
+
 
 
 
