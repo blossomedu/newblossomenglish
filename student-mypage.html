@@ -1433,39 +1433,39 @@
 
       const detail = document.createElement("div");
       detail.className = "unit-detail";
+     if (item.type === "vocab" && item.unit_key) {
+  const modeMap = (vocabByUnitByMode && vocabByUnitByMode[item.unit_key]) ? vocabByUnitByMode[item.unit_key] : {};
+  const tMeaning   = taskCell(modeMap.meaning);
+  const tEnglish   = taskCell(modeMap.english);
+  const tListening = taskCell(modeMap.listening);
+  const tSentence  = taskCell(modeMap.sentence);
 
-      if (item.type === "vocab" && item.unit_key) {
-        const modeMap = (vocabByUnitByMode && vocabByUnitByMode[item.unit_key]) ? vocabByUnitByMode[item.unit_key] : {};
-        const tMeaning   = taskCell(modeMap.meaning);
-        const tEnglish   = taskCell(modeMap.english);
-        const tListening = taskCell(modeMap.listening);
-        const tSentence  = taskCell(modeMap.sentence);
-
-        detail.innerHTML = `
-          <div class="unit-detail-grid">
-            <div class="task-row">
-              <div class="task-name">뜻 찾기</div>
-              <div class="task-status" style="color:${tMeaning.color};">${tMeaning.mark}</div>
-              <div class="task-time">${tMeaning.time}</div>
-            </div>
-            <div class="task-row">
-              <div class="task-name">영어 찾기</div>
-              <div class="task-status" style="color:${tEnglish.color};">${tEnglish.mark}</div>
-              <div class="task-time">${tEnglish.time}</div>
-            </div>
-            <div class="task-row">
-              <div class="task-name">듣고 찾기</div>
-              <div class="task-status" style="color:${tListening.color};">${tListening.mark}</div>
-              <div class="task-time">${tListening.time}</div>
-            </div>
-            <div class="task-row">
-              <div class="task-name">문장 빈칸</div>
-              <div class="task-status" style="color:${tSentence.color};">${tSentence.mark}</div>
-              <div class="task-time">${tSentence.time}</div>
-            </div>
-          </div>
-          <div class="unit-guide">※ 어휘 4개 모드를 모두 완료하면 Unit 전체가 ⭕로 바뀝니다.</div>
-        `;
+  detail.innerHTML = `
+    <div class="unit-detail-grid">
+      <div class="task-row">
+        <div class="task-name">뜻 찾기</div>
+        <div class="task-status" style="color:${tMeaning.color};">${tMeaning.mark}</div>
+        <div class="task-time">${tMeaning.time}</div>
+      </div>
+      <div class="task-row">
+        <div class="task-name">영어 찾기</div>
+        <div class="task-status" style="color:${tEnglish.color};">${tEnglish.mark}</div>
+        <div class="task-time">${tEnglish.time}</div>
+      </div>
+      <div class="task-row">
+        <div class="task-name">듣고 찾기</div>
+        <div class="task-status" style="color:${tListening.color};">${tListening.mark}</div>
+        <div class="task-time">${tListening.time}</div>
+      </div>
+      <div class="task-row">
+        <div class="task-name">문장 빈칸</div>
+        <div class="task-status" style="color:${tSentence.color};">${tSentence.mark}</div>
+        <div class="task-time">${tSentence.time}</div>
+      </div>
+    </div>
+    <div class="unit-guide">※ 어휘 4개 모드를 모두 완료하면 Unit 전체가 ⭕로 바뀝니다.</div>
+  `;
+} else if (item.type === "sentence" && item.unit_key) {
       } else if (item.type === "sentence" && item.unit_key) {
         const view = buildSentenceTaskView(item.unit_key, sentenceByUnitByMode);
 
@@ -1962,4 +1962,5 @@ if (error) {
 </script>
 </body>
 </html>
+
 
