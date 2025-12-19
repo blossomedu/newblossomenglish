@@ -1540,18 +1540,33 @@
       if (tsRes.error) throw tsRes.error;
 
       const items = []
-        .concat((studentRes.data || []).flatMap(r => normalizeAndExpandHomeworkRows(r, "student")))
-        .concat((tvRes.data || []).flatMap(r => normalizeAndExpandHomeworkRows(r, "teacher_vocab")))
-        .concat((tsRes.data || []).flatMap(r => normalizeAndExpandHomeworkRows(r, "teacher_sentence")));
+  .concat((studentRes.data || []).flatMap(r => normalizeAndExpandHomeworkRows(r, "student")))
+  .concat((tvRes.data || []).flatMap(r => normalizeAndExpandHomeworkRows(r, "teacher_vocab")))
+  .concat((tsRes.data || []).flatMap(r => normalizeAndExpandHomeworkRows(r, "teacher_sentence")));
 
-      items.sort((a, b) => {
-        const ad = a.due_date ? new Date(a.due_date).getTime() : Number.POSITIVE_INFINITY;
-        const bd = b.due_date ? new Date(b.due_date).getTime() : Number.POSITIVE_INFINITY;
-        if (ad !== bd) return ad - bd;
-        const at = a.created_at ? new Date(a.created_at).getTime() : 0;
-        const bt = b.created_at ? new Date(b.created_at).getTime() : 0;
-        return at - bt;
-      });
+items.sort((a, b) => {
+  const ad = a.due_date ? new Date(a.due_date).getTime() : Number.POSITIVE_INFINITY;
+  const bd = b.due_date ? new Date(b.due_date).getTime() : Number.POSITIVE_INFINITY;
+  if (ad !== bd) return ad - bd;
+  const at = a.created_at ? new Date(a.created_at).getTime() : 0;
+  const bt = b.created_at ? new Date(b.created_at).getTime() : 0;
+  return at - bt;
+});
+
+/* ✅✅✅ 여기부터 추가 */
+console.log("[DEBUG] student_login_id =", currentStudent.login_id);
+console.log("[DEBUG] studentRes rows =", (studentRes.data || []).length);
+console.log("[DEBUG] teacher vocab rows =", (tvRes.data || []).length);
+console.log("[DEBUG] teacher sentence rows =", (tsRes.data || []).length);
+console.log("[DEBUG] items.length =", items.length);
+console.log("[DEBUG] sample item =", items + "" === "" ? null : items[0]);
+/* ✅✅✅ 여기까지 추가 */
+
+const vocabUnitKeys = Array.from(new Set(items.filter(x => x.type === "vocab" && x.unit_key).map(x => x.unit_key)));
+const sentenceUnitKeys = Array.from(new Set(items.filter(x => x.type === "sentence" && x.unit_key).map(x => x.unit_key)));
+
+...
+renderUnifiedResults(items, vocabByUnitByMode, sentenceByUnitByMode);
 
       const vocabUnitKeys = Array.from(new Set(items.filter(x => x.type === "vocab" && x.unit_key).map(x => x.unit_key)));
       const sentenceUnitKeys = Array.from(new Set(items.filter(x => x.type === "sentence" && x.unit_key).map(x => x.unit_key)));
@@ -1962,6 +1977,7 @@ if (error) {
 </script>
 </body>
 </html>
+
 
 
 
