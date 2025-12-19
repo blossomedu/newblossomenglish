@@ -1434,41 +1434,62 @@
       const detail = document.createElement("div");
       detail.className = "unit-detail";
 
-      if (item.type === "vocab" && item.unit_key) {
-        const modeMap = (vocabByUnitByMode && vocabByUnitByMode[item.unit_key]) ? vocabByUnitByMode[item.unit_key] : {};
-        const tMeaning   = taskCell(modeMap.meaning);
-        const tEnglish   = taskCell(modeMap.english);
-        const tListening = taskCell(modeMap.listening);
-        const tSentence  = taskCell(modeMap.sentence);
+     if (item.type === "vocab" && item.unit_key) {
+  const modeMap = (vocabByUnitByMode && vocabByUnitByMode[item.unit_key])
+    ? vocabByUnitByMode[item.unit_key]
+    : {};
 
-        detail.innerHTML = `
-          <div class="unit-detail-grid">
-            <div class="task-row">
-              <div class="task-name">뜻 찾기</div>
-              <div class="task-status" style="color:${tMeaning.color};">${tMeaning.mark}</div>
-              <div class="task-time">${tMeaning.time}</div>
-            </div>
-            <div class="task-row">
-              <div class="task-name">영어 찾기</div>
-              <div class="task-status" style="color:${tEnglish.color};">${tEnglish.mark}</div>
-              <div class="task-time">${tEnglish.time}</div>
-            </div>
-            <div class="task-row">
-              <div class="task-name">듣고 찾기</div>
-              <div class="task-status" style="color:${tListening.color};">${tListening.mark}</div>
-              <div class="task-time">${tListening.time}</div>
-            </div>
-            <div class="task-row">
-              <div class="task-name">문장 빈칸</div>
-              <div class="task-status" style="color:${tSentence.color};">${tSentence.mark}</div>
-              <div class="task-time">${tSentence.time}</div>
-            </div>
-          </div>
-          <div class="unit-guide">※ 어휘 4개 모드를 모두 완료하면 Unit 전체가 ⭕로 바뀝니다.</div>
-        `;
-      } else if (item.type === "sentence" && item.unit_key) {
-        const view = buildSentenceTaskView(item.unit_key, sentenceByUnitByMode);
+  const grid = document.createElement("div");
+  grid.className = "unit-detail-grid";
 
+  // ✅ 표시 순서 고정
+  const VOCAB_ORDER = [
+    { mode: "meaning",   label: "뜻 찾기" },
+    { mode: "english",   label: "영어 찾기" },
+    { mode: "listening", label: "듣고 찾기" },
+    { mode: "sentence",  label: "문장 빈칸" }
+  ];
+
+  VOCAB_ORDER.forEach(({ mode, label }) => {
+    const bucket = modeMap?.[mode];
+
+    // ✅ (중요) bucket 구조가 {results:[], count, latest} 라는 전제
+    const results = Array.isArray(bucket?.results) ? bucket.results : [];
+    const doneCount = Number(bucket?.count || results.length || 0);
+
+    // ✅ 제출이 0이어도 최소 1줄은 보여주기(미제출 ❌)
+    const lines = Math.max(doneCount, 1);
+
+    for (let i = 0; i < lines; i++) {
+      const nth = i + 1;
+      const r = results[i] || null; // order desc라 최신이 앞쪽
+      const isDone = !!r;
+
+      const mark  = isDone ? "⭕" : "❌";
+      const color = isDone ? "#166534" : "#991b1b";
+      const time  = (r && r.submitted_at)
+        ? `${formatDate(r.submitted_at)} ${formatTime(r.submitted_at)}`
+        : "--";
+
+      const row = document.createElement("div");
+      row.className = "task-row";
+      row.innerHTML = `
+        <div class="task-name">${label} <span style="font-weight:900; color:#6b7280;">(${nth}회)</span></div>
+        <div class="task-status" style="color:${color};">${mark}</div>
+        <div class="task-time">${time}</div>
+      `;
+      grid.appendChild(row);
+    }
+  });
+
+  detail.innerHTML = "";
+  detail.appendChild(grid);
+
+  const guide = document.createElement("div");
+  guide.className = "unit-guide";
+  guide.textContent = "※ 제출한 횟수 기준으로 표시됩니다.";
+  detail.appendChild(guide);
+}
         const grid = document.createElement("div");
         grid.className = "unit-detail-grid";
 
@@ -1568,13 +1589,21 @@
         if (vrErr) throw vrErr;
 
         (vr || []).forEach(r => {
-          const uk = r.unit_key;
-          const md = r.mode || "unknown";
-          if (!uk) return;
-          if (!vocabByUnitByMode[uk]) vocabByUnitByMode[uk] = {};
-          if (!vocabByUnitByMode[uk][md]) vocabByUnitByMode[uk][md] = r;
-        });
-      }
+  const uk = r.unit_key;
+  const md = r.mode || "unknown";
+  if (!uk) return;
+
+  if (!vocabByUnitByMode[uk]) vocabByUnitByMode[uk] = {};
+
+  // ✅ mode별로 여러 번 제출 기록을 쌓기
+  if (!vocabByUnitByMode[uk][md]) {
+    vocabByUnitByMode[uk][md] = { results: [], count: 0, latest: null };
+  }
+
+  vocabByUnitByMode[uk][md].results.push(r);   // order desc라 최신이 앞쪽
+  vocabByUnitByMode[uk][md].count += 1;
+  if (!vocabByUnitByMode[uk][md].latest) vocabByUnitByMode[uk][md].latest = r;
+});
 
       let sentenceByUnitByMode = {};
       if (sentenceUnitKeys.length > 0) {
