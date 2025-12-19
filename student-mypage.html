@@ -1450,12 +1450,35 @@ function renderUnifiedResults(items, vocabByUnitByMode, sentenceByUnitByMode) {
     const srcChip = document.createElement("span");
     srcChip.className = "chip " + (item.source === "teacher" ? "chip-src-teacher" : "chip-src-student");
     srcChip.textContent = item.sourceLabel;
-
     let overall = { cls: "status-x", text: "❌" };
     let submittedText = "--";
 if (item.type === "vocab" && item.unit_key) {
-      const aggMap = (vocabByUnitByMode && vocabByUnitByMode[item.unit_key]) ? vocabByUnitByMode[item.unit_key] : {};
-      const tasks = item.tasks || { meaning: 1, english: 1, listening: 1, sentence: 1 };
+  const aggMap =
+    (vocabByUnitByMode && vocabByUnitByMode[item.unit_key])
+      ? vocabByUnitByMode[item.unit_key]
+      : {};
+
+  const DEFAULT_VOCAB_TASKS = {
+    meaning: 1,
+    english: 1,
+    listening: 1,
+    sentence: 1
+  };
+
+  const tasks =
+    item.type === "vocab"
+      ? (item.tasks ?? DEFAULT_VOCAB_TASKS)
+      : {};
+
+  const grid = document.createElement("div");
+  grid.className = "unit-detail-grid";
+
+  // ↓↓↓ 여기부터가 VOCAB_ORDER / forEach / row 만드는 로직
+const tasks =
+  item.type === "vocab"
+    ? (item.tasks || DEFAULT_VOCAB_TASKS)
+    : {};
+
 
       const grid = document.createElement("div");
       grid.className = "unit-detail-grid";
@@ -2016,6 +2039,7 @@ function bindVocabConfig() {
 </script>
 </body>
 </html>
+
 
 
 
