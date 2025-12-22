@@ -1648,19 +1648,33 @@
       if (tvRes.error) throw tvRes.error;
       if (tsRes.error) throw tsRes.error;
 
-      const items = []
-        .concat((studentRes.data || []).flatMap(r => normalizeAndExpandHomeworkRows(r, "student")))
-        .concat((tvRes.data || []).flatMap(r => normalizeAndExpandHomeworkRows(r, "teacher_vocab")))
-        .concat((tsRes.data || []).flatMap(r => normalizeAndExpandHomeworkRows(r, "teacher_sentence")));
+      function dedupeHomeworkItems(items) {
+  // 같은 출처/구분/마감일/단원(unit_key)을 “동일 숙제”로 보고 1개만 남김
+  // 남길 때는 created_at이 더 최신인 걸 우선으로 유지
+  const map = new Map();
 
-      items.sort((a, b) => {
-        const ad = a.due_date ? new Date(a.due_date).getTime() : Number.POSITIVE_INFINITY;
-        const bd = b.due_date ? new Date(b.due_date).getTime() : Number.POSITIVE_INFINITY;
-        if (ad !== bd) return ad - bd;
-        const at = a.created_at ? new Date(a.created_at).getTime() : 0;
-        const bt = b.created_at ? new Date(b.created_at).getTime() : 0;
-        return at - bt;
-      });
+  (items || []).forEach(it => {
+    const key = [
+      it.source || "",
+      it.type || "",
+      it.due_date || "",
+      it.unit_key || it.unit_text || ""  // unit_key 없을 때 대비
+    ].join("|");
+
+    const prev = map.get(key);
+    if (!prev) {
+      map.set(key, it);
+      return;
+    }
+
+    const prevT = prev.created_at ? new Date(prev.created_at).getTime() : 0;
+    const curT  = it.created_at ? new Date(it.created_at).getTime() : 0;
+
+    if (curT >= prevT) map.set(key, it);
+  });
+
+  return Array.from(map.values());
+}
 
       if (!items.length) {
         renderUnifiedResults([], {}, {});
@@ -2009,5 +2023,6 @@
 </script>
 </body>
 </html>
+
 
 
