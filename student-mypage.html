@@ -1644,13 +1644,47 @@
       ]);
 
       if (studentRes.error) throw studentRes.error;
-      if (tvRes.error) throw tvRes.error;
-      if (tsRes.error) throw tsRes.error;
+if (tvRes.error) throw tvRes.error;
+if (tsRes.error) throw tsRes.error;
 
-      const items = []
-        .concat((studentRes.data || []).flatMap(r => normalizeAndExpandHomeworkRows(r, "student")))
-        .concat((tvRes.data || []).flatMap(r => normalizeAndExpandHomeworkRows(r, "teacher_vocab")))
-        .concat((tsRes.data || []).flatMap(r => normalizeAndExpandHomeworkRows(r, "teacher_sentence")));
+// 2) 통합 items 만들기
+let items = []
+  .concat((studentRes.data || []).flatMap(r => normalizeAndExpandHomeworkRows(r, "student")))
+  .concat((tvRes.data || []).flatMap(r => normalizeAndExpandHomeworkRows(r, "teacher_vocab")))
+  .concat((tsRes.data || []).flatMap(r => normalizeAndExpandHomeworkRows(r, "teacher_sentence")));
+
+// ✅ 바로 여기 (이 한 줄이 핵심)
+items = dedupeHomeworkItems(items);
+
+// 3) 정렬
+const [studentRes, tvRes, tsRes] = await Promise.all([
+  studentReq,
+  teacherVocabReq,
+  teacherSentenceReq
+]);
+
+if (studentRes.error) throw studentRes.error;
+if (tvRes.error) throw tvRes.error;
+if (tsRes.error) throw tsRes.error;
+
+// 2) 통합 items 만들기
+let items = []
+  .concat((studentRes.data || []).flatMap(r => normalizeAndExpandHomeworkRows(r, "student")))
+  .concat((tvRes.data || []).flatMap(r => normalizeAndExpandHomeworkRows(r, "teacher_vocab")))
+  .concat((tsRes.data || []).flatMap(r => normalizeAndExpandHomeworkRows(r, "teacher_sentence")));
+
+// ✅ 중복 제거 (딱 1줄)
+items = dedupeHomeworkItems(items);
+
+// 3) 정렬 (딱 1번)
+items.sort((a, b) => {
+  const ad = a.due_date ? new Date(a.due_date).getTime() : Number.POSITIVE_INFINITY;
+  const bd = b.due_date ? new Date(b.due_date).getTime() : Number.POSITIVE_INFINITY;
+  if (ad !== bd) return ad - bd;
+  const at = a.created_at ? new Date(a.created_at).getTime() : 0;
+  const bt = b.created_at ? new Date(b.created_at).getTime() : 0;
+  return at - bt;
+});
 
       items.sort((a, b) => {
         const ad = a.due_date ? new Date(a.due_date).getTime() : Number.POSITIVE_INFINITY;
@@ -2008,4 +2042,5 @@
 </script>
 </body>
 </html>
+
 
