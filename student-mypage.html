@@ -1570,51 +1570,48 @@ async function loadUnifiedHomeworkResults() {
     ));
 
     // 5) vocab 결과 맵
-    let vocabByUnitByMode = {};
-    if (vocabUnitKeys.length > 0) {
-      const { data: vr, error: vrErr } = await client
-        .from("vocab_results")
-        .select("id, student_login_id, unit_key, mode, correct_count, total_count, submitted_at")
-        .eq("student_login_id", currentStudent.login_id)
-        .in("unit_key", vocabUnitKeys)
-        .order("submitted_at", { ascending: false });
+    // 5~6) vocab + sentence 결과 맵 (통째 대체)
+async function buildResultMap(table, unitKeys) {
+  const resultMap = {};
+  if (!unitKeys || unitKeys.length === 0) return resultMap;
 
-      if (vrErr) throw vrErr;
+  const { data, error } = await client
+    .from(table)
+    .select("id, student_login_id, unit_key, mode, correct_count, total_count, submitted_at")
+    .eq("student_login_id", currentStudent.login_id)
+    .in("unit_key", unitKeys)
+    .order("submitted_at", { ascending: false });
 
-      (vr || []).forEach(r => {
-        const uk = r.unit_key;
-        const md = r.mode || "unknown";
-        if (!uk) return;
-        if (!vocabByUnitByMode[uk]) vocabByUnitByMode[uk] = {};
-        if (!vocabByUnitByMode[uk][md]) vocabByUnitByMode[uk][md] = r; // 최신 1개만
-      });
+  if (error) throw error;
+
+  (data || []).forEach(r => {
+    const uk = r.unit_key;
+    const md = r.mode || "unknown";
+    if (!uk) return;
+
+    if (!resultMap[uk]) resultMap[uk] = {};
+    if (!resultMap[uk][md]) {
+      resultMap[uk][md] = {
+        doneCount: 0,
+        latest: null
+      };
     }
 
-    // 6) sentence 결과 맵
-    let sentenceByUnitByMode = {};
-    if (sentenceUnitKeys.length > 0) {
-      try {
-        const { data: sr, error: srErr } = await client
-          .from("sentence_results")
-          .select("id, student_login_id, unit_key, mode, correct_count, total_count, submitted_at")
-          .eq("student_login_id", currentStudent.login_id)
-          .in("unit_key", sentenceUnitKeys)
-          .order("submitted_at", { ascending: false });
+    resultMap[uk][md].doneCount += 1;
 
-        if (!srErr) {
-          (sr || []).forEach(r => {
-            const uk = r.unit_key;
-            const md = r.mode || "unknown";
-            if (!uk) return;
-            if (!sentenceByUnitByMode[uk]) sentenceByUnitByMode[uk] = {};
-            if (!sentenceByUnitByMode[uk][md]) sentenceByUnitByMode[uk][md] = r; // 최신 1개만
-          });
-        }
-      } catch (e) {
-        // sentence_results 테이블/권한 문제여도 페이지 유지
-      }
+    const cur = resultMap[uk][md].latest;
+    if (!cur || new Date(r.submitted_at) > new Date(cur.submitted_at)) {
+      resultMap[uk][md].latest = r;
     }
+  });
 
+  return resultMap;
+}
+
+// ✅ 기존 5), 6) 자리에 이 두 줄만 남기면 됨
+const vocabByUnitByMode = await buildResultMap("vocab_results", vocabUnitKeys);
+const sentenceByUnitByMode = await buildResultMap("sentence_results", sentenceUnitKeys);
+    
     // ✅ 렌더링은 마지막에 딱 1번
     renderUnifiedResults(items, vocabByUnitByMode, sentenceByUnitByMode);
 
@@ -1988,3 +1985,4 @@ async function loadUnifiedHomeworkResults() {
 </script>
 </body>
 </html>
+
