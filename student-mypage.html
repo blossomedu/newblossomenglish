@@ -1379,8 +1379,11 @@
     return { rows, overall, submittedText };
   }
 
-  function renderUnifiedResults(items, vocabByUnitByMode, sentenceByUnitByMode) {
+ function renderUnifiedResults(items, vocabAttemptPack, sentenceByUnitByMode) {
     unitResultBody.innerHTML = "";
+
+     const vocabLatestByUnitByMode = vocabAttemptPack?.latest || {};
+     const vocabCountsByUnitByMode = vocabAttemptPack?.counts || {};
 
     if (!items || items.length === 0) {
       unitResultBody.innerHTML = '<div class="class-hw-empty">표시할 숙제가 없어요.</div>';
@@ -1407,19 +1410,24 @@
       let submittedText = "--";
 
       if (item.type === "vocab" && item.unit_key) {
-        const modeMap = (vocabByUnitByMode && vocabByUnitByMode[item.unit_key]) ? vocabByUnitByMode[item.unit_key] : {};
-        overall = computeOverallStatusFromVocabModes(modeMap);
+  // 1) 숙제 설정값 (예: 뜻찾기 4번)
+  const required = requiredVocabTasksFromRow(item.raw);
 
-        const latest = safeLatestBySubmittedAt(Object.values(modeMap || {}));
-        submittedText = latest ? `${scoreTextFromResult(latest)} · ${formatDate(latest.submitted_at)} ${formatTime(latest.submitted_at)}` : "--";
-      }
+  // 2) 시도 횟수
+  const counts = vocabCountsByUnitByMode[item.unit_key] || {};
 
-      if (item.type === "sentence" && item.unit_key) {
-        const view = buildSentenceTaskView(item.unit_key, sentenceByUnitByMode);
-        overall = view.overall;
-        submittedText = view.submittedText;
-      }
+  // 3) 전체 상태 (횟수 기준)
+  overall = vocabOverallFromCounts(counts, required);
 
+  // 4) 제출 시간 (가장 최근 시도)
+  const latestMap = vocabLatestByUnitByMode[item.unit_key] || {};
+  const latest = safeLatestBySubmittedAt(Object.values(latestMap || {}));
+
+  submittedText = latest
+    ? `${scoreTextFromResult(latest)} · ${formatDate(latest.submitted_at)} ${formatTime(latest.submitted_at)}`
+    : "--";
+}
+    
       summary.innerHTML = `
         <div>${item.due_date || "-"}</div>
         <div></div>
@@ -1994,4 +2002,5 @@ if (vocabUnitKeys.length > 0) {
 </script>
 </body>
 </html>
+
 
