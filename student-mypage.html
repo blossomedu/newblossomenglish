@@ -1353,34 +1353,24 @@
 
   // ✅ 어휘 Unit 전체: tasks(required) 기준
   function computeOverallStatusFromVocabModes(modeMap, tasks) {
-  if (!tasks) return { cls: "status-x", text: "❌" };
+    if (!tasks) return { cls: "status-x", text: "❌" };
 
-  const modes = ["meaning", "english", "listening", "sentence"];
-  const requiredModes = modes.filter(m => Number(tasks[m] || 0) > 0);
-  if (requiredModes.length === 0) return { cls: "status-x", text: "❌" };
+    const modes = ["meaning", "english", "listening", "sentence"];
+    const requiredModes = modes.filter(m => Number(tasks[m] || 0) > 0);
 
-  let completedCount = 0;     // required를 채운 모드 수
-  let progressExists = false; // 1회라도 시도한 모드가 있는지
+    if (requiredModes.length === 0) return { cls: "status-x", text: "❌" };
 
-  for (const m of requiredModes) {
-    const required = Number(tasks[m] || 0);
-    const done = Number(modeMap?.[m]?.doneCount || 0);
+    let completed = 0;
+    requiredModes.forEach(m => {
+      const required = Number(tasks[m]);
+      const done = Number(modeMap?.[m]?.doneCount || 0);
+      if (done >= required) completed++;
+    });
 
-    if (done > 0) progressExists = true;
-    if (done >= required) completedCount++;
+    if (completed === 0) return { cls: "status-x", text: "❌" };
+    if (completed === requiredModes.length) return { cls: "status-o", text: "⭕" };
+    return { cls: "status-d", text: "△" };
   }
-
-  // 진짜 아무 것도 안 했을 때만 ❌
-  if (!progressExists) return { cls: "status-x", text: "❌" };
-
-  // 전부 완료
-  if (completedCount === requiredModes.length) {
-    return { cls: "status-o", text: "⭕" };
-  }
-
-  // 일부만 진행됨 (1/3 같은 경우)
-  return { cls: "status-d", text: "△" };
-}
 
   const SENTENCE_TASKS_NORMAL = [
     { mode: "blank",   label: "빈칸 완성" },
@@ -1644,47 +1634,13 @@
       ]);
 
       if (studentRes.error) throw studentRes.error;
-if (tvRes.error) throw tvRes.error;
-if (tsRes.error) throw tsRes.error;
+      if (tvRes.error) throw tvRes.error;
+      if (tsRes.error) throw tsRes.error;
 
-// 2) 통합 items 만들기
-let items = []
-  .concat((studentRes.data || []).flatMap(r => normalizeAndExpandHomeworkRows(r, "student")))
-  .concat((tvRes.data || []).flatMap(r => normalizeAndExpandHomeworkRows(r, "teacher_vocab")))
-  .concat((tsRes.data || []).flatMap(r => normalizeAndExpandHomeworkRows(r, "teacher_sentence")));
-
-// ✅ 바로 여기 (이 한 줄이 핵심)
-items = dedupeHomeworkItems(items);
-
-// 3) 정렬
-const [studentRes, tvRes, tsRes] = await Promise.all([
-  studentReq,
-  teacherVocabReq,
-  teacherSentenceReq
-]);
-
-if (studentRes.error) throw studentRes.error;
-if (tvRes.error) throw tvRes.error;
-if (tsRes.error) throw tsRes.error;
-
-// 2) 통합 items 만들기
-let items = []
-  .concat((studentRes.data || []).flatMap(r => normalizeAndExpandHomeworkRows(r, "student")))
-  .concat((tvRes.data || []).flatMap(r => normalizeAndExpandHomeworkRows(r, "teacher_vocab")))
-  .concat((tsRes.data || []).flatMap(r => normalizeAndExpandHomeworkRows(r, "teacher_sentence")));
-
-// ✅ 중복 제거 (딱 1줄)
-items = dedupeHomeworkItems(items);
-
-// 3) 정렬 (딱 1번)
-items.sort((a, b) => {
-  const ad = a.due_date ? new Date(a.due_date).getTime() : Number.POSITIVE_INFINITY;
-  const bd = b.due_date ? new Date(b.due_date).getTime() : Number.POSITIVE_INFINITY;
-  if (ad !== bd) return ad - bd;
-  const at = a.created_at ? new Date(a.created_at).getTime() : 0;
-  const bt = b.created_at ? new Date(b.created_at).getTime() : 0;
-  return at - bt;
-});
+      const items = []
+        .concat((studentRes.data || []).flatMap(r => normalizeAndExpandHomeworkRows(r, "student")))
+        .concat((tvRes.data || []).flatMap(r => normalizeAndExpandHomeworkRows(r, "teacher_vocab")))
+        .concat((tsRes.data || []).flatMap(r => normalizeAndExpandHomeworkRows(r, "teacher_sentence")));
 
       items.sort((a, b) => {
         const ad = a.due_date ? new Date(a.due_date).getTime() : Number.POSITIVE_INFINITY;
@@ -2042,5 +1998,3 @@ items.sort((a, b) => {
 </script>
 </body>
 </html>
-
-
