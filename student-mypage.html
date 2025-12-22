@@ -1510,9 +1510,9 @@ async function loadUnifiedHomeworkResults() {
   try {
     // 1) 학생 숙제 + 선생님 숙제 불러오기
     const studentReq = client
-      .from("student_homework")
-      .select("id, type, level, set_numbers, due_date, created_at")
-      .eq("student_login_id", currentStudent.login_id);
+  .from("student_homework")
+  .select("id, type, level, set_numbers, due_date, created_at, tasks")
+  .eq("student_login_id", currentStudent.login_id);
 
     let teacherVocabReq = Promise.resolve({ data: [], error: null });
     let teacherSentenceReq = Promise.resolve({ data: [], error: null });
@@ -1570,25 +1570,31 @@ async function loadUnifiedHomeworkResults() {
     ));
 
     // 5) vocab 결과 맵
-    let vocabByUnitByMode = {};
-    if (vocabUnitKeys.length > 0) {
-      const { data: vr, error: vrErr } = await client
-        .from("vocab_results")
-        .select("id, student_login_id, unit_key, mode, correct_count, total_count, submitted_at")
-        .eq("student_login_id", currentStudent.login_id)
-        .in("unit_key", vocabUnitKeys)
-        .order("submitted_at", { ascending: false });
+    let vocabAttemptLatestByUnitByMode = {};
+let vocabAttemptCountByUnitByMode = {};
 
-      if (vrErr) throw vrErr;
+if (vocabUnitKeys.length > 0) {
+  const { data: va, error: vaErr } = await client
+    .from("vocab_attempts")
+    .select("id, unit_key, mode, correct_count, total_count, submitted_at")
+    .eq("student_login_id", currentStudent.login_id)
+    .in("unit_key", vocabUnitKeys)
+    .order("submitted_at", { ascending: false });
 
-      (vr || []).forEach(r => {
-        const uk = r.unit_key;
-        const md = r.mode || "unknown";
-        if (!uk) return;
-        if (!vocabByUnitByMode[uk]) vocabByUnitByMode[uk] = {};
-        if (!vocabByUnitByMode[uk][md]) vocabByUnitByMode[uk][md] = r; // 최신 1개만
-      });
-    }
+  if (vaErr) throw vaErr;
+
+  (va || []).forEach(r => {
+    const uk = r.unit_key;
+    const md = (r.mode || "unknown");
+    if (!uk) return;
+
+    if (!vocabAttemptCountByUnitByMode[uk]) vocabAttemptCountByUnitByMode[uk] = {};
+    vocabAttemptCountByUnitByMode[uk][md] = (vocabAttemptCountByUnitByMode[uk][md] || 0) + 1;
+
+    if (!vocabAttemptLatestByUnitByMode[uk]) vocabAttemptLatestByUnitByMode[uk] = {};
+    if (!vocabAttemptLatestByUnitByMode[uk][md]) vocabAttemptLatestByUnitByMode[uk][md] = r;
+  });
+}
 
     // 6) sentence 결과 맵
     let sentenceByUnitByMode = {};
@@ -1988,3 +1994,4 @@ async function loadUnifiedHomeworkResults() {
 </script>
 </body>
 </html>
+
