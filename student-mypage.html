@@ -1132,20 +1132,21 @@
       const classId = currentClass.id;
 
       const [postsRes, vocabRes, sentenceRes] = await Promise.all([
-        client.from("board_posts")
-          .select("id, class_id, title, content, created_at")
-          .eq("class_id", classId)
-          .order("created_at", { ascending: false }),
-        client.from("vocab_homework")
-          .select("id, class_id, level, set_numbers, due_date, created_at")
-          .eq("class_id", classId)
-          .order("created_at", { ascending: false }),
-        client.from("sentence_homework")
-          .select("id, class_id, level, set_numbers, due_date, created_at")
-          .eq("class_id", classId)
-          .order("created_at", { ascending: false })
-      ]);
+  client.from("board_posts")
+    .select("id, class_id, title, content, created_at")
+    .eq("class_id", classId)
+    .order("created_at", { ascending: false }),
 
+  client.from("vocab_homework")
+    .select("id, class_id, level, set_numbers, due_date, created_at, tasks")
+    .eq("class_id", classId)
+    .order("created_at", { ascending: false }),
+
+  client.from("sentence_homework")
+    .select("id, class_id, level, set_numbers, due_date, created_at, tasks")
+    .eq("class_id", classId)
+    .order("created_at", { ascending: false })
+]);
       const groupsMap = {};
       function ensureGroup(dateKey) {
         if (!groupsMap[dateKey]) {
@@ -1511,7 +1512,7 @@ async function loadUnifiedHomeworkResults() {
     // 1) 학생 숙제 + 선생님 숙제 불러오기
     const studentReq = client
       .from("student_homework")
-      .select("id, type, level, set_numbers, due_date, created_at")
+      .select("id, type, level, set_numbers, due_date, created_at, tasks")
       .eq("student_login_id", currentStudent.login_id);
 
     let teacherVocabReq = Promise.resolve({ data: [], error: null });
@@ -1985,4 +1986,5 @@ const sentenceByUnitByMode = await buildResultMap("sentence_results", sentenceUn
 </script>
 </body>
 </html>
+
 
