@@ -1286,25 +1286,42 @@
         '<div class="class-hw-empty">숙제를 불러오는 중 오류가 발생했습니다.</div>';
     }
   }
-
   function normalizeAndExpandHomeworkRows(row, from) {
-    const isStudent = from === "student";
-    const type = isStudent ? row.type : (from === "teacher_sentence" ? "sentence" : "vocab");
+  const isStudent = from === "student";
+  const type = isStudent ? row.type : (from === "teacher_sentence" ? "sentence" : "vocab");
 
-    const unitKeys = parseUnitKeysFromSetNumbers(row.set_numbers);
-    if (unitKeys.length === 0) {
-      return [{
-        source: isStudent ? "student" : "teacher",
-        sourceLabel: isStudent ? "내가 등록" : "선생님",
-        type,
-        due_date: row.due_date || null,
-        created_at: row.created_at || null,
-        unit_key: null,
-        unit_text: (row.set_numbers || "-"),
-        raw: row
-      }];
-    }
+  const tasks = row?.tasks || null; // ✅ 숙제 설정값(요구 횟수)
 
+  const unitKeys = parseUnitKeysFromSetNumbers(row.set_numbers);
+
+  // set_numbers를 단원으로 못 쪼개면 1줄짜리로 표시(기존 방식 유지)
+  if (unitKeys.length === 0) {
+    return [{
+      source: isStudent ? "student" : "teacher",
+      sourceLabel: isStudent ? "내가 등록" : "선생님",
+      type,
+      due_date: row.due_date || null,
+      created_at: row.created_at || null,
+      unit_key: null,
+      unit_text: (row.set_numbers || "-"),
+      tasks,              // ✅ 추가
+      raw: row
+    }];
+  }
+
+  // set_numbers가 "1-1, 1-2" 같은 경우 → unit별로 분해해서 여러 줄 생성
+  return unitKeys.map(uk => ({
+    source: isStudent ? "student" : "teacher",
+    sourceLabel: isStudent ? "내가 등록" : "선생님",
+    type,
+    due_date: row.due_date || null,
+    created_at: row.created_at || null,
+    unit_key: uk,
+    unit_text: uk,
+    tasks,               // ✅ 추가
+    raw: row
+  }));
+}
     return unitKeys.map(uk => ({
       source: isStudent ? "student" : "teacher",
       sourceLabel: isStudent ? "내가 등록" : "선생님",
@@ -1317,26 +1334,37 @@
     }));
   }
 
-  function computeOverallStatusFromVocabModes(modeMap) {
-    const modes = ["meaning", "english", "listening", "sentence"];
-    const doneCount = modes.filter(m => modeMap && modeMap[m]).length;
-    if (doneCount === 0) return { cls: "status-x", text: "❌" };
-    if (doneCount === modes.length) return { cls: "status-o", text: "⭕" };
-    return { cls: "status-d", text: "△" };
+function taskCellByCount({ doneCount, required, latest }) {
+  // required가 0이면 아예 숙제가 없는 모드
+  if (!required || required <= 0) {
+    return { mark: "-", color: "#9ca3af", time: "--" };
   }
 
-  function taskCell(result) {
-    if (!result) return { mark: "❌", color: "#991b1b", time: "--" };
-    const total = Number(result.total_count || 0);
-    const correct = Number(result.correct_count || 0);
-    const ok = total > 0 && correct >= total;
+  // 한 번도 안 함
+  if (!doneCount || doneCount === 0) {
+    return { mark: "❌", color: "#991b1b", time: "--" };
+  }
+
+  // 일부만 함
+  if (doneCount < required) {
     return {
-      mark: ok ? "⭕" : "△",
-      color: ok ? "#166534" : "#92400e",
-      time: result.submitted_at ? `${formatDate(result.submitted_at)} ${formatTime(result.submitted_at)}` : "--"
+      mark: "△",
+      color: "#92400e",
+      time: latest?.submitted_at
+        ? `${formatDate(latest.submitted_at)} ${formatTime(latest.submitted_at)}`
+        : "--"
     };
   }
 
+  // 전부 완료
+  return {
+    mark: "⭕",
+    color: "#166534",
+    time: latest?.submitted_at
+      ? `${formatDate(latest.submitted_at)} ${formatTime(latest.submitted_at)}`
+      : "--"
+  };
+}
   const SENTENCE_TASKS_NORMAL = [
     { mode: "blank",   label: "빈칸 완성" },
     { mode: "arrange", label: "문장 배열" }
@@ -1380,13 +1408,28 @@
     return { rows, overall, submittedText };
   }
 
-  function renderUnifiedResults(items, vocabByUnitByMode, sentenceByUnitByMode) {
-    unitResultBody.innerHTML = "";
+  function computeOverallStatusFromVocabModes(modeMap, tasks) {
+  if (!tasks) return { cls: "status-x", text: "❌" };
 
-    if (!items || items.length === 0) {
-      unitResultBody.innerHTML = '<div class="class-hw-empty">표시할 숙제가 없어요.</div>';
-      return;
-    }
+  const modes = ["meaning", "english", "listening", "sentence"];
+  const requiredModes = modes.filter(m => Number(tasks[m] || 0) > 0);
+
+  if (requiredModes.length === 0) {
+    return { cls: "status-x", text: "❌" };
+  }
+
+  let completed = 0;
+
+  requiredModes.forEach(m => {
+    const required = Number(tasks[m]);
+    const done = modeMap?.[m]?.doneCount || 0;
+    if (done >= required) completed++;
+  });
+
+  if (completed === 0) return { cls: "status-x", text: "❌" };
+  if (completed === requiredModes.length) return { cls: "status-o", text: "⭕" };
+  return { cls: "status-d", text: "△" };
+}
 
     items.forEach(item => {
       const details = document.createElement("details");
@@ -1521,12 +1564,12 @@ async function loadUnifiedHomeworkResults() {
     if (currentClass && currentClass.id) {
       teacherVocabReq = client
         .from("vocab_homework")
-        .select("id, class_id, level, set_numbers, due_date, created_at")
+        .select("id, class_id, level, set_numbers, due_date, created_at, tasks")
         .eq("class_id", currentClass.id);
 
       teacherSentenceReq = client
         .from("sentence_homework")
-        .select("id, class_id, level, set_numbers, due_date, created_at")
+        .select("id, class_id, level, set_numbers, due_date, created_at, tasks")
         .eq("class_id", currentClass.id);
     }
 
@@ -1986,5 +2029,6 @@ const sentenceByUnitByMode = await buildResultMap("sentence_results", sentenceUn
 </script>
 </body>
 </html>
+
 
 
