@@ -151,91 +151,6 @@
       margin: 2px 0;
     }
 
-    .form-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      align-items: flex-end;
-      margin-bottom: 8px;
-    }
-
-    .field { min-width: 130px; }
-
-    .field label {
-      font-size: 12px;
-      color: #4b5563;
-      margin-bottom: 3px;
-      display: block;
-    }
-
-    .input, .input-date {
-      width: 100%;
-      padding: 7px 10px;
-      border-radius: 999px;
-      border: 1px solid #d1d5db;
-      font-size: 13px;
-      outline: none;
-      background: #ffffff;
-    }
-
-    .input:focus, .input-date:focus { border-color: #2563eb; }
-
-    .pill-group {
-      display: inline-flex;
-      background: #e5e7eb;
-      border-radius: 999px;
-      padding: 3px;
-      gap: 3px;
-    }
-
-    .pill-type-btn {
-      border: none;
-      border-radius: 999px;
-      padding: 5px 12px;
-      font-size: 12px;
-      cursor: pointer;
-      background: transparent;
-      color: #4b5563;
-      white-space: nowrap;
-      font-weight: 700;
-    }
-
-    .pill-type-btn.active {
-      background: var(--blue);
-      color: #ffffff;
-      box-shadow: 0 8px 18px rgba(0, 174, 239, 0.35);
-    }
-
-    .btn-primary {
-      border-radius: 999px;
-      border: none;
-      padding: 9px 16px;
-      font-size: 13px;
-      cursor: pointer;
-      white-space: nowrap;
-      background: var(--pink);
-      color: #ffffff;
-      font-weight: 800;
-    }
-
-    .btn-soft {
-      border-radius: 999px;
-      border: none;
-      padding: 9px 14px;
-      font-size: 13px;
-      cursor: pointer;
-      white-space: nowrap;
-      background: #e5e7eb;
-      color: #374151;
-      font-weight: 800;
-    }
-    .btn-soft:hover { background: #d1d5db; }
-
-    .btn-primary[disabled], .btn-soft[disabled] {
-      opacity: 0.6;
-      cursor: default;
-    }
-
     .status-text {
       font-size: 12px;
       color: #6b7280;
@@ -343,6 +258,137 @@
     .info-row span.label { color: #6b7280; margin-right: 6px; }
     .info-message { display: none; }
 
+    .pill-group {
+      display: inline-flex;
+      background: #e5e7eb;
+      border-radius: 999px;
+      padding: 3px;
+      gap: 3px;
+    }
+
+    .pill-type-btn {
+      border: none;
+      border-radius: 999px;
+      padding: 5px 12px;
+      font-size: 12px;
+      cursor: pointer;
+      background: transparent;
+      color: #4b5563;
+      white-space: nowrap;
+      font-weight: 700;
+    }
+
+    .pill-type-btn.active {
+      background: var(--blue);
+      color: #ffffff;
+      box-shadow: 0 8px 18px rgba(0, 174, 239, 0.35);
+    }
+
+    .btn-primary {
+      border-radius: 999px;
+      border: none;
+      padding: 9px 16px;
+      font-size: 13px;
+      cursor: pointer;
+      white-space: nowrap;
+      background: var(--pink);
+      color: #ffffff;
+      font-weight: 800;
+    }
+
+    .btn-soft {
+      border-radius: 999px;
+      border: none;
+      padding: 9px 14px;
+      font-size: 13px;
+      cursor: pointer;
+      white-space: nowrap;
+      background: #e5e7eb;
+      color: #374151;
+      font-weight: 800;
+    }
+    .btn-soft:hover { background: #d1d5db; }
+
+    .btn-primary[disabled], .btn-soft[disabled] {
+      opacity: 0.6;
+      cursor: default;
+    }
+
+    .field label {
+      font-size: 12px;
+      color: #4b5563;
+      margin-bottom: 3px;
+      display: block;
+    }
+
+    .input, .input-date {
+      width: 100%;
+      padding: 7px 10px;
+      border-radius: 999px;
+      border: 1px solid #d1d5db;
+      font-size: 13px;
+      outline: none;
+      background: #ffffff;
+    }
+
+    .input:focus, .input-date:focus { border-color: #2563eb; }
+
+    /* ===== 내 온라인 숙제 ===== */
+    .myhw-grid {
+      display: grid;
+      grid-template-columns: 160px 1fr 160px 160px;
+      gap: 10px;
+      align-items: end;
+      margin-bottom: 8px;
+    }
+
+    .myhw-actions-wrap { align-self: center; }
+    .myhw-actions {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      justify-content: center;
+      align-items: flex-end;
+    }
+    .btn-block { width: 100%; }
+
+    /* 어휘 구성 */
+    .vocab-config { margin: 6px 0 10px; display:none; }
+    .preset-row {
+      display:flex; align-items:center; gap:8px; margin-bottom:6px; flex-wrap:wrap;
+    }
+    .preset-btn {
+      border:1px solid #e5e7eb; background:#f9fafb; color:#374151;
+      font-size:11px; font-weight:800; padding:5px 10px;
+      border-radius:999px; cursor:pointer; white-space:nowrap;
+    }
+    .preset-btn:hover { background:#f3f4f6; }
+
+    .mini-select-row {
+      display:grid;
+      grid-template-columns: repeat(4, minmax(160px, 1fr));
+      gap:8px;
+    }
+    .mini-item {
+      display:flex; align-items:center; gap:10px;
+      border:1px solid #e5e7eb; background:#fff;
+      border-radius:14px; padding:8px 10px;
+    }
+    .mini-item.off { opacity:0.55; background:#f9fafb; }
+    .mini-label { font-size:12px; font-weight:900; color:#111827; white-space:nowrap; }
+    .mini-select {
+      margin-left:auto; border:1px solid #d1d5db;
+      border-radius:999px; padding:6px 10px; font-size:12px;
+      outline:none; background:#fff; font-weight:800; color:#111827; min-width:110px;
+    }
+
+    /* 버튼 크기 */
+    #my-hw-save-btn, #my-hw-manage-btn, #my-hw-cancel-btn { width:130px; }
+    #my-hw-save-btn { background: var(--pink); color:#fff; border:none; }
+    #my-hw-manage-btn { background: var(--mint); color:#fff; border:none; display:inline-flex; align-items:center; justify-content:center; }
+    #my-hw-cancel-btn { }
+
+    /* ===== 모달 ===== */
     .modal-backdrop {
       position: fixed;
       inset: 0;
@@ -360,7 +406,6 @@
       border-radius: 22px;
       box-shadow: 0 24px 60px rgba(0,0,0,0.25);
       overflow: hidden;
-
       max-height: 80vh;
       display: flex;
       flex-direction: column;
@@ -436,12 +481,21 @@
     .btn-del { background: #fee2e2; color: #b91c1c; }
     .btn-del:hover { background: #fecaca; }
 
+    @media (max-width: 900px) {
+      .myhw-grid { grid-template-columns: 160px 1fr; }
+      .myhw-actions-wrap { grid-column: 1 / -1; }
+      .myhw-actions { flex-direction: row; align-items:center; }
+      .btn-block { width: auto; }
+      .mini-select-row { grid-template-columns: repeat(2, minmax(160px, 1fr)); }
+    }
+    @media (max-width: 520px) {
+      .mini-select-row { grid-template-columns: 1fr; }
+      .myhw-actions { flex-direction: column; }
+      .btn-block { width: 100%; }
+    }
+
     @media (max-width: 768px) {
-      .top-actions {
-        position: static;
-        justify-content: flex-end;
-        margin-bottom: 10px;
-      }
+      .top-actions { position: static; justify-content: flex-end; margin-bottom: 10px; }
       .page { padding-top: 10px; }
       .section-card { padding: 16px 14px 18px; }
 
@@ -450,7 +504,6 @@
         grid-template-columns: 1.1fr 1fr 0.8fr 0.9fr 0.7fr 1.3fr;
       }
       .task-row { grid-template-columns: 1fr 70px 130px; }
-
       .manage-actions { justify-content: flex-start; flex-wrap: wrap; }
     }
   </style>
@@ -464,380 +517,127 @@
   </div>
 
   <h1 class="title">학생 마이페이지</h1>
-  <div class="subtitle-main">
-    오늘 숙제와 온라인 학습 결과를 한 곳에서 확인해 보세요.
-  </div>
+  <div class="subtitle-main">오늘 숙제와 온라인 학습 결과를 한 곳에서 확인해 보세요.</div>
 
   <div class="section-card">
     <div class="section-header">
       <div class="section-title">
-        📚 우리 반 숙제
-        <span id="class-badge" class="badge-small">-</span>
+        📚 우리 반 숙제 <span id="class-badge" class="badge-small">-</span>
       </div>
     </div>
     <div id="class-hw-area"></div>
   </div>
 
-  <style>
-    /* ✅ 윗줄은 3칸만(버튼 제거) */
-    .myhw-grid {
-      display: grid;
-      grid-template-columns: 160px 1fr 160px;
-      gap: 10px;
-      align-items: end;
-      margin-bottom: 8px;
-    }
+  <div class="section-card">
+    <div class="section-header">
+      <div class="section-title">✍️ 내 온라인 숙제</div>
+    </div>
 
-    /* ✅ 아래줄: 왼쪽(구성) + 오른쪽(버튼) */
-    .myhw-bottom {
-      display: grid;
-      grid-template-columns: 1fr 180px;
-      gap: 10px;
-      align-items: start;
-      margin-top: 6px;
-      margin-bottom: 6px;
-    }
+    <div class="myhw-grid">
+      <div class="field" style="min-width:150px;">
+        <label>숙제 종류</label>
+        <div class="pill-group">
+          <button type="button" id="type-vocab" class="pill-type-btn active">어휘</button>
+          <button type="button" id="type-sentence" class="pill-type-btn">문장</button>
+        </div>
+      </div>
 
-    .myhw-actions {
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
-      align-items: stretch;
-    }
-    .btn-block { width: 100%; }
+      <div class="field" style="min-width:180px;">
+        <label>단계-세트 (예: 1-1 또는 잠신중1-1)</label>
+        <input id="my-hw-set" class="input" type="text" placeholder="예: 1-1 또는 1-1, 1-2 또는 잠신중1-1" />
+      </div>
 
-    /* 어휘 숙제 구성 */
-    .vocab-config {
-      display: none; /* vocab일 때만 표시 */
-    }
+      <div class="field" style="min-width:150px;">
+        <label>마감일</label>
+        <input id="my-hw-due" class="input-date" type="date" />
+      </div>
 
-    .preset-row {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      margin-bottom: 6px;
-      flex-wrap: wrap;
-    }
-    .preset-btn {
-      border: 1px solid #e5e7eb;
-      background: #f9fafb;
-      color: #374151;
-      font-size: 11px;
-      font-weight: 800;
-      padding: 5px 10px;
-      border-radius: 999px;
-      cursor: pointer;
-      white-space: nowrap;
-    }
-    .preset-btn:hover { background: #f3f4f6; }
-
-    .mini-select-row {
-      display: grid;
-      grid-template-columns: repeat(4, minmax(160px, 1fr));
-      gap: 8px;
-    }
-
-    .mini-item {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      border: 1px solid #e5e7eb;
-      background: #fff;
-      border-radius: 14px;
-      padding: 8px 10px;
-    }
-    .mini-item.off { opacity: 0.55; background: #f9fafb; }
-    .mini-label {
-      font-size: 12px;
-      font-weight: 900;
-      color: #111827;
-      white-space: nowrap;
-    }
-    .mini-select {
-      margin-left: auto;
-      border: 1px solid #d1d5db;
-      border-radius: 999px;
-      padding: 6px 10px;
-      font-size: 12px;
-      outline: none;
-      background: #fff;
-      font-weight: 800;
-      color: #111827;
-      min-width: 110px;
-    }
-
-    @media (max-width: 900px) {
-      .myhw-grid { grid-template-columns: 160px 1fr; }
-      .myhw-bottom { grid-template-columns: 1fr; }
-      .myhw-actions { flex-direction: row; }
-      .btn-block { width: auto; }
-
-      .mini-select-row { grid-template-columns: repeat(2, minmax(160px, 1fr)); }
-    }
-    @media (max-width: 520px) {
-      .mini-select-row { grid-template-columns: 1fr; }
-      .myhw-actions { flex-direction: column; }
-      .btn-block { width: 100%; }
-    }
-  </style>
-
- <div class="section-card">
-  <div class="section-header">
-    <div class="section-title">✍️ 내 온라인 숙제</div>
-  </div>
-
-  <!-- ✅ "내 온라인 숙제" 전용: 칼각 정렬 + 어휘 구성 스타일 -->
-  <style>
-    .myhw-grid {
-      display: grid;
-      grid-template-columns: 160px 1fr 160px 160px;
-      gap: 10px;
-      align-items: end;
-      margin-bottom: 8px;
-    }
-
-    /* ✅ 오른쪽 버튼 영역: 살짝 위로 + 세로 가운데 정렬 느낌 */
-    .myhw-actions-wrap {
-      align-self: center;
-    }
-
-    .myhw-actions {
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
-      justify-content: center;
-      align-items: flex-end; /* 기본은 오른쪽 정렬 */
-    }
-
-    .btn-block { width: 100%; }
-
-    .vocab-config {
-      margin: 6px 0 10px;
-      display: none; /* vocab일 때만 표시 */
-    }
-
-    .preset-row {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      margin-bottom: 6px;
-      flex-wrap: wrap;
-    }
-
-    .preset-btn {
-      border: 1px solid #e5e7eb;
-      background: #f9fafb;
-      color: #374151;
-      font-size: 11px;
-      font-weight: 800;
-      padding: 5px 10px;
-      border-radius: 999px;
-      cursor: pointer;
-      white-space: nowrap;
-    }
-    .preset-btn:hover { background: #f3f4f6; }
-
-    .mini-select-row {
-      display: grid;
-      grid-template-columns: repeat(4, minmax(160px, 1fr));
-      gap: 8px;
-    }
-
-    .mini-item {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      border: 1px solid #e5e7eb;
-      background: #fff;
-      border-radius: 14px;
-      padding: 8px 10px;
-    }
-    .mini-item.off { opacity: 0.55; background: #f9fafb; }
-
-    .mini-label {
-      font-size: 12px;
-      font-weight: 900;
-      color: #111827;
-      white-space: nowrap;
-    }
-
-    .mini-select {
-      margin-left: auto;
-      border: 1px solid #d1d5db;
-      border-radius: 999px;
-      padding: 6px 10px;
-      font-size: 12px;
-      outline: none;
-      background: #fff;
-      font-weight: 800;
-      color: #111827;
-      min-width: 110px;
-    }
-
-    @media (max-width: 900px) {
-      .myhw-grid { grid-template-columns: 160px 1fr; }
-      .myhw-actions-wrap { grid-column: 1 / -1; }
-      .myhw-actions { flex-direction: row; }
-      .btn-block { width: auto; }
-      .mini-select-row { grid-template-columns: repeat(2, minmax(160px, 1fr)); }
-    }
-
-    @media (max-width: 520px) {
-      .mini-select-row { grid-template-columns: 1fr; }
-      .myhw-actions { flex-direction: column; }
-      .btn-block { width: 100%; }
-    }
-
-    /* ===== ✅ 버튼 3개 최종 정리 (요청사항 반영) ===== */
-
-    /* 1) 버튼 크기 통일 */
-#my-hw-save-btn,
-#my-hw-manage-btn,
-#my-hw-cancel-btn {
-  width: 130px;
-}
-
-/* 2) 버튼 순서: 등록 → 관리 → 취소 */
-#my-hw-save-btn   { order: 1; }
-#my-hw-manage-btn { order: 2; }
-#my-hw-cancel-btn { order: 3; }
-
-/* 🌸 숙제 등록 (핑크 버튼) */
-#my-hw-save-btn {
-  background: var(--pink);
-  color: #ffffff;
-  border: none;
-
-  /* 좌우, 상하 미세 조정 */
-  transform: translate(-30px, 35px);
-}
-
-/* 🌿 숙제 관리 (민트 버튼) */
-#my-hw-manage-btn {
-  background: var(--mint);
-  color: #ffffff;
-  border: none;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-
-  /* 좌우, 상하 미세 조정 */
-  transform: translate(-30px, 35px);
-}
-  </style>
-
-  <!-- ✅ 열 정렬 grid -->
-  <div class="myhw-grid">
-    <div class="field" style="min-width:150px;">
-      <label>숙제 종류</label>
-      <div class="pill-group">
-        <button type="button" id="type-vocab" class="pill-type-btn active">어휘</button>
-        <button type="button" id="type-sentence" class="pill-type-btn">문장</button>
+      <div class="field myhw-actions-wrap" style="min-width:190px;">
+        <label>&nbsp;</label>
+        <div class="myhw-actions">
+          <button id="my-hw-save-btn" class="btn-primary btn-block" type="button">숙제 등록</button>
+          <button id="my-hw-manage-btn" class="btn-soft btn-block" type="button">숙제 관리</button>
+          <button id="my-hw-cancel-btn" class="btn-soft btn-block" type="button" style="display:none;">수정 취소</button>
+        </div>
       </div>
     </div>
 
-    <div class="field" style="min-width:180px;">
-      <label>단계-세트 (예: 1-1 또는 잠신중1-1)</label>
-      <input id="my-hw-set" class="input" type="text" placeholder="예: 1-1 또는 1-1, 1-2 또는 잠신중1-1" />
-    </div>
-
-    <div class="field" style="min-width:150px;">
-      <label>마감일</label>
-      <input id="my-hw-due" class="input-date" type="date" />
-    </div>
-
-    <div class="field myhw-actions-wrap" style="min-width:190px;">
-      <label>&nbsp;</label>
-      <div class="myhw-actions">
-        <!-- ✅ 등록은 위(기존 숙제 관리 자리 느낌) -->
-        <button id="my-hw-save-btn" class="btn-primary btn-block" type="button">숙제 등록</button>
-
-        <!-- ✅ 관리는 아래 + 가운데 정렬 -->
-        <button id="my-hw-manage-btn" class="btn-soft btn-block" type="button">숙제 관리</button>
-
-        <button id="my-hw-cancel-btn" class="btn-soft btn-block" type="button" style="display:none;">수정 취소</button>
-      </div>
-    </div>
-  </div>
-
-  <!-- ✅ 어휘 숙제 구성: 프리셋 + 4개 선택 (vocab일 때만 표시) -->
-  <div id="vocab-config" class="vocab-config">
-    <div class="preset-row">
-      <button type="button" id="preset-default" class="preset-btn">기본 4종</button>
-      <button type="button" id="preset-blank3" class="preset-btn">문장 빈칸 ×3</button>
-      <button type="button" id="preset-reset" class="preset-btn">초기화</button>
-    </div>
-
-    <div class="mini-select-row">
-      <div class="mini-item" id="mini-meaning">
-        <div class="mini-label">뜻 찾기</div>
-        <select id="sel-meaning" class="mini-select">
-          <option value="0">0</option><option value="1">1</option><option value="2">2</option>
-          <option value="3">3</option><option value="4">4</option><option value="5">5</option>
-        </select>
+    <!-- ✅ 어휘 숙제 구성 -->
+    <div id="vocab-config" class="vocab-config">
+      <div class="preset-row">
+        <button type="button" id="preset-default" class="preset-btn">기본 4종</button>
+        <button type="button" id="preset-blank3" class="preset-btn">문장 빈칸 ×3</button>
+        <button type="button" id="preset-reset" class="preset-btn">초기화</button>
       </div>
 
-      <div class="mini-item" id="mini-english">
-        <div class="mini-label">영어 찾기</div>
-        <select id="sel-english" class="mini-select">
-          <option value="0">0</option><option value="1">1</option><option value="2">2</option>
-          <option value="3">3</option><option value="4">4</option><option value="5">5</option>
-        </select>
-      </div>
+      <div class="mini-select-row">
+        <div class="mini-item" id="mini-meaning">
+          <div class="mini-label">뜻 찾기</div>
+          <select id="sel-meaning" class="mini-select">
+            <option value="0">0</option><option value="1">1</option><option value="2">2</option>
+            <option value="3">3</option><option value="4">4</option><option value="5">5</option>
+          </select>
+        </div>
 
-      <div class="mini-item" id="mini-listening">
-        <div class="mini-label">듣고 찾기</div>
-        <select id="sel-listening" class="mini-select">
-          <option value="0">0</option><option value="1">1</option><option value="2">2</option>
-          <option value="3">3</option><option value="4">4</option><option value="5">5</option>
-        </select>
-      </div>
+        <div class="mini-item" id="mini-english">
+          <div class="mini-label">영어 찾기</div>
+          <select id="sel-english" class="mini-select">
+            <option value="0">0</option><option value="1">1</option><option value="2">2</option>
+            <option value="3">3</option><option value="4">4</option><option value="5">5</option>
+          </select>
+        </div>
 
-      <div class="mini-item" id="mini-sentence">
-        <div class="mini-label">문장 빈칸</div>
-        <select id="sel-sentence" class="mini-select">
-          <option value="0">0</option><option value="1">1</option><option value="2">2</option>
-          <option value="3">3</option><option value="4">4</option><option value="5">5</option>
-        </select>
+        <div class="mini-item" id="mini-listening">
+          <div class="mini-label">듣고 찾기</div>
+          <select id="sel-listening" class="mini-select">
+            <option value="0">0</option><option value="1">1</option><option value="2">2</option>
+            <option value="3">3</option><option value="4">4</option><option value="5">5</option>
+          </select>
+        </div>
+
+        <div class="mini-item" id="mini-sentence">
+          <div class="mini-label">문장 빈칸</div>
+          <select id="sel-sentence" class="mini-select">
+            <option value="0">0</option><option value="1">1</option><option value="2">2</option>
+            <option value="3">3</option><option value="4">4</option><option value="5">5</option>
+          </select>
+        </div>
       </div>
+    </div>
+
+    <div class="hint">어휘는 같은 단계만 여러 개 입력 가능(예: 1-1, 1-2). 문장은 1-1 또는 잠신중1-1처럼 입력 가능.</div>
+    <div id="my-hw-status" class="status-text"></div>
+  </div>
+
+  <div class="section-card">
+    <div class="section-header">
+      <div class="section-title">📊 내 온라인 숙제 결과</div>
+    </div>
+
+    <div class="unit-result-wrap" id="unit-result-wrap">
+      <div class="unit-result-head">
+        <div>마감 날짜</div>
+        <div>출처</div>
+        <div>구분</div>
+        <div>단원(Unit)</div>
+        <div>Unit 전체</div>
+        <div>제출 시간</div>
+      </div>
+      <div id="unit-result-body"></div>
     </div>
   </div>
 
-  <div class="hint">
-    어휘는 같은 단계만 여러 개 입력 가능(예: 1-1, 1-2). 문장은 1-1 또는 잠신중1-1처럼 입력 가능.
-  </div>
-  <div id="my-hw-status" class="status-text"></div>
-</div>
-
-<div class="section-card">
-  <div class="section-header">
-    <div class="section-title">📊 내 온라인 숙제 결과</div>
-  </div>
-
-  <div class="unit-result-wrap" id="unit-result-wrap">
-    <div class="unit-result-head">
-      <div>마감 날짜</div>
-      <div>출처</div>
-      <div>구분</div>
-      <div>단원(Unit)</div>
-      <div>Unit 전체</div>
-      <div>제출 시간</div>
+  <div class="section-card">
+    <div class="section-header">
+      <div class="section-title">👤 내 정보</div>
     </div>
-    <div id="unit-result-body"></div>
+    <div class="info-row">
+      <div><span class="label">이름:</span><span id="info-name">-</span></div>
+      <div><span class="label">반:</span><span id="info-class">-</span></div>
+      <div><span class="label">아이디:</span><span id="info-id">-</span></div>
+    </div>
+    <div id="info-message" class="info-message"></div>
   </div>
-</div>
-
-<div class="section-card">
-  <div class="section-header">
-    <div class="section-title">👤 내 정보</div>
-  </div>
-  <div class="info-row">
-    <div><span class="label">이름:</span><span id="info-name">-</span></div>
-    <div><span class="label">반:</span><span id="info-class">-</span></div>
-    <div><span class="label">아이디:</span><span id="info-id">-</span></div>
-  </div>
-  <div id="info-message" class="info-message"></div>
-</div>
 </div>
 
 <div id="manage-backdrop" class="modal-backdrop" aria-hidden="true">
@@ -885,7 +685,7 @@
   const manageCloseBtn = document.getElementById("manage-close");
   const manageArea     = document.getElementById("manage-area");
 
-  // ✅ 어휘 구성 DOM
+  // 어휘 구성 DOM
   const vocabConfigEl     = document.getElementById("vocab-config");
   const presetDefaultBtn  = document.getElementById("preset-default");
   const presetBlank3Btn   = document.getElementById("preset-blank3");
@@ -906,7 +706,7 @@
   let currentType    = "vocab";
   let editingHomeworkId = null;
 
-  // ✅ 어휘 숙제 구성 (기본 1,1,1,1)
+  // 기본 어휘 구성
   let vocabTasks = { meaning: 1, english: 1, listening: 1, sentence: 1 };
 
   function setMyHwStatus(msg, type) {
@@ -1019,7 +819,7 @@
     return Math.max(min, Math.min(max, n));
   }
 
-  // ✅ tasks 컬럼 없을 때 메시지 기반 감지(임시 안전장치)
+  // tasks 컬럼 없을 때 메시지 기반 감지
   function isMissingTasksColumnError(err) {
     const msg = String((err && err.message) ? err.message : err || "").toLowerCase();
     return msg.includes("column") && msg.includes("tasks") && msg.includes("does not exist");
@@ -1063,7 +863,6 @@
       sentence: clampNum(t.sentence, 0, 5)
     };
     const sum = safe.meaning + safe.english + safe.listening + safe.sentence;
-    // ✅ ALL 버튼 없이도 안전하게: 합이 0이면 기본 4종으로 저장
     if (sum === 0) return { meaning:1, english:1, listening:1, sentence:1 };
     return safe;
   }
@@ -1082,6 +881,83 @@
   typeVocabBtn.onclick = () => setType("vocab");
   typeSentenceBtn.onclick = () => setType("sentence");
 
+  // ===== ✅ (핵심) vocab 숙제 설정값 읽기 =====
+  function requiredVocabTasksFromRow(rawRow) {
+    // student_homework에는 tasks가 있을 수 있음
+    const t = rawRow && rawRow.tasks ? rawRow.tasks : null;
+    const base = { meaning:1, english:1, listening:1, sentence:1 };
+    if (!t || typeof t !== "object") return base;
+
+    // 혹시 문자열로 들어오면 파싱
+    let obj = t;
+    if (typeof t === "string") {
+      try { obj = JSON.parse(t); } catch(e) { obj = null; }
+    }
+    if (!obj || typeof obj !== "object") return base;
+
+    return {
+      meaning: clampNum(obj.meaning ?? base.meaning, 0, 5),
+      english: clampNum(obj.english ?? base.english, 0, 5),
+      listening: clampNum(obj.listening ?? base.listening, 0, 5),
+      sentence: clampNum(obj.sentence ?? base.sentence, 0, 5),
+    };
+  }
+
+  // ===== ✅ (핵심) vocab 전체 상태: "횟수 기준" =====
+  function vocabOverallFromCounts(countsByMode, requiredByMode) {
+    const modes = ["meaning","english","listening","sentence"];
+    let requiredTotal = 0;
+    let doneRequired = 0;
+    let anyAttempt = false;
+
+    modes.forEach(m => {
+      const req = Number(requiredByMode?.[m] ?? 0);
+      if (req > 0) requiredTotal += 1;
+
+      const cnt = Number(countsByMode?.[m] ?? 0);
+      if (cnt > 0) anyAttempt = true;
+
+      if (req > 0 && cnt >= req) doneRequired += 1;
+    });
+
+    // 요구가 하나도 없으면(이론상) 그냥 ❌ 처리
+    if (requiredTotal === 0) return { cls:"status-x", text:"❌" };
+
+    if (doneRequired === 0 && !anyAttempt) return { cls:"status-x", text:"❌" };
+    if (doneRequired === requiredTotal) return { cls:"status-o", text:"⭕" };
+    return { cls:"status-d", text:"△" };
+  }
+
+  // ===== vocab task 셀 (횟수 기준) =====
+  function vocabTaskCellByCount(mode, countsMap, requiredMap, latestMap) {
+    const req = Number(requiredMap?.[mode] ?? 0);
+    const cnt = Number(countsMap?.[mode] ?? 0);
+    const latest = latestMap?.[mode] || null;
+
+    // 이 모드를 숙제로 안 시키면 그냥 "--"처럼 보이게
+    if (req <= 0) {
+      return { mark: "—", color: "#9ca3af", time: "--" };
+    }
+
+    if (cnt >= req) {
+      return {
+        mark: "⭕",
+        color: "#166534",
+        time: latest?.submitted_at ? `${formatDate(latest.submitted_at)} ${formatTime(latest.submitted_at)}` : "--"
+      };
+    }
+
+    if (cnt > 0) {
+      return {
+        mark: "△",
+        color: "#92400e",
+        time: latest?.submitted_at ? `${formatDate(latest.submitted_at)} ${formatTime(latest.submitted_at)}` : "--"
+      };
+    }
+
+    return { mark: "❌", color: "#991b1b", time: "--" };
+  }
+
   async function loadStudentFromLocalStorage() {
     const stored = localStorage.getItem("blossom_student");
     if (!stored) {
@@ -1098,8 +974,7 @@
     if (!s.class_id) {
       infoClassEl.textContent = "미배정";
       classBadgeEl.textContent = "반 미배정";
-      classHwArea.innerHTML =
-        '<div class="class-hw-empty">반이 아직 배정되지 않아 숙제를 볼 수 없어요.</div>';
+      classHwArea.innerHTML = '<div class="class-hw-empty">반이 아직 배정되지 않아 숙제를 볼 수 없어요.</div>';
       return;
     }
 
@@ -1125,8 +1000,7 @@
   async function loadClassHomework() {
     if (!currentClass || !currentClass.id) return;
 
-    classHwArea.innerHTML =
-      '<div class="class-hw-empty">우리 반 숙제를 불러오는 중입니다...</div>';
+    classHwArea.innerHTML = '<div class="class-hw-empty">우리 반 숙제를 불러오는 중입니다...</div>';
 
     try {
       const classId = currentClass.id;
@@ -1183,8 +1057,7 @@
       const groups = Object.values(groupsMap).sort((a, b) => new Date(a.dateKey) - new Date(b.dateKey));
 
       if (!groups.length) {
-        classHwArea.innerHTML =
-          '<div class="class-hw-empty">아직 우리 반에 등록된 숙제가 없어요.</div>';
+        classHwArea.innerHTML = '<div class="class-hw-empty">아직 우리 반에 등록된 숙제가 없어요.</div>';
         return;
       }
 
@@ -1281,8 +1154,7 @@
 
     } catch (e) {
       console.error("우리 반 숙제 로딩 오류:", e);
-      classHwArea.innerHTML =
-        '<div class="class-hw-empty">숙제를 불러오는 중 오류가 발생했습니다.</div>';
+      classHwArea.innerHTML = '<div class="class-hw-empty">숙제를 불러오는 중 오류가 발생했습니다.</div>';
     }
   }
 
@@ -1316,14 +1188,7 @@
     }));
   }
 
-  function computeOverallStatusFromVocabModes(modeMap) {
-    const modes = ["meaning", "english", "listening", "sentence"];
-    const doneCount = modes.filter(m => modeMap && modeMap[m]).length;
-    if (doneCount === 0) return { cls: "status-x", text: "❌" };
-    if (doneCount === modes.length) return { cls: "status-o", text: "⭕" };
-    return { cls: "status-d", text: "△" };
-  }
-
+  // ===== sentence 기존 방식 유지 =====
   function taskCell(result) {
     if (!result) return { mark: "❌", color: "#991b1b", time: "--" };
     const total = Number(result.total_count || 0);
@@ -1379,11 +1244,12 @@
     return { rows, overall, submittedText };
   }
 
- function renderUnifiedResults(items, vocabAttemptPack, sentenceByUnitByMode) {
+  // ===== ✅ 렌더: vocab은 attempts(횟수) 기준 =====
+  function renderUnifiedResults(items, vocabAttemptPack, sentenceByUnitByMode) {
     unitResultBody.innerHTML = "";
 
-     const vocabLatestByUnitByMode = vocabAttemptPack?.latest || {};
-     const vocabCountsByUnitByMode = vocabAttemptPack?.counts || {};
+    const vocabLatestByUnitByMode = vocabAttemptPack?.latest || {};
+    const vocabCountsByUnitByMode = vocabAttemptPack?.counts || {};
 
     if (!items || items.length === 0) {
       unitResultBody.innerHTML = '<div class="class-hw-empty">표시할 숙제가 없어요.</div>';
@@ -1409,25 +1275,26 @@
       let overall = { cls: "status-x", text: "❌" };
       let submittedText = "--";
 
+      // ===== vocab summary =====
       if (item.type === "vocab" && item.unit_key) {
-  // 1) 숙제 설정값 (예: 뜻찾기 4번)
-  const required = requiredVocabTasksFromRow(item.raw);
+        const required = requiredVocabTasksFromRow(item.raw);                 // 숙제 요구 횟수
+        const counts   = vocabCountsByUnitByMode[item.unit_key] || {};        // 실제 시도 횟수
+        overall = vocabOverallFromCounts(counts, required);
 
-  // 2) 시도 횟수
-  const counts = vocabCountsByUnitByMode[item.unit_key] || {};
+        const latestMap = vocabLatestByUnitByMode[item.unit_key] || {};
+        const latest = safeLatestBySubmittedAt(Object.values(latestMap || {}));
+        submittedText = latest
+          ? `${scoreTextFromResult(latest)} · ${formatDate(latest.submitted_at)} ${formatTime(latest.submitted_at)}`
+          : "--";
+      }
 
-  // 3) 전체 상태 (횟수 기준)
-  overall = vocabOverallFromCounts(counts, required);
+      // ===== sentence summary =====
+      if (item.type === "sentence" && item.unit_key) {
+        const view = buildSentenceTaskView(item.unit_key, sentenceByUnitByMode);
+        overall = view.overall;
+        submittedText = view.submittedText;
+      }
 
-  // 4) 제출 시간 (가장 최근 시도)
-  const latestMap = vocabLatestByUnitByMode[item.unit_key] || {};
-  const latest = safeLatestBySubmittedAt(Object.values(latestMap || {}));
-
-  submittedText = latest
-    ? `${scoreTextFromResult(latest)} · ${formatDate(latest.submitted_at)} ${formatTime(latest.submitted_at)}`
-    : "--";
-}
-    
       summary.innerHTML = `
         <div>${item.due_date || "-"}</div>
         <div></div>
@@ -1442,39 +1309,52 @@
       const detail = document.createElement("div");
       detail.className = "unit-detail";
 
+      // ===== vocab detail (횟수 기준으로 4줄 표시) =====
       if (item.type === "vocab" && item.unit_key) {
-        const modeMap = (vocabByUnitByMode && vocabByUnitByMode[item.unit_key]) ? vocabByUnitByMode[item.unit_key] : {};
-        const tMeaning   = taskCell(modeMap.meaning);
-        const tEnglish   = taskCell(modeMap.english);
-        const tListening = taskCell(modeMap.listening);
-        const tSentence  = taskCell(modeMap.sentence);
+        const required = requiredVocabTasksFromRow(item.raw);
+        const counts   = vocabCountsByUnitByMode[item.unit_key] || {};
+        const latestMap= vocabLatestByUnitByMode[item.unit_key] || {};
+
+        const tMeaning   = vocabTaskCellByCount("meaning", counts, required, latestMap);
+        const tEnglish   = vocabTaskCellByCount("english", counts, required, latestMap);
+        const tListening = vocabTaskCellByCount("listening", counts, required, latestMap);
+        const tSentence  = vocabTaskCellByCount("sentence", counts, required, latestMap);
 
         detail.innerHTML = `
           <div class="unit-detail-grid">
             <div class="task-row">
-              <div class="task-name">뜻 찾기</div>
+              <div class="task-name">뜻 찾기 (요구:${required.meaning} / 시도:${counts.meaning || 0})</div>
               <div class="task-status" style="color:${tMeaning.color};">${tMeaning.mark}</div>
               <div class="task-time">${tMeaning.time}</div>
             </div>
+
             <div class="task-row">
-              <div class="task-name">영어 찾기</div>
+              <div class="task-name">영어 찾기 (요구:${required.english} / 시도:${counts.english || 0})</div>
               <div class="task-status" style="color:${tEnglish.color};">${tEnglish.mark}</div>
               <div class="task-time">${tEnglish.time}</div>
             </div>
+
             <div class="task-row">
-              <div class="task-name">듣고 찾기</div>
+              <div class="task-name">듣고 찾기 (요구:${required.listening} / 시도:${counts.listening || 0})</div>
               <div class="task-status" style="color:${tListening.color};">${tListening.mark}</div>
               <div class="task-time">${tListening.time}</div>
             </div>
+
             <div class="task-row">
-              <div class="task-name">문장 빈칸</div>
+              <div class="task-name">문장 빈칸 (요구:${required.sentence} / 시도:${counts.sentence || 0})</div>
               <div class="task-status" style="color:${tSentence.color};">${tSentence.mark}</div>
               <div class="task-time">${tSentence.time}</div>
             </div>
           </div>
-          <div class="unit-guide">※ 어휘 4개 모드를 모두 완료하면 Unit 전체가 ⭕로 바뀝니다.</div>
+
+          <div class="unit-guide">
+            ※ Unit 전체는 “각 모드의 요구 횟수만큼 시도했는지”로 계산됩니다.
+          </div>
         `;
-      } else if (item.type === "sentence" && item.unit_key) {
+      }
+
+      // ===== sentence detail =====
+      else if (item.type === "sentence" && item.unit_key) {
         const view = buildSentenceTaskView(item.unit_key, sentenceByUnitByMode);
 
         const grid = document.createElement("div");
@@ -1493,7 +1373,9 @@
 
         detail.innerHTML = "";
         detail.appendChild(grid);
-      } else {
+      }
+
+      else {
         detail.innerHTML = `
           <div class="unit-detail-grid">
             <div class="task-row">
@@ -1510,133 +1392,136 @@
       unitResultBody.appendChild(details);
     });
   }
-async function loadUnifiedHomeworkResults() {
-  if (!currentStudent || !currentStudent.login_id) return;
 
-  unitResultBody.innerHTML = '<div class="class-hw-empty">결과를 불러오는 중...</div>';
+  // ===== ✅ 결과 로딩 (vocab_attempts 사용) =====
+  async function loadUnifiedHomeworkResults() {
+    if (!currentStudent || !currentStudent.login_id) return;
 
-  try {
-    // 1) 학생 숙제 + 선생님 숙제 불러오기
-    const studentReq = client
-  .from("student_homework")
-  .select("id, type, level, set_numbers, due_date, created_at, tasks")
-  .eq("student_login_id", currentStudent.login_id);
+    unitResultBody.innerHTML = '<div class="class-hw-empty">결과를 불러오는 중...</div>';
 
-    let teacherVocabReq = Promise.resolve({ data: [], error: null });
-    let teacherSentenceReq = Promise.resolve({ data: [], error: null });
+    try {
+      // 1) 학생 숙제 + 선생님 숙제
+      const studentReq = client
+        .from("student_homework")
+        .select("id, type, level, set_numbers, due_date, created_at, tasks")
+        .eq("student_login_id", currentStudent.login_id);
 
-    if (currentClass && currentClass.id) {
-      teacherVocabReq = client
-        .from("vocab_homework")
-        .select("id, class_id, level, set_numbers, due_date, created_at")
-        .eq("class_id", currentClass.id);
+      let teacherVocabReq = Promise.resolve({ data: [], error: null });
+      let teacherSentenceReq = Promise.resolve({ data: [], error: null });
 
-      teacherSentenceReq = client
-        .from("sentence_homework")
-        .select("id, class_id, level, set_numbers, due_date, created_at")
-        .eq("class_id", currentClass.id);
-    }
+      if (currentClass && currentClass.id) {
+        teacherVocabReq = client
+          .from("vocab_homework")
+          .select("id, class_id, level, set_numbers, due_date, created_at")
+          .eq("class_id", currentClass.id);
 
-    const [studentRes, tvRes, tsRes] = await Promise.all([
-      studentReq,
-      teacherVocabReq,
-      teacherSentenceReq
-    ]);
+        teacherSentenceReq = client
+          .from("sentence_homework")
+          .select("id, class_id, level, set_numbers, due_date, created_at")
+          .eq("class_id", currentClass.id);
+      }
 
-    if (studentRes.error) throw studentRes.error;
-    if (tvRes.error) throw tvRes.error;
-    if (tsRes.error) throw tsRes.error;
+      const [studentRes, tvRes, tsRes] = await Promise.all([studentReq, teacherVocabReq, teacherSentenceReq]);
 
-    // 2) 통합 items 만들기
-    const items = []
-      .concat((studentRes.data || []).flatMap(r => normalizeAndExpandHomeworkRows(r, "student")))
-      .concat((tvRes.data || []).flatMap(r => normalizeAndExpandHomeworkRows(r, "teacher_vocab")))
-      .concat((tsRes.data || []).flatMap(r => normalizeAndExpandHomeworkRows(r, "teacher_sentence")));
+      if (studentRes.error) throw studentRes.error;
+      if (tvRes.error) throw tvRes.error;
+      if (tsRes.error) throw tsRes.error;
 
-    // 3) 정렬
-    items.sort((a, b) => {
-      const ad = a.due_date ? new Date(a.due_date).getTime() : Number.POSITIVE_INFINITY;
-      const bd = b.due_date ? new Date(b.due_date).getTime() : Number.POSITIVE_INFINITY;
-      if (ad !== bd) return ad - bd;
-      const at = a.created_at ? new Date(a.created_at).getTime() : 0;
-      const bt = b.created_at ? new Date(b.created_at).getTime() : 0;
-      return at - bt;
-    });
+      // 2) items 통합
+      const items = []
+        .concat((studentRes.data || []).flatMap(r => normalizeAndExpandHomeworkRows(r, "student")))
+        .concat((tvRes.data || []).flatMap(r => normalizeAndExpandHomeworkRows(r, "teacher_vocab")))
+        .concat((tsRes.data || []).flatMap(r => normalizeAndExpandHomeworkRows(r, "teacher_sentence")));
 
-    // ✅ 표시할 숙제가 없다면 바로 렌더
-    if (!items.length) {
-      renderUnifiedResults([], {}, {});
-      return;
-    }
+      // 3) 정렬
+      items.sort((a, b) => {
+        const ad = a.due_date ? new Date(a.due_date).getTime() : Number.POSITIVE_INFINITY;
+        const bd = b.due_date ? new Date(b.due_date).getTime() : Number.POSITIVE_INFINITY;
+        if (ad !== bd) return ad - bd;
+        const at = a.created_at ? new Date(a.created_at).getTime() : 0;
+        const bt = b.created_at ? new Date(b.created_at).getTime() : 0;
+        return at - bt;
+      });
 
-    // 4) unit_key 목록
-    const vocabUnitKeys = Array.from(new Set(
-      items.filter(x => x.type === "vocab" && x.unit_key).map(x => x.unit_key)
-    ));
-    const sentenceUnitKeys = Array.from(new Set(
-      items.filter(x => x.type === "sentence" && x.unit_key).map(x => x.unit_key)
-    ));
+      if (!items.length) {
+        renderUnifiedResults([], { latest:{}, counts:{} }, {});
+        return;
+      }
 
-    // 5) vocab 결과 맵
-    let vocabAttemptLatestByUnitByMode = {};
-let vocabAttemptCountByUnitByMode = {};
+      // 4) unit_key 목록
+      const vocabUnitKeys = Array.from(new Set(
+        items.filter(x => x.type === "vocab" && x.unit_key).map(x => x.unit_key)
+      ));
+      const sentenceUnitKeys = Array.from(new Set(
+        items.filter(x => x.type === "sentence" && x.unit_key).map(x => x.unit_key)
+      ));
 
-if (vocabUnitKeys.length > 0) {
-  const { data: va, error: vaErr } = await client
-    .from("vocab_attempts")
-    .select("id, unit_key, mode, correct_count, total_count, submitted_at")
-    .eq("student_login_id", currentStudent.login_id)
-    .in("unit_key", vocabUnitKeys)
-    .order("submitted_at", { ascending: false });
+      // 5) vocab_attempts → latest + counts 만들기
+      let vocabAttemptLatestByUnitByMode = {};
+      let vocabAttemptCountByUnitByMode = {};
 
-  if (vaErr) throw vaErr;
-
-  (va || []).forEach(r => {
-    const uk = r.unit_key;
-    const md = (r.mode || "unknown");
-    if (!uk) return;
-
-    if (!vocabAttemptCountByUnitByMode[uk]) vocabAttemptCountByUnitByMode[uk] = {};
-    vocabAttemptCountByUnitByMode[uk][md] = (vocabAttemptCountByUnitByMode[uk][md] || 0) + 1;
-
-    if (!vocabAttemptLatestByUnitByMode[uk]) vocabAttemptLatestByUnitByMode[uk] = {};
-    if (!vocabAttemptLatestByUnitByMode[uk][md]) vocabAttemptLatestByUnitByMode[uk][md] = r;
-  });
-}
-
-    // 6) sentence 결과 맵
-    let sentenceByUnitByMode = {};
-    if (sentenceUnitKeys.length > 0) {
-      try {
-        const { data: sr, error: srErr } = await client
-          .from("sentence_results")
+      if (vocabUnitKeys.length > 0) {
+        const { data: va, error: vaErr } = await client
+          .from("vocab_attempts")
           .select("id, student_login_id, unit_key, mode, correct_count, total_count, submitted_at")
           .eq("student_login_id", currentStudent.login_id)
-          .in("unit_key", sentenceUnitKeys)
+          .in("unit_key", vocabUnitKeys)
           .order("submitted_at", { ascending: false });
 
-        if (!srErr) {
-          (sr || []).forEach(r => {
-            const uk = r.unit_key;
-            const md = r.mode || "unknown";
-            if (!uk) return;
-            if (!sentenceByUnitByMode[uk]) sentenceByUnitByMode[uk] = {};
-            if (!sentenceByUnitByMode[uk][md]) sentenceByUnitByMode[uk][md] = r; // 최신 1개만
-          });
-        }
-      } catch (e) {
-        // sentence_results 테이블/권한 문제여도 페이지 유지
+        if (vaErr) throw vaErr;
+
+        (va || []).forEach(r => {
+          const uk = r.unit_key;
+          const md = (r.mode || "unknown");
+          if (!uk) return;
+
+          if (!vocabAttemptCountByUnitByMode[uk]) vocabAttemptCountByUnitByMode[uk] = {};
+          vocabAttemptCountByUnitByMode[uk][md] = (vocabAttemptCountByUnitByMode[uk][md] || 0) + 1;
+
+          if (!vocabAttemptLatestByUnitByMode[uk]) vocabAttemptLatestByUnitByMode[uk] = {};
+          if (!vocabAttemptLatestByUnitByMode[uk][md]) vocabAttemptLatestByUnitByMode[uk][md] = r; // 최신 1개
+        });
       }
+
+      const vocabAttemptPack = {
+        latest: vocabAttemptLatestByUnitByMode,
+        counts: vocabAttemptCountByUnitByMode
+      };
+
+      // 6) sentence_results 맵
+      let sentenceByUnitByMode = {};
+      if (sentenceUnitKeys.length > 0) {
+        try {
+          const { data: sr, error: srErr } = await client
+            .from("sentence_results")
+            .select("id, student_login_id, unit_key, mode, correct_count, total_count, submitted_at")
+            .eq("student_login_id", currentStudent.login_id)
+            .in("unit_key", sentenceUnitKeys)
+            .order("submitted_at", { ascending: false });
+
+          if (!srErr) {
+            (sr || []).forEach(r => {
+              const uk = r.unit_key;
+              const md = r.mode || "unknown";
+              if (!uk) return;
+              if (!sentenceByUnitByMode[uk]) sentenceByUnitByMode[uk] = {};
+              if (!sentenceByUnitByMode[uk][md]) sentenceByUnitByMode[uk][md] = r;
+            });
+          }
+        } catch (e) {
+          // 무시
+        }
+      }
+
+      // ✅ 마지막 렌더 (이거 때문에 너가 계속 터졌던 거였음)
+      renderUnifiedResults(items, vocabAttemptPack, sentenceByUnitByMode);
+
+    } catch (e) {
+      console.error("통합 결과 로딩 오류:", e);
+      unitResultBody.innerHTML = '<div class="class-hw-empty">결과를 불러오는 중 오류가 발생했어요.</div>';
     }
-
-    // ✅ 렌더링은 마지막에 딱 1번
-    renderUnifiedResults(items, vocabByUnitByMode, sentenceByUnitByMode);
-
-  } catch (e) {
-    console.error("통합 결과 로딩 오류:", e);
-    unitResultBody.innerHTML = '<div class="class-hw-empty">결과를 불러오는 중 오류가 발생했어요.</div>';
   }
-}
+
   async function saveMyHomework() {
     if (!currentStudent || !currentStudent.login_id) {
       setMyHwStatus("학생 정보를 찾을 수 없어요. 다시 로그인해 주세요.", "error");
@@ -1668,7 +1553,7 @@ if (vocabUnitKeys.length > 0) {
       : null;
 
     try {
-      // ===== 수정 모드 =====
+      // 수정 모드
       if (editingHomeworkId) {
         let payload = {
           type: currentType,
@@ -1684,7 +1569,6 @@ if (vocabUnitKeys.length > 0) {
           .eq("id", editingHomeworkId)
           .eq("student_login_id", currentStudent.login_id);
 
-        // tasks 컬럼이 없으면 tasks 없이 재시도(임시 안전장치)
         if (error && currentType === "vocab" && isMissingTasksColumnError(error)) {
           const { error: e2 } = await client
             .from("student_homework")
@@ -1713,7 +1597,7 @@ if (vocabUnitKeys.length > 0) {
         setMyHwStatus("✅ 수정 완료!", "");
 
       } else {
-        // ===== 등록 모드 =====
+        // 등록 모드
         let payload = {
           student_login_id: currentStudent.login_id,
           type: currentType,
@@ -1723,12 +1607,10 @@ if (vocabUnitKeys.length > 0) {
         };
         if (currentType === "vocab") payload.tasks = tasksForSave;
 
-        // ✅ INSERT
         let { error } = await client
           .from("student_homework")
           .insert(payload);
 
-        // ✅ tasks 컬럼이 없으면 tasks 없이 한번 더 시도
         if (error && currentType === "vocab" && isMissingTasksColumnError(error)) {
           const { error: e2 } = await client
             .from("student_homework")
@@ -1743,7 +1625,6 @@ if (vocabUnitKeys.length > 0) {
         }
 
         if (error) {
-          // ✅ UNIQUE INDEX 충돌 (같은 학생 + 같은 타입 + 같은 마감일)
           if (error.code === "23505") {
             setMyHwStatus(
               "⚠️ 같은 마감일에 이미 같은 종류의 숙제가 있어요.\n마감일을 바꾸거나 기존 숙제를 수정해 주세요.",
@@ -1763,7 +1644,6 @@ if (vocabUnitKeys.length > 0) {
         setMyHwStatus("✅ 숙제가 등록됐어요!", "");
       }
 
-      // ✅ 저장/수정 후 새로고침
       await loadUnifiedHomeworkResults();
       if (currentClass && currentClass.id) await loadClassHomework();
       if (manageBackdrop.style.display === "flex") await loadManageList();
@@ -1777,7 +1657,7 @@ if (vocabUnitKeys.length > 0) {
   }
   myHwSaveBtn.onclick = saveMyHomework;
 
-  // ===== 모달 열고닫기 =====
+  // 모달 열고닫기
   function openManageModal() {
     manageBackdrop.style.display = "flex";
     manageBackdrop.setAttribute("aria-hidden", "false");
@@ -1794,7 +1674,7 @@ if (vocabUnitKeys.length > 0) {
     if (e.key === "Escape" && manageBackdrop.style.display === "flex") closeManageModal();
   });
 
-  // ===== 수정 취소 =====
+  // 수정 취소
   myHwCancelBtn.onclick = () => {
     editingHomeworkId = null;
     setSaveButtonMode(false);
@@ -1812,7 +1692,7 @@ if (vocabUnitKeys.length > 0) {
     setSaveButtonMode(true, row);
   }
 
-  // ===== 모달 안 수정/삭제 버튼 이벤트(이벤트 위임) =====
+  // 모달 수정/삭제(이벤트 위임)
   function bindManageButtons() {
     document.addEventListener("click", async (e) => {
       const btn = e.target.closest("button.btn-mini[data-act]");
@@ -1865,7 +1745,6 @@ if (vocabUnitKeys.length > 0) {
     }, true);
   }
 
-  // ===== 관리 목록 로딩 =====
   async function loadManageList() {
     if (!currentStudent || !currentStudent.login_id) return;
 
@@ -1873,7 +1752,7 @@ if (vocabUnitKeys.length > 0) {
 
     const { data, error } = await client
       .from("student_homework")
-      .select("id, type, level, set_numbers, due_date, created_at")
+      .select("id, type, level, set_numbers, due_date, created_at, tasks")
       .eq("student_login_id", currentStudent.login_id)
       .order("due_date", { ascending: true })
       .order("created_at", { ascending: true });
@@ -1957,7 +1836,6 @@ if (vocabUnitKeys.length > 0) {
     manageArea.appendChild(table);
   }
 
-  // ===== “숙제 관리” 버튼 =====
   myHwManageBtn.onclick = async () => {
     if (!currentStudent || !currentStudent.login_id) {
       alert("학생 로그인이 필요합니다.");
@@ -1967,14 +1845,12 @@ if (vocabUnitKeys.length > 0) {
     await loadManageList();
   };
 
-  // ===== 로그아웃/홈 =====
   logoutBtn.onclick = () => {
     localStorage.removeItem("blossom_student");
     window.location.href = "index.html";
   };
   homeBtn.onclick = () => { window.location.href = "index.html"; };
 
-  // ===== 어휘 구성 바인딩 =====
   function bindVocabConfig() {
     setVocabTasksDefault();
     syncVocabConfigVisibility();
@@ -1989,7 +1865,6 @@ if (vocabUnitKeys.length > 0) {
     presetResetBtn.addEventListener("click", setVocabTasksReset);
   }
 
-  // ===== init =====
   (async function init() {
     bindManageButtons();
     bindVocabConfig();
@@ -2002,5 +1877,3 @@ if (vocabUnitKeys.length > 0) {
 </script>
 </body>
 </html>
-
-
