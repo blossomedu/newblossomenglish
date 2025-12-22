@@ -323,7 +323,7 @@
 
     .task-row {
       display: grid;
-      grid-template-columns: 1fr 80px 160px;
+      grid-template-columns: 1fr 100px 160px;
       gap: 8px;
       align-items: center;
       padding: 8px 10px;
@@ -449,7 +449,7 @@
       .unit-result-summary {
         grid-template-columns: 1.1fr 1fr 0.8fr 0.9fr 0.7fr 1.3fr;
       }
-      .task-row { grid-template-columns: 1fr 70px 130px; }
+      .task-row { grid-template-columns: 1fr 90px 130px; }
 
       .manage-actions { justify-content: flex-start; flex-wrap: wrap; }
     }
@@ -581,263 +581,259 @@
     }
   </style>
 
- <div class="section-card">
-  <div class="section-header">
-    <div class="section-title">✍️ 내 온라인 숙제</div>
-  </div>
+  <div class="section-card">
+    <div class="section-header">
+      <div class="section-title">✍️ 내 온라인 숙제</div>
+    </div>
 
-  <!-- ✅ "내 온라인 숙제" 전용: 칼각 정렬 + 어휘 구성 스타일 -->
-  <style>
-    .myhw-grid {
-      display: grid;
-      grid-template-columns: 160px 1fr 160px 160px;
-      gap: 10px;
-      align-items: end;
-      margin-bottom: 8px;
-    }
+    <!-- ✅ "내 온라인 숙제" 전용: 칼각 정렬 + 어휘 구성 스타일 -->
+    <style>
+      .myhw-grid {
+        display: grid;
+        grid-template-columns: 160px 1fr 160px 160px;
+        gap: 10px;
+        align-items: end;
+        margin-bottom: 8px;
+      }
 
-    /* ✅ 오른쪽 버튼 영역: 살짝 위로 + 세로 가운데 정렬 느낌 */
-    .myhw-actions-wrap {
-      align-self: center;
-    }
+      /* ✅ 오른쪽 버튼 영역: 살짝 위로 + 세로 가운데 정렬 느낌 */
+      .myhw-actions-wrap {
+        align-self: center;
+      }
 
-    .myhw-actions {
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
-      justify-content: center;
-      align-items: flex-end; /* 기본은 오른쪽 정렬 */
-    }
+      .myhw-actions {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        justify-content: center;
+        align-items: flex-end; /* 기본은 오른쪽 정렬 */
+      }
 
-    .btn-block { width: 100%; }
-
-    .vocab-config {
-      margin: 6px 0 10px;
-      display: none; /* vocab일 때만 표시 */
-    }
-
-    .preset-row {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      margin-bottom: 6px;
-      flex-wrap: wrap;
-    }
-
-    .preset-btn {
-      border: 1px solid #e5e7eb;
-      background: #f9fafb;
-      color: #374151;
-      font-size: 11px;
-      font-weight: 800;
-      padding: 5px 10px;
-      border-radius: 999px;
-      cursor: pointer;
-      white-space: nowrap;
-    }
-    .preset-btn:hover { background: #f3f4f6; }
-
-    .mini-select-row {
-      display: grid;
-      grid-template-columns: repeat(4, minmax(160px, 1fr));
-      gap: 8px;
-    }
-
-    .mini-item {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      border: 1px solid #e5e7eb;
-      background: #fff;
-      border-radius: 14px;
-      padding: 8px 10px;
-    }
-    .mini-item.off { opacity: 0.55; background: #f9fafb; }
-
-    .mini-label {
-      font-size: 12px;
-      font-weight: 900;
-      color: #111827;
-      white-space: nowrap;
-    }
-
-    .mini-select {
-      margin-left: auto;
-      border: 1px solid #d1d5db;
-      border-radius: 999px;
-      padding: 6px 10px;
-      font-size: 12px;
-      outline: none;
-      background: #fff;
-      font-weight: 800;
-      color: #111827;
-      min-width: 110px;
-    }
-
-    @media (max-width: 900px) {
-      .myhw-grid { grid-template-columns: 160px 1fr; }
-      .myhw-actions-wrap { grid-column: 1 / -1; }
-      .myhw-actions { flex-direction: row; }
-      .btn-block { width: auto; }
-      .mini-select-row { grid-template-columns: repeat(2, minmax(160px, 1fr)); }
-    }
-
-    @media (max-width: 520px) {
-      .mini-select-row { grid-template-columns: 1fr; }
-      .myhw-actions { flex-direction: column; }
       .btn-block { width: 100%; }
-    }
 
-    /* ===== ✅ 버튼 3개 최종 정리 (요청사항 반영) ===== */
+      .vocab-config {
+        margin: 6px 0 10px;
+        display: none; /* vocab일 때만 표시 */
+      }
 
-    /* 1) 버튼 크기 통일 */
-#my-hw-save-btn,
-#my-hw-manage-btn,
-#my-hw-cancel-btn {
-  width: 130px;
-}
+      .preset-row {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        margin-bottom: 6px;
+        flex-wrap: wrap;
+      }
 
-/* 2) 버튼 순서: 등록 → 관리 → 취소 */
-#my-hw-save-btn   { order: 1; }
-#my-hw-manage-btn { order: 2; }
-#my-hw-cancel-btn { order: 3; }
+      .preset-btn {
+        border: 1px solid #e5e7eb;
+        background: #f9fafb;
+        color: #374151;
+        font-size: 11px;
+        font-weight: 800;
+        padding: 5px 10px;
+        border-radius: 999px;
+        cursor: pointer;
+        white-space: nowrap;
+      }
+      .preset-btn:hover { background: #f3f4f6; }
 
-/* 🌸 숙제 등록 (핑크 버튼) */
-#my-hw-save-btn {
-  background: var(--pink);
-  color: #ffffff;
-  border: none;
+      .mini-select-row {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(160px, 1fr));
+        gap: 8px;
+      }
 
-  /* 좌우, 상하 미세 조정 */
-  transform: translate(-30px, 35px);
-}
+      .mini-item {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        border: 1px solid #e5e7eb;
+        background: #fff;
+        border-radius: 14px;
+        padding: 8px 10px;
+      }
+      .mini-item.off { opacity: 0.55; background: #f9fafb; }
 
-/* 🌿 숙제 관리 (민트 버튼) */
-#my-hw-manage-btn {
-  background: var(--mint);
-  color: #ffffff;
-  border: none;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
+      .mini-label {
+        font-size: 12px;
+        font-weight: 900;
+        color: #111827;
+        white-space: nowrap;
+      }
 
-  /* 좌우, 상하 미세 조정 */
-  transform: translate(-30px, 35px);
-}
-  </style>
+      .mini-select {
+        margin-left: auto;
+        border: 1px solid #d1d5db;
+        border-radius: 999px;
+        padding: 6px 10px;
+        font-size: 12px;
+        outline: none;
+        background: #fff;
+        font-weight: 800;
+        color: #111827;
+        min-width: 110px;
+      }
 
-  <!-- ✅ 열 정렬 grid -->
-  <div class="myhw-grid">
-    <div class="field" style="min-width:150px;">
-      <label>숙제 종류</label>
-      <div class="pill-group">
-        <button type="button" id="type-vocab" class="pill-type-btn active">어휘</button>
-        <button type="button" id="type-sentence" class="pill-type-btn">문장</button>
+      @media (max-width: 900px) {
+        .myhw-grid { grid-template-columns: 160px 1fr; }
+        .myhw-actions-wrap { grid-column: 1 / -1; }
+        .myhw-actions { flex-direction: row; }
+        .btn-block { width: auto; }
+        .mini-select-row { grid-template-columns: repeat(2, minmax(160px, 1fr)); }
+      }
+
+      @media (max-width: 520px) {
+        .mini-select-row { grid-template-columns: 1fr; }
+        .myhw-actions { flex-direction: column; }
+        .btn-block { width: 100%; }
+      }
+
+      /* ===== ✅ 버튼 3개 최종 정리 (요청사항 반영) ===== */
+
+      /* 1) 버튼 크기 통일 */
+      #my-hw-save-btn,
+      #my-hw-manage-btn,
+      #my-hw-cancel-btn {
+        width: 130px;
+      }
+
+      /* 2) 버튼 순서: 등록 → 관리 → 취소 */
+      #my-hw-save-btn   { order: 1; }
+      #my-hw-manage-btn { order: 2; }
+      #my-hw-cancel-btn { order: 3; }
+
+      /* 🌸 숙제 등록 (핑크 버튼) */
+      #my-hw-save-btn {
+        background: var(--pink);
+        color: #ffffff;
+        border: none;
+
+        /* 좌우, 상하 미세 조정 */
+        transform: translate(-30px, 35px);
+      }
+
+      /* 🌿 숙제 관리 (민트 버튼) */
+      #my-hw-manage-btn {
+        background: var(--mint);
+        color: #ffffff;
+        border: none;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+
+        /* 좌우, 상하 미세 조정 */
+        transform: translate(-30px, 35px);
+      }
+    </style>
+
+    <!-- ✅ 열 정렬 grid -->
+    <div class="myhw-grid">
+      <div class="field" style="min-width:150px;">
+        <label>숙제 종류</label>
+        <div class="pill-group">
+          <button type="button" id="type-vocab" class="pill-type-btn active">어휘</button>
+          <button type="button" id="type-sentence" class="pill-type-btn">문장</button>
+        </div>
+      </div>
+
+      <div class="field" style="min-width:180px;">
+        <label>단계-세트 (예: 1-1 또는 잠신중1-1)</label>
+        <input id="my-hw-set" class="input" type="text" placeholder="예: 1-1 또는 1-1, 1-2 또는 잠신중1-1" />
+      </div>
+
+      <div class="field" style="min-width:150px;">
+        <label>마감일</label>
+        <input id="my-hw-due" class="input-date" type="date" />
+      </div>
+
+      <div class="field myhw-actions-wrap" style="min-width:190px;">
+        <label>&nbsp;</label>
+        <div class="myhw-actions">
+          <button id="my-hw-save-btn" class="btn-primary btn-block" type="button">숙제 등록</button>
+          <button id="my-hw-manage-btn" class="btn-soft btn-block" type="button">숙제 관리</button>
+          <button id="my-hw-cancel-btn" class="btn-soft btn-block" type="button" style="display:none;">수정 취소</button>
+        </div>
       </div>
     </div>
 
-    <div class="field" style="min-width:180px;">
-      <label>단계-세트 (예: 1-1 또는 잠신중1-1)</label>
-      <input id="my-hw-set" class="input" type="text" placeholder="예: 1-1 또는 1-1, 1-2 또는 잠신중1-1" />
-    </div>
-
-    <div class="field" style="min-width:150px;">
-      <label>마감일</label>
-      <input id="my-hw-due" class="input-date" type="date" />
-    </div>
-
-    <div class="field myhw-actions-wrap" style="min-width:190px;">
-      <label>&nbsp;</label>
-      <div class="myhw-actions">
-        <!-- ✅ 등록은 위(기존 숙제 관리 자리 느낌) -->
-        <button id="my-hw-save-btn" class="btn-primary btn-block" type="button">숙제 등록</button>
-
-        <!-- ✅ 관리는 아래 + 가운데 정렬 -->
-        <button id="my-hw-manage-btn" class="btn-soft btn-block" type="button">숙제 관리</button>
-
-        <button id="my-hw-cancel-btn" class="btn-soft btn-block" type="button" style="display:none;">수정 취소</button>
-      </div>
-    </div>
-  </div>
-
-  <!-- ✅ 어휘 숙제 구성: 프리셋 + 4개 선택 (vocab일 때만 표시) -->
-  <div id="vocab-config" class="vocab-config">
-    <div class="preset-row">
-      <button type="button" id="preset-default" class="preset-btn">기본 4종</button>
-      <button type="button" id="preset-blank3" class="preset-btn">문장 빈칸 ×3</button>
-      <button type="button" id="preset-reset" class="preset-btn">초기화</button>
-    </div>
-
-    <div class="mini-select-row">
-      <div class="mini-item" id="mini-meaning">
-        <div class="mini-label">뜻 찾기</div>
-        <select id="sel-meaning" class="mini-select">
-          <option value="0">0</option><option value="1">1</option><option value="2">2</option>
-          <option value="3">3</option><option value="4">4</option><option value="5">5</option>
-        </select>
+    <!-- ✅ 어휘 숙제 구성: 프리셋 + 4개 선택 (vocab일 때만 표시) -->
+    <div id="vocab-config" class="vocab-config">
+      <div class="preset-row">
+        <button type="button" id="preset-default" class="preset-btn">기본 4종</button>
+        <button type="button" id="preset-blank3" class="preset-btn">문장 빈칸 ×3</button>
+        <button type="button" id="preset-reset" class="preset-btn">초기화</button>
       </div>
 
-      <div class="mini-item" id="mini-english">
-        <div class="mini-label">영어 찾기</div>
-        <select id="sel-english" class="mini-select">
-          <option value="0">0</option><option value="1">1</option><option value="2">2</option>
-          <option value="3">3</option><option value="4">4</option><option value="5">5</option>
-        </select>
-      </div>
+      <div class="mini-select-row">
+        <div class="mini-item" id="mini-meaning">
+          <div class="mini-label">뜻 찾기</div>
+          <select id="sel-meaning" class="mini-select">
+            <option value="0">0</option><option value="1">1</option><option value="2">2</option>
+            <option value="3">3</option><option value="4">4</option><option value="5">5</option>
+          </select>
+        </div>
 
-      <div class="mini-item" id="mini-listening">
-        <div class="mini-label">듣고 찾기</div>
-        <select id="sel-listening" class="mini-select">
-          <option value="0">0</option><option value="1">1</option><option value="2">2</option>
-          <option value="3">3</option><option value="4">4</option><option value="5">5</option>
-        </select>
-      </div>
+        <div class="mini-item" id="mini-english">
+          <div class="mini-label">영어 찾기</div>
+          <select id="sel-english" class="mini-select">
+            <option value="0">0</option><option value="1">1</option><option value="2">2</option>
+            <option value="3">3</option><option value="4">4</option><option value="5">5</option>
+          </select>
+        </div>
 
-      <div class="mini-item" id="mini-sentence">
-        <div class="mini-label">문장 빈칸</div>
-        <select id="sel-sentence" class="mini-select">
-          <option value="0">0</option><option value="1">1</option><option value="2">2</option>
-          <option value="3">3</option><option value="4">4</option><option value="5">5</option>
-        </select>
+        <div class="mini-item" id="mini-listening">
+          <div class="mini-label">듣고 찾기</div>
+          <select id="sel-listening" class="mini-select">
+            <option value="0">0</option><option value="1">1</option><option value="2">2</option>
+            <option value="3">3</option><option value="4">4</option><option value="5">5</option>
+          </select>
+        </div>
+
+        <div class="mini-item" id="mini-sentence">
+          <div class="mini-label">문장 빈칸</div>
+          <select id="sel-sentence" class="mini-select">
+            <option value="0">0</option><option value="1">1</option><option value="2">2</option>
+            <option value="3">3</option><option value="4">4</option><option value="5">5</option>
+          </select>
+        </div>
       </div>
+    </div>
+
+    <div class="hint">
+      어휘는 같은 단계만 여러 개 입력 가능(예: 1-1, 1-2). 문장은 1-1 또는 잠신중1-1처럼 입력 가능.
+    </div>
+    <div id="my-hw-status" class="status-text"></div>
+  </div>
+
+  <div class="section-card">
+    <div class="section-header">
+      <div class="section-title">📊 내 온라인 숙제 결과</div>
+    </div>
+
+    <div class="unit-result-wrap" id="unit-result-wrap">
+      <div class="unit-result-head">
+        <div>마감 날짜</div>
+        <div>출처</div>
+        <div>구분</div>
+        <div>단원(Unit)</div>
+        <div>Unit 전체</div>
+        <div>제출 시간</div>
+      </div>
+      <div id="unit-result-body"></div>
     </div>
   </div>
 
-  <div class="hint">
-    어휘는 같은 단계만 여러 개 입력 가능(예: 1-1, 1-2). 문장은 1-1 또는 잠신중1-1처럼 입력 가능.
-  </div>
-  <div id="my-hw-status" class="status-text"></div>
-</div>
-
-<div class="section-card">
-  <div class="section-header">
-    <div class="section-title">📊 내 온라인 숙제 결과</div>
-  </div>
-
-  <div class="unit-result-wrap" id="unit-result-wrap">
-    <div class="unit-result-head">
-      <div>마감 날짜</div>
-      <div>출처</div>
-      <div>구분</div>
-      <div>단원(Unit)</div>
-      <div>Unit 전체</div>
-      <div>제출 시간</div>
+  <div class="section-card">
+    <div class="section-header">
+      <div class="section-title">👤 내 정보</div>
     </div>
-    <div id="unit-result-body"></div>
+    <div class="info-row">
+      <div><span class="label">이름:</span><span id="info-name">-</span></div>
+      <div><span class="label">반:</span><span id="info-class">-</span></div>
+      <div><span class="label">아이디:</span><span id="info-id">-</span></div>
+    </div>
+    <div id="info-message" class="info-message"></div>
   </div>
-</div>
-
-<div class="section-card">
-  <div class="section-header">
-    <div class="section-title">👤 내 정보</div>
-  </div>
-  <div class="info-row">
-    <div><span class="label">이름:</span><span id="info-name">-</span></div>
-    <div><span class="label">반:</span><span id="info-class">-</span></div>
-    <div><span class="label">아이디:</span><span id="info-id">-</span></div>
-  </div>
-  <div id="info-message" class="info-message"></div>
-</div>
 </div>
 
 <div id="manage-backdrop" class="modal-backdrop" aria-hidden="true">
@@ -1019,12 +1015,6 @@
     return Math.max(min, Math.min(max, n));
   }
 
-  // ✅ tasks 컬럼 없을 때 메시지 기반 감지(임시 안전장치)
-  function isMissingTasksColumnError(err) {
-    const msg = String((err && err.message) ? err.message : err || "").toLowerCase();
-    return msg.includes("column") && msg.includes("tasks") && msg.includes("does not exist");
-  }
-
   function syncVocabConfigVisibility() {
     vocabConfigEl.style.display = (currentType === "vocab") ? "block" : "none";
   }
@@ -1063,7 +1053,6 @@
       sentence: clampNum(t.sentence, 0, 5)
     };
     const sum = safe.meaning + safe.english + safe.listening + safe.sentence;
-    // ✅ ALL 버튼 없이도 안전하게: 합이 0이면 기본 4종으로 저장
     if (sum === 0) return { meaning:1, english:1, listening:1, sentence:1 };
     return safe;
   }
@@ -1132,21 +1121,22 @@
       const classId = currentClass.id;
 
       const [postsRes, vocabRes, sentenceRes] = await Promise.all([
-  client.from("board_posts")
-    .select("id, class_id, title, content, created_at")
-    .eq("class_id", classId)
-    .order("created_at", { ascending: false }),
+        client.from("board_posts")
+          .select("id, class_id, title, content, created_at")
+          .eq("class_id", classId)
+          .order("created_at", { ascending: false }),
 
-  client.from("vocab_homework")
-    .select("id, class_id, level, set_numbers, due_date, created_at, tasks")
-    .eq("class_id", classId)
-    .order("created_at", { ascending: false }),
+        client.from("vocab_homework")
+          .select("id, class_id, level, set_numbers, due_date, created_at, tasks")
+          .eq("class_id", classId)
+          .order("created_at", { ascending: false }),
 
-  client.from("sentence_homework")
-    .select("id, class_id, level, set_numbers, due_date, created_at, tasks")
-    .eq("class_id", classId)
-    .order("created_at", { ascending: false })
-]);
+        client.from("sentence_homework")
+          .select("id, class_id, level, set_numbers, due_date, created_at, tasks")
+          .eq("class_id", classId)
+          .order("created_at", { ascending: false })
+      ]);
+
       const groupsMap = {};
       function ensureGroup(dateKey) {
         if (!groupsMap[dateKey]) {
@@ -1286,42 +1276,29 @@
         '<div class="class-hw-empty">숙제를 불러오는 중 오류가 발생했습니다.</div>';
     }
   }
+
+  // ✅ items에 tasks 포함 (정상 버전)
   function normalizeAndExpandHomeworkRows(row, from) {
-  const isStudent = from === "student";
-  const type = isStudent ? row.type : (from === "teacher_sentence" ? "sentence" : "vocab");
+    const isStudent = from === "student";
+    const type = isStudent ? row.type : (from === "teacher_sentence" ? "sentence" : "vocab");
+    const tasks = row?.tasks || null;
 
-  const tasks = row?.tasks || null; // ✅ 숙제 설정값(요구 횟수)
+    const unitKeys = parseUnitKeysFromSetNumbers(row.set_numbers);
 
-  const unitKeys = parseUnitKeysFromSetNumbers(row.set_numbers);
+    if (unitKeys.length === 0) {
+      return [{
+        source: isStudent ? "student" : "teacher",
+        sourceLabel: isStudent ? "내가 등록" : "선생님",
+        type,
+        due_date: row.due_date || null,
+        created_at: row.created_at || null,
+        unit_key: null,
+        unit_text: (row.set_numbers || "-"),
+        tasks,
+        raw: row
+      }];
+    }
 
-  // set_numbers를 단원으로 못 쪼개면 1줄짜리로 표시(기존 방식 유지)
-  if (unitKeys.length === 0) {
-    return [{
-      source: isStudent ? "student" : "teacher",
-      sourceLabel: isStudent ? "내가 등록" : "선생님",
-      type,
-      due_date: row.due_date || null,
-      created_at: row.created_at || null,
-      unit_key: null,
-      unit_text: (row.set_numbers || "-"),
-      tasks,              // ✅ 추가
-      raw: row
-    }];
-  }
-
-  // set_numbers가 "1-1, 1-2" 같은 경우 → unit별로 분해해서 여러 줄 생성
-  return unitKeys.map(uk => ({
-    source: isStudent ? "student" : "teacher",
-    sourceLabel: isStudent ? "내가 등록" : "선생님",
-    type,
-    due_date: row.due_date || null,
-    created_at: row.created_at || null,
-    unit_key: uk,
-    unit_text: uk,
-    tasks,               // ✅ 추가
-    raw: row
-  }));
-}
     return unitKeys.map(uk => ({
       source: isStudent ? "student" : "teacher",
       sourceLabel: isStudent ? "내가 등록" : "선생님",
@@ -1330,41 +1307,71 @@
       created_at: row.created_at || null,
       unit_key: uk,
       unit_text: uk,
+      tasks,
       raw: row
     }));
   }
 
-function taskCellByCount({ doneCount, required, latest }) {
-  // required가 0이면 아예 숙제가 없는 모드
-  if (!required || required <= 0) {
-    return { mark: "-", color: "#9ca3af", time: "--" };
-  }
-
-  // 한 번도 안 함
-  if (!doneCount || doneCount === 0) {
-    return { mark: "❌", color: "#991b1b", time: "--" };
-  }
-
-  // 일부만 함
-  if (doneCount < required) {
+  // ✅ 문장 상세에서 아직 쓰는 원래 판정기(에러 방지용으로 유지)
+  function taskCell(result) {
+    if (!result) return { mark: "❌", color: "#991b1b", time: "--" };
+    const total = Number(result.total_count || 0);
+    const correct = Number(result.correct_count || 0);
+    const ok = total > 0 && correct >= total;
     return {
-      mark: "△",
-      color: "#92400e",
-      time: latest?.submitted_at
-        ? `${formatDate(latest.submitted_at)} ${formatTime(latest.submitted_at)}`
-        : "--"
+      mark: ok ? "⭕" : "△",
+      color: ok ? "#166534" : "#92400e",
+      time: result.submitted_at ? `${formatDate(result.submitted_at)} ${formatTime(result.submitted_at)}` : "--"
     };
   }
 
-  // 전부 완료
-  return {
-    mark: "⭕",
-    color: "#166534",
-    time: latest?.submitted_at
-      ? `${formatDate(latest.submitted_at)} ${formatTime(latest.submitted_at)}`
-      : "--"
-  };
-}
+  // ✅ 어휘: 횟수 기반 판정기
+  function taskCellByCount({ doneCount, required, latest }) {
+    if (!required || required <= 0) return { mark: "-", color: "#9ca3af", time: "--", progress: "" };
+
+    const done = Number(doneCount || 0);
+    const req = Number(required || 0);
+
+    if (done <= 0) return { mark: "❌", color: "#991b1b", time: "--", progress: `${done}/${req}` };
+
+    if (done < req) {
+      return {
+        mark: "△",
+        color: "#92400e",
+        time: latest?.submitted_at ? `${formatDate(latest.submitted_at)} ${formatTime(latest.submitted_at)}` : "--",
+        progress: `${done}/${req}`
+      };
+    }
+
+    return {
+      mark: "⭕",
+      color: "#166534",
+      time: latest?.submitted_at ? `${formatDate(latest.submitted_at)} ${formatTime(latest.submitted_at)}` : "--",
+      progress: `${done}/${req}`
+    };
+  }
+
+  // ✅ 어휘 Unit 전체: tasks(required) 기준
+  function computeOverallStatusFromVocabModes(modeMap, tasks) {
+    if (!tasks) return { cls: "status-x", text: "❌" };
+
+    const modes = ["meaning", "english", "listening", "sentence"];
+    const requiredModes = modes.filter(m => Number(tasks[m] || 0) > 0);
+
+    if (requiredModes.length === 0) return { cls: "status-x", text: "❌" };
+
+    let completed = 0;
+    requiredModes.forEach(m => {
+      const required = Number(tasks[m]);
+      const done = Number(modeMap?.[m]?.doneCount || 0);
+      if (done >= required) completed++;
+    });
+
+    if (completed === 0) return { cls: "status-x", text: "❌" };
+    if (completed === requiredModes.length) return { cls: "status-o", text: "⭕" };
+    return { cls: "status-d", text: "△" };
+  }
+
   const SENTENCE_TASKS_NORMAL = [
     { mode: "blank",   label: "빈칸 완성" },
     { mode: "arrange", label: "문장 배열" }
@@ -1381,17 +1388,20 @@ function taskCellByCount({ doneCount, required, latest }) {
     return /^(잠신중|잠신고)\d+-\d+$/.test(t);
   }
 
+  // ✅ sentenceByUnitByMode 구조({doneCount, latest})에 맞게 수정
   function buildSentenceTaskView(unitKey, sentenceByUnitByMode) {
     const modeMap = (sentenceByUnitByMode && sentenceByUnitByMode[unitKey]) ? sentenceByUnitByMode[unitKey] : {};
     const tasks = isSchoolUnitKey(unitKey) ? SENTENCE_TASKS_SCHOOL : SENTENCE_TASKS_NORMAL;
 
     const rows = tasks.map(t => {
-      const r = modeMap ? modeMap[t.mode] : null;
-      const cell = taskCell(r);
-      return { ...t, result: r, cell };
+      const pack = modeMap ? modeMap[t.mode] : null;          // {doneCount, latest}
+      const latest = pack?.latest || null;
+      const cell = taskCell(latest);                          // 기존 판정기 그대로 사용(에러 방지)
+      const hasAny = (pack?.doneCount || 0) > 0;
+      return { ...t, pack, hasAny, cell };
     });
 
-    const doneCount = rows.filter(x => x.result).length;
+    const doneCount = rows.filter(x => x.hasAny).length;
     const totalCount = rows.length;
 
     const overall = (doneCount === 0)
@@ -1400,7 +1410,7 @@ function taskCellByCount({ doneCount, required, latest }) {
         ? { cls: "status-o", text: "⭕" }
         : { cls: "status-d", text: "△" };
 
-    const latest = safeLatestBySubmittedAt(rows.map(r => r.result).filter(Boolean));
+    const latest = safeLatestBySubmittedAt(rows.map(r => r.pack?.latest).filter(Boolean));
     const submittedText = latest
       ? `${scoreTextFromResult(latest)} · ${formatDate(latest.submitted_at)} ${formatTime(latest.submitted_at)}`
       : "--";
@@ -1408,28 +1418,13 @@ function taskCellByCount({ doneCount, required, latest }) {
     return { rows, overall, submittedText };
   }
 
-  function computeOverallStatusFromVocabModes(modeMap, tasks) {
-  if (!tasks) return { cls: "status-x", text: "❌" };
+  function renderUnifiedResults(items, vocabByUnitByMode, sentenceByUnitByMode) {
+    unitResultBody.innerHTML = "";
 
-  const modes = ["meaning", "english", "listening", "sentence"];
-  const requiredModes = modes.filter(m => Number(tasks[m] || 0) > 0);
-
-  if (requiredModes.length === 0) {
-    return { cls: "status-x", text: "❌" };
-  }
-
-  let completed = 0;
-
-  requiredModes.forEach(m => {
-    const required = Number(tasks[m]);
-    const done = modeMap?.[m]?.doneCount || 0;
-    if (done >= required) completed++;
-  });
-
-  if (completed === 0) return { cls: "status-x", text: "❌" };
-  if (completed === requiredModes.length) return { cls: "status-o", text: "⭕" };
-  return { cls: "status-d", text: "△" };
-}
+    if (!items || items.length === 0) {
+      unitResultBody.innerHTML = '<div class="class-hw-empty">표시할 숙제가 없어요.</div>';
+      return;
+    }
 
     items.forEach(item => {
       const details = document.createElement("details");
@@ -1450,14 +1445,20 @@ function taskCellByCount({ doneCount, required, latest }) {
       let overall = { cls: "status-x", text: "❌" };
       let submittedText = "--";
 
+      // ✅ vocab summary
       if (item.type === "vocab" && item.unit_key) {
         const modeMap = (vocabByUnitByMode && vocabByUnitByMode[item.unit_key]) ? vocabByUnitByMode[item.unit_key] : {};
-        overall = computeOverallStatusFromVocabModes(modeMap);
+        overall = computeOverallStatusFromVocabModes(modeMap, item.tasks);
 
-        const latest = safeLatestBySubmittedAt(Object.values(modeMap || {}));
-        submittedText = latest ? `${scoreTextFromResult(latest)} · ${formatDate(latest.submitted_at)} ${formatTime(latest.submitted_at)}` : "--";
+        const latest = safeLatestBySubmittedAt(
+          Object.values(modeMap || {}).map(x => x?.latest).filter(Boolean)
+        );
+        submittedText = latest
+          ? `${scoreTextFromResult(latest)} · ${formatDate(latest.submitted_at)} ${formatTime(latest.submitted_at)}`
+          : "--";
       }
 
+      // ✅ sentence summary
       if (item.type === "sentence" && item.unit_key) {
         const view = buildSentenceTaskView(item.unit_key, sentenceByUnitByMode);
         overall = view.overall;
@@ -1478,37 +1479,56 @@ function taskCellByCount({ doneCount, required, latest }) {
       const detail = document.createElement("div");
       detail.className = "unit-detail";
 
+      // ✅ vocab detail: taskCellByCount로 교체
       if (item.type === "vocab" && item.unit_key) {
         const modeMap = (vocabByUnitByMode && vocabByUnitByMode[item.unit_key]) ? vocabByUnitByMode[item.unit_key] : {};
-        const tMeaning   = taskCell(modeMap.meaning);
-        const tEnglish   = taskCell(modeMap.english);
-        const tListening = taskCell(modeMap.listening);
-        const tSentence  = taskCell(modeMap.sentence);
+        const tasks = item.tasks || { meaning:1, english:1, listening:1, sentence:1 };
+
+        const tMeaning = taskCellByCount({
+          doneCount: modeMap?.meaning?.doneCount || 0,
+          required: tasks?.meaning || 0,
+          latest: modeMap?.meaning?.latest || null
+        });
+        const tEnglish = taskCellByCount({
+          doneCount: modeMap?.english?.doneCount || 0,
+          required: tasks?.english || 0,
+          latest: modeMap?.english?.latest || null
+        });
+        const tListening = taskCellByCount({
+          doneCount: modeMap?.listening?.doneCount || 0,
+          required: tasks?.listening || 0,
+          latest: modeMap?.listening?.latest || null
+        });
+        const tSentence = taskCellByCount({
+          doneCount: modeMap?.sentence?.doneCount || 0,
+          required: tasks?.sentence || 0,
+          latest: modeMap?.sentence?.latest || null
+        });
 
         detail.innerHTML = `
           <div class="unit-detail-grid">
             <div class="task-row">
               <div class="task-name">뜻 찾기</div>
-              <div class="task-status" style="color:${tMeaning.color};">${tMeaning.mark}</div>
+              <div class="task-status" style="color:${tMeaning.color};">${tMeaning.mark} <span style="font-size:12px;color:#6b7280;">${tMeaning.progress}</span></div>
               <div class="task-time">${tMeaning.time}</div>
             </div>
             <div class="task-row">
               <div class="task-name">영어 찾기</div>
-              <div class="task-status" style="color:${tEnglish.color};">${tEnglish.mark}</div>
+              <div class="task-status" style="color:${tEnglish.color};">${tEnglish.mark} <span style="font-size:12px;color:#6b7280;">${tEnglish.progress}</span></div>
               <div class="task-time">${tEnglish.time}</div>
             </div>
             <div class="task-row">
               <div class="task-name">듣고 찾기</div>
-              <div class="task-status" style="color:${tListening.color};">${tListening.mark}</div>
+              <div class="task-status" style="color:${tListening.color};">${tListening.mark} <span style="font-size:12px;color:#6b7280;">${tListening.progress}</span></div>
               <div class="task-time">${tListening.time}</div>
             </div>
             <div class="task-row">
               <div class="task-name">문장 빈칸</div>
-              <div class="task-status" style="color:${tSentence.color};">${tSentence.mark}</div>
+              <div class="task-status" style="color:${tSentence.color};">${tSentence.mark} <span style="font-size:12px;color:#6b7280;">${tSentence.progress}</span></div>
               <div class="task-time">${tSentence.time}</div>
             </div>
           </div>
-          <div class="unit-guide">※ 어휘 4개 모드를 모두 완료하면 Unit 전체가 ⭕로 바뀝니다.</div>
+          <div class="unit-guide">※ 각 모드는 <b>설정된 횟수</b>를 채우면 ⭕로 바뀝니다. (예: 2/4는 △)</div>
         `;
       } else if (item.type === "sentence" && item.unit_key) {
         const view = buildSentenceTaskView(item.unit_key, sentenceByUnitByMode);
@@ -1546,124 +1566,114 @@ function taskCellByCount({ doneCount, required, latest }) {
       unitResultBody.appendChild(details);
     });
   }
-async function loadUnifiedHomeworkResults() {
-  if (!currentStudent || !currentStudent.login_id) return;
 
-  unitResultBody.innerHTML = '<div class="class-hw-empty">결과를 불러오는 중...</div>';
+  async function buildResultMap(table, unitKeys) {
+    const resultMap = {};
+    if (!unitKeys || unitKeys.length === 0) return resultMap;
 
-  try {
-    // 1) 학생 숙제 + 선생님 숙제 불러오기
-    const studentReq = client
-      .from("student_homework")
-      .select("id, type, level, set_numbers, due_date, created_at, tasks")
-      .eq("student_login_id", currentStudent.login_id);
+    const { data, error } = await client
+      .from(table)
+      .select("id, student_login_id, unit_key, mode, correct_count, total_count, submitted_at")
+      .eq("student_login_id", currentStudent.login_id)
+      .in("unit_key", unitKeys)
+      .order("submitted_at", { ascending: false });
 
-    let teacherVocabReq = Promise.resolve({ data: [], error: null });
-    let teacherSentenceReq = Promise.resolve({ data: [], error: null });
+    if (error) throw error;
 
-    if (currentClass && currentClass.id) {
-      teacherVocabReq = client
-        .from("vocab_homework")
-        .select("id, class_id, level, set_numbers, due_date, created_at, tasks")
-        .eq("class_id", currentClass.id);
+    (data || []).forEach(r => {
+      const uk = r.unit_key;
+      const md = r.mode || "unknown";
+      if (!uk) return;
 
-      teacherSentenceReq = client
-        .from("sentence_homework")
-        .select("id, class_id, level, set_numbers, due_date, created_at, tasks")
-        .eq("class_id", currentClass.id);
-    }
+      if (!resultMap[uk]) resultMap[uk] = {};
+      if (!resultMap[uk][md]) {
+        resultMap[uk][md] = { doneCount: 0, latest: null };
+      }
 
-    const [studentRes, tvRes, tsRes] = await Promise.all([
-      studentReq,
-      teacherVocabReq,
-      teacherSentenceReq
-    ]);
+      resultMap[uk][md].doneCount += 1;
 
-    if (studentRes.error) throw studentRes.error;
-    if (tvRes.error) throw tvRes.error;
-    if (tsRes.error) throw tsRes.error;
-
-    // 2) 통합 items 만들기
-    const items = []
-      .concat((studentRes.data || []).flatMap(r => normalizeAndExpandHomeworkRows(r, "student")))
-      .concat((tvRes.data || []).flatMap(r => normalizeAndExpandHomeworkRows(r, "teacher_vocab")))
-      .concat((tsRes.data || []).flatMap(r => normalizeAndExpandHomeworkRows(r, "teacher_sentence")));
-
-    // 3) 정렬
-    items.sort((a, b) => {
-      const ad = a.due_date ? new Date(a.due_date).getTime() : Number.POSITIVE_INFINITY;
-      const bd = b.due_date ? new Date(b.due_date).getTime() : Number.POSITIVE_INFINITY;
-      if (ad !== bd) return ad - bd;
-      const at = a.created_at ? new Date(a.created_at).getTime() : 0;
-      const bt = b.created_at ? new Date(b.created_at).getTime() : 0;
-      return at - bt;
+      const cur = resultMap[uk][md].latest;
+      if (!cur || new Date(r.submitted_at) > new Date(cur.submitted_at)) {
+        resultMap[uk][md].latest = r;
+      }
     });
 
-    // ✅ 표시할 숙제가 없다면 바로 렌더
-    if (!items.length) {
-      renderUnifiedResults([], {}, {});
-      return;
-    }
-
-    // 4) unit_key 목록
-    const vocabUnitKeys = Array.from(new Set(
-      items.filter(x => x.type === "vocab" && x.unit_key).map(x => x.unit_key)
-    ));
-    const sentenceUnitKeys = Array.from(new Set(
-      items.filter(x => x.type === "sentence" && x.unit_key).map(x => x.unit_key)
-    ));
-
-    // 5) vocab 결과 맵
-    // 5~6) vocab + sentence 결과 맵 (통째 대체)
-async function buildResultMap(table, unitKeys) {
-  const resultMap = {};
-  if (!unitKeys || unitKeys.length === 0) return resultMap;
-
-  const { data, error } = await client
-    .from(table)
-    .select("id, student_login_id, unit_key, mode, correct_count, total_count, submitted_at")
-    .eq("student_login_id", currentStudent.login_id)
-    .in("unit_key", unitKeys)
-    .order("submitted_at", { ascending: false });
-
-  if (error) throw error;
-
-  (data || []).forEach(r => {
-    const uk = r.unit_key;
-    const md = r.mode || "unknown";
-    if (!uk) return;
-
-    if (!resultMap[uk]) resultMap[uk] = {};
-    if (!resultMap[uk][md]) {
-      resultMap[uk][md] = {
-        doneCount: 0,
-        latest: null
-      };
-    }
-
-    resultMap[uk][md].doneCount += 1;
-
-    const cur = resultMap[uk][md].latest;
-    if (!cur || new Date(r.submitted_at) > new Date(cur.submitted_at)) {
-      resultMap[uk][md].latest = r;
-    }
-  });
-
-  return resultMap;
-}
-
-// ✅ 기존 5), 6) 자리에 이 두 줄만 남기면 됨
-const vocabByUnitByMode = await buildResultMap("vocab_results", vocabUnitKeys);
-const sentenceByUnitByMode = await buildResultMap("sentence_results", sentenceUnitKeys);
-    
-    // ✅ 렌더링은 마지막에 딱 1번
-    renderUnifiedResults(items, vocabByUnitByMode, sentenceByUnitByMode);
-
-  } catch (e) {
-    console.error("통합 결과 로딩 오류:", e);
-    unitResultBody.innerHTML = '<div class="class-hw-empty">결과를 불러오는 중 오류가 발생했어요.</div>';
+    return resultMap;
   }
-}
+
+  async function loadUnifiedHomeworkResults() {
+    if (!currentStudent || !currentStudent.login_id) return;
+
+    unitResultBody.innerHTML = '<div class="class-hw-empty">결과를 불러오는 중...</div>';
+
+    try {
+      const studentReq = client
+        .from("student_homework")
+        .select("id, type, level, set_numbers, due_date, created_at, tasks")
+        .eq("student_login_id", currentStudent.login_id);
+
+      let teacherVocabReq = Promise.resolve({ data: [], error: null });
+      let teacherSentenceReq = Promise.resolve({ data: [], error: null });
+
+      if (currentClass && currentClass.id) {
+        teacherVocabReq = client
+          .from("vocab_homework")
+          .select("id, class_id, level, set_numbers, due_date, created_at, tasks")
+          .eq("class_id", currentClass.id);
+
+        teacherSentenceReq = client
+          .from("sentence_homework")
+          .select("id, class_id, level, set_numbers, due_date, created_at, tasks")
+          .eq("class_id", currentClass.id);
+      }
+
+      const [studentRes, tvRes, tsRes] = await Promise.all([
+        studentReq,
+        teacherVocabReq,
+        teacherSentenceReq
+      ]);
+
+      if (studentRes.error) throw studentRes.error;
+      if (tvRes.error) throw tvRes.error;
+      if (tsRes.error) throw tsRes.error;
+
+      const items = []
+        .concat((studentRes.data || []).flatMap(r => normalizeAndExpandHomeworkRows(r, "student")))
+        .concat((tvRes.data || []).flatMap(r => normalizeAndExpandHomeworkRows(r, "teacher_vocab")))
+        .concat((tsRes.data || []).flatMap(r => normalizeAndExpandHomeworkRows(r, "teacher_sentence")));
+
+      items.sort((a, b) => {
+        const ad = a.due_date ? new Date(a.due_date).getTime() : Number.POSITIVE_INFINITY;
+        const bd = b.due_date ? new Date(b.due_date).getTime() : Number.POSITIVE_INFINITY;
+        if (ad !== bd) return ad - bd;
+        const at = a.created_at ? new Date(a.created_at).getTime() : 0;
+        const bt = b.created_at ? new Date(b.created_at).getTime() : 0;
+        return at - bt;
+      });
+
+      if (!items.length) {
+        renderUnifiedResults([], {}, {});
+        return;
+      }
+
+      const vocabUnitKeys = Array.from(new Set(
+        items.filter(x => x.type === "vocab" && x.unit_key).map(x => x.unit_key)
+      ));
+      const sentenceUnitKeys = Array.from(new Set(
+        items.filter(x => x.type === "sentence" && x.unit_key).map(x => x.unit_key)
+      ));
+
+      const vocabByUnitByMode = await buildResultMap("vocab_results", vocabUnitKeys);
+      const sentenceByUnitByMode = await buildResultMap("sentence_results", sentenceUnitKeys);
+
+      renderUnifiedResults(items, vocabByUnitByMode, sentenceByUnitByMode);
+
+    } catch (e) {
+      console.error("통합 결과 로딩 오류:", e);
+      unitResultBody.innerHTML = '<div class="class-hw-empty">결과를 불러오는 중 오류가 발생했어요.</div>';
+    }
+  }
+
   async function saveMyHomework() {
     if (!currentStudent || !currentStudent.login_id) {
       setMyHwStatus("학생 정보를 찾을 수 없어요. 다시 로그인해 주세요.", "error");
@@ -1695,7 +1705,6 @@ const sentenceByUnitByMode = await buildResultMap("sentence_results", sentenceUn
       : null;
 
     try {
-      // ===== 수정 모드 =====
       if (editingHomeworkId) {
         let payload = {
           type: currentType,
@@ -1711,21 +1720,6 @@ const sentenceByUnitByMode = await buildResultMap("sentence_results", sentenceUn
           .eq("id", editingHomeworkId)
           .eq("student_login_id", currentStudent.login_id);
 
-        // tasks 컬럼이 없으면 tasks 없이 재시도(임시 안전장치)
-        if (error && currentType === "vocab" && isMissingTasksColumnError(error)) {
-          const { error: e2 } = await client
-            .from("student_homework")
-            .update({
-              type: currentType,
-              level: parsed.level,
-              set_numbers: parsed.raw,
-              due_date: due
-            })
-            .eq("id", editingHomeworkId)
-            .eq("student_login_id", currentStudent.login_id);
-          error = e2 || null;
-        }
-
         if (error) {
           console.error("student_homework 수정 오류:", error);
           setMyHwStatus("수정 중 오류가 발생했어요. (콘솔 에러 확인)", "error");
@@ -1738,9 +1732,7 @@ const sentenceByUnitByMode = await buildResultMap("sentence_results", sentenceUn
         myHwDueEl.value = "";
         if (currentType === "vocab") setVocabTasksDefault();
         setMyHwStatus("✅ 수정 완료!", "");
-
       } else {
-        // ===== 등록 모드 =====
         let payload = {
           student_login_id: currentStudent.login_id,
           type: currentType,
@@ -1750,27 +1742,11 @@ const sentenceByUnitByMode = await buildResultMap("sentence_results", sentenceUn
         };
         if (currentType === "vocab") payload.tasks = tasksForSave;
 
-        // ✅ INSERT
         let { error } = await client
           .from("student_homework")
           .insert(payload);
 
-        // ✅ tasks 컬럼이 없으면 tasks 없이 한번 더 시도
-        if (error && currentType === "vocab" && isMissingTasksColumnError(error)) {
-          const { error: e2 } = await client
-            .from("student_homework")
-            .insert({
-              student_login_id: currentStudent.login_id,
-              type: currentType,
-              level: parsed.level,
-              set_numbers: parsed.raw,
-              due_date: due
-            });
-          error = e2 || null;
-        }
-
         if (error) {
-          // ✅ UNIQUE INDEX 충돌 (같은 학생 + 같은 타입 + 같은 마감일)
           if (error.code === "23505") {
             setMyHwStatus(
               "⚠️ 같은 마감일에 이미 같은 종류의 숙제가 있어요.\n마감일을 바꾸거나 기존 숙제를 수정해 주세요.",
@@ -1778,7 +1754,6 @@ const sentenceByUnitByMode = await buildResultMap("sentence_results", sentenceUn
             );
             return;
           }
-
           console.error("student_homework 저장 오류:", error);
           setMyHwStatus("숙제를 저장하는 중 오류가 발생했어요. (콘솔 에러 확인)", "error");
           return;
@@ -1790,7 +1765,6 @@ const sentenceByUnitByMode = await buildResultMap("sentence_results", sentenceUn
         setMyHwStatus("✅ 숙제가 등록됐어요!", "");
       }
 
-      // ✅ 저장/수정 후 새로고침
       await loadUnifiedHomeworkResults();
       if (currentClass && currentClass.id) await loadClassHomework();
       if (manageBackdrop.style.display === "flex") await loadManageList();
@@ -1804,7 +1778,6 @@ const sentenceByUnitByMode = await buildResultMap("sentence_results", sentenceUn
   }
   myHwSaveBtn.onclick = saveMyHomework;
 
-  // ===== 모달 열고닫기 =====
   function openManageModal() {
     manageBackdrop.style.display = "flex";
     manageBackdrop.setAttribute("aria-hidden", "false");
@@ -1821,7 +1794,6 @@ const sentenceByUnitByMode = await buildResultMap("sentence_results", sentenceUn
     if (e.key === "Escape" && manageBackdrop.style.display === "flex") closeManageModal();
   });
 
-  // ===== 수정 취소 =====
   myHwCancelBtn.onclick = () => {
     editingHomeworkId = null;
     setSaveButtonMode(false);
@@ -1837,9 +1809,11 @@ const sentenceByUnitByMode = await buildResultMap("sentence_results", sentenceUn
     myHwDueEl.value = row.due_date || "";
     setType(row.type === "sentence" ? "sentence" : "vocab");
     setSaveButtonMode(true, row);
+
+    if (row.type !== "vocab") return;
+    // 학생 숙제 수정 시 tasks를 폼에도 반영하고 싶으면 여기서 row.tasks 읽어서 vocabTasks에 반영 가능
   }
 
-  // ===== 모달 안 수정/삭제 버튼 이벤트(이벤트 위임) =====
   function bindManageButtons() {
     document.addEventListener("click", async (e) => {
       const btn = e.target.closest("button.btn-mini[data-act]");
@@ -1892,7 +1866,6 @@ const sentenceByUnitByMode = await buildResultMap("sentence_results", sentenceUn
     }, true);
   }
 
-  // ===== 관리 목록 로딩 =====
   async function loadManageList() {
     if (!currentStudent || !currentStudent.login_id) return;
 
@@ -1900,7 +1873,7 @@ const sentenceByUnitByMode = await buildResultMap("sentence_results", sentenceUn
 
     const { data, error } = await client
       .from("student_homework")
-      .select("id, type, level, set_numbers, due_date, created_at")
+      .select("id, type, level, set_numbers, due_date, created_at, tasks")
       .eq("student_login_id", currentStudent.login_id)
       .order("due_date", { ascending: true })
       .order("created_at", { ascending: true });
@@ -1984,7 +1957,6 @@ const sentenceByUnitByMode = await buildResultMap("sentence_results", sentenceUn
     manageArea.appendChild(table);
   }
 
-  // ===== “숙제 관리” 버튼 =====
   myHwManageBtn.onclick = async () => {
     if (!currentStudent || !currentStudent.login_id) {
       alert("학생 로그인이 필요합니다.");
@@ -1994,14 +1966,12 @@ const sentenceByUnitByMode = await buildResultMap("sentence_results", sentenceUn
     await loadManageList();
   };
 
-  // ===== 로그아웃/홈 =====
   logoutBtn.onclick = () => {
     localStorage.removeItem("blossom_student");
     window.location.href = "index.html";
   };
   homeBtn.onclick = () => { window.location.href = "index.html"; };
 
-  // ===== 어휘 구성 바인딩 =====
   function bindVocabConfig() {
     setVocabTasksDefault();
     syncVocabConfigVisibility();
@@ -2016,7 +1986,6 @@ const sentenceByUnitByMode = await buildResultMap("sentence_results", sentenceUn
     presetResetBtn.addEventListener("click", setVocabTasksReset);
   }
 
-  // ===== init =====
   (async function init() {
     bindManageButtons();
     bindVocabConfig();
@@ -2029,6 +1998,3 @@ const sentenceByUnitByMode = await buildResultMap("sentence_results", sentenceUn
 </script>
 </body>
 </html>
-
-
-
