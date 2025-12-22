@@ -1582,11 +1582,12 @@
     if (!unitKeys || unitKeys.length === 0) return resultMap;
 
     const { data, error } = await client
-      .from(table)
-      .select("id, student_login_id, unit_key, mode, correct_count, total_count, submitted_at")
-      .eq("student_login_id", currentStudent.login_id)
-      .in("unit_key", unitKeys)
-      .order("submitted_at", { ascending: false });
+  .from(table)
+  .select("id, student_login_id, assignment_key, unit_key, mode, correct_count, total_count, submitted_at")
+  .eq("student_login_id", currentStudent.login_id)
+  .eq("assignment_key", item.assignment_key) // ✅ 이 숙제의 결과만
+  .in("unit_key", unitKeys)
+  .order("submitted_at", { ascending: false });
 
     if (error) throw error;
 
@@ -2008,4 +2009,5 @@
 </script>
 </body>
 </html>
+
 
