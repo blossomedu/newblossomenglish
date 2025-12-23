@@ -1275,17 +1275,21 @@
     }
 
     return unitKeys.map(uk => ({
-      source: isStudent ? "student" : "teacher",
-      sourceLabel: isStudent ? "내가 등록" : "선생님",
-      type,
-      due_date: row.due_date || null,
-      created_at: row.created_at || null,
-      unit_key: uk,
-      unit_text: uk,
-      tasks,
-      raw: row
-    }));
-  }
+  source: isStudent ? "student" : "teacher",
+  sourceLabel: isStudent ? "내가 등록" : "선생님",
+  type,
+  due_date: row.due_date || null,
+  created_at: row.created_at || null,
+  unit_key: uk,
+  unit_text: uk,
+  tasks,
+
+  // ✅ 핵심 추가: 학생이 등록한 숙제는 row.id가 곧 "숙제 id"
+  // (teacher는 student_homework가 아니라서 null 처리)
+  homework_id: isStudent ? row.id : null,
+
+  raw: row
+}));
 
   function taskCell(result) {
     if (!result) return { mark: "❌", color: "#991b1b", time: "--" };
@@ -1983,3 +1987,4 @@
 </script>
 </body>
 </html>
+
