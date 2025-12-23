@@ -1,4 +1,4 @@
-/* 1. Supabase 설정 */
+/* 1. Supabase 설정 (기존 키 유지) */
 const SUPABASE_URL = "https://bpdisxjhhibrgfpvtlmv.supabase.co";
 const SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJwZGlzeGpoaGlicmdmcHZ0bG12Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjM5NTkxODQsImV4cCI6MjA3OTUzNTE4NH0.jDZ6BGirOPuWUnt4ykjhng4PLft2ZjBuYAFzApUnlYU";
 
@@ -22,7 +22,7 @@ function setStudentStatus(msg, type) {
 }
 
 /* ==========================================
-   [Part A] 선생님 기능 (DB 연동 버전)
+   [Part A] 선생님 기능 (기존 유지)
    ========================================== */
 const teacherCodeEl    = document.getElementById("teacherCode");
 const teacherSignupBtn = document.getElementById("teacherSignupBtn");
@@ -87,7 +87,7 @@ if (googleLoginBtn) {
 }
 
 /* ==========================================
-   [Part B] 학생 로그인 (DB 조회)
+   [Part B] 학생 로그인 (★업그레이드: 반 배정 확인 추가)
    ========================================== */
 const studentLoginBtn = document.getElementById("studentLoginBtn");
 
@@ -102,6 +102,7 @@ if (studentLoginBtn) {
     }
 
     try {
+      // 1. DB에서 아이디/비번 일치하는 학생 찾기
       const { data, error } = await supabaseClient
         .from("students")
         .select("*")
@@ -111,28 +112,39 @@ if (studentLoginBtn) {
 
       if (error) throw error;
 
+      // 2. 계정 존재 여부 확인
       if (!data) {
         setStudentStatus("아이디 또는 비밀번호가 틀렸습니다.", "error");
-      } else {
-        setStudentStatus("로그인 성공! 이동합니다...", "success");
-
-        localStorage.setItem("user_role", "student");
-        localStorage.setItem("blossom_student", JSON.stringify(data));
-
-        setTimeout(() => {
-          // ✅ 로그인 후 바로 학생 마이페이지로 이동
-          window.location.href = "student-mypage.html";
-        }, 1000);
+        return;
       }
+
+      // 3. [추가된 로직] 반 배정(class_id) 체크
+      if (!data.class_id) {
+        setStudentStatus(`'${data.name}' 학생은 아직 반 배정이 안 되었습니다. 선생님께 문의하세요.`, "error");
+        // 로그인 처리 안 하고 여기서 멈춤
+        return;
+      }
+
+      // 4. 모든 조건 통과 -> 로그인 성공 처리
+      setStudentStatus(`반가워요, ${data.name} 학생! 이동합니다...`, "success");
+
+      localStorage.setItem("user_role", "student");
+      localStorage.setItem("blossom_student", JSON.stringify(data));
+
+      setTimeout(() => {
+        // 기존 코드에 있던 이동 경로 유지
+        window.location.href = "student-mypage.html";
+      }, 1000);
+      
     } catch (e) {
       console.error(e);
-      setStudentStatus("로그인 중 오류가 발생했습니다.", "error");
+      setStudentStatus("로그인 중 시스템 오류가 발생했습니다.", "error");
     }
   };
 }
 
 /* ==========================================
-   [Part C] 학생 회원가입 (DB 저장)
+   [Part C] 학생 회원가입 (기존 유지)
    ========================================== */
 const studentSignupBtn = document.getElementById("studentSignupBtn");
 
@@ -171,7 +183,7 @@ if (studentSignupBtn) {
           login_id: idVal,
           password: pwVal,
           parent_phone: phoneVal,
-          class_id: null
+          class_id: null // 가입 시에는 반 배정 없음(null)
         }]);
 
       if (insertError) throw insertError;
@@ -179,6 +191,7 @@ if (studentSignupBtn) {
       alert("회원가입 완료! 로그인해 주세요.");
       setStudentStatus("가입 완료! 위에서 로그인하세요.", "success");
 
+      // 입력창 초기화
       document.getElementById("studentSignupName").value  = "";
       document.getElementById("studentSignupId").value    = "";
       document.getElementById("studentSignupPw").value    = "";
