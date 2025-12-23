@@ -479,7 +479,6 @@
   </div>
 
   <style>
-    /* ✅ 윗줄은 3칸만(버튼 제거) */
     .myhw-grid {
       display: grid;
       grid-template-columns: 160px 1fr 160px;
@@ -488,7 +487,6 @@
       margin-bottom: 8px;
     }
 
-    /* ✅ 아래줄: 왼쪽(구성) + 오른쪽(버튼) */
     .myhw-bottom {
       display: grid;
       grid-template-columns: 1fr 180px;
@@ -506,9 +504,8 @@
     }
     .btn-block { width: 100%; }
 
-    /* 어휘 숙제 구성 */
     .vocab-config {
-      display: none; /* vocab일 때만 표시 */
+      display: none;
     }
 
     .preset-row {
@@ -586,7 +583,6 @@
       <div class="section-title">✍️ 내 온라인 숙제</div>
     </div>
 
-    <!-- ✅ "내 온라인 숙제" 전용: 칼각 정렬 + 어휘 구성 스타일 -->
     <style>
       .myhw-grid {
         display: grid;
@@ -596,24 +592,21 @@
         margin-bottom: 8px;
       }
 
-      /* ✅ 오른쪽 버튼 영역: 살짝 위로 + 세로 가운데 정렬 느낌 */
-      .myhw-actions-wrap {
-        align-self: center;
-      }
+      .myhw-actions-wrap { align-self: center; }
 
       .myhw-actions {
         display: flex;
         flex-direction: column;
         gap: 8px;
         justify-content: center;
-        align-items: flex-end; /* 기본은 오른쪽 정렬 */
+        align-items: flex-end;
       }
 
       .btn-block { width: 100%; }
 
       .vocab-config {
         margin: 6px 0 10px;
-        display: none; /* vocab일 때만 표시 */
+        display: none;
       }
 
       .preset-row {
@@ -688,31 +681,21 @@
         .btn-block { width: 100%; }
       }
 
-      /* ===== ✅ 버튼 3개 최종 정리 (요청사항 반영) ===== */
-
-      /* 1) 버튼 크기 통일 */
       #my-hw-save-btn,
       #my-hw-manage-btn,
-      #my-hw-cancel-btn {
-        width: 130px;
-      }
+      #my-hw-cancel-btn { width: 130px; }
 
-      /* 2) 버튼 순서: 등록 → 관리 → 취소 */
       #my-hw-save-btn   { order: 1; }
       #my-hw-manage-btn { order: 2; }
       #my-hw-cancel-btn { order: 3; }
 
-      /* 🌸 숙제 등록 (핑크 버튼) */
       #my-hw-save-btn {
         background: var(--pink);
         color: #ffffff;
         border: none;
-
-        /* 좌우, 상하 미세 조정 */
         transform: translate(-30px, 35px);
       }
 
-      /* 🌿 숙제 관리 (민트 버튼) */
       #my-hw-manage-btn {
         background: var(--mint);
         color: #ffffff;
@@ -720,13 +703,10 @@
         display: inline-flex;
         align-items: center;
         justify-content: center;
-
-        /* 좌우, 상하 미세 조정 */
         transform: translate(-30px, 35px);
       }
     </style>
 
-    <!-- ✅ 열 정렬 grid -->
     <div class="myhw-grid">
       <div class="field" style="min-width:150px;">
         <label>숙제 종류</label>
@@ -756,7 +736,6 @@
       </div>
     </div>
 
-    <!-- ✅ 어휘 숙제 구성: 프리셋 + 4개 선택 (vocab일 때만 표시) -->
     <div id="vocab-config" class="vocab-config">
       <div class="preset-row">
         <button type="button" id="preset-default" class="preset-btn">기본 4종</button>
@@ -881,7 +860,6 @@
   const manageCloseBtn = document.getElementById("manage-close");
   const manageArea     = document.getElementById("manage-area");
 
-  // ✅ 어휘 구성 DOM
   const vocabConfigEl     = document.getElementById("vocab-config");
   const presetDefaultBtn  = document.getElementById("preset-default");
   const presetBlank3Btn   = document.getElementById("preset-blank3");
@@ -902,8 +880,8 @@
   let currentType    = "vocab";
   let editingHomeworkId = null;
 
-  // ✅ 어휘 숙제 구성 (기본 1,1,1,1)
-  let vocabTasks = { meaning: 1, english: 1, listening: 1, sentence: 1 };
+  // ✅ FIX 1) 기본값을 "자동 1,1,1,1"로 깔지 말고 0,0,0,0으로 시작
+  let vocabTasks = { meaning: 0, english: 0, listening: 0, sentence: 0 };
 
   function setMyHwStatus(msg, type) {
     myHwStatusEl.textContent = msg || "";
@@ -1045,16 +1023,14 @@
   function setVocabTasksBlank3()  { vocabTasks = { meaning:0, english:0, listening:0, sentence:3 }; applyVocabTasksToUI(); }
   function setVocabTasksReset()   { vocabTasks = { meaning:0, english:0, listening:0, sentence:0 }; applyVocabTasksToUI(); }
 
+  // ✅ FIX 2) "합계가 0이면 자동으로 기본 4종" 같은 강제 주입을 없앰
   function normalizeVocabTasksBeforeSave(t) {
-    const safe = {
+    return {
       meaning: clampNum(t.meaning, 0, 5),
       english: clampNum(t.english, 0, 5),
       listening: clampNum(t.listening, 0, 5),
       sentence: clampNum(t.sentence, 0, 5)
     };
-    const sum = safe.meaning + safe.english + safe.listening + safe.sentence;
-    if (sum === 0) return { meaning:1, english:1, listening:1, sentence:1 };
-    return safe;
   }
 
   function setType(nextType) {
@@ -1277,7 +1253,6 @@
     }
   }
 
-  // ✅ items에 tasks 포함 (정상 버전)
   function normalizeAndExpandHomeworkRows(row, from) {
     const isStudent = from === "student";
     const type = isStudent ? row.type : (from === "teacher_sentence" ? "sentence" : "vocab");
@@ -1312,7 +1287,6 @@
     }));
   }
 
-  // ✅ 문장 상세에서 아직 쓰는 원래 판정기(에러 방지용으로 유지)
   function taskCell(result) {
     if (!result) return { mark: "❌", color: "#991b1b", time: "--" };
     const total = Number(result.total_count || 0);
@@ -1325,7 +1299,6 @@
     };
   }
 
-  // ✅ 어휘: 횟수 기반 판정기
   function taskCellByCount({ doneCount, required, latest }) {
     if (!required || required <= 0) return { mark: "-", color: "#9ca3af", time: "--", progress: "" };
 
@@ -1351,7 +1324,6 @@
     };
   }
 
-  // ✅ 어휘 Unit 전체: tasks(required) 기준
   function computeOverallStatusFromVocabModes(modeMap, tasks) {
     if (!tasks) return { cls: "status-x", text: "❌" };
 
@@ -1388,15 +1360,14 @@
     return /^(잠신중|잠신고)\d+-\d+$/.test(t);
   }
 
-  // ✅ sentenceByUnitByMode 구조({doneCount, latest})에 맞게 수정
   function buildSentenceTaskView(unitKey, sentenceByUnitByMode) {
     const modeMap = (sentenceByUnitByMode && sentenceByUnitByMode[unitKey]) ? sentenceByUnitByMode[unitKey] : {};
     const tasks = isSchoolUnitKey(unitKey) ? SENTENCE_TASKS_SCHOOL : SENTENCE_TASKS_NORMAL;
 
     const rows = tasks.map(t => {
-      const pack = modeMap ? modeMap[t.mode] : null;          // {doneCount, latest}
+      const pack = modeMap ? modeMap[t.mode] : null;
       const latest = pack?.latest || null;
-      const cell = taskCell(latest);                          // 기존 판정기 그대로 사용(에러 방지)
+      const cell = taskCell(latest);
       const hasAny = (pack?.doneCount || 0) > 0;
       return { ...t, pack, hasAny, cell };
     });
@@ -1445,7 +1416,6 @@
       let overall = { cls: "status-x", text: "❌" };
       let submittedText = "--";
 
-      // ✅ vocab summary
       if (item.type === "vocab" && item.unit_key) {
         const modeMap = (vocabByUnitByMode && vocabByUnitByMode[item.unit_key]) ? vocabByUnitByMode[item.unit_key] : {};
         overall = computeOverallStatusFromVocabModes(modeMap, item.tasks);
@@ -1458,7 +1428,6 @@
           : "--";
       }
 
-      // ✅ sentence summary
       if (item.type === "sentence" && item.unit_key) {
         const view = buildSentenceTaskView(item.unit_key, sentenceByUnitByMode);
         overall = view.overall;
@@ -1479,10 +1448,9 @@
       const detail = document.createElement("div");
       detail.className = "unit-detail";
 
-      // ✅ vocab detail: taskCellByCount로 교체
       if (item.type === "vocab" && item.unit_key) {
         const modeMap = (vocabByUnitByMode && vocabByUnitByMode[item.unit_key]) ? vocabByUnitByMode[item.unit_key] : {};
-        const tasks = item.tasks || { meaning:1, english:1, listening:1, sentence:1 };
+        const tasks = item.tasks || { meaning:0, english:0, listening:0, sentence:0 };
 
         const tMeaning = taskCellByCount({
           doneCount: modeMap?.meaning?.doneCount || 0,
@@ -1697,6 +1665,15 @@
       return;
     }
 
+    // ✅ FIX 3) 어휘는 “선택 안 하면 자동 기본”이 아니라, 그냥 등록 못 하게 막기 (중복/짬뽕 방지)
+    if (currentType === "vocab") {
+      const sum = Number(vocabTasks.meaning || 0) + Number(vocabTasks.english || 0) + Number(vocabTasks.listening || 0) + Number(vocabTasks.sentence || 0);
+      if (sum === 0) {
+        setMyHwStatus("어휘 숙제 구성을 선택해 주세요. (예: 기본4종 또는 문장 빈칸×3)", "error");
+        return;
+      }
+    }
+
     setMyHwStatus("", "");
     myHwSaveBtn.disabled = true;
 
@@ -1730,7 +1707,10 @@
         setSaveButtonMode(false);
         myHwSetEl.value = "";
         myHwDueEl.value = "";
-        if (currentType === "vocab") setVocabTasksDefault();
+
+        // ✅ FIX: 저장 후 자동 기본값 주입 X (중복 방지) → 초기화
+        if (currentType === "vocab") setVocabTasksReset();
+
         setMyHwStatus("✅ 수정 완료!", "");
       } else {
         let payload = {
@@ -1761,7 +1741,10 @@
 
         myHwSetEl.value = "";
         myHwDueEl.value = "";
-        if (currentType === "vocab") setVocabTasksDefault();
+
+        // ✅ FIX: 저장 후 자동 기본값 주입 X (중복 방지) → 초기화
+        if (currentType === "vocab") setVocabTasksReset();
+
         setMyHwStatus("✅ 숙제가 등록됐어요!", "");
       }
 
@@ -1800,7 +1783,9 @@
     myHwSetEl.value = "";
     myHwDueEl.value = "";
     setMyHwStatus("수정이 취소됐어요.", "");
-    setVocabTasksDefault();
+
+    // ✅ FIX: 취소도 자동 기본 주입 X → 초기화
+    setVocabTasksReset();
   };
 
   function fillFormForEdit(row) {
@@ -1810,8 +1795,7 @@
     setType(row.type === "sentence" ? "sentence" : "vocab");
     setSaveButtonMode(true, row);
 
-    if (row.type !== "vocab") return;
-    // 학생 숙제 수정 시 tasks를 폼에도 반영하고 싶으면 여기서 row.tasks 읽어서 vocabTasks에 반영 가능
+    // (선택) row.tasks를 vocabTasks로 다시 채우는 기능은 나중에 붙이면 됨
   }
 
   function bindManageButtons() {
@@ -1856,7 +1840,7 @@
           setSaveButtonMode(false);
           myHwSetEl.value = "";
           myHwDueEl.value = "";
-          setVocabTasksDefault();
+          setVocabTasksReset();
         }
 
         await loadManageList();
@@ -1973,7 +1957,8 @@
   homeBtn.onclick = () => { window.location.href = "index.html"; };
 
   function bindVocabConfig() {
-    setVocabTasksDefault();
+    // ✅ FIX: 페이지 로드시 기본4종 자동 세팅 X → 초기화 상태에서 시작
+    setVocabTasksReset();
     syncVocabConfigVisibility();
 
     selMeaning.addEventListener("change", readVocabTasksFromUI);
