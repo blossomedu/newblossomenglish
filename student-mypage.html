@@ -586,7 +586,6 @@
       <div class="section-title">✍️ 내 온라인 숙제</div>
     </div>
 
-    <!-- ✅ "내 온라인 숙제" 전용: 칼각 정렬 + 어휘 구성 스타일 -->
     <style>
       .myhw-grid {
         display: grid;
@@ -726,7 +725,6 @@
       }
     </style>
 
-    <!-- ✅ 열 정렬 grid -->
     <div class="myhw-grid">
       <div class="field" style="min-width:150px;">
         <label>숙제 종류</label>
@@ -756,7 +754,6 @@
       </div>
     </div>
 
-    <!-- ✅ 어휘 숙제 구성: 프리셋 + 4개 선택 (vocab일 때만 표시) -->
     <div id="vocab-config" class="vocab-config">
       <div class="preset-row">
         <button type="button" id="preset-default" class="preset-btn">기본 4종</button>
@@ -1418,7 +1415,7 @@
     return { rows, overall, submittedText };
   }
 
-  // [수정 3단계] 화면 그릴 때 날짜 기준으로 계산해서 그리기
+  // [수정] 화면 그릴 때 '사용 대장(Set)'을 넘겨서 중복 사용 방지
   function renderUnifiedResults(items, vocabRawMap, sentenceRawMap) {
     unitResultBody.innerHTML = "";
 
@@ -1427,16 +1424,20 @@
       return;
     }
 
+    // ⚡ 중복 방지용 장부 (이번 렌더링 동안 사용된 결과 ID 저장)
+    const usedResultIds = new Set();
+
     items.forEach(item => {
-      // ⚡여기서 계산기를 돌립니다! (숙제 만든 날짜 item.created_at 전달)
       let modeMap = {};
       
       if (item.type === "vocab" && item.unit_key) {
-        // 어휘 기록 중에서, 이 숙제가 만들어진 이후의 것만 계산
-        modeMap = calcStats(vocabRawMap[item.unit_key], item.created_at);
+        // 어휘: tasks(목표량)와 장부(usedResultIds)를 넘겨줍니다.
+        const tasks = item.tasks || {}; 
+        modeMap = calcStats(vocabRawMap[item.unit_key], item.created_at, tasks, usedResultIds);
+
       } else if (item.type === "sentence" && item.unit_key) {
-        // 문장 기록 중에서, 이 숙제가 만들어진 이후의 것만 계산
-        modeMap = calcStats(sentenceRawMap[item.unit_key], item.created_at);
+        // 문장: 목표량이 딱히 없으므로(Pass/Fail) null 전달 -> 남은거 다 가져감
+        modeMap = calcStats(sentenceRawMap[item.unit_key], item.created_at, null, usedResultIds);
       }
 
       const details = document.createElement("details");
@@ -1470,7 +1471,6 @@
 
       // ✅ sentence summary
       if (item.type === "sentence" && item.unit_key) {
-        // 문장은 구조가 좀 달라서 여기서 modeMap을 넘겨줌
         const view = buildSentenceTaskView(item.unit_key, { [item.unit_key]: modeMap }); 
         overall = view.overall;
         submittedText = view.submittedText;
@@ -1541,7 +1541,6 @@
           <div class="unit-guide">※ 각 모드는 <b>설정된 횟수</b>를 채우면 ⭕로 바뀝니다. (예: 2/4는 △)</div>
         `;
       } else if (item.type === "sentence" && item.unit_key) {
-        // 문장 상세 뷰
         const view = buildSentenceTaskView(item.unit_key, { [item.unit_key]: modeMap });
 
         const grid = document.createElement("div");
@@ -1578,7 +1577,7 @@
     });
   }
 
-  // [수정 1단계] 계산하지 않고 기록을 통째로 가져오는 함수로 변경
+  // [수정] 계산하지 않고 기록을 통째로 가져오는 함수로 변경
   async function buildResultMap(table, unitKeys) {
     const resultMap = {};
     if (!unitKeys || unitKeys.length === 0) return resultMap;
@@ -1603,32 +1602,53 @@
 
     return resultMap;
   }
-// [수정 2단계] 숙제 생성일(created_at) 이후의 기록만 골라서 횟수 계산하는 함수 추가
-  function calcStats(rawList, sinceDate) {
+
+  // [수정] 필요량만큼만 차감하고 사용된 ID를 기록하는 '선착순 배급' 로직
+  function calcStats(rawList, sinceDate, requirements, usedSet) {
     const stats = {}; 
     if (!rawList) return stats;
 
-    const since = sinceDate ? new Date(sinceDate) : new Date(0); // 숙제 생성일
+    const since = sinceDate ? new Date(sinceDate) : new Date(0);
 
-    rawList.forEach(r => {
-      // ⚡핵심: 제출일이 숙제 생성일보다 과거면 무시! (이걸로 중복/꼬임 해결)
-      if (new Date(r.submitted_at) <= since) return;
+    // 1. 날짜 필터링 & 아직 안 쓴 것만 골라내기
+    const candidates = rawList.filter(r => {
+      // 숙제 생성일 이전 기록은 무시
+      if (new Date(r.submitted_at) <= since) return false;
+      // 이미 다른 숙제에서 카운트한 기록(ID)이면 무시
+      if (usedSet.has(r.id)) return false;
+      return true;
+    });
 
+    // 2. 과거 순으로 정렬 (먼저 한 걸 먼저 배정하기 위해)
+    candidates.sort((a, b) => new Date(a.submitted_at) - new Date(b.submitted_at));
+
+    // 3. 필요한 만큼 배급하기
+    candidates.forEach(r => {
       const md = r.mode || "unknown";
+      
       if (!stats[md]) {
         stats[md] = { doneCount: 0, latest: null };
       }
 
-      stats[md].doneCount += 1;
+      // 목표량(requirements)이 있으면 그만큼만 카운트, 없으면(문장 숙제 등) 전부 카운트
+      const limit = requirements ? (requirements[md] || 0) : 9999;
+      
+      if (stats[md].doneCount < limit) {
+        // 배급 확정!
+        stats[md].doneCount += 1;
+        usedSet.add(r.id); // ⚡ 핵심: "이 기록은 내가 썼다"고 장부(Set)에 기록
 
-      // 최신 기록 갱신
-      const cur = stats[md].latest;
-      if (!cur || new Date(r.submitted_at) > new Date(cur.submitted_at)) {
-        stats[md].latest = r;
+        // 최신 기록 갱신 (보여주기용)
+        const cur = stats[md].latest;
+        if (!cur || new Date(r.submitted_at) > new Date(cur.submitted_at)) {
+          stats[md].latest = r;
+        }
       }
     });
+
     return stats;
   }
+
   async function loadUnifiedHomeworkResults() {
     if (!currentStudent || !currentStudent.login_id) return;
 
@@ -2026,4 +2046,3 @@
 </script>
 </body>
 </html>
-
