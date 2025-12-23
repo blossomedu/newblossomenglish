@@ -1418,7 +1418,8 @@
     return { rows, overall, submittedText };
   }
 
-  function renderUnifiedResults(items, vocabByUnitByMode, sentenceByUnitByMode) {
+  // [수정 3단계] 화면 그릴 때 날짜 기준으로 계산해서 그리기
+  function renderUnifiedResults(items, vocabRawMap, sentenceRawMap) {
     unitResultBody.innerHTML = "";
 
     if (!items || items.length === 0) {
@@ -1427,6 +1428,17 @@
     }
 
     items.forEach(item => {
+      // ⚡여기서 계산기를 돌립니다! (숙제 만든 날짜 item.created_at 전달)
+      let modeMap = {};
+      
+      if (item.type === "vocab" && item.unit_key) {
+        // 어휘 기록 중에서, 이 숙제가 만들어진 이후의 것만 계산
+        modeMap = calcStats(vocabRawMap[item.unit_key], item.created_at);
+      } else if (item.type === "sentence" && item.unit_key) {
+        // 문장 기록 중에서, 이 숙제가 만들어진 이후의 것만 계산
+        modeMap = calcStats(sentenceRawMap[item.unit_key], item.created_at);
+      }
+
       const details = document.createElement("details");
       details.className = "unit-row";
       details.open = false;
@@ -1447,9 +1459,7 @@
 
       // ✅ vocab summary
       if (item.type === "vocab" && item.unit_key) {
-        const modeMap = (vocabByUnitByMode && vocabByUnitByMode[item.unit_key]) ? vocabByUnitByMode[item.unit_key] : {};
         overall = computeOverallStatusFromVocabModes(modeMap, item.tasks);
-
         const latest = safeLatestBySubmittedAt(
           Object.values(modeMap || {}).map(x => x?.latest).filter(Boolean)
         );
@@ -1460,7 +1470,8 @@
 
       // ✅ sentence summary
       if (item.type === "sentence" && item.unit_key) {
-        const view = buildSentenceTaskView(item.unit_key, sentenceByUnitByMode);
+        // 문장은 구조가 좀 달라서 여기서 modeMap을 넘겨줌
+        const view = buildSentenceTaskView(item.unit_key, { [item.unit_key]: modeMap }); 
         overall = view.overall;
         submittedText = view.submittedText;
       }
@@ -1479,9 +1490,8 @@
       const detail = document.createElement("div");
       detail.className = "unit-detail";
 
-      // ✅ vocab detail: taskCellByCount로 교체
+      // ✅ vocab detail
       if (item.type === "vocab" && item.unit_key) {
-        const modeMap = (vocabByUnitByMode && vocabByUnitByMode[item.unit_key]) ? vocabByUnitByMode[item.unit_key] : {};
         const tasks = item.tasks || { meaning:1, english:1, listening:1, sentence:1 };
 
         const tMeaning = taskCellByCount({
@@ -1531,7 +1541,8 @@
           <div class="unit-guide">※ 각 모드는 <b>설정된 횟수</b>를 채우면 ⭕로 바뀝니다. (예: 2/4는 △)</div>
         `;
       } else if (item.type === "sentence" && item.unit_key) {
-        const view = buildSentenceTaskView(item.unit_key, sentenceByUnitByMode);
+        // 문장 상세 뷰
+        const view = buildSentenceTaskView(item.unit_key, { [item.unit_key]: modeMap });
 
         const grid = document.createElement("div");
         grid.className = "unit-detail-grid";
@@ -1567,10 +1578,12 @@
     });
   }
 
+  // [수정 1단계] 계산하지 않고 기록을 통째로 가져오는 함수로 변경
   async function buildResultMap(table, unitKeys) {
     const resultMap = {};
     if (!unitKeys || unitKeys.length === 0) return resultMap;
 
+    // 해당 유저의 모든 기록 조회 (날짜 필터링 없이 일단 다 가져옴)
     const { data, error } = await client
       .from(table)
       .select("id, student_login_id, unit_key, mode, correct_count, total_count, submitted_at")
@@ -1580,27 +1593,42 @@
 
     if (error) throw error;
 
+    // Unit Key별로 배열에 담기만 함
     (data || []).forEach(r => {
       const uk = r.unit_key;
-      const md = r.mode || "unknown";
       if (!uk) return;
-
-      if (!resultMap[uk]) resultMap[uk] = {};
-      if (!resultMap[uk][md]) {
-        resultMap[uk][md] = { doneCount: 0, latest: null };
-      }
-
-      resultMap[uk][md].doneCount += 1;
-
-      const cur = resultMap[uk][md].latest;
-      if (!cur || new Date(r.submitted_at) > new Date(cur.submitted_at)) {
-        resultMap[uk][md].latest = r;
-      }
+      if (!resultMap[uk]) resultMap[uk] = [];
+      resultMap[uk].push(r);
     });
 
     return resultMap;
   }
+// [수정 2단계] 숙제 생성일(created_at) 이후의 기록만 골라서 횟수 계산하는 함수 추가
+  function calcStats(rawList, sinceDate) {
+    const stats = {}; 
+    if (!rawList) return stats;
 
+    const since = sinceDate ? new Date(sinceDate) : new Date(0); // 숙제 생성일
+
+    rawList.forEach(r => {
+      // ⚡핵심: 제출일이 숙제 생성일보다 과거면 무시! (이걸로 중복/꼬임 해결)
+      if (new Date(r.submitted_at) <= since) return;
+
+      const md = r.mode || "unknown";
+      if (!stats[md]) {
+        stats[md] = { doneCount: 0, latest: null };
+      }
+
+      stats[md].doneCount += 1;
+
+      // 최신 기록 갱신
+      const cur = stats[md].latest;
+      if (!cur || new Date(r.submitted_at) > new Date(cur.submitted_at)) {
+        stats[md].latest = r;
+      }
+    });
+    return stats;
+  }
   async function loadUnifiedHomeworkResults() {
     if (!currentStudent || !currentStudent.login_id) return;
 
@@ -1998,3 +2026,4 @@
 </script>
 </body>
 </html>
+
