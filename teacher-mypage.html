@@ -51,7 +51,6 @@
     .btn-search { background: var(--blue); color: white; border: none; padding: 0 20px; border-radius: 6px; font-weight: 600; cursor: pointer; height: 38px; }
     .btn-search:hover { filter: brightness(0.9); }
 
-    /* 반별 학생 보기 조회하기 버튼(핑크) */
     .btn-search-pink { background: var(--pink); color: white; border: none; padding: 0 20px; border-radius: 6px; font-weight: 700; cursor: pointer; height: 38px; }
     .btn-search-pink:hover { filter: brightness(0.93); }
 
@@ -64,7 +63,6 @@
 
     .assign-select { padding: 6px; border-radius: 4px; border: 1px solid #d1d5db; }
 
-    /* ✅ 저장 버튼 전부 민트로 통일 */
     .btn-save {
       padding: 6px 10px;
       background: var(--mint);
@@ -78,6 +76,126 @@
     }
     .btn-save:hover { filter: brightness(0.95); }
     .btn-save:active { transform: translateY(0.5px); }
+
+    /* === [디자인 이식] 학생 페이지의 숙제 설정 스타일 그대로 가져옴 === */
+    .hw-form-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 16px;
+      align-items: end;
+      margin-bottom: 20px;
+    }
+    .form-group label { display: block; font-size: 13px; color: #4b5563; margin-bottom: 4px; font-weight: 600; }
+    .full-width { grid-column: 1 / -1; }
+    
+    .pill-group {
+      display: inline-flex;
+      background: #e5e7eb;
+      border-radius: 999px;
+      padding: 3px;
+    }
+    .type-btn {
+      border: none;
+      border-radius: 999px;
+      padding: 6px 16px;
+      font-size: 13px;
+      cursor: pointer;
+      background: transparent;
+      color: #4b5563;
+      font-weight: 700;
+    }
+    .type-btn.active {
+      background: var(--blue);
+      color: white;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+
+    /* 👇 학생 페이지에서 가져온 버튼 & 박스 스타일 */
+    .vocab-config {
+      background: #f9fafb;
+      border-radius: 14px;
+      padding: 14px 16px;
+      border: 1px solid #e5e7eb;
+      margin-bottom: 20px;
+      display: block; 
+    }
+    
+    .preset-row {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 10px;
+      flex-wrap: wrap;
+    }
+    .preset-btn {
+      border: 1px solid #e5e7eb;
+      background: #ffffff;
+      color: #374151;
+      font-size: 12px;
+      font-weight: 800;
+      padding: 6px 12px;
+      border-radius: 999px;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: 0.1s;
+    }
+    .preset-btn:hover { background: #f3f4f6; }
+    .preset-btn:active { transform: scale(0.98); }
+
+    .mini-select-row {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px;
+    }
+
+    .mini-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      border: 1px solid #e5e7eb;
+      background: #fff;
+      border-radius: 12px;
+      padding: 8px 12px;
+    }
+    .mini-item.off { opacity: 0.6; background: #f9fafb; }
+    
+    .mini-label {
+      font-size: 13px;
+      font-weight: 900;
+      color: #111827;
+      white-space: nowrap;
+    }
+    .mini-select {
+      margin-left: auto;
+      border: 1px solid #d1d5db;
+      border-radius: 999px;
+      padding: 4px 8px;
+      font-size: 13px;
+      outline: none;
+      background: #fff;
+      font-weight: 800;
+      color: #111827;
+      width: 60px;
+      text-align: center;
+    }
+
+    .btn-register-hw {
+      background: var(--pink);
+      color: white;
+      width: 100%;
+      padding: 14px;
+      border: none;
+      border-radius: 12px;
+      font-size: 16px;
+      font-weight: 800;
+      cursor: pointer;
+      box-shadow: 0 4px 10px rgba(255, 111, 181, 0.2);
+    }
+    .btn-register-hw:hover { filter: brightness(0.95); }
+
+    @media (max-width: 768px) {
+      .mini-select-row { grid-template-columns: 1fr 1fr; }
+    }
   </style>
 </head>
 
@@ -91,7 +209,81 @@
     </div>
   </div>
 
-  <!-- 1. 날짜별 숙제 검사 -->
+  <div class="section-card">
+    <div class="card-title">📝 온라인 숙제 만들기</div>
+    
+    <div class="hw-form-grid">
+      <div class="form-group">
+        <label>반 선택</label>
+        <select id="hwClassSelect" class="input-ui" style="width:100%;">
+          <option value="">반을 선택하세요</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label>숙제 종류</label>
+        <div class="pill-group">
+          <button id="btn-type-vocab" class="type-btn active" onclick="setHwType('vocab')">어휘</button>
+          <button id="btn-type-sentence" class="type-btn" onclick="setHwType('sentence')">문장</button>
+        </div>
+      </div>
+
+      <div class="form-group full-width">
+        <label>학습 세트 (예: 1-1, 1-2)</label>
+        <input id="hwSets" type="text" class="input-ui" style="width:100%;" placeholder="예: 1-1 또는 1-1, 1-2">
+      </div>
+
+      <div class="form-group">
+        <label>마감일</label>
+        <input id="hwDue" type="date" class="input-ui" style="width:100%;">
+      </div>
+    </div>
+
+    <div id="vocabConfigArea" class="vocab-config">
+      <div class="preset-row">
+        <button type="button" class="preset-btn" onclick="setCfg(1,1,1,1)">기본 4종</button>
+        <button type="button" class="preset-btn" onclick="setCfg(0,0,0,3)">문장 빈칸 ×3</button>
+        <button type="button" class="preset-btn" onclick="setCfg(0,0,0,0)">초기화</button>
+      </div>
+
+      <div class="mini-select-row">
+        <div class="mini-item" id="box-meaning">
+          <div class="mini-label">뜻 찾기</div>
+          <select id="sel-meaning" class="mini-select" onchange="updateUI()">
+            <option value="0">0</option><option value="1" selected>1</option><option value="2">2</option>
+            <option value="3">3</option><option value="4">4</option><option value="5">5</option>
+          </select>
+        </div>
+
+        <div class="mini-item" id="box-english">
+          <div class="mini-label">영어 찾기</div>
+          <select id="sel-english" class="mini-select" onchange="updateUI()">
+            <option value="0">0</option><option value="1" selected>1</option><option value="2">2</option>
+            <option value="3">3</option><option value="4">4</option><option value="5">5</option>
+          </select>
+        </div>
+
+        <div class="mini-item" id="box-listening">
+          <div class="mini-label">듣고 찾기</div>
+          <select id="sel-listening" class="mini-select" onchange="updateUI()">
+            <option value="0">0</option><option value="1" selected>1</option><option value="2">2</option>
+            <option value="3">3</option><option value="4">4</option><option value="5">5</option>
+          </select>
+        </div>
+
+        <div class="mini-item" id="box-sentence">
+          <div class="mini-label">문장 빈칸</div>
+          <select id="sel-sentence" class="mini-select" onchange="updateUI()">
+            <option value="0">0</option><option value="1" selected>1</option><option value="2">2</option>
+            <option value="3">3</option><option value="4">4</option><option value="5">5</option>
+          </select>
+        </div>
+      </div>
+    </div>
+
+    <button class="btn-register-hw" onclick="registerHomework()">숙제 등록하기</button>
+  </div>
+
   <div class="section-card">
     <div class="card-title">📅 날짜별 숙제 검사</div>
     <div class="controls">
@@ -99,15 +291,8 @@
         <option value="">반 선택</option>
       </select>
 
-      <input
-        type="text"
-        id="studentNameInput"
-        class="input-ui"
-        placeholder="학생 이름 (선택)"
-      >
-
+      <input type="text" id="studentNameInput" class="input-ui" placeholder="학생 이름 (선택)">
       <input type="date" id="dateInput" class="input-ui">
-
       <button class="btn-search" onclick="loadHomework()">조회하기</button>
     </div>
 
@@ -129,21 +314,13 @@
     </div>
   </div>
 
-  <!-- 2. 반별 학생 보기 -->
   <div class="section-card">
     <div class="card-title">👥 반별 학생 보기</div>
     <div class="controls">
       <select id="classSelect2" class="input-ui">
         <option value="">반 선택</option>
       </select>
-
-      <input
-        type="text"
-        id="studentNameInput2"
-        class="input-ui"
-        placeholder="학생 이름 (선택)"
-      >
-
+      <input type="text" id="studentNameInput2" class="input-ui" placeholder="학생 이름 (선택)">
       <button class="btn-search-pink" onclick="loadStudentsByClass()">조회하기</button>
     </div>
 
@@ -167,7 +344,6 @@
     </div>
   </div>
 
-  <!-- 3. 신입생 반 배정하기 -->
   <div class="section-card">
     <div class="card-title">🌱 신입생 반 배정하기</div>
     <div class="table-wrap">
@@ -190,23 +366,117 @@
 
   let classList = [];
   let lastStudentsQuery = { classId: "", nameFilter: "" };
+  let currentHwType = "vocab"; 
 
   document.addEventListener("DOMContentLoaded", async () => {
     const today = new Date();
     const yyyy = today.getFullYear();
     const mm = String(today.getMonth() + 1).padStart(2, '0');
     const dd = String(today.getDate()).padStart(2, '0');
+    
     document.getElementById("dateInput").value = `${yyyy}-${mm}-${dd}`;
+    document.getElementById("hwDue").value = `${yyyy}-${mm}-${dd}`;
 
     await loadClasses();
     loadNewStudents();
+    updateUI(); // 초기 UI 상태 업데이트
   });
+
+  // === 0. 숙제 등록 & 설정 로직 (학생 페이지와 동일하게 동작) ===
+  function setHwType(type) {
+    currentHwType = type;
+    const btnVocab = document.getElementById("btn-type-vocab");
+    const btnSentence = document.getElementById("btn-type-sentence");
+    const configArea = document.getElementById("vocabConfigArea");
+
+    if (type === "vocab") {
+      btnVocab.classList.add("active");
+      btnSentence.classList.remove("active");
+      configArea.style.display = "block"; 
+    } else {
+      btnSentence.classList.add("active");
+      btnVocab.classList.remove("active");
+      configArea.style.display = "none";
+    }
+  }
+
+  // 프리셋 버튼 로직
+  function setCfg(m, e, l, s) {
+    document.getElementById("sel-meaning").value = m;
+    document.getElementById("sel-english").value = e;
+    document.getElementById("sel-listening").value = l;
+    document.getElementById("sel-sentence").value = s;
+    updateUI(); // 값 변경 후 UI 갱신 (흐리게 처리 등)
+  }
+
+  // 0이면 흐리게 보이는 시각적 효과
+  function updateUI() {
+    const m = document.getElementById("sel-meaning").value;
+    const e = document.getElementById("sel-english").value;
+    const l = document.getElementById("sel-listening").value;
+    const s = document.getElementById("sel-sentence").value;
+
+    document.getElementById("box-meaning").classList.toggle("off", m == 0);
+    document.getElementById("box-english").classList.toggle("off", e == 0);
+    document.getElementById("box-listening").classList.toggle("off", l == 0);
+    document.getElementById("box-sentence").classList.toggle("off", s == 0);
+  }
+
+  async function registerHomework() {
+    const classId = document.getElementById("hwClassSelect").value;
+    const sets = document.getElementById("hwSets").value.trim();
+    const due = document.getElementById("hwDue").value;
+
+    if (!classId) return alert("반을 선택해주세요.");
+    if (!sets) return alert("학습 세트를 입력해주세요.");
+    if (!due) return alert("마감일을 설정해주세요.");
+
+    const firstSet = sets.split(",")[0].trim();
+    const levelMatch = firstSet.match(/^(\d+)-/);
+    const level = levelMatch ? parseInt(levelMatch[1]) : 0;
+
+    const payload = {
+      class_id: classId,
+      level: level,
+      set_numbers: sets,
+      due_date: due,
+      created_at: new Date().toISOString()
+    };
+
+    if (currentHwType === "vocab") {
+      payload.tasks = {
+        meaning: parseInt(document.getElementById("sel-meaning").value),
+        english: parseInt(document.getElementById("sel-english").value),
+        listening: parseInt(document.getElementById("sel-listening").value),
+        sentence: parseInt(document.getElementById("sel-sentence").value)
+      };
+    }
+
+    const tableName = currentHwType === "vocab" ? "vocab_homework" : "sentence_homework";
+
+    try {
+      const { error } = await supabaseClient.from(tableName).insert([payload]);
+
+      if (error) throw error;
+
+      alert("✅ 숙제가 등록되었습니다!");
+      document.getElementById("hwSets").value = "";
+    } catch (err) {
+      console.error("등록 실패:", err);
+      alert("오류가 발생했습니다: " + err.message);
+    }
+  }
+
+  // === 아래는 기존 선생님 기능 (건드리지 않음) ===
 
   async function loadClasses() {
     const { data, error } = await supabaseClient.from('classes').select('*').order('name');
 
+    const selectHw = document.getElementById("hwClassSelect");
     const select1 = document.getElementById("classSelect");
     const select2 = document.getElementById("classSelect2");
+    
+    if (selectHw) selectHw.innerHTML = '<option value="">반을 선택하세요</option>';
     if (select1) select1.innerHTML = '<option value="">반 선택</option>';
     if (select2) select2.innerHTML = '<option value="">반 선택</option>';
 
@@ -218,15 +488,24 @@
     classList = data;
 
     data.forEach(cls => {
-      const opt1 = document.createElement("option");
-      opt1.value = cls.id;
-      opt1.textContent = cls.name;
-      if (select1) select1.appendChild(opt1);
-
-      const opt2 = document.createElement("option");
-      opt2.value = cls.id;
-      opt2.textContent = cls.name;
-      if (select2) select2.appendChild(opt2);
+      if (selectHw) {
+        const opt = document.createElement("option");
+        opt.value = cls.id;
+        opt.textContent = cls.name;
+        selectHw.appendChild(opt);
+      }
+      if (select1) {
+        const opt1 = document.createElement("option");
+        opt1.value = cls.id;
+        opt1.textContent = cls.name;
+        select1.appendChild(opt1);
+      }
+      if (select2) {
+        const opt2 = document.createElement("option");
+        opt2.value = cls.id;
+        opt2.textContent = cls.name;
+        select2.appendChild(opt2);
+      }
     });
   }
 
