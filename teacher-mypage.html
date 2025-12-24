@@ -4,10 +4,13 @@
   <meta charset="UTF-8" />
   <title>선생님 관리 페이지 - Blossom English</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
   <link href="https://cdn.jsdelivr.net/npm/pretendard/dist/web/variable/pretendardvariable.css" rel="stylesheet" />
+  
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
   <style>
+    /* === [공통 스타일] === */
     :root {
       --blue: #00AEEF;
       --mint: #9FE6B8;
@@ -20,182 +23,76 @@
     body { background: var(--bg); padding: 40px 20px; color: #111827; }
     .page { max-width: 1000px; margin: 0 auto; }
 
+    /* 헤더 */
     .header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 30px; }
     .brand { font-size: 24px; font-weight: 800; color: #1f2937; }
-
-    .top-actions { display: flex; gap: 8px; align-items: center; }
+    .top-actions { display: flex; gap: 8px; }
     .link-btn {
-      border-radius: 999px;
-      border: none;
-      padding: 8px 18px;
-      font-size: 14px;
-      cursor: pointer;
-      background: var(--blue);
-      color: #ffffff;
-      white-space: nowrap;
+      border-radius: 999px; border: none; padding: 8px 18px; font-size: 14px; cursor: pointer;
+      background: var(--blue); color: #fff; font-weight: 600;
     }
-    #home-btn { background: var(--mint); color: #ffffff; }
+    #home-btn { background: var(--mint); }
     #back-btn { background: #e5e7eb; color: #374151; }
-    #back-btn:hover { background: #d1d5db; }
 
-    .section-card { background: white; border-radius: 16px; padding: 24px; margin-bottom: 24px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1); }
-    .card-title { font-size: 18px; font-weight: 700; margin-bottom: 16px; padding-bottom: 12px; border-bottom: 2px solid #f3f4f6; color: #374151; }
+    /* 카드 박스 */
+    .section-card { background: white; border-radius: 20px; padding: 24px; margin-bottom: 24px; box-shadow: 0 4px 10px rgba(0,0,0,0.05); }
+    .card-title { font-size: 18px; font-weight: 800; margin-bottom: 16px; padding-bottom: 12px; border-bottom: 2px solid #f3f4f6; color: #374151; }
 
+    /* 입력 UI 공통 */
+    .input-ui { padding: 8px 12px; border: 1px solid #d1d5db; border-radius: 8px; font-size: 14px; height: 42px; outline: none; }
+    .input-ui:focus { border-color: var(--blue); }
+    .btn-search, .btn-search-pink {
+      height: 42px; padding: 0 20px; border-radius: 8px; color: white; border: none; font-weight: 700; cursor: pointer;
+    }
+    .btn-search { background: var(--blue); }
+    .btn-search-pink { background: var(--pink); }
+
+    /* 테이블 스타일 */
     .table-wrap { overflow-x: auto; }
     table { width: 100%; border-collapse: collapse; font-size: 14px; min-width: 700px; }
-    th { background: #f9fafb; color: #4b5563; font-weight: 600; text-align: left; padding: 12px; border-bottom: 1px solid #e5e7eb; }
+    th { background: #f9fafb; color: #6b7280; font-weight: 700; text-align: left; padding: 12px; border-bottom: 1px solid #e5e7eb; }
     td { padding: 12px; border-bottom: 1px solid #e5e7eb; vertical-align: middle; }
+    
+    .badge { padding: 4px 8px; border-radius: 99px; font-size: 11px; font-weight: 700; }
+    .badge-done { background: #dcfce7; color: #166534; } /* 초록 */
+    .badge-yet { background: #fee2e2; color: #991b1b; }  /* 빨강 */
+    .badge-new { background: #fef3c7; color: #92400e; }  /* 노랑 */
 
-    .controls { display: flex; gap: 8px; margin-bottom: 16px; align-items: center; flex-wrap: wrap; }
-    .input-ui { padding: 8px 12px; border: 1px solid #d1d5db; border-radius: 6px; font-size: 14px; height: 38px; outline: none; }
-    .btn-search { background: var(--blue); color: white; border: none; padding: 0 20px; border-radius: 6px; font-weight: 600; cursor: pointer; height: 38px; }
-    .btn-search:hover { filter: brightness(0.9); }
+    .btn-save { padding: 6px 12px; background: var(--mint); color: #fff; border: none; border-radius: 6px; cursor: pointer; font-weight: 700; font-size: 12px; }
 
-    .btn-search-pink { background: var(--pink); color: white; border: none; padding: 0 20px; border-radius: 6px; font-weight: 700; cursor: pointer; height: 38px; }
-    .btn-search-pink:hover { filter: brightness(0.93); }
-
-    #studentNameInput, #studentNameInput2 { width: 160px; }
-
-    .badge { padding: 4px 8px; border-radius: 99px; font-size: 11px; font-weight: 700; display: inline-block; }
-    .badge-done { background: #dcfce7; color: #166534; }
-    .badge-yet { background: #f3f4f6; color: #9ca3af; }
-    .badge-new { background: #fee2e2; color: #991b1b; }
-
-    .assign-select { padding: 6px; border-radius: 4px; border: 1px solid #d1d5db; }
-
-    .btn-save {
-      padding: 6px 10px;
-      background: var(--mint);
-      color: #064e3b;
-      border: none;
-      border-radius: 6px;
-      cursor: pointer;
-      font-weight: 800;
-      font-size: 12px;
-      margin-left: 4px;
-    }
-    .btn-save:hover { filter: brightness(0.95); }
-    .btn-save:active { transform: translateY(0.5px); }
-
-    /* === [디자인 이식] 학생 페이지의 숙제 설정 스타일 그대로 가져옴 === */
-    .hw-form-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 16px;
-      align-items: end;
-      margin-bottom: 20px;
-    }
-    .form-group label { display: block; font-size: 13px; color: #4b5563; margin-bottom: 4px; font-weight: 600; }
+    /* === [✨핵심] 숙제 만들기 스타일 (학생 페이지 이식) === */
+    .hw-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 12px; margin-bottom: 16px; align-items: end; }
+    .form-group label { display: block; font-size: 13px; font-weight: 700; color: #4b5563; margin-bottom: 6px; }
     .full-width { grid-column: 1 / -1; }
-    
-    .pill-group {
-      display: inline-flex;
-      background: #e5e7eb;
-      border-radius: 999px;
-      padding: 3px;
-    }
-    .type-btn {
-      border: none;
-      border-radius: 999px;
-      padding: 6px 16px;
-      font-size: 13px;
-      cursor: pointer;
-      background: transparent;
-      color: #4b5563;
-      font-weight: 700;
-    }
-    .type-btn.active {
-      background: var(--blue);
-      color: white;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-    }
 
-    /* 👇 학생 페이지에서 가져온 버튼 & 박스 스타일 */
-    .vocab-config {
-      background: #f9fafb;
-      border-radius: 14px;
-      padding: 14px 16px;
-      border: 1px solid #e5e7eb;
-      margin-bottom: 20px;
-      display: block; 
-    }
+    /* 숙제 종류 토글 버튼 */
+    .pill-group { display: inline-flex; background: #f3f4f6; border-radius: 99px; padding: 4px; gap: 4px; }
+    .type-btn { border: none; border-radius: 99px; padding: 6px 16px; font-size: 13px; cursor: pointer; background: transparent; color: #6b7280; font-weight: 700; }
+    .type-btn.active { background: var(--blue); color: white; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+
+    /* 설정 박스 (회색 배경) */
+    .vocab-config { background: #f9fafb; border-radius: 16px; padding: 16px; border: 1px solid #e5e7eb; margin-bottom: 16px; display: block; }
     
-    .preset-row {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      margin-bottom: 10px;
-      flex-wrap: wrap;
-    }
-    .preset-btn {
-      border: 1px solid #e5e7eb;
-      background: #ffffff;
-      color: #374151;
-      font-size: 12px;
-      font-weight: 800;
-      padding: 6px 12px;
-      border-radius: 999px;
-      cursor: pointer;
-      white-space: nowrap;
-      transition: 0.1s;
+    /* 프리셋 버튼 (기본 4종 등) */
+    .preset-row { display: flex; gap: 8px; margin-bottom: 12px; }
+    .preset-btn { 
+      border: 1px solid #d1d5db; background: #fff; color: #374151; 
+      font-size: 12px; font-weight: 700; padding: 6px 12px; border-radius: 99px; cursor: pointer; 
     }
     .preset-btn:hover { background: #f3f4f6; }
-    .preset-btn:active { transform: scale(0.98); }
 
-    .mini-select-row {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 10px;
-    }
+    /* 드롭다운 그리드 */
+    .mini-select-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; }
+    .mini-item { display: flex; align-items: center; justify-content: space-between; background: #fff; border: 1px solid #e5e7eb; border-radius: 12px; padding: 8px 12px; }
+    .mini-item.off { opacity: 0.5; background: #f3f4f6; }
+    .mini-label { font-size: 13px; font-weight: 800; color: #1f2937; }
+    .mini-select { border: 1px solid #d1d5db; border-radius: 99px; padding: 4px 8px; font-size: 13px; font-weight: 700; outline: none; text-align: center; }
 
-    .mini-item {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      border: 1px solid #e5e7eb;
-      background: #fff;
-      border-radius: 12px;
-      padding: 8px 12px;
-    }
-    .mini-item.off { opacity: 0.6; background: #f9fafb; }
-    
-    .mini-label {
-      font-size: 13px;
-      font-weight: 900;
-      color: #111827;
-      white-space: nowrap;
-    }
-    .mini-select {
-      margin-left: auto;
-      border: 1px solid #d1d5db;
-      border-radius: 999px;
-      padding: 4px 8px;
-      font-size: 13px;
-      outline: none;
-      background: #fff;
-      font-weight: 800;
-      color: #111827;
-      width: 60px;
-      text-align: center;
-    }
-
-    .btn-register-hw {
-      background: var(--pink);
-      color: white;
-      width: 100%;
-      padding: 14px;
-      border: none;
-      border-radius: 12px;
-      font-size: 16px;
-      font-weight: 800;
-      cursor: pointer;
-      box-shadow: 0 4px 10px rgba(255, 111, 181, 0.2);
-    }
+    /* 등록 버튼 */
+    .btn-register-hw { width: 100%; background: var(--pink); color: white; padding: 14px; border: none; border-radius: 12px; font-size: 16px; font-weight: 800; cursor: pointer; margin-top: 10px; }
     .btn-register-hw:hover { filter: brightness(0.95); }
 
-    @media (max-width: 768px) {
-      .mini-select-row { grid-template-columns: 1fr 1fr; }
-    }
+    @media (max-width: 600px) { .mini-select-row { grid-template-columns: 1fr 1fr; } }
   </style>
 </head>
 
@@ -204,78 +101,71 @@
   <div class="header">
     <div class="brand">👨‍🏫 선생님 관리 페이지</div>
     <div class="top-actions">
-      <button class="link-btn" id="back-btn" type="button" onclick="history.back()">뒤로</button>
-      <button class="link-btn" id="home-btn" type="button" onclick="window.location.href='index.html'">Home</button>
+      <button class="link-btn" id="back-btn" onclick="history.back()">뒤로</button>
+      <button class="link-btn" id="home-btn" onclick="window.location.href='index.html'">Home</button>
     </div>
   </div>
 
   <div class="section-card">
     <div class="card-title">📝 온라인 숙제 만들기</div>
     
-    <div class="hw-form-grid">
+    <div class="hw-grid">
       <div class="form-group">
         <label>반 선택</label>
         <select id="hwClassSelect" class="input-ui" style="width:100%;">
-          <option value="">반을 선택하세요</option>
+          <option value="">불러오는 중...</option>
         </select>
       </div>
 
       <div class="form-group">
         <label>숙제 종류</label>
         <div class="pill-group">
-          <button id="btn-type-vocab" class="type-btn active" onclick="setHwType('vocab')">어휘</button>
-          <button id="btn-type-sentence" class="type-btn" onclick="setHwType('sentence')">문장</button>
+          <button id="btn-vocab" class="type-btn active" onclick="setHwType('vocab')">어휘</button>
+          <button id="btn-sentence" class="type-btn" onclick="setHwType('sentence')">문장</button>
         </div>
-      </div>
-
-      <div class="form-group full-width">
-        <label>학습 세트 (예: 1-1, 1-2)</label>
-        <input id="hwSets" type="text" class="input-ui" style="width:100%;" placeholder="예: 1-1 또는 1-1, 1-2">
       </div>
 
       <div class="form-group">
         <label>마감일</label>
         <input id="hwDue" type="date" class="input-ui" style="width:100%;">
       </div>
+
+      <div class="form-group full-width">
+        <label>학습 세트 (예: 1-1, 1-2)</label>
+        <input id="hwSets" type="text" class="input-ui" style="width:100%;" placeholder="예: 1-1 또는 1-1, 1-2">
+      </div>
     </div>
 
     <div id="vocabConfigArea" class="vocab-config">
       <div class="preset-row">
-        <button type="button" class="preset-btn" onclick="setCfg(1,1,1,1)">기본 4종</button>
-        <button type="button" class="preset-btn" onclick="setCfg(0,0,0,3)">문장 빈칸 ×3</button>
-        <button type="button" class="preset-btn" onclick="setCfg(0,0,0,0)">초기화</button>
+        <button class="preset-btn" onclick="applyPreset(1,1,1,1)">기본 4종</button>
+        <button class="preset-btn" onclick="applyPreset(0,0,0,3)">문장 빈칸 ×3</button>
+        <button class="preset-btn" onclick="applyPreset(0,0,0,0)">초기화</button>
       </div>
 
       <div class="mini-select-row">
         <div class="mini-item" id="box-meaning">
-          <div class="mini-label">뜻 찾기</div>
+          <span class="mini-label">뜻 찾기</span>
           <select id="sel-meaning" class="mini-select" onchange="updateUI()">
-            <option value="0">0</option><option value="1" selected>1</option><option value="2">2</option>
-            <option value="3">3</option><option value="4">4</option><option value="5">5</option>
+            <option value="0">0</option><option value="1" selected>1</option><option value="2">2</option><option value="3">3</option>
           </select>
         </div>
-
         <div class="mini-item" id="box-english">
-          <div class="mini-label">영어 찾기</div>
+          <span class="mini-label">영어 찾기</span>
           <select id="sel-english" class="mini-select" onchange="updateUI()">
-            <option value="0">0</option><option value="1" selected>1</option><option value="2">2</option>
-            <option value="3">3</option><option value="4">4</option><option value="5">5</option>
+            <option value="0">0</option><option value="1" selected>1</option><option value="2">2</option><option value="3">3</option>
           </select>
         </div>
-
         <div class="mini-item" id="box-listening">
-          <div class="mini-label">듣고 찾기</div>
+          <span class="mini-label">듣고 찾기</span>
           <select id="sel-listening" class="mini-select" onchange="updateUI()">
-            <option value="0">0</option><option value="1" selected>1</option><option value="2">2</option>
-            <option value="3">3</option><option value="4">4</option><option value="5">5</option>
+            <option value="0">0</option><option value="1" selected>1</option><option value="2">2</option><option value="3">3</option>
           </select>
         </div>
-
         <div class="mini-item" id="box-sentence">
-          <div class="mini-label">문장 빈칸</div>
+          <span class="mini-label">문장 빈칸</span>
           <select id="sel-sentence" class="mini-select" onchange="updateUI()">
-            <option value="0">0</option><option value="1" selected>1</option><option value="2">2</option>
-            <option value="3">3</option><option value="4">4</option><option value="5">5</option>
+            <option value="0">0</option><option value="1" selected>1</option><option value="2">2</option><option value="3">3</option>
           </select>
         </div>
       </div>
@@ -286,73 +176,52 @@
 
   <div class="section-card">
     <div class="card-title">📅 날짜별 숙제 검사</div>
-    <div class="controls">
-      <select id="classSelect" class="input-ui">
-        <option value="">반 선택</option>
-      </select>
-
-      <input type="text" id="studentNameInput" class="input-ui" placeholder="학생 이름 (선택)">
+    <div class="hw-grid" style="grid-template-columns: 150px 150px 1fr 120px; align-items: center;">
+      <select id="classSelect" class="input-ui"><option value="">반 선택</option></select>
+      <input type="text" id="studentNameInput" class="input-ui" placeholder="이름 검색">
       <input type="date" id="dateInput" class="input-ui">
-      <button class="btn-search" onclick="loadHomework()">조회하기</button>
+      <button class="btn-search" onclick="loadHomework()">조회</button>
     </div>
-
     <div class="table-wrap">
       <table id="homeworkTable">
         <thead>
-          <tr>
-            <th width="15%">이름</th>
-            <th width="15%">상태</th>
-            <th width="20%">점수 / 모드</th>
-            <th width="20%">단원(Unit)</th>
-            <th width="30%">제출 시간</th>
-          </tr>
+          <tr><th width="15%">이름</th><th width="15%">상태</th><th width="20%">점수 / 모드</th><th width="20%">단원</th><th width="30%">시간</th></tr>
         </thead>
         <tbody>
-          <tr><td colspan="5" style="text-align:center; padding:20px;">반 또는 이름, 날짜를 선택하고 [조회하기]를 누르세요.</td></tr>
+          <tr><td colspan="5" style="text-align:center; padding:20px;">조건을 선택하고 조회를 눌러주세요.</td></tr>
         </tbody>
       </table>
     </div>
   </div>
 
   <div class="section-card">
-    <div class="card-title">👥 반별 학생 보기</div>
-    <div class="controls">
-      <select id="classSelect2" class="input-ui">
-        <option value="">반 선택</option>
-      </select>
-      <input type="text" id="studentNameInput2" class="input-ui" placeholder="학생 이름 (선택)">
-      <button class="btn-search-pink" onclick="loadStudentsByClass()">조회하기</button>
+    <div class="card-title">👥 학생 관리 (반 변경)</div>
+    <div class="hw-grid" style="grid-template-columns: 150px 1fr 120px; align-items: center;">
+      <select id="classSelect2" class="input-ui"><option value="">반 선택</option></select>
+      <input type="text" id="studentNameInput2" class="input-ui" placeholder="이름 검색">
+      <button class="btn-search-pink" onclick="loadStudentsByClass()">조회</button>
     </div>
-
     <div class="table-wrap">
       <table id="studentsTable">
         <thead>
-          <tr>
-            <th width="14%">이름</th>
-            <th width="16%">아이디</th>
-            <th width="18%">연락처</th>
-            <th width="14%">반</th>
-            <th width="14%">가입일</th>
-            <th width="14%">반 변경</th>
-            <th width="10%">저장</th>
-          </tr>
+          <tr><th>이름</th><th>아이디</th><th>연락처</th><th>현재 반</th><th>반 변경</th><th>저장</th></tr>
         </thead>
         <tbody>
-          <tr><td colspan="7" style="text-align:center; padding:20px;">반 또는 이름으로 학생을 조회할 수 있어요.</td></tr>
+          <tr><td colspan="6" style="text-align:center; padding:20px;">반 또는 이름을 검색해주세요.</td></tr>
         </tbody>
       </table>
     </div>
   </div>
 
   <div class="section-card">
-    <div class="card-title">🌱 신입생 반 배정하기</div>
+    <div class="card-title">🌱 신입생 배정 (미배정 목록)</div>
     <div class="table-wrap">
       <table id="newStudentTable">
         <thead>
           <tr><th>이름</th><th>아이디</th><th>연락처</th><th>상태</th><th>반 선택</th><th>저장</th></tr>
         </thead>
         <tbody>
-          <tr><td colspan="6" style="text-align:center; padding:20px;">데이터를 불러오는 중...</td></tr>
+          <tr><td colspan="6" style="text-align:center; padding:20px;">데이터 로딩 중...</td></tr>
         </tbody>
       </table>
     </div>
@@ -360,56 +229,61 @@
 </div>
 
 <script>
+  // 1. Supabase 초기화 (선생님 키 확인됨)
   const SUPABASE_URL = "https://bpdisxjhhibrgfpvtlmv.supabase.co";
   const SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJwZGlzeGpoaGlicmdmcHZ0bG12Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjM5NTkxODQsImV4cCI6MjA3OTUzNTE4NH0.jDZ6BGirOPuWUnt4ykjhng4PLft2ZjBuYAFzApUnlYU";
-  const supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+  const client = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
-  let classList = [];
-  let lastStudentsQuery = { classId: "", nameFilter: "" };
-  let currentHwType = "vocab"; 
+  let currentHwType = 'vocab'; // 현재 숙제 모드 (vocab / sentence)
+  let classList = []; // 반 목록 저장용
 
+  // 페이지 로드 시 실행
   document.addEventListener("DOMContentLoaded", async () => {
-    const today = new Date();
-    const yyyy = today.getFullYear();
-    const mm = String(today.getMonth() + 1).padStart(2, '0');
-    const dd = String(today.getDate()).padStart(2, '0');
+    console.log("페이지 로드 완료");
     
-    document.getElementById("dateInput").value = `${yyyy}-${mm}-${dd}`;
-    document.getElementById("hwDue").value = `${yyyy}-${mm}-${dd}`;
+    // 날짜 기본값 세팅 (오늘 날짜)
+    const today = new Date().toISOString().split('T')[0];
+    document.getElementById("dateInput").value = today;
+    document.getElementById("hwDue").value = today;
 
-    await loadClasses();
-    loadNewStudents();
-    updateUI(); // 초기 UI 상태 업데이트
+    // 초기 데이터 로드
+    await loadClasses();     // 반 목록
+    loadNewStudents();       // 신입생 목록
+    updateUI();              // 설정창 UI 초기화
   });
 
-  // === 0. 숙제 등록 & 설정 로직 (학생 페이지와 동일하게 동작) ===
+  /* =========================================
+     [기능 1] 숙제 등록 & 설정 (학생 페이지 이식됨)
+     ========================================= */
+  
+  // 숙제 타입 변경 (어휘 <-> 문장)
   function setHwType(type) {
     currentHwType = type;
-    const btnVocab = document.getElementById("btn-type-vocab");
-    const btnSentence = document.getElementById("btn-type-sentence");
     const configArea = document.getElementById("vocabConfigArea");
+    const btnVocab = document.getElementById("btn-vocab");
+    const btnSentence = document.getElementById("btn-sentence");
 
-    if (type === "vocab") {
-      btnVocab.classList.add("active");
-      btnSentence.classList.remove("active");
-      configArea.style.display = "block"; 
+    if (type === 'vocab') {
+      configArea.style.display = 'block'; // 어휘면 설정창 보임
+      btnVocab.classList.add('active');
+      btnSentence.classList.remove('active');
     } else {
-      btnSentence.classList.add("active");
-      btnVocab.classList.remove("active");
-      configArea.style.display = "none";
+      configArea.style.display = 'none';  // 문장이면 설정창 숨김
+      btnSentence.classList.add('active');
+      btnVocab.classList.remove('active');
     }
   }
 
-  // 프리셋 버튼 로직
-  function setCfg(m, e, l, s) {
+  // 프리셋 버튼 클릭 시 (1,1,1,1 등)
+  function applyPreset(m, e, l, s) {
     document.getElementById("sel-meaning").value = m;
     document.getElementById("sel-english").value = e;
     document.getElementById("sel-listening").value = l;
     document.getElementById("sel-sentence").value = s;
-    updateUI(); // 값 변경 후 UI 갱신 (흐리게 처리 등)
+    updateUI(); // UI 갱신 (0인 항목 흐리게)
   }
 
-  // 0이면 흐리게 보이는 시각적 효과
+  // 설정값 0일 때 흐리게 처리하는 효과
   function updateUI() {
     const m = document.getElementById("sel-meaning").value;
     const e = document.getElementById("sel-english").value;
@@ -422,15 +296,18 @@
     document.getElementById("box-sentence").classList.toggle("off", s == 0);
   }
 
+  // [숙제 등록] 버튼 클릭 시 DB 저장
   async function registerHomework() {
     const classId = document.getElementById("hwClassSelect").value;
     const sets = document.getElementById("hwSets").value.trim();
     const due = document.getElementById("hwDue").value;
 
     if (!classId) return alert("반을 선택해주세요.");
-    if (!sets) return alert("학습 세트를 입력해주세요.");
+    if (!sets) return alert("학습 세트를 입력해주세요. (예: 1-1)");
     if (!due) return alert("마감일을 설정해주세요.");
 
+    // 레벨 추출 (단순히 첫 글자 파싱)
+    // 예: "1-1, 1-2" -> 1단계로 인식
     const firstSet = sets.split(",")[0].trim();
     const levelMatch = firstSet.match(/^(\d+)-/);
     const level = levelMatch ? parseInt(levelMatch[1]) : 0;
@@ -443,7 +320,8 @@
       created_at: new Date().toISOString()
     };
 
-    if (currentHwType === "vocab") {
+    // 어휘 숙제라면 tasks(목표 횟수)도 같이 저장
+    if (currentHwType === 'vocab') {
       payload.tasks = {
         meaning: parseInt(document.getElementById("sel-meaning").value),
         english: parseInt(document.getElementById("sel-english").value),
@@ -452,306 +330,229 @@
       };
     }
 
-    const tableName = currentHwType === "vocab" ? "vocab_homework" : "sentence_homework";
+    const tableName = currentHwType === 'vocab' ? 'vocab_homework' : 'sentence_homework';
 
     try {
-      const { error } = await supabaseClient.from(tableName).insert([payload]);
-
+      const { error } = await client.from(tableName).insert([payload]);
+      
       if (error) throw error;
 
-      alert("✅ 숙제가 등록되었습니다!");
-      document.getElementById("hwSets").value = "";
-    } catch (err) {
-      console.error("등록 실패:", err);
-      alert("오류가 발생했습니다: " + err.message);
-    }
-  }
-
-  // === 아래는 기존 선생님 기능 (건드리지 않음) ===
-
-  async function loadClasses() {
-    const { data, error } = await supabaseClient.from('classes').select('*').order('name');
-
-    const selectHw = document.getElementById("hwClassSelect");
-    const select1 = document.getElementById("classSelect");
-    const select2 = document.getElementById("classSelect2");
-    
-    if (selectHw) selectHw.innerHTML = '<option value="">반을 선택하세요</option>';
-    if (select1) select1.innerHTML = '<option value="">반 선택</option>';
-    if (select2) select2.innerHTML = '<option value="">반 선택</option>';
-
-    if (error) {
-      console.error("반 목록 에러:", error);
-      return;
-    }
-
-    classList = data;
-
-    data.forEach(cls => {
-      if (selectHw) {
-        const opt = document.createElement("option");
-        opt.value = cls.id;
-        opt.textContent = cls.name;
-        selectHw.appendChild(opt);
-      }
-      if (select1) {
-        const opt1 = document.createElement("option");
-        opt1.value = cls.id;
-        opt1.textContent = cls.name;
-        select1.appendChild(opt1);
-      }
-      if (select2) {
-        const opt2 = document.createElement("option");
-        opt2.value = cls.id;
-        opt2.textContent = cls.name;
-        select2.appendChild(opt2);
-      }
-    });
-  }
-
-  async function loadNewStudents() {
-    const tbody = document.querySelector("#newStudentTable tbody");
-
-    const { data, error } = await supabaseClient
-      .from('students')
-      .select('*')
-      .is('class_id', null)
-      .order('created_at', { ascending: false });
-
-    if (error) {
-      console.error(error);
-      tbody.innerHTML = `<tr><td colspan="6" style="text-align:center; padding:20px; color:#999;">불러오기 오류</td></tr>`;
-      return;
-    }
-
-    tbody.innerHTML = "";
-    if (!data || data.length === 0) {
-      tbody.innerHTML = `<tr><td colspan="6" style="text-align:center; padding:20px; color:#999;">신규 학생(미배정)이 없습니다.</td></tr>`;
-      return;
-    }
-
-    data.forEach(student => {
-      const tr = document.createElement("tr");
-
-      let options = '<option value="">선택</option>';
-      classList.forEach(c => {
-        options += `<option value="${c.id}">${c.name}</option>`;
-      });
-
-      tr.innerHTML = `
-        <td style="font-weight:bold;">${student.name}</td>
-        <td>${student.login_id}</td>
-        <td>${student.parent_phone || '-'}</td>
-        <td><span class="badge badge-new">미배정</span></td>
-        <td><select class="assign-select" id="sel-${student.id}">${options}</select></td>
-        <td><button class="btn-save" onclick="saveClass('${student.id}')">저장</button></td>
-      `;
-      tbody.appendChild(tr);
-    });
-  }
-
-  async function saveClass(studentId) {
-    const sel = document.getElementById(`sel-${studentId}`);
-    if (!sel || !sel.value) { alert("반을 선택해주세요."); return; }
-
-    const { error } = await supabaseClient
-      .from('students')
-      .update({ class_id: sel.value })
-      .eq('id', studentId);
-
-    if (error) {
-      alert("저장 실패: " + error.message);
-      return;
-    }
-
-    alert("반 배정이 완료되었습니다.");
-    loadNewStudents();
-    if (lastStudentsQuery.classId || lastStudentsQuery.nameFilter) {
-      loadStudentsByClass(true);
-    }
-  }
-
-  async function loadStudentsByClass(isRerun = false) {
-    const classId = document.getElementById("classSelect2").value;
-    const nameFilter = document.getElementById("studentNameInput2").value.trim();
-    const tbody = document.querySelector("#studentsTable tbody");
-
-    if (!classId && !nameFilter) {
-      alert("반 또는 학생 이름 중 하나는 입력해주세요.");
-      return;
-    }
-
-    if (!isRerun) {
-      lastStudentsQuery = { classId, nameFilter };
-    }
-
-    const activeClassId = isRerun ? lastStudentsQuery.classId : classId;
-    const activeNameFilter = isRerun ? lastStudentsQuery.nameFilter : nameFilter;
-
-    tbody.innerHTML = `<tr><td colspan="7" style="text-align:center; padding:20px;">조회 중...</td></tr>`;
-
-    try {
-      let query = supabaseClient
-        .from('students')
-        .select('id, name, login_id, parent_phone, class_id, created_at')
-        .order('name');
-
-      if (activeClassId) query = query.eq('class_id', activeClassId);
-      if (activeNameFilter) query = query.ilike('name', `%${activeNameFilter}%`);
-
-      const { data: students, error } = await query;
-      if (error) throw error;
-
-      tbody.innerHTML = "";
-
-      if (!students || students.length === 0) {
-        tbody.innerHTML = `<tr><td colspan="7" style="text-align:center; padding:20px;">조건에 맞는 학생이 없습니다.</td></tr>`;
-        return;
-      }
-
-      const classNameById = new Map(classList.map(c => [c.id, c.name]));
-
-      students.forEach(s => {
-        const tr = document.createElement("tr");
-        const className = s.class_id ? (classNameById.get(s.class_id) || s.class_id) : '미배정';
-        const joinDate = s.created_at ? new Date(s.created_at).toLocaleDateString('ko-KR') : '-';
-
-        let options = `<option value="">미배정</option>`;
-        classList.forEach(c => {
-          const selected = s.class_id === c.id ? "selected" : "";
-          options += `<option value="${c.id}" ${selected}>${c.name}</option>`;
-        });
-
-        tr.innerHTML = `
-          <td style="font-weight:700;">${s.name}</td>
-          <td>${s.login_id || '-'}</td>
-          <td>${s.parent_phone || '-'}</td>
-          <td>${className}</td>
-          <td>${joinDate}</td>
-          <td>
-            <select class="assign-select" id="cls-${s.id}">
-              ${options}
-            </select>
-          </td>
-          <td>
-            <button class="btn-save" onclick="updateStudentClass('${s.id}')">저장</button>
-          </td>
-        `;
-        tbody.appendChild(tr);
-      });
-
+      alert("✅ 숙제가 성공적으로 등록되었습니다!");
+      document.getElementById("hwSets").value = ""; // 입력창 비우기
     } catch (err) {
       console.error(err);
-      tbody.innerHTML = `<tr><td colspan="7" style="text-align:center; padding:20px;">오류: ${err.message}</td></tr>`;
+      alert("등록 실패: " + err.message);
     }
   }
 
-  async function updateStudentClass(studentId) {
-    const sel = document.getElementById(`cls-${studentId}`);
-    if (!sel) return;
+  /* =========================================
+     [기능 2,3,4] 기존 조회 및 관리 기능
+     ========================================= */
 
-    const newClassId = sel.value ? sel.value : null;
+  // 반 목록 불러오기 (3개의 드롭다운에 모두 채움)
+  async function loadClasses() {
+    const { data, error } = await client.from('classes').select('*').order('name');
+    if (error) { console.error("반 로딩 실패", error); return; }
 
-    const { error } = await supabaseClient
-      .from('students')
-      .update({ class_id: newClassId })
-      .eq('id', studentId);
+    classList = data; // 전역 변수에 저장 (나중에 이름 찾기용)
 
-    if (error) {
-      alert("저장 실패: " + error.message);
-      return;
-    }
+    // 채울 드롭다운들
+    const targets = [
+      document.getElementById("hwClassSelect"), // 숙제 등록용
+      document.getElementById("classSelect"),   // 숙제 조회용
+      document.getElementById("classSelect2")   // 학생 관리용
+    ];
 
-    alert("반 변경이 저장되었습니다.");
-    loadNewStudents();
-    loadStudentsByClass(true);
+    targets.forEach(sel => {
+      if(sel) {
+        sel.innerHTML = '<option value="">반 선택</option>';
+        data.forEach(cls => {
+          const opt = document.createElement("option");
+          opt.value = cls.id;
+          opt.textContent = cls.name;
+          sel.appendChild(opt);
+        });
+      }
+    });
   }
 
+  // 날짜별 숙제 조회
   async function loadHomework() {
     const classId = document.getElementById("classSelect").value;
     const dateVal = document.getElementById("dateInput").value;
     const nameFilter = document.getElementById("studentNameInput").value.trim();
     const tbody = document.querySelector("#homeworkTable tbody");
 
-    if (!classId && !nameFilter) {
-      alert("반 또는 학생 이름 중 하나는 입력해주세요.");
-      return;
-    }
-    if (!dateVal) {
-      alert("날짜를 선택해주세요.");
-      return;
-    }
-
     tbody.innerHTML = `<tr><td colspan="5" style="text-align:center; padding:20px;">조회 중...</td></tr>`;
 
-    try {
-      let query = supabaseClient
-        .from('students')
-        .select('id, name, login_id')
-        .order('name');
+    // 1. 학생 목록 먼저 가져오기
+    let query = client.from('students').select('id, name, login_id').order('name');
+    if (classId) query = query.eq('class_id', classId);
+    if (nameFilter) query = query.ilike('name', `%${nameFilter}%`);
 
-      if (classId) query = query.eq('class_id', classId);
-      if (nameFilter) query = query.ilike('name', `%${nameFilter}%`);
+    const { data: students, error: err1 } = await query;
+    if (err1 || !students.length) {
+      tbody.innerHTML = `<tr><td colspan="5" style="text-align:center; padding:20px;">해당하는 학생이 없습니다.</td></tr>`;
+      return;
+    }
 
-      const { data: students, error: studentError } = await query;
-      if (studentError) throw studentError;
+    // 2. 해당 날짜의 결과 가져오기
+    const loginIds = students.map(s => s.login_id);
+    const start = dateVal + " 00:00:00";
+    const end   = dateVal + " 23:59:59";
 
-      if (!students || students.length === 0) {
-        tbody.innerHTML = `<tr><td colspan="5" style="text-align:center; padding:20px;">조건에 맞는 학생이 없습니다.</td></tr>`;
-        return;
-      }
+    const { data: results, error: err2 } = await client
+      .from('vocab_results')
+      .select('*')
+      .in('student_login_id', loginIds)
+      .gte('submitted_at', start)
+      .lte('submitted_at', end)
+      .order('submitted_at', { ascending: false });
 
-      const loginIds = students.map(s => s.login_id);
+    if (err2) { console.error(err2); return; }
 
-      const start = dateVal + " 00:00:00";
-      const end   = dateVal + " 23:59:59";
+    // 3. 테이블 그리기
+    tbody.innerHTML = "";
+    students.forEach(std => {
+      // 이 학생의 결과 찾기
+      const myRes = results.filter(r => r.student_login_id === std.login_id);
 
-      const { data: results, error: resultError } = await supabaseClient
-        .from('vocab_results')
-        .select('*')
-        .in('student_login_id', loginIds)
-        .gte('submitted_at', start)
-        .lte('submitted_at', end)
-        .order('submitted_at', { ascending: false });
-
-      if (resultError) throw resultError;
-
-      tbody.innerHTML = "";
-
-      students.forEach(std => {
-        const myResults = (results || []).filter(r => r.student_login_id === std.login_id);
-
-        if (myResults.length > 0) {
-          myResults.forEach(res => {
-            const tr = document.createElement("tr");
-            const timeStr = new Date(res.submitted_at).toLocaleTimeString([], {hour:'2-digit', minute:'2-digit'});
-
-            tr.innerHTML = `
-              <td style="font-weight:700;">${std.name}</td>
-              <td><span class="badge badge-done">제출 완료</span></td>
-              <td>${res.correct_count}점 <span style="color:#888; font-size:12px;">(${res.mode})</span></td>
-              <td style="font-weight:bold; color:var(--blue);">${res.unit || '-'}</td>
-              <td>${timeStr}</td>
-            `;
-            tbody.appendChild(tr);
-          });
-        } else {
+      if (myRes.length > 0) {
+        myRes.forEach(r => {
+          const time = new Date(r.submitted_at).toLocaleTimeString([], {hour:'2-digit', minute:'2-digit'});
           const tr = document.createElement("tr");
-          tr.style.backgroundColor = "#fff5f5";
           tr.innerHTML = `
-            <td>${std.name}</td>
-            <td><span class="badge badge-yet">미제출</span></td>
-            <td>-</td>
-            <td>-</td>
-            <td>-</td>
+            <td style="font-weight:700;">${std.name}</td>
+            <td><span class="badge badge-done">제출 완료</span></td>
+            <td>${r.correct_count}점 <span style="color:#888; font-size:11px;">(${r.mode})</span></td>
+            <td style="color:var(--blue); font-weight:700;">${r.unit_key || r.unit || '-'}</td>
+            <td>${time}</td>
           `;
           tbody.appendChild(tr);
-        }
+        });
+      } else {
+        // 미제출
+        const tr = document.createElement("tr");
+        tr.innerHTML = `
+          <td>${std.name}</td>
+          <td><span class="badge badge-yet">미제출</span></td>
+          <td>-</td>
+          <td>-</td>
+          <td>-</td>
+        `;
+        tbody.appendChild(tr);
+      }
+    });
+  }
+
+  // 반별 학생 조회
+  async function loadStudentsByClass() {
+    const classId = document.getElementById("classSelect2").value;
+    const nameFilter = document.getElementById("studentNameInput2").value.trim();
+    const tbody = document.querySelector("#studentsTable tbody");
+
+    let query = client.from('students').select('*').order('name');
+    if (classId) query = query.eq('class_id', classId);
+    if (nameFilter) query = query.ilike('name', `%${nameFilter}%`);
+
+    const { data, error } = await query;
+    if (error) return alert("조회 실패");
+
+    tbody.innerHTML = "";
+    if (!data.length) {
+      tbody.innerHTML = `<tr><td colspan="6" style="text-align:center; padding:20px;">학생이 없습니다.</td></tr>`;
+      return;
+    }
+
+    data.forEach(s => {
+      // 반 이름 찾기
+      const clsObj = classList.find(c => c.id === s.class_id);
+      const clsName = clsObj ? clsObj.name : '미배정';
+
+      // 반 변경용 옵션 만들기
+      let opts = `<option value="">미배정</option>`;
+      classList.forEach(c => {
+        const selected = c.id === s.class_id ? "selected" : "";
+        opts += `<option value="${c.id}" ${selected}>${c.name}</option>`;
       });
 
-    } catch (err) {
-      console.error(err);
-      tbody.innerHTML = `<tr><td colspan="5">오류가 발생했습니다: ${err.message}</td></tr>`;
+      const tr = document.createElement("tr");
+      tr.innerHTML = `
+        <td style="font-weight:700;">${s.name}</td>
+        <td>${s.login_id || '-'}</td>
+        <td>${s.parent_phone || '-'}</td>
+        <td>${clsName}</td>
+        <td>
+          <select id="sel-${s.id}" class="input-ui" style="height:32px; padding:2px;">
+            ${opts}
+          </select>
+        </td>
+        <td><button class="btn-save" onclick="updateStudent('${s.id}')">저장</button></td>
+      `;
+      tbody.appendChild(tr);
+    });
+  }
+
+  // 학생 반 정보 수정
+  async function updateStudent(id) {
+    const sel = document.getElementById(`sel-${id}`);
+    const newClassId = sel.value || null;
+
+    const { error } = await client.from('students').update({ class_id: newClassId }).eq('id', id);
+    if (error) alert("수정 실패");
+    else {
+      alert("반 변경 완료!");
+      loadStudentsByClass(); // 목록 새로고침
+      loadNewStudents();     // 신입생 목록도 갱신
+    }
+  }
+
+  // 신입생(미배정) 조회
+  async function loadNewStudents() {
+    const tbody = document.querySelector("#newStudentTable tbody");
+    const { data, error } = await client
+      .from('students')
+      .select('*')
+      .is('class_id', null)
+      .order('created_at', { ascending: false });
+
+    if (error) return;
+
+    tbody.innerHTML = "";
+    if (!data.length) {
+      tbody.innerHTML = `<tr><td colspan="6" style="text-align:center; padding:20px;">신규(미배정) 학생이 없습니다.</td></tr>`;
+      return;
+    }
+
+    data.forEach(s => {
+      let opts = `<option value="">반 선택</option>`;
+      classList.forEach(c => {
+        opts += `<option value="${c.id}">${c.name}</option>`;
+      });
+
+      const tr = document.createElement("tr");
+      tr.innerHTML = `
+        <td style="font-weight:700;">${s.name}</td>
+        <td>${s.login_id}</td>
+        <td>${s.parent_phone || '-'}</td>
+        <td><span class="badge badge-new">미배정</span></td>
+        <td><select id="new-${s.id}" class="input-ui" style="height:32px;">${opts}</select></td>
+        <td><button class="btn-save" onclick="saveNewStudent('${s.id}')">저장</button></td>
+      `;
+      tbody.appendChild(tr);
+    });
+  }
+
+  // 신입생 반 배정 저장
+  async function saveNewStudent(id) {
+    const sel = document.getElementById(`new-${id}`);
+    if (!sel.value) return alert("반을 선택해주세요.");
+    
+    const { error } = await client.from('students').update({ class_id: sel.value }).eq('id', id);
+    if (error) alert("오류 발생");
+    else {
+      alert("배정 완료!");
+      loadNewStudents();
     }
   }
 </script>
