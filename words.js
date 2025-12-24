@@ -794,6 +794,487 @@
 3-60|news|뉴스|on the news|뉴스에서
 3-60|newspaper|신문|I read a newspaper.|나는 신문을 읽어.
 
+4-1	father	아버지	This is my father.	이 분은 나의 아버지이다.
+4-1	dad	아빠	I like my dad.	나는 나의 아빠를 좋아한다.
+4-1	mother	어머니	She is my mother.	그녀는 나의 어머니이다.
+4-1	mom	엄마	My mom is pretty.	나의 엄마는 예쁘다.
+4-1	brother	남자 형제	He is my brother.	그는 나의 남자 형제이다.
+4-1	sister	여자 형제	I have a sister.	나는 여자 형제가 한 명 있다.
+4-1	family	가족	We love our family.	우리는 우리의 가족을 사랑한다.
+4-1	parents	부모	My parents are here.	나의 부모님들이 여기에 계신다.
+4-1	daughter	딸	She is my daughter.	그녀는 나의 딸이다.
+4-1	son	아들	I am a good son.	나는 착한 아들이다.
+4-1	grandparents	조부모	I call my grandparents.	나는 나의 조부모님께 전화한다.
+4-1	grandfather	할아버지	My grandfather is old.	나의 할아버지는 나이가 많으시다.
+4-1	grandmother	할머니	I see my grandmother.	나는 나의 할머니를 뵌다.
+4-1	uncle	삼촌	My uncle has a car.	나의 삼촌은 차를 한 대 가지고 계신다.
+4-1	aunt	이모, 고모	I play with my aunt.	나는 나의 이모/고모와 함께 논다.
+4-1	cousin	사촌	He is my cousin.	그는 나의 사촌이다.
+4-2	Sunday	일요일	Today is Sunday.	오늘은 일요일이다.
+4-2	Monday	월요일	I go to school on Monday.	나는 월요일에 학교에 간다.
+4-2	Tuesday	화요일	We have P.E. on Tuesday.	우리는 화요일에 체육 수업이 있다.
+4-2	Wednesday	수요일	I eat lunch on Wednesday.	나는 수요일에 점심을 먹는다.
+4-2	Thursday	목요일	Do you like Thursday?	너는 목요일을 좋아하니?
+4-2	Friday	금요일	Let's meet next Friday.	다음 주 금요일에 만나자.
+4-2	Saturday	토요일	We play soccer on Saturday.	우리는 토요일에 축구를 한다.
+4-2	today	오늘	What is the date today?	오늘 날짜는 언제니?
+4-2	morning	아침	I eat breakfast in the morning.	나는 아침에 아침밥을 먹는다.
+4-2	afternoon	오후	Let's play in the afternoon.	오후에 놀자.
+4-2	evening	저녁	I watch TV in the evening.	나는 저녁에 TV를 본다.
+4-2	night	밤	I sleep at night.	나는 밤에 잠을 잔다.
+4-2	tonight	오늘밤	I will study tonight.	나는 오늘밤에 공부할 것이다.
+4-2	yesterday	어제	I was sick yesterday.	나는 어제 아팠다.
+4-2	tomorrow	내일	We will meet tomorrow.	우리는 내일 만날 것이다.
+4-2	week	일주일, 주	There are seven days in a week.	한 주에는 7일이 있다.
+4-3	weather	날씨	The weather is nice today.	오늘 날씨는 좋다.
+4-3	sunny	화창한	It is a sunny day.	오늘은 화창한 날이다.
+4-3	cloudy	구름이 낀	It is cloudy now.	지금은 구름이 끼어 있다.
+4-3	rainy	비가 오는	Don't forget your umbrella on a rainy day.	비 오는 날에 우산을 잊지 마라.
+4-3	snowy	눈이 오는	Let's make a snowman on a snowy day.	눈 오는 날에 눈사람을 만들자.
+4-3	foggy	안개가 낀	It is foggy outside.	밖은 안개가 끼어 있다.
+4-3	windy	바람이 부는	The windy day is cold.	바람 부는 날은 춥다.
+4-3	warm	따뜻한	The room is warm.	방이 따뜻하다.
+4-3	cold	추운	I feel cold now.	나는 지금 춥다.
+4-3	cool	시원한	The drink is cool.	음료수가 시원하다.
+4-3	hot	더운	It is very hot outside.	밖이 매우 덥다.
+4-3	season	계절	What is your favorite season?	네가 가장 좋아하는 계절은 무엇이니?
+4-3	spring	봄	I like spring flowers.	나는 봄꽃을 좋아한다.
+4-3	summer	여름	Let's swim in the summer.	여름에 수영하자.
+4-3	fall	가을	Fall is a beautiful season.	가을은 아름다운 계절이다.
+4-3	winter	겨울	Winter is very cold.	겨울은 매우 춥다.
+4-4	taste	맛이 나다, 맛보다	I taste the sweet cake.	나는 달콤한 케이크 맛을 본다.
+4-4	sweet	달콤한	The candy is sweet.	그 사탕은 달콤하다.
+4-4	sour	신맛이 나는	I don't like sour lemons.	나는 신 레몬을 좋아하지 않는다.
+4-4	feel	느끼다	I feel happy today.	나는 오늘 행복함을 느낀다.
+4-4	wet	젖은, 축축한	My shoes are wet.	나의 신발이 젖었다.
+4-4	dry	마른, 건조한	Please use a dry towel.	마른 수건을 사용해 주세요.
+4-4	soft	부드러운	The pillow is very soft.	그 베개는 매우 부드럽다.
+4-4	hard	딱딱한	The rock is very hard.	그 돌은 매우 딱딱하다.
+4-4	hear	듣다	Can you hear the music?	음악을 들을 수 있니?
+4-4	look	보이다, 보다	You look happy.	너는 행복해 보인다.
+4-4	smell	냄새가 나다, 냄새 맡다	I can smell the food.	나는 그 음식 냄새를 맡을 수 있다.
+4-4	delicious	맛있는	This cake is delicious.	이 케이크는 맛있다.
+4-4	sound	~하게 들리다	It sounds like a bird.	새 소리처럼 들린다.
+4-4	loud	시끄러운	The music is too loud.	음악이 너무 시끄럽다.
+4-4	quiet	조용한	Please be quiet.	조용히 해 주세요.
+4-4	nice	좋은	Have a nice day.	좋은 하루 보내세요.
+4-5	number	숫자	What is your favorite number?	네가 가장 좋아하는 숫자는 무엇이니?
+4-5	one	1, 하나	I have one dog.	나는 개를 한 마리 가지고 있다.
+4-5	two	2, 둘	We have two brothers.	우리는 두 명의 남자 형제가 있다.
+4-5	three	3, 셋	I eat three cookies.	나는 쿠키 세 개를 먹는다.
+4-5	four	4, 넷	A cat has four legs.	고양이는 다리가 네 개 있다.
+4-5	five	5, 다섯	I count to five.	나는 다섯까지 센다.
+4-5	six	6, 여섯	There are six chairs.	의자가 여섯 개 있다.
+4-5	seven	7, 일곱	Today is day seven.	오늘은 일곱 번째 날이다.
+4-5	eight	8, 여덟	I have eight pencils.	나는 연필을 여덟 자루 가지고 있다.
+4-5	nine	9, 아홉	He is nine years old.	그는 아홉 살이다.
+4-5	ten	10, 열	Let's count to ten.	열까지 세어 보자.
+4-5	eleven	11, 열하나	I see eleven birds.	나는 새 열한 마리를 본다.
+4-5	twelve	12, 열 둘	There are twelve months.	열두 달이 있다.
+4-5	thirteen	13, 열 셋	My sister is thirteen.	나의 여동생은 열세 살이다.
+4-5	fourteen	14, 열 넷	I wear fourteen stickers.	나는 스티커 열네 개를 붙인다.
+4-5	fifteen	15, 열 다섯	I can see fifteen cars.	나는 차 열다섯 대를 볼 수 있다.
+4-6	how	얼마나, 어떻게	How old are you?	너는 나이가 얼마나 되니?
+4-6	long	긴	That ruler is long.	저 자는 길다.
+4-6	quick	빠른	Be quick!	빠르게 해라!
+4-6	large	큰, 넓은	My school has a large gym.	나의 학교는 넓은 체육관이 있다.
+4-6	big	큰	That house is very big.	저 집은 매우 크다.
+4-6	small	작은	I have a small pencil.	나는 작은 연필을 가지고 있다.
+4-6	heavy	무거운	This box is heavy.	이 상자는 무겁다.
+4-6	light	가벼운	My bag is light.	나의 가방은 가볍다.
+4-6	dirty	더러운	The floor is dirty.	바닥이 더럽다.
+4-6	clean	깨끗한	My hands are clean.	나의 손은 깨끗하다.
+4-6	high	높은	The bird flies high.	그 새는 높이 난다.
+4-6	low	낮은	The fence is low.	울타리가 낮다.
+4-6	wide	넓은	The road is wide.	그 도로는 넓다.
+4-6	narrow	좁은	This street is narrow.	이 길은 좁다.
+4-6	thick	두꺼운	This book is thick.	이 책은 두껍다.
+4-6	thin	얇은	I wear a thin jacket.	나는 얇은 재킷을 입는다.
+4-7	body	몸	Take care of your body.	너의 몸을 돌보아라.
+4-7	muscle	근육	Running builds your muscle.	달리기는 너의 근육을 만든다.
+4-7	bone	뼈	My leg bone is strong.	나의 다리 뼈는 튼튼하다.
+4-7	foot	발	I wear shoes on my foot.	나는 나의 발에 신발을 신는다.
+4-7	feet	발 (복수)	I have two feet.	나는 두 발을 가지고 있다.
+4-7	toe	발가락	I wiggle my toe.	나는 나의 발가락을 꼼지락거린다.
+4-7	hand	손	Wash your hand.	너의 손을 씻어라.
+4-7	finger	손가락	I have ten fingers.	나는 열 개의 손가락이 있다.
+4-7	heart	심장	My heart beats fast.	나의 심장이 빠르게 뛴다.
+4-7	brain	뇌	The brain helps me think.	뇌는 내가 생각하는 것을 돕는다.
+4-7	shoulder	어깨	He taps my shoulder.	그는 나의 어깨를 두드린다.
+4-7	back	등	I carry a bag on my back.	나는 나의 등에 가방을 멘다.
+4-7	leg	다리	I run with my leg.	나는 나의 다리로 달린다.
+4-7	knee	무릎	He fell on his knee.	그는 무릎을 꿇고 넘어졌다.
+4-7	arm	팔	I hold the bag with my arm.	나는 나의 팔로 가방을 잡는다.
+4-7	elbow	팔꿈치	I hurt my elbow.	나는 나의 팔꿈치를 다쳤다.
+4-8	face	얼굴	I wash my face.	나는 나의 얼굴을 씻는다.
+4-8	cheek	볼, 뺨	My cheek is soft.	나의 볼은 부드럽다.
+4-8	chin	턱	He has a big chin.	그는 큰 턱을 가지고 있다.
+4-8	skin	피부	My skin is dry.	나의 피부는 건조하다.
+4-8	head	머리	I wash my head.	나는 나의 머리를 감는다.
+4-8	hair	머리카락	My hair is black.	나의 머리카락은 검은색이다.
+4-8	neck	목	I wear a scarf around my neck.	나는 나의 목에 스카프를 두른다.
+4-8	throat	목구멍	I have a sore throat.	나는 목구멍이 아프다.
+4-8	eye	눈	I have two eyes.	나는 두 개의 눈이 있다.
+4-8	eyebrow	눈썹	My eyebrow is thick.	나의 눈썹은 두껍다.
+4-8	ear	귀	I hear with my ear.	나는 나의 귀로 듣는다.
+4-8	nose	코	I smell with my nose.	나는 나의 코로 냄새를 맡는다.
+4-8	mouth	입	I open my mouth.	나는 나의 입을 벌린다.
+4-8	lip	입술	My lips are red.	나의 입술은 빨갛다.
+4-8	tooth	치아, 이	I brush my tooth.	나는 나의 이를 닦는다.
+4-8	teeth	tooth의 복수형	I brush my teeth.	나는 나의 이들을 닦는다.
+4-9	good	좋은	This movie is good.	이 영화는 좋다.
+4-9	bad	나쁜	He is a bad person.	그는 나쁜 사람이다.
+4-9	sad	슬픈	I feel sad today.	나는 오늘 슬프다.
+4-9	happy	행복한	I am happy to see you.	나는 너를 만나서 행복하다.
+4-9	lonely	외로운	The dog looks lonely.	그 개는 외로워 보인다.
+4-9	angry	화난	Don't be angry with me.	나에게 화내지 마라.
+4-9	tired	피곤한	I am tired after school.	나는 방과 후에 피곤하다.
+4-9	nervous	불안해하는	I feel nervous before the test.	나는 시험 전에 불안해한다.
+4-9	upset	속상한, 짜증 난	She is upset about the game.	그녀는 그 게임 때문에 속상해한다.
+4-9	glad	기쁜	I am glad you came.	나는 네가 와서 기쁘다.
+4-9	mad	몹시 화난	He is mad at his brother.	그는 그의 남동생에게 몹시 화가 났다.
+4-9	worried	걱정하는	My mom is worried about me.	나의 엄마는 나에 대해 걱정하신다.
+4-9	scared	무서워하는	I am scared of the dark.	나는 어둠을 무서워한다.
+4-9	surprised	놀란	I was surprised by the noise.	나는 그 소음에 놀랐다.
+4-9	excited	신이 난	The kids are excited to play.	아이들은 놀 생각에 신이 났다.
+4-9	bored	지루해 하는	I am bored with this lesson.	나는 이 수업이 지루하다.
+4-10	house	집	I live in a big house.	나는 큰 집에 산다.
+4-10	bedroom	침실	I sleep in my bedroom.	나는 나의 침실에서 잠을 잔다.
+4-10	living room	거실	We watch TV in the living room.	우리는 거실에서 TV를 본다.
+4-10	bathroom	욕실, 화장실	I wash my hands in the bathroom.	나는 욕실에서 손을 씻는다.
+4-10	garden	정원	We have many flowers in the garden.	우리는 정원에 많은 꽃을 가지고 있다.
+4-10	backyard	뒷마당	I play soccer in the backyard.	나는 뒷마당에서 축구를 한다.
+4-10	kitchen	부엌	My mom is in the kitchen.	나의 엄마는 부엌에 계신다.
+4-10	where	어디에	Where is my book?	나의 책은 어디에 있니?
+4-10	gate	대문	Open the gate, please.	대문을 열어 주세요.
+4-10	bell	종, 초인종	Ring the bell to enter.	들어오려면 초인종을 눌러라.
+4-10	door	문	Close the door.	문을 닫아라.
+4-10	roof	지붕	The rain falls on the roof.	비가 지붕 위에 떨어진다.
+4-10	sofa	소파	I sit on the sofa.	나는 소파에 앉는다.
+4-10	table	탁자	Put the pen on the table.	펜을 탁자 위에 놓아라.
+4-10	carpet	카펫	The carpet is soft.	카펫이 부드럽다.
+4-10	stairs	계단	I walk up the stairs.	나는 계단을 걸어 올라간다.
+4-11	raise	키우다, 기르다	I raise a dog.	나는 개를 키운다.
+4-11	pet	애완동물	I have a cute pet.	나는 귀여운 애완동물이 있다.
+4-11	animal	동물	A dog is an animal.	개는 동물이다.
+4-11	dog	개	I play with my dog.	나는 나의 개와 함께 논다.
+4-11	puppy	강아지	The puppy is small.	그 강아지는 작다.
+4-11	cat	고양이	My cat likes to sleep.	나의 고양이는 자는 것을 좋아한다.
+4-11	kitten	새끼 고양이	The kitten is tiny.	그 새끼 고양이는 아주 작다.
+4-11	turtle	거북이	The turtle moves slowly.	거북이는 느리게 움직인다.
+4-11	feed	먹이를 주다	I feed my cat.	나는 나의 고양이에게 먹이를 준다.
+4-11	cage	우리, 새장	The bird is in the cage.	새가 새장 안에 있다.
+4-11	fish	물고기	I have a fish tank.	나는 어항을 가지고 있다.
+4-11	rabbit	토끼	A rabbit eats carrots.	토끼는 당근을 먹는다.
+4-11	hamster	햄스터	My hamster is running.	나의 햄스터가 달리고 있다.
+4-11	snake	뱀	A snake is long.	뱀은 길다.
+4-11	bird	새	A bird is singing.	새가 노래하고 있다.
+4-11	spider	거미	A spider has eight legs.	거미는 여덟 개의 다리를 가지고 있다.
+4-12	color	색깔, 색칠하다	What is your favorite color?	네가 가장 좋아하는 색깔은 무엇이니?
+4-12	favorite	가장 좋아하는	My favorite color is red.	내가 가장 좋아하는 색깔은 빨간색이다.
+4-12	red	빨간색	The apple is red.	그 사과는 빨간색이다.
+4-12	orange	주황색	I eat an orange.	나는 주황색 오렌지를 먹는다.
+4-12	yellow	노란색	I draw a yellow sun.	나는 노란색 태양을 그린다.
+4-12	green	초록색	The grass is green.	잔디는 초록색이다.
+4-12	blue	파란색	The sky is blue.	하늘은 파란색이다.
+4-12	purple	보라색	She wears a purple hat.	그녀는 보라색 모자를 쓴다.
+4-12	black	검은색	My dog is black.	나의 개는 검은색이다.
+4-12	white	흰색	The cloud is white.	구름은 흰색이다.
+4-12	brown	갈색	My shoes are brown.	나의 신발은 갈색이다.
+4-12	gray	회색	The rock is gray.	그 돌은 회색이다.
+4-12	pink	분홍색	I like pink flowers.	나는 분홍색 꽃을 좋아한다.
+4-12	gold	금색	I found a gold coin.	나는 금색 동전을 찾았다.
+4-12	silver	은색	The ring is silver.	그 반지는 은색이다.
+4-12	paint	칠하다, 그리다	Let's paint the wall blue.	벽을 파란색으로 칠하자.
+4-13	age	나이	What is your age?	너의 나이는 몇 살이니?
+4-13	who	누구	Who is that boy?	저 소년은 누구니?
+4-13	young	어린, 젊은	She is a young student.	그녀는 어린 학생이다.
+4-13	old	늙은, 나이가 많은	My grandfather is old.	나의 할아버지는 나이가 많으시다.
+4-13	child	아이	I am a happy child.	나는 행복한 아이이다.
+4-13	adult	성인, 어른	My parents are adults.	나의 부모님은 어른이다.
+4-13	boy	소년, 남자아이	He is a clever boy.	그는 똑똑한 소년이다.
+4-13	girl	소녀, 여자아이	She is a nice girl.	그녀는 착한 소녀이다.
+4-13	man	(성인) 남자	That man is tall.	저 남자는 키가 크다.
+4-13	woman	(성인) 여자	That woman is a teacher.	저 여자는 선생님이다.
+4-13	gentleman	신사	He is a kind gentleman.	그는 친절한 신사이다.
+4-13	lady	숙녀, 여성	She is a beautiful lady.	그녀는 아름다운 숙녀이다.
+4-13	Mr.	(남성의 성, 이름 앞에) ~씨	Mr. Kim is my teacher.	김 씨는 나의 선생님이다.
+4-13	Ms.	(여성의 성, 이름 앞에) ~씨	Ms. Park works here.	박 씨는 여기서 일한다.
+4-13	Mrs.	(결혼한 여성) ~부인	Mrs. Lee is my friend's mom.	이 부인은 나의 친구 엄마다.
+4-13	know	알다	I know the answer.	나는 그 답을 안다.
+4-14	want	원하다	I want a new book.	나는 새 책을 원한다.
+4-14	hope	희망, 바라다	I hope to see you soon.	나는 곧 너를 보기를 바란다.
+4-14	dream	꿈, 꿈꾸다	I have a great dream.	나는 대단한 꿈을 가지고 있다.
+4-14	become	~가 되다	I want to become a pilot.	나는 조종사가 되고 싶다.
+4-14	doctor	의사	The doctor helps sick people.	의사는 아픈 사람들을 돕는다.
+4-14	nurse	간호사	The nurse is very kind.	간호사는 매우 친절하다.
+4-14	scientist	과학자	A scientist studies nature.	과학자는 자연을 연구한다.
+4-14	firefighter	소방관	A firefighter stops the fire.	소방관은 불을 끈다.
+4-14	job	직업	What is your job?	너의 직업은 무엇이니?
+4-14	work	일하다	My parents work hard.	나의 부모님은 열심히 일하신다.
+4-14	actor	배우	He is a famous actor.	그는 유명한 배우이다.
+4-14	artist	예술가, 화가	My friend is a great artist.	나의 친구는 훌륭한 예술가이다.
+4-14	teacher	선생님	My teacher is smart.	나의 선생님은 똑똑하시다.
+4-14	police officer	경찰관	The police officer is driving a car.	경찰관이 차를 운전하고 있다.
+4-14	pilot	조종사	A pilot flies a plane.	조종사는 비행기를 조종한다.
+4-14	engineer	기술자	My uncle is an engineer.	나의 삼촌은 기술자이다.
+4-15	handsome	잘생긴	My brother is very handsome.	나의 오빠는 아주 잘생겼다.
+4-15	ugly	못생긴	I saw an ugly duck.	나는 못생긴 오리를 보았다.
+4-15	tall	키가 큰	The basketball player is tall.	그 농구 선수는 키가 크다.
+4-15	short	키가 작은	I am short for my age.	나는 내 나이에 비해 키가 작다.
+4-15	fat	살찐	The cat is getting fat.	그 고양이는 살이 찌고 있다.
+4-15	slim	날씬한	She has a slim figure.	그녀는 날씬한 몸매를 가지고 있다.
+4-15	strong	강한	He is very strong.	그는 매우 강하다.
+4-15	weak	약한	I feel weak when I am sick.	나는 아플 때 약하게 느낀다.
+4-15	beautiful	아름다운	The flower is beautiful.	그 꽃은 아름답다.
+4-15	wonderful	아주 멋진	We had a wonderful time.	우리는 아주 멋진 시간을 보냈다.
+4-15	pretty	예쁜	The doll is very pretty.	그 인형은 매우 예쁘다.
+4-15	cute	귀여운	The puppy is so cute.	그 강아지는 정말 귀엽다.
+4-15	hungry	배고픈	I am hungry now.	나는 지금 배고프다.
+4-15	thirsty	목마른	I am thirsty after running.	나는 달린 후에 목마르다.
+4-15	honest	정직한	He is an honest person.	그는 정직한 사람이다.
+4-15	curious	호기심이 많은	I am curious about the world.	나는 세상에 대해 호기심이 많다.
+4-16	clever	영리한	He is a clever student.	그는 영리한 학생이다.
+4-16	smart	똑똑한	My teacher is very smart.	나의 선생님은 아주 똑똑하시다.
+4-16	wise	현명한	My grandmother is wise.	나의 할머니는 현명하시다.
+4-16	stupid	어리석은	Don't do stupid things.	어리석은 짓을 하지 마라.
+4-16	foolish	어리석은	It was a foolish mistake.	그것은 어리석은 실수였다.
+4-16	calm	차분한	Be calm before the test.	시험 전에 차분하게 있어라.
+4-16	shy	수줍어하는	She is a little shy.	그녀는 조금 수줍어한다.
+4-16	funny	재미있는	That movie is very funny.	저 영화는 매우 재미있다.
+4-16	polite	예의 바른	He is a very polite boy.	그는 아주 예의 바른 소년이다.
+4-16	rude	예의 없는	Don't be rude to others.	다른 사람들에게 예의 없게 굴지 마라.
+4-16	gentle	상냥한, 순한	The cat is very gentle.	그 고양이는 매우 순하다.
+4-16	kind	친절한	She is a kind person.	그녀는 친절한 사람이다.
+4-16	selfish	이기적인	Don't be selfish with your toys.	너의 장난감에 대해 이기적으로 굴지 마라.
+4-16	brave	용감한	The brave knight saved the princess.	그 용감한 기사가 공주를 구했다.
+4-16	careful	주의 깊은	Be careful when you cross the road.	길을 건널 때 주의 깊게 해라.
+4-16	lazy	게으른	The lazy boy didn't clean his room.	그 게으른 소년은 그의 방을 청소하지 않았다.
+4-17	bring	가져오다	Please bring a gift.	선물을 가져와 주세요.
+4-17	invite	초대하다	I will invite my friends.	나는 나의 친구들을 초대할 것이다.
+4-17	need	필요하다	I need a cake for the party.	나는 파티를 위해 케이크가 필요하다.
+4-17	snack	간식	We eat a lot of snacks.	우리는 많은 간식을 먹는다.
+4-17	balloon	풍선	The balloons are red and blue.	풍선들은 빨갛고 파랗다.
+4-17	toy	장난감	I play with my new toy.	나는 나의 새 장난감으로 논다.
+4-17	birthday	생일	Today is my birthday.	오늘은 나의 생일이다.
+4-17	party	파티	We have a fun party.	우리는 재미있는 파티를 한다.
+4-17	make	만들다	I make a card for my mom.	나는 나의 엄마를 위해 카드를 만든다.
+4-17	give	주다	I give a gift to my friend.	나는 나의 친구에게 선물을 준다.
+4-17	congratulate	축하하다	Congratulate him on his win.	그의 승리를 축하해 줘라.
+4-17	card	카드	I wrote a letter on the card.	나는 카드에 편지를 썼다.
+4-17	cake	케이크	We eat the cake together.	우리는 케이크를 함께 먹는다.
+4-17	doll	인형	My sister loves her new doll.	나의 여동생은 그녀의 새 인형을 매우 좋아한다.
+4-17	gift	선물	This gift is for you.	이 선물은 너를 위한 것이다.
+4-17	present	선물	I got a nice present.	나는 멋진 선물을 받았다.
+4-18	what	무엇	What is your name?	너의 이름은 무엇이니?
+4-18	year	해, 년	This year is 2025.	올해는 2025년이다.
+4-18	date	날짜	What is the date today?	오늘 날짜는 언제니?
+4-18	month	달, 월	There are twelve months in a year.	1년은 열두 달이다.
+4-18	January	1월	My birthday is in January.	나의 생일은 1월이다.
+4-18	February	2월	February is the shortest month.	2월은 가장 짧은 달이다.
+4-18	March	3월	School starts in March.	학교는 3월에 시작한다.
+4-18	April	4월	I like the weather in April.	나는 4월의 날씨를 좋아한다.
+4-18	May	5월	We have Children's Day in May.	우리는 5월에 어린이날이 있다.
+4-18	June	6월	We go swimming in June.	우리는 6월에 수영하러 간다.
+4-18	July	7월	July is a hot month.	7월은 더운 달이다.
+4-18	August	8월	We have summer vacation in August.	우리는 8월에 여름 방학이 있다.
+4-18	September	9월	School starts again in September.	학교는 9월에 다시 시작한다.
+4-18	October	10월	I see red leaves in October.	나는 10월에 빨간 나뭇잎을 본다.
+4-18	November	11월	It starts getting cold in November.	11월에 추워지기 시작한다.
+4-18	December	12월	We celebrate Christmas in December.	우리는 12월에 크리스마스를 기념한다.
+4-19	wake up	잠에서 깨다	I wake up at 7 o'clock.	나는 7시에 잠에서 깬다.
+4-19	get up	일어나다	I get up from my bed.	나는 나의 침대에서 일어난다.
+4-19	go to school	학교에 가다	I go to school by bus.	나는 버스를 타고 학교에 간다.
+4-19	come home	집에 오다	I come home after school.	나는 방과 후에 집에 온다.
+4-19	take a shower	샤워를 하다	I take a shower in the morning.	나는 아침에 샤워를 한다.
+4-19	wash hands	손을 씻다	Always wash hands before eating.	먹기 전에 항상 손을 씻어라.
+4-19	brush teeth	양치질을 하다	I brush teeth twice a day.	나는 하루에 두 번 양치질을 한다.
+4-19	go to bed	잠자리에 들다	I go to bed at ten.	나는 10시에 잠자리에 든다.
+4-19	read a book	책을 읽다	I read a book every night.	나는 매일 밤 책을 읽는다.
+4-19	keep a diary	일기를 쓰다	I keep a diary about my day.	나는 나의 하루에 대해 일기를 쓴다.
+4-19	watch television	텔레비전을 보다	We watch television in the living room.	우리는 거실에서 텔레비전을 본다.
+4-19	cook	요리하다	My dad likes to cook.	나의 아빠는 요리하는 것을 좋아하신다.
+4-19	take a bath	목욕하다	I take a bath on Sunday.	나는 일요일에 목욕한다.
+4-19	rest	쉬다	You should rest when you are tired.	너는 피곤할 때 쉬어야 한다.
+4-19	do homework	숙제를 하다	I must do homework now.	나는 지금 숙제를 해야 한다.
+4-19	soon	곧	I will finish soon.	나는 곧 끝낼 것이다.
+4-20	go	가다	I go to the park.	나는 공원에 간다.
+4-20	build	짓다	They will build a new school.	그들은 새 학교를 지을 것이다.
+4-20	company	회사	My father works at a company.	나의 아버지는 회사에서 일하신다.
+4-20	office	사무실	The doctor is in his office.	의사는 그의 사무실에 있다.
+4-20	post office	우체국	I send a letter at the post office.	나는 우체국에서 편지를 보낸다.
+4-20	bank	은행	I save money in the bank.	나는 은행에 돈을 저금한다.
+4-20	store	가게	Let's buy some candy at the store.	가게에서 사탕을 좀 사자.
+4-20	church	교회	We go to church on Sunday.	우리는 일요일에 교회에 간다.
+4-20	place	장소	This is a beautiful place.	이곳은 아름다운 장소이다.
+4-20	library	도서관	I read books in the library.	나는 도서관에서 책을 읽는다.
+4-20	bookstore	서점	I buy a comic book at the bookstore.	나는 서점에서 만화책을 산다.
+4-20	bakery	빵집	I smell bread from the bakery.	나는 빵집에서 빵 냄새를 맡는다.
+4-20	supermarket	슈퍼마켓	My mom goes to the supermarket.	나의 엄마는 슈퍼마켓에 가신다.
+4-20	restaurant	식당	We eat dinner at the restaurant.	우리는 식당에서 저녁을 먹는다.
+4-20	café	카페	I drink juice at the café.	나는 카페에서 주스를 마신다.
+4-20	department store	백화점	I bought a shirt at the department store.	나는 백화점에서 셔츠를 샀다.
+4-21	come	오다	Come to the park with me.	나랑 같이 공원에 와라.
+4-21	jump	뛰다, 점프하다	The frog can jump high.	개구리는 높이 뛸 수 있다.
+4-21	run	달리다	I run in the morning.	나는 아침에 달린다.
+4-21	sit	앉다	Sit here, please.	여기에 앉아 주세요.
+4-21	wait	기다리다	Wait for me at the bus stop.	버스 정류장에서 나를 기다려라.
+4-21	sleep	잠자다	I sleep for 8 hours.	나는 8시간 동안 잠을 잔다.
+4-21	move	움직이다	Please move the chair.	의자를 움직여 주세요.
+4-21	put	놓다, 두다	Put the toys in the box.	장난감을 상자 안에 놓아라.
+4-21	do	하다	I do my homework every day.	나는 매일 숙제를 한다.
+4-21	cut	자르다	Cut the paper with scissors.	가위로 종이를 잘라라.
+4-21	drop	떨어뜨리다	Be careful not to drop the glass.	유리잔을 떨어뜨리지 않도록 조심해라.
+4-21	forget	잊다	Don't forget my name.	나의 이름을 잊지 마라.
+4-21	open	열다	Open the window for fresh air.	신선한 공기를 위해 창문을 열어라.
+4-21	close	닫다	Close the door quietly.	문을 조용히 닫아라.
+4-21	blow	불다	I blow out the candle.	나는 촛불을 분다.
+4-21	show	보여주다	Show me your new pencil.	너의 새 연필을 나에게 보여 줘.
+4-22	park	공원	I play soccer in the park.	나는 공원에서 축구를 한다.
+4-22	field	들판	We saw many flowers in the field.	우리는 들판에서 많은 꽃을 보았다.
+4-22	ground	땅	The ball rolled on the ground.	공이 땅 위에서 굴러갔다.
+4-22	grass	풀, 잔디	We sit on the soft grass.	우리는 부드러운 잔디 위에 앉는다.
+4-22	sand	모래	I build a castle with sand.	나는 모래로 성을 만든다.
+4-22	bench	벤치	Let's sit on the bench.	벤치에 앉자.
+4-22	flower	꽃	This flower smells sweet.	이 꽃은 달콤한 냄새가 난다.
+4-22	rose	장미	The red rose is beautiful.	빨간 장미는 아름답다.
+4-22	find	찾다	I need to find my lost key.	나는 잃어버린 열쇠를 찾아야 한다.
+4-22	ride	타다	Can you ride a bike?	너는 자전거를 탈 수 있니?
+4-22	bicycle	자전거	I have a new bicycle.	나는 새 자전거를 가지고 있다.
+4-22	jump rope	줄넘기, 줄넘기를 하다	We jump rope during break time.	우리는 쉬는 시간에 줄넘기를 한다.
+4-22	camera	카메라	I take pictures with my camera.	나는 나의 카메라로 사진을 찍는다.
+4-22	map	지도	Look at the map to find the way.	길을 찾기 위해 지도를 보아라.
+4-22	stone	돌	I picked up a small stone.	나는 작은 돌 하나를 주웠다.
+4-22	plant	식물	My mom waters the plant.	나의 엄마는 식물에 물을 주신다.
+4-23	many	(수가) 많은	There are many people here.	여기에 많은 사람들이 있다.
+4-23	much	(양이) 많은	I don't have much time.	나는 시간이 많지 않다.
+4-23	few	(수가) 거의 없는	He has few friends.	그는 친구가 거의 없다.
+4-23	little	(양이) 거의 없는	There is little water left.	남은 물이 거의 없다.
+4-23	more	더 많은	I want more cake.	나는 케이크를 더 많이 원한다.
+4-23	enough	충분한	I have enough money for the ticket.	나는 티켓을 살 충분한 돈이 있다.
+4-23	some	조금, 약간의	Do you want some juice?	주스 좀 마실래?
+4-23	both	둘 다	Both my parents are here.	나의 부모님 두 분 다 여기 계시다.
+4-23	all	모든, 모두	All students must be quiet.	모든 학생들은 조용해야 한다.
+4-23	most	대부분의	Most of the work is done.	일의 대부분이 끝났다.
+4-23	a lot of	많은	We saw a lot of birds.	우리는 많은 새를 보았다.
+4-23	any	어느, 어떤	Do you have any questions?	질문이 있니?
+4-23	full	가득 찬	The basket is full of apples.	바구니는 사과로 가득 차 있다.
+4-23	empty	비어 있는	The box is empty.	그 상자는 비어 있다.
+4-23	another	또 하나의	Please give me another chance.	나에게 또 하나의 기회를 주세요.
+4-23	only	오직, 겨우	I have only one cookie left.	나에게는 오직 하나의 쿠키만 남아 있다.
+4-24	country	나라, 국가	I love my country, Korea.	나는 나의 나라, 한국을 매우 사랑한다.
+4-24	world	세계, 세상	There are many places in the world.	세상에는 많은 장소가 있다.
+4-24	culture	문화	I want to learn about different cultures.	나는 다양한 문화에 대해 배우고 싶다.
+4-24	Korea	한국	Korea is in Asia.	한국은 아시아에 있다.
+4-24	China	중국	China is a very big country.	중국은 아주 큰 나라이다.
+4-24	America	미국	My uncle lives in America.	나의 삼촌은 미국에 사신다.
+4-24	Japan	일본	I want to travel to Japan.	나는 일본으로 여행하고 싶다.
+4-24	Canada	캐나다	Canada is famous for maple syrup.	캐나다는 메이플 시럽으로 유명하다.
+4-24	grow up	성장하다, 자라다	I will grow up to be a kind person.	나는 자라서 친절한 사람이 될 것이다.
+4-24	live	살다	I live in Seoul with my family.	나는 나의 가족과 함께 서울에 산다.
+4-24	island	섬	Jeju is a famous island.	제주는 유명한 섬이다.
+4-24	town	소도시	I visited a small quiet town.	나는 작고 조용한 소도시를 방문했다.
+4-24	city	도시	Seoul is a very busy city.	서울은 매우 바쁜 도시이다.
+4-24	village	마을	My grandparents live in a small village.	나의 할아버지와 할머니는 작은 마을에 사신다.
+4-24	countryside	시골, 지방	We went to the countryside for a trip.	우리는 여행을 위해 시골에 갔다.
+4-24	downtown	시내에	Let's meet downtown this weekend.	이번 주말에 시내에서 만나자.
+4-25	zoo	동물원	We go to the zoo to see animals.	우리는 동물들을 보기 위해 동물원에 간다.
+4-25	lion	사자	The lion is the king of the jungle.	사자는 정글의 왕이다.
+4-25	tiger	호랑이	The tiger has black stripes.	호랑이는 검은 줄무늬를 가지고 있다.
+4-25	giraffe	기린	The giraffe has a long neck.	기린은 목이 길다.
+4-25	monkey	원숭이	The monkey likes to eat bananas.	원숭이는 바나나 먹는 것을 좋아한다.
+4-25	elephant	코끼리	The elephant is a big animal.	코끼리는 큰 동물이다.
+4-25	fox	여우	The fox is a smart animal.	여우는 영리한 동물이다.
+4-25	dolphin	돌고래	The dolphin can jump very high.	돌고래는 아주 높이 점프할 수 있다.
+4-25	jungle	밀림 지대, 정글	We explored the dense jungle.	우리는 빽빽한 정글을 탐험했다.
+4-25	wolf	늑대	I heard a wolf howling at night.	나는 밤에 늑대가 우는 소리를 들었다.
+4-25	hippo	하마	The hippo stays in the water.	하마는 물 속에 머문다.
+4-25	bear	곰	The bear likes to eat honey.	곰은 꿀 먹는 것을 좋아한다.
+4-25	cheetah	치타	The cheetah runs very fast.	치타는 매우 빠르게 달린다.
+4-25	zebra	얼룩말	The zebra has black and white stripes.	얼룩말은 검은색과 흰색 줄무늬를 가지고 있다.
+4-25	panda	판다	The panda eats bamboo.	판다는 대나무를 먹는다.
+4-25	bat	박쥐	The bat flies only at night.	박쥐는 밤에만 난다.
+4-26	farm	농장	My grandfather works on the farm.	나의 할아버지는 농장에서 일하신다.
+4-26	cow	소	The cow gives us milk.	소는 우리에게 우유를 준다.
+4-26	horse	말	I like to ride a horse.	나는 말을 타는 것을 좋아한다.
+4-26	sheep	양	The sheep is eating grass.	양이 풀을 먹고 있다.
+4-26	chicken	닭	We feed the chickens every day.	우리는 매일 닭들에게 먹이를 준다.
+4-26	hen	암탉	The hen laid an egg this morning.	암탉이 오늘 아침에 알을 낳았다.
+4-26	pig	돼지	The pig is sleeping in the mud.	돼지가 진흙 속에서 자고 있다.
+4-26	deer	사슴	We saw a wild deer in the forest.	우리는 숲에서 야생 사슴을 보았다.
+4-26	goat	염소	The goat is climbing the rock.	염소가 바위를 오르고 있다.
+4-26	duck	오리	The duck is swimming on the pond.	오리가 연못 위에서 수영하고 있다.
+4-26	frog	개구리	The frog jumps very high.	개구리는 아주 높이 점프한다.
+4-26	mouse	쥐	A small mouse ran into the hole.	작은 쥐가 구멍으로 뛰어 들어갔다.
+4-26	mice	(mouse의 복수형) 쥐들	There are three mice under the sofa.	소파 밑에 쥐 세 마리가 있다.
+4-26	bug	벌레	I found a green bug on the leaf.	나는 나뭇잎 위에서 초록색 벌레를 발견했다.
+4-26	bee	벌	The bee is making honey.	벌이 꿀을 만들고 있다.
+4-26	ant	개미	An ant is carrying a piece of food.	개미 한 마리가 먹이 조각을 운반하고 있다.
+4-27	market	시장	I buy fresh vegetables at the market.	나는 시장에서 신선한 채소를 산다.
+4-27	plastic bag	비닐봉지	I put apples in a plastic bag.	나는 사과를 비닐봉지에 넣는다.
+4-27	shopping bag	쇼핑 백, 장바구니	Please bring a shopping bag.	쇼핑 백을 가져와 주세요.
+4-27	cart	카트, 수레	I push the cart in the store.	나는 가게에서 카트를 민다.
+4-27	shop	가게	I found a nice gift at the shop.	나는 가게에서 좋은 선물을 찾았다.
+4-27	customer	손님, 고객	The customer is buying a shirt.	그 손님은 셔츠를 사고 있다.
+4-27	clerk	점원	The clerk helped me find the item.	점원이 내가 물건을 찾는 것을 도와주었다.
+4-27	sell	팔다	The bakery sells fresh bread.	그 빵집은 신선한 빵을 판다.
+4-27	look for	~을 찾다	I will look for my lost wallet.	나는 잃어버린 지갑을 찾을 것이다.
+4-27	buy	사다	I want to buy a new toy.	나는 새 장난감을 사고 싶다.
+4-27	spend	(돈을) 쓰다	I spend money on books.	나는 책에 돈을 쓴다.
+4-27	pay	지불하다	I will pay with cash.	나는 현금으로 지불할 것이다.
+4-27	cost	값, 비용	The cost of the pen is 1,000 won.	그 펜의 값은 1,000원이다.
+4-27	price	가격	What is the price of this candy?	이 사탕의 가격은 얼마입니까?
+4-27	cheap	(값이) 싼	This snack is very cheap.	이 과자는 매우 싸다.
+4-27	expensive	비싼	That necklace is too expensive.	저 목걸이는 너무 비싸다.
+4-28	fruit	과일	I eat fruit every morning.	나는 매일 아침 과일을 먹는다.
+4-28	banana	바나나	A banana is a yellow fruit.	바나나는 노란색 과일이다.
+4-28	apple	사과	I like red apples.	나는 빨간 사과를 좋아한다.
+4-28	orange	오렌지	I drink orange juice.	나는 오렌지 주스를 마신다.
+4-28	lemon	레몬	Lemons are sour.	레몬은 시큼하다.
+4-28	grape	포도	I like purple grapes.	나는 보라색 포도를 좋아한다.
+4-28	strawberry	딸기	I bought sweet strawberryies.	나는 달콤한 딸기를 샀다.
+4-28	watermelon	수박	Watermelon is a summer fruit.	수박은 여름 과일이다.
+4-28	vegetable	채소	We should eat more vegetables.	우리는 채소를 더 많이 먹어야 한다.
+4-28	tomato	토마토	A tomato is red and round.	토마토는 빨갛고 둥글다.
+4-28	carrot	당근	Rabbits eat carrots.	토끼는 당근을 먹는다.
+4-28	corn	옥수수	I like roasted corn.	나는 구운 옥수수를 좋아한다.
+4-28	onion	양파	Onions can make you cry.	양파는 너를 울게 만들 수 있다.
+4-28	garlic	마늘	Garlic has a strong smell.	마늘은 강한 냄새가 난다.
+4-28	potato	감자	We make french fries from a potato.	우리는 감자로 감자튀김을 만든다.
+4-28	fresh	신선한	I buy fresh fruit at the market.	나는 시장에서 신선한 과일을 산다.
+4-29	time	시간	What time is it now?	지금 몇 시니?
+4-29	second	초	The light lasts for ten seconds.	빛이 10초 동안 지속된다.
+4-29	minute	분	Wait for five minutes.	5분 동안 기다려라.
+4-29	hour	한 시간	I study for one hour.	나는 한 시간 동안 공부한다.
+4-29	day	하루	There are seven days in a week.	일주일에는 7일이 있다.
+4-29	ago	(지금부터) ~전에	I saw him two days ago.	나는 그를 이틀 전에 보았다.
+4-29	last	지난, 마지막의	Last week I went camping.	지난주에 나는 캠핑을 갔다.
+4-29	when	언제	When will the movie start?	영화는 언제 시작할까?
+4-29	before	전에, 앞에	I brush my teeth before bed.	나는 잠자기 전에 양치질을 한다.
+4-29	after	후에, 뒤에	We will eat cake after dinner.	우리는 저녁 식사 후에 케이크를 먹을 것이다.
+4-29	then	그때	I was playing outside then.	나는 그때 밖에서 놀고 있었다.
+4-29	now	지금	We should leave now.	우리는 지금 떠나야 한다.
+4-29	early	일찍	I wake up early on weekdays.	나는 평일에 일찍 일어난다.
+4-29	late	늦은, 늦게	Don't be late for school.	학교에 늦지 마라.
+4-29	busy	바쁜	My mom is busy today.	나의 엄마는 오늘 바쁘시다.
+4-29	next	다음의	Next week is my birthday.	다음 주는 나의 생일이다.
+4-30	sky	하늘	The sky is clear and blue today.	오늘 하늘은 맑고 파랗다.
+4-30	sun	해, 태양	The sun sets in the west.	해는 서쪽으로 진다.
+4-30	moon	달	We can see the full moon tonight.	우리는 오늘 밤 보름달을 볼 수 있다.
+4-30	star	별	I saw a shooting star.	나는 별똥별을 보았다.
+4-30	cloud	구름	The airplane is flying above the clouds.	비행기가 구름 위를 날고 있다.
+4-30	shine	빛나다, 반짝이다	The diamonds shine brightly.	다이아몬드가 밝게 빛난다.
+4-30	bright	밝은	The light is too bright.	빛이 너무 밝다.
+4-30	dark	어두운	It gets dark very fast in winter.	겨울에는 해가 아주 빨리 진다.
+4-30	rain	비	The rain stopped this morning.	비가 오늘 아침에 멈췄다.
+4-30	snow	눈	I like the soft white snow.	나는 부드러운 하얀 눈을 좋아한다.
+4-30	storm	폭풍우	A big storm is coming soon.	큰 폭풍우가 곧 올 것이다.
+4-30	fog	안개	The fog made it hard to see the road.	안개 때문에 길을 보기 어려웠다.
+4-30	air	공기	We need clean air to breathe.	우리는 숨 쉬기 위해 깨끗한 공기가 필요하다.
+4-30	light	빛	The sun gives off warm light.	태양은 따뜻한 빛을 내뿜는다.
+4-30	earth	지구	The earth is round.	지구는 둥글다.
+4-30	space	우주	There are many stars in outer space.	외부 우주에는 많은 별들이 있다.
+
 5-1|ten|(숫자) 10|get up at ten o'clock|10시 정각에 일어나다
 5-1|tent|텐트|put up the tent|텐트를 치다
 5-1|next|다음의, 그다음에|the next morning|다음 날 아침
@@ -1655,3 +2136,4 @@
   window.WORD_DB = buildDB(RAW_WORDS);
 
 })();
+
