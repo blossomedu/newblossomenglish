@@ -64,6 +64,7 @@
 
     .assign-select { padding: 6px; border-radius: 4px; border: 1px solid #d1d5db; }
 
+    /* ✅ 저장 버튼 전부 민트로 통일 */
     .btn-save {
       padding: 6px 10px;
       background: var(--mint);
@@ -77,77 +78,6 @@
     }
     .btn-save:hover { filter: brightness(0.95); }
     .btn-save:active { transform: translateY(0.5px); }
-
-    /* === [추가됨] 숙제 등록용 스타일 === */
-    .hw-form-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 16px;
-      align-items: end;
-      margin-bottom: 20px;
-    }
-    .form-group label { display: block; font-size: 13px; color: #4b5563; margin-bottom: 4px; font-weight: 600; }
-    .full-width { grid-column: 1 / -1; }
-    
-    .pill-group {
-      display: inline-flex;
-      background: #e5e7eb;
-      border-radius: 999px;
-      padding: 3px;
-    }
-    .type-btn {
-      border: none;
-      border-radius: 999px;
-      padding: 6px 16px;
-      font-size: 13px;
-      cursor: pointer;
-      background: transparent;
-      color: #4b5563;
-      font-weight: 700;
-    }
-    .type-btn.active {
-      background: var(--blue);
-      color: white;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-    }
-
-    /* 숙제 상세 설정 (어휘용) */
-    .config-area {
-      background: #f9fafb;
-      border-radius: 12px;
-      padding: 16px;
-      border: 1px solid #e5e7eb;
-      margin-bottom: 16px;
-      display: block; /* 기본은 보임 */
-    }
-    .config-title { font-size: 14px; font-weight: 700; color: #374151; margin-bottom: 10px; display: flex; justify-content: space-between; align-items: center;}
-    .preset-btns button {
-      font-size: 11px; padding: 4px 8px; border: 1px solid #d1d5db; background: white; border-radius: 4px; cursor: pointer; margin-left: 4px;
-    }
-    .config-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 10px;
-    }
-    .config-item select { width: 100%; padding: 6px; border-radius: 6px; border: 1px solid #d1d5db; }
-    .config-item label { font-size: 12px; color: #6b7280; display: block; margin-bottom: 4px; }
-
-    .btn-register-hw {
-      background: var(--pink);
-      color: white;
-      width: 100%;
-      padding: 12px;
-      border: none;
-      border-radius: 8px;
-      font-size: 16px;
-      font-weight: 800;
-      cursor: pointer;
-    }
-    .btn-register-hw:hover { filter: brightness(0.95); }
-
-    @media (max-width: 600px) {
-      .config-grid { grid-template-columns: 1fr 1fr; }
-    }
   </style>
 </head>
 
@@ -161,68 +91,7 @@
     </div>
   </div>
 
-  <div class="section-card">
-    <div class="card-title">📝 온라인 숙제 만들기</div>
-    
-    <div class="hw-form-grid">
-      <div class="form-group">
-        <label>반 선택</label>
-        <select id="hwClassSelect" class="input-ui" style="width:100%;">
-          <option value="">반을 선택하세요</option>
-        </select>
-      </div>
-
-      <div class="form-group">
-        <label>숙제 종류</label>
-        <div class="pill-group">
-          <button id="btn-type-vocab" class="type-btn active" onclick="setHwType('vocab')">어휘</button>
-          <button id="btn-type-sentence" class="type-btn" onclick="setHwType('sentence')">문장</button>
-        </div>
-      </div>
-
-      <div class="form-group full-width">
-        <label>학습 세트 (예: 1-1, 1-2)</label>
-        <input id="hwSets" type="text" class="input-ui" style="width:100%;" placeholder="예: 1-1 또는 1-1, 1-2">
-      </div>
-
-      <div class="form-group">
-        <label>마감일</label>
-        <input id="hwDue" type="date" class="input-ui" style="width:100%;">
-      </div>
-    </div>
-
-    <div id="vocabConfigArea" class="config-area">
-      <div class="config-title">
-        <span>목표 횟수 설정</span>
-        <div class="preset-btns">
-          <button onclick="setCfg(1,1,1,1)">기본 4종</button>
-          <button onclick="setCfg(0,0,0,3)">빈칸x3</button>
-          <button onclick="setCfg(0,0,0,0)">초기화</button>
-        </div>
-      </div>
-      <div class="config-grid">
-        <div class="config-item">
-          <label>뜻 찾기</label>
-          <select id="cfgMeaning"><option value="0">0</option><option value="1" selected>1</option><option value="2">2</option><option value="3">3</option></select>
-        </div>
-        <div class="config-item">
-          <label>영어 찾기</label>
-          <select id="cfgEnglish"><option value="0">0</option><option value="1" selected>1</option><option value="2">2</option><option value="3">3</option></select>
-        </div>
-        <div class="config-item">
-          <label>듣고 찾기</label>
-          <select id="cfgListening"><option value="0">0</option><option value="1" selected>1</option><option value="2">2</option><option value="3">3</option></select>
-        </div>
-        <div class="config-item">
-          <label>문장 빈칸</label>
-          <select id="cfgSentence"><option value="0">0</option><option value="1" selected>1</option><option value="2">2</option><option value="3">3</option></select>
-        </div>
-      </div>
-    </div>
-
-    <button class="btn-register-hw" onclick="registerHomework()">숙제 등록하기</button>
-  </div>
-
+  <!-- 1. 날짜별 숙제 검사 -->
   <div class="section-card">
     <div class="card-title">📅 날짜별 숙제 검사</div>
     <div class="controls">
@@ -260,6 +129,7 @@
     </div>
   </div>
 
+  <!-- 2. 반별 학생 보기 -->
   <div class="section-card">
     <div class="card-title">👥 반별 학생 보기</div>
     <div class="controls">
@@ -297,6 +167,7 @@
     </div>
   </div>
 
+  <!-- 3. 신입생 반 배정하기 -->
   <div class="section-card">
     <div class="card-title">🌱 신입생 반 배정하기</div>
     <div class="table-wrap">
@@ -319,109 +190,23 @@
 
   let classList = [];
   let lastStudentsQuery = { classId: "", nameFilter: "" };
-  let currentHwType = "vocab"; // 숙제 등록 기본값
 
   document.addEventListener("DOMContentLoaded", async () => {
-    // 날짜 기본값 (오늘)
     const today = new Date();
     const yyyy = today.getFullYear();
     const mm = String(today.getMonth() + 1).padStart(2, '0');
     const dd = String(today.getDate()).padStart(2, '0');
-    
-    // 조회용 날짜
     document.getElementById("dateInput").value = `${yyyy}-${mm}-${dd}`;
-    // 등록용 날짜 (내일로 설정해두면 편함 - 선택사항)
-    document.getElementById("hwDue").value = `${yyyy}-${mm}-${dd}`;
 
     await loadClasses();
     loadNewStudents();
   });
 
-  // === 0. 숙제 등록 관련 함수들 ===
-  function setHwType(type) {
-    currentHwType = type;
-    const btnVocab = document.getElementById("btn-type-vocab");
-    const btnSentence = document.getElementById("btn-type-sentence");
-    const configArea = document.getElementById("vocabConfigArea");
-
-    if (type === "vocab") {
-      btnVocab.classList.add("active");
-      btnSentence.classList.remove("active");
-      configArea.style.display = "block"; // 어휘 설정 보이기
-    } else {
-      btnSentence.classList.add("active");
-      btnVocab.classList.remove("active");
-      configArea.style.display = "none"; // 문장은 설정 숨기기
-    }
-  }
-
-  function setCfg(m, e, l, s) {
-    document.getElementById("cfgMeaning").value = m;
-    document.getElementById("cfgEnglish").value = e;
-    document.getElementById("cfgListening").value = l;
-    document.getElementById("cfgSentence").value = s;
-  }
-
-  async function registerHomework() {
-    const classId = document.getElementById("hwClassSelect").value;
-    const sets = document.getElementById("hwSets").value.trim();
-    const due = document.getElementById("hwDue").value;
-
-    if (!classId) return alert("반을 선택해주세요.");
-    if (!sets) return alert("학습 세트를 입력해주세요.");
-    if (!due) return alert("마감일을 설정해주세요.");
-
-    // 레벨 추출 (단순히 첫 입력값 앞자리)
-    const firstSet = sets.split(",")[0].trim();
-    const levelMatch = firstSet.match(/^(\d+)-/);
-    const level = levelMatch ? parseInt(levelMatch[1]) : 0;
-
-    const payload = {
-      class_id: classId,
-      level: level,
-      set_numbers: sets,
-      due_date: due,
-      created_at: new Date().toISOString()
-    };
-
-    // 어휘일 경우 설정값 추가
-    if (currentHwType === "vocab") {
-      payload.tasks = {
-        meaning: parseInt(document.getElementById("cfgMeaning").value),
-        english: parseInt(document.getElementById("cfgEnglish").value),
-        listening: parseInt(document.getElementById("cfgListening").value),
-        sentence: parseInt(document.getElementById("cfgSentence").value)
-      };
-    }
-
-    const tableName = currentHwType === "vocab" ? "vocab_homework" : "sentence_homework";
-
-    try {
-      const { error } = await supabaseClient.from(tableName).insert([payload]);
-
-      if (error) throw error;
-
-      alert("✅ 숙제가 등록되었습니다!");
-      // 입력창 초기화
-      document.getElementById("hwSets").value = "";
-      // 반, 날짜는 그대로 유지 (연속 등록 편의성)
-    } catch (err) {
-      console.error("등록 실패:", err);
-      alert("오류가 발생했습니다: " + err.message);
-    }
-  }
-
-  // === 기존 로직 ===
-
   async function loadClasses() {
     const { data, error } = await supabaseClient.from('classes').select('*').order('name');
 
-    // [추가] 숙제 등록용 드롭다운
-    const selectHw = document.getElementById("hwClassSelect");
     const select1 = document.getElementById("classSelect");
     const select2 = document.getElementById("classSelect2");
-    
-    if (selectHw) selectHw.innerHTML = '<option value="">반을 선택하세요</option>';
     if (select1) select1.innerHTML = '<option value="">반 선택</option>';
     if (select2) select2.innerHTML = '<option value="">반 선택</option>';
 
@@ -433,29 +218,15 @@
     classList = data;
 
     data.forEach(cls => {
-      // 숙제 등록용
-      if (selectHw) {
-        const opt = document.createElement("option");
-        opt.value = cls.id;
-        opt.textContent = cls.name;
-        selectHw.appendChild(opt);
-      }
-      
-      // 기존 조회용 1
-      if (select1) {
-        const opt1 = document.createElement("option");
-        opt1.value = cls.id;
-        opt1.textContent = cls.name;
-        select1.appendChild(opt1);
-      }
+      const opt1 = document.createElement("option");
+      opt1.value = cls.id;
+      opt1.textContent = cls.name;
+      if (select1) select1.appendChild(opt1);
 
-      // 기존 조회용 2
-      if (select2) {
-        const opt2 = document.createElement("option");
-        opt2.value = cls.id;
-        opt2.textContent = cls.name;
-        select2.appendChild(opt2);
-      }
+      const opt2 = document.createElement("option");
+      opt2.value = cls.id;
+      opt2.textContent = cls.name;
+      if (select2) select2.appendChild(opt2);
     });
   }
 
