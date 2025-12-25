@@ -500,95 +500,180 @@
   }
 
   // --- [5] 숙제 결과 조회 ---
-  async function loadHomework() {
-    const classId = document.getElementById("classSelect").value;
-    const dateVal = document.getElementById("dateInput").value;
-    const nameFilter = document.getElementById("studentNameInput").value.trim();
-    const tbody = document.querySelector("#homeworkTable tbody");
+// --- [5] 날짜별 숙제 검사 (로직 수정: 마감일 기준 숙제 찾기 -> 결과 조회) ---
+async function loadHomework() {
+  const classId = document.getElementById("classSelect").value;
+  const dateVal = document.getElementById("dateInput").value; // 선생님이 선택한 '마감일'
+  const nameFilter = document.getElementById("studentNameInput").value.trim();
+  const tbody = document.querySelector("#homeworkTable tbody");
 
-    if (!classId && !nameFilter) {
-      alert("반 또는 학생 이름 중 하나는 입력해주세요.");
+  // 1. 유효성 검사
+  if (!classId) {
+    alert("반을 선택해주세요.");
+    return;
+  }
+  if (!dateVal) {
+    alert("날짜를 선택해주세요.");
+    return;
+  }
+
+  tbody.innerHTML = `<tr><td colspan="5" style="text-align:center; padding:30px;">숙제 정보를 찾는 중...</td></tr>`;
+
+  try {
+    // ---------------------------------------------------------
+    // [Step 1] "이 날짜(dateVal)가 마감인 숙제"가 뭔지 먼저 찾습니다. (숙제 테이블 조회)
+    // ---------------------------------------------------------
+    
+    // 1-1. 어휘 숙제 찾기
+    const { data: vocabHW, error: vErr } = await supabaseClient
+      .from('vocab_homework')
+      .select('set_numbers')
+      .eq('class_id', classId)
+      .eq('due_date', dateVal);
+
+    // 1-2. 문장 숙제 찾기
+    const { data: sentenceHW, error: sErr } = await supabaseClient
+      .from('sentence_homework')
+      .select('set_numbers')
+      .eq('class_id', classId)
+      .eq('due_date', dateVal);
+
+    if (vErr) throw vErr;
+    if (sErr) throw sErr;
+
+    // ---------------------------------------------------------
+    // [Step 2] 찾아낸 숙제들의 "세트 번호(Unit Key)"를 싹 모읍니다.
+    // ---------------------------------------------------------
+    let targetUnits = [];
+    
+    // 어휘 세트 파싱 (콤마로 구분된거 분리)
+    (vocabHW || []).forEach(h => {
+      const sets = String(h.set_numbers).split(',').map(s => s.trim());
+      targetUnits.push(...sets);
+    });
+    // 문장 세트 파싱
+    (sentenceHW || []).forEach(h => {
+      const sets = String(h.set_numbers).split(',').map(s => s.trim());
+      targetUnits.push(...sets);
+    });
+
+    // 중복 제거 및 공백 제거
+    targetUnits = [...new Set(targetUnits)].filter(Boolean);
+
+    // 만약 오늘 마감인 숙제가 아예 없다면?
+    if (targetUnits.length === 0) {
+      tbody.innerHTML = `<tr><td colspan="5" style="text-align:center; padding:30px; color:#888;">📅 해당 날짜(${dateVal})가 마감인 숙제가 없습니다.</td></tr>`;
       return;
     }
-    if (!dateVal) {
-      alert("날짜를 선택해주세요.");
+
+    // ---------------------------------------------------------
+    // [Step 3] 반 학생 목록을 가져옵니다.
+    // ---------------------------------------------------------
+    let studentQuery = supabaseClient
+      .from('students')
+      .select('id, name, login_id')
+      .eq('class_id', classId)
+      .order('name');
+
+    if (nameFilter) studentQuery = studentQuery.ilike('name', `%${nameFilter}%`);
+    
+    const { data: students, error: stdErr } = await studentQuery;
+    if (stdErr) throw stdErr;
+
+    if (!students || students.length === 0) {
+      tbody.innerHTML = `<tr><td colspan="5" style="text-align:center; padding:30px; color:#888;">학생이 없습니다.</td></tr>`;
       return;
     }
 
-    tbody.innerHTML = `<tr><td colspan="5" style="text-align:center; padding:30px;">조회 중...</td></tr>`;
+    // ---------------------------------------------------------
+    // [Step 4] 핵심! 찾아낸 "Unit Key"에 해당하는 결과를 조회합니다. 
+    // (중요: 제출일(submitted_at) 조건은 뺍니다! 미리 낸 것도 찾아야 하니까요)
+    // ---------------------------------------------------------
+    const loginIds = students.map(s => s.login_id);
 
-    try {
-      // 1. 학생 명단 조회
-      let query = supabaseClient
-        .from('students')
-        .select('id, name, login_id')
-        .order('name');
+    // 어휘 결과 조회
+    const { data: vResults } = await supabaseClient
+      .from('vocab_results')
+      .select('*')
+      .in('student_login_id', loginIds)
+      .in('unit_key', targetUnits);
 
-      if (classId) query = query.eq('class_id', classId);
-      if (nameFilter) query = query.ilike('name', `%${nameFilter}%`);
+    // 문장 결과 조회
+    const { data: sResults } = await supabaseClient
+      .from('sentence_results')
+      .select('*')
+      .in('student_login_id', loginIds)
+      .in('unit_key', targetUnits);
 
-      const { data: students, error: studentError } = await query;
-      if (studentError) throw studentError;
+    // 결과 합치기
+    const allResults = [...(vResults || []), ...(sResults || [])];
 
-      if (!students || students.length === 0) {
-        tbody.innerHTML = `<tr><td colspan="5" style="text-align:center; padding:30px;">조건에 맞는 학생이 없습니다.</td></tr>`;
-        return;
-      }
+    // ---------------------------------------------------------
+    // [Step 5] 표 그리기 (학생별로 매칭)
+    // ---------------------------------------------------------
+    tbody.innerHTML = "";
 
-      // 2. 숙제 결과 조회
-      const loginIds = students.map(s => s.login_id);
-      const start = dateVal + " 00:00:00";
-      const end   = dateVal + " 23:59:59";
+    students.forEach(std => {
+      // 이 학생의 결과 중, 이번 숙제(TargetUnits)와 일치하는 것만 필터링
+      const myResults = allResults
+        .filter(r => r.student_login_id === std.login_id)
+        .sort((a, b) => new Date(b.submitted_at) - new Date(a.submitted_at)); // 최신순 정렬
 
-      const { data: results, error: resultError } = await supabaseClient
-        .from('vocab_results')
-        .select('*')
-        .in('student_login_id', loginIds)
-        .gte('submitted_at', start)
-        .lte('submitted_at', end)
-        .order('submitted_at', { ascending: false });
-
-      if (resultError) throw resultError;
-
-      // 3. 표 채우기
-      tbody.innerHTML = "";
-
-      students.forEach(std => {
-        const myResults = (results || []).filter(r => r.student_login_id === std.login_id);
-
-        if (myResults.length > 0) {
-          myResults.forEach(res => {
-            const tr = document.createElement("tr");
-            const timeStr = new Date(res.submitted_at).toLocaleTimeString([], {hour:'2-digit', minute:'2-digit'});
-
-            tr.innerHTML = `
-              <td style="font-weight:700;">${std.name}</td>
-              <td><span class="badge badge-done">제출 완료</span></td>
-              <td>${res.correct_count}점 <span style="color:#888; font-size:12px;">(${res.mode})</span></td>
-              <td style="font-weight:bold; color:var(--blue);">${res.unit || '-'}</td>
-              <td>${timeStr}</td>
-            `;
-            tbody.appendChild(tr);
-          });
-        } else {
+      if (myResults.length > 0) {
+        // 제출한 기록이 있으면 보여줌
+        myResults.forEach(res => {
           const tr = document.createElement("tr");
-          tr.style.backgroundColor = "#fffbfb"; // 미제출 연한 배경
+          
+          // 제출일시 포맷팅
+          const submitDate = new Date(res.submitted_at);
+          const dateStr = submitDate.toISOString().split('T')[0];
+          const timeStr = submitDate.toLocaleTimeString([], {hour:'2-digit', minute:'2-digit'});
+          
+          // 지각 체크 (제출일 > 마감일)
+          const isLate = dateStr > dateVal; 
+          const timeDisplay = isLate 
+            ? `<span style="color:#e11d48; font-weight:bold;">(지각)</span> ${dateStr} ${timeStr}`
+            : `${dateStr} ${timeStr}`;
+
+          // 점수 표시
+          let scoreDisplay = "";
+          if (res.total_count > 0) {
+             const score = Math.round((res.correct_count / res.total_count) * 100);
+             // 100점이면 파란색 강조
+             const color = score === 100 ? "color:#2563eb; font-weight:bold;" : "";
+             scoreDisplay = `<span style="${color}">${score}점</span> <span style="color:#888; font-size:12px;">(${res.correct_count}/${res.total_count})</span>`;
+          } else {
+             scoreDisplay = "완료";
+          }
+
+          const modeDisplay = res.mode ? `<span style="color:#6b7280; font-size:12px;">[${res.mode}]</span>` : "";
+
           tr.innerHTML = `
-            <td>${std.name}</td>
-            <td><span class="badge badge-yet">미제출</span></td>
-            <td>-</td>
-            <td>-</td>
-            <td>-</td>
+            <td style="font-weight:700;">${std.name}</td>
+            <td><span class="badge badge-done">제출 완료</span></td>
+            <td>${scoreDisplay} ${modeDisplay}</td>
+            <td style="font-weight:bold; color:var(--blue);">${res.unit_key || res.unit}</td>
+            <td style="color:#374151; font-size:13px;">${timeDisplay}</td>
           `;
           tbody.appendChild(tr);
-        }
-      });
+        });
+      } else {
+        // 미제출
+        const tr = document.createElement("tr");
+        tr.style.backgroundColor = "#fffbfb"; // 연한 빨강 배경 (미제출 강조)
+        tr.innerHTML = `
+          <td>${std.name}</td>
+          <td><span class="badge badge-yet">미제출</span></td>
+          <td>-</td>
+          <td style="color:#999; font-size:12px;">대상: ${targetUnits.join(', ')}</td>
+          <td>-</td>
+        `;
+        tbody.appendChild(tr);
+      }
+    });
 
-    } catch (err) {
-      console.error(err);
-      tbody.innerHTML = `<tr><td colspan="5">오류가 발생했습니다: ${err.message}</td></tr>`;
-    }
+  } catch (err) {
+    console.error(err);
+    tbody.innerHTML = `<tr><td colspan="5" style="color:red; text-align:center; padding:20px;">오류가 발생했습니다: ${err.message}</td></tr>`;
   }
-</script>
-</body>
-</html>
+}
