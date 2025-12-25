@@ -80,6 +80,17 @@
       align-items: center;
       gap: 6px;
       white-space: nowrap;
+      transition: opacity 0.2s;
+    }
+    .pill-btn:hover {
+        opacity: 0.9;
+    }
+
+    /* 0. 홈 버튼 (네비게이션용 회색) [추가됨] */
+    .btn-home {
+      background: #e5e7eb; /* 연한 회색 */
+      color: #374151;      /* 진한 글자색 */
+      font-weight: 600;
     }
 
     /* 1. 글쓰기 = 민트 */
@@ -355,6 +366,10 @@
     </div>
 
     <div class="top-btns">
+      <button id="homeBtn" class="pill-btn btn-home" onclick="location.href='index.html'">
+        🏠 홈
+      </button>
+
       <button id="writeToggleBtn" class="pill-btn btn-primary">
         ✏️ 글쓰기
       </button>
@@ -367,7 +382,6 @@
     </div>
   </div>
 
-  <!-- 글쓰기 폼 (선생님만 보임) -->
   <div id="writeBox" class="write-card" style="display:none;">
     <div class="write-title" id="writeTitleLabel">새 글 쓰기</div>
 
@@ -396,14 +410,12 @@
     <div id="writeStatus" class="status-text"></div>
   </div>
 
-  <!-- 게시글 + 온라인 숙제 묶음 리스트 -->
   <div id="postList" class="post-list"></div>
   <div id="emptyBox" class="empty-box" style="display:none;">
     선택된 반에 등록된 글이 아직 없어요.
   </div>
 </div>
 
-<!-- Supabase JS -->
 <script src="https://unpkg.com/@supabase/supabase-js@2.48.0/dist/umd/supabase.js"></script>
 <script>
   const SUPABASE_URL = "https://bpdisxjhhibrgfpvtlmv.supabase.co";
@@ -414,33 +426,34 @@
   const DEFAULT_AUTHOR_LABEL = "Stella쌤";
 
   // DOM
-  const classFilterEl  = document.getElementById("classFilter");
+  const classFilterEl   = document.getElementById("classFilter");
   const writeToggleBtn = document.getElementById("writeToggleBtn");
-  const onlineHwBtn    = document.getElementById("onlineHwBtn");
-  const manageBtn      = document.getElementById("manageBtn");
+  const onlineHwBtn     = document.getElementById("onlineHwBtn");
+  const manageBtn       = document.getElementById("manageBtn");
+  // 홈 버튼은 onclick이 HTML에 있어서 별도 변수 필요 없음
 
-  const writeBoxEl     = document.getElementById("writeBox");
+  const writeBoxEl       = document.getElementById("writeBox");
   const writeTitleLabelEl = document.getElementById("writeTitleLabel");
-  const writeClassEl   = document.getElementById("writeClass");
-  const writeAuthorEl  = document.getElementById("writeAuthor");
-  const writeTitleEl   = document.getElementById("writeTitle");
+  const writeClassEl     = document.getElementById("writeClass");
+  const writeAuthorEl    = document.getElementById("writeAuthor");
+  const writeTitleEl     = document.getElementById("writeTitle");
   const writeContentEl = document.getElementById("writeContent");
   const cancelWriteBtn = document.getElementById("cancelWriteBtn");
   const submitWriteBtn = document.getElementById("submitWriteBtn");
-  const writeStatusEl  = document.getElementById("writeStatus");
+  const writeStatusEl    = document.getElementById("writeStatus");
 
-  const postListEl     = document.getElementById("postList");
-  const emptyBoxEl     = document.getElementById("emptyBox");
+  const postListEl       = document.getElementById("postList");
+  const emptyBoxEl       = document.getElementById("emptyBox");
 
   // 상태
-  let classes = [];          // [{id, name}, ...]
-  let groups = [];           // 날짜+반으로 묶은 숙제들
+  let classes = [];           // [{id, name}, ...]
+  let groups = [];            // 날짜+반으로 묶은 숙제들
   let currentRole = "guest"; // "teacher" | "student" | "guest"
   let currentUserName = "";
   let currentUserId = null;
 
   // 글 수정 모드
-  let editingPostId = null;      // null 이면 새 글, 아니면 board_posts 의 id
+  let editingPostId = null;       // null 이면 새 글, 아니면 board_posts 의 id
 
   function setWriteStatus(msg, isError = false) {
     writeStatusEl.textContent = msg || "";
