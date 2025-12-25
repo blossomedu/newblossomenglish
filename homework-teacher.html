@@ -11,6 +11,8 @@
       --blue: #00AEEF;
       --mint: #9FE6B8;
       --pink: #FF6FB5;
+      --gray-bg: #e5e7eb;
+      --gray-text: #374151;
     }
 
     * {
@@ -32,17 +34,25 @@
       padding: 0 20px;
     }
 
+    /* --- 상단 영역 (타이틀 + 네비게이션) --- */
     .top-row {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      margin-bottom: 18px;
+      margin-bottom: 24px;
       gap: 10px;
+      flex-wrap: wrap; /* 화면 작을 때 줄바꿈 */
+    }
+
+    .title-area {
+      flex: 1;
+      min-width: 280px;
     }
 
     .title-big {
       font-size: 28px;
       font-weight: 900;
+      color: #111;
     }
 
     .subtitle {
@@ -51,50 +61,52 @@
       margin-top: 4px;
     }
 
-    .link-btn {
-      border-radius: 999px;
-      border: none;
-      padding: 10px 20px;
-      font-size: 14px;
-      cursor: pointer;
-      background: var(--blue);
-      color: #ffffff;
-      white-space: nowrap;
-    }
-
-    .top-actions {
+    /* 상단 네비게이션 버튼 그룹 (게시판과 통일) */
+    .top-btns {
       display: flex;
       gap: 8px;
       align-items: center;
     }
 
-    #home-btn {
-      background: var(--mint);
-      color: #ffffff;
+    .nav-btn {
+      padding: 8px 16px;
+      border-radius: 999px;
+      border: none;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      white-space: nowrap;
+      transition: opacity 0.2s, transform 0.1s;
+      text-decoration: none;
+    }
+    .nav-btn:hover {
+        opacity: 0.9;
+        transform: translateY(-1px);
     }
 
-    #back-btn {
-      background: #e5e7eb;
-      color: #374151;
-    }
+    /* 버튼별 색상 (게시판과 동일) */
+    .btn-home { background: var(--gray-bg); color: var(--gray-text); }
+    .btn-write { background: var(--mint); color: #ffffff; }
+    .btn-hw { background: var(--blue); color: #ffffff; } /* 현재 페이지 */
+    .btn-manage { background: var(--pink); color: #ffffff; }
 
-    #back-btn:hover {
-      background: #d1d5db;
-    }
-
+    /* --- 카드 공통 스타일 --- */
     .card {
       background: #ffffff;
       border-radius: 24px;
-      padding: 18px 20px 20px;
+      padding: 24px;
       box-shadow: 0 15px 32px rgba(15, 23, 42, 0.08);
-      margin-bottom: 18px;
+      margin-bottom: 20px;
     }
 
     .info-row {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      margin-bottom: 14px;
+      margin-bottom: 20px;
       gap: 8px;
       font-size: 14px;
       color: #4b5563;
@@ -109,9 +121,10 @@
       color: var(--pink);
       font-size: 12px;
       margin-left: 6px;
-      font-weight: 600;
+      font-weight: 700;
     }
 
+    /* --- 입력 폼 스타일 --- */
     .form-row {
       display: flex;
       flex-wrap: wrap;
@@ -127,9 +140,10 @@
     .field label {
       display: block;
       font-size: 13px;
+      font-weight: 600;
       color: #4b5563;
-      margin-bottom: 4px;
-      text-align: center;
+      margin-bottom: 6px;
+      margin-left: 4px;
     }
 
     select,
@@ -137,131 +151,110 @@
     input[type="text"],
     input[type="date"] {
       width: 100%;
-      padding: 8px 10px;
-      border-radius: 999px;
+      padding: 10px 14px;
+      border-radius: 12px; /* 둥글게 */
       border: 1px solid #d1d5db;
       font-size: 14px;
       background: #ffffff;
+      transition: border-color 0.2s;
+    }
+    
+    select:focus, input:focus {
+        border-color: var(--blue);
+        outline: none;
     }
 
-    .wide-field {
-      min-width: 260px;
-    }
+    .wide-field { min-width: 260px; flex-grow: 1; }
+    .half-field { min-width: 140px; max-width: 160px; }
 
-    .half-field {
-      min-width: 140px;
-      max-width: 160px;
-    }
-
+    /* 토글 버튼 그룹 (작은 사이즈 유지) */
     .pill-group {
       display: inline-flex;
-      background: #e5e7eb;
+      background: #f3f4f6;
       border-radius: 999px;
-      padding: 2px;
-      gap: 3px;
-      justify-content: center;
+      padding: 4px;
+      gap: 4px;
       width: 100%;
+      height: 42px; /* 높이 맞춤 */
+      align-items: center;
+      justify-content: center;
     }
 
     .pill-btn {
       border: none;
       border-radius: 999px;
-      padding: 5px 10px;
-      font-size: 12px;
+      padding: 6px 14px;
+      font-size: 13px;
+      font-weight: 600;
       cursor: pointer;
       background: transparent;
-      color: #4b5563;
+      color: #6b7280;
       white-space: nowrap;
-      line-height: 1.2;
+      flex: 1;
+      transition: all 0.2s;
     }
 
     .pill-btn.active {
       background: var(--blue);
       color: #ffffff;
-      box-shadow: 0 8px 18px rgba(0, 174, 239, 0.35);
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+    
+    /* 문장 선택 시 */
+    .pill-group:has(#type-sentence.active) .active {
+        background: #0369a1; /* 좀 더 진한 파랑 */
     }
 
     .pill-btn.mint-active.active {
       background: var(--mint);
       color: #ffffff;
-      box-shadow: 0 8px 18px rgba(159, 230, 184, 0.55);
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
     }
 
+    /* 등록 버튼 (큰 버튼) */
     .primary-btn {
-      border-radius: 999px;
+      border-radius: 12px;
       border: none;
-      padding: 9px 18px;
-      font-size: 14px;
+      padding: 0 24px;
+      height: 42px; /* 인풋창 높이와 맞춤 */
+      font-size: 15px;
+      font-weight: 700;
       cursor: pointer;
       background: #10b981;
       color: #ffffff;
       white-space: nowrap;
+      transition: opacity 0.2s;
     }
+    .primary-btn:hover { opacity: 0.9; }
+    .primary-btn[disabled] { opacity: 0.5; cursor: default; }
 
-    .primary-btn[disabled] {
-      opacity: 0.55;
-      cursor: default;
-    }
+    #save-btn { background: var(--pink); width: 100%; }
 
-    #save-btn {
-      background: var(--pink);
-      color: #ffffff;
-    }
+    /* 상태 메시지 및 리스트 */
+    .status { margin-top: 8px; font-size: 13px; color: #6b7280; }
+    .status.error { color: #b91c1c; }
+    .status.success { color: #10b981; font-weight: 600; }
 
-    .status {
-      margin-top: 8px;
-      font-size: 13px;
-      color: #6b7280;
-    }
+    .hint { font-size: 12px; color: #9ca3af; margin-top: 8px; margin-left: 4px; }
 
-    .status.error {
-      color: #b91c1c;
-    }
+    .list-title { font-size: 16px; font-weight: 800; margin-bottom: 12px; color: #111; }
 
-    .hint {
-      font-size: 12px;
-      color: #9ca3af;
-      margin-top: 4px;
-    }
-
-    .list-title {
-      font-size: 15px;
-      font-weight: 700;
-      margin-bottom: 8px;
-    }
-
-    .hw-list {
-      font-size: 13px;
-      color: #4b5563;
-    }
-
-    .hw-item {
-      padding: 6px 0;
-      border-bottom: 1px solid #e5e7eb;
-    }
-
-    .hw-item:last-child {
-      border-bottom: none;
-    }
+    .hw-list { font-size: 14px; color: #4b5563; }
+    .hw-item { padding: 10px 0; border-bottom: 1px solid #f3f4f6; display: flex; align-items: center; }
+    .hw-item:last-child { border-bottom: none; }
 
     .hw-tag {
       display: inline-block;
-      padding: 2px 8px;
-      border-radius: 999px;
+      padding: 4px 10px;
+      border-radius: 6px;
       font-size: 11px;
-      margin-right: 4px;
+      font-weight: 700;
+      margin-right: 8px;
     }
+    .hw-tag.vocab { background: #fee2e2; color: #b91c1c; }
+    .hw-tag.sentence { background: #e0f2fe; color: #0369a1; }
 
-    .hw-tag.vocab {
-      background: #fee2e2;
-      color: #b91c1c;
-    }
-
-    .hw-tag.sentence {
-      background: #e0f2fe;
-      color: #0369a1;
-    }
-
+    /* 출력 관련 버튼 */
     .print-row {
       margin-top: 12px;
       display: flex;
@@ -269,92 +262,73 @@
       gap: 10px;
       align-items: flex-end;
     }
+    #word-count-input { text-align: center; }
+    
+    #btn-print-note { background: var(--blue); width: 100%; }
+    #btn-print-test { background: var(--pink); width: 100%; }
 
-    #word-count-input {
-      text-align: center;
-    }
+    .btn-field-note, .btn-field-test { min-width: 160px; flex: 1; }
+    .mode-field { min-width: 220px; }
 
+    /* 로그아웃 버튼 (작게) */
     #logout-btn {
-      background: var(--pink);
-      color: #ffffff;
-      display: none;
+        background: #f3f4f6; color: #666; font-size: 12px; padding: 4px 10px; border-radius: 4px; border:none; cursor: pointer;
     }
-
-    #btn-print-note {
-      background: var(--blue);
-      color: #ffffff;
-    }
-
-    #btn-print-test {
-      background: var(--pink);
-      color: #ffffff;
-    }
-
-    .btn-field-note { min-width: 160px; }
-    .btn-field-test { min-width: 150px; }
-
-    .mode-field { min-width: 200px; }
 
     @media (max-width: 768px) {
-      .top-row {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-      .form-row {
-        flex-direction: column;
-        align-items: stretch;
-      }
-      .wide-field {
-        min-width: 100%;
-      }
-      .half-field {
-        min-width: 100%;
-        max-width: none;
-      }
-      .mode-field {
-        min-width: 100%;
-      }
-      .btn-field-note, .btn-field-test {
-        min-width: 100%;
-      }
+      .top-row { flex-direction: column; align-items: flex-start; }
+      .top-btns { width: 100%; justify-content: flex-start; overflow-x: auto; padding-bottom: 4px; }
+      .form-row { flex-direction: column; align-items: stretch; }
+      .wide-field, .half-field, .mode-field, .btn-field-note, .btn-field-test { min-width: 100%; }
+      #save-btn { margin-top: 8px; }
     }
   </style>
 </head>
 <body>
 <div class="page">
   <div class="top-row">
-    <div>
+    <div class="title-area">
       <div class="title-big">온라인 숙제 만들기</div>
       <div class="subtitle">
         반을 선택하고 어휘/문장 숙제를 등록하면, 나중에 학생 진도와 연결해서 볼 수 있어요.
       </div>
     </div>
-    <div class="top-actions">
-      <button class="link-btn" id="back-btn" type="button" onclick="history.back()">뒤로</button>
-      <button class="link-btn" id="home-btn" type="button" onclick="window.location.href='index.html'">Home</button>
+    
+    <div class="top-btns">
+      <button class="nav-btn btn-home" onclick="location.href='index.html'">
+        🏠 홈
+      </button>
+      <button class="nav-btn btn-write" onclick="location.href='board.html'">
+        ✏️ 글쓰기
+      </button>
+      <button class="nav-btn btn-hw" onclick="location.reload()">
+        📚 온라인 숙제
+      </button>
+      <button class="nav-btn btn-manage" onclick="location.href='teacher-result.html'">
+        🛠 관리
+      </button>
     </div>
   </div>
 
-  <!-- 1. 숙제 등록 카드 -->
   <div class="card">
     <div class="info-row">
       <div>
         로그인 계정:
-        <span id="teacher-email">확인 중…</span>
+        <span id="teacher-email" style="font-weight:600;">확인 중…</span>
         <span class="badge">선생님 전용</span>
       </div>
-      <button class="link-btn" id="logout-btn">로그아웃</button>
+      <button id="logout-btn">로그아웃</button>
     </div>
 
     <div class="form-row">
-      <div class="field" style="min-width:180px;">
+      <div class="field" style="min-width:140px;">
         <label>반 선택</label>
         <select id="class-select">
           <option value="">반을 선택하세요</option>
         </select>
       </div>
 
-      <div class="field" style="min-width:160px;">
+      <div class="field" style="min-width:140px;">
         <label>숙제 종류</label>
         <div class="pill-group">
           <button type="button" class="pill-btn active" id="type-vocab">어휘</button>
@@ -367,33 +341,32 @@
         <input id="set-input" type="text" placeholder="예: 1-1 또는 1-1, 1-2, 1-3" />
       </div>
 
-      <div class="field" style="max-width:170px;">
+      <div class="field" style="max-width:160px; min-width: 140px;">
         <label>마감일</label>
         <input id="due-input" type="date" />
       </div>
 
       <div class="field" style="min-width:120px;">
-        <label style="visibility:hidden;">숙제 등록</label>
+        <label style="visibility:hidden;">등록버튼</label>
         <button class="primary-btn" id="save-btn">숙제 등록</button>
       </div>
     </div>
 
-    <div class="hint">같은 단계만 여러 개 입력 가능 (예: 1-1, 1-2, 1-3)</div>
+    <div class="hint">* 같은 단계만 여러 개 입력 가능합니다. (예: 1-1, 1-2, 1-3)</div>
     <div id="status-msg" class="status"></div>
   </div>
 
-  <!-- 2. 단어 시험지 / 암기장 출력 카드 -->
   <div class="card">
     <div class="list-title">단어 시험지 / 암기장 출력</div>
 
-    <div id="print-status" class="status" style="margin-top:6px;">
+    <div id="print-status" class="status" style="margin-top:0; margin-bottom:12px;">
       선택된 반: - / 숙제 종류: 어휘 / 세트 번호: - / 시험 유형: 한글 쓰기(뜻)
     </div>
 
     <div class="print-row">
       <div class="field wide-field">
         <label>학습 세트</label>
-        <input id="print-set-input" type="text" placeholder="예: 1-1 또는 1-1, 1-2, 1-3" />
+        <input id="print-set-input" type="text" placeholder="예: 1-1 또는 1-1, 1-2" />
       </div>
 
       <div class="field mode-field">
@@ -409,24 +382,24 @@
         <input type="number" min="1" step="1" id="word-count-input" placeholder="예: 20" />
       </div>
 
-      <!-- ✅ 여기서 위치만 맞바꿈: 시험지(핑크) 먼저, 암기장(블루) 나중 -->
       <div class="field btn-field-test">
-        <label style="visibility:hidden;">시험지 출력</label>
-        <button class="primary-btn" id="btn-print-test" style="width:100%;">단어 시험지 출력</button>
+        <label style="visibility:hidden;">시험지</label>
+        <button class="primary-btn" id="btn-print-test">단어 시험지 출력</button>
       </div>
 
       <div class="field btn-field-note">
-        <label style="visibility:hidden;">암기장 출력</label>
-        <button class="primary-btn" id="btn-print-note" style="width:100%;">단어 암기장 출력</button>
+        <label style="visibility:hidden;">암기장</label>
+        <button class="primary-btn" id="btn-print-note">단어 암기장 출력</button>
       </div>
     </div>
   </div>
 
-  <!-- 3. 최근 숙제 카드 -->
   <div class="card">
     <div class="list-title">선택한 반의 최근 숙제</div>
-    <div class="hint">어휘/문장 숙제를 등록하면 여기에서 바로 확인할 수 있어요.</div>
-    <div id="hw-list" class="hw-list" style="margin-top:8px;">
+    <div style="font-size:13px; color:#6b7280; margin-bottom:8px;">
+      어휘/문장 숙제를 등록하면 여기에서 바로 확인할 수 있어요.
+    </div>
+    <div id="hw-list" class="hw-list">
       아직 숙제가 없어요. 반을 선택해 주세요.
     </div>
   </div>
@@ -722,6 +695,8 @@
     setType("vocab");
     setTestMode("ko");
     setPrintStatus();
+    // 마감일 오늘로 기본 설정
+    dueInput.value = new Date().toISOString().split('T')[0];
   })();
 </script>
 </body>
