@@ -2,9 +2,10 @@
 <html lang="ko">
 <head>
   <meta charset="UTF-8" />
-  <title>학생 마이페이지 - 블라썸잉글리쉬</title>
+  <title>선생님 관리 페이지 - 블라썸잉글리쉬</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link href="https://cdn.jsdelivr.net/npm/pretendard/dist/web/variable/pretendardvariable.css" rel="stylesheet" />
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
   <style>
     /* === [공통 스타일] 블라썸 표준 디자인 === */
@@ -20,14 +21,13 @@
     
     body { 
       background: #f4f6fb; 
-      /* ✅ 선생님 페이지와 동일한 상단 여백 (30px) */
-      padding: 30px 0 60px; 
+      padding: 30px 0 60px; /* 게시판/숙제페이지와 동일한 상단 여백 */
       color: #111827; 
     }
 
     .page { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
 
-    /* --- [1단] 상단 타이틀 영역 --- */
+    /* --- 상단 타이틀 영역 --- */
     .title-big {
       font-size: 34px;
       font-weight: 900;
@@ -41,7 +41,7 @@
       margin-bottom: 20px;
     }
 
-    /* --- [2단] 상단 버튼 줄 (표준 네비게이션) --- */
+    /* --- 상단 버튼 줄 (표준 네비게이션) --- */
     .top-bar {
       display: flex;
       justify-content: flex-end; /* 오른쪽 정렬 */
@@ -73,9 +73,12 @@
 
     /* 버튼별 색상 */
     .btn-home { background: var(--gray-bg); color: var(--gray-text); }
-    .btn-logout { background: var(--pink); color: #ffffff; }
+    .btn-write { background: var(--mint); color: #ffffff; }
+    .btn-hw { background: var(--blue); color: #ffffff; }
+    .btn-manage { background: var(--pink); color: #ffffff; }
 
-    /* === [카드 공통 스타일] === */
+
+    /* === [관리 페이지 전용 스타일] === */
     .section-card { 
       background: white; 
       border-radius: 24px; /* 둥글게 통일 */
@@ -84,1501 +87,508 @@
       box-shadow: 0 15px 32px rgba(15, 23, 42, 0.08); 
     }
     
-    .section-header { margin-bottom: 20px; }
-    
-    .section-title { 
+    .card-title { 
       font-size: 20px; 
       font-weight: 800; 
+      margin-bottom: 20px; 
       color: #111;
       display: flex;
       align-items: center;
       gap: 8px;
     }
 
-    .badge-small {
-      display: inline-flex; align-items: center; padding: 2px 8px;
-      border-radius: 999px; font-size: 12px; font-weight: 700;
-      background: #e5e7eb; color: #4b5563;
+    /* 테이블 스타일 */
+    .table-wrap { overflow-x: auto; margin-top: 10px; }
+    table { width: 100%; border-collapse: collapse; font-size: 14px; min-width: 700px; }
+    th { 
+      background: #f9fafb; 
+      color: #4b5563; 
+      font-weight: 700; 
+      text-align: left; 
+      padding: 14px; 
+      border-bottom: 2px solid #e5e7eb; 
     }
-
-    /* === [입력 폼 스타일] 선생님 페이지와 통일 === */
-    .form-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-      margin-bottom: 8px;
-      align-items: flex-end;
+    td { 
+      padding: 14px; 
+      border-bottom: 1px solid #e5e7eb; 
+      vertical-align: middle; 
+      color: #374151;
     }
+    tr:last-child td { border-bottom: none; }
 
-    .field { min-width: 140px; }
-
-    .field label {
-      display: block;
-      font-size: 14px;
-      font-weight: 600;
-      color: #4b5563;
-      margin-bottom: 6px;
-      margin-left: 4px;
-    }
-
-    .input, .input-date, select {
-      width: 100%;
-      padding: 10px 14px;
-      border-radius: 12px;
-      border: 1px solid #d1d5db;
-      font-size: 14px;
-      background: #ffffff;
-      outline: none;
+    /* 컨트롤러 (검색창 등) */
+    .controls { display: flex; gap: 8px; margin-bottom: 20px; align-items: center; flex-wrap: wrap; }
+    
+    .input-ui { 
+      padding: 10px 14px; 
+      border: 1px solid #d1d5db; 
+      border-radius: 12px; 
+      font-size: 14px; 
+      height: 42px; 
+      outline: none; 
       transition: border-color 0.2s;
     }
-    .input:focus, .input-date:focus, select:focus { border-color: var(--blue); }
+    .input-ui:focus { border-color: var(--blue); }
 
-    .wide-field { min-width: 260px; flex-grow: 1; }
-
-    /* 토글 버튼 그룹 */
-    .pill-group {
-      display: inline-flex;
-      background: #f3f4f6;
-      border-radius: 999px;
-      padding: 4px;
-      gap: 4px;
-      width: 100%;
-      height: 42px;
-      align-items: center;
-      justify-content: center;
+    .btn-search { 
+      background: var(--blue); color: white; border: none; 
+      padding: 0 24px; border-radius: 12px; font-weight: 700; 
+      cursor: pointer; height: 42px; font-size: 14px;
     }
-    .pill-type-btn {
-      border: none; border-radius: 999px; padding: 0 14px; height: 100%;
-      font-size: 13px; font-weight: 600; cursor: pointer;
-      background: transparent; color: #6b7280; flex: 1; transition: all 0.2s;
+    .btn-search:hover { opacity: 0.9; }
+
+    .btn-search-pink { 
+      background: var(--pink); color: white; border: none; 
+      padding: 0 24px; border-radius: 12px; font-weight: 700; 
+      cursor: pointer; height: 42px; font-size: 14px;
     }
-    .pill-type-btn.active { background: var(--blue); color: #ffffff; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+    .btn-search-pink:hover { opacity: 0.9; }
 
-    /* 메인 버튼들 (등록/관리/취소) */
-    .actions-wrap {
-      display: flex;
-      gap: 8px;
+    #studentNameInput, #studentNameInput2 { width: 180px; }
+
+    /* 뱃지 스타일 */
+    .badge { padding: 4px 10px; border-radius: 99px; font-size: 12px; font-weight: 700; display: inline-block; }
+    .badge-done { background: #dcfce7; color: #166534; }
+    .badge-yet { background: #f3f4f6; color: #9ca3af; }
+    .badge-new { background: #fee2e2; color: #991b1b; }
+
+    .assign-select { 
+        padding: 6px 10px; border-radius: 8px; border: 1px solid #d1d5db; font-size: 13px;
     }
-    
-    .btn-block {
-        height: 42px;
-        border-radius: 12px;
-        font-weight: 700;
-        font-size: 14px;
-        cursor: pointer;
-        border: none;
-        padding: 0 16px;
-        white-space: nowrap;
-        transition: opacity 0.2s;
+
+    /* 저장 버튼 (테이블 내부) */
+    .btn-save {
+      padding: 6px 12px;
+      background: var(--mint);
+      color: #064e3b;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: 700;
+      font-size: 12px;
+      margin-left: 4px;
     }
-    .btn-block:hover { opacity: 0.9; }
-
-    .btn-primary { background: var(--pink); color: white; flex: 2; }
-    .btn-soft { background: var(--mint); color: white; flex: 1.5; }
-    .btn-cancel { background: #e5e7eb; color: #374151; flex: 1; }
-
-    /* 어휘 상세 설정 */
-    .vocab-config { margin-top: 16px; display: none; }
-    .preset-row { display: flex; gap: 8px; margin-bottom: 12px; flex-wrap: wrap; }
-    .preset-btn {
-        padding: 6px 12px; border: 1px solid #e5e7eb; background: #fff; 
-        border-radius: 20px; font-size: 12px; font-weight: 600; cursor: pointer; color: #555;
-    }
-    .preset-btn:hover { background: #f9fafb; }
-
-    .mini-select-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; }
-    .mini-item {
-        background: #f9fafb; border: 1px solid #e5e7eb; border-radius: 12px;
-        padding: 8px 12px; display: flex; align-items: center; justify-content: space-between;
-    }
-    .mini-item.off { opacity: 0.5; }
-    .mini-label { font-size: 13px; font-weight: 700; color: #333; }
-    .mini-select { width: auto; padding: 4px 8px; height: 30px; border-radius: 8px; font-size: 13px; }
-
-    /* 우리반 숙제 / 결과 리스트 스타일 */
-    .hw-group-card { background: #f9fafb; border-radius: 16px; padding: 16px; margin-bottom: 12px; border: 1px solid #eee; }
-    .hw-group-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; }
-    .hw-group-date { font-size: 16px; font-weight: 800; color: var(--blue); }
-    .hw-group-meta { font-size: 12px; color: #888; }
-    
-    .chip { display: inline-flex; padding: 3px 8px; border-radius: 6px; font-size: 11px; font-weight: 700; margin-right: 6px; }
-    .chip-class { background: #eef2ff; color: #3730a3; }
-    .chip-online-vocab { background: #fee2e2; color: #b91c1c; }
-    .chip-online-sentence { background: #e0f2fe; color: #0369a1; }
-    .chip-warning { background: #fff7ed; color: #c2410c; }
-    
-    .hw-text-line { font-size: 14px; color: #333; margin: 4px 0; line-height: 1.5; }
-    
-    .class-hw-empty { text-align: center; color: #999; padding: 20px; font-size: 14px; background: #f9fafb; border-radius: 12px; }
-
-    /* 내 결과 테이블 */
-    .unit-result-wrap { border: 1px solid #eee; border-radius: 16px; overflow: hidden; }
-    .unit-result-head { display: grid; grid-template-columns: 1.2fr 0.8fr 0.8fr 1fr 0.6fr 1.2fr; background: #f9fafb; padding: 12px; font-size: 13px; font-weight: 700; color: #555; border-bottom: 1px solid #eee; }
-    .unit-result-summary { display: grid; grid-template-columns: 1.2fr 0.8fr 0.8fr 1fr 0.6fr 1.2fr; padding: 12px; align-items: center; font-size: 13px; color: #333; cursor: pointer; border-bottom: 1px solid #eee; }
-    .unit-result-summary:hover { background: #fcfcfc; }
-    
-    .status-pill { display: inline-flex; width: 24px; height: 24px; align-items: center; justify-content: center; border-radius: 50%; font-size: 12px; font-weight: 700; }
-    .status-o { background: #dcfce7; color: #166534; }
-    .status-x { background: #fee2e2; color: #991b1b; }
-    .status-d { background: #fef3c7; color: #92400e; }
-
-    .unit-detail { padding: 12px; background: #fff; border-bottom: 1px solid #eee; }
-    .unit-detail-grid { display: grid; gap: 8px; background: #f9fafb; padding: 10px; border-radius: 12px; }
-    .task-row { display: grid; grid-template-columns: 1fr 80px 120px; align-items: center; font-size: 13px; padding: 6px 0; border-bottom: 1px dashed #eee; }
-    .task-row:last-child { border-bottom: none; }
-
-    /* 모달 */
-    .modal-backdrop { position: fixed; inset: 0; background: rgba(0,0,0,0.5); display: none; align-items: center; justify-content: center; z-index: 999; }
-    .modal { background: white; width: 90%; max-width: 600px; border-radius: 24px; overflow: hidden; box-shadow: 0 10px 25px rgba(0,0,0,0.1); }
-    .modal-head { padding: 16px 20px; background: #f9fafb; border-bottom: 1px solid #eee; display: flex; justify-content: space-between; align-items: center; }
-    .modal-title { font-weight: 800; font-size: 16px; }
-    .modal-body { padding: 20px; max-height: 70vh; overflow-y: auto; }
-    
-    .manage-table { width: 100%; border-collapse: collapse; font-size: 13px; }
-    .manage-table th { text-align: left; padding: 10px; background: #f9fafb; color: #666; font-weight: 700; }
-    .manage-table td { padding: 10px; border-bottom: 1px solid #eee; }
-    .btn-mini { padding: 4px 8px; border-radius: 6px; font-size: 11px; border:none; cursor: pointer; font-weight: 700; margin-left: 4px; }
-    .btn-edit { background: #e5e7eb; color: #333; }
-    .btn-del { background: #fee2e2; color: #b91c1c; }
-
-    .status-text { font-size: 13px; margin-top: 10px; color: #666; }
-    .status-text.error { color: #b91c1c; font-weight: 700; }
-
-    @media (max-width: 768px) {
-        .mini-select-row { grid-template-columns: 1fr 1fr; }
-        .unit-result-head, .unit-result-summary { grid-template-columns: 1fr 0.8fr 1.2fr 0.5fr; }
-        .unit-result-head div:nth-child(2), .unit-result-head div:nth-child(6),
-        .unit-result-summary div:nth-child(2), .unit-result-summary div:nth-child(6) { display: none; }
-        .actions-wrap { flex-direction: column; }
-    }
+    .btn-save:hover { opacity: 0.9; }
   </style>
 </head>
-
 <body>
 <div class="page">
-  <div class="title-big">학생 마이페이지</div>
+  <div class="title-big">선생님 관리 페이지</div>
   <div class="subtitle">
-    오늘 숙제와 온라인 학습 결과를 한 곳에서 확인해 보세요.
+    날짜별 숙제 검사, 반별 학생 조회 및 신입생 반 배정을 할 수 있어요.
   </div>
 
   <div class="top-bar">
     <div class="top-btns">
-      <button id="home-btn" class="nav-btn btn-home" type="button">🏠 Home</button>
-      <button id="logout-btn" class="nav-btn btn-logout" type="button">로그아웃</button>
+      <button class="nav-btn btn-home" onclick="location.href='index.html'">
+        🏠 홈
+      </button>
+      <button class="nav-btn btn-write" onclick="location.href='board.html'">
+        ✏️ 글쓰기
+      </button>
+      <button class="nav-btn btn-hw" onclick="location.href='homework-teacher.html'">
+        📚 온라인 숙제
+      </button>
+      <button class="nav-btn btn-manage" onclick="location.reload()">
+        🛠 관리
+      </button>
     </div>
   </div>
 
   <div class="section-card">
-    <div class="section-header">
-      <div class="section-title">
-        📚 우리 반 숙제
-        <span id="class-badge" class="badge-small">-</span>
-      </div>
-    </div>
-    <div id="class-hw-area"></div>
-  </div>
+    <div class="card-title">📅 날짜별 숙제 검사</div>
+    <div class="controls">
+      <select id="classSelect" class="input-ui">
+        <option value="">반 선택</option>
+      </select>
 
-  <div class="section-card">
-    <div class="section-header">
-      <div class="section-title">✍️ 내 온라인 숙제 만들기</div>
-    </div>
+      <input
+        type="text"
+        id="studentNameInput"
+        class="input-ui"
+        placeholder="학생 이름 (선택)"
+      >
 
-    <div class="form-row">
-      <div class="field" style="min-width:140px;">
-        <label>숙제 종류</label>
-        <div class="pill-group">
-          <button type="button" id="type-vocab" class="pill-type-btn active">어휘</button>
-          <button type="button" id="type-sentence" class="pill-type-btn">문장</button>
-        </div>
-      </div>
+      <input type="date" id="dateInput" class="input-ui">
 
-      <div class="field wide-field">
-        <label>단계-세트 (예: 1-1 또는 잠신중1-1)</label>
-        <input id="my-hw-set" class="input" type="text" placeholder="예: 1-1 또는 1-1, 1-2" />
-      </div>
-
-      <div class="field" style="min-width:140px;">
-        <label>마감일</label>
-        <input id="my-hw-due" class="input-date" type="date" />
-      </div>
-
-      <div class="field actions-wrap" style="flex-grow: 1; max-width: 300px;">
-        <label style="visibility:hidden;">버튼</label>
-        <button id="my-hw-save-btn" class="btn-block btn-primary" type="button">숙제 등록</button>
-        <button id="my-hw-manage-btn" class="btn-block btn-soft" type="button">숙제 관리</button>
-        <button id="my-hw-cancel-btn" class="btn-block btn-cancel" type="button" style="display:none;">취소</button>
-      </div>
+      <button class="btn-search" onclick="loadHomework()">조회하기</button>
     </div>
 
-    <div id="vocab-config" class="vocab-config">
-      <div class="preset-row">
-        <button type="button" id="preset-default" class="preset-btn">기본 4종</button>
-        <button type="button" id="preset-blank3" class="preset-btn">문장 빈칸 ×3</button>
-        <button type="button" id="preset-reset" class="preset-btn">초기화</button>
-      </div>
-
-      <div class="mini-select-row">
-        <div class="mini-item" id="mini-meaning">
-          <div class="mini-label">뜻 찾기</div>
-          <select id="sel-meaning" class="mini-select">
-            <option value="0">0</option><option value="1">1</option><option value="2">2</option>
-            <option value="3">3</option><option value="4">4</option><option value="5">5</option>
-          </select>
-        </div>
-        <div class="mini-item" id="mini-english">
-          <div class="mini-label">영어 찾기</div>
-          <select id="sel-english" class="mini-select">
-            <option value="0">0</option><option value="1">1</option><option value="2">2</option>
-            <option value="3">3</option><option value="4">4</option><option value="5">5</option>
-          </select>
-        </div>
-        <div class="mini-item" id="mini-listening">
-          <div class="mini-label">듣고 찾기</div>
-          <select id="sel-listening" class="mini-select">
-            <option value="0">0</option><option value="1">1</option><option value="2">2</option>
-            <option value="3">3</option><option value="4">4</option><option value="5">5</option>
-          </select>
-        </div>
-        <div class="mini-item" id="mini-sentence">
-          <div class="mini-label">문장 빈칸</div>
-          <select id="sel-sentence" class="mini-select">
-            <option value="0">0</option><option value="1">1</option><option value="2">2</option>
-            <option value="3">3</option><option value="4">4</option><option value="5">5</option>
-          </select>
-        </div>
-      </div>
-    </div>
-
-    <div style="font-size:12px; color:#999; margin-top:10px;">
-      * 어휘는 같은 단계만 여러 개 입력 가능(예: 1-1, 1-2). 문장은 1-1 또는 잠신중1-1 처럼 입력 가능.
-    </div>
-    <div id="my-hw-status" class="status-text"></div>
-  </div>
-
-  <div class="section-card">
-    <div class="section-header">
-      <div class="section-title">📊 내 온라인 숙제 결과</div>
-    </div>
-
-    <div class="unit-result-wrap" id="unit-result-wrap">
-      <div class="unit-result-head">
-        <div>마감 날짜</div>
-        <div>출처</div>
-        <div>구분</div>
-        <div>단원(Unit)</div>
-        <div>Unit 전체</div>
-        <div>제출 시간</div>
-      </div>
-      <div id="unit-result-body"></div>
+    <div class="table-wrap">
+      <table id="homeworkTable">
+        <thead>
+          <tr>
+            <th width="15%">이름</th>
+            <th width="15%">상태</th>
+            <th width="20%">점수 / 모드</th>
+            <th width="20%">단원(Unit)</th>
+            <th width="30%">제출 시간</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td colspan="5" style="text-align:center; padding:30px; color:#888;">반 또는 이름, 날짜를 선택하고 [조회하기]를 누르세요.</td></tr>
+        </tbody>
+      </table>
     </div>
   </div>
 
   <div class="section-card">
-    <div class="section-header">
-      <div class="section-title">👤 내 정보</div>
+    <div class="card-title">👥 반별 학생 보기</div>
+    <div class="controls">
+      <select id="classSelect2" class="input-ui">
+        <option value="">반 선택</option>
+      </select>
+
+      <input
+        type="text"
+        id="studentNameInput2"
+        class="input-ui"
+        placeholder="학생 이름 (선택)"
+      >
+
+      <button class="btn-search-pink" onclick="loadStudentsByClass()">조회하기</button>
     </div>
-    <div style="font-size:14px; color:#333;">
-      <span style="color:#888; margin-right:6px;">이름:</span><span id="info-name" style="font-weight:700; margin-right:15px;">-</span>
-      <span style="color:#888; margin-right:6px;">반:</span><span id="info-class" style="font-weight:700; margin-right:15px;">-</span>
-      <span style="color:#888; margin-right:6px;">아이디:</span><span id="info-id" style="font-weight:700;">-</span>
+
+    <div class="table-wrap">
+      <table id="studentsTable">
+        <thead>
+          <tr>
+            <th width="14%">이름</th>
+            <th width="16%">아이디</th>
+            <th width="18%">연락처</th>
+            <th width="14%">반</th>
+            <th width="14%">가입일</th>
+            <th width="14%">반 변경</th>
+            <th width="10%">저장</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td colspan="7" style="text-align:center; padding:30px; color:#888;">반 또는 이름으로 학생을 조회할 수 있어요.</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="section-card">
+    <div class="card-title">🌱 신입생 반 배정하기</div>
+    <div class="table-wrap">
+      <table id="newStudentTable">
+        <thead>
+          <tr><th>이름</th><th>아이디</th><th>연락처</th><th>상태</th><th>반 선택</th><th>저장</th></tr>
+        </thead>
+        <tbody>
+          <tr><td colspan="6" style="text-align:center; padding:30px; color:#888;">데이터를 불러오는 중...</td></tr>
+        </tbody>
+      </table>
     </div>
   </div>
 </div>
 
-<div id="manage-backdrop" class="modal-backdrop" aria-hidden="true">
-  <div class="modal" role="dialog" aria-modal="true" aria-labelledby="manage-title">
-    <div class="modal-head">
-      <div class="modal-title" id="manage-title">🛠️ 숙제 관리 (수정/삭제)</div>
-      <button id="manage-close" class="btn-mini" style="background:#eee; font-size:14px;">닫기</button>
-    </div>
-    <div class="modal-body">
-      <div id="manage-area"></div>
-    </div>
-  </div>
-</div>
-
-<script src="https://unpkg.com/@supabase/supabase-js@2.48.0/dist/umd/supabase.js"></script>
 <script>
+  // 1. Supabase 설정
   const SUPABASE_URL = "https://bpdisxjhhibrgfpvtlmv.supabase.co";
-  const SUPABASE_ANON_KEY =
-    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJwZGlzeGpoaGlicmdmcHZ0bG12Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjM5NTkxODQsImV4cCI6MjA3OTUzNTE4NH0.jDZ6BGirOPuWUnt4ykjhng4PLft2ZjBuYAFzApUnlYU";
+  const SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJwZGlzeGpoaGlicmdmcHZ0bG12Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjM5NTkxODQsImV4cCI6MjA3OTUzNTE4NH0.jDZ6BGirOPuWUnt4ykjhng4PLft2ZjBuYAFzApUnlYU";
 
-  const client = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+  const supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
-  const infoNameEl   = document.getElementById("info-name");
-  const infoClassEl  = document.getElementById("info-class");
-  const infoIdEl     = document.getElementById("info-id");
-  const classBadgeEl = document.getElementById("class-badge");
-  const classHwArea  = document.getElementById("class-hw-area");
+  let classList = [];
 
-  const myHwSetEl     = document.getElementById("my-hw-set");
-  const myHwDueEl     = document.getElementById("my-hw-due");
-  const myHwSaveBtn   = document.getElementById("my-hw-save-btn");
-  const myHwStatusEl  = document.getElementById("my-hw-status");
-  const myHwManageBtn = document.getElementById("my-hw-manage-btn");
-  const myHwCancelBtn = document.getElementById("my-hw-cancel-btn");
+  // 최근 조회 조건 저장
+  let lastStudentsQuery = { classId: "", nameFilter: "" };
 
-  const typeVocabBtn    = document.getElementById("type-vocab");
-  const typeSentenceBtn = document.getElementById("type-sentence");
+  document.addEventListener("DOMContentLoaded", async () => {
+    // 오늘 날짜 세팅
+    const today = new Date();
+    const yyyy = today.getFullYear();
+    const mm = String(today.getMonth() + 1).padStart(2, '0');
+    const dd = String(today.getDate()).padStart(2, '0');
+    document.getElementById("dateInput").value = `${yyyy}-${mm}-${dd}`;
 
-  const logoutBtn = document.getElementById("logout-btn");
-  const homeBtn   = document.getElementById("home-btn");
-
-  const unitResultBody = document.getElementById("unit-result-body");
-
-  const manageBackdrop = document.getElementById("manage-backdrop");
-  const manageCloseBtn = document.getElementById("manage-close");
-  const manageArea     = document.getElementById("manage-area");
-
-  // ✅ 어휘 구성 DOM
-  const vocabConfigEl     = document.getElementById("vocab-config");
-  const presetDefaultBtn  = document.getElementById("preset-default");
-  const presetBlank3Btn   = document.getElementById("preset-blank3");
-  const presetResetBtn    = document.getElementById("preset-reset");
-
-  const selMeaning   = document.getElementById("sel-meaning");
-  const selEnglish   = document.getElementById("sel-english");
-  const selListening = document.getElementById("sel-listening");
-  const selSentence  = document.getElementById("sel-sentence");
-
-  const miniMeaning   = document.getElementById("mini-meaning");
-  const miniEnglish   = document.getElementById("mini-english");
-  const miniListening = document.getElementById("mini-listening");
-  const miniSentence  = document.getElementById("mini-sentence");
-
-  let currentStudent = null;
-  let currentClass   = null;
-  let currentType    = "vocab";
-  let editingHomeworkId = null;
-
-  // ✅ 어휘 숙제 구성 (기본 1,1,1,1)
-  let vocabTasks = { meaning: 1, english: 1, listening: 1, sentence: 1 };
-
-  function setMyHwStatus(msg, type) {
-    myHwStatusEl.textContent = msg || "";
-    myHwStatusEl.className = "status-text" + (type ? " " + type : "");
-  }
-
-  function setSaveButtonMode(isEdit, rowForHint) {
-    if (isEdit) {
-      myHwSaveBtn.textContent = "수정 저장";
-      myHwManageBtn.style.display = "none";
-      myHwCancelBtn.style.display = "inline-flex";
-      const hint = rowForHint
-        ? `✏️ 수정중: ${rowForHint.due_date || "-"} / ${rowForHint.set_numbers || "-"}`
-        : "✏️ 수정 모드입니다.";
-      setMyHwStatus(hint, "");
-    } else {
-      myHwSaveBtn.textContent = "숙제 등록";
-      myHwManageBtn.style.display = "inline-flex";
-      myHwCancelBtn.style.display = "none";
-    }
-  }
-
-  function formatDate(iso) {
-    if (!iso) return "";
-    const d = new Date(iso);
-    if (Number.isNaN(d.getTime())) return "";
-    const y = d.getFullYear();
-    const m = String(d.getMonth() + 1).padStart(2, "0");
-    const day = String(d.getDate()).padStart(2, "0");
-    return `${y}-${m}-${day}`;
-  }
-  function formatTime(iso) {
-    if (!iso) return "";
-    const d = new Date(iso);
-    if (Number.isNaN(d.getTime())) return "";
-    const hh = String(d.getHours()).padStart(2, "0");
-    const mm = String(d.getMinutes()).padStart(2, "0");
-    return `${hh}:${mm}`;
-  }
-  function toDateKey(iso) { return formatDate(iso); }
-
-  function dateKeyFromTitle(title) {
-    if (!title) return "";
-    const trimmed = title.trim();
-    const m = trimmed.match(/^(\d{4})-(\d{2})-(\d{2})/);
-    if (m) return `${m[1]}-${m[2]}-${m[3]}`;
-    return "";
-  }
-
-  function parseUnitKeysFromSetNumbers(setNumbers) {
-    if (!setNumbers) return [];
-    return String(setNumbers).split(",").map(s => s.trim()).filter(Boolean).map(s => s.replace(/\s+/g, ""));
-  }
-
-  function safeLatestBySubmittedAt(arr) {
-    const list = (arr || []).filter(x => x && x.submitted_at);
-    if (!list.length) return null;
-    return list.sort((a,b) => new Date(b.submitted_at) - new Date(a.submitted_at))[0];
-  }
-
-  function scoreTextFromResult(r) {
-    if (!r) return "--";
-    const total = Number(r.total_count || 0);
-    const correct = Number(r.correct_count || 0);
-    if (!total) return "--";
-    const score = Math.round((correct / total) * 100);
-    return `${score}점`;
-  }
-
-  function isValidSentenceUnitKey(text) {
-    const t = String(text || "").trim();
-    if (/^\d+\s*-\s*\d+$/.test(t)) return true;
-    if (/^(잠신중|잠신고)\s*\d+\s*-\s*\d+$/.test(t)) return true;
-    return false;
-  }
-
-  function parseSetsForSave(setStr, type) {
-    const parts = String(setStr || "").split(",").map(s => s.trim()).filter(Boolean);
-    if (!parts.length) return null;
-
-    if (type === "vocab") {
-      const first = parts[0].split("-");
-      if (first.length !== 2) return null;
-      const baseLevel = Number(first[0]);
-      if (!baseLevel) return null;
-
-      for (const p of parts) {
-        const [lvStr, setNumStr] = p.split("-");
-        const lv = Number(lvStr);
-        const sn = Number(setNumStr);
-        if (!lv || !sn || lv !== baseLevel) return null;
-      }
-      return { level: baseLevel, raw: parts.join(", ") };
-    }
-
-    for (const p of parts) if (!isValidSentenceUnitKey(p)) return null;
-
-    let level = 0;
-    const m = parts[0].match(/^(\d+)\s*-\s*\d+$/);
-    if (m) level = Number(m[1]) || 0;
-
-    const normalized = parts.map(p => p.replace(/\s+/g, ""));
-    return { level, raw: normalized.join(", ") };
-  }
-
-  function clampNum(v, min, max) {
-    const n = Number(v);
-    if (Number.isNaN(n)) return min;
-    return Math.max(min, Math.min(max, n));
-  }
-
-  function syncVocabConfigVisibility() {
-    vocabConfigEl.style.display = (currentType === "vocab") ? "block" : "none";
-  }
-
-  function applyVocabTasksToUI() {
-    selMeaning.value   = String(vocabTasks.meaning ?? 0);
-    selEnglish.value   = String(vocabTasks.english ?? 0);
-    selListening.value = String(vocabTasks.listening ?? 0);
-    selSentence.value  = String(vocabTasks.sentence ?? 0);
-
-    miniMeaning.classList.toggle("off", Number(selMeaning.value) === 0);
-    miniEnglish.classList.toggle("off", Number(selEnglish.value) === 0);
-    miniListening.classList.toggle("off", Number(selListening.value) === 0);
-    miniSentence.classList.toggle("off", Number(selSentence.value) === 0);
-  }
-
-  function readVocabTasksFromUI() {
-    vocabTasks = {
-      meaning: clampNum(selMeaning.value, 0, 5),
-      english: clampNum(selEnglish.value, 0, 5),
-      listening: clampNum(selListening.value, 0, 5),
-      sentence: clampNum(selSentence.value, 0, 5),
-    };
-    applyVocabTasksToUI();
-  }
-
-  function setVocabTasksDefault() { vocabTasks = { meaning:1, english:1, listening:1, sentence:1 }; applyVocabTasksToUI(); }
-  function setVocabTasksBlank3()  { vocabTasks = { meaning:0, english:0, listening:0, sentence:3 }; applyVocabTasksToUI(); }
-  function setVocabTasksReset()   { vocabTasks = { meaning:0, english:0, listening:0, sentence:0 }; applyVocabTasksToUI(); }
-
-  function normalizeVocabTasksBeforeSave(t) {
-    const safe = {
-      meaning: clampNum(t.meaning, 0, 5),
-      english: clampNum(t.english, 0, 5),
-      listening: clampNum(t.listening, 0, 5),
-      sentence: clampNum(t.sentence, 0, 5)
-    };
-    const sum = safe.meaning + safe.english + safe.listening + safe.sentence;
-    if (sum === 0) return { meaning:1, english:1, listening:1, sentence:1 };
-    return safe;
-  }
-
-  function setType(nextType) {
-    currentType = nextType;
-    if (nextType === "vocab") {
-      typeVocabBtn.classList.add("active");
-      typeSentenceBtn.classList.remove("active");
-    } else {
-      typeSentenceBtn.classList.add("active");
-      typeVocabBtn.classList.remove("active");
-    }
-    syncVocabConfigVisibility();
-  }
-  typeVocabBtn.onclick = () => setType("vocab");
-  typeSentenceBtn.onclick = () => setType("sentence");
-
-  async function loadStudentFromLocalStorage() {
-    const stored = localStorage.getItem("blossom_student");
-    if (!stored) {
-      alert("학생 로그인이 필요합니다.");
-      window.location.href = "login.html";
-      return;
-    }
-    const s = JSON.parse(stored);
-    currentStudent = s;
-
-    infoNameEl.textContent = s.name || "-";
-    infoIdEl.textContent   = s.login_id || "-";
-
-    if (!s.class_id) {
-      infoClassEl.textContent = "미배정";
-      classBadgeEl.textContent = "반 미배정";
-      classHwArea.innerHTML =
-        '<div class="class-hw-empty">반이 아직 배정되지 않아 숙제를 볼 수 없어요.</div>';
-      return;
-    }
-
-    const { data: cls, error } = await client
-      .from("classes")
-      .select("id, name")
-      .eq("id", s.class_id)
-      .maybeSingle();
-
-    if (error) console.error("classes 조회 오류:", error);
-
-    if (cls) {
-      currentClass = cls;
-      infoClassEl.textContent = cls.name || "-";
-      classBadgeEl.textContent = cls.name;
-    } else {
-      currentClass = null;
-      infoClassEl.textContent = "미배정";
-      classBadgeEl.textContent = "반 정보 없음";
-    }
-  }
-
-  async function loadClassHomework() {
-    if (!currentClass || !currentClass.id) return;
-
-    classHwArea.innerHTML =
-      '<div class="class-hw-empty">우리 반 숙제를 불러오는 중입니다...</div>';
-
-    try {
-      const classId = currentClass.id;
-
-      const [postsRes, vocabRes, sentenceRes] = await Promise.all([
-        client.from("board_posts")
-          .select("id, class_id, title, content, created_at")
-          .eq("class_id", classId)
-          .order("created_at", { ascending: false }),
-
-        client.from("vocab_homework")
-          .select("id, class_id, level, set_numbers, due_date, created_at, tasks")
-          .eq("class_id", classId)
-          .order("created_at", { ascending: false }),
-
-        client.from("sentence_homework")
-          .select("id, class_id, level, set_numbers, due_date, created_at, tasks")
-          .eq("class_id", classId)
-          .order("created_at", { ascending: false })
-      ]);
-
-      const groupsMap = {};
-      function ensureGroup(dateKey) {
-        if (!groupsMap[dateKey]) {
-          groupsMap[dateKey] = { dateKey, latestTime: null, posts: [], vocab: [], sentence: [] };
-        }
-        return groupsMap[dateKey];
-      }
-
-      (postsRes.data || []).forEach(row => {
-        const dk = dateKeyFromTitle(row.title) || toDateKey(row.created_at);
-        if (!dk) return;
-        const g = ensureGroup(dk);
-        g.posts.push(row);
-        if (!g.latestTime || new Date(row.created_at) > new Date(g.latestTime)) g.latestTime = row.created_at;
-      });
-
-      (vocabRes.data || []).forEach(row => {
-        const baseDate = row.due_date || row.created_at;
-        const dk = row.due_date || toDateKey(row.created_at);
-        if (!dk) return;
-        const g = ensureGroup(dk);
-        g.vocab.push(row);
-        if (!g.latestTime || new Date(baseDate) > new Date(g.latestTime)) g.latestTime = baseDate;
-      });
-
-      (sentenceRes.data || []).forEach(row => {
-        const baseDate = row.due_date || row.created_at;
-        const dk = row.due_date || toDateKey(row.created_at);
-        if (!dk) return;
-        const g = ensureGroup(dk);
-        g.sentence.push(row);
-        if (!g.latestTime || new Date(baseDate) > new Date(g.latestTime)) g.latestTime = baseDate;
-      });
-
-      const groups = Object.values(groupsMap).sort((a, b) => new Date(a.dateKey) - new Date(b.dateKey));
-
-      if (!groups.length) {
-        classHwArea.innerHTML =
-          '<div class="class-hw-empty">아직 우리 반에 등록된 숙제가 없어요.</div>';
-        return;
-      }
-
-      classHwArea.innerHTML = "";
-      groups.forEach(g => {
-        const card = document.createElement("div");
-        card.className = "hw-group-card";
-
-        const header = document.createElement("div");
-        header.className = "hw-group-header";
-
-        const left = document.createElement("div");
-        const dt = document.createElement("div");
-        dt.className = "hw-group-date";
-        dt.textContent = g.dateKey;
-        left.appendChild(dt);
-
-        const chips = document.createElement("div");
-        const chipClass = document.createElement("span");
-        chipClass.className = "chip chip-class";
-        chipClass.textContent = currentClass ? currentClass.name : "우리 반";
-        chips.appendChild(chipClass);
-
-        const chipType = document.createElement("span");
-        chipType.className = "chip chip-type"; // 분홍색
-
-        const hasOffline = g.posts.length > 0;
-        const hasVocab   = g.vocab.length > 0;
-        const hasSentence= g.sentence.length > 0;
-
-        if (hasOffline && (hasVocab || hasSentence)) chipType.textContent = "필기 + 온라인 숙제";
-        else if (hasOffline) chipType.textContent = "필기 숙제";
-        else chipType.textContent = "온라인 숙제";
-        chips.appendChild(chipType);
-
-        left.appendChild(chips);
-
-        const meta = document.createElement("div");
-        meta.className = "hw-group-meta";
-        meta.textContent = g.latestTime ? `Stella쌤 · ${formatDate(g.latestTime)} ${formatTime(g.latestTime)}` : "";
-
-        header.appendChild(left);
-        header.appendChild(meta);
-        card.appendChild(header);
-
-        if (g.posts.length > 0) {
-          const chip = document.createElement("div");
-          chip.className = "chip chip-warning";
-          chip.textContent = "✏️ 필기 숙제 / 공지";
-          card.appendChild(chip);
-
-          g.posts.forEach(p => {
-            const line = document.createElement("div");
-            line.className = "hw-text-line";
-            line.textContent = p.content || p.title || "";
-            card.appendChild(line);
-          });
-        }
-
-        if (g.vocab.length > 0) {
-          const chip = document.createElement("div");
-          chip.className = "chip chip-online-vocab";
-          chip.textContent = "어휘";
-          chip.style.marginTop = "6px";
-          card.appendChild(chip);
-
-          g.vocab.forEach(h => {
-            const line = document.createElement("div");
-            line.className = "hw-text-line";
-            const dueTxt = h.due_date ? ` / 마감일: ${h.due_date}` : "";
-            line.textContent = `단계 ${h.level} / 세트: ${h.set_numbers}${dueTxt}`;
-            card.appendChild(line);
-          });
-        }
-
-        if (g.sentence.length > 0) {
-          const chip = document.createElement("div");
-          chip.className = "chip chip-online-sentence";
-          chip.textContent = "문장";
-          chip.style.marginTop = "6px";
-          card.appendChild(chip);
-
-          g.sentence.forEach(h => {
-            const line = document.createElement("div");
-            line.className = "hw-text-line";
-            const dueTxt = h.due_date ? ` / 마감일: ${h.due_date}` : "";
-            line.textContent = `단계 ${h.level} / 세트: ${h.set_numbers}${dueTxt}`;
-            card.appendChild(line);
-          });
-        }
-
-        classHwArea.appendChild(card);
-      });
-
-    } catch (e) {
-      console.error("우리 반 숙제 로딩 오류:", e);
-      classHwArea.innerHTML =
-        '<div class="class-hw-empty">숙제를 불러오는 중 오류가 발생했습니다.</div>';
-    }
-  }
-
-  // ✅ items에 tasks 포함
-  function normalizeAndExpandHomeworkRows(row, from) {
-    const isStudent = from === "student";
-    const type = isStudent ? row.type : (from === "teacher_sentence" ? "sentence" : "vocab");
-    const tasks = row?.tasks || null;
-
-    const unitKeys = parseUnitKeysFromSetNumbers(row.set_numbers);
-
-    if (unitKeys.length === 0) {
-      return [{
-        source: isStudent ? "student" : "teacher",
-        sourceLabel: isStudent ? "내가 등록" : "선생님",
-        type,
-        due_date: row.due_date || null,
-        created_at: row.created_at || null,
-        unit_key: null,
-        unit_text: (row.set_numbers || "-"),
-        tasks,
-        raw: row
-      }];
-    }
-
-    return unitKeys.map(uk => ({
-      source: isStudent ? "student" : "teacher",
-      sourceLabel: isStudent ? "내가 등록" : "선생님",
-      type,
-      due_date: row.due_date || null,
-      created_at: row.created_at || null,
-      unit_key: uk,
-      unit_text: uk,
-      tasks,
-      raw: row
-    }));
-  }
-
-  // ✅ 문장 상세에서 아직 쓰는 원래 판정기
-  function taskCell(result) {
-    if (!result) return { mark: "❌", color: "#991b1b", time: "--" };
-    const total = Number(result.total_count || 0);
-    const correct = Number(result.correct_count || 0);
-    const ok = total > 0 && correct >= total;
-    return {
-      mark: ok ? "⭕" : "△",
-      color: ok ? "#166534" : "#92400e",
-      time: result.submitted_at ? `${formatDate(result.submitted_at)} ${formatTime(result.submitted_at)}` : "--"
-    };
-  }
-
-  // ✅ 어휘: 횟수 기반 판정기
-  function taskCellByCount({ doneCount, required, latest }) {
-    if (!required || required <= 0) return { mark: "-", color: "#9ca3af", time: "--", progress: "" };
-
-    const done = Number(doneCount || 0);
-    const req = Number(required || 0);
-
-    if (done <= 0) return { mark: "❌", color: "#991b1b", time: "--", progress: `${done}/${req}` };
-
-    if (done < req) {
-      return {
-        mark: "△",
-        color: "#92400e",
-        time: latest?.submitted_at ? `${formatDate(latest.submitted_at)} ${formatTime(latest.submitted_at)}` : "--",
-        progress: `${done}/${req}`
-      };
-    }
-
-    return {
-      mark: "⭕",
-      color: "#166534",
-      time: latest?.submitted_at ? `${formatDate(latest.submitted_at)} ${formatTime(latest.submitted_at)}` : "--",
-      progress: `${done}/${req}`
-    };
-  }
-
-  // ✅ 어휘 Unit 전체
-  function computeOverallStatusFromVocabModes(modeMap, tasks) {
-    if (!tasks) return { cls: "status-x", text: "❌" };
-
-    const modes = ["meaning", "english", "listening", "sentence"];
-    const requiredModes = modes.filter(m => Number(tasks[m] || 0) > 0);
-
-    if (requiredModes.length === 0) return { cls: "status-x", text: "❌" };
-
-    let completed = 0;
-    requiredModes.forEach(m => {
-      const required = Number(tasks[m]);
-      const done = Number(modeMap?.[m]?.doneCount || 0);
-      if (done >= required) completed++;
-    });
-
-    if (completed === 0) return { cls: "status-x", text: "❌" };
-    if (completed === requiredModes.length) return { cls: "status-o", text: "⭕" };
-    return { cls: "status-d", text: "△" };
-  }
-
-  const SENTENCE_TASKS_NORMAL = [
-    { mode: "blank",   label: "빈칸 완성" },
-    { mode: "arrange", label: "문장 배열" }
-  ];
-  const SENTENCE_TASKS_SCHOOL = [
-    { mode: "school1", label: "학교 시험 1" },
-    { mode: "school2", label: "학교 시험 2" },
-    { mode: "school3", label: "학교 시험 3" },
-    { mode: "school4", label: "학교 시험 4" },
-    { mode: "school5", label: "학교 시험 5" }
-  ];
-  function isSchoolUnitKey(unitKey) {
-    const t = String(unitKey || "");
-    return /^(잠신중|잠신고)\d+-\d+$/.test(t);
-  }
-
-  // ✅ sentenceByUnitByMode 구조에 맞게 수정
-  function buildSentenceTaskView(unitKey, sentenceByUnitByMode) {
-    const modeMap = (sentenceByUnitByMode && sentenceByUnitByMode[unitKey]) ? sentenceByUnitByMode[unitKey] : {};
-    const tasks = isSchoolUnitKey(unitKey) ? SENTENCE_TASKS_SCHOOL : SENTENCE_TASKS_NORMAL;
-
-    const rows = tasks.map(t => {
-      const pack = modeMap ? modeMap[t.mode] : null;
-      const latest = pack?.latest || null;
-      const cell = taskCell(latest);
-      const hasAny = (pack?.doneCount || 0) > 0;
-      return { ...t, pack, hasAny, cell };
-    });
-
-    const doneCount = rows.filter(x => x.hasAny).length;
-    const totalCount = rows.length;
-
-    const overall = (doneCount === 0)
-      ? { cls: "status-x", text: "❌" }
-      : (doneCount === totalCount)
-        ? { cls: "status-o", text: "⭕" }
-        : { cls: "status-d", text: "△" };
-
-    const latest = safeLatestBySubmittedAt(rows.map(r => r.pack?.latest).filter(Boolean));
-    const submittedText = latest
-      ? `${scoreTextFromResult(latest)} · ${formatDate(latest.submitted_at)} ${formatTime(latest.submitted_at)}`
-      : "--";
-
-    return { rows, overall, submittedText };
-  }
-
-  // [수정] 사용 대장(Set)을 넘겨서 중복 사용 방지
-  function renderUnifiedResults(items, vocabRawMap, sentenceRawMap) {
-    unitResultBody.innerHTML = "";
-
-    if (!items || items.length === 0) {
-      unitResultBody.innerHTML = '<div class="class-hw-empty">표시할 숙제가 없어요.</div>';
-      return;
-    }
-
-    // ⚡ 중복 방지용 장부
-    const usedResultIds = new Set();
-
-    items.forEach(item => {
-      let modeMap = {};
-      
-      if (item.type === "vocab" && item.unit_key) {
-        const tasks = item.tasks || {}; 
-        modeMap = calcStats(vocabRawMap[item.unit_key], item.created_at, tasks, usedResultIds);
-
-      } else if (item.type === "sentence" && item.unit_key) {
-        modeMap = calcStats(sentenceRawMap[item.unit_key], item.created_at, null, usedResultIds);
-      }
-
-      const details = document.createElement("details");
-      details.className = "unit-row";
-      details.open = false;
-
-      const summary = document.createElement("summary");
-      summary.className = "unit-result-summary";
-
-      const typeChip = document.createElement("span");
-      typeChip.className = "chip " + (item.type === "sentence" ? "chip-online-sentence" : "chip-online-vocab");
-      typeChip.textContent = item.type === "sentence" ? "문장" : "어휘";
-
-      // 선생님/학생 출처 칩은 시각적으로 복잡하면 생략 가능하나 일단 유지
-      // const srcChip = document.createElement("span");
-      // srcChip.className = "chip " + (item.source === "teacher" ? "chip-src-teacher" : "chip-src-student");
-      // srcChip.textContent = item.sourceLabel;
-
-      let overall = { cls: "status-x", text: "❌" };
-      let submittedText = "--";
-
-      // ✅ vocab summary
-      if (item.type === "vocab" && item.unit_key) {
-        overall = computeOverallStatusFromVocabModes(modeMap, item.tasks);
-        const latest = safeLatestBySubmittedAt(
-          Object.values(modeMap || {}).map(x => x?.latest).filter(Boolean)
-        );
-        submittedText = latest
-          ? `${scoreTextFromResult(latest)} · ${formatDate(latest.submitted_at)} ${formatTime(latest.submitted_at)}`
-          : "--";
-      }
-
-      // ✅ sentence summary
-      if (item.type === "sentence" && item.unit_key) {
-        const view = buildSentenceTaskView(item.unit_key, { [item.unit_key]: modeMap }); 
-        overall = view.overall;
-        submittedText = view.submittedText;
-      }
-
-      summary.innerHTML = `
-        <div>${item.due_date || "-"}</div>
-        <div>${item.sourceLabel}</div>
-        <div></div>
-        <div>${item.unit_text || "-"}</div>
-        <div><span class="status-pill ${overall.cls}">${overall.text}</span></div>
-        <div>${submittedText}</div>
-      `;
-      summary.children[2].appendChild(typeChip);
-
-      const detail = document.createElement("div");
-      detail.className = "unit-detail";
-
-      // ✅ vocab detail
-      if (item.type === "vocab" && item.unit_key) {
-        const tasks = item.tasks || { meaning:1, english:1, listening:1, sentence:1 };
-
-        const tMeaning = taskCellByCount({
-          doneCount: modeMap?.meaning?.doneCount || 0,
-          required: tasks?.meaning || 0,
-          latest: modeMap?.meaning?.latest || null
-        });
-        const tEnglish = taskCellByCount({
-          doneCount: modeMap?.english?.doneCount || 0,
-          required: tasks?.english || 0,
-          latest: modeMap?.english?.latest || null
-        });
-        const tListening = taskCellByCount({
-          doneCount: modeMap?.listening?.doneCount || 0,
-          required: tasks?.listening || 0,
-          latest: modeMap?.listening?.latest || null
-        });
-        const tSentence = taskCellByCount({
-          doneCount: modeMap?.sentence?.doneCount || 0,
-          required: tasks?.sentence || 0,
-          latest: modeMap?.sentence?.latest || null
-        });
-
-        detail.innerHTML = `
-          <div class="unit-detail-grid">
-            <div class="task-row">
-              <div class="task-name">뜻 찾기</div>
-              <div class="task-status" style="color:${tMeaning.color};">${tMeaning.mark} <span style="font-size:12px;color:#6b7280;">${tMeaning.progress}</span></div>
-              <div class="task-time">${tMeaning.time}</div>
-            </div>
-            <div class="task-row">
-              <div class="task-name">영어 찾기</div>
-              <div class="task-status" style="color:${tEnglish.color};">${tEnglish.mark} <span style="font-size:12px;color:#6b7280;">${tEnglish.progress}</span></div>
-              <div class="task-time">${tEnglish.time}</div>
-            </div>
-            <div class="task-row">
-              <div class="task-name">듣고 찾기</div>
-              <div class="task-status" style="color:${tListening.color};">${tListening.mark} <span style="font-size:12px;color:#6b7280;">${tListening.progress}</span></div>
-              <div class="task-time">${tListening.time}</div>
-            </div>
-            <div class="task-row">
-              <div class="task-name">문장 빈칸</div>
-              <div class="task-status" style="color:${tSentence.color};">${tSentence.mark} <span style="font-size:12px;color:#6b7280;">${tSentence.progress}</span></div>
-              <div class="task-time">${tSentence.time}</div>
-            </div>
-          </div>
-          <div style="font-size:12px; color:#999; margin-top:8px;">※ 각 모드는 <b>설정된 횟수</b>를 채우면 ⭕로 바뀝니다.</div>
-        `;
-      } else if (item.type === "sentence" && item.unit_key) {
-        const view = buildSentenceTaskView(item.unit_key, { [item.unit_key]: modeMap });
-
-        const grid = document.createElement("div");
-        grid.className = "unit-detail-grid";
-
-        view.rows.forEach(r => {
-          const row = document.createElement("div");
-          row.className = "task-row";
-          row.innerHTML = `
-            <div class="task-name">${r.label}</div>
-            <div class="task-status" style="color:${r.cell.color};">${r.cell.mark}</div>
-            <div class="task-time">${r.cell.time}</div>
-          `;
-          grid.appendChild(row);
-        });
-
-        detail.innerHTML = "";
-        detail.appendChild(grid);
-      } else {
-        detail.innerHTML = `
-          <div class="unit-detail-grid">
-            <div class="task-row">
-              <div class="task-name">결과</div>
-              <div class="task-status" style="color:#991b1b;">❌</div>
-              <div class="task-time">--</div>
-            </div>
-          </div>
-        `;
-      }
-
-      details.appendChild(summary);
-      details.appendChild(detail);
-      unitResultBody.appendChild(details);
-    });
-  }
-
-  // [수정] 기록 통째로 가져오기
-  async function buildResultMap(table, unitKeys) {
-    const resultMap = {};
-    if (!unitKeys || unitKeys.length === 0) return resultMap;
-
-    const { data, error } = await client
-      .from(table)
-      .select("id, student_login_id, unit_key, mode, correct_count, total_count, submitted_at")
-      .eq("student_login_id", currentStudent.login_id)
-      .in("unit_key", unitKeys)
-      .order("submitted_at", { ascending: false });
-
-    if (error) throw error;
-
-    (data || []).forEach(r => {
-      const uk = r.unit_key;
-      if (!uk) return;
-      if (!resultMap[uk]) resultMap[uk] = [];
-      resultMap[uk].push(r);
-    });
-
-    return resultMap;
-  }
-
-  // [수정] 선착순 배급 로직
-  function calcStats(rawList, sinceDate, requirements, usedSet) {
-    const stats = {}; 
-    if (!rawList) return stats;
-
-    const since = sinceDate ? new Date(sinceDate) : new Date(0);
-
-    const candidates = rawList.filter(r => {
-      if (new Date(r.submitted_at) <= since) return false;
-      if (usedSet.has(r.id)) return false;
-      return true;
-    });
-
-    candidates.sort((a, b) => new Date(a.submitted_at) - new Date(b.submitted_at));
-
-    candidates.forEach(r => {
-      const md = r.mode || "unknown";
-      
-      if (!stats[md]) {
-        stats[md] = { doneCount: 0, latest: null };
-      }
-
-      const limit = requirements ? (requirements[md] || 0) : 9999;
-      
-      if (stats[md].doneCount < limit) {
-        stats[md].doneCount += 1;
-        usedSet.add(r.id);
-
-        const cur = stats[md].latest;
-        if (!cur || new Date(r.submitted_at) > new Date(cur.submitted_at)) {
-          stats[md].latest = r;
-        }
-      }
-    });
-
-    return stats;
-  }
-
-  async function loadUnifiedHomeworkResults() {
-    if (!currentStudent || !currentStudent.login_id) return;
-
-    unitResultBody.innerHTML = '<div class="class-hw-empty">결과를 불러오는 중...</div>';
-
-    try {
-      const studentReq = client
-        .from("student_homework")
-        .select("id, type, level, set_numbers, due_date, created_at, tasks")
-        .eq("student_login_id", currentStudent.login_id);
-
-      let teacherVocabReq = Promise.resolve({ data: [], error: null });
-      let teacherSentenceReq = Promise.resolve({ data: [], error: null });
-
-      if (currentClass && currentClass.id) {
-        teacherVocabReq = client
-          .from("vocab_homework")
-          .select("id, class_id, level, set_numbers, due_date, created_at, tasks")
-          .eq("class_id", currentClass.id);
-
-        teacherSentenceReq = client
-          .from("sentence_homework")
-          .select("id, class_id, level, set_numbers, due_date, created_at, tasks")
-          .eq("class_id", currentClass.id);
-      }
-
-      const [studentRes, tvRes, tsRes] = await Promise.all([
-        studentReq,
-        teacherVocabReq,
-        teacherSentenceReq
-      ]);
-
-      if (studentRes.error) throw studentRes.error;
-      if (tvRes.error) throw tvRes.error;
-      if (tsRes.error) throw tsRes.error;
-
-      const items = []
-        .concat((studentRes.data || []).flatMap(r => normalizeAndExpandHomeworkRows(r, "student")))
-        .concat((tvRes.data || []).flatMap(r => normalizeAndExpandHomeworkRows(r, "teacher_vocab")))
-        .concat((tsRes.data || []).flatMap(r => normalizeAndExpandHomeworkRows(r, "teacher_sentence")));
-
-      items.sort((a, b) => {
-        const ad = a.due_date ? new Date(a.due_date).getTime() : Number.POSITIVE_INFINITY;
-        const bd = b.due_date ? new Date(b.due_date).getTime() : Number.POSITIVE_INFINITY;
-        if (ad !== bd) return ad - bd;
-        const at = a.created_at ? new Date(a.created_at).getTime() : 0;
-        const bt = b.created_at ? new Date(b.created_at).getTime() : 0;
-        return at - bt;
-      });
-
-      if (!items.length) {
-        renderUnifiedResults([], {}, {});
-        return;
-      }
-
-      const vocabUnitKeys = Array.from(new Set(
-        items.filter(x => x.type === "vocab" && x.unit_key).map(x => x.unit_key)
-      ));
-      const sentenceUnitKeys = Array.from(new Set(
-        items.filter(x => x.type === "sentence" && x.unit_key).map(x => x.unit_key)
-      ));
-
-      const vocabByUnitByMode = await buildResultMap("vocab_results", vocabUnitKeys);
-      const sentenceByUnitByMode = await buildResultMap("sentence_results", sentenceUnitKeys);
-
-      renderUnifiedResults(items, vocabByUnitByMode, sentenceByUnitByMode);
-
-    } catch (e) {
-      console.error("통합 결과 로딩 오류:", e);
-      unitResultBody.innerHTML = '<div class="class-hw-empty">결과를 불러오는 중 오류가 발생했어요.</div>';
-    }
-  }
-
-  async function saveMyHomework() {
-    if (!currentStudent || !currentStudent.login_id) {
-      setMyHwStatus("학생 정보를 찾을 수 없어요. 다시 로그인해 주세요.", "error");
-      return;
-    }
-
-    const rawSet = myHwSetEl.value.trim();
-    const due    = myHwDueEl.value;
-
-    if (!rawSet) { setMyHwStatus("단계-세트를 입력해 주세요.", "error"); return; }
-    if (!due) { setMyHwStatus("마감일을 선택해 주세요.", "error"); return; }
-
-    const parsed = parseSetsForSave(rawSet, currentType);
-    if (!parsed) {
-      setMyHwStatus(
-        currentType === "sentence"
-          ? "문장 세트 형식이 올바르지 않아요. 예: 1-1, 11-10 또는 잠신중1-1"
-          : "세트 형식이 올바르지 않아요. 예: 1-1, 1-2, 1-3",
-        "error"
-      );
-      return;
-    }
-
-    setMyHwStatus("", "");
-    myHwSaveBtn.disabled = true;
-
-    const tasksForSave = (currentType === "vocab")
-      ? normalizeVocabTasksBeforeSave(vocabTasks)
-      : null;
-
-    try {
-      if (editingHomeworkId) {
-        let payload = {
-          type: currentType,
-          level: parsed.level,
-          set_numbers: parsed.raw,
-          due_date: due
-        };
-        if (currentType === "vocab") payload.tasks = tasksForSave;
-
-        let { error } = await client
-          .from("student_homework")
-          .update(payload)
-          .eq("id", editingHomeworkId)
-          .eq("student_login_id", currentStudent.login_id);
-
-        if (error) {
-          console.error("student_homework 수정 오류:", error);
-          setMyHwStatus("수정 중 오류가 발생했어요. (콘솔 에러 확인)", "error");
-          return;
-        }
-
-        editingHomeworkId = null;
-        setSaveButtonMode(false);
-        myHwSetEl.value = "";
-        myHwDueEl.value = "";
-        if (currentType === "vocab") setVocabTasksDefault();
-        setMyHwStatus("✅ 수정 완료!", "");
-      } else {
-        let payload = {
-          student_login_id: currentStudent.login_id,
-          type: currentType,
-          level: parsed.level,
-          set_numbers: parsed.raw,
-          due_date: due
-        };
-        if (currentType === "vocab") payload.tasks = tasksForSave;
-
-        let { error } = await client
-          .from("student_homework")
-          .insert(payload);
-
-        if (error) {
-          if (error.code === "23505") {
-            setMyHwStatus(
-              "⚠️ 같은 마감일에 이미 같은 종류의 숙제가 있어요.\n마감일을 바꾸거나 기존 숙제를 수정해 주세요.",
-              "error"
-            );
-            return;
-          }
-          console.error("student_homework 저장 오류:", error);
-          setMyHwStatus("숙제를 저장하는 중 오류가 발생했어요. (콘솔 에러 확인)", "error");
-          return;
-        }
-
-        myHwSetEl.value = "";
-        myHwDueEl.value = "";
-        if (currentType === "vocab") setVocabTasksDefault();
-        setMyHwStatus("✅ 숙제가 등록됐어요!", "");
-      }
-
-      await loadUnifiedHomeworkResults();
-      if (currentClass && currentClass.id) await loadClassHomework();
-      if (manageBackdrop.style.display === "flex") await loadManageList();
-
-    } catch (e) {
-      console.error("student_homework 저장/수정 예외:", e);
-      setMyHwStatus("저장/수정 중 오류가 발생했어요. (콘솔 확인)", "error");
-    } finally {
-      myHwSaveBtn.disabled = false;
-    }
-  }
-  myHwSaveBtn.onclick = saveMyHomework;
-
-  function openManageModal() {
-    manageBackdrop.style.display = "flex";
-    manageBackdrop.setAttribute("aria-hidden", "false");
-  }
-  function closeManageModal() {
-    manageBackdrop.style.display = "none";
-    manageBackdrop.setAttribute("aria-hidden", "true");
-  }
-  manageCloseBtn.onclick = closeManageModal;
-  manageBackdrop.addEventListener("click", (e) => {
-    if (e.target === manageBackdrop) closeManageModal();
-  });
-  window.addEventListener("keydown", (e) => {
-    if (e.key === "Escape" && manageBackdrop.style.display === "flex") closeManageModal();
+    await loadClasses(); // 반 목록 가져오기
+    loadNewStudents();   // 신입생 가져오기
   });
 
-  myHwCancelBtn.onclick = () => {
-    editingHomeworkId = null;
-    setSaveButtonMode(false);
-    myHwSetEl.value = "";
-    myHwDueEl.value = "";
-    setMyHwStatus("수정이 취소됐어요.", "");
-    setVocabTasksDefault();
-  };
+  // --- [1] 반 목록 가져오기 ---
+  async function loadClasses() {
+    const { data, error } = await supabaseClient.from('classes').select('*').order('name');
 
-  function fillFormForEdit(row) {
-    editingHomeworkId = String(row.id);
-    myHwSetEl.value = row.set_numbers || "";
-    myHwDueEl.value = row.due_date || "";
-    setType(row.type === "sentence" ? "sentence" : "vocab");
-    setSaveButtonMode(true, row);
-
-    if (row.type !== "vocab") return;
-  }
-
-  function bindManageButtons() {
-    document.addEventListener("click", async (e) => {
-      const btn = e.target.closest("button.btn-mini[data-act]");
-      if (!btn) return;
-      if (!manageBackdrop || manageBackdrop.style.display !== "flex") return;
-
-      e.preventDefault();
-      e.stopPropagation();
-
-      const act = btn.dataset.act;
-      const rowJson = btn.dataset.row || "";
-      const id = String(btn.dataset.id || "");
-
-      if (act === "edit") {
-        const row = rowJson ? JSON.parse(rowJson) : null;
-        if (!row) return;
-        fillFormForEdit(row);
-        closeManageModal();
-        return;
-      }
-
-      if (act === "delete") {
-        const ok = confirm("정말 삭제할까요?");
-        if (!ok) return;
-
-        const { error: delErr } = await client
-          .from("student_homework")
-          .delete()
-          .eq("id", id)
-          .eq("student_login_id", currentStudent.login_id);
-
-        if (delErr) {
-          console.error("삭제 오류:", delErr);
-          alert("삭제 중 오류가 발생했어요.");
-          return;
-        }
-
-        if (editingHomeworkId === id) {
-          editingHomeworkId = null;
-          setSaveButtonMode(false);
-          myHwSetEl.value = "";
-          myHwDueEl.value = "";
-          setVocabTasksDefault();
-        }
-
-        await loadManageList();
-        await loadUnifiedHomeworkResults();
-        if (currentClass && currentClass.id) await loadClassHomework();
-      }
-    }, true);
-  }
-
-  async function loadManageList() {
-    if (!currentStudent || !currentStudent.login_id) return;
-
-    manageArea.innerHTML = '<div style="text-align:center; padding:20px; color:#999;">불러오는 중...</div>';
-
-    const { data, error } = await client
-      .from("student_homework")
-      .select("id, type, level, set_numbers, due_date, created_at, tasks")
-      .eq("student_login_id", currentStudent.login_id)
-      .order("due_date", { ascending: true })
-      .order("created_at", { ascending: true });
+    const select1 = document.getElementById("classSelect");
+    const select2 = document.getElementById("classSelect2");
+    if (select1) select1.innerHTML = '<option value="">반 선택</option>';
+    if (select2) select2.innerHTML = '<option value="">반 선택</option>';
 
     if (error) {
-      console.error("student_homework 목록 오류:", error);
-      manageArea.innerHTML = '<div style="text-align:center; padding:20px; color:#999;">목록을 불러오는 중 오류가 발생했어요.</div>';
+      console.error("반 목록 에러:", error);
       return;
     }
 
+    classList = data;
+
+    data.forEach(cls => {
+      const opt1 = document.createElement("option");
+      opt1.value = cls.id;
+      opt1.textContent = cls.name;
+      if (select1) select1.appendChild(opt1);
+
+      const opt2 = document.createElement("option");
+      opt2.value = cls.id;
+      opt2.textContent = cls.name;
+      if (select2) select2.appendChild(opt2);
+    });
+  }
+
+  // --- [2] 신입생(반 없는 학생) 가져오기 ---
+  async function loadNewStudents() {
+    const tbody = document.querySelector("#newStudentTable tbody");
+
+    const { data, error } = await supabaseClient
+      .from('students')
+      .select('*')
+      .is('class_id', null)
+      .order('created_at', { ascending: false });
+
+    if (error) {
+      console.error(error);
+      tbody.innerHTML = `<tr><td colspan="6" style="text-align:center; padding:30px; color:#999;">불러오기 오류</td></tr>`;
+      return;
+    }
+
+    tbody.innerHTML = "";
     if (!data || data.length === 0) {
-      manageArea.innerHTML = '<div style="text-align:center; padding:20px; color:#999;">아직 등록한 숙제가 없어요.</div>';
+      tbody.innerHTML = `<tr><td colspan="6" style="text-align:center; padding:30px; color:#999;">신규 학생(미배정)이 없습니다.</td></tr>`;
       return;
     }
 
-    const table = document.createElement("table");
-    table.className = "manage-table";
-
-    table.innerHTML = `
-      <thead>
-        <tr>
-          <th style="width:140px;">마감일</th>
-          <th style="width:90px;">구분</th>
-          <th>세트</th>
-          <th style="width:120px; text-align:right;">관리</th>
-        </tr>
-      </thead>
-      <tbody></tbody>
-    `;
-
-    const tbody = table.querySelector("tbody");
-
-    data.forEach(row => {
+    data.forEach(student => {
       const tr = document.createElement("tr");
 
-      const tdDate = document.createElement("td");
-      tdDate.innerHTML = `<span style="color:var(--blue); font-weight:800;">${row.due_date || "-"}</span>`;
-      tr.appendChild(tdDate);
+      let options = '<option value="">선택</option>';
+      classList.forEach(c => {
+        options += `<option value="${c.id}">${c.name}</option>`;
+      });
 
-      const tdType = document.createElement("td");
-      const chip = document.createElement("span");
-      chip.className = "chip " + (row.type === "sentence" ? "chip-online-sentence" : "chip-online-vocab");
-      chip.textContent = row.type === "sentence" ? "문장" : "어휘";
-      tdType.appendChild(chip);
-      tr.appendChild(tdType);
-
-      const tdSet = document.createElement("td");
-      tdSet.textContent = row.set_numbers || "-";
-      tr.appendChild(tdSet);
-
-      const tdAct = document.createElement("td");
-      tdAct.style.textAlign = "right";
-
-      const editBtn = document.createElement("button");
-      editBtn.type = "button";
-      editBtn.className = "btn-mini btn-edit";
-      editBtn.textContent = "수정";
-      editBtn.dataset.act = "edit";
-      editBtn.dataset.id = String(row.id);
-      editBtn.dataset.row = JSON.stringify(row);
-
-      const delBtn = document.createElement("button");
-      delBtn.type = "button";
-      delBtn.className = "btn-mini btn-del";
-      delBtn.textContent = "삭제";
-      delBtn.dataset.act = "delete";
-      delBtn.dataset.id = String(row.id);
-
-      tdAct.appendChild(editBtn);
-      tdAct.appendChild(delBtn);
-      tr.appendChild(tdAct);
-
+      tr.innerHTML = `
+        <td style="font-weight:bold;">${student.name}</td>
+        <td>${student.login_id}</td>
+        <td>${student.parent_phone || '-'}</td>
+        <td><span class="badge badge-new">미배정</span></td>
+        <td><select class="assign-select" id="sel-${student.id}">${options}</select></td>
+        <td><button class="btn-save" onclick="saveClass('${student.id}')">저장</button></td>
+      `;
       tbody.appendChild(tr);
     });
-
-    manageArea.innerHTML = "";
-    manageArea.appendChild(table);
   }
 
-  myHwManageBtn.onclick = async () => {
-    if (!currentStudent || !currentStudent.login_id) {
-      alert("학생 로그인이 필요합니다.");
+  // --- [3] 반 배정 저장 ---
+  async function saveClass(studentId) {
+    const sel = document.getElementById(`sel-${studentId}`);
+    if (!sel.value) { alert("반을 선택해주세요."); return; }
+
+    const { error } = await supabaseClient
+      .from('students')
+      .update({ class_id: sel.value })
+      .eq('id', studentId);
+
+    if (error) {
+      alert("저장 실패: " + error.message);
       return;
     }
-    openManageModal();
-    await loadManageList();
-  };
 
-  logoutBtn.onclick = () => {
-    localStorage.removeItem("blossom_student");
-    window.location.href = "index.html";
-  };
-  homeBtn.onclick = () => { window.location.href = "index.html"; };
-
-  function bindVocabConfig() {
-    setVocabTasksDefault();
-    syncVocabConfigVisibility();
-
-    selMeaning.addEventListener("change", readVocabTasksFromUI);
-    selEnglish.addEventListener("change", readVocabTasksFromUI);
-    selListening.addEventListener("change", readVocabTasksFromUI);
-    selSentence.addEventListener("change", readVocabTasksFromUI);
-
-    presetDefaultBtn.addEventListener("click", setVocabTasksDefault);
-    presetBlank3Btn.addEventListener("click", setVocabTasksBlank3);
-    presetResetBtn.addEventListener("click", setVocabTasksReset);
+    alert("반 배정이 완료되었습니다.");
+    loadNewStudents();
+    if (lastStudentsQuery.classId || lastStudentsQuery.nameFilter) {
+      loadStudentsByClass(true);
+    }
   }
 
-  (async function init() {
-    bindManageButtons();
-    bindVocabConfig();
-    await loadStudentFromLocalStorage();
-    if (currentClass && currentClass.id) await loadClassHomework();
-    await loadUnifiedHomeworkResults();
-    setSaveButtonMode(false);
-    setType("vocab");
-    myHwDueEl.value = new Date().toISOString().split('T')[0]; // 마감일 오늘로 세팅
-  })();
+  // --- [4] 반별 학생 조회 ---
+  async function loadStudentsByClass(isRerun = false) {
+    const classId = document.getElementById("classSelect2").value;
+    const nameFilter = document.getElementById("studentNameInput2").value.trim();
+    const tbody = document.querySelector("#studentsTable tbody");
+
+    if (!classId && !nameFilter) {
+      alert("반 또는 학생 이름 중 하나는 입력해주세요.");
+      return;
+    }
+
+    if (!isRerun) {
+      lastStudentsQuery = { classId, nameFilter };
+    }
+
+    const activeClassId = isRerun ? lastStudentsQuery.classId : classId;
+    const activeNameFilter = isRerun ? lastStudentsQuery.nameFilter : nameFilter;
+
+    tbody.innerHTML = `<tr><td colspan="7" style="text-align:center; padding:30px;">조회 중...</td></tr>`;
+
+    try {
+      let query = supabaseClient
+        .from('students')
+        .select('id, name, login_id, parent_phone, class_id, created_at')
+        .order('name');
+
+      if (activeClassId) query = query.eq('class_id', activeClassId);
+      if (activeNameFilter) query = query.ilike('name', `%${activeNameFilter}%`);
+
+      const { data: students, error } = await query;
+      if (error) throw error;
+
+      tbody.innerHTML = "";
+
+      if (!students || students.length === 0) {
+        tbody.innerHTML = `<tr><td colspan="7" style="text-align:center; padding:30px;">조건에 맞는 학생이 없습니다.</td></tr>`;
+        return;
+      }
+
+      const classNameById = new Map(classList.map(c => [c.id, c.name]));
+
+      students.forEach(s => {
+        const tr = document.createElement("tr");
+        const className = s.class_id ? (classNameById.get(s.class_id) || s.class_id) : '미배정';
+        const joinDate = s.created_at ? new Date(s.created_at).toLocaleDateString('ko-KR') : '-';
+
+        let options = `<option value="">미배정</option>`;
+        classList.forEach(c => {
+          const selected = s.class_id === c.id ? "selected" : "";
+          options += `<option value="${c.id}" ${selected}>${c.name}</option>`;
+        });
+
+        tr.innerHTML = `
+          <td style="font-weight:700;">${s.name}</td>
+          <td>${s.login_id || '-'}</td>
+          <td>${s.parent_phone || '-'}</td>
+          <td>${className}</td>
+          <td>${joinDate}</td>
+          <td>
+            <select class="assign-select" id="cls-${s.id}">
+              ${options}
+            </select>
+          </td>
+          <td>
+            <button class="btn-save" onclick="updateStudentClass('${s.id}')">저장</button>
+          </td>
+        `;
+        tbody.appendChild(tr);
+      });
+
+    } catch (err) {
+      console.error(err);
+      tbody.innerHTML = `<tr><td colspan="7" style="text-align:center; padding:30px;">오류: ${err.message}</td></tr>`;
+    }
+  }
+
+  // --- [4-1] 반 변경 저장 ---
+  async function updateStudentClass(studentId) {
+    const sel = document.getElementById(`cls-${studentId}`);
+    if (!sel) return;
+
+    const newClassId = sel.value ? sel.value : null;
+
+    const { error } = await supabaseClient
+      .from('students')
+      .update({ class_id: newClassId })
+      .eq('id', studentId);
+
+    if (error) {
+      alert("저장 실패: " + error.message);
+      return;
+    }
+
+    alert("반 변경이 저장되었습니다.");
+    loadNewStudents();
+    loadStudentsByClass(true);
+  }
+
+  // --- [5] 숙제 결과 조회 ---
+  async function loadHomework() {
+    const classId = document.getElementById("classSelect").value;
+    const dateVal = document.getElementById("dateInput").value;
+    const nameFilter = document.getElementById("studentNameInput").value.trim();
+    const tbody = document.querySelector("#homeworkTable tbody");
+
+    if (!classId && !nameFilter) {
+      alert("반 또는 학생 이름 중 하나는 입력해주세요.");
+      return;
+    }
+    if (!dateVal) {
+      alert("날짜를 선택해주세요.");
+      return;
+    }
+
+    tbody.innerHTML = `<tr><td colspan="5" style="text-align:center; padding:30px;">조회 중...</td></tr>`;
+
+    try {
+      // 1. 학생 명단 조회
+      let query = supabaseClient
+        .from('students')
+        .select('id, name, login_id')
+        .order('name');
+
+      if (classId) query = query.eq('class_id', classId);
+      if (nameFilter) query = query.ilike('name', `%${nameFilter}%`);
+
+      const { data: students, error: studentError } = await query;
+      if (studentError) throw studentError;
+
+      if (!students || students.length === 0) {
+        tbody.innerHTML = `<tr><td colspan="5" style="text-align:center; padding:30px;">조건에 맞는 학생이 없습니다.</td></tr>`;
+        return;
+      }
+
+      // 2. 숙제 결과 조회
+      const loginIds = students.map(s => s.login_id);
+      const start = dateVal + " 00:00:00";
+      const end   = dateVal + " 23:59:59";
+
+      const { data: results, error: resultError } = await supabaseClient
+        .from('vocab_results')
+        .select('*')
+        .in('student_login_id', loginIds)
+        .gte('submitted_at', start)
+        .lte('submitted_at', end)
+        .order('submitted_at', { ascending: false });
+
+      if (resultError) throw resultError;
+
+      // 3. 표 채우기
+      tbody.innerHTML = "";
+
+      students.forEach(std => {
+        const myResults = (results || []).filter(r => r.student_login_id === std.login_id);
+
+        if (myResults.length > 0) {
+          myResults.forEach(res => {
+            const tr = document.createElement("tr");
+            const timeStr = new Date(res.submitted_at).toLocaleTimeString([], {hour:'2-digit', minute:'2-digit'});
+
+            tr.innerHTML = `
+              <td style="font-weight:700;">${std.name}</td>
+              <td><span class="badge badge-done">제출 완료</span></td>
+              <td>${res.correct_count}점 <span style="color:#888; font-size:12px;">(${res.mode})</span></td>
+              <td style="font-weight:bold; color:var(--blue);">${res.unit || '-'}</td>
+              <td>${timeStr}</td>
+            `;
+            tbody.appendChild(tr);
+          });
+        } else {
+          const tr = document.createElement("tr");
+          tr.style.backgroundColor = "#fffbfb"; // 미제출 연한 배경
+          tr.innerHTML = `
+            <td>${std.name}</td>
+            <td><span class="badge badge-yet">미제출</span></td>
+            <td>-</td>
+            <td>-</td>
+            <td>-</td>
+          `;
+          tbody.appendChild(tr);
+        }
+      });
+
+    } catch (err) {
+      console.error(err);
+      tbody.innerHTML = `<tr><td colspan="5">오류가 발생했습니다: ${err.message}</td></tr>`;
+    }
+  }
 </script>
 </body>
 </html>
