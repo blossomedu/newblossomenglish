@@ -143,11 +143,9 @@
 <body>
 <div class="page">
 
-  <!-- 로그인 영역 -->
   <div id="login-status">
     <span id="login-name"></span>
 
-    <!-- ✅ onclick 제거: JS에서 역할(학생/선생님)에 따라 경로 설정 -->
     <button id="mypage-btn">
       마이페이지
     </button>
@@ -166,7 +164,6 @@
 
   <div class="grid">
 
-    <!-- 어휘 학습 -->
     <a href="vocabulary.html">
       <div class="menu-card">
         <img src="vocab-book.png" class="menu-icon" />
@@ -174,7 +171,6 @@
       </div>
     </a>
 
-    <!-- 문장 학습 -->
     <a href="sentence.html">
       <div class="menu-card">
         <img src="pencil.png" class="menu-icon" />
@@ -182,7 +178,6 @@
       </div>
     </a>
 
-    <!-- 문법 학습 -->
     <a href="grammar-units.html">
       <div class="menu-card">
         <img src="video-learning.png" class="menu-icon" />
@@ -190,7 +185,6 @@
       </div>
     </a>
 
-    <!-- 초바영 학습 -->
     <a href="chobaeng-units.html">
       <div class="menu-card">
         <img src="chobaeng.png" class="menu-icon" />
@@ -198,7 +192,6 @@
       </div>
     </a>
 
-    <!-- 반별 게시판 -->
     <a href="board.html">
       <div class="menu-card">
         <img src="board.png" class="menu-icon" />
@@ -206,7 +199,6 @@
       </div>
     </a>
 
-    <!-- 온라인 서점 -->
     <a href="https://search.kyobobook.co.kr/search?keyword=%EC%B4%88%EB%B0%94%EC%98%81" target="_blank">
       <div class="menu-card">
         <img src="store.png" class="menu-icon" />
@@ -217,9 +209,9 @@
   </div>
 </div>
 
-<!-- Supabase -->
 <script src="https://unpkg.com/@supabase/supabase-js@2.48.0/dist/umd/supabase.js"></script>
 <script>
+  // 1. Supabase 클라이언트 초기화
   const supa = supabase.createClient(
     "https://bpdisxjhhibrgfpvtlmv.supabase.co",
     "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJwZGlzeGpoaGlicmdmcHZ0bG12Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjM5NTkxODQsImV4cCI6MjA3OTUzNTE4NH0.jDZ6BGirOPuWUnt4ykjhng4PLft2ZjBuYAFzApUnlYU"
@@ -231,14 +223,16 @@
     const logoutBtn = document.getElementById("logout-btn");
     const mypageBtn = document.getElementById("mypage-btn");
 
-    // 기본 상태 초기화
+    // 초기화: 버튼 숨기기
     loginName.textContent = "";
     loginBtn.style.display  = "inline-block";
     logoutBtn.style.display = "none";
     mypageBtn.style.display = "none";
     mypageBtn.onclick = null;
 
-    // 1) 학생 로그인(localStorage)
+    // ----------------------------------------------------
+    // 1) 학생 로그인 확인 (localStorage)
+    // ----------------------------------------------------
     const student = localStorage.getItem("blossom_student");
 
     if (student) {
@@ -248,15 +242,17 @@
       loginBtn.style.display  = "none";
       logoutBtn.style.display = "inline-block";
 
-      // ✅ 학생 마이페이지 이동
+      // 학생은 자기 페이지로 이동
       mypageBtn.style.display = "inline-block";
       mypageBtn.onclick = () => {
-        location.href = "student-mypage.html";
+        location.href = "student-mypage.html"; 
       };
       return;
     }
 
-    // 2) 선생님 로그인(supabase)
+    // ----------------------------------------------------
+    // 2) 선생님 로그인 확인 (Supabase Auth)
+    // ----------------------------------------------------
     const { data } = await supa.auth.getUser();
 
     if (data.user) {
@@ -266,23 +262,26 @@
       loginBtn.style.display  = "none";
       logoutBtn.style.display = "inline-block";
 
-      // ✅ 선생님 마이페이지 이동
+      // ✅ [핵심 변경] 선생님은 '반별 게시판(board.html)'으로 이동!
       mypageBtn.style.display = "inline-block";
       mypageBtn.onclick = () => {
-        location.href = "teacher-mypage.html";
+        location.href = "board.html";
       };
       return;
     }
 
-    // 3) 로그인 없음 → 기본 상태 유지 (마이페이지 숨김)
+    // 3) 로그인 안 됨 -> 기본 상태 유지
   }
 
   async function logoutUser() {
+    // 로컬스토리지 삭제 (학생)
     localStorage.removeItem("blossom_student");
+    // 수파베이스 로그아웃 (선생님)
     await supa.auth.signOut();
     location.reload();
   }
 
+  // 페이지 로드 시 실행
   checkLogin();
 </script>
 
