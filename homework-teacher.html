@@ -76,8 +76,9 @@
     .pill-btn.active { background: var(--blue); color: #ffffff; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
     .pill-btn.mint-active.active { background: var(--mint); color: #ffffff; }
 
-    /* === [NEW] 상세 옵션 스타일 === */
+    /* === [NEW] 상세 옵션 및 버튼 레이아웃 스타일 === */
     .options-area { margin-top: 20px; padding-top: 20px; border-top: 1px solid #f3f4f6; }
+    
     .preset-row { display: flex; gap: 8px; margin-bottom: 12px; }
     .preset-btn { padding: 6px 14px; border-radius: 99px; font-size: 13px; font-weight: 600; border: none; cursor: pointer; transition: 0.2s; }
     .preset-basic { background: #e0f2fe; color: #0284c7; }
@@ -85,23 +86,47 @@
     .preset-reset { background: #f3f4f6; color: #9ca3af; }
     .preset-btn:hover { opacity: 0.8; }
 
-    .options-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; }
+    /* 옵션들과 버튼을 감싸는 컨테이너 (Flexbox) */
+    .options-wrapper {
+      display: flex;
+      gap: 12px;
+      align-items: stretch; /* 높이를 동일하게 맞춤 */
+    }
+
+    /* 옵션 그리드 (왼쪽 영역) */
+    .options-grid { 
+      display: grid; 
+      grid-template-columns: repeat(4, 1fr); 
+      gap: 10px; 
+      flex-grow: 1; /* 남은 공간 모두 차지 */
+    }
+
     .option-box { 
       display: flex; align-items: center; justify-content: space-between; 
       border: 1px solid #d1d5db; border-radius: 12px; padding: 10px 14px; background: white; 
+      min-width: 0; /* flex 안에서 줄어들 수 있게 */
     }
-    .option-label { font-size: 14px; font-weight: 700; color: #374151; }
-    .option-select { border: none; text-align: right; width: auto; padding: 0; font-weight: 600; cursor: pointer; color: #111; }
+    .option-label { font-size: 13px; font-weight: 700; color: #374151; white-space: nowrap; margin-right: 4px; }
+    .option-select { border: none; text-align: right; width: 100%; padding: 0; font-weight: 600; cursor: pointer; color: #111; min-width: 30px; }
     .option-select:focus { border: none; outline: none; }
 
-    /* 메인 버튼 */
-    .primary-btn {
-      border-radius: 12px; border: none; padding: 0 24px; height: 46px;
-      font-size: 15px; font-weight: 700; cursor: pointer;
-      background: #10b981; color: #ffffff; white-space: nowrap; transition: opacity 0.2s;
+    /* 등록 버튼 (오른쪽 배치) */
+    #save-btn { 
+      background: var(--pink); 
+      color: white;
+      border: none;
+      border-radius: 12px;
+      font-size: 16px;
+      font-weight: 700;
+      cursor: pointer;
+      padding: 0 24px;
+      white-space: nowrap;
+      transition: opacity 0.2s;
+      margin-top: 0;
+      width: auto;
+      min-width: 120px;
     }
-    .primary-btn:hover { opacity: 0.95; }
-    #save-btn { background: var(--pink); width: 100%; margin-top: 20px; font-size: 16px; }
+    #save-btn:hover { opacity: 0.95; }
 
     .status { margin-top: 8px; font-size: 13px; color: #6b7280; margin-left: 4px; }
     .status.error { color: #b91c1c; }
@@ -129,7 +154,10 @@
       .top-bar { justify-content: flex-start; overflow-x: auto; }
       .form-row { flex-direction: column; align-items: stretch; gap: 16px; }
       .wide-field, .half-field, .mode-field, .btn-field-note, .btn-field-test { min-width: 100%; }
+      /* 모바일에서는 버튼을 아래로 내림 */
+      .options-wrapper { flex-direction: column; }
       .options-grid { grid-template-columns: repeat(2, 1fr); }
+      #save-btn { width: 100%; padding: 14px 0; }
     }
   </style>
 </head>
@@ -190,37 +218,40 @@
             <button type="button" class="preset-btn preset-reset" onclick="setPreset('reset')">초기화</button>
         </div>
 
-        <div class="options-grid">
-            <div class="option-box">
-                <span class="option-label">뜻 찾기</span>
-                <select id="opt_meaning" class="option-select">
-                    <option value="0">0</option><option value="1" selected>1</option><option value="2">2</option><option value="3">3</option>
-                </select>
+        <div class="options-wrapper">
+            <div class="options-grid">
+                <div class="option-box">
+                    <span class="option-label">뜻 찾기</span>
+                    <select id="opt_meaning" class="option-select">
+                        <option value="0">0</option><option value="1" selected>1</option><option value="2">2</option><option value="3">3</option>
+                    </select>
+                </div>
+                <div class="option-box">
+                    <span class="option-label">영어 찾기</span>
+                    <select id="opt_english" class="option-select">
+                        <option value="0">0</option><option value="1" selected>1</option><option value="2">2</option><option value="3">3</option>
+                    </select>
+                </div>
+                <div class="option-box">
+                    <span class="option-label">듣고 찾기</span>
+                    <select id="opt_listening" class="option-select">
+                        <option value="0">0</option><option value="1" selected>1</option><option value="2">2</option><option value="3">3</option>
+                    </select>
+                </div>
+                <div class="option-box">
+                    <span class="option-label">문장 빈칸</span>
+                    <select id="opt_sentence" class="option-select">
+                        <option value="0">0</option><option value="1" selected>1</option><option value="2">2</option><option value="3">3</option>
+                    </select>
+                </div>
             </div>
-            <div class="option-box">
-                <span class="option-label">영어 찾기</span>
-                <select id="opt_english" class="option-select">
-                    <option value="0">0</option><option value="1" selected>1</option><option value="2">2</option><option value="3">3</option>
-                </select>
-            </div>
-            <div class="option-box">
-                <span class="option-label">듣고 찾기</span>
-                <select id="opt_listening" class="option-select">
-                    <option value="0">0</option><option value="1" selected>1</option><option value="2">2</option><option value="3">3</option>
-                </select>
-            </div>
-            <div class="option-box">
-                <span class="option-label">문장 빈칸</span>
-                <select id="opt_sentence" class="option-select">
-                    <option value="0">0</option><option value="1" selected>1</option><option value="2">2</option><option value="3">3</option>
-                </select>
-            </div>
-        </div>
-        <div class="hint">* 어휘는 같은 단계만 여러 개 입력 가능. 문장은 1-1 등 입력 가능.</div>
-    </div>
 
-    <button class="primary-btn" id="save-btn">숙제 등록</button>
-    <div id="status-msg" class="status"></div>
+            <button class="primary-btn" id="save-btn">숙제 등록</button>
+        </div>
+
+        <div class="hint">* 어휘는 같은 단계만 여러 개 입력 가능. 문장은 1-1 등 입력 가능.</div>
+        <div id="status-msg" class="status"></div>
+    </div>
   </div>
 
   <div class="card">
@@ -313,7 +344,7 @@
     statusMsgEl.className = "status" + (type ? " " + type : "");
   }
 
-  // --- [NEW] 프리셋 설정 함수 ---
+  // --- 프리셋 설정 함수 ---
   window.setPreset = function(type) {
       if (type === 'basic') {
           optMeaning.value = "1"; optEnglish.value = "1"; optListening.value = "1"; optSentence.value = "1";
@@ -385,7 +416,7 @@
     return { level, sets: setNums, raw: parts.join(", ") };
   }
 
-  // --- [UPDATE] 숙제 저장 함수 (옵션 값 추가 전송) ---
+  // --- [숙제 저장] 옵션 값까지 전송 ---
   async function saveHomework() {
     const classId = classSelect.value;
     const rawSet  = setInput.value.trim();
@@ -402,13 +433,13 @@
 
     const tableName = currentType === "vocab" ? "vocab_homework" : "sentence_homework";
     
-    // DB 전송 데이터 구성
+    // DB 전송 데이터
     const payload = {
       class_id: classId,
       level: parsed.level,
       set_numbers: parsed.raw,
       due_date: due,
-      // [NEW] 옵션 값 추가 (DB에 해당 컬럼이 없으면 에러 날 수 있음. 꼭 컬럼 추가하세요!)
+      // 옵션 값 추가
       count_meaning: parseInt(optMeaning.value),
       count_english: parseInt(optEnglish.value),
       count_listening: parseInt(optListening.value),
@@ -420,7 +451,7 @@
     if (error) {
       console.error("숙제 저장 오류:", error);
       if(error.message.includes("column")) {
-           return setStatus("DB 오류: count_meaning 등의 컬럼이 테이블에 없습니다.", "error");
+           return setStatus("DB 오류: count_meaning 등의 컬럼이 테이블에 없습니다. (Supabase 확인 필요)", "error");
       }
       return setStatus("숙제를 저장하는 중 오류가 발생했어요.", "error");
     }
