@@ -15,6 +15,8 @@
       --pink: #FF6FB5;
       --gray-bg: #e5e7eb;
       --gray-text: #374151;
+      --pass-color: #10b981; /* 통과 초록색 */
+      --fail-color: #ef4444; /* 과락 빨간색 */
     }
 
     * {
@@ -27,7 +29,7 @@
 
     body {
       background: #f4f6fb;
-      padding: 30px 0 60px; /* 상단 여백 통일 (30px) */
+      padding: 30px 0 60px;
       color: #111827;
     }
 
@@ -37,7 +39,7 @@
       padding: 0 20px;
     }
 
-    /* --- 타이틀 영역 (board.html 스타일) --- */
+    /* --- 타이틀 영역 --- */
     .title-big {
       font-size: 34px;
       font-weight: 900;
@@ -51,10 +53,10 @@
       margin-bottom: 20px;
     }
 
-    /* --- 상단 버튼 줄 (board.html의 .top-bar 구조 이식) --- */
+    /* --- 상단 버튼 줄 --- */
     .top-bar {
       display: flex;
-      justify-content: flex-end; /* 오른쪽 정렬 */
+      justify-content: flex-end;
       align-items: center;
       gap: 12px;
       margin-bottom: 18px;
@@ -82,17 +84,15 @@
     }
     .pill-btn:hover { opacity: 0.9; }
 
-    /* 버튼 색상 (board.html과 동일) */
-    .btn-home { background: #e5e7eb; color: #374151; } /* 회색 */
-    .btn-primary { background: #9fe6b8; color: #ffffff; } /* 민트 (글쓰기) */
-    .btn-secondary { background: #00aeef; color: #ffffff; } /* 파랑 (숙제) */
-    .btn-manage { background: #ff6fb5; color: #ffffff; } /* 핑크 (관리) - 현재 페이지 */
-
+    .btn-home { background: #e5e7eb; color: #374151; }
+    .btn-primary { background: #9fe6b8; color: #ffffff; }
+    .btn-secondary { background: #00aeef; color: #ffffff; }
+    .btn-manage { background: #ff6fb5; color: #ffffff; }
 
     /* === [관리 페이지 전용 스타일] === */
     .section-card { 
       background: white; 
-      border-radius: 24px; /* 둥글게 통일 */
+      border-radius: 24px;
       padding: 30px; 
       margin-bottom: 24px; 
       box-shadow: 0 15px 32px rgba(15, 23, 42, 0.08); 
@@ -108,7 +108,7 @@
       gap: 8px;
     }
 
-    /* 테이블 스타일 */
+    /* 테이블 스타일 (아래쪽 기능용) */
     .table-wrap { overflow-x: auto; margin-top: 10px; }
     table { width: 100%; border-collapse: collapse; font-size: 14px; min-width: 700px; }
     th { 
@@ -160,26 +160,84 @@
 
     /* 뱃지 스타일 */
     .badge { padding: 4px 10px; border-radius: 99px; font-size: 12px; font-weight: 700; display: inline-block; }
-    .badge-done { background: #dcfce7; color: #166534; }
-    .badge-yet { background: #f3f4f6; color: #9ca3af; }
+    .badge-done { background: #dcfce7; color: #166534; } /* 완료 */
+    .badge-yet { background: #f3f4f6; color: #9ca3af; } /* 미제출/미완 */
+    .badge-fail { background: #fee2e2; color: #991b1b; } /* 과락/진행중 */
     .badge-new { background: #fee2e2; color: #991b1b; }
 
-    .assign-select { 
-        padding: 6px 10px; border-radius: 8px; border: 1px solid #d1d5db; font-size: 13px;
+    .assign-select { padding: 6px 10px; border-radius: 8px; border: 1px solid #d1d5db; font-size: 13px; }
+    .btn-save { padding: 6px 12px; background: var(--mint); color: #064e3b; border: none; border-radius: 8px; cursor: pointer; font-weight: 700; font-size: 12px; margin-left: 4px; }
+    .btn-save:hover { opacity: 0.9; }
+
+    /* =========================================
+       [NEW] 숙제 결과 아코디언 카드 스타일
+       ========================================= */
+    .hw-list-container {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    
+    .hw-card {
+      border: 1px solid #e5e7eb;
+      border-radius: 16px;
+      overflow: hidden;
+      background: #fff;
+      transition: box-shadow 0.2s;
+    }
+    .hw-card:hover {
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
     }
 
-    .btn-save {
-      padding: 6px 12px;
-      background: var(--mint);
-      color: #064e3b;
-      border: none;
-      border-radius: 8px;
+    /* 카드 헤더 (클릭 시 열림) */
+    .hw-header {
+      padding: 16px 20px;
+      background: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
       cursor: pointer;
-      font-weight: 700;
-      font-size: 12px;
-      margin-left: 4px;
+      user-select: none;
     }
-    .btn-save:hover { opacity: 0.9; }
+    .hw-header:hover { background-color: #f9fafb; }
+    
+    /* 헤더 왼쪽: 학생 이름, 단원 */
+    .hw-info { display: flex; align-items: center; gap: 12px; }
+    .hw-student { font-weight: 800; font-size: 16px; color: #111; width: 80px; }
+    .hw-unit { 
+      font-weight: 700; color: var(--blue); font-size: 15px; 
+      background: #e0f2fe; padding: 4px 10px; border-radius: 6px;
+    }
+    
+    /* 헤더 오른쪽: 상태 요약 */
+    .hw-summary { display: flex; align-items: center; gap: 15px; font-size: 14px; color: #6b7280; }
+    .hw-time { font-size: 13px; color: #9ca3af; }
+
+    /* 상세 내용 (기본 숨김) */
+    .hw-body {
+      display: none; /* JS로 토글 */
+      background: #f8fafc;
+      border-top: 1px solid #e5e7eb;
+      padding: 10px 20px 20px 20px;
+    }
+    .hw-body.open { display: block; }
+
+    /* 상세 내용 안의 각 줄 */
+    .detail-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 0;
+      border-bottom: 1px solid #e2e8f0;
+      font-size: 14px;
+    }
+    .detail-row:last-child { border-bottom: none; }
+    
+    .detail-label { font-weight: 600; color: #4b5563; display: flex; align-items: center; gap: 6px; }
+    .detail-score { font-weight: 700; }
+    .score-pass { color: var(--pass-color); }
+    .score-fail { color: var(--fail-color); }
+    .score-none { color: #d1d5db; }
   </style>
 </head>
 <body>
@@ -190,18 +248,11 @@
   </div>
 
   <div class="top-bar">
-    <div class="top-btns" style="margin-left: auto;"> <button class="pill-btn btn-home" onclick="location.href='index.html'">
-        🏠 홈
-      </button>
-      <button class="pill-btn btn-primary" onclick="location.href='board.html'">
-        ✏️ 글쓰기
-      </button>
-      <button class="pill-btn btn-secondary" onclick="location.href='homework-teacher.html'">
-        📚 온라인 숙제
-      </button>
-      <button class="pill-btn btn-manage" onclick="location.reload()">
-        🛠 관리
-      </button>
+    <div class="top-btns" style="margin-left: auto;"> 
+      <button class="pill-btn btn-home" onclick="location.href='index.html'">🏠 홈</button>
+      <button class="pill-btn btn-primary" onclick="location.href='board.html'">✏️ 글쓰기</button>
+      <button class="pill-btn btn-secondary" onclick="location.href='homework-teacher.html'">📚 온라인 숙제</button>
+      <button class="pill-btn btn-manage" onclick="location.reload()">🛠 관리</button>
     </div>
   </div>
 
@@ -224,21 +275,10 @@
       <button class="btn-search" onclick="loadHomework()">조회하기</button>
     </div>
 
-    <div class="table-wrap">
-      <table id="homeworkTable">
-        <thead>
-          <tr>
-            <th width="15%">이름</th>
-            <th width="15%">상태</th>
-            <th width="20%">점수 / 모드</th>
-            <th width="20%">단원(Unit)</th>
-            <th width="30%">제출 시간</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr><td colspan="5" style="text-align:center; padding:30px; color:#888;">반 또는 이름, 날짜를 선택하고 [조회하기]를 누르세요.</td></tr>
-        </tbody>
-      </table>
+    <div id="homeworkResultContainer" class="hw-list-container">
+      <div style="text-align:center; padding: 40px; color:#9ca3af;">
+        반과 날짜를 선택하고 [조회하기]를 눌러주세요.
+      </div>
     </div>
   </div>
 
@@ -248,17 +288,9 @@
       <select id="classSelect2" class="input-ui">
         <option value="">반 선택</option>
       </select>
-
-      <input
-        type="text"
-        id="studentNameInput2"
-        class="input-ui"
-        placeholder="학생 이름 (선택)"
-      >
-
+      <input type="text" id="studentNameInput2" class="input-ui" placeholder="학생 이름 (선택)">
       <button class="btn-search-pink" onclick="loadStudentsByClass()">조회하기</button>
     </div>
-
     <div class="table-wrap">
       <table id="studentsTable">
         <thead>
@@ -302,8 +334,6 @@
   const supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
   let classList = [];
-
-  // 최근 조회 조건 저장
   let lastStudentsQuery = { classId: "", nameFilter: "" };
 
   document.addEventListener("DOMContentLoaded", async () => {
@@ -314,8 +344,8 @@
     const dd = String(today.getDate()).padStart(2, '0');
     document.getElementById("dateInput").value = `${yyyy}-${mm}-${dd}`;
 
-    await loadClasses(); // 반 목록 가져오기
-    loadNewStudents();   // 신입생 가져오기
+    await loadClasses(); 
+    loadNewStudents();   
   });
 
   // --- [1] 반 목록 가져오기 ---
@@ -331,9 +361,7 @@
       console.error("반 목록 에러:", error);
       return;
     }
-
     classList = data;
-
     data.forEach(cls => {
       const opt1 = document.createElement("option");
       opt1.value = cls.id;
@@ -347,36 +375,206 @@
     });
   }
 
+  // ============================================================
+  // [NEW] 숙제 결과 조회 함수 (핵심 리모델링 파트)
+  // ============================================================
+  async function loadHomework() {
+    const classId = document.getElementById("classSelect").value;
+    const dateVal = document.getElementById("dateInput").value;
+    const nameFilter = document.getElementById("studentNameInput").value.trim();
+    const container = document.getElementById("homeworkResultContainer");
+
+    if (!classId) return alert("반을 선택해주세요.");
+    if (!dateVal) return alert("날짜를 선택해주세요.");
+
+    container.innerHTML = `<div style="text-align:center; padding:30px;">데이터를 분석 중입니다...</div>`;
+
+    try {
+      // 1. 해당 날짜 마감인 숙제(단원) 찾기
+      const { data: vocabHW } = await supabaseClient.from('vocab_homework').select('set_numbers').eq('class_id', classId).eq('due_date', dateVal);
+      const { data: sentenceHW } = await supabaseClient.from('sentence_homework').select('set_numbers').eq('class_id', classId).eq('due_date', dateVal);
+
+      // 단원 목록 추출 (중복 제거)
+      let targetUnits = [];
+      const parseUnits = (list) => {
+        (list || []).forEach(h => {
+          String(h.set_numbers).split(',').forEach(s => {
+            const clean = s.trim().replace(/\s+/g, '');
+            if(clean) targetUnits.push(clean);
+          });
+        });
+      };
+      parseUnits(vocabHW);
+      parseUnits(sentenceHW);
+      targetUnits = [...new Set(targetUnits)].sort(); // 유니크하고 정렬된 단원 리스트
+
+      if (targetUnits.length === 0) {
+        container.innerHTML = `<div style="text-align:center; padding:40px; color:#888;">📅 ${dateVal} 마감인 숙제가 없습니다.</div>`;
+        return;
+      }
+
+      // 2. 해당 반 학생 명단 가져오기
+      let q = supabaseClient.from('students').select('id, name, login_id').eq('class_id', classId).order('name');
+      if (nameFilter) q = q.ilike('name', `%${nameFilter}%`);
+      const { data: students } = await q;
+
+      if (!students || students.length === 0) {
+        container.innerHTML = `<div style="text-align:center; padding:40px; color:#888;">조회된 학생이 없습니다.</div>`;
+        return;
+      }
+
+      // 3. 학생들의 결과 데이터 싹 긁어오기 (vocab + sentence)
+      const loginIds = students.map(s => s.login_id);
+      const { data: vResults } = await supabaseClient.from('vocab_results').select('*').in('student_login_id', loginIds).in('unit_key', targetUnits);
+      const { data: sResults } = await supabaseClient.from('sentence_results').select('*').in('student_login_id', loginIds).in('unit_key', targetUnits);
+      
+      const allResults = [...(vResults||[]), ...(sResults||[])];
+
+      // 4. 데이터 가공 (학생 -> 단원 -> 모드별 점수)
+      // 구조: map[studentId][unitKey] = { meaning: ResultObj, sentence: ResultObj ... }
+      container.innerHTML = ""; // 초기화
+
+      students.forEach(student => {
+        targetUnits.forEach(unit => {
+          // 이 학생, 이 단원의 결과 필터링
+          const myUnitResults = allResults.filter(r => r.student_login_id === student.login_id && r.unit_key === unit);
+          
+          // 영역별 최고 점수/최신 기록 추출
+          // 모드: meaning(뜻), english(영어), listening(듣기), sentence(문장)
+          const modes = ['meaning', 'english', 'listening', 'sentence'];
+          const modeLabels = { meaning: '뜻 찾기', english: '영어 찾기', listening: '듣고 찾기', sentence: '문장 빈칸' };
+          
+          let resultSummary = {};
+          let lastSubmitTime = null;
+          let passCount = 0;
+          let isSubmitted = false;
+
+          modes.forEach(mode => {
+            // 해당 모드의 결과들 중 '가장 최근' or '최고 점수' 가져오기. 여기선 최신순 정렬 후 사용.
+            const modeResList = myUnitResults.filter(r => r.mode === mode).sort((a,b) => new Date(b.submitted_at) - new Date(a.submitted_at));
+            
+            if (modeResList.length > 0) {
+              isSubmitted = true;
+              const best = modeResList[0]; // 가장 최근 기록 사용
+              resultSummary[mode] = best;
+              
+              // 시간 업데이트 (가장 늦게 푼 시간)
+              const t = new Date(best.submitted_at);
+              if (!lastSubmitTime || t > lastSubmitTime) lastSubmitTime = t;
+
+              // 통과 여부 (90점 이상이면 통과로 간주 - 기준 조절 가능)
+              const score = best.total_count ? Math.round((best.correct_count / best.total_count)*100) : 0;
+              if (score >= 90) passCount++;
+            } else {
+              resultSummary[mode] = null;
+            }
+          });
+
+          // 상태 뱃지 결정
+          let statusBadge = "";
+          if (!isSubmitted) {
+            statusBadge = `<span class="badge badge-yet">미제출</span>`;
+          } else if (passCount === 4) { // 4개 모드 다 통과
+            statusBadge = `<span class="badge badge-done">완료 (All Pass)</span>`;
+          } else {
+            statusBadge = `<span class="badge badge-fail">진행중 (${passCount}/4)</span>`;
+          }
+
+          // 시간 포맷
+          let timeStr = "-";
+          if (lastSubmitTime) {
+            const y = lastSubmitTime.getFullYear();
+            const m = String(lastSubmitTime.getMonth()+1).padStart(2,'0');
+            const d = String(lastSubmitTime.getDate()).padStart(2,'0');
+            const h = String(lastSubmitTime.getHours()).padStart(2,'0');
+            const min = String(lastSubmitTime.getMinutes()).padStart(2,'0');
+            timeStr = `${y}-${m}-${d} ${h}:${min}`;
+            // 지각 체크
+            const due = new Date(dateVal);
+            due.setHours(23, 59, 59);
+            if (lastSubmitTime > due) timeStr += " <span style='color:red'>(지각)</span>";
+          }
+
+          // HTML 카드 생성
+          const cardId = `card-${student.id}-${unit}`;
+          const detailId = `detail-${student.id}-${unit}`;
+          
+          // 모드별 상세 줄 생성
+          let detailRowsHTML = "";
+          modes.forEach(mode => {
+            const res = resultSummary[mode];
+            const label = modeLabels[mode];
+            let scoreHTML = `<span class="score-none">-</span>`;
+            
+            if (res) {
+              const score = res.total_count ? Math.round((res.correct_count / res.total_count)*100) : 0;
+              const scoreClass = score >= 90 ? 'score-pass' : 'score-fail';
+              const passText = score >= 90 ? 'Pass' : 'Fail';
+              scoreHTML = `<span class="${scoreClass}">${score}점 (${passText})</span>`;
+            }
+
+            detailRowsHTML += `
+              <div class="detail-row">
+                <div class="detail-label">🔹 ${label}</div>
+                <div class="detail-score">${scoreHTML}</div>
+              </div>
+            `;
+          });
+
+          // 최종 카드 HTML
+          const cardHTML = `
+            <div class="hw-card">
+              <div class="hw-header" onclick="toggleDetail('${detailId}')">
+                <div class="hw-info">
+                  <span class="hw-student">${student.name}</span>
+                  <span class="hw-unit">Unit ${unit}</span>
+                </div>
+                <div class="hw-summary">
+                  ${statusBadge}
+                  <span class="hw-time">${timeStr}</span>
+                  <span style="font-size:12px;">▼</span>
+                </div>
+              </div>
+              <div id="${detailId}" class="hw-body">
+                ${detailRowsHTML}
+              </div>
+            </div>
+          `;
+
+          container.innerHTML += cardHTML;
+        });
+      });
+
+    } catch (e) {
+      console.error(e);
+      container.innerHTML = `<div style="text-align:center; padding:30px; color:red;">오류 발생: ${e.message}</div>`;
+    }
+  }
+
+  // 아코디언 토글 함수
+  function toggleDetail(id) {
+    const el = document.getElementById(id);
+    if (el) el.classList.toggle('open');
+  }
+
+
+  // --- [아래는 기존 코드 유지] ---
   // --- [2] 신입생(반 없는 학생) 가져오기 ---
   async function loadNewStudents() {
     const tbody = document.querySelector("#newStudentTable tbody");
-
     const { data, error } = await supabaseClient
-      .from('students')
-      .select('*')
-      .is('class_id', null)
-      .order('created_at', { ascending: false });
+      .from('students').select('*').is('class_id', null).order('created_at', { ascending: false });
 
-    if (error) {
-      console.error(error);
-      tbody.innerHTML = `<tr><td colspan="6" style="text-align:center; padding:30px; color:#999;">불러오기 오류</td></tr>`;
-      return;
-    }
-
+    if (error) return;
     tbody.innerHTML = "";
     if (!data || data.length === 0) {
       tbody.innerHTML = `<tr><td colspan="6" style="text-align:center; padding:30px; color:#999;">신규 학생(미배정)이 없습니다.</td></tr>`;
       return;
     }
-
     data.forEach(student => {
       const tr = document.createElement("tr");
-
       let options = '<option value="">선택</option>';
-      classList.forEach(c => {
-        options += `<option value="${c.id}">${c.name}</option>`;
-      });
-
+      classList.forEach(c => { options += `<option value="${c.id}">${c.name}</option>`; });
       tr.innerHTML = `
         <td style="font-weight:bold;">${student.name}</td>
         <td>${student.login_id}</td>
@@ -393,22 +591,11 @@
   async function saveClass(studentId) {
     const sel = document.getElementById(`sel-${studentId}`);
     if (!sel.value) { alert("반을 선택해주세요."); return; }
-
-    const { error } = await supabaseClient
-      .from('students')
-      .update({ class_id: sel.value })
-      .eq('id', studentId);
-
-    if (error) {
-      alert("저장 실패: " + error.message);
-      return;
-    }
-
+    const { error } = await supabaseClient.from('students').update({ class_id: sel.value }).eq('id', studentId);
+    if (error) { alert("저장 실패"); return; }
     alert("반 배정이 완료되었습니다.");
     loadNewStudents();
-    if (lastStudentsQuery.classId || lastStudentsQuery.nameFilter) {
-      loadStudentsByClass(true);
-    }
+    if (lastStudentsQuery.classId) loadStudentsByClass(true);
   }
 
   // --- [4] 반별 학생 조회 ---
@@ -417,196 +604,55 @@
     const nameFilter = document.getElementById("studentNameInput2").value.trim();
     const tbody = document.querySelector("#studentsTable tbody");
 
-    if (!classId && !nameFilter) {
-      alert("반 또는 학생 이름 중 하나는 입력해주세요.");
-      return;
-    }
-
-    if (!isRerun) {
-      lastStudentsQuery = { classId, nameFilter };
-    }
-
+    if (!classId && !nameFilter) { alert("반 또는 학생 이름 중 하나는 입력해주세요."); return; }
+    if (!isRerun) lastStudentsQuery = { classId, nameFilter };
     const activeClassId = isRerun ? lastStudentsQuery.classId : classId;
     const activeNameFilter = isRerun ? lastStudentsQuery.nameFilter : nameFilter;
 
     tbody.innerHTML = `<tr><td colspan="7" style="text-align:center; padding:30px;">조회 중...</td></tr>`;
-
     try {
-      let query = supabaseClient
-        .from('students')
-        .select('id, name, login_id, parent_phone, class_id, created_at')
-        .order('name');
-
+      let query = supabaseClient.from('students').select('id, name, login_id, parent_phone, class_id, created_at').order('name');
       if (activeClassId) query = query.eq('class_id', activeClassId);
       if (activeNameFilter) query = query.ilike('name', `%${activeNameFilter}%`);
-
       const { data: students, error } = await query;
-      if (error) throw error;
-
+      
       tbody.innerHTML = "";
-
       if (!students || students.length === 0) {
         tbody.innerHTML = `<tr><td colspan="7" style="text-align:center; padding:30px;">조건에 맞는 학생이 없습니다.</td></tr>`;
         return;
       }
-
       const classNameById = new Map(classList.map(c => [c.id, c.name]));
-
       students.forEach(s => {
         const tr = document.createElement("tr");
         const className = s.class_id ? (classNameById.get(s.class_id) || s.class_id) : '미배정';
         const joinDate = s.created_at ? new Date(s.created_at).toLocaleDateString('ko-KR') : '-';
-
         let options = `<option value="">미배정</option>`;
         classList.forEach(c => {
           const selected = s.class_id === c.id ? "selected" : "";
           options += `<option value="${c.id}" ${selected}>${c.name}</option>`;
         });
-
         tr.innerHTML = `
           <td style="font-weight:700;">${s.name}</td>
           <td>${s.login_id || '-'}</td>
           <td>${s.parent_phone || '-'}</td>
           <td>${className}</td>
           <td>${joinDate}</td>
-          <td>
-            <select class="assign-select" id="cls-${s.id}">
-              ${options}
-            </select>
-          </td>
-          <td>
-            <button class="btn-save" onclick="updateStudentClass('${s.id}')">저장</button>
-          </td>
+          <td><select class="assign-select" id="cls-${s.id}">${options}</select></td>
+          <td><button class="btn-save" onclick="updateStudentClass('${s.id}')">저장</button></td>
         `;
         tbody.appendChild(tr);
       });
-
-    } catch (err) {
-      console.error(err);
-      tbody.innerHTML = `<tr><td colspan="7" style="text-align:center; padding:30px;">오류: ${err.message}</td></tr>`;
-    }
+    } catch (err) { tbody.innerHTML = `<tr><td colspan="7">오류</td></tr>`; }
   }
 
-  // --- [4-1] 반 변경 저장 ---
   async function updateStudentClass(studentId) {
     const sel = document.getElementById(`cls-${studentId}`);
     if (!sel) return;
-
-    const newClassId = sel.value ? sel.value : null;
-
-    const { error } = await supabaseClient
-      .from('students')
-      .update({ class_id: newClassId })
-      .eq('id', studentId);
-
-    if (error) {
-      alert("저장 실패: " + error.message);
-      return;
-    }
-
+    const { error } = await supabaseClient.from('students').update({ class_id: sel.value || null }).eq('id', studentId);
+    if (error) { alert("저장 실패"); return; }
     alert("반 변경이 저장되었습니다.");
     loadNewStudents();
     loadStudentsByClass(true);
-  }
-
-  // --- [5] 날짜별 숙제 검사 (수정됨: 마감일 기준 숙제 찾기 -> 결과 매칭) ---
-  async function loadHomework() {
-    const classId = document.getElementById("classSelect").value;
-    const dateVal = document.getElementById("dateInput").value; // 마감일
-    const nameFilter = document.getElementById("studentNameInput").value.trim();
-    const tbody = document.querySelector("#homeworkTable tbody");
-
-    if (!classId) return alert("반을 선택해주세요.");
-    if (!dateVal) return alert("날짜를 선택해주세요.");
-
-    tbody.innerHTML = `<tr><td colspan="5" style="text-align:center; padding:30px;">숙제 정보를 찾는 중...</td></tr>`;
-
-    try {
-      // 1. 해당 날짜 마감인 숙제 찾기
-      const { data: vocabHW } = await supabaseClient.from('vocab_homework').select('set_numbers').eq('class_id', classId).eq('due_date', dateVal);
-      const { data: sentenceHW } = await supabaseClient.from('sentence_homework').select('set_numbers').eq('class_id', classId).eq('due_date', dateVal);
-
-      let targetUnits = [];
-      (vocabHW || []).forEach(h => targetUnits.push(...String(h.set_numbers).split(',').map(s => s.trim().replace(/\s+/g, ''))));
-      (sentenceHW || []).forEach(h => targetUnits.push(...String(h.set_numbers).split(',').map(s => s.trim().replace(/\s+/g, ''))));
-      targetUnits = [...new Set(targetUnits)].filter(Boolean);
-
-      if (targetUnits.length === 0) {
-        tbody.innerHTML = `<tr><td colspan="5" style="text-align:center; padding:30px; color:#888;">📅 ${dateVal} 마감인 숙제가 없습니다.</td></tr>`;
-        return;
-      }
-
-      // 2. 학생 명단
-      let q = supabaseClient.from('students').select('id, name, login_id').eq('class_id', classId).order('name');
-      if (nameFilter) q = q.ilike('name', `%${nameFilter}%`);
-      const { data: students } = await q;
-      if (!students || !students.length) {
-        tbody.innerHTML = `<tr><td colspan="5" style="text-align:center; padding:30px; color:#888;">학생이 없습니다.</td></tr>`;
-        return;
-      }
-
-      // 3. 결과 조회 (제출일 무관)
-      const loginIds = students.map(s => s.login_id);
-      const { data: vResults } = await supabaseClient.from('vocab_results').select('*').in('student_login_id', loginIds).in('unit_key', targetUnits);
-      const { data: sResults } = await supabaseClient.from('sentence_results').select('*').in('student_login_id', loginIds).in('unit_key', targetUnits);
-      const allResults = [...(vResults||[]), ...(sResults||[])];
-
-      tbody.innerHTML = "";
-      students.forEach(std => {
-        // 최신순 정렬
-        const myResults = allResults
-          .filter(r => r.student_login_id === std.login_id)
-          .sort((a,b) => new Date(b.submitted_at) - new Date(a.submitted_at));
-        
-        if (myResults.length > 0) {
-          myResults.forEach(res => {
-            const tr = document.createElement("tr");
-            const submitDate = new Date(res.submitted_at);
-            const dateStr = submitDate.toISOString().split('T')[0];
-            const timeStr = submitDate.toLocaleTimeString([], {hour:'2-digit', minute:'2-digit'});
-            
-            // 지각 체크
-            const isLate = dateStr > dateVal;
-            const timeDisplay = isLate 
-              ? `<span style="color:#e11d48; font-weight:bold;">(지각)</span> ${dateStr} ${timeStr}`
-              : `${dateStr} ${timeStr}`;
-
-            let scoreDisplay = "완료";
-            if (res.total_count > 0) {
-              const score = Math.round((res.correct_count / res.total_count) * 100);
-              const color = score === 100 ? "color:#2563eb; font-weight:bold;" : "";
-              scoreDisplay = `<span style="${color}">${score}점</span> <span style="color:#888; font-size:12px;">(${res.correct_count}/${res.total_count})</span>`;
-            }
-            const modeDisplay = res.mode ? `<span style="color:#6b7280; font-size:12px;">[${res.mode}]</span>` : "";
-
-            tr.innerHTML = `
-              <td style="font-weight:700;">${std.name}</td>
-              <td><span class="badge badge-done">제출 완료</span></td>
-              <td>${scoreDisplay} ${modeDisplay}</td>
-              <td style="font-weight:bold; color:var(--blue);">${res.unit_key || res.unit}</td>
-              <td style="color:#374151; font-size:13px;">${timeDisplay}</td>
-            `;
-            tbody.appendChild(tr);
-          });
-        } else {
-          // 미제출
-          const tr = document.createElement("tr");
-          tr.style.backgroundColor = "#fff5f5";
-          tr.innerHTML = `
-            <td>${std.name}</td>
-            <td><span class="badge badge-yet">미제출</span></td>
-            <td>-</td>
-            <td style="color:#999; font-size:12px;">대상: ${targetUnits.join(', ')}</td>
-            <td>-</td>
-          `;
-          tbody.appendChild(tr);
-        }
-      });
-
-    } catch (e) {
-      console.error(e);
-      tbody.innerHTML = `<tr><td colspan="5">오류: ${e.message}</td></tr>`;
-    }
   }
 </script>
 </body>
