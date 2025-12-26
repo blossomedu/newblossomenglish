@@ -86,11 +86,11 @@
     .preset-reset { background: #f3f4f6; color: #9ca3af; }
     .preset-btn:hover { opacity: 0.8; }
 
-    /* 옵션들과 버튼을 감싸는 컨테이너 (Flexbox) */
+    /* 옵션들과 등록 버튼을 감싸는 컨테이너 */
     .options-wrapper {
       display: flex;
       gap: 12px;
-      align-items: stretch; /* 높이를 동일하게 맞춤 */
+      align-items: stretch; /* 높이 맞춤 */
     }
 
     /* 옵션 그리드 (왼쪽 영역) */
@@ -98,7 +98,7 @@
       display: grid; 
       grid-template-columns: repeat(4, 1fr); 
       gap: 10px; 
-      flex-grow: 1; /* 남은 공간 모두 차지 */
+      flex-grow: 1; /* 남은 공간 차지 */
     }
 
     .option-box { 
@@ -141,12 +141,16 @@
     .hw-tag.vocab { background: #fee2e2; color: #b91c1c; }
     .hw-tag.sentence { background: #e0f2fe; color: #0369a1; }
 
-    /* 출력 관련 */
+    /* 출력 관련 - 기존 유지 */
     .print-row { margin-top: 12px; display: flex; flex-wrap: wrap; gap: 12px; align-items: flex-end; }
     #word-count-input { text-align: center; }
-    #btn-print-note { background: var(--blue); width: 100%; }
-    #btn-print-test { background: var(--pink); width: 100%; }
+    
+    /* 인쇄 버튼 스타일 원상복구 */
     .btn-field-note, .btn-field-test { min-width: 160px; flex: 1; }
+    #btn-print-test { background: var(--pink); color: white; border: none; border-radius: 12px; padding: 0 24px; height: 42px; font-weight: 700; width: 100%; cursor: pointer; transition: opacity 0.2s; }
+    #btn-print-note { background: var(--blue); color: white; border: none; border-radius: 12px; padding: 0 24px; height: 42px; font-weight: 700; width: 100%; cursor: pointer; transition: opacity 0.2s; }
+    #btn-print-test:hover, #btn-print-note:hover { opacity: 0.9; }
+
     .mode-field { min-width: 220px; }
     #logout-btn { background: #f3f4f6; color: #666; font-size: 12px; padding: 5px 10px; border-radius: 6px; border:none; cursor: pointer; }
 
@@ -154,7 +158,7 @@
       .top-bar { justify-content: flex-start; overflow-x: auto; }
       .form-row { flex-direction: column; align-items: stretch; gap: 16px; }
       .wide-field, .half-field, .mode-field, .btn-field-note, .btn-field-test { min-width: 100%; }
-      /* 모바일에서는 버튼을 아래로 내림 */
+      /* 모바일 대응 */
       .options-wrapper { flex-direction: column; }
       .options-grid { grid-template-columns: repeat(2, 1fr); }
       #save-btn { width: 100%; padding: 14px 0; }
@@ -246,7 +250,7 @@
                 </div>
             </div>
 
-            <button class="primary-btn" id="save-btn">숙제 등록</button>
+            <button id="save-btn">숙제 등록</button>
         </div>
 
         <div class="hint">* 어휘는 같은 단계만 여러 개 입력 가능. 문장은 1-1 등 입력 가능.</div>
@@ -281,12 +285,12 @@
 
       <div class="field btn-field-test">
         <label style="visibility:hidden;">시험지</label>
-        <button class="primary-btn" id="btn-print-test">단어 시험지 출력</button>
+        <button id="btn-print-test">단어 시험지 출력</button>
       </div>
 
       <div class="field btn-field-note">
         <label style="visibility:hidden;">암기장</label>
-        <button class="primary-btn" id="btn-print-note">단어 암기장 출력</button>
+        <button id="btn-print-note">단어 암기장 출력</button>
       </div>
     </div>
   </div>
@@ -416,7 +420,7 @@
     return { level, sets: setNums, raw: parts.join(", ") };
   }
 
-  // --- [숙제 저장] 옵션 값까지 전송 ---
+  // --- 숙제 저장 함수 ---
   async function saveHomework() {
     const classId = classSelect.value;
     const rawSet  = setInput.value.trim();
@@ -433,13 +437,12 @@
 
     const tableName = currentType === "vocab" ? "vocab_homework" : "sentence_homework";
     
-    // DB 전송 데이터
+    // DB 전송 데이터 (옵션 포함)
     const payload = {
       class_id: classId,
       level: parsed.level,
       set_numbers: parsed.raw,
       due_date: due,
-      // 옵션 값 추가
       count_meaning: parseInt(optMeaning.value),
       count_english: parseInt(optEnglish.value),
       count_listening: parseInt(optListening.value),
