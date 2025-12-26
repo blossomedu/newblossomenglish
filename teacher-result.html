@@ -345,7 +345,7 @@
     document.getElementById("dateInput").value = `${yyyy}-${mm}-${dd}`;
 
     await loadClasses(); 
-    loadNewStudents();   
+    loadNewStudents();    
   });
 
   // --- [1] 반 목록 가져오기 ---
@@ -376,7 +376,7 @@
   }
 
   // ============================================================
-  // [NEW] 숙제 결과 조회 함수 (핵심 리모델링 파트)
+  // [수정됨] 숙제 결과 조회 함수
   // ============================================================
   async function loadHomework() {
     const classId = document.getElementById("classSelect").value;
