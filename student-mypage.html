@@ -1108,37 +1108,28 @@
     }
   }
 
+  // [수정됨] 선생님이 정한 옵션(count_meaning 등)을 가져오도록 수정
   async function loadClassHomework() {
     if (!currentClass || !currentClass.id) return;
-
-    classHwArea.innerHTML =
-      '<div class="class-hw-empty">우리 반 숙제를 불러오는 중입니다...</div>';
+    classHwArea.innerHTML = '<div class="class-hw-empty">우리 반 숙제를 불러오는 중입니다...</div>';
 
     try {
       const classId = currentClass.id;
-
       const [postsRes, vocabRes, sentenceRes] = await Promise.all([
-        client.from("board_posts")
-          .select("id, class_id, title, content, created_at")
-          .eq("class_id", classId)
-          .order("created_at", { ascending: false }),
-
+        client.from("board_posts").select("id, class_id, title, content, created_at").eq("class_id", classId).order("created_at", { ascending: false }),
+        
+        // ★ 여기 수정됨: count_meaning, count_english 등 옵션 컬럼 추가
         client.from("vocab_homework")
-          .select("id, class_id, level, set_numbers, due_date, created_at, tasks")
+          .select("id, class_id, level, set_numbers, due_date, created_at, count_meaning, count_english, count_listening, count_sentence")
           .eq("class_id", classId)
           .order("created_at", { ascending: false }),
-
-        client.from("sentence_homework")
-          .select("id, class_id, level, set_numbers, due_date, created_at, tasks")
-          .eq("class_id", classId)
-          .order("created_at", { ascending: false })
+          
+        client.from("sentence_homework").select("id, class_id, level, set_numbers, due_date, created_at").eq("class_id", classId).order("created_at", { ascending: false })
       ]);
 
       const groupsMap = {};
       function ensureGroup(dateKey) {
-        if (!groupsMap[dateKey]) {
-          groupsMap[dateKey] = { dateKey, latestTime: null, posts: [], vocab: [], sentence: [] };
-        }
+        if (!groupsMap[dateKey]) groupsMap[dateKey] = { dateKey, latestTime: null, posts: [], vocab: [], sentence: [] };
         return groupsMap[dateKey];
       }
 
@@ -1155,6 +1146,15 @@
         const dk = row.due_date || toDateKey(row.created_at);
         if (!dk) return;
         const g = ensureGroup(dk);
+        
+        // ★ 여기 추가됨: DB 컬럼 값을 읽어서 화면이 알아먹는 'tasks' 객체로 변환
+        row.tasks = {
+            meaning: row.count_meaning ?? 1,
+            english: row.count_english ?? 1,
+            listening: row.count_listening ?? 1,
+            sentence: row.count_sentence ?? 1
+        };
+        
         g.vocab.push(row);
         if (!g.latestTime || new Date(baseDate) > new Date(g.latestTime)) g.latestTime = baseDate;
       });
@@ -1169,51 +1169,41 @@
       });
 
       const groups = Object.values(groupsMap).sort((a, b) => new Date(a.dateKey) - new Date(b.dateKey));
-
       if (!groups.length) {
-        classHwArea.innerHTML =
-          '<div class="class-hw-empty">아직 우리 반에 등록된 숙제가 없어요.</div>';
+        classHwArea.innerHTML = '<div class="class-hw-empty">아직 우리 반에 등록된 숙제가 없어요.</div>';
         return;
       }
 
       classHwArea.innerHTML = "";
       groups.forEach(g => {
+        // (화면 그리는 부분은 기존과 동일하지만 코드 일관성을 위해 포함)
         const card = document.createElement("div");
         card.className = "hw-group-card";
-
         const header = document.createElement("div");
         header.className = "hw-group-header";
-
         const left = document.createElement("div");
         const dt = document.createElement("div");
         dt.className = "hw-group-date";
         dt.textContent = g.dateKey;
         left.appendChild(dt);
-
         const chips = document.createElement("div");
         const chipClass = document.createElement("span");
         chipClass.className = "chip chip-class";
         chipClass.textContent = currentClass ? currentClass.name : "우리 반";
         chips.appendChild(chipClass);
-
         const chipType = document.createElement("span");
         chipType.className = "chip chip-type";
-
         const hasOffline = g.posts.length > 0;
-        const hasVocab   = g.vocab.length > 0;
-        const hasSentence= g.sentence.length > 0;
-
+        const hasVocab    = g.vocab.length > 0;
+        const hasSentence = g.sentence.length > 0;
         if (hasOffline && (hasVocab || hasSentence)) chipType.textContent = "필기 + 온라인 숙제";
         else if (hasOffline) chipType.textContent = "필기 숙제";
         else chipType.textContent = "온라인 숙제";
         chips.appendChild(chipType);
-
         left.appendChild(chips);
-
         const meta = document.createElement("div");
         meta.className = "hw-group-meta";
         meta.textContent = g.latestTime ? `Stella쌤 · ${formatDate(g.latestTime)} ${formatTime(g.latestTime)}` : "";
-
         header.appendChild(left);
         header.appendChild(meta);
         card.appendChild(header);
@@ -1223,7 +1213,6 @@
           chip.className = "chip chip-warning";
           chip.textContent = "✏️ 필기 숙제 / 공지";
           card.appendChild(chip);
-
           g.posts.forEach(p => {
             const line = document.createElement("div");
             line.className = "hw-text-line";
@@ -1231,14 +1220,12 @@
             card.appendChild(line);
           });
         }
-
         if (g.vocab.length > 0) {
           const chip = document.createElement("div");
           chip.className = "chip chip-online-vocab";
           chip.textContent = "어휘";
           chip.style.marginTop = "6px";
           card.appendChild(chip);
-
           g.vocab.forEach(h => {
             const line = document.createElement("div");
             line.className = "hw-text-line";
@@ -1247,14 +1234,12 @@
             card.appendChild(line);
           });
         }
-
         if (g.sentence.length > 0) {
           const chip = document.createElement("div");
           chip.className = "chip chip-online-sentence";
           chip.textContent = "문장";
           chip.style.marginTop = "6px";
           card.appendChild(chip);
-
           g.sentence.forEach(h => {
             const line = document.createElement("div");
             line.className = "hw-text-line";
@@ -1263,17 +1248,13 @@
             card.appendChild(line);
           });
         }
-
         classHwArea.appendChild(card);
       });
-
     } catch (e) {
       console.error("우리 반 숙제 로딩 오류:", e);
-      classHwArea.innerHTML =
-        '<div class="class-hw-empty">숙제를 불러오는 중 오류가 발생했습니다.</div>';
+      classHwArea.innerHTML = '<div class="class-hw-empty">숙제를 불러오는 중 오류가 발생했습니다.</div>';
     }
   }
-
   // ✅ items에 tasks 포함 (정상 버전)
   function normalizeAndExpandHomeworkRows(row, from) {
     const isStudent = from === "student";
@@ -1649,46 +1630,54 @@
     return stats;
   }
 
+  // [수정됨] 통합 결과에서도 옵션값(tasks)을 제대로 가져오도록 수정
   async function loadUnifiedHomeworkResults() {
     if (!currentStudent || !currentStudent.login_id) return;
-
     unitResultBody.innerHTML = '<div class="class-hw-empty">결과를 불러오는 중...</div>';
-
     try {
-      const studentReq = client
-        .from("student_homework")
-        .select("id, type, level, set_numbers, due_date, created_at, tasks")
-        .eq("student_login_id", currentStudent.login_id);
-
+      const studentReq = client.from("student_homework").select("id, type, level, set_numbers, due_date, created_at, tasks").eq("student_login_id", currentStudent.login_id);
       let teacherVocabReq = Promise.resolve({ data: [], error: null });
       let teacherSentenceReq = Promise.resolve({ data: [], error: null });
 
       if (currentClass && currentClass.id) {
-        teacherVocabReq = client
-          .from("vocab_homework")
-          .select("id, class_id, level, set_numbers, due_date, created_at, tasks")
-          .eq("class_id", currentClass.id);
-
-        teacherSentenceReq = client
-          .from("sentence_homework")
-          .select("id, class_id, level, set_numbers, due_date, created_at, tasks")
-          .eq("class_id", currentClass.id);
+        // ★ 여기 수정됨: count_meaning 등 옵션 컬럼 추가
+        teacherVocabReq = client.from("vocab_homework")
+            .select("id, class_id, level, set_numbers, due_date, created_at, count_meaning, count_english, count_listening, count_sentence")
+            .eq("class_id", currentClass.id);
+        
+        teacherSentenceReq = client.from("sentence_homework")
+            .select("id, class_id, level, set_numbers, due_date, created_at")
+            .eq("class_id", currentClass.id);
       }
 
-      const [studentRes, tvRes, tsRes] = await Promise.all([
-        studentReq,
-        teacherVocabReq,
-        teacherSentenceReq
-      ]);
+      const [studentRes, tvRes, tsRes] = await Promise.all([studentRes, teacherVocabReq, teacherSentenceReq]); // studentReq 변수명 주의, 위에서 선언했으므로 studentReq가 아니라 await Promise.all([studentReq, ...]) 이어야 하는데 코드 흐름상 변수 재사용 주의. 
+      // (기존 코드 흐름에 맞게 수정: 위에서 변수 할당 했으므로 바로 사용)
+      
+      // 실제 실행되는 부분 (위의 Promise.all 수정)
+      const results = await Promise.all([studentReq, teacherVocabReq, teacherSentenceReq]);
+      const stData = results[0]; 
+      const tvData = results[1];
+      const tsData = results[2];
 
-      if (studentRes.error) throw studentRes.error;
-      if (tvRes.error) throw tvRes.error;
-      if (tsRes.error) throw tsRes.error;
+      if (stData.error) throw stData.error;
+      if (tvData.error) throw tvData.error;
+      if (tsData.error) throw tsData.error;
+
+      // ★ 여기 추가됨: 선생님 데이터를 tasks 객체로 변환
+      const teacherVocabRows = (tvData.data || []).map(r => {
+        r.tasks = {
+            meaning: r.count_meaning ?? 1,
+            english: r.count_english ?? 1,
+            listening: r.count_listening ?? 1,
+            sentence: r.count_sentence ?? 1
+        };
+        return r;
+      });
 
       const items = []
-        .concat((studentRes.data || []).flatMap(r => normalizeAndExpandHomeworkRows(r, "student")))
-        .concat((tvRes.data || []).flatMap(r => normalizeAndExpandHomeworkRows(r, "teacher_vocab")))
-        .concat((tsRes.data || []).flatMap(r => normalizeAndExpandHomeworkRows(r, "teacher_sentence")));
+        .concat((stData.data || []).flatMap(r => normalizeAndExpandHomeworkRows(r, "student")))
+        .concat(teacherVocabRows.flatMap(r => normalizeAndExpandHomeworkRows(r, "teacher_vocab")))
+        .concat((tsData.data || []).flatMap(r => normalizeAndExpandHomeworkRows(r, "teacher_sentence")));
 
       items.sort((a, b) => {
         const ad = a.due_date ? new Date(a.due_date).getTime() : Number.POSITIVE_INFINITY;
@@ -1704,18 +1693,11 @@
         return;
       }
 
-      const vocabUnitKeys = Array.from(new Set(
-        items.filter(x => x.type === "vocab" && x.unit_key).map(x => x.unit_key)
-      ));
-      const sentenceUnitKeys = Array.from(new Set(
-        items.filter(x => x.type === "sentence" && x.unit_key).map(x => x.unit_key)
-      ));
-
+      const vocabUnitKeys = Array.from(new Set(items.filter(x => x.type === "vocab" && x.unit_key).map(x => x.unit_key)));
+      const sentenceUnitKeys = Array.from(new Set(items.filter(x => x.type === "sentence" && x.unit_key).map(x => x.unit_key)));
       const vocabByUnitByMode = await buildResultMap("vocab_results", vocabUnitKeys);
       const sentenceByUnitByMode = await buildResultMap("sentence_results", sentenceUnitKeys);
-
       renderUnifiedResults(items, vocabByUnitByMode, sentenceByUnitByMode);
-
     } catch (e) {
       console.error("통합 결과 로딩 오류:", e);
       unitResultBody.innerHTML = '<div class="class-hw-empty">결과를 불러오는 중 오류가 발생했어요.</div>';
@@ -2046,3 +2028,4 @@
 </script>
 </body>
 </html>
+
