@@ -1275,39 +1275,73 @@
   }
 
   // ✅ items에 tasks 포함 (정상 버전)
-  function normalizeAndExpandHomeworkRows(row, from) {
-    const isStudent = from === "student";
-    const type = isStudent ? row.type : (from === "teacher_sentence" ? "sentence" : "vocab");
-    const tasks = row?.tasks || null;
+  // [student_my_page.html] 내부의 함수를 이것으로 교체하세요.
 
-    const unitKeys = parseUnitKeysFromSetNumbers(row.set_numbers);
+function normalizeAndExpandHomeworkRows(row, from) {
+  const isStudent = from === "student";
+  const type = isStudent ? row.type : (from === "teacher_sentence" ? "sentence" : "vocab");
 
-    if (unitKeys.length === 0) {
-      return [{
-        source: isStudent ? "student" : "teacher",
-        sourceLabel: isStudent ? "내가 등록" : "선생님",
-        type,
-        due_date: row.due_date || null,
-        created_at: row.created_at || null,
-        unit_key: null,
-        unit_text: (row.set_numbers || "-"),
-        tasks,
-        raw: row
-      }];
+  // ============================================================
+  // [핵심 수정 부분] 
+  // 선생님 숙제 데이터가 'tasks' JSON에 있을 수도 있고, 
+  // 'count_meaning' 같은 별도 컬럼에 있을 수도 있어서 둘 다 확인하는 로직
+  // ============================================================
+  let tasks = row.tasks;
+
+  // 1. tasks(JSON)가 없고, 숙제 타입이 '어휘(vocab)'인 경우
+  if (!tasks && type === "vocab") {
+    
+    // 2. 혹시 count_... 컬럼에 숫자가 들어있는지 확인 (선생님 숙제 테이블 구조 대응)
+    // (데이터가 0일 수도 있으니 undefined 체크가 안전함)
+    if (row.count_meaning !== undefined || row.count_english !== undefined) {
+      tasks = {
+        meaning: row.count_meaning || 0,
+        english: row.count_english || 0,
+        listening: row.count_listening || 0,
+        sentence: row.count_sentence || 0
+      };
+    } else {
+      // 3. 진짜 아무 정보도 없으면 기본값 (각 1회)
+      tasks = { meaning: 1, english: 1, listening: 1, sentence: 1 };
     }
+  }
+  // ============================================================
 
-    return unitKeys.map(uk => ({
+  let level = row.level;
+  // level 컬럼이 비어있으면 세트 번호(예: 3-1)의 앞자리(3)를 레벨로 사용
+  if (!level && row.set_numbers) {
+    const match = String(row.set_numbers).match(/^(\d+)/);
+    if (match) level = parseInt(match[1], 10);
+  }
+
+  const unitKeys = parseUnitKeysFromSetNumbers(row.set_numbers);
+
+  if (unitKeys.length === 0) {
+    return [{
       source: isStudent ? "student" : "teacher",
       sourceLabel: isStudent ? "내가 등록" : "선생님",
       type,
       due_date: row.due_date || null,
       created_at: row.created_at || null,
-      unit_key: uk,
-      unit_text: uk,
-      tasks,
+      unit_key: null,
+      unit_text: (row.set_numbers || "-"),
+      tasks, // 여기서 위에서 만든 tasks 설정을 넘김
       raw: row
-    }));
+    }];
   }
+
+  return unitKeys.map(uk => ({
+    source: isStudent ? "student" : "teacher",
+    sourceLabel: isStudent ? "내가 등록" : "선생님",
+    type,
+    due_date: row.due_date || null,
+    created_at: row.created_at || null,
+    unit_key: uk,
+    unit_text: uk,
+    tasks, // 여기도 동일하게 넘김
+    raw: row
+  }));
+}
 
   // ✅ 문장 상세에서 아직 쓰는 원래 판정기(에러 방지용으로 유지)
   function taskCell(result) {
@@ -1649,78 +1683,89 @@
     return stats;
   }
 
-  async function loadUnifiedHomeworkResults() {
-    if (!currentStudent || !currentStudent.login_id) return;
+  // [student_my_page.html] 이 함수 전체를 덮어쓰세요.
 
-    unitResultBody.innerHTML = '<div class="class-hw-empty">결과를 불러오는 중...</div>';
+async function loadUnifiedHomeworkResults() {
+  if (!currentStudent || !currentStudent.login_id) return;
+  
+  unitResultBody.innerHTML = '<div class="class-hw-empty">결과를 불러오는 중...</div>';
 
-    try {
-      const studentReq = client
-        .from("student_homework")
-        .select("id, type, level, set_numbers, due_date, created_at, tasks")
-        .eq("student_login_id", currentStudent.login_id);
+  try {
+    // 1. 학생이 등록한 숙제 가져오기 (이건 기존대로 특정 컬럼만 가져와도 됨)
+    const studentReq = client.from("student_homework")
+      .select("id, type, level, set_numbers, due_date, created_at, tasks")
+      .eq("student_login_id", currentStudent.login_id);
 
-      let teacherVocabReq = Promise.resolve({ data: [], error: null });
-      let teacherSentenceReq = Promise.resolve({ data: [], error: null });
+    // 2. 선생님 숙제 가져오기 준비
+    let teacherVocabReq = Promise.resolve({ data: [], error: null });
+    let teacherSentenceReq = Promise.resolve({ data: [], error: null });
 
-      if (currentClass && currentClass.id) {
-        teacherVocabReq = client
-          .from("vocab_homework")
-          .select("id, class_id, level, set_numbers, due_date, created_at, tasks")
-          .eq("class_id", currentClass.id);
+    if (currentClass && currentClass.id) {
+      // ✅ [핵심 수정] select("*")로 변경하여 count_meaning 등 모든 컬럼을 가져옵니다.
+      teacherVocabReq = client.from("vocab_homework")
+        .select("*") 
+        .eq("class_id", currentClass.id);
 
-        teacherSentenceReq = client
-          .from("sentence_homework")
-          .select("id, class_id, level, set_numbers, due_date, created_at, tasks")
-          .eq("class_id", currentClass.id);
-      }
-
-      const [studentRes, tvRes, tsRes] = await Promise.all([
-        studentReq,
-        teacherVocabReq,
-        teacherSentenceReq
-      ]);
-
-      if (studentRes.error) throw studentRes.error;
-      if (tvRes.error) throw tvRes.error;
-      if (tsRes.error) throw tsRes.error;
-
-      const items = []
-        .concat((studentRes.data || []).flatMap(r => normalizeAndExpandHomeworkRows(r, "student")))
-        .concat((tvRes.data || []).flatMap(r => normalizeAndExpandHomeworkRows(r, "teacher_vocab")))
-        .concat((tsRes.data || []).flatMap(r => normalizeAndExpandHomeworkRows(r, "teacher_sentence")));
-
-      items.sort((a, b) => {
-        const ad = a.due_date ? new Date(a.due_date).getTime() : Number.POSITIVE_INFINITY;
-        const bd = b.due_date ? new Date(b.due_date).getTime() : Number.POSITIVE_INFINITY;
-        if (ad !== bd) return ad - bd;
-        const at = a.created_at ? new Date(a.created_at).getTime() : 0;
-        const bt = b.created_at ? new Date(b.created_at).getTime() : 0;
-        return at - bt;
-      });
-
-      if (!items.length) {
-        renderUnifiedResults([], {}, {});
-        return;
-      }
-
-      const vocabUnitKeys = Array.from(new Set(
-        items.filter(x => x.type === "vocab" && x.unit_key).map(x => x.unit_key)
-      ));
-      const sentenceUnitKeys = Array.from(new Set(
-        items.filter(x => x.type === "sentence" && x.unit_key).map(x => x.unit_key)
-      ));
-
-      const vocabByUnitByMode = await buildResultMap("vocab_results", vocabUnitKeys);
-      const sentenceByUnitByMode = await buildResultMap("sentence_results", sentenceUnitKeys);
-
-      renderUnifiedResults(items, vocabByUnitByMode, sentenceByUnitByMode);
-
-    } catch (e) {
-      console.error("통합 결과 로딩 오류:", e);
-      unitResultBody.innerHTML = '<div class="class-hw-empty">결과를 불러오는 중 오류가 발생했어요.</div>';
+      teacherSentenceReq = client.from("sentence_homework")
+        .select("*")
+        .eq("class_id", currentClass.id);
     }
+
+    // 3. 동시에 실행
+    const [studentRes, tvRes, tsRes] = await Promise.all([
+      studentReq,
+      teacherVocabReq,
+      teacherSentenceReq
+    ]);
+
+    if (studentRes.error) throw studentRes.error;
+    // 선생님 테이블 쿼리가 실패해도(컬럼 문제 등) 전체가 멈추지 않도록 로그만 찍고 빈 배열 처리 가능하지만, 
+    // 여기서는 throw하여 문제를 바로 알 수 있게 둡니다.
+    if (tvRes.error) throw tvRes.error;
+    if (tsRes.error) throw tsRes.error;
+
+    // 4. 데이터 합치기 및 정규화
+    // (여기서 아까 수정한 normalizeAndExpandHomeworkRows 함수가 사용됨)
+    const items = []
+      .concat((studentRes.data || []).flatMap(r => normalizeAndExpandHomeworkRows(r, "student")))
+      .concat((tvRes.data || []).flatMap(r => normalizeAndExpandHomeworkRows(r, "teacher_vocab")))
+      .concat((tsRes.data || []).flatMap(r => normalizeAndExpandHomeworkRows(r, "teacher_sentence")));
+
+    // 5. 날짜순 정렬 (마감일 빠른 순 -> 생성일 빠른 순)
+    items.sort((a, b) => {
+      const ad = a.due_date ? new Date(a.due_date).getTime() : Number.POSITIVE_INFINITY;
+      const bd = b.due_date ? new Date(b.due_date).getTime() : Number.POSITIVE_INFINITY;
+      if (ad !== bd) return ad - bd;
+      const at = a.created_at ? new Date(a.created_at).getTime() : 0;
+      const bt = b.created_at ? new Date(b.created_at).getTime() : 0;
+      return at - bt;
+    });
+
+    if (!items.length) {
+      renderUnifiedResults([], {}, {});
+      return;
+    }
+
+    // 6. 결과 매칭을 위한 Unit Key 수집
+    const vocabUnitKeys = Array.from(new Set(
+      items.filter(x => x.type === "vocab" && x.unit_key).map(x => x.unit_key)
+    ));
+    const sentenceUnitKeys = Array.from(new Set(
+      items.filter(x => x.type === "sentence" && x.unit_key).map(x => x.unit_key)
+    ));
+
+    // 7. 결과 데이터 가져오기
+    const vocabByUnitByMode = await buildResultMap("vocab_results", vocabUnitKeys);
+    const sentenceByUnitByMode = await buildResultMap("sentence_results", sentenceUnitKeys);
+
+    // 8. 화면 그리기
+    renderUnifiedResults(items, vocabByUnitByMode, sentenceByUnitByMode);
+
+  } catch (e) {
+    console.error("통합 결과 로딩 오류:", e);
+    unitResultBody.innerHTML = '<div class="class-hw-empty">결과를 불러오는 중 오류가 발생했어요.</div>';
   }
+}
 
   async function saveMyHomework() {
     if (!currentStudent || !currentStudent.login_id) {
@@ -2046,3 +2091,4 @@
 </script>
 </body>
 </html>
+
