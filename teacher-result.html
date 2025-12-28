@@ -384,6 +384,9 @@
   // ============================================================
   // [수정 완료] 숙제 결과 조회 함수 (설정값 tasks 반영)
   // ============================================================
+  // ============================================================
+  // [최종 수정] 학생별 개별 숙제 + 공통 숙제 분리 조회 로직
+  // ============================================================
   async function loadHomework() {
     const classId = document.getElementById("classSelect").value;
     const dateVal = document.getElementById("dateInput").value;
@@ -407,100 +410,115 @@
       }
       const loginIds = students.map(s => s.login_id);
 
-      // 2. [핵심] 모든 숙제 테이블에서 '설정값(tasks, count_...)'까지 전부 가져오기 (select * 사용)
+      // 2. 숙제 데이터 가져오기 (선생님 공통 + 학생 개별)
       const [teacherVocab, teacherSentence, studentHW] = await Promise.all([
         supabaseClient.from('vocab_homework').select('*').eq('class_id', classId).eq('due_date', dateVal),
         supabaseClient.from('sentence_homework').select('*').eq('class_id', classId).eq('due_date', dateVal),
+        // 학생 숙제는 '누가(student_login_id)' 냈는지도 중요함
         supabaseClient.from('student_homework').select('*').in('student_login_id', loginIds).eq('due_date', dateVal)
       ]);
 
-      // 3. 단원별 '목표량' 정리하기 (Map 구조: unitKey -> requirements)
-      // 예: unitReqMap['3-1'] = { meaning: 3, english: 0 ... }
-      const unitReqMap = {};
-
-      // 설정값 정리 헬퍼 함수
-      const parseAndMap = (list, type) => {
+      // 3. [핵심] 공통 숙제와 개별 숙제 족보 만들기
+      
+      // A. 선생님 공통 숙제 (모든 학생에게 적용)
+      const commonUnitsMap = {}; 
+      const parseCommon = (list, type) => {
         (list || []).forEach(row => {
-          // tasks가 있으면 그걸 쓰고, 없으면 count 컬럼 확인, 둘다 없으면 기본값
+          // 설정값(tasks) 파싱 로직 (이전과 동일)
           let req = row.tasks;
           if (!req && type === 'vocab') {
              if (row.count_meaning !== undefined) {
-               req = { 
-                 meaning: row.count_meaning, english: row.count_english, 
-                 listening: row.count_listening, sentence: row.count_sentence 
-               };
+               req = { meaning: row.count_meaning, english: row.count_english, listening: row.count_listening, sentence: row.count_sentence };
              } else {
                req = { meaning: 1, english: 1, listening: 1, sentence: 1 };
              }
           }
-          // 문장 숙제 등 tasks가 없는 경우 기본값 처리 (필요시 수정)
           if (!req && type !== 'vocab') req = null; 
 
-          // 세트 번호 분리 (3-1, 3-2 ...)
           String(row.set_numbers).split(',').forEach(s => {
-            const unitKey = s.trim().replace(/\s+/g, '');
-            if (unitKey) {
-              // 이미 등록된 설정이 있으면 덮어쓰지 않거나, 더 높은 기준을 적용 (여기선 덮어씀)
-              unitReqMap[unitKey] = req;
-            }
+            const k = s.trim().replace(/\s+/g, '');
+            if(k) commonUnitsMap[k] = req;
           });
         });
       };
+      parseCommon(teacherVocab.data, 'vocab');
+      parseCommon(teacherSentence.data, 'sentence');
 
-      parseAndMap(teacherVocab.data, 'vocab');
-      parseAndMap(teacherSentence.data, 'sentence');
-      parseAndMap(studentHW.data, 'vocab'); // 학생 숙제도 vocab 로직으로 파싱
+      // B. 학생 개별 숙제 (해당 학생에게만 적용)
+      const personalUnitsMap = {}; // { 'joy1003': {'3-1': req, ...}, ... }
+      
+      (studentHW.data || []).forEach(row => {
+        const sId = row.student_login_id;
+        if (!personalUnitsMap[sId]) personalUnitsMap[sId] = {};
 
-      const targetUnits = Object.keys(unitReqMap).sort();
+        // 학생 숙제는 tasks가 확실히 있거나 기본값을 씀
+        let req = row.tasks || { meaning: 1, english: 1, listening: 1, sentence: 1 };
 
-      if (targetUnits.length === 0) {
+        String(row.set_numbers).split(',').forEach(s => {
+          const k = s.trim().replace(/\s+/g, '');
+          if(k) personalUnitsMap[sId][k] = req;
+        });
+      });
+
+      // 4. 결과 조회를 위해 '필요한 모든 단원'의 합집합 구하기
+      const allTargetUnitsSet = new Set(Object.keys(commonUnitsMap));
+      Object.values(personalUnitsMap).forEach(uMap => {
+        Object.keys(uMap).forEach(k => allTargetUnitsSet.add(k));
+      });
+      const allTargetUnits = [...allTargetUnitsSet];
+
+      if (allTargetUnits.length === 0) {
         container.innerHTML = `<div style="text-align:center; padding:40px; color:#888;">📅 ${dateVal} 마감인 숙제가 없습니다.</div>`;
         return;
       }
 
-      // 4. 결과 데이터 가져오기
-      const { data: vResults } = await supabaseClient.from('vocab_results').select('*').in('student_login_id', loginIds).in('unit_key', targetUnits);
-      const { data: sResults } = await supabaseClient.from('sentence_results').select('*').in('student_login_id', loginIds).in('unit_key', targetUnits);
+      // 5. 결과 데이터 한 번에 가져오기 (효율성)
+      const { data: vResults } = await supabaseClient.from('vocab_results').select('*').in('student_login_id', loginIds).in('unit_key', allTargetUnits);
+      const { data: sResults } = await supabaseClient.from('sentence_results').select('*').in('student_login_id', loginIds).in('unit_key', allTargetUnits);
       const allResults = [...(vResults||[]), ...(sResults||[])];
 
-      // 5. 렌더링
+      // 6. 렌더링 (학생별로 '자기 숙제'만 추려서 카드 생성)
       container.innerHTML = ""; 
 
       students.forEach(student => {
-        targetUnits.forEach(unit => {
-          // 이 단원의 목표량 가져오기 (없으면 기본 1회씩으로 간주)
-          const req = unitReqMap[unit] || { meaning: 1, english: 1, listening: 1, sentence: 1 };
+        // ★ [여기가 핵심] 이 학생이 해야 할 숙제 = 공통 숙제 + 내 개별 숙제
+        // (Object.assign을 써서 내 개별 설정이 있다면 공통 설정보다 우선순위를 갖게 병합)
+        const myHomeworkMap = { ...commonUnitsMap };
+        const myPersonal = personalUnitsMap[student.login_id] || {};
+        Object.assign(myHomeworkMap, myPersonal);
+
+        const myUnits = Object.keys(myHomeworkMap).sort();
+
+        // 숙제가 아예 없는 학생은 건너뛰거나 '숙제 없음' 표시 (여기선 카드 생성 X)
+        if (myUnits.length === 0) return;
+
+        myUnits.forEach(unit => {
+          const req = myHomeworkMap[unit] || { meaning: 1, english: 1, listening: 1, sentence: 1 };
           
-          // 해당 학생 결과 필터링
+          // 내 결과만 필터링
           const myUnitResults = allResults.filter(r => r.student_login_id === student.login_id && r.unit_key === unit);
           
           const modes = ['meaning', 'english', 'listening', 'sentence'];
           const modeLabels = { meaning: '뜻 찾기', english: '영어 찾기', listening: '듣고 찾기', sentence: '문장 빈칸' };
           
           let lastSubmitTime = null;
-          let activeModesCount = 0; // 목표가 0보다 큰 모드 개수
-          let passedModesCount = 0; // 목표를 달성한 모드 개수
-          let detailRowsHTML = "";
+          let activeModesCount = 0;
+          let passedModesCount = 0;
           let isSubmitted = false;
+          let detailRowsHTML = "";
 
           modes.forEach(mode => {
             const requiredCount = Number(req[mode] || 0);
-            
-            // 목표가 0이면(안 해도 되는 거면) 표시 스킵하거나 흐리게 표시
-            // 여기서는 표시하되 필수 카운트에서 제외
             if (requiredCount > 0) activeModesCount++;
 
-            // 해당 모드의 결과들 (점수 높은 순 or 최신순)
-            // 여기서는 '통과한 횟수'를 세어야 하므로 전체 리스트를 봅니다.
             const myModeResults = myUnitResults.filter(r => r.mode === mode);
             
-            // 90점 이상인 횟수 계산
+            // 통과 횟수 계산 (90점 이상)
             const passCount = myModeResults.filter(r => {
                const score = r.total_count ? Math.round((r.correct_count / r.total_count)*100) : 0;
                return score >= 90;
             }).length;
 
-            // 최신 기록 (시간 표시용)
             if (myModeResults.length > 0) {
               isSubmitted = true;
               myModeResults.forEach(r => {
@@ -509,16 +527,14 @@
               });
             }
 
-            // 통과 여부 판정
             const isModePassed = (requiredCount > 0 && passCount >= requiredCount);
             if (isModePassed) passedModesCount++;
 
-            // --- 상세 줄 HTML 생성 ---
+            // 상세 HTML
             let scoreHTML = "";
             if (requiredCount === 0) {
                scoreHTML = `<span class="score-none">-</span>`; 
             } else {
-               // 예: 3/3 (Pass) 또는 1/3
                const colorClass = isModePassed ? 'score-pass' : (passCount > 0 ? 'score-fail' : 'score-none');
                const statusText = isModePassed ? 'Completed' : 'Progress';
                scoreHTML = `<span class="${colorClass}">${passCount} / ${requiredCount}회 (${statusText})</span>`;
@@ -532,10 +548,9 @@
             `;
           });
 
-          // --- 전체 상태 뱃지 ---
+          // 뱃지 상태
           let statusBadge = "";
-          // 목표가 하나도 없는 특이 케이스(문장 숙제 등)는 별도 처리 필요하지만 일단 activeModesCount 기준
-          const finalTotal = activeModesCount === 0 ? 1 : activeModesCount; // 0으로 나누기 방지
+          const finalTotal = activeModesCount === 0 ? 1 : activeModesCount;
 
           if (!isSubmitted) {
             statusBadge = `<span class="badge badge-yet">미제출</span>`;
@@ -545,7 +560,7 @@
             statusBadge = `<span class="badge badge-fail">진행중 (${passedModesCount}/${finalTotal})</span>`;
           }
 
-          // 시간 포맷
+          // 시간 및 지각 체크
           let timeStr = "-";
           if (lastSubmitTime) {
             const y = lastSubmitTime.getFullYear();
@@ -589,7 +604,6 @@
       container.innerHTML = `<div style="text-align:center; padding:30px; color:red;">오류 발생: ${e.message}</div>`;
     }
   }
-
   // 아코디언 토글 함수
   function toggleDetail(id) {
     const el = document.getElementById(id);
@@ -696,5 +710,6 @@
 </script>
 </body>
 </html>
+
 
 
