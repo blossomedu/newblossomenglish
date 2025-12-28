@@ -378,6 +378,9 @@
   // ============================================================
   // [수정됨] 숙제 결과 조회 함수
   // ============================================================
+  // ============================================================
+  // [수정됨] 숙제 결과 조회 함수 (학생 등록 숙제 포함)
+  // ============================================================
   async function loadHomework() {
     const classId = document.getElementById("classSelect").value;
     const dateVal = document.getElementById("dateInput").value;
@@ -390,30 +393,7 @@
     container.innerHTML = `<div style="text-align:center; padding:30px;">데이터를 분석 중입니다...</div>`;
 
     try {
-      // 1. 해당 날짜 마감인 숙제(단원) 찾기
-      const { data: vocabHW } = await supabaseClient.from('vocab_homework').select('set_numbers').eq('class_id', classId).eq('due_date', dateVal);
-      const { data: sentenceHW } = await supabaseClient.from('sentence_homework').select('set_numbers').eq('class_id', classId).eq('due_date', dateVal);
-
-      // 단원 목록 추출 (중복 제거)
-      let targetUnits = [];
-      const parseUnits = (list) => {
-        (list || []).forEach(h => {
-          String(h.set_numbers).split(',').forEach(s => {
-            const clean = s.trim().replace(/\s+/g, '');
-            if(clean) targetUnits.push(clean);
-          });
-        });
-      };
-      parseUnits(vocabHW);
-      parseUnits(sentenceHW);
-      targetUnits = [...new Set(targetUnits)].sort(); // 유니크하고 정렬된 단원 리스트
-
-      if (targetUnits.length === 0) {
-        container.innerHTML = `<div style="text-align:center; padding:40px; color:#888;">📅 ${dateVal} 마감인 숙제가 없습니다.</div>`;
-        return;
-      }
-
-      // 2. 해당 반 학생 명단 가져오기
+      // 1. [순서 변경] 해당 반 학생 명단 먼저 가져오기 (학생 ID가 있어야 학생 등록 숙제 조회 가능)
       let q = supabaseClient.from('students').select('id, name, login_id').eq('class_id', classId).order('name');
       if (nameFilter) q = q.ilike('name', `%${nameFilter}%`);
       const { data: students } = await q;
@@ -423,24 +403,70 @@
         return;
       }
 
-      // 3. 학생들의 결과 데이터 싹 긁어오기 (vocab + sentence)
       const loginIds = students.map(s => s.login_id);
+
+      // 2. [핵심 수정] 선생님 숙제 + 학생이 스스로 등록한 숙제 모두 가져오기
+      const [teacherVocab, teacherSentence, studentHW] = await Promise.all([
+        // 선생님이 낸 어휘 숙제
+        supabaseClient.from('vocab_homework')
+          .select('set_numbers')
+          .eq('class_id', classId)
+          .eq('due_date', dateVal),
+        
+        // 선생님이 낸 문장 숙제
+        supabaseClient.from('sentence_homework')
+          .select('set_numbers')
+          .eq('class_id', classId)
+          .eq('due_date', dateVal),
+
+        // ✅ [추가됨] 학생이 스스로 등록한 숙제 (이 반 학생들 것만)
+        supabaseClient.from('student_homework')
+          .select('set_numbers')
+          .in('student_login_id', loginIds)
+          .eq('due_date', dateVal)
+      ]);
+
+      // 3. 단원(Unit) 목록 추출 및 합치기 (중복 제거)
+      let targetUnits = [];
+      const parseUnits = (list) => {
+        (list || []).forEach(h => {
+          String(h.set_numbers).split(',').forEach(s => {
+            const clean = s.trim().replace(/\s+/g, '');
+            if(clean) targetUnits.push(clean);
+          });
+        });
+      };
+
+      parseUnits(teacherVocab.data);
+      parseUnits(teacherSentence.data);
+      parseUnits(studentHW.data); // ✅ 학생 숙제 단원도 추가
+
+      targetUnits = [...new Set(targetUnits)].sort(); // 중복 제거 및 정렬
+
+      if (targetUnits.length === 0) {
+        container.innerHTML = `<div style="text-align:center; padding:40px; color:#888;">📅 ${dateVal} 마감인 숙제가 없습니다.</div>`;
+        return;
+      }
+
+      // 4. 결과 데이터 가져오기 (이전과 동일)
       const { data: vResults } = await supabaseClient.from('vocab_results').select('*').in('student_login_id', loginIds).in('unit_key', targetUnits);
       const { data: sResults } = await supabaseClient.from('sentence_results').select('*').in('student_login_id', loginIds).in('unit_key', targetUnits);
       
       const allResults = [...(vResults||[]), ...(sResults||[])];
 
-      // 4. 데이터 가공 (학생 -> 단원 -> 모드별 점수)
-      // 구조: map[studentId][unitKey] = { meaning: ResultObj, sentence: ResultObj ... }
-      container.innerHTML = ""; // 초기화
+      // 5. 렌더링 (이전과 동일)
+      container.innerHTML = ""; 
 
       students.forEach(student => {
         targetUnits.forEach(unit => {
-          // 이 학생, 이 단원의 결과 필터링
+          // 해당 학생 & 해당 단원의 결과만 필터링
           const myUnitResults = allResults.filter(r => r.student_login_id === student.login_id && r.unit_key === unit);
           
-          // 영역별 최고 점수/최신 기록 추출
-          // 모드: meaning(뜻), english(영어), listening(듣기), sentence(문장)
+          // 숙제 데이터가 없는데 결과도 없으면(학생이 등록한 숙제가 아닌 경우) 스킵할지 결정해야 함.
+          // 하지만 여기선 '반 전체 공통 숙제' 개념과 '개별 숙제'가 섞여 있으므로, 
+          // 결과가 하나라도 있거나, 선생님이 낸 숙제 범위에 포함되면 표시하는 게 안전함.
+          // (간단하게 하기 위해 모든 targetUnits에 대해 카드를 생성합니다)
+
           const modes = ['meaning', 'english', 'listening', 'sentence'];
           const modeLabels = { meaning: '뜻 찾기', english: '영어 찾기', listening: '듣고 찾기', sentence: '문장 빈칸' };
           
@@ -450,19 +476,16 @@
           let isSubmitted = false;
 
           modes.forEach(mode => {
-            // 해당 모드의 결과들 중 '가장 최근' or '최고 점수' 가져오기. 여기선 최신순 정렬 후 사용.
             const modeResList = myUnitResults.filter(r => r.mode === mode).sort((a,b) => new Date(b.submitted_at) - new Date(a.submitted_at));
             
             if (modeResList.length > 0) {
               isSubmitted = true;
-              const best = modeResList[0]; // 가장 최근 기록 사용
+              const best = modeResList[0]; 
               resultSummary[mode] = best;
               
-              // 시간 업데이트 (가장 늦게 푼 시간)
               const t = new Date(best.submitted_at);
               if (!lastSubmitTime || t > lastSubmitTime) lastSubmitTime = t;
 
-              // 통과 여부 (90점 이상이면 통과로 간주 - 기준 조절 가능)
               const score = best.total_count ? Math.round((best.correct_count / best.total_count)*100) : 0;
               if (score >= 90) passCount++;
             } else {
@@ -470,17 +493,20 @@
             }
           });
 
-          // 상태 뱃지 결정
+          // 카드를 그릴 조건: 
+          // 1. 선생님이 낸 숙제 목록에 포함된 단원이거나
+          // 2. 학생이 스스로 등록해서 결과가 있는 단원이거나
+          // (여기서는 모든 targetUnits을 다 보여주되, 미제출인 경우 '미제출'로 표시됩니다.)
+
           let statusBadge = "";
           if (!isSubmitted) {
             statusBadge = `<span class="badge badge-yet">미제출</span>`;
-          } else if (passCount === 4) { // 4개 모드 다 통과
+          } else if (passCount === 4) { 
             statusBadge = `<span class="badge badge-done">완료 (All Pass)</span>`;
           } else {
             statusBadge = `<span class="badge badge-fail">진행중 (${passCount}/4)</span>`;
           }
 
-          // 시간 포맷
           let timeStr = "-";
           if (lastSubmitTime) {
             const y = lastSubmitTime.getFullYear();
@@ -489,17 +515,14 @@
             const h = String(lastSubmitTime.getHours()).padStart(2,'0');
             const min = String(lastSubmitTime.getMinutes()).padStart(2,'0');
             timeStr = `${y}-${m}-${d} ${h}:${min}`;
-            // 지각 체크
+            
             const due = new Date(dateVal);
             due.setHours(23, 59, 59);
             if (lastSubmitTime > due) timeStr += " <span style='color:red'>(지각)</span>";
           }
 
-          // HTML 카드 생성
-          const cardId = `card-${student.id}-${unit}`;
           const detailId = `detail-${student.id}-${unit}`;
           
-          // 모드별 상세 줄 생성
           let detailRowsHTML = "";
           modes.forEach(mode => {
             const res = resultSummary[mode];
@@ -521,7 +544,6 @@
             `;
           });
 
-          // 최종 카드 HTML
           const cardHTML = `
             <div class="hw-card">
               <div class="hw-header" onclick="toggleDetail('${detailId}')">
@@ -657,3 +679,4 @@
 </script>
 </body>
 </html>
+
