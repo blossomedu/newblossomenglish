@@ -794,486 +794,487 @@
 3-60|news|뉴스|on the news|뉴스에서
 3-60|newspaper|신문|I read a newspaper.|나는 신문을 읽어.
 
-4-1	father	아버지	This is my father.	이 분은 나의 아버지이다.
-4-1	dad	아빠	I like my dad.	나는 나의 아빠를 좋아한다.
-4-1	mother	어머니	She is my mother.	그녀는 나의 어머니이다.
-4-1	mom	엄마	My mom is pretty.	나의 엄마는 예쁘다.
-4-1	brother	남자 형제	He is my brother.	그는 나의 남자 형제이다.
-4-1	sister	여자 형제	I have a sister.	나는 여자 형제가 한 명 있다.
-4-1	family	가족	We love our family.	우리는 우리의 가족을 사랑한다.
-4-1	parents	부모	My parents are here.	나의 부모님들이 여기에 계신다.
-4-1	daughter	딸	She is my daughter.	그녀는 나의 딸이다.
-4-1	son	아들	I am a good son.	나는 착한 아들이다.
-4-1	grandparents	조부모	I call my grandparents.	나는 나의 조부모님께 전화한다.
-4-1	grandfather	할아버지	My grandfather is old.	나의 할아버지는 나이가 많으시다.
-4-1	grandmother	할머니	I see my grandmother.	나는 나의 할머니를 뵌다.
-4-1	uncle	삼촌	My uncle has a car.	나의 삼촌은 차를 한 대 가지고 계신다.
-4-1	aunt	이모, 고모	I play with my aunt.	나는 나의 이모/고모와 함께 논다.
-4-1	cousin	사촌	He is my cousin.	그는 나의 사촌이다.
-4-2	Sunday	일요일	Today is Sunday.	오늘은 일요일이다.
-4-2	Monday	월요일	I go to school on Monday.	나는 월요일에 학교에 간다.
-4-2	Tuesday	화요일	We have P.E. on Tuesday.	우리는 화요일에 체육 수업이 있다.
-4-2	Wednesday	수요일	I eat lunch on Wednesday.	나는 수요일에 점심을 먹는다.
-4-2	Thursday	목요일	Do you like Thursday?	너는 목요일을 좋아하니?
-4-2	Friday	금요일	Let's meet next Friday.	다음 주 금요일에 만나자.
-4-2	Saturday	토요일	We play soccer on Saturday.	우리는 토요일에 축구를 한다.
-4-2	today	오늘	What is the date today?	오늘 날짜는 언제니?
-4-2	morning	아침	I eat breakfast in the morning.	나는 아침에 아침밥을 먹는다.
-4-2	afternoon	오후	Let's play in the afternoon.	오후에 놀자.
-4-2	evening	저녁	I watch TV in the evening.	나는 저녁에 TV를 본다.
-4-2	night	밤	I sleep at night.	나는 밤에 잠을 잔다.
-4-2	tonight	오늘밤	I will study tonight.	나는 오늘밤에 공부할 것이다.
-4-2	yesterday	어제	I was sick yesterday.	나는 어제 아팠다.
-4-2	tomorrow	내일	We will meet tomorrow.	우리는 내일 만날 것이다.
-4-2	week	일주일, 주	There are seven days in a week.	한 주에는 7일이 있다.
-4-3	weather	날씨	The weather is nice today.	오늘 날씨는 좋다.
-4-3	sunny	화창한	It is a sunny day.	오늘은 화창한 날이다.
-4-3	cloudy	구름이 낀	It is cloudy now.	지금은 구름이 끼어 있다.
-4-3	rainy	비가 오는	Don't forget your umbrella on a rainy day.	비 오는 날에 우산을 잊지 마라.
-4-3	snowy	눈이 오는	Let's make a snowman on a snowy day.	눈 오는 날에 눈사람을 만들자.
-4-3	foggy	안개가 낀	It is foggy outside.	밖은 안개가 끼어 있다.
-4-3	windy	바람이 부는	The windy day is cold.	바람 부는 날은 춥다.
-4-3	warm	따뜻한	The room is warm.	방이 따뜻하다.
-4-3	cold	추운	I feel cold now.	나는 지금 춥다.
-4-3	cool	시원한	The drink is cool.	음료수가 시원하다.
-4-3	hot	더운	It is very hot outside.	밖이 매우 덥다.
-4-3	season	계절	What is your favorite season?	네가 가장 좋아하는 계절은 무엇이니?
-4-3	spring	봄	I like spring flowers.	나는 봄꽃을 좋아한다.
-4-3	summer	여름	Let's swim in the summer.	여름에 수영하자.
-4-3	fall	가을	Fall is a beautiful season.	가을은 아름다운 계절이다.
-4-3	winter	겨울	Winter is very cold.	겨울은 매우 춥다.
-4-4	taste	맛이 나다, 맛보다	I taste the sweet cake.	나는 달콤한 케이크 맛을 본다.
-4-4	sweet	달콤한	The candy is sweet.	그 사탕은 달콤하다.
-4-4	sour	신맛이 나는	I don't like sour lemons.	나는 신 레몬을 좋아하지 않는다.
-4-4	feel	느끼다	I feel happy today.	나는 오늘 행복함을 느낀다.
-4-4	wet	젖은, 축축한	My shoes are wet.	나의 신발이 젖었다.
-4-4	dry	마른, 건조한	Please use a dry towel.	마른 수건을 사용해 주세요.
-4-4	soft	부드러운	The pillow is very soft.	그 베개는 매우 부드럽다.
-4-4	hard	딱딱한	The rock is very hard.	그 돌은 매우 딱딱하다.
-4-4	hear	듣다	Can you hear the music?	음악을 들을 수 있니?
-4-4	look	보이다, 보다	You look happy.	너는 행복해 보인다.
-4-4	smell	냄새가 나다, 냄새 맡다	I can smell the food.	나는 그 음식 냄새를 맡을 수 있다.
-4-4	delicious	맛있는	This cake is delicious.	이 케이크는 맛있다.
-4-4	sound	~하게 들리다	It sounds like a bird.	새 소리처럼 들린다.
-4-4	loud	시끄러운	The music is too loud.	음악이 너무 시끄럽다.
-4-4	quiet	조용한	Please be quiet.	조용히 해 주세요.
-4-4	nice	좋은	Have a nice day.	좋은 하루 보내세요.
-4-5	number	숫자	What is your favorite number?	네가 가장 좋아하는 숫자는 무엇이니?
-4-5	one	1, 하나	I have one dog.	나는 개를 한 마리 가지고 있다.
-4-5	two	2, 둘	We have two brothers.	우리는 두 명의 남자 형제가 있다.
-4-5	three	3, 셋	I eat three cookies.	나는 쿠키 세 개를 먹는다.
-4-5	four	4, 넷	A cat has four legs.	고양이는 다리가 네 개 있다.
-4-5	five	5, 다섯	I count to five.	나는 다섯까지 센다.
-4-5	six	6, 여섯	There are six chairs.	의자가 여섯 개 있다.
-4-5	seven	7, 일곱	Today is day seven.	오늘은 일곱 번째 날이다.
-4-5	eight	8, 여덟	I have eight pencils.	나는 연필을 여덟 자루 가지고 있다.
-4-5	nine	9, 아홉	He is nine years old.	그는 아홉 살이다.
-4-5	ten	10, 열	Let's count to ten.	열까지 세어 보자.
-4-5	eleven	11, 열하나	I see eleven birds.	나는 새 열한 마리를 본다.
-4-5	twelve	12, 열 둘	There are twelve months.	열두 달이 있다.
-4-5	thirteen	13, 열 셋	My sister is thirteen.	나의 여동생은 열세 살이다.
-4-5	fourteen	14, 열 넷	I wear fourteen stickers.	나는 스티커 열네 개를 붙인다.
-4-5	fifteen	15, 열 다섯	I can see fifteen cars.	나는 차 열다섯 대를 볼 수 있다.
-4-6	how	얼마나, 어떻게	How old are you?	너는 나이가 얼마나 되니?
-4-6	long	긴	That ruler is long.	저 자는 길다.
-4-6	quick	빠른	Be quick!	빠르게 해라!
-4-6	large	큰, 넓은	My school has a large gym.	나의 학교는 넓은 체육관이 있다.
-4-6	big	큰	That house is very big.	저 집은 매우 크다.
-4-6	small	작은	I have a small pencil.	나는 작은 연필을 가지고 있다.
-4-6	heavy	무거운	This box is heavy.	이 상자는 무겁다.
-4-6	light	가벼운	My bag is light.	나의 가방은 가볍다.
-4-6	dirty	더러운	The floor is dirty.	바닥이 더럽다.
-4-6	clean	깨끗한	My hands are clean.	나의 손은 깨끗하다.
-4-6	high	높은	The bird flies high.	그 새는 높이 난다.
-4-6	low	낮은	The fence is low.	울타리가 낮다.
-4-6	wide	넓은	The road is wide.	그 도로는 넓다.
-4-6	narrow	좁은	This street is narrow.	이 길은 좁다.
-4-6	thick	두꺼운	This book is thick.	이 책은 두껍다.
-4-6	thin	얇은	I wear a thin jacket.	나는 얇은 재킷을 입는다.
-4-7	body	몸	Take care of your body.	너의 몸을 돌보아라.
-4-7	muscle	근육	Running builds your muscle.	달리기는 너의 근육을 만든다.
-4-7	bone	뼈	My leg bone is strong.	나의 다리 뼈는 튼튼하다.
-4-7	foot	발	I wear shoes on my foot.	나는 나의 발에 신발을 신는다.
-4-7	feet	발 (복수)	I have two feet.	나는 두 발을 가지고 있다.
-4-7	toe	발가락	I wiggle my toe.	나는 나의 발가락을 꼼지락거린다.
-4-7	hand	손	Wash your hand.	너의 손을 씻어라.
-4-7	finger	손가락	I have ten fingers.	나는 열 개의 손가락이 있다.
-4-7	heart	심장	My heart beats fast.	나의 심장이 빠르게 뛴다.
-4-7	brain	뇌	The brain helps me think.	뇌는 내가 생각하는 것을 돕는다.
-4-7	shoulder	어깨	He taps my shoulder.	그는 나의 어깨를 두드린다.
-4-7	back	등	I carry a bag on my back.	나는 나의 등에 가방을 멘다.
-4-7	leg	다리	I run with my leg.	나는 나의 다리로 달린다.
-4-7	knee	무릎	He fell on his knee.	그는 무릎을 꿇고 넘어졌다.
-4-7	arm	팔	I hold the bag with my arm.	나는 나의 팔로 가방을 잡는다.
-4-7	elbow	팔꿈치	I hurt my elbow.	나는 나의 팔꿈치를 다쳤다.
-4-8	face	얼굴	I wash my face.	나는 나의 얼굴을 씻는다.
-4-8	cheek	볼, 뺨	My cheek is soft.	나의 볼은 부드럽다.
-4-8	chin	턱	He has a big chin.	그는 큰 턱을 가지고 있다.
-4-8	skin	피부	My skin is dry.	나의 피부는 건조하다.
-4-8	head	머리	I wash my head.	나는 나의 머리를 감는다.
-4-8	hair	머리카락	My hair is black.	나의 머리카락은 검은색이다.
-4-8	neck	목	I wear a scarf around my neck.	나는 나의 목에 스카프를 두른다.
-4-8	throat	목구멍	I have a sore throat.	나는 목구멍이 아프다.
-4-8	eye	눈	I have two eyes.	나는 두 개의 눈이 있다.
-4-8	eyebrow	눈썹	My eyebrow is thick.	나의 눈썹은 두껍다.
-4-8	ear	귀	I hear with my ear.	나는 나의 귀로 듣는다.
-4-8	nose	코	I smell with my nose.	나는 나의 코로 냄새를 맡는다.
-4-8	mouth	입	I open my mouth.	나는 나의 입을 벌린다.
-4-8	lip	입술	My lips are red.	나의 입술은 빨갛다.
-4-8	tooth	치아, 이	I brush my tooth.	나는 나의 이를 닦는다.
-4-8	teeth	tooth의 복수형	I brush my teeth.	나는 나의 이들을 닦는다.
-4-9	good	좋은	This movie is good.	이 영화는 좋다.
-4-9	bad	나쁜	He is a bad person.	그는 나쁜 사람이다.
-4-9	sad	슬픈	I feel sad today.	나는 오늘 슬프다.
-4-9	happy	행복한	I am happy to see you.	나는 너를 만나서 행복하다.
-4-9	lonely	외로운	The dog looks lonely.	그 개는 외로워 보인다.
-4-9	angry	화난	Don't be angry with me.	나에게 화내지 마라.
-4-9	tired	피곤한	I am tired after school.	나는 방과 후에 피곤하다.
-4-9	nervous	불안해하는	I feel nervous before the test.	나는 시험 전에 불안해한다.
-4-9	upset	속상한, 짜증 난	She is upset about the game.	그녀는 그 게임 때문에 속상해한다.
-4-9	glad	기쁜	I am glad you came.	나는 네가 와서 기쁘다.
-4-9	mad	몹시 화난	He is mad at his brother.	그는 그의 남동생에게 몹시 화가 났다.
-4-9	worried	걱정하는	My mom is worried about me.	나의 엄마는 나에 대해 걱정하신다.
-4-9	scared	무서워하는	I am scared of the dark.	나는 어둠을 무서워한다.
-4-9	surprised	놀란	I was surprised by the noise.	나는 그 소음에 놀랐다.
-4-9	excited	신이 난	The kids are excited to play.	아이들은 놀 생각에 신이 났다.
-4-9	bored	지루해 하는	I am bored with this lesson.	나는 이 수업이 지루하다.
-4-10	house	집	I live in a big house.	나는 큰 집에 산다.
-4-10	bedroom	침실	I sleep in my bedroom.	나는 나의 침실에서 잠을 잔다.
-4-10	living room	거실	We watch TV in the living room.	우리는 거실에서 TV를 본다.
-4-10	bathroom	욕실, 화장실	I wash my hands in the bathroom.	나는 욕실에서 손을 씻는다.
-4-10	garden	정원	We have many flowers in the garden.	우리는 정원에 많은 꽃을 가지고 있다.
-4-10	backyard	뒷마당	I play soccer in the backyard.	나는 뒷마당에서 축구를 한다.
-4-10	kitchen	부엌	My mom is in the kitchen.	나의 엄마는 부엌에 계신다.
-4-10	where	어디에	Where is my book?	나의 책은 어디에 있니?
-4-10	gate	대문	Open the gate, please.	대문을 열어 주세요.
-4-10	bell	종, 초인종	Ring the bell to enter.	들어오려면 초인종을 눌러라.
-4-10	door	문	Close the door.	문을 닫아라.
-4-10	roof	지붕	The rain falls on the roof.	비가 지붕 위에 떨어진다.
-4-10	sofa	소파	I sit on the sofa.	나는 소파에 앉는다.
-4-10	table	탁자	Put the pen on the table.	펜을 탁자 위에 놓아라.
-4-10	carpet	카펫	The carpet is soft.	카펫이 부드럽다.
-4-10	stairs	계단	I walk up the stairs.	나는 계단을 걸어 올라간다.
-4-11	raise	키우다, 기르다	I raise a dog.	나는 개를 키운다.
-4-11	pet	애완동물	I have a cute pet.	나는 귀여운 애완동물이 있다.
-4-11	animal	동물	A dog is an animal.	개는 동물이다.
-4-11	dog	개	I play with my dog.	나는 나의 개와 함께 논다.
-4-11	puppy	강아지	The puppy is small.	그 강아지는 작다.
-4-11	cat	고양이	My cat likes to sleep.	나의 고양이는 자는 것을 좋아한다.
-4-11	kitten	새끼 고양이	The kitten is tiny.	그 새끼 고양이는 아주 작다.
-4-11	turtle	거북이	The turtle moves slowly.	거북이는 느리게 움직인다.
-4-11	feed	먹이를 주다	I feed my cat.	나는 나의 고양이에게 먹이를 준다.
-4-11	cage	우리, 새장	The bird is in the cage.	새가 새장 안에 있다.
-4-11	fish	물고기	I have a fish tank.	나는 어항을 가지고 있다.
-4-11	rabbit	토끼	A rabbit eats carrots.	토끼는 당근을 먹는다.
-4-11	hamster	햄스터	My hamster is running.	나의 햄스터가 달리고 있다.
-4-11	snake	뱀	A snake is long.	뱀은 길다.
-4-11	bird	새	A bird is singing.	새가 노래하고 있다.
-4-11	spider	거미	A spider has eight legs.	거미는 여덟 개의 다리를 가지고 있다.
-4-12	color	색깔, 색칠하다	What is your favorite color?	네가 가장 좋아하는 색깔은 무엇이니?
-4-12	favorite	가장 좋아하는	My favorite color is red.	내가 가장 좋아하는 색깔은 빨간색이다.
-4-12	red	빨간색	The apple is red.	그 사과는 빨간색이다.
-4-12	orange	주황색	I eat an orange.	나는 주황색 오렌지를 먹는다.
-4-12	yellow	노란색	I draw a yellow sun.	나는 노란색 태양을 그린다.
-4-12	green	초록색	The grass is green.	잔디는 초록색이다.
-4-12	blue	파란색	The sky is blue.	하늘은 파란색이다.
-4-12	purple	보라색	She wears a purple hat.	그녀는 보라색 모자를 쓴다.
-4-12	black	검은색	My dog is black.	나의 개는 검은색이다.
-4-12	white	흰색	The cloud is white.	구름은 흰색이다.
-4-12	brown	갈색	My shoes are brown.	나의 신발은 갈색이다.
-4-12	gray	회색	The rock is gray.	그 돌은 회색이다.
-4-12	pink	분홍색	I like pink flowers.	나는 분홍색 꽃을 좋아한다.
-4-12	gold	금색	I found a gold coin.	나는 금색 동전을 찾았다.
-4-12	silver	은색	The ring is silver.	그 반지는 은색이다.
-4-12	paint	칠하다, 그리다	Let's paint the wall blue.	벽을 파란색으로 칠하자.
-4-13	age	나이	What is your age?	너의 나이는 몇 살이니?
-4-13	who	누구	Who is that boy?	저 소년은 누구니?
-4-13	young	어린, 젊은	She is a young student.	그녀는 어린 학생이다.
-4-13	old	늙은, 나이가 많은	My grandfather is old.	나의 할아버지는 나이가 많으시다.
-4-13	child	아이	I am a happy child.	나는 행복한 아이이다.
-4-13	adult	성인, 어른	My parents are adults.	나의 부모님은 어른이다.
-4-13	boy	소년, 남자아이	He is a clever boy.	그는 똑똑한 소년이다.
-4-13	girl	소녀, 여자아이	She is a nice girl.	그녀는 착한 소녀이다.
-4-13	man	(성인) 남자	That man is tall.	저 남자는 키가 크다.
-4-13	woman	(성인) 여자	That woman is a teacher.	저 여자는 선생님이다.
-4-13	gentleman	신사	He is a kind gentleman.	그는 친절한 신사이다.
-4-13	lady	숙녀, 여성	She is a beautiful lady.	그녀는 아름다운 숙녀이다.
-4-13	Mr.	(남성의 성, 이름 앞에) ~씨	Mr. Kim is my teacher.	김 씨는 나의 선생님이다.
-4-13	Ms.	(여성의 성, 이름 앞에) ~씨	Ms. Park works here.	박 씨는 여기서 일한다.
-4-13	Mrs.	(결혼한 여성) ~부인	Mrs. Lee is my friend's mom.	이 부인은 나의 친구 엄마다.
-4-13	know	알다	I know the answer.	나는 그 답을 안다.
-4-14	want	원하다	I want a new book.	나는 새 책을 원한다.
-4-14	hope	희망, 바라다	I hope to see you soon.	나는 곧 너를 보기를 바란다.
-4-14	dream	꿈, 꿈꾸다	I have a great dream.	나는 대단한 꿈을 가지고 있다.
-4-14	become	~가 되다	I want to become a pilot.	나는 조종사가 되고 싶다.
-4-14	doctor	의사	The doctor helps sick people.	의사는 아픈 사람들을 돕는다.
-4-14	nurse	간호사	The nurse is very kind.	간호사는 매우 친절하다.
-4-14	scientist	과학자	A scientist studies nature.	과학자는 자연을 연구한다.
-4-14	firefighter	소방관	A firefighter stops the fire.	소방관은 불을 끈다.
-4-14	job	직업	What is your job?	너의 직업은 무엇이니?
-4-14	work	일하다	My parents work hard.	나의 부모님은 열심히 일하신다.
-4-14	actor	배우	He is a famous actor.	그는 유명한 배우이다.
-4-14	artist	예술가, 화가	My friend is a great artist.	나의 친구는 훌륭한 예술가이다.
-4-14	teacher	선생님	My teacher is smart.	나의 선생님은 똑똑하시다.
-4-14	police officer	경찰관	The police officer is driving a car.	경찰관이 차를 운전하고 있다.
-4-14	pilot	조종사	A pilot flies a plane.	조종사는 비행기를 조종한다.
-4-14	engineer	기술자	My uncle is an engineer.	나의 삼촌은 기술자이다.
-4-15	handsome	잘생긴	My brother is very handsome.	나의 오빠는 아주 잘생겼다.
-4-15	ugly	못생긴	I saw an ugly duck.	나는 못생긴 오리를 보았다.
-4-15	tall	키가 큰	The basketball player is tall.	그 농구 선수는 키가 크다.
-4-15	short	키가 작은	I am short for my age.	나는 내 나이에 비해 키가 작다.
-4-15	fat	살찐	The cat is getting fat.	그 고양이는 살이 찌고 있다.
-4-15	slim	날씬한	She has a slim figure.	그녀는 날씬한 몸매를 가지고 있다.
-4-15	strong	강한	He is very strong.	그는 매우 강하다.
-4-15	weak	약한	I feel weak when I am sick.	나는 아플 때 약하게 느낀다.
-4-15	beautiful	아름다운	The flower is beautiful.	그 꽃은 아름답다.
-4-15	wonderful	아주 멋진	We had a wonderful time.	우리는 아주 멋진 시간을 보냈다.
-4-15	pretty	예쁜	The doll is very pretty.	그 인형은 매우 예쁘다.
-4-15	cute	귀여운	The puppy is so cute.	그 강아지는 정말 귀엽다.
-4-15	hungry	배고픈	I am hungry now.	나는 지금 배고프다.
-4-15	thirsty	목마른	I am thirsty after running.	나는 달린 후에 목마르다.
-4-15	honest	정직한	He is an honest person.	그는 정직한 사람이다.
-4-15	curious	호기심이 많은	I am curious about the world.	나는 세상에 대해 호기심이 많다.
-4-16	clever	영리한	He is a clever student.	그는 영리한 학생이다.
-4-16	smart	똑똑한	My teacher is very smart.	나의 선생님은 아주 똑똑하시다.
-4-16	wise	현명한	My grandmother is wise.	나의 할머니는 현명하시다.
-4-16	stupid	어리석은	Don't do stupid things.	어리석은 짓을 하지 마라.
-4-16	foolish	어리석은	It was a foolish mistake.	그것은 어리석은 실수였다.
-4-16	calm	차분한	Be calm before the test.	시험 전에 차분하게 있어라.
-4-16	shy	수줍어하는	She is a little shy.	그녀는 조금 수줍어한다.
-4-16	funny	재미있는	That movie is very funny.	저 영화는 매우 재미있다.
-4-16	polite	예의 바른	He is a very polite boy.	그는 아주 예의 바른 소년이다.
-4-16	rude	예의 없는	Don't be rude to others.	다른 사람들에게 예의 없게 굴지 마라.
-4-16	gentle	상냥한, 순한	The cat is very gentle.	그 고양이는 매우 순하다.
-4-16	kind	친절한	She is a kind person.	그녀는 친절한 사람이다.
-4-16	selfish	이기적인	Don't be selfish with your toys.	너의 장난감에 대해 이기적으로 굴지 마라.
-4-16	brave	용감한	The brave knight saved the princess.	그 용감한 기사가 공주를 구했다.
-4-16	careful	주의 깊은	Be careful when you cross the road.	길을 건널 때 주의 깊게 해라.
-4-16	lazy	게으른	The lazy boy didn't clean his room.	그 게으른 소년은 그의 방을 청소하지 않았다.
-4-17	bring	가져오다	Please bring a gift.	선물을 가져와 주세요.
-4-17	invite	초대하다	I will invite my friends.	나는 나의 친구들을 초대할 것이다.
-4-17	need	필요하다	I need a cake for the party.	나는 파티를 위해 케이크가 필요하다.
-4-17	snack	간식	We eat a lot of snacks.	우리는 많은 간식을 먹는다.
-4-17	balloon	풍선	The balloons are red and blue.	풍선들은 빨갛고 파랗다.
-4-17	toy	장난감	I play with my new toy.	나는 나의 새 장난감으로 논다.
-4-17	birthday	생일	Today is my birthday.	오늘은 나의 생일이다.
-4-17	party	파티	We have a fun party.	우리는 재미있는 파티를 한다.
-4-17	make	만들다	I make a card for my mom.	나는 나의 엄마를 위해 카드를 만든다.
-4-17	give	주다	I give a gift to my friend.	나는 나의 친구에게 선물을 준다.
-4-17	congratulate	축하하다	Congratulate him on his win.	그의 승리를 축하해 줘라.
-4-17	card	카드	I wrote a letter on the card.	나는 카드에 편지를 썼다.
-4-17	cake	케이크	We eat the cake together.	우리는 케이크를 함께 먹는다.
-4-17	doll	인형	My sister loves her new doll.	나의 여동생은 그녀의 새 인형을 매우 좋아한다.
-4-17	gift	선물	This gift is for you.	이 선물은 너를 위한 것이다.
-4-17	present	선물	I got a nice present.	나는 멋진 선물을 받았다.
-4-18	what	무엇	What is your name?	너의 이름은 무엇이니?
-4-18	year	해, 년	This year is 2025.	올해는 2025년이다.
-4-18	date	날짜	What is the date today?	오늘 날짜는 언제니?
-4-18	month	달, 월	There are twelve months in a year.	1년은 열두 달이다.
-4-18	January	1월	My birthday is in January.	나의 생일은 1월이다.
-4-18	February	2월	February is the shortest month.	2월은 가장 짧은 달이다.
-4-18	March	3월	School starts in March.	학교는 3월에 시작한다.
-4-18	April	4월	I like the weather in April.	나는 4월의 날씨를 좋아한다.
-4-18	May	5월	We have Children's Day in May.	우리는 5월에 어린이날이 있다.
-4-18	June	6월	We go swimming in June.	우리는 6월에 수영하러 간다.
-4-18	July	7월	July is a hot month.	7월은 더운 달이다.
-4-18	August	8월	We have summer vacation in August.	우리는 8월에 여름 방학이 있다.
-4-18	September	9월	School starts again in September.	학교는 9월에 다시 시작한다.
-4-18	October	10월	I see red leaves in October.	나는 10월에 빨간 나뭇잎을 본다.
-4-18	November	11월	It starts getting cold in November.	11월에 추워지기 시작한다.
-4-18	December	12월	We celebrate Christmas in December.	우리는 12월에 크리스마스를 기념한다.
-4-19	wake up	잠에서 깨다	I wake up at 7 o'clock.	나는 7시에 잠에서 깬다.
-4-19	get up	일어나다	I get up from my bed.	나는 나의 침대에서 일어난다.
-4-19	go to school	학교에 가다	I go to school by bus.	나는 버스를 타고 학교에 간다.
-4-19	come home	집에 오다	I come home after school.	나는 방과 후에 집에 온다.
-4-19	take a shower	샤워를 하다	I take a shower in the morning.	나는 아침에 샤워를 한다.
-4-19	wash hands	손을 씻다	Always wash hands before eating.	먹기 전에 항상 손을 씻어라.
-4-19	brush teeth	양치질을 하다	I brush teeth twice a day.	나는 하루에 두 번 양치질을 한다.
-4-19	go to bed	잠자리에 들다	I go to bed at ten.	나는 10시에 잠자리에 든다.
-4-19	read a book	책을 읽다	I read a book every night.	나는 매일 밤 책을 읽는다.
-4-19	keep a diary	일기를 쓰다	I keep a diary about my day.	나는 나의 하루에 대해 일기를 쓴다.
-4-19	watch television	텔레비전을 보다	We watch television in the living room.	우리는 거실에서 텔레비전을 본다.
-4-19	cook	요리하다	My dad likes to cook.	나의 아빠는 요리하는 것을 좋아하신다.
-4-19	take a bath	목욕하다	I take a bath on Sunday.	나는 일요일에 목욕한다.
-4-19	rest	쉬다	You should rest when you are tired.	너는 피곤할 때 쉬어야 한다.
-4-19	do homework	숙제를 하다	I must do homework now.	나는 지금 숙제를 해야 한다.
-4-19	soon	곧	I will finish soon.	나는 곧 끝낼 것이다.
-4-20	go	가다	I go to the park.	나는 공원에 간다.
-4-20	build	짓다	They will build a new school.	그들은 새 학교를 지을 것이다.
-4-20	company	회사	My father works at a company.	나의 아버지는 회사에서 일하신다.
-4-20	office	사무실	The doctor is in his office.	의사는 그의 사무실에 있다.
-4-20	post office	우체국	I send a letter at the post office.	나는 우체국에서 편지를 보낸다.
-4-20	bank	은행	I save money in the bank.	나는 은행에 돈을 저금한다.
-4-20	store	가게	Let's buy some candy at the store.	가게에서 사탕을 좀 사자.
-4-20	church	교회	We go to church on Sunday.	우리는 일요일에 교회에 간다.
-4-20	place	장소	This is a beautiful place.	이곳은 아름다운 장소이다.
-4-20	library	도서관	I read books in the library.	나는 도서관에서 책을 읽는다.
-4-20	bookstore	서점	I buy a comic book at the bookstore.	나는 서점에서 만화책을 산다.
-4-20	bakery	빵집	I smell bread from the bakery.	나는 빵집에서 빵 냄새를 맡는다.
-4-20	supermarket	슈퍼마켓	My mom goes to the supermarket.	나의 엄마는 슈퍼마켓에 가신다.
-4-20	restaurant	식당	We eat dinner at the restaurant.	우리는 식당에서 저녁을 먹는다.
-4-20	café	카페	I drink juice at the café.	나는 카페에서 주스를 마신다.
-4-20	department store	백화점	I bought a shirt at the department store.	나는 백화점에서 셔츠를 샀다.
-4-21	come	오다	Come to the park with me.	나랑 같이 공원에 와라.
-4-21	jump	뛰다, 점프하다	The frog can jump high.	개구리는 높이 뛸 수 있다.
-4-21	run	달리다	I run in the morning.	나는 아침에 달린다.
-4-21	sit	앉다	Sit here, please.	여기에 앉아 주세요.
-4-21	wait	기다리다	Wait for me at the bus stop.	버스 정류장에서 나를 기다려라.
-4-21	sleep	잠자다	I sleep for 8 hours.	나는 8시간 동안 잠을 잔다.
-4-21	move	움직이다	Please move the chair.	의자를 움직여 주세요.
-4-21	put	놓다, 두다	Put the toys in the box.	장난감을 상자 안에 놓아라.
-4-21	do	하다	I do my homework every day.	나는 매일 숙제를 한다.
-4-21	cut	자르다	Cut the paper with scissors.	가위로 종이를 잘라라.
-4-21	drop	떨어뜨리다	Be careful not to drop the glass.	유리잔을 떨어뜨리지 않도록 조심해라.
-4-21	forget	잊다	Don't forget my name.	나의 이름을 잊지 마라.
-4-21	open	열다	Open the window for fresh air.	신선한 공기를 위해 창문을 열어라.
-4-21	close	닫다	Close the door quietly.	문을 조용히 닫아라.
-4-21	blow	불다	I blow out the candle.	나는 촛불을 분다.
-4-21	show	보여주다	Show me your new pencil.	너의 새 연필을 나에게 보여 줘.
-4-22	park	공원	I play soccer in the park.	나는 공원에서 축구를 한다.
-4-22	field	들판	We saw many flowers in the field.	우리는 들판에서 많은 꽃을 보았다.
-4-22	ground	땅	The ball rolled on the ground.	공이 땅 위에서 굴러갔다.
-4-22	grass	풀, 잔디	We sit on the soft grass.	우리는 부드러운 잔디 위에 앉는다.
-4-22	sand	모래	I build a castle with sand.	나는 모래로 성을 만든다.
-4-22	bench	벤치	Let's sit on the bench.	벤치에 앉자.
-4-22	flower	꽃	This flower smells sweet.	이 꽃은 달콤한 냄새가 난다.
-4-22	rose	장미	The red rose is beautiful.	빨간 장미는 아름답다.
-4-22	find	찾다	I need to find my lost key.	나는 잃어버린 열쇠를 찾아야 한다.
-4-22	ride	타다	Can you ride a bike?	너는 자전거를 탈 수 있니?
-4-22	bicycle	자전거	I have a new bicycle.	나는 새 자전거를 가지고 있다.
-4-22	jump rope	줄넘기, 줄넘기를 하다	We jump rope during break time.	우리는 쉬는 시간에 줄넘기를 한다.
-4-22	camera	카메라	I take pictures with my camera.	나는 나의 카메라로 사진을 찍는다.
-4-22	map	지도	Look at the map to find the way.	길을 찾기 위해 지도를 보아라.
-4-22	stone	돌	I picked up a small stone.	나는 작은 돌 하나를 주웠다.
-4-22	plant	식물	My mom waters the plant.	나의 엄마는 식물에 물을 주신다.
-4-23	many	(수가) 많은	There are many people here.	여기에 많은 사람들이 있다.
-4-23	much	(양이) 많은	I don't have much time.	나는 시간이 많지 않다.
-4-23	few	(수가) 거의 없는	He has few friends.	그는 친구가 거의 없다.
-4-23	little	(양이) 거의 없는	There is little water left.	남은 물이 거의 없다.
-4-23	more	더 많은	I want more cake.	나는 케이크를 더 많이 원한다.
-4-23	enough	충분한	I have enough money for the ticket.	나는 티켓을 살 충분한 돈이 있다.
-4-23	some	조금, 약간의	Do you want some juice?	주스 좀 마실래?
-4-23	both	둘 다	Both my parents are here.	나의 부모님 두 분 다 여기 계시다.
-4-23	all	모든, 모두	All students must be quiet.	모든 학생들은 조용해야 한다.
-4-23	most	대부분의	Most of the work is done.	일의 대부분이 끝났다.
-4-23	a lot of	많은	We saw a lot of birds.	우리는 많은 새를 보았다.
-4-23	any	어느, 어떤	Do you have any questions?	질문이 있니?
-4-23	full	가득 찬	The basket is full of apples.	바구니는 사과로 가득 차 있다.
-4-23	empty	비어 있는	The box is empty.	그 상자는 비어 있다.
-4-23	another	또 하나의	Please give me another chance.	나에게 또 하나의 기회를 주세요.
-4-23	only	오직, 겨우	I have only one cookie left.	나에게는 오직 하나의 쿠키만 남아 있다.
-4-24	country	나라, 국가	I love my country, Korea.	나는 나의 나라, 한국을 매우 사랑한다.
-4-24	world	세계, 세상	There are many places in the world.	세상에는 많은 장소가 있다.
-4-24	culture	문화	I want to learn about different cultures.	나는 다양한 문화에 대해 배우고 싶다.
-4-24	Korea	한국	Korea is in Asia.	한국은 아시아에 있다.
-4-24	China	중국	China is a very big country.	중국은 아주 큰 나라이다.
-4-24	America	미국	My uncle lives in America.	나의 삼촌은 미국에 사신다.
-4-24	Japan	일본	I want to travel to Japan.	나는 일본으로 여행하고 싶다.
-4-24	Canada	캐나다	Canada is famous for maple syrup.	캐나다는 메이플 시럽으로 유명하다.
-4-24	grow up	성장하다, 자라다	I will grow up to be a kind person.	나는 자라서 친절한 사람이 될 것이다.
-4-24	live	살다	I live in Seoul with my family.	나는 나의 가족과 함께 서울에 산다.
-4-24	island	섬	Jeju is a famous island.	제주는 유명한 섬이다.
-4-24	town	소도시	I visited a small quiet town.	나는 작고 조용한 소도시를 방문했다.
-4-24	city	도시	Seoul is a very busy city.	서울은 매우 바쁜 도시이다.
-4-24	village	마을	My grandparents live in a small village.	나의 할아버지와 할머니는 작은 마을에 사신다.
-4-24	countryside	시골, 지방	We went to the countryside for a trip.	우리는 여행을 위해 시골에 갔다.
-4-24	downtown	시내에	Let's meet downtown this weekend.	이번 주말에 시내에서 만나자.
-4-25	zoo	동물원	We go to the zoo to see animals.	우리는 동물들을 보기 위해 동물원에 간다.
-4-25	lion	사자	The lion is the king of the jungle.	사자는 정글의 왕이다.
-4-25	tiger	호랑이	The tiger has black stripes.	호랑이는 검은 줄무늬를 가지고 있다.
-4-25	giraffe	기린	The giraffe has a long neck.	기린은 목이 길다.
-4-25	monkey	원숭이	The monkey likes to eat bananas.	원숭이는 바나나 먹는 것을 좋아한다.
-4-25	elephant	코끼리	The elephant is a big animal.	코끼리는 큰 동물이다.
-4-25	fox	여우	The fox is a smart animal.	여우는 영리한 동물이다.
-4-25	dolphin	돌고래	The dolphin can jump very high.	돌고래는 아주 높이 점프할 수 있다.
-4-25	jungle	밀림 지대, 정글	We explored the dense jungle.	우리는 빽빽한 정글을 탐험했다.
-4-25	wolf	늑대	I heard a wolf howling at night.	나는 밤에 늑대가 우는 소리를 들었다.
-4-25	hippo	하마	The hippo stays in the water.	하마는 물 속에 머문다.
-4-25	bear	곰	The bear likes to eat honey.	곰은 꿀 먹는 것을 좋아한다.
-4-25	cheetah	치타	The cheetah runs very fast.	치타는 매우 빠르게 달린다.
-4-25	zebra	얼룩말	The zebra has black and white stripes.	얼룩말은 검은색과 흰색 줄무늬를 가지고 있다.
-4-25	panda	판다	The panda eats bamboo.	판다는 대나무를 먹는다.
-4-25	bat	박쥐	The bat flies only at night.	박쥐는 밤에만 난다.
-4-26	farm	농장	My grandfather works on the farm.	나의 할아버지는 농장에서 일하신다.
-4-26	cow	소	The cow gives us milk.	소는 우리에게 우유를 준다.
-4-26	horse	말	I like to ride a horse.	나는 말을 타는 것을 좋아한다.
-4-26	sheep	양	The sheep is eating grass.	양이 풀을 먹고 있다.
-4-26	chicken	닭	We feed the chickens every day.	우리는 매일 닭들에게 먹이를 준다.
-4-26	hen	암탉	The hen laid an egg this morning.	암탉이 오늘 아침에 알을 낳았다.
-4-26	pig	돼지	The pig is sleeping in the mud.	돼지가 진흙 속에서 자고 있다.
-4-26	deer	사슴	We saw a wild deer in the forest.	우리는 숲에서 야생 사슴을 보았다.
-4-26	goat	염소	The goat is climbing the rock.	염소가 바위를 오르고 있다.
-4-26	duck	오리	The duck is swimming on the pond.	오리가 연못 위에서 수영하고 있다.
-4-26	frog	개구리	The frog jumps very high.	개구리는 아주 높이 점프한다.
-4-26	mouse	쥐	A small mouse ran into the hole.	작은 쥐가 구멍으로 뛰어 들어갔다.
-4-26	mice	(mouse의 복수형) 쥐들	There are three mice under the sofa.	소파 밑에 쥐 세 마리가 있다.
-4-26	bug	벌레	I found a green bug on the leaf.	나는 나뭇잎 위에서 초록색 벌레를 발견했다.
-4-26	bee	벌	The bee is making honey.	벌이 꿀을 만들고 있다.
-4-26	ant	개미	An ant is carrying a piece of food.	개미 한 마리가 먹이 조각을 운반하고 있다.
-4-27	market	시장	I buy fresh vegetables at the market.	나는 시장에서 신선한 채소를 산다.
-4-27	plastic bag	비닐봉지	I put apples in a plastic bag.	나는 사과를 비닐봉지에 넣는다.
-4-27	shopping bag	쇼핑 백, 장바구니	Please bring a shopping bag.	쇼핑 백을 가져와 주세요.
-4-27	cart	카트, 수레	I push the cart in the store.	나는 가게에서 카트를 민다.
-4-27	shop	가게	I found a nice gift at the shop.	나는 가게에서 좋은 선물을 찾았다.
-4-27	customer	손님, 고객	The customer is buying a shirt.	그 손님은 셔츠를 사고 있다.
-4-27	clerk	점원	The clerk helped me find the item.	점원이 내가 물건을 찾는 것을 도와주었다.
-4-27	sell	팔다	The bakery sells fresh bread.	그 빵집은 신선한 빵을 판다.
-4-27	look for	~을 찾다	I will look for my lost wallet.	나는 잃어버린 지갑을 찾을 것이다.
-4-27	buy	사다	I want to buy a new toy.	나는 새 장난감을 사고 싶다.
-4-27	spend	(돈을) 쓰다	I spend money on books.	나는 책에 돈을 쓴다.
-4-27	pay	지불하다	I will pay with cash.	나는 현금으로 지불할 것이다.
-4-27	cost	값, 비용	The cost of the pen is 1,000 won.	그 펜의 값은 1,000원이다.
-4-27	price	가격	What is the price of this candy?	이 사탕의 가격은 얼마입니까?
-4-27	cheap	(값이) 싼	This snack is very cheap.	이 과자는 매우 싸다.
-4-27	expensive	비싼	That necklace is too expensive.	저 목걸이는 너무 비싸다.
-4-28	fruit	과일	I eat fruit every morning.	나는 매일 아침 과일을 먹는다.
-4-28	banana	바나나	A banana is a yellow fruit.	바나나는 노란색 과일이다.
-4-28	apple	사과	I like red apples.	나는 빨간 사과를 좋아한다.
-4-28	orange	오렌지	I drink orange juice.	나는 오렌지 주스를 마신다.
-4-28	lemon	레몬	Lemons are sour.	레몬은 시큼하다.
-4-28	grape	포도	I like purple grapes.	나는 보라색 포도를 좋아한다.
-4-28	strawberry	딸기	I bought sweet strawberryies.	나는 달콤한 딸기를 샀다.
-4-28	watermelon	수박	Watermelon is a summer fruit.	수박은 여름 과일이다.
-4-28	vegetable	채소	We should eat more vegetables.	우리는 채소를 더 많이 먹어야 한다.
-4-28	tomato	토마토	A tomato is red and round.	토마토는 빨갛고 둥글다.
-4-28	carrot	당근	Rabbits eat carrots.	토끼는 당근을 먹는다.
-4-28	corn	옥수수	I like roasted corn.	나는 구운 옥수수를 좋아한다.
-4-28	onion	양파	Onions can make you cry.	양파는 너를 울게 만들 수 있다.
-4-28	garlic	마늘	Garlic has a strong smell.	마늘은 강한 냄새가 난다.
-4-28	potato	감자	We make french fries from a potato.	우리는 감자로 감자튀김을 만든다.
-4-28	fresh	신선한	I buy fresh fruit at the market.	나는 시장에서 신선한 과일을 산다.
-4-29	time	시간	What time is it now?	지금 몇 시니?
-4-29	second	초	The light lasts for ten seconds.	빛이 10초 동안 지속된다.
-4-29	minute	분	Wait for five minutes.	5분 동안 기다려라.
-4-29	hour	한 시간	I study for one hour.	나는 한 시간 동안 공부한다.
-4-29	day	하루	There are seven days in a week.	일주일에는 7일이 있다.
-4-29	ago	(지금부터) ~전에	I saw him two days ago.	나는 그를 이틀 전에 보았다.
-4-29	last	지난, 마지막의	Last week I went camping.	지난주에 나는 캠핑을 갔다.
-4-29	when	언제	When will the movie start?	영화는 언제 시작할까?
-4-29	before	전에, 앞에	I brush my teeth before bed.	나는 잠자기 전에 양치질을 한다.
-4-29	after	후에, 뒤에	We will eat cake after dinner.	우리는 저녁 식사 후에 케이크를 먹을 것이다.
-4-29	then	그때	I was playing outside then.	나는 그때 밖에서 놀고 있었다.
-4-29	now	지금	We should leave now.	우리는 지금 떠나야 한다.
-4-29	early	일찍	I wake up early on weekdays.	나는 평일에 일찍 일어난다.
-4-29	late	늦은, 늦게	Don't be late for school.	학교에 늦지 마라.
-4-29	busy	바쁜	My mom is busy today.	나의 엄마는 오늘 바쁘시다.
-4-29	next	다음의	Next week is my birthday.	다음 주는 나의 생일이다.
-4-30	sky	하늘	The sky is clear and blue today.	오늘 하늘은 맑고 파랗다.
-4-30	sun	해, 태양	The sun sets in the west.	해는 서쪽으로 진다.
-4-30	moon	달	We can see the full moon tonight.	우리는 오늘 밤 보름달을 볼 수 있다.
-4-30	star	별	I saw a shooting star.	나는 별똥별을 보았다.
-4-30	cloud	구름	The airplane is flying above the clouds.	비행기가 구름 위를 날고 있다.
-4-30	shine	빛나다, 반짝이다	The diamonds shine brightly.	다이아몬드가 밝게 빛난다.
-4-30	bright	밝은	The light is too bright.	빛이 너무 밝다.
-4-30	dark	어두운	It gets dark very fast in winter.	겨울에는 해가 아주 빨리 진다.
-4-30	rain	비	The rain stopped this morning.	비가 오늘 아침에 멈췄다.
-4-30	snow	눈	I like the soft white snow.	나는 부드러운 하얀 눈을 좋아한다.
-4-30	storm	폭풍우	A big storm is coming soon.	큰 폭풍우가 곧 올 것이다.
-4-30	fog	안개	The fog made it hard to see the road.	안개 때문에 길을 보기 어려웠다.
-4-30	air	공기	We need clean air to breathe.	우리는 숨 쉬기 위해 깨끗한 공기가 필요하다.
-4-30	light	빛	The sun gives off warm light.	태양은 따뜻한 빛을 내뿜는다.
-4-30	earth	지구	The earth is round.	지구는 둥글다.
-4-30	space	우주	There are many stars in outer space.	외부 우주에는 많은 별들이 있다.
+4-1|father|아버지|This is my father.|이 분은 나의 아버지이다.,
+4-1|dad|아빠|I like my dad.|나는 나의 아빠를 좋아한다.,
+4-1|mother|어머니|She is my mother.|그녀는 나의 어머니이다.,
+4-1|mom|엄마|My mom is pretty.|나의 엄마는 예쁘다.,
+4-1|brother|남자 형제|He is my brother.|그는 나의 남자 형제이다.,
+4-1|sister|여자 형제|I have a sister.|나는 여자 형제가 한 명 있다.,
+4-1|family|가족|We love our family.|우리는 우리의 가족을 사랑한다.,
+4-1|parents|부모|My parents are here.|나의 부모님들이 여기에 계신다.,
+4-1|daughter|딸|She is my daughter.|그녀는 나의 딸이다.,
+4-1|son|아들|I am a good son.|나는 착한 아들이다.,
+4-1|grandparents|조부모|I call my grandparents.|나는 나의 조부모님께 전화한다.,
+4-1|grandfather|할아버지|My grandfather is old.|나의 할아버지는 나이가 많으시다.,
+4-1|grandmother|할머니|I see my grandmother.|나는 나의 할머니를 뵌다.,
+4-1|uncle|삼촌|My uncle has a car.|나의 삼촌은 차를 한 대 가지고 계신다.,
+4-1|aunt|이모, 고모|I play with my aunt.|나는 나의 이모/고모와 함께 논다.,
+4-1|cousin|사촌|He is my cousin.|그는 나의 사촌이다.,
+4-2|Sunday|일요일|Today is Sunday.|오늘은 일요일이다.,
+4-2|Monday|월요일|I go to school on Monday.|나는 월요일에 학교에 간다.,
+4-2|Tuesday|화요일|We have P.E. on Tuesday.|우리는 화요일에 체육 수업이 있다.,
+4-2|Wednesday|수요일|I eat lunch on Wednesday.|나는 수요일에 점심을 먹는다.,
+4-2|Thursday|목요일|Do you like Thursday?|너는 목요일을 좋아하니?,
+4-2|Friday|금요일|Let's meet next Friday.|다음 주 금요일에 만나자.,
+4-2|Saturday|토요일|We play soccer on Saturday.|우리는 토요일에 축구를 한다.,
+4-2|today|오늘|What is the date today?|오늘 날짜는 언제니?,
+4-2|morning|아침|I eat breakfast in the morning.|나는 아침에 아침밥을 먹는다.,
+4-2|afternoon|오후|Let's play in the afternoon.|오후에 놀자.,
+4-2|evening|저녁|I watch TV in the evening.|나는 저녁에 TV를 본다.,
+4-2|night|밤|I sleep at night.|나는 밤에 잠을 잔다.,
+4-2|tonight|오늘밤|I will study tonight.|나는 오늘밤에 공부할 것이다.,
+4-2|yesterday|어제|I was sick yesterday.|나는 어제 아팠다.,
+4-2|tomorrow|내일|We will meet tomorrow.|우리는 내일 만날 것이다.,
+4-2|week|일주일, 주|There are seven days in a week.|한 주에는 7일이 있다.,
+4-3|weather|날씨|The weather is nice today.|오늘 날씨는 좋다.,
+4-3|sunny|화창한|It is a sunny day.|오늘은 화창한 날이다.,
+4-3|cloudy|구름이 낀|It is cloudy now.|지금은 구름이 끼어 있다.,
+4-3|rainy|비가 오는|Don't forget your umbrella on a rainy day.|비 오는 날에 우산을 잊지 마라.,
+4-3|snowy|눈이 오는|Let's make a snowman on a snowy day.|눈 오는 날에 눈사람을 만들자.,
+4-3|foggy|안개가 낀|It is foggy outside.|밖은 안개가 끼어 있다.,
+4-3|windy|바람이 부는|The windy day is cold.|바람 부는 날은 춥다.,
+4-3|warm|따뜻한|The room is warm.|방이 따뜻하다.,
+4-3|cold|추운|I feel cold now.|나는 지금 춥다.,
+4-3|cool|시원한|The drink is cool.|음료수가 시원하다.,
+4-3|hot|더운|It is very hot outside.|밖이 매우 덥다.,
+4-3|season|계절|What is your favorite season?|네가 가장 좋아하는 계절은 무엇이니?,
+4-3|spring|봄|I like spring flowers.|나는 봄꽃을 좋아한다.,
+4-3|summer|여름|Let's swim in the summer.|여름에 수영하자.,
+4-3|fall|가을|Fall is a beautiful season.|가을은 아름다운 계절이다.,
+4-3|winter|겨울|Winter is very cold.|겨울은 매우 춥다.,
+4-4|taste|맛이 나다, 맛보다|I taste the sweet cake.|나는 달콤한 케이크 맛을 본다.,
+4-4|sweet|달콤한|The candy is sweet.|그 사탕은 달콤하다.,
+4-4|sour|신맛이 나는|I don't like sour lemons.|나는 신 레몬을 좋아하지 않는다.,
+4-4|feel|느끼다|I feel happy today.|나는 오늘 행복함을 느낀다.,
+4-4|wet|젖은, 축축한|My shoes are wet.|나의 신발이 젖었다.,
+4-4|dry|마른, 건조한|Please use a dry towel.|마른 수건을 사용해 주세요.,
+4-4|soft|부드러운|The pillow is very soft.|그 베개는 매우 부드럽다.,
+4-4|hard|딱딱한|The rock is very hard.|그 돌은 매우 딱딱하다.,
+4-4|hear|듣다|Can you hear the music?|음악을 들을 수 있니?,
+4-4|look|보이다, 보다|You look happy.|너는 행복해 보인다.,
+4-4|smell|냄새가 나다, 냄새 맡다|I can smell the food.|나는 그 음식 냄새를 맡을 수 있다.,
+4-4|delicious|맛있는|This cake is delicious.|이 케이크는 맛있다.,
+4-4|sound|~하게 들리다|It sounds like a bird.|새 소리처럼 들린다.,
+4-4|loud|시끄러운|The music is too loud.|음악이 너무 시끄럽다.,
+4-4|quiet|조용한|Please be quiet.|조용히 해 주세요.,
+4-4|nice|좋은|Have a nice day.|좋은 하루 보내세요.,
+4-5|number|숫자|What is your favorite number?|네가 가장 좋아하는 숫자는 무엇이니?,
+4-5|one|1, 하나|I have one dog.|나는 개를 한 마리 가지고 있다.,
+4-5|two|2, 둘|We have two brothers.|우리는 두 명의 남자 형제가 있다.,
+4-5|three|3, 셋|I eat three cookies.|나는 쿠키 세 개를 먹는다.,
+4-5|four|4, 넷|A cat has four legs.|고양이는 다리가 네 개 있다.,
+4-5|five|5, 다섯|I count to five.|나는 다섯까지 센다.,
+4-5|six|6, 여섯|There are six chairs.|의자가 여섯 개 있다.,
+4-5|seven|7, 일곱|Today is day seven.|오늘은 일곱 번째 날이다.,
+4-5|eight|8, 여덟|I have eight pencils.|나는 연필을 여덟 자루 가지고 있다.,
+4-5|nine|9, 아홉|He is nine years old.|그는 아홉 살이다.,
+4-5|ten|10, 열|Let's count to ten.|열까지 세어 보자.,
+4-5|eleven|11, 열하나|I see eleven birds.|나는 새 열한 마리를 본다.,
+4-5|twelve|12, 열 둘|There are twelve months.|열두 달이 있다.,
+4-5|thirteen|13, 열 셋|My sister is thirteen.|나의 여동생은 열세 살이다.,
+4-5|fourteen|14, 열 넷|I wear fourteen stickers.|나는 스티커 열네 개를 붙인다.,
+4-5|fifteen|15, 열 다섯|I can see fifteen cars.|나는 차 열다섯 대를 볼 수 있다.,
+4-6|how|얼마나, 어떻게|How old are you?|너는 나이가 얼마나 되니?,
+4-6|long|긴|That ruler is long.|저 자는 길다.,
+4-6|quick|빠른|Be quick!|빠르게 해라!,
+4-6|large|큰, 넓은|My school has a large gym.|나의 학교는 넓은 체육관이 있다.,
+4-6|big|큰|That house is very big.|저 집은 매우 크다.,
+4-6|small|작은|I have a small pencil.|나는 작은 연필을 가지고 있다.,
+4-6|heavy|무거운|This box is heavy.|이 상자는 무겁다.,
+4-6|light|가벼운|My bag is light.|나의 가방은 가볍다.,
+4-6|dirty|더러운|The floor is dirty.|바닥이 더럽다.,
+4-6|clean|깨끗한|My hands are clean.|나의 손은 깨끗하다.,
+4-6|high|높은|The bird flies high.|그 새는 높이 난다.,
+4-6|low|낮은|The fence is low.|울타리가 낮다.,
+4-6|wide|넓은|The road is wide.|그 도로는 넓다.,
+4-6|narrow|좁은|This street is narrow.|이 길은 좁다.,
+4-6|thick|두꺼운|This book is thick.|이 책은 두껍다.,
+4-6|thin|얇은|I wear a thin jacket.|나는 얇은 재킷을 입는다.,
+4-7|body|몸|Take care of your body.|너의 몸을 돌보아라.,
+4-7|muscle|근육|Running builds your muscle.|달리기는 너의 근육을 만든다.,
+4-7|bone|뼈|My leg bone is strong.|나의 다리 뼈는 튼튼하다.,
+4-7|foot|발|I wear shoes on my foot.|나는 나의 발에 신발을 신는다.,
+4-7|feet|발 (복수)|I have two feet.|나는 두 발을 가지고 있다.,
+4-7|toe|발가락|I wiggle my toe.|나는 나의 발가락을 꼼지락거린다.,
+4-7|hand|손|Wash your hand.|너의 손을 씻어라.,
+4-7|finger|손가락|I have ten fingers.|나는 열 개의 손가락이 있다.,
+4-7|heart|심장|My heart beats fast.|나의 심장이 빠르게 뛴다.,
+4-7|brain|뇌|The brain helps me think.|뇌는 내가 생각하는 것을 돕는다.,
+4-7|shoulder|어깨|He taps my shoulder.|그는 나의 어깨를 두드린다.,
+4-7|back|등|I carry a bag on my back.|나는 나의 등에 가방을 멘다.,
+4-7|leg|다리|I run with my leg.|나는 나의 다리로 달린다.,
+4-7|knee|무릎|He fell on his knee.|그는 무릎을 꿇고 넘어졌다.,
+4-7|arm|팔|I hold the bag with my arm.|나는 나의 팔로 가방을 잡는다.,
+4-7|elbow|팔꿈치|I hurt my elbow.|나는 나의 팔꿈치를 다쳤다.,
+4-8|face|얼굴|I wash my face.|나는 나의 얼굴을 씻는다.,
+4-8|cheek|볼, 뺨|My cheek is soft.|나의 볼은 부드럽다.,
+4-8|chin|턱|He has a big chin.|그는 큰 턱을 가지고 있다.,
+4-8|skin|피부|My skin is dry.|나의 피부는 건조하다.,
+4-8|head|머리|I wash my head.|나는 나의 머리를 감는다.,
+4-8|hair|머리카락|My hair is black.|나의 머리카락은 검은색이다.,
+4-8|neck|목|I wear a scarf around my neck.|나는 나의 목에 스카프를 두른다.,
+4-8|throat|목구멍|I have a sore throat.|나는 목구멍이 아프다.,
+4-8|eye|눈|I have two eyes.|나는 두 개의 눈이 있다.,
+4-8|eyebrow|눈썹|My eyebrow is thick.|나의 눈썹은 두껍다.,
+4-8|ear|귀|I hear with my ear.|나는 나의 귀로 듣는다.,
+4-8|nose|코|I smell with my nose.|나는 나의 코로 냄새를 맡는다.,
+4-8|mouth|입|I open my mouth.|나는 나의 입을 벌린다.,
+4-8|lip|입술|My lips are red.|나의 입술은 빨갛다.,
+4-8|tooth|치아, 이|I brush my tooth.|나는 나의 이를 닦는다.,
+4-8|teeth|tooth의 복수형|I brush my teeth.|나는 나의 이들을 닦는다.,
+4-9|good|좋은|This movie is good.|이 영화는 좋다.,
+4-9|bad|나쁜|He is a bad person.|그는 나쁜 사람이다.,
+4-9|sad|슬픈|I feel sad today.|나는 오늘 슬프다.,
+4-9|happy|행복한|I am happy to see you.|나는 너를 만나서 행복하다.,
+4-9|lonely|외로운|The dog looks lonely.|그 개는 외로워 보인다.,
+4-9|angry|화난|Don't be angry with me.|나에게 화내지 마라.,
+4-9|tired|피곤한|I am tired after school.|나는 방과 후에 피곤하다.,
+4-9|nervous|불안해하는|I feel nervous before the test.|나는 시험 전에 불안해한다.,
+4-9|upset|속상한, 짜증 난|She is upset about the game.|그녀는 그 게임 때문에 속상해한다.,
+4-9|glad|기쁜|I am glad you came.|나는 네가 와서 기쁘다.,
+4-9|mad|몹시 화난|He is mad at his brother.|그는 그의 남동생에게 몹시 화가 났다.,
+4-9|worried|걱정하는|My mom is worried about me.|나의 엄마는 나에 대해 걱정하신다.,
+4-9|scared|무서워하는|I am scared of the dark.|나는 어둠을 무서워한다.,
+4-9|surprised|놀란|I was surprised by the noise.|나는 그 소음에 놀랐다.,
+4-9|excited|신이 난|The kids are excited to play.|아이들은 놀 생각에 신이 났다.,
+4-9|bored|지루해 하는|I am bored with this lesson.|나는 이 수업이 지루하다.,
+4-10|house|집|I live in a big house.|나는 큰 집에 산다.,
+4-10|bedroom|침실|I sleep in my bedroom.|나는 나의 침실에서 잠을 잔다.,
+4-10|living room|거실|We watch TV in the living room.|우리는 거실에서 TV를 본다.,
+4-10|bathroom|욕실, 화장실|I wash my hands in the bathroom.|나는 욕실에서 손을 씻는다.,
+4-10|garden|정원|We have many flowers in the garden.|우리는 정원에 많은 꽃을 가지고 있다.,
+4-10|backyard|뒷마당|I play soccer in the backyard.|나는 뒷마당에서 축구를 한다.,
+4-10|kitchen|부엌|My mom is in the kitchen.|나의 엄마는 부엌에 계신다.,
+4-10|where|어디에|Where is my book?|나의 책은 어디에 있니?,
+4-10|gate|대문|Open the gate, please.|대문을 열어 주세요.,
+4-10|bell|종, 초인종|Ring the bell to enter.|들어오려면 초인종을 눌러라.,
+4-10|door|문|Close the door.|문을 닫아라.,
+4-10|roof|지붕|The rain falls on the roof.|비가 지붕 위에 떨어진다.,
+4-10|sofa|소파|I sit on the sofa.|나는 소파에 앉는다.,
+4-10|table|탁자|Put the pen on the table.|펜을 탁자 위에 놓아라.,
+4-10|carpet|카펫|The carpet is soft.|카펫이 부드럽다.,
+4-10|stairs|계단|I walk up the stairs.|나는 계단을 걸어 올라간다.,
+4-11|raise|키우다, 기르다|I raise a dog.|나는 개를 키운다.,
+4-11|pet|애완동물|I have a cute pet.|나는 귀여운 애완동물이 있다.,
+4-11|animal|동물|A dog is an animal.|개는 동물이다.,
+4-11|dog|개|I play with my dog.|나는 나의 개와 함께 논다.,
+4-11|puppy|강아지|The puppy is small.|그 강아지는 작다.,
+4-11|cat|고양이|My cat likes to sleep.|나의 고양이는 자는 것을 좋아한다.,
+4-11|kitten|새끼 고양이|The kitten is tiny.|그 새끼 고양이는 아주 작다.,
+4-11|turtle|거북이|The turtle moves slowly.|거북이는 느리게 움직인다.,
+4-11|feed|먹이를 주다|I feed my cat.|나는 나의 고양이에게 먹이를 준다.,
+4-11|cage|우리, 새장|The bird is in the cage.|새가 새장 안에 있다.,
+4-11|fish|물고기|I have a fish tank.|나는 어항을 가지고 있다.,
+4-11|rabbit|토끼|A rabbit eats carrots.|토끼는 당근을 먹는다.,
+4-11|hamster|햄스터|My hamster is running.|나의 햄스터가 달리고 있다.,
+4-11|snake|뱀|A snake is long.|뱀은 길다.,
+4-11|bird|새|A bird is singing.|새가 노래하고 있다.,
+4-11|spider|거미|A spider has eight legs.|거미는 여덟 개의 다리를 가지고 있다.,
+4-12|color|색깔, 색칠하다|What is your favorite color?|네가 가장 좋아하는 색깔은 무엇이니?,
+4-12|favorite|가장 좋아하는|My favorite color is red.|내가 가장 좋아하는 색깔은 빨간색이다.,
+4-12|red|빨간색|The apple is red.|그 사과는 빨간색이다.,
+4-12|orange|주황색|I eat an orange.|나는 주황색 오렌지를 먹는다.,
+4-12|yellow|노란색|I draw a yellow sun.|나는 노란색 태양을 그린다.,
+4-12|green|초록색|The grass is green.|잔디는 초록색이다.,
+4-12|blue|파란색|The sky is blue.|하늘은 파란색이다.,
+4-12|purple|보라색|She wears a purple hat.|그녀는 보라색 모자를 쓴다.,
+4-12|black|검은색|My dog is black.|나의 개는 검은색이다.,
+4-12|white|흰색|The cloud is white.|구름은 흰색이다.,
+4-12|brown|갈색|My shoes are brown.|나의 신발은 갈색이다.,
+4-12|gray|회색|The rock is gray.|그 돌은 회색이다.,
+4-12|pink|분홍색|I like pink flowers.|나는 분홍색 꽃을 좋아한다.,
+4-12|gold|금색|I found a gold coin.|나는 금색 동전을 찾았다.,
+4-12|silver|은색|The ring is silver.|그 반지는 은색이다.,
+4-12|paint|칠하다, 그리다|Let's paint the wall blue.|벽을 파란색으로 칠하자.,
+4-13|age|나이|What is your age?|너의 나이는 몇 살이니?,
+4-13|who|누구|Who is that boy?|저 소년은 누구니?,
+4-13|young|어린, 젊은|She is a young student.|그녀는 어린 학생이다.,
+4-13|old|늙은, 나이가 많은|My grandfather is old.|나의 할아버지는 나이가 많으시다.,
+4-13|child|아이|I am a happy child.|나는 행복한 아이이다.,
+4-13|adult|성인, 어른|My parents are adults.|나의 부모님은 어른이다.,
+4-13|boy|소년, 남자아이|He is a clever boy.|그는 똑똑한 소년이다.,
+4-13|girl|소녀, 여자아이|She is a nice girl.|그녀는 착한 소녀이다.,
+4-13|man|(성인) 남자|That man is tall.|저 남자는 키가 크다.,
+4-13|woman|(성인) 여자|That woman is a teacher.|저 여자는 선생님이다.,
+4-13|gentleman|신사|He is a kind gentleman.|그는 친절한 신사이다.,
+4-13|lady|숙녀, 여성|She is a beautiful lady.|그녀는 아름다운 숙녀이다.,
+4-13|Mr.|(남성의 성, 이름 앞에) ~씨|Mr. Kim is my teacher.|김 씨는 나의 선생님이다.,
+4-13|Ms.|(여성의 성, 이름 앞에) ~씨|Ms. Park works here.|박 씨는 여기서 일한다.,
+4-13|Mrs.|(결혼한 여성) ~부인|Mrs. Lee is my friend's mom.|이 부인은 나의 친구 엄마다.,
+4-13|know|알다|I know the answer.|나는 그 답을 안다.,
+4-14|want|원하다|I want a new book.|나는 새 책을 원한다.,
+4-14|hope|희망, 바라다|I hope to see you soon.|나는 곧 너를 보기를 바란다.,
+4-14|dream|꿈, 꿈꾸다|I have a great dream.|나는 대단한 꿈을 가지고 있다.,
+4-14|become|~가 되다|I want to become a pilot.|나는 조종사가 되고 싶다.,
+4-14|doctor|의사|The doctor helps sick people.|의사는 아픈 사람들을 돕는다.,
+4-14|nurse|간호사|The nurse is very kind.|간호사는 매우 친절하다.,
+4-14|scientist|과학자|A scientist studies nature.|과학자는 자연을 연구한다.,
+4-14|firefighter|소방관|A firefighter stops the fire.|소방관은 불을 끈다.,
+4-14|job|직업|What is your job?|너의 직업은 무엇이니?,
+4-14|work|일하다|My parents work hard.|나의 부모님은 열심히 일하신다.,
+4-14|actor|배우|He is a famous actor.|그는 유명한 배우이다.,
+4-14|artist|예술가, 화가|My friend is a great artist.|나의 친구는 훌륭한 예술가이다.,
+4-14|teacher|선생님|My teacher is smart.|나의 선생님은 똑똑하시다.,
+4-14|police officer|경찰관|The police officer is driving a car.|경찰관이 차를 운전하고 있다.,
+4-14|pilot|조종사|A pilot flies a plane.|조종사는 비행기를 조종한다.,
+4-14|engineer|기술자|My uncle is an engineer.|나의 삼촌은 기술자이다.,
+4-15|handsome|잘생긴|My brother is very handsome.|나의 오빠는 아주 잘생겼다.,
+4-15|ugly|못생긴|I saw an ugly duck.|나는 못생긴 오리를 보았다.,
+4-15|tall|키가 큰|The basketball player is tall.|그 농구 선수는 키가 크다.,
+4-15|short|키가 작은|I am short for my age.|나는 내 나이에 비해 키가 작다.,
+4-15|fat|살찐|The cat is getting fat.|그 고양이는 살이 찌고 있다.,
+4-15|slim|날씬한|She has a slim figure.|그녀는 날씬한 몸매를 가지고 있다.,
+4-15|strong|강한|He is very strong.|그는 매우 강하다.,
+4-15|weak|약한|I feel weak when I am sick.|나는 아플 때 약하게 느낀다.,
+4-15|beautiful|아름다운|The flower is beautiful.|그 꽃은 아름답다.,
+4-15|wonderful|아주 멋진|We had a wonderful time.|우리는 아주 멋진 시간을 보냈다.,
+4-15|pretty|예쁜|The doll is very pretty.|그 인형은 매우 예쁘다.,
+4-15|cute|귀여운|The puppy is so cute.|그 강아지는 정말 귀엽다.,
+4-15|hungry|배고픈|I am hungry now.|나는 지금 배고프다.,
+4-15|thirsty|목마른|I am thirsty after running.|나는 달린 후에 목마르다.,
+4-15|honest|정직한|He is an honest person.|그는 정직한 사람이다.,
+4-15|curious|호기심이 많은|I am curious about the world.|나는 세상에 대해 호기심이 많다.,
+4-16|clever|영리한|He is a clever student.|그는 영리한 학생이다.,
+4-16|smart|똑똑한|My teacher is very smart.|나의 선생님은 아주 똑똑하시다.,
+4-16|wise|현명한|My grandmother is wise.|나의 할머니는 현명하시다.,
+4-16|stupid|어리석은|Don't do stupid things.|어리석은 짓을 하지 마라.,
+4-16|foolish|어리석은|It was a foolish mistake.|그것은 어리석은 실수였다.,
+4-16|calm|차분한|Be calm before the test.|시험 전에 차분하게 있어라.,
+4-16|shy|수줍어하는|She is a little shy.|그녀는 조금 수줍어한다.,
+4-16|funny|재미있는|That movie is very funny.|저 영화는 매우 재미있다.,
+4-16|polite|예의 바른|He is a very polite boy.|그는 아주 예의 바른 소년이다.,
+4-16|rude|예의 없는|Don't be rude to others.|다른 사람들에게 예의 없게 굴지 마라.,
+4-16|gentle|상냥한, 순한|The cat is very gentle.|그 고양이는 매우 순하다.,
+4-16|kind|친절한|She is a kind person.|그녀는 친절한 사람이다.,
+4-16|selfish|이기적인|Don't be selfish with your toys.|너의 장난감에 대해 이기적으로 굴지 마라.,
+4-16|brave|용감한|The brave knight saved the princess.|그 용감한 기사가 공주를 구했다.,
+4-16|careful|주의 깊은|Be careful when you cross the road.|길을 건널 때 주의 깊게 해라.,
+4-16|lazy|게으른|The lazy boy didn't clean his room.|그 게으른 소년은 그의 방을 청소하지 않았다.,
+4-17|bring|가져오다|Please bring a gift.|선물을 가져와 주세요.,
+4-17|invite|초대하다|I will invite my friends.|나는 나의 친구들을 초대할 것이다.,
+4-17|need|필요하다|I need a cake for the party.|나는 파티를 위해 케이크가 필요하다.,
+4-17|snack|간식|We eat a lot of snacks.|우리는 많은 간식을 먹는다.,
+4-17|balloon|풍선|The balloons are red and blue.|풍선들은 빨갛고 파랗다.,
+4-17|toy|장난감|I play with my new toy.|나는 나의 새 장난감으로 논다.,
+4-17|birthday|생일|Today is my birthday.|오늘은 나의 생일이다.,
+4-17|party|파티|We have a fun party.|우리는 재미있는 파티를 한다.,
+4-17|make|만들다|I make a card for my mom.|나는 나의 엄마를 위해 카드를 만든다.,
+4-17|give|주다|I give a gift to my friend.|나는 나의 친구에게 선물을 준다.,
+4-17|congratulate|축하하다|Congratulate him on his win.|그의 승리를 축하해 줘라.,
+4-17|card|카드|I wrote a letter on the card.|나는 카드에 편지를 썼다.,
+4-17|cake|케이크|We eat the cake together.|우리는 케이크를 함께 먹는다.,
+4-17|doll|인형|My sister loves her new doll.|나의 여동생은 그녀의 새 인형을 매우 좋아한다.,
+4-17|gift|선물|This gift is for you.|이 선물은 너를 위한 것이다.,
+4-17|present|선물|I got a nice present.|나는 멋진 선물을 받았다.,
+4-18|what|무엇|What is your name?|너의 이름은 무엇이니?,
+4-18|year|해, 년|This year is 2025.|올해는 2025년이다.,
+4-18|date|날짜|What is the date today?|오늘 날짜는 언제니?,
+4-18|month|달, 월|There are twelve months in a year.|1년은 열두 달이다.,
+4-18|January|1월|My birthday is in January.|나의 생일은 1월이다.,
+4-18|February|2월|February is the shortest month.|2월은 가장 짧은 달이다.,
+4-18|March|3월|School starts in March.|학교는 3월에 시작한다.,
+4-18|April|4월|I like the weather in April.|나는 4월의 날씨를 좋아한다.,
+4-18|May|5월|We have Children's Day in May.|우리는 5월에 어린이날이 있다.,
+4-18|June|6월|We go swimming in June.|우리는 6월에 수영하러 간다.,
+4-18|July|7월|July is a hot month.|7월은 더운 달이다.,
+4-18|August|8월|We have summer vacation in August.|우리는 8월에 여름 방학이 있다.,
+4-18|September|9월|School starts again in September.|학교는 9월에 다시 시작한다.,
+4-18|October|10월|I see red leaves in October.|나는 10월에 빨간 나뭇잎을 본다.,
+4-18|November|11월|It starts getting cold in November.|11월에 추워지기 시작한다.,
+4-18|December|12월|We celebrate Christmas in December.|우리는 12월에 크리스마스를 기념한다.,
+4-19|wake up|잠에서 깨다|I wake up at 7 o'clock.|나는 7시에 잠에서 깬다.,
+4-19|get up|일어나다|I get up from my bed.|나는 나의 침대에서 일어난다.,
+4-19|go to school|학교에 가다|I go to school by bus.|나는 버스를 타고 학교에 간다.,
+4-19|come home|집에 오다|I come home after school.|나는 방과 후에 집에 온다.,
+4-19|take a shower|샤워를 하다|I take a shower in the morning.|나는 아침에 샤워를 한다.,
+4-19|wash hands|손을 씻다|Always wash hands before eating.|먹기 전에 항상 손을 씻어라.,
+4-19|brush teeth|양치질을 하다|I brush teeth twice a day.|나는 하루에 두 번 양치질을 한다.,
+4-19|go to bed|잠자리에 들다|I go to bed at ten.|나는 10시에 잠자리에 든다.,
+4-19|read a book|책을 읽다|I read a book every night.|나는 매일 밤 책을 읽는다.,
+4-19|keep a diary|일기를 쓰다|I keep a diary about my day.|나는 나의 하루에 대해 일기를 쓴다.,
+4-19|watch television|텔레비전을 보다|We watch television in the living room.|우리는 거실에서 텔레비전을 본다.,
+4-19|cook|요리하다|My dad likes to cook.|나의 아빠는 요리하는 것을 좋아하신다.,
+4-19|take a bath|목욕하다|I take a bath on Sunday.|나는 일요일에 목욕한다.,
+4-19|rest|쉬다|You should rest when you are tired.|너는 피곤할 때 쉬어야 한다.,
+4-19|do homework|숙제를 하다|I must do homework now.|나는 지금 숙제를 해야 한다.,
+4-19|soon|곧|I will finish soon.|나는 곧 끝낼 것이다.,
+4-20|go|가다|I go to the park.|나는 공원에 간다.,
+4-20|build|짓다|They will build a new school.|그들은 새 학교를 지을 것이다.,
+4-20|company|회사|My father works at a company.|나의 아버지는 회사에서 일하신다.,
+4-20|office|사무실|The doctor is in his office.|의사는 그의 사무실에 있다.,
+4-20|post office|우체국|I send a letter at the post office.|나는 우체국에서 편지를 보낸다.,
+4-20|bank|은행|I save money in the bank.|나는 은행에 돈을 저금한다.,
+4-20|store|가게|Let's buy some candy at the store.|가게에서 사탕을 좀 사자.,
+4-20|church|교회|We go to church on Sunday.|우리는 일요일에 교회에 간다.,
+4-20|place|장소|This is a beautiful place.|이곳은 아름다운 장소이다.,
+4-20|library|도서관|I read books in the library.|나는 도서관에서 책을 읽는다.,
+4-20|bookstore|서점|I buy a comic book at the bookstore.|나는 서점에서 만화책을 산다.,
+4-20|bakery|빵집|I smell bread from the bakery.|나는 빵집에서 빵 냄새를 맡는다.,
+4-20|supermarket|슈퍼마켓|My mom goes to the supermarket.|나의 엄마는 슈퍼마켓에 가신다.,
+4-20|restaurant|식당|We eat dinner at the restaurant.|우리는 식당에서 저녁을 먹는다.,
+4-20|café|카페|I drink juice at the café.|나는 카페에서 주스를 마신다.,
+4-20|department store|백화점|I bought a shirt at the department store.|나는 백화점에서 셔츠를 샀다.,
+4-21|come|오다|Come to the park with me.|나랑 같이 공원에 와라.,
+4-21|jump|뛰다, 점프하다|The frog can jump high.|개구리는 높이 뛸 수 있다.,
+4-21|run|달리다|I run in the morning.|나는 아침에 달린다.,
+4-21|sit|앉다|Sit here, please.|여기에 앉아 주세요.,
+4-21|wait|기다리다|Wait for me at the bus stop.|버스 정류장에서 나를 기다려라.,
+4-21|sleep|잠자다|I sleep for 8 hours.|나는 8시간 동안 잠을 잔다.,
+4-21|move|움직이다|Please move the chair.|의자를 움직여 주세요.,
+4-21|put|놓다, 두다|Put the toys in the box.|장난감을 상자 안에 놓아라.,
+4-21|do|하다|I do my homework every day.|나는 매일 숙제를 한다.,
+4-21|cut|자르다|Cut the paper with scissors.|가위로 종이를 잘라라.,
+4-21|drop|떨어뜨리다|Be careful not to drop the glass.|유리잔을 떨어뜨리지 않도록 조심해라.,
+4-21|forget|잊다|Don't forget my name.|나의 이름을 잊지 마라.,
+4-21|open|열다|Open the window for fresh air.|신선한 공기를 위해 창문을 열어라.,
+4-21|close|닫다|Close the door quietly.|문을 조용히 닫아라.,
+4-21|blow|불다|I blow out the candle.|나는 촛불을 분다.,
+4-21|show|보여주다|Show me your new pencil.|너의 새 연필을 나에게 보여 줘.,
+4-22|park|공원|I play soccer in the park.|나는 공원에서 축구를 한다.,
+4-22|field|들판|We saw many flowers in the field.|우리는 들판에서 많은 꽃을 보았다.,
+4-22|ground|땅|The ball rolled on the ground.|공이 땅 위에서 굴러갔다.,
+4-22|grass|풀, 잔디|We sit on the soft grass.|우리는 부드러운 잔디 위에 앉는다.,
+4-22|sand|모래|I build a castle with sand.|나는 모래로 성을 만든다.,
+4-22|bench|벤치|Let's sit on the bench.|벤치에 앉자.,
+4-22|flower|꽃|This flower smells sweet.|이 꽃은 달콤한 냄새가 난다.,
+4-22|rose|장미|The red rose is beautiful.|빨간 장미는 아름답다.,
+4-22|find|찾다|I need to find my lost key.|나는 잃어버린 열쇠를 찾아야 한다.,
+4-22|ride|타다|Can you ride a bike?|너는 자전거를 탈 수 있니?,
+4-22|bicycle|자전거|I have a new bicycle.|나는 새 자전거를 가지고 있다.,
+4-22|jump rope|줄넘기, 줄넘기를 하다|We jump rope during break time.|우리는 쉬는 시간에 줄넘기를 한다.,
+4-22|camera|카메라|I take pictures with my camera.|나는 나의 카메라로 사진을 찍는다.,
+4-22|map|지도|Look at the map to find the way.|길을 찾기 위해 지도를 보아라.,
+4-22|stone|돌|I picked up a small stone.|나는 작은 돌 하나를 주웠다.,
+4-22|plant|식물|My mom waters the plant.|나의 엄마는 식물에 물을 주신다.,
+4-23|many|(수가) 많은|There are many people here.|여기에 많은 사람들이 있다.,
+4-23|much|(양이) 많은|I don't have much time.|나는 시간이 많지 않다.,
+4-23|few|(수가) 거의 없는|He has few friends.|그는 친구가 거의 없다.,
+4-23|little|(양이) 거의 없는|There is little water left.|남은 물이 거의 없다.,
+4-23|more|더 많은|I want more cake.|나는 케이크를 더 많이 원한다.,
+4-23|enough|충분한|I have enough money for the ticket.|나는 티켓을 살 충분한 돈이 있다.,
+4-23|some|조금, 약간의|Do you want some juice?|주스 좀 마실래?,
+4-23|both|둘 다|Both my parents are here.|나의 부모님 두 분 다 여기 계시다.,
+4-23|all|모든, 모두|All students must be quiet.|모든 학생들은 조용해야 한다.,
+4-23|most|대부분의|Most of the work is done.|일의 대부분이 끝났다.,
+4-23|a lot of|많은|We saw a lot of birds.|우리는 많은 새를 보았다.,
+4-23|any|어느, 어떤|Do you have any questions?|질문이 있니?,
+4-23|full|가득 찬|The basket is full of apples.|바구니는 사과로 가득 차 있다.,
+4-23|empty|비어 있는|The box is empty.|그 상자는 비어 있다.,
+4-23|another|또 하나의|Please give me another chance.|나에게 또 하나의 기회를 주세요.,
+4-23|only|오직, 겨우|I have only one cookie left.|나에게는 오직 하나의 쿠키만 남아 있다.,
+4-24|country|나라, 국가|I love my country, Korea.|나는 나의 나라, 한국을 매우 사랑한다.,
+4-24|world|세계, 세상|There are many places in the world.|세상에는 많은 장소가 있다.,
+4-24|culture|문화|I want to learn about different cultures.|나는 다양한 문화에 대해 배우고 싶다.,
+4-24|Korea|한국|Korea is in Asia.|한국은 아시아에 있다.,
+4-24|China|중국|China is a very big country.|중국은 아주 큰 나라이다.,
+4-24|America|미국|My uncle lives in America.|나의 삼촌은 미국에 사신다.,
+4-24|Japan|일본|I want to travel to Japan.|나는 일본으로 여행하고 싶다.,
+4-24|Canada|캐나다|Canada is famous for maple syrup.|캐나다는 메이플 시럽으로 유명하다.,
+4-24|grow up|성장하다, 자라다|I will grow up to be a kind person.|나는 자라서 친절한 사람이 될 것이다.,
+4-24|live|살다|I live in Seoul with my family.|나는 나의 가족과 함께 서울에 산다.,
+4-24|island|섬|Jeju is a famous island.|제주는 유명한 섬이다.,
+4-24|town|소도시|I visited a small quiet town.|나는 작고 조용한 소도시를 방문했다.,
+4-24|city|도시|Seoul is a very busy city.|서울은 매우 바쁜 도시이다.,
+4-24|village|마을|My grandparents live in a small village.|나의 할아버지와 할머니는 작은 마을에 사신다.,
+4-24|countryside|시골, 지방|We went to the countryside for a trip.|우리는 여행을 위해 시골에 갔다.,
+4-24|downtown|시내에|Let's meet downtown this weekend.|이번 주말에 시내에서 만나자.,
+4-25|zoo|동물원|We go to the zoo to see animals.|우리는 동물들을 보기 위해 동물원에 간다.,
+4-25|lion|사자|The lion is the king of the jungle.|사자는 정글의 왕이다.,
+4-25|tiger|호랑이|The tiger has black stripes.|호랑이는 검은 줄무늬를 가지고 있다.,
+4-25|giraffe|기린|The giraffe has a long neck.|기린은 목이 길다.,
+4-25|monkey|원숭이|The monkey likes to eat bananas.|원숭이는 바나나 먹는 것을 좋아한다.,
+4-25|elephant|코끼리|The elephant is a big animal.|코끼리는 큰 동물이다.,
+4-25|fox|여우|The fox is a smart animal.|여우는 영리한 동물이다.,
+4-25|dolphin|돌고래|The dolphin can jump very high.|돌고래는 아주 높이 점프할 수 있다.,
+4-25|jungle|밀림 지대, 정글|We explored the dense jungle.|우리는 빽빽한 정글을 탐험했다.,
+4-25|wolf|늑대|I heard a wolf howling at night.|나는 밤에 늑대가 우는 소리를 들었다.,
+4-25|hippo|하마|The hippo stays in the water.|하마는 물 속에 머문다.,
+4-25|bear|곰|The bear likes to eat honey.|곰은 꿀 먹는 것을 좋아한다.,
+4-25|cheetah|치타|The cheetah runs very fast.|치타는 매우 빠르게 달린다.,
+4-25|zebra|얼룩말|The zebra has black and white stripes.|얼룩말은 검은색과 흰색 줄무늬를 가지고 있다.,
+4-25|panda|판다|The panda eats bamboo.|판다는 대나무를 먹는다.,
+4-25|bat|박쥐|The bat flies only at night.|박쥐는 밤에만 난다.,
+4-26|farm|농장|My grandfather works on the farm.|나의 할아버지는 농장에서 일하신다.,
+4-26|cow|소|The cow gives us milk.|소는 우리에게 우유를 준다.,
+4-26|horse|말|I like to ride a horse.|나는 말을 타는 것을 좋아한다.,
+4-26|sheep|양|The sheep is eating grass.|양이 풀을 먹고 있다.,
+4-26|chicken|닭|We feed the chickens every day.|우리는 매일 닭들에게 먹이를 준다.,
+4-26|hen|암탉|The hen laid an egg this morning.|암탉이 오늘 아침에 알을 낳았다.,
+4-26|pig|돼지|The pig is sleeping in the mud.|돼지가 진흙 속에서 자고 있다.,
+4-26|deer|사슴|We saw a wild deer in the forest.|우리는 숲에서 야생 사슴을 보았다.,
+4-26|goat|염소|The goat is climbing the rock.|염소가 바위를 오르고 있다.,
+4-26|duck|오리|The duck is swimming on the pond.|오리가 연못 위에서 수영하고 있다.,
+4-26|frog|개구리|The frog jumps very high.|개구리는 아주 높이 점프한다.,
+4-26|mouse|쥐|A small mouse ran into the hole.|작은 쥐가 구멍으로 뛰어 들어갔다.,
+4-26|mice|(mouse의 복수형) 쥐들|There are three mice under the sofa.|소파 밑에 쥐 세 마리가 있다.,
+4-26|bug|벌레|I found a green bug on the leaf.|나는 나뭇잎 위에서 초록색 벌레를 발견했다.,
+4-26|bee|벌|The bee is making honey.|벌이 꿀을 만들고 있다.,
+4-26|ant|개미|An ant is carrying a piece of food.|개미 한 마리가 먹이 조각을 운반하고 있다.,
+4-27|market|시장|I buy fresh vegetables at the market.|나는 시장에서 신선한 채소를 산다.,
+4-27|plastic bag|비닐봉지|I put apples in a plastic bag.|나는 사과를 비닐봉지에 넣는다.,
+4-27|shopping bag|쇼핑 백, 장바구니|Please bring a shopping bag.|쇼핑 백을 가져와 주세요.,
+4-27|cart|카트, 수레|I push the cart in the store.|나는 가게에서 카트를 민다.,
+4-27|shop|가게|I found a nice gift at the shop.|나는 가게에서 좋은 선물을 찾았다.,
+4-27|customer|손님, 고객|The customer is buying a shirt.|그 손님은 셔츠를 사고 있다.,
+4-27|clerk|점원|The clerk helped me find the item.|점원이 내가 물건을 찾는 것을 도와주었다.,
+4-27|sell|팔다|The bakery sells fresh bread.|그 빵집은 신선한 빵을 판다.,
+4-27|look for|~을 찾다|I will look for my lost wallet.|나는 잃어버린 지갑을 찾을 것이다.,
+4-27|buy|사다|I want to buy a new toy.|나는 새 장난감을 사고 싶다.,
+4-27|spend|(돈을) 쓰다|I spend money on books.|나는 책에 돈을 쓴다.,
+4-27|pay|지불하다|I will pay with cash.|나는 현금으로 지불할 것이다.,
+4-27|cost|값, 비용|The cost of the pen is 1,000 won.|그 펜의 값은 1,000원이다.,
+4-27|price|가격|What is the price of this candy?|이 사탕의 가격은 얼마입니까?,
+4-27|cheap|(값이) 싼|This snack is very cheap.|이 과자는 매우 싸다.,
+4-27|expensive|비싼|That necklace is too expensive.|저 목걸이는 너무 비싸다.,
+4-28|fruit|과일|I eat fruit every morning.|나는 매일 아침 과일을 먹는다.,
+4-28|banana|바나나|A banana is a yellow fruit.|바나나는 노란색 과일이다.,
+4-28|apple|사과|I like red apples.|나는 빨간 사과를 좋아한다.,
+4-28|orange|오렌지|I drink orange juice.|나는 오렌지 주스를 마신다.,
+4-28|lemon|레몬|Lemons are sour.|레몬은 시큼하다.,
+4-28|grape|포도|I like purple grapes.|나는 보라색 포도를 좋아한다.,
+4-28|strawberry|딸기|I bought sweet strawberryies.|나는 달콤한 딸기를 샀다.,
+4-28|watermelon|수박|Watermelon is a summer fruit.|수박은 여름 과일이다.,
+4-28|vegetable|채소|We should eat more vegetables.|우리는 채소를 더 많이 먹어야 한다.,
+4-28|tomato|토마토|A tomato is red and round.|토마토는 빨갛고 둥글다.,
+4-28|carrot|당근|Rabbits eat carrots.|토끼는 당근을 먹는다.,
+4-28|corn|옥수수|I like roasted corn.|나는 구운 옥수수를 좋아한다.,
+4-28|onion|양파|Onions can make you cry.|양파는 너를 울게 만들 수 있다.,
+4-28|garlic|마늘|Garlic has a strong smell.|마늘은 강한 냄새가 난다.,
+4-28|potato|감자|We make french fries from a potato.|우리는 감자로 감자튀김을 만든다.,
+4-28|fresh|신선한|I buy fresh fruit at the market.|나는 시장에서 신선한 과일을 산다.,
+4-29|time|시간|What time is it now?|지금 몇 시니?,
+4-29|second|초|The light lasts for ten seconds.|빛이 10초 동안 지속된다.,
+4-29|minute|분|Wait for five minutes.|5분 동안 기다려라.,
+4-29|hour|한 시간|I study for one hour.|나는 한 시간 동안 공부한다.,
+4-29|day|하루|There are seven days in a week.|일주일에는 7일이 있다.,
+4-29|ago|(지금부터) ~전에|I saw him two days ago.|나는 그를 이틀 전에 보았다.,
+4-29|last|지난, 마지막의|Last week I went camping.|지난주에 나는 캠핑을 갔다.,
+4-29|when|언제|When will the movie start?|영화는 언제 시작할까?,
+4-29|before|전에, 앞에|I brush my teeth before bed.|나는 잠자기 전에 양치질을 한다.,
+4-29|after|후에, 뒤에|We will eat cake after dinner.|우리는 저녁 식사 후에 케이크를 먹을 것이다.,
+4-29|then|그때|I was playing outside then.|나는 그때 밖에서 놀고 있었다.,
+4-29|now|지금|We should leave now.|우리는 지금 떠나야 한다.,
+4-29|early|일찍|I wake up early on weekdays.|나는 평일에 일찍 일어난다.,
+4-29|late|늦은, 늦게|Don't be late for school.|학교에 늦지 마라.,
+4-29|busy|바쁜|My mom is busy today.|나의 엄마는 오늘 바쁘시다.,
+4-29|next|다음의|Next week is my birthday.|다음 주는 나의 생일이다.,
+4-30|sky|하늘|The sky is clear and blue today.|오늘 하늘은 맑고 파랗다.,
+4-30|sun|해, 태양|The sun sets in the west.|해는 서쪽으로 진다.,
+4-30|moon|달|We can see the full moon tonight.|우리는 오늘 밤 보름달을 볼 수 있다.,
+4-30|star|별|I saw a shooting star.|나는 별똥별을 보았다.,
+4-30|cloud|구름|The airplane is flying above the clouds.|비행기가 구름 위를 날고 있다.,
+4-30|shine|빛나다, 반짝이다|The diamonds shine brightly.|다이아몬드가 밝게 빛난다.,
+4-30|bright|밝은|The light is too bright.|빛이 너무 밝다.,
+4-30|dark|어두운|It gets dark very fast in winter.|겨울에는 해가 아주 빨리 진다.,
+4-30|rain|비|The rain stopped this morning.|비가 오늘 아침에 멈췄다.,
+4-30|snow|눈|I like the soft white snow.|나는 부드러운 하얀 눈을 좋아한다.,
+4-30|storm|폭풍우|A big storm is coming soon.|큰 폭풍우가 곧 올 것이다.,
+4-30|fog|안개|The fog made it hard to see the road.|안개 때문에 길을 보기 어려웠다.,
+4-30|air|공기|We need clean air to breathe.|우리는 숨 쉬기 위해 깨끗한 공기가 필요하다.,
+4-30|light|빛|The sun gives off warm light.|태양은 따뜻한 빛을 내뿜는다.,
+4-30|earth|지구|The earth is round.|지구는 둥글다.,
+4-30|space|우주|There are many stars in outer space.|외부 우주에는 많은 별들이 있다.
+
 
 5-1|ten|(숫자) 10|get up at ten o'clock|10시 정각에 일어나다
 5-1|tent|텐트|put up the tent|텐트를 치다
@@ -2129,6 +2130,1288 @@
 5-56|schedule|[명] 일정|Check your schedule.|너의 일정을 확인해.
 5-56|spaghetti|[명] 스파게티|cook delicious spaghetti|맛있는 스파게티를 요리하다
 
+6-1|study|공부하다|I study English every day.|나는 매일 영어를 공부한다.,
+6-1|remember|기억하다|I cannot remember the name.|나는 그 이름을 기억할 수 없다.,
+6-1|subject|과목|My favorite subject is art.|내가 가장 좋아하는 과목은 미술이다.,
+6-1|math|수학|Math is a difficult subject.|수학은 어려운 과목이다.,
+6-1|science|과학|We learn about animals in science.|우리는 과학 시간에 동물에 대해 배운다.,
+6-1|art|미술|She is good at art.|그녀는 미술을 잘한다.,
+6-1|history|역사|We read a book about history.|우리는 역사에 대한 책을 읽는다.,
+6-1|English|영어|I want to speak English well.|나는 영어를 잘 말하고 싶다.,
+6-1|exam|시험[e]|I must prepare for the exam.|나는 시험을 준비해야 한다.,
+6-1|test|시험[t]|We will have a test tomorrow.|우리는 내일 시험을 볼 것이다.,
+6-1|write|쓰다|Please write your name here.|여기에 당신의 이름을 써 주세요.,
+6-1|ask|묻다|Don't be afraid to ask.|묻는 것을 두려워하지 마라.,
+6-1|question|질문, 문제|I have one question.|나는 질문이 하나 있다.,
+6-1|answer|답, 답하다|I know the answer.|나는 답을 안다.,
+6-1|easy|쉬운|This game is very easy.|이 게임은 매우 쉽다.,
+6-1|difficult|어려운|The final exam was difficult.|기말고사는 어려웠다.,
+6-2|school|학교|I go to school.|나는 학교에 간다.,
+6-2|student|학생|I am a student.|나는 학생이다.,
+6-2|classmate|반 친구|I study with my classmate.|나는 반 친구와 공부한다.,
+6-2|group|그룹, 단체|Let's work in a group.|그룹으로 일하자.,
+6-2|dictionary|사전|I use the dictionary.|나는 사전을 사용한다.,
+6-2|textbook|교과서|I read the textbook.|나는 교과서를 읽는다.,
+6-2|teach|가르치다|The teacher can teach well.|선생님은 잘 가르치실 수 있다.,
+6-2|introduce|소개하다|I introduce my family.|나는 나의 가족을 소개한다.,
+6-2|playground|놀이터, 운동장|We play in the playground.|우리는 놀이터에서 논다.,
+6-2|classroom|교실|Our classroom is large.|우리의 교실은 크다.,
+6-2|lesson|수업|I like this lesson.|나는 이 수업이 좋다.,
+6-2|class|수업, 학급|My class is fun.|나의 학급은 재미있다.,
+6-2|name|이름|My name is long.|나의 이름은 길다.,
+6-2|desk|책상|My desk is clean.|나의 책상은 깨끗하다.,
+6-2|chair|의자|Please sit on the chair.|의자에 앉으세요.,
+6-2|learn|배우다|I learn new words.|나는 새로운 단어를 배운다.,
+6-3|use|사용하다|Can I use this pen?|이 펜을 사용해도 되니?,
+6-3|borrow|빌리다|I want to borrow a book.|나는 책을 빌리고 싶다.,
+6-3|lose|잃어버리다|Don't lose your money.|돈을 잃어버리지 마라.,
+6-3|eraser|지우개|Use an eraser to clean it.|지우개로 지워라.,
+6-3|ruler|자|The ruler is straight.|그 자는 곧다.,
+6-3|tape|테이프|I need some tape.|나는 테이프가 좀 필요하다.,
+6-3|scissors|가위|The scissors cut paper.|가위는 종이를 자른다.,
+6-3|glue|풀|Stick it with glue.|풀로 그것을 붙여라.,
+6-3|paper|종이|Write on the paper.|종이에 써라.,
+6-3|notebook|공책|Open your notebook.|공책을 펼쳐라.,
+6-3|sketchbook|스케치북|I draw in my sketchbook.|나는 스케치북에 그림을 그린다.,
+6-3|pen|펜|This is a red pen.|이것은 빨간 펜이다.,
+6-3|pencil|연필|Sharpen your pencil.|연필을 깎아라.,
+6-3|pencil case|필통|Put the pen in the pencil case.|펜을 필통에 넣어라.,
+6-3|crayon|크레파스, 크레용|Use a yellow crayon.|노란색 크레용을 사용해라.,
+6-3|brush|붓|Wash the brush.|붓을 씻어라.,
+6-4|grade|학년, 성적|I am in the first grade.|나는 1학년이다.,
+6-4|line|선|Draw a straight line.|직선을 그려라.,
+6-4|page|페이지, 쪽|Open page ten.|10페이지를 펴라.,
+6-4|second|두 번째의|This is the second time.|이번이 두 번째다.,
+6-4|fourth|네 번째의|He came in fourth.|그는 4등으로 들어왔다.,
+6-4|first|첫 번째의|She is the first student.|그녀는 첫 번째 학생이다.,
+6-4|third|세 번째의|It is the third door.|세 번째 문이다.,
+6-4|fifth|다섯 번째의|Today is the fifth day.|오늘은 5일째다.,
+6-4|floor|바닥, 층|Sit on the floor.|바닥에 앉아라.,
+6-4|level|수준, 정도|What is your level?|너의 수준은 무엇이니?,
+6-4|list|목록|Make a shopping list.|쇼핑 목록을 만들어라.,
+6-4|sixth|여섯 번째의|It is the sixth month.|6번째 달이다.,
+6-4|seventh|일곱 번째의|This is the seventh book.|이것은 7번째 책이다.,
+6-4|eighth|여덟 번째의|It is my eighth birthday.|나의 8번째 생일이다.,
+6-4|ninth|아홉 번째의|He is the ninth player.|그는 9번째 선수다.,
+6-4|tenth|열 번째의|It is the tenth question.|10번째 질문이다.,
+6-5|wear|입다|I wear a hat.|나는 모자를 쓴다.,
+6-5|shirt|셔츠|He wears a white shirt.|그는 흰 셔츠를 입는다.,
+6-5|blouse|블라우스|She likes her blouse.|그녀는 자신의 블라우스를 좋아한다.,
+6-5|sweater|스웨터|It is warm sweater.|따뜻한 스웨터이다.,
+6-5|clothes|옷|Put on your clothes.|옷을 입어라.,
+6-5|pajamas|잠옷|I sleep in my pajamas.|나는 잠옷을 입고 잔다.,
+6-5|size|크기, 치수|What is your size?|너의 사이즈는 몇이니?,
+6-5|new|새로운|I bought new shoes.|나는 새 신발을 샀다.,
+6-5|put on|입다, 쓰다, 신다|Put on your coat.|코트를 입어라.,
+6-5|take off|벗다|Take off your shoes.|신발을 벗어라.,
+6-5|jacket|재킷|Wear a jacket outside.|밖에서는 재킷을 입어라.,
+6-5|coat|코트, 외투|It is cold, so wear a coat.|추우니까 코트를 입어라.,
+6-5|dress|원피스, 드레스|The dress is pretty.|그 드레스는 예쁘다.,
+6-5|skirt|치마|She wears a pink skirt.|그녀는 분홍색 치마를 입는다.,
+6-5|pants|바지|My pants are blue.|나의 바지는 파란색이다.,
+6-5|jeans|청바지|I like wearing jeans.|나는 청바지 입는 것을 좋아한다.,
+6-6|pair|쌍, 짝|I have a pair of gloves.|나는 장갑 한 켤레가 있다.,
+6-6|socks|양말|Put on your socks.|양말을 신어라.,
+6-6|gloves|장갑, 글러브|Wear gloves in winter.|겨울에는 장갑을 껴라.,
+6-6|earrings|귀걸이|Her earrings shine.|그녀의 귀걸이가 빛난다.,
+6-6|shoes|신발|My shoes are old.|나의 신발은 낡았다.,
+6-6|boots|부츠, 장화|Use rain boots today.|오늘은 장화를 신어라.,
+6-6|necklace|목걸이|The necklace is gold.|그 목걸이는 금이다.,
+6-6|ring|반지|He gave her a ring.|그는 그녀에게 반지를 주었다.,
+6-6|hat|모자|The hat covers my head.|모자가 내 머리를 덮는다.,
+6-6|cap|모자(챙 있는)|He wears a baseball cap.|그는 야구 모자를 쓴다.,
+6-6|belt|벨트|Fasten your belt.|벨트를 매라.,
+6-6|watch|손목시계|Look at your watch.|너의 시계를 봐라.,
+6-6|tie|넥타이|Dad wears a tie.|아빠는 넥타이를 매신다.,
+6-6|ribbon|리본|The gift has a ribbon.|선물에 리본이 있다.,
+6-6|button|단추|Push the button.|단추를 눌러라.,
+6-6|pocket|주머니|My pocket is empty.|내 주머니는 비었다.,
+6-7|eat|먹다|Let's eat lunch.|점심 먹자.,
+6-7|breakfast|아침 식사|I eat breakfast at 7.|나는 7시에 아침을 먹는다.,
+6-7|lunch|점심 식사|What is for lunch?|점심 메뉴가 뭐니?,
+6-7|dinner|저녁 식사|We cook dinner together.|우리는 저녁을 함께 요리한다.,
+6-7|pizza|피자|I love cheese pizza.|나는 치즈 피자를 좋아한다.,
+6-7|hamburger|햄버거|The hamburger is big.|그 햄버거는 크다.,
+6-7|salad|샐러드|Salad is healthy.|샐러드는 건강에 좋다.,
+6-7|soup|수프|The soup is hot.|수프가 뜨겁다.,
+6-7|food|음식|Do you like Korean food?|한국 음식을 좋아하니?,
+6-7|bread|빵|I bake bread.|나는 빵을 굽는다.,
+6-7|cookie|쿠키|This cookie is sweet.|이 쿠키는 달콤하다.,
+6-7|drink|마시다|Drink some water.|물을 좀 마셔라.,
+6-7|water|물|Give me cold water.|찬물을 주세요.,
+6-7|milk|우유|Milk is white.|우유는 하얗다.,
+6-7|juice|주스|I want orange juice.|나는 오렌지 주스를 원한다.,
+6-7|tea|차|Do you drink tea?|차를 마시니?,
+6-8|in|~ 안에|The ball is in the box.|공이 상자 안에 있다.,
+6-8|out|~ 밖으로|Go out and play.|나가서 놀아라.,
+6-8|on|~ 위에|The cup is on the table.|컵이 탁자 위에 있다.,
+6-8|into|~ 안으로|Come into the room.|방 안으로 들어와라.,
+6-8|under|~ 아래에, ~ 밑에|The cat is under the chair.|고양이가 의자 아래에 있다.,
+6-8|below|~ 아래에|Look at the picture below.|아래 그림을 봐라.,
+6-8|by|~ 옆에|Stand by me.|내 옆에 서라.,
+6-8|over|~ 너머, ~ 위쪽에|Jump over the fence.|울타리를 넘어 점프해라.,
+6-8|bottom|맨 아래|Look at the bottom of the page.|페이지의 맨 아래를 봐라.,
+6-8|top|맨 위, 꼭대기|He is at the top.|그는 꼭대기에 있다.,
+6-8|middle|가운데, 중간|Sit in the middle.|가운데에 앉아라.,
+6-8|center|중앙|It is in the center.|그것은 중앙에 있다.,
+6-8|side|옆, 측면|Move to the side.|옆으로 이동해라.,
+6-8|above|~ 위에, ~ 위로|The bird is above the tree.|새가 나무 위에 있다.,
+6-8|up|위로|Look up at the sky.|하늘을 올려다봐라.,
+6-8|down|아래로|Sit down, please.|앉아 주세요.,
+6-9|room|방|This is my room.|여기는 나의 방이다.,
+6-9|wall|벽|The wall is white.|벽은 하얀색이다.,
+6-9|window|창문|Open the window.|창문을 열어라.,
+6-9|closet|벽장|My clothes are in the closet.|내 옷은 벽장에 있다.,
+6-9|bed|침대|I sleep in my bed.|나는 내 침대에서 잔다.,
+6-9|pillow|베개|The pillow is soft.|베개는 부드럽다.,
+6-9|fan|선풍기|Turn on the fan.|선풍기를 켜라.,
+6-9|lamp|램프, 등|The lamp is bright.|램프가 밝다.,
+6-9|computer|컴퓨터|I use a computer.|나는 컴퓨터를 사용한다.,
+6-9|bag|가방|My bag is heavy.|내 가방은 무겁다.,
+6-9|basket|바구니|The basket is full.|바구니가 가득 찼다.,
+6-9|box|상자|What is in the box?|상자 안에 무엇이 있니?,
+6-9|umbrella|우산|Take an umbrella.|우산을 가져가라.,
+6-9|mirror|거울|Look in the mirror.|거울을 봐라.,
+6-9|telephone|전화기|The telephone is ringing.|전화기가 울리고 있다.,
+6-9|key|열쇠|I lost my key.|나는 열쇠를 잃어버렸다.,
+6-10|nature|자연|We love nature.|우리는 자연을 사랑한다.,
+6-10|mountain|산|The mountain is high.|산은 높다.,
+6-10|forest|숲|Animals live in the forest.|동물들은 숲에 산다.,
+6-10|valley|계곡|The valley is deep.|계곡은 깊다.,
+6-10|lake|호수|Let's swim in the lake.|호수에서 수영하자.,
+6-10|desert|사막|The desert is hot.|사막은 덥다.,
+6-10|wind|바람|The wind blows strongly.|바람이 강하게 분다.,
+6-10|rock|바위|This rock is hard.|이 바위는 단단하다.,
+6-10|ocean|대양, 바다|The ocean is blue.|바다는 파랗다.,
+6-10|sea|바다|I see the sea.|나는 바다를 본다.,
+6-10|beach|해변|We play on the beach.|우리는 해변에서 논다.,
+6-10|river|강|The river is long.|강은 길다.,
+6-10|land|땅, 육지|The land is dry.|땅이 말랐다.,
+6-10|hill|언덕|Go up the hill.|언덕을 올라가라.,
+6-10|tree|나무|The tree is green.|나무는 초록색이다.,
+6-10|leaf|나뭇잎|A leaf falls down.|나뭇잎이 떨어진다.,
+6-11|in front of|~ 앞에|Stand in front of me.|내 앞에 서라.,
+6-11|behind|~ 뒤에|Look behind you.|네 뒤를 봐라.,
+6-11|beside|~ 옆에|Sit beside me.|내 옆에 앉아라.,
+6-11|next to|~ 옆에|I am next to him.|나는 그의 옆에 있다.,
+6-11|across|건너서, 가로질러|Walk across the street.|길을 건너가라.,
+6-11|at|~에|I am at home.|나는 집에 있다.,
+6-11|here|여기에|Come here.|이리로 와라.,
+6-11|there|거기에|Go there.|거기로 가라.,
+6-11|west|서쪽|The sun sets in the west.|해는 서쪽으로 진다.,
+6-11|north|북쪽|The north is cold.|북쪽은 춥다.,
+6-11|east|동쪽|The sun rises in the east.|해는 동쪽에서 뜬다.,
+6-11|south|남쪽|Birds fly south.|새들은 남쪽으로 날아간다.,
+6-11|through|~을 통해|Go through the door.|문을 통과해 가라.,
+6-11|between|~ 사이에|Sit between us.|우리 사이에 앉아라.,
+6-11|around|~ 주위에|Look around.|주위를 둘러봐라.,
+6-11|among|~에 둘러싸인|I am among friends.|나는 친구들 사이에 있다.,
+6-12|always|항상, 늘|I always smile.|나는 항상 웃는다.,
+6-12|usually|보통, 대개|I usually wake up early.|나는 보통 일찍 일어난다.,
+6-12|often|종종, 자주|I often visit the park.|나는 종종 공원에 간다.,
+6-12|sometimes|때때로, 가끔|Sometimes I eat pizza.|가끔 나는 피자를 먹는다.,
+6-12|never|절대 ~ 않다|I never tell a lie.|나는 절대 거짓말을 하지 않는다.,
+6-12|festival|축제|We enjoy the festival.|우리는 축제를 즐긴다.,
+6-12|schedule|일정, 스케줄|Check the schedule.|일정을 확인해라.,
+6-12|ready|준비가 된|Are you ready?|준비됐니?,
+6-12|start|시작하다|Let's start the game.|게임을 시작하자.,
+6-12|begin|시작하다|Class will begin soon.|수업이 곧 시작될 것이다.,
+6-12|finish|끝나다, 끝내다|I finish my work.|나는 내 일을 끝낸다.,
+6-12|end|끝나다, 끝|This is the end.|이것이 끝이다.,
+6-12|contest|대회|He won the contest.|그는 대회에서 우승했다.,
+6-12|again|다시|Try again.|다시 시도해라.,
+6-12|once|한 번|I met him once.|나는 그를 한 번 만났다.,
+6-12|twice|두 번|I checked it twice.|나는 그것을 두 번 확인했다.,
+6-13|hobby|취미|My hobby is reading.|내 취미는 독서다.,
+6-13|walk|걷다|Let's walk together.|함께 걷자.,
+6-13|climb|오르다|Monkeys climb trees.|원숭이는 나무를 오른다.,
+6-13|exercise|운동하다|I exercise every day.|나는 매일 운동한다.,
+6-13|dance|춤추다|Do you like to dance?|너는 춤추는 것을 좋아하니?,
+6-13|sing|노래하다|She loves to sing.|그녀는 노래하는 것을 좋아한다.,
+6-13|bake|굽다|I bake cookies.|나는 쿠키를 굽는다.,
+6-13|draw|그리다|I can draw a cat.|나는 고양이를 그릴 수 있다.,
+6-13|free time|여가 시간|What do you do in your free time?|너는 여가 시간에 무엇을 하니?,
+6-13|listen|듣다|Listen to the music.|음악을 들어라.,
+6-13|music|음악|I enjoy listening to music.|나는 음악 듣는 것을 즐긴다.,
+6-13|radio|라디오|Turn on the radio.|라디오를 켜라.,
+6-13|practice|연습하다|You must practice piano.|너는 피아노를 연습해야 한다.,
+6-13|piano|피아노|She plays the piano.|그녀는 피아노를 친다.,
+6-13|violin|바이올린|He has a violin.|그는 바이올린을 가지고 있다.,
+6-13|guitar|기타|My dad plays the guitar.|우리 아빠는 기타를 치신다.,
+6-14|left|왼쪽|Turn left.|왼쪽으로 돌아라.,
+6-14|right|오른쪽|Turn right.|오른쪽으로 돌아라.,
+6-14|straight|곧은, 똑바로|Go straight.|똑바로 가라.,
+6-14|way|길, 방법|This is the way.|이쪽 길이다.,
+6-14|far|멀리|Is it far?|그것은 머니?,
+6-14|near|가까이|The park is near.|공원은 가깝다.,
+6-14|turn|돌다|Turn around.|뒤로 돌아라.,
+6-14|corner|모퉁이|It is at the corner.|그것은 모퉁이에 있다.,
+6-14|road|도로|The road is wide.|도로는 넓다.,
+6-14|street|길, 거리|Walk down the street.|거리를 따라 걸어가라.,
+6-14|bridge|다리|Cross the bridge.|다리를 건너라.,
+6-14|address|주소|What is your address?|너의 주소는 무엇이니?,
+6-14|return|되돌아가다|Return to your seat.|자리로 돌아가라.,
+6-14|cross|건너다|Cross the road carefully.|길을 조심해서 건너라.,
+6-14|along|~을 따라|Walk along the river.|강을 따라 걸어라.,
+6-14|away|떨어져|Go away.|저리 떨어져.,
+6-15|travel|여행하다|I like to travel.|나는 여행하는 것을 좋아한다.,
+6-15|trip|여행|How was your trip?|여행 어땠니?,
+6-15|visit|방문하다|I will visit my grandma.|나는 할머니를 방문할 것이다.,
+6-15|stay|머물다|Stay here.|여기에 머물러라.,
+6-15|nation|국가|Korea is a nation.|한국은 국가이다.,
+6-15|arrive|도착하다|When did you arrive?|언제 도착했니?,
+6-15|leave|떠나다|Don't leave me.|나를 떠나지 마라.,
+6-15|hotel|호텔|We stay at a hotel.|우리는 호텔에 머문다.,
+6-15|vacation|방학, 휴가|Summer vacation is coming.|여름 방학이 오고 있다.,
+6-15|holiday|휴일, 휴가|Today is a holiday.|오늘은 휴일이다.,
+6-15|during|~ 동안|I slept during the class.|나는 수업 시간 동안 잤다.,
+6-15|plan|계획, 계획하다|What is your plan?|너의 계획은 무엇이니?,
+6-15|tour guide|여행 가이드|The tour guide is kind.|여행 가이드는 친절하다.,
+6-15|airport|공항|I go to the airport.|나는 공항에 간다.,
+6-15|album|사진첩|Show me your album.|네 사진첩을 보여줘.,
+6-15|photo|사진|Take a photo.|사진을 찍어라.,
+6-16|take|타다, 가져가다|Take a bus.|버스를 타라.,
+6-16|drive|운전하다|Can you drive?|운전할 줄 아니?,
+6-16|fast|빠른|The car is fast.|그 차는 빠르다.,
+6-16|slow|느린|Turtles are slow.|거북이는 느리다.,
+6-16|carrot|당근|Rabbits eat a carrot.|토끼는 당근을 먹는다.,
+6-16|bus|버스|The bus is coming.|버스가 오고 있다.,
+6-16|taxi|택시|I call a taxi.|나는 택시를 부른다.,
+6-16|subway|지하철|I take the subway.|나는 지하철을 탄다.,
+6-16|plane|비행기|Look at the plane.|비행기를 봐라.,
+6-16|ship|배|The ship is big.|그 배는 크다.,
+6-16|boat|배, 보트|We ride a boat.|우리는 보트를 탄다.,
+6-16|train|기차|The train is long.|기차는 길다.,
+6-16|truck|트럭|A truck carries boxes.|트럭이 상자들을 나른다.,
+6-16|station|역|Meet me at the station.|역에서 만나자.,
+6-16|ticket|표, 티켓|Do you have a ticket?|너는 표를 가지고 있니?,
+6-16|seat|자리, 좌석|Take a seat.|자리에 앉아라.,
+6-17|play|놀다, (운동 경기를) 하다|Let's play soccer.|축구를 하자.,
+6-17|sports|운동, 스포츠|I like sports.|나는 운동을 좋아한다.,
+6-17|soccer|축구|He plays soccer well.|그는 축구를 잘한다.,
+6-17|baseball|야구|Do you like baseball?|너는 야구를 좋아하니?,
+6-17|basketball|농구|I play basketball.|나는 농구를 한다.,
+6-17|tennis|테니스|Tennis is fun.|테니스는 재미있다.,
+6-17|badminton|배드민턴|We play badminton.|우리는 배드민턴을 친다.,
+6-17|volleyball|배구|The net is for volleyball.|그 네트는 배구용이다.,
+6-17|shoot|(슛을) 쏘다, 던지다|Shoot the ball.|공을 쏴라(던져라).,
+6-17|throw|던지다|Throw me the ball.|나에게 공을 던져라.,
+6-17|kick|차다|Kick the ball hard.|공을 세게 차라.,
+6-17|catch|잡다|Catch the ball.|공을 잡아라.,
+6-17|pass|패스하다, 건네주다|Pass to me.|나에게 패스해라.,
+6-17|ball|공|I have a round ball.|나는 둥근 공을 가지고 있다.,
+6-17|team|팀|We are a good team.|우리는 좋은 팀이다.,
+6-17|gym|체육관|Let's go to the gym.|체육관에 가자.,
+6-18|win|이기다|I want to win.|나는 이기고 싶다.,
+6-18|lose|지다|I don't want to lose.|나는 지고 싶지 않다.,
+6-18|winner|승자|He is the winner.|그는 승자이다.,
+6-18|loser|패자|There is no loser.|패자는 없다.,
+6-18|game|경기, 게임|Let's play a game.|게임을 하자.,
+6-18|match|경기, 시합|The match starts now.|경기가 지금 시작된다.,
+6-18|race|경주, 달리기|We ran a race.|우리는 경주를 했다.,
+6-18|join|함께하다, 가입하다|Come and join us.|와서 우리와 함께해라.,
+6-18|medal|메달|She got a gold medal.|그녀는 금메달을 땄다.,
+6-18|prize|상|I won the first prize.|나는 1등 상을 탔다.,
+6-18|try|노력하다, 시도하다|Try your best.|최선을 다해라.,
+6-18|rule|규칙|Follow the rules.|규칙을 따르라.,
+6-18|score|득점, 점수|What is the score?|점수가 몇이니?,
+6-18|point|점수, 요점|I got one point.|나는 1점을 얻었다.,
+6-18|goal|골, 득점|He scored a goal.|그는 골을 넣었다.,
+6-18|captain|주장|Who is the captain?|주장이 누구니?,
+6-19|relax|휴식을 취하다|Sit down and relax.|앉아서 쉬어라.,
+6-19|see a doctor|진찰을 받다|You should see a doctor.|너는 병원(의사)에 가봐야 한다.,
+6-19|take medicine|약을 먹다|Take medicine with water.|물과 함께 약을 먹어라.,
+6-19|hospital|병원|Go to the hospital.|병원에 가라.,
+6-19|disease|질병|Wash hands to stop disease.|질병을 막기 위해 손을 씻어라.,
+6-19|sick|아픈|I am sick.|나는 아프다.,
+6-19|ill|아픈|He feels ill.|그는 몸이 좋지 않다.,
+6-19|healthy|건강한|Eat healthy food.|건강한 음식을 먹어라.,
+6-19|fever|열|I have a fever.|나는 열이 있다.,
+6-19|pain|통증|I feel pain here.|나는 여기에 통증을 느낀다.,
+6-19|cough|기침|He has a bad cough.|그는 기침이 심하다.,
+6-19|headache|두통|I have a headache.|나는 두통이 있다.,
+6-19|stomachache|복통|She has a stomachache.|그녀는 배가 아프다.,
+6-19|toothache|치통|I have a toothache.|나는 치통이 있다.,
+6-19|die|죽다|Flowers will die without water.|물이 없으면 꽃은 죽을 것이다.,
+6-19|dead|죽은|The tree is dead.|그 나무는 죽었다.,
+6-20|butter|버터|I like butter on bread.|나는 빵에 버터 바르는 것을 좋아한다.,
+6-20|cheese|치즈|Cheese is yellow.|치즈는 노란색이다.,
+6-20|egg|달걀|I eat an egg for breakfast.|나는 아침으로 달걀을 먹는다.,
+6-20|oil|기름|Put some oil in the pan.|팬에 기름을 좀 둘러라.,
+6-20|meat|고기|Do you like meat?|너는 고기를 좋아하니?,
+6-20|rice|쌀, 밥|We eat rice every day.|우리는 매일 밥을 먹는다.,
+6-20|salt|소금|Pass me the salt.|소금 좀 건네줘.,
+6-20|sugar|설탕|Sugar is sweet.|설탕은 달다.,
+6-20|fork|포크|Use a fork.|포크를 사용해라.,
+6-20|knife|칼|The knife is sharp.|칼이 날카롭다.,
+6-20|spoon|숟가락|Eat soup with a spoon.|숟가락으로 수프를 먹어라.,
+6-20|chopsticks|젓가락|I use chopsticks.|나는 젓가락을 사용한다.,
+6-20|bowl|그릇, 사발|A bowl of rice.|밥 한 공기.,
+6-20|dish|접시|Wash the dish.|접시를 씻어라.,
+6-20|bottle|병|Open the bottle.|병을 열어라.,
+6-20|cup|컵|A cup of milk.|우유 한 컵.,
+6-21|money|돈|I need some money.|나는 돈이 좀 필요하다.,
+6-21|dollar|달러|It costs one dollar.|그것은 1달러이다.,
+6-21|coin|동전|I have a gold coin.|나는 금화(동전)를 가지고 있다.,
+6-21|count|세다, 계산하다|Can you count to ten?|10까지 셀 수 있니?,
+6-21|twenty|20|He is twenty years old.|그는 20살이다.,
+6-21|thirty|30|It is thirty dollars.|그것은 30달러이다.,
+6-21|forty|40|My dad is forty.|나의 아빠는 40살이다.,
+6-21|fifty|50|There are fifty stars.|별이 50개 있다.,
+6-21|sixty|60|Wait sixty seconds.|60초를 기다려라.,
+6-21|seventy|70|My grandma is seventy.|나의 할머니는 70세이시다.,
+6-21|eighty|80|Read page eighty.|80페이지를 읽어라.,
+6-21|ninety|90|I got ninety points.|나는 90점을 받았다.,
+6-21|hundred|100, 백|I want a hundred candies.|나는 사탕 100개를 원한다.,
+6-21|thousand|1000, 천|It is two thousand won.|그것은 2,000원이다.,
+6-21|poor|가난한|He helps poor people.|그는 가난한 사람들을 돕는다.,
+6-21|rich|부유한|The king is rich.|왕은 부유하다.,
+6-22|dangerous|위험한|Fire is dangerous.|불은 위험하다.,
+6-22|safe|안전한|This place is safe.|이 장소는 안전하다.,
+6-22|strange|이상한|That is a strange sound.|저것은 이상한 소리다.,
+6-22|happen|발생하다, 일어나다|What happened?|무슨 일이 일어났니?,
+6-22|bomb|폭탄|The bomb is scary.|폭탄은 무섭다.,
+6-22|accident|사고|I saw a car accident.|나는 자동차 사고를 목격했다.,
+6-22|fire|불|Do not play with fire.|불장난하지 마라.,
+6-22|fact|사실|Is that a fact?|그것이 사실이니?,
+6-22|news|뉴스|I watch the news.|나는 뉴스를 본다.,
+6-22|break|깨다, 부수다|Don't break the glass.|유리를 깨지 마라.,
+6-22|fix|수리하다|Can you fix this?|이것을 고칠 수 있니?,
+6-22|burn|타다, 태우다|Paper burns easily.|종이는 쉽게 탄다.,
+6-22|hit|치다, 때리다|He hit the ball.|그가 공을 쳤다.,
+6-22|hurt|다치게 하다, 아프다|Did you hurt your leg?|다리를 다쳤니?,
+6-22|kill|죽이다|Do not kill bugs.|벌레를 죽이지 마라.,
+6-22|help|돕다|Please help me.|나를 도와주세요.,
+6-23|camping|캠핑|We go camping today.|우리는 오늘 캠핑을 간다.,
+6-23|hiking|하이킹 (걷는 여행)|I like hiking.|나는 하이킹을 좋아한다.,
+6-23|fishing|낚시|Let's go fishing.|낚시하러 가자.,
+6-23|swimming|수영|Swimming is fun.|수영은 재미있다.,
+6-23|skiing|스키 타기|I enjoy skiing.|나는 스키 타기를 즐긴다.,
+6-23|jogging|조깅|My dad likes jogging.|나의 아빠는 조깅을 좋아하신다.,
+6-23|picnic|소풍|We have a picnic.|우리는 소풍을 간다.,
+6-23|outside|바깥, 밖에|Let's play outside.|밖에서 놀자.,
+6-23|spend|(시간을) 쓰다|I spend time with mom.|나는 엄마와 시간을 보낸다.,
+6-23|meet|만나다|Nice to meet you.|만나서 반가워.,
+6-23|pool|수영장|The pool is big.|수영장은 크다.,
+6-23|museum|박물관|We visit the museum.|우리는 박물관을 방문한다.,
+6-23|tent|텐트|I sleep in a tent.|나는 텐트에서 잔다.,
+6-23|amusement park|놀이공원|I love the amusement park.|나는 놀이공원을 좋아한다.,
+6-23|baseball stadium|야구장|Go to the baseball stadium.|야구장에 가라.,
+6-23|weekend|주말|Have a nice weekend.|즐거운 주말 보내.,
+6-24|shout|소리치다|Don't shout.|소리치지 마라.,
+6-24|cry|울다|Why do you cry?|왜 우니?,
+6-24|lie|거짓말하다|Do not lie.|거짓말하지 마라.,
+6-24|fight|싸우다|Friends shouldn't fight.|친구끼리는 싸우면 안 된다.,
+6-24|hide|숨다, 숨기다|I hide behind the tree.|나는 나무 뒤에 숨는다.,
+6-24|friend|친구|She is my best friend.|그녀는 나의 가장 친한 친구다.,
+6-24|together|함께|Let's study together.|함께 공부하자.,
+6-24|sorry|미안한|I am sorry.|미안해.,
+6-24|fault|잘못|It is my fault.|그것은 내 잘못이다.,
+6-24|mistake|실수|I made a mistake.|나는 실수를 했다.,
+6-24|matter|문제, 일|What is the matter?|무슨 일이니? (무엇이 문제니?),
+6-24|problem|문제|Solve the problem.|문제를 풀어라.,
+6-24|peace|평화|We want peace.|우리는 평화를 원한다.,
+6-24|hate|싫어하다|I hate bugs.|나는 벌레를 싫어한다.,
+6-24|understand|이해하다|Do you understand?|이해하니?,
+6-24|promise|약속하다|I promise you.|너에게 약속한다.,
+6-25|wedding|결혼식, 결혼|The wedding is today.|결혼식은 오늘이다.,
+6-25|hall|홀, 큰방이나 건물|The hall is big.|홀은 크다.,
+6-25|person|사람|He is a nice person.|그는 좋은 사람이다.,
+6-25|people|사람들|Many people are here.|많은 사람들이 여기에 있다.,
+6-25|chat|수다를 떨다|We chat together.|우리는 함께 수다를 떤다.,
+6-25|clap|박수를 치다|Everyone claps.|모두 박수를 친다.,
+6-25|laugh|웃다|We laugh loudly.|우리는 크게 웃는다.,
+6-25|smile|미소를 짓다|She smiles at me.|그녀는 나에게 미소를 짓는다.,
+6-25|wife|아내|She is his wife.|그녀는 그의 아내이다.,
+6-25|baby|아기|The baby sleeps.|아기가 잔다.,
+6-25|husband|남편|He is her husband.|그는 그녀의 남편이다.,
+6-25|marry|결혼하다|Will you marry me?|나와 결혼해 줄래?,
+6-25|love|사랑하다|I love my family.|나는 나의 가족을 사랑한다.,
+6-25|gather|모이다|Let's gather here.|여기로 모이자.,
+6-25|married couple|부부|They are a married couple.|그들은 부부이다.,
+6-25|band|밴드, 악단|The band plays music.|밴드가 음악을 연주한다.,
+6-26|shape|모양|What shape is this?|이것은 무슨 모양이니?,
+6-26|circle|동그라미, 원|Draw a circle.|원을 그려라.,
+6-26|round|둥근|The ball is round.|공은 둥글다.,
+6-26|oval|계란형, 계란형의|An egg is oval.|달걀은 계란형이다.,
+6-26|square|정사각형 (네모)|The box is a square.|상자는 정사각형이다.,
+6-26|rectangle|직사각형 (네모)|A book is a rectangle.|책은 직사각형이다.,
+6-26|triangle|삼각형 (세모)|This is a triangle.|이것은 삼각형이다.,
+6-26|cone|원뿔|An ice cream cone.|아이스크림 콘.,
+6-26|glass|유리잔, 유리|Be careful with glass.|유리를 조심해라.,
+6-26|board|판자|Look at the board.|칠판(판자)을 봐라.,
+6-26|chalk|분필|Use white chalk.|흰 분필을 사용해라.,
+6-26|soap|비누|Wash with soap.|비누로 씻어라.,
+6-26|candle|양초|Light the candle.|양초에 불을 켜라.,
+6-26|wallet|지갑|I lost my wallet.|나는 지갑을 잃어버렸다.,
+6-26|clock|시계|The clock ticks.|시계가 똑딱거린다.,
+6-26|bat|(야구) 방망이|Swing the bat.|방망이를 휘둘러라.,
+6-27|king|왕|The king is strong.|왕은 힘이 세다.,
+6-27|queen|왕비|The queen is kind.|왕비는 친절하다.,
+6-27|prince|왕자|The prince rides a horse.|왕자는 말을 탄다.,
+6-27|princess|공주|The princess is pretty.|공주는 예쁘다.,
+6-27|story|이야기|Tell me a story.|나에게 이야기를 해줘.,
+6-27|god|신|Thank god.|신에게 감사합니다.,
+6-27|angel|천사|You are an angel.|너는 천사야.,
+6-27|crown|왕관|The crown is gold.|왕관은 금이다.,
+6-27|castle|성|Look at the castle.|성을 봐라.,
+6-27|palace|성, 궁전|The palace is huge.|궁전은 거대하다.,
+6-27|heaven|천국|Heaven is beautiful.|천국은 아름답다.,
+6-27|hell|지옥|It is hot like hell.|지옥처럼 뜨겁다.,
+6-27|giant|거인|A giant is very tall.|거인은 매우 키가 크다.,
+6-27|ghost|유령, 귀신|I saw a ghost.|나는 유령을 보았다.,
+6-27|monster|괴물|The monster is scary.|괴물은 무섭다.,
+6-27|hero|영웅|He is my hero.|그는 나의 영웅이다.,
+6-28|interesting|재미있는, 흥미로운|The book is interesting.|그 책은 재미있다.,
+6-28|exciting|신나는|The game is exciting.|그 게임은 신난다.,
+6-28|fantastic|환상적인|You look fantastic.|너 환상적으로 보인다.,
+6-28|excellent|훌륭한|Good job, excellent!|잘했어, 훌륭해!,
+6-28|terrible|끔찍한|The weather is terrible.|날씨가 끔찍하다.,
+6-28|famous|유명한|He is a famous singer.|그는 유명한 가수이다.,
+6-28|concert|콘서트|We go to a concert.|우리는 콘서트에 간다.,
+6-28|picture|그림, 사진|Take a picture.|사진을 찍어라.,
+6-28|enjoy|즐기다|Enjoy your trip.|여행을 즐겨라.,
+6-28|song|노래|Sing a song.|노래를 불러라.,
+6-28|singer|가수|Who is your favorite singer?|네가 가장 좋아하는 가수는 누구니?,
+6-28|musician|음악가|She is a musician.|그녀는 음악가이다.,
+6-28|movie|영화|I like this movie.|나는 이 영화를 좋아한다.,
+6-28|theater|극장|Let's go to the theater.|극장에 가자.,
+6-28|director|감독|He is a movie director.|그는 영화 감독이다.,
+6-28|why|왜|Why are you here?|너는 왜 여기에 있니?,
+6-29|idea|생각, 의견|I have a good idea.|나에게 좋은 생각이 있다.,
+6-29|opinion|의견|What is your opinion?|너의 의견은 무엇이니?,
+6-29|example|예, 보기|Give me an example.|예를 들어 줘.,
+6-29|great|위대한, 훌륭한|That is great!|그거 훌륭하다!,
+6-29|correct|맞는, 정확한|The answer is correct.|답이 맞다.,
+6-29|wrong|틀린, 잘못된|It is wrong.|그것은 틀렸다.,
+6-29|same|같은|We have the same bag.|우리는 같은 가방을 가지고 있다.,
+6-29|different|다른|They are different.|그들은 다르다.,
+6-29|tell|말하다|Tell me the truth.|진실을 말해줘.,
+6-29|discuss|토론하다|Let's discuss it.|그것을 토론하자.,
+6-29|think|생각하다|Think about it.|그것에 대해 생각해 봐.,
+6-29|guess|추측하다|Guess what?|뭔지 맞춰봐?,
+6-29|change|바뀌다, 바꾸다|Change your clothes.|옷을 갈아입어라.,
+6-29|decide|결정하다|You must decide.|너는 결정해야 한다.,
+6-29|agree|동의하다|I agree with you.|나는 너에게 동의한다.,
+6-29|because|왜냐하면|I cry because I am sad.|나는 슬퍼서 운다.,
+6-30|mail|우편물|Check the mail.|우편물을 확인해라.,
+6-30|letter|편지|I write a letter.|나는 편지를 쓴다.,
+6-30|postcard|엽서|Send a postcard.|엽서를 보내라.,
+6-30|call|전화, 전화하다|Call me now.|지금 전화해.,
+6-30|get|받다, 얻다|Did you get it?|너 그거 받았니?,
+6-30|receive|받다|I receive an email.|나는 이메일을 받는다.,
+6-30|send|보내다|Send it to me.|그것을 나에게 보내라.,
+6-30|deliver|배달하다|Please deliver this.|이것을 배달해 주세요.,
+6-30|talk|말하다, 이야기하다|Don't talk loudly.|크게 말하지 마라.,
+6-30|speak|말하다|Can you speak English?|영어를 할 줄 아니?,
+6-30|say|말하다|Say yes.|'네'라고 말해라.,
+6-30|repeat|반복하다|Repeat after me.|나를 따라 해라.,
+6-30|voice|목소리|I hear a voice.|나는 목소리를 듣는다.,
+6-30|dialogue|대화|Listen to the dialogue.|대화를 들어라.,
+6-30|stamp|우표, 도장|Buy a stamp.|우표를 사라.,
+6-30|envelope|봉투|Put it in the envelope.|그것을 봉투에 넣어라.
+
+10-1|name|이름|My name is Tom.|내 이름은 톰이다.,
+10-1|boy|소년, 남자아이|The boy runs fast.|그 소년은 빨리 달린다.,
+10-1|girl|소녀, 여자아이|The girl is pretty.|그 소녀는 예쁘다.,
+10-1|baby|아기|The baby sleeps.|아기가 잔다.,
+10-1|man|남자, 남성|He is a strong man.|그는 힘센 남자다.,
+10-1|woman|여자, 여성|The woman is kind.|그 여자는 친절하다.,
+10-1|age|나이|What is your age?|너의 나이는 몇이니?,
+10-1|dear|사랑하는, 소중한|My dear friend.|나의 소중한 친구.,
+10-1|child|아이, 어린이|The child plays.|아이가 논다.,
+10-1|teenager|십 대|My brother is a teenager.|나의 형은 십 대다.,
+10-1|adult|성인, 어른|Acts like an adult.|어른처럼 행동해라.,
+10-1|someone|누군가, 어떤 사람|Someone is here.|누군가가 여기에 있다.,
+10-1|everyone|모두, 모든 사람|Hello, everyone.|여러분(모두), 안녕.,
+10-1|lady|여성, 부인|She is a nice lady.|그녀는 멋진 여성(숙녀)이다.,
+10-1|gentleman|신사, 양반|Be a gentleman.|신사가 되어라.,
+10-1|person|사람, 개인|He is a good person.|그는 좋은 사람이다.,
+10-1|people|사람들|Many people came.|많은 사람들이 왔다.,
+10-1|own|자기 자신의|Use your own pen.|너 자신의 펜을 사용해라.,
+10-1|each other|서로|Help each other.|서로 도와라.,
+10-1|be from|~출신이다|I am from Korea.|나는 한국 출신이다.,
+10-2|family|가족|I love my family.|나는 나의 가족을 사랑한다.,
+10-2|father|아버지|My father works hard.|나의 아버지는 열심히 일하신다.,
+10-2|mother|어머니|My mother cooks well.|나의 어머니는 요리를 잘 하신다.,
+10-2|son|아들|He is my son.|그는 나의 아들이다.,
+10-2|daughter|딸|She is my daughter.|그녀는 나의 딸이다.,
+10-2|brother|형, 오빠, 남동생|Do you have a brother?|너는 남자 형제가 있니?,
+10-2|sister|언니, 누나, 여동생|My sister is cute.|내 여동생은 귀엽다.,
+10-2|marry|결혼하다|Will you marry me?|나와 결혼해 줄래?,
+10-2|husband|남편|Her husband is tall.|그녀의 남편은 키가 크다.,
+10-2|wife|아내, 부인|His wife is kind.|그의 아내는 친절하다.,
+10-2|parent|부모|Ask your parents.|부모님께 여쭤봐라.,
+10-2|uncle|삼촌|My uncle is funny.|나의 삼촌은 재미있다.,
+10-2|aunt|고모, 이모, 숙모|My aunt gave me a gift.|나의 이모가 나에게 선물을 주셨다.,
+10-2|grandparent|조부모|I visit my grandparents.|나는 조부모님을 방문한다.,
+10-2|cousin|사촌|My cousin lives nearby.|내 사촌은 근처에 산다.,
+10-2|member|구성원, 일원|I am a member of the club.|나는 그 클럽의 일원이다.,
+10-2|pet|반려동물|I have a pet dog.|나는 반려견을 키운다.,
+10-2|relative|친척|Many relatives came.|많은 친척들이 왔다.,
+10-2|be born|태어나다|I was born in 2012.|나는 2012년에 태어났다.,
+10-2|take care of|~을 돌보다|I take care of my sister.|나는 내 동생을 돌본다.,
+10-3|friend|친구|We are good friends.|우리는 좋은 친구다.,
+10-3|together|함께, 같이|Let's play together.|함께 놀자.,
+10-3|club|동아리, 클럽|Join the book club.|독서 클럽에 가입해라.,
+10-3|join|가입하다, 함께하다|Can I join you?|너와 함께해도 되니?,
+10-3|fight|싸우다|Don't fight with friends.|친구들과 싸우지 마라.,
+10-3|group|무리, 집단, 그룹|A group of students.|학생들의 무리(그룹).,
+10-3|classmate|급우, 반 친구|He is my classmate.|그는 나의 반 친구다.,
+10-3|partner|파트너, 짝|Who is your partner?|너의 짝은 누구니?,
+10-3|alone|혼자|I am home alone.|나는 집에 혼자 있다.,
+10-3|friendship|우정|Our friendship is strong.|우리의 우정은 강하다.,
+10-3|share|함께 쓰다, 나누다|Share your toys.|장난감을 함께 써라.,
+10-3|neighbor|이웃|My neighbor is kind.|나의 이웃은 친절하다.,
+10-3|favor|호의, 부탁|Do me a favor.|부탁 하나만 들어줘.,
+10-3|introduce|소개하다|Let me introduce myself.|내 소개를 할게.,
+10-3|harmony|조화, 화합|Live in harmony.|조화롭게 살아라.,
+10-3|nickname|별명|My nickname is Speedy.|내 별명은 스피디다.,
+10-3|welcome|환영하다|Welcome to my house.|우리 집에 온 것을 환영해.,
+10-3|strange|이상한, 낯선|That is strange.|저것은 이상하다.,
+10-3|hang out|~와 시간을 보내다|I hang out with friends.|나는 친구들과 어울려 논다.,
+10-3|make fun of|~을 놀리다|Don't make fun of him.|그를 놀리지 마라.,
+10-4|body|몸, 신체|Move your body.|몸을 움직여라.,
+10-4|ear|귀|I have two ears.|나는 두 개의 귀가 있다.,
+10-4|eye|눈|Close your eyes.|눈을 감아라.,
+10-4|nose|코|Touch your nose.|코를 만져라.,
+10-4|mouth|입|Open your mouth.|입을 벌려라.,
+10-4|skin|피부|My skin is soft.|내 피부는 부드럽다.,
+10-4|tooth|이, 치아|Brush your tooth.|이를 닦아라. (보통 teeth 사용),
+10-4|tongue|혀|Stick out your tongue.|혀를 내밀어라.,
+10-4|head|머리|Shake your head.|머리를 흔들어라.,
+10-4|hair|머리카락, 털|Comb your hair.|머리를 빗어라.,
+10-4|arm|팔|Raise your arm.|팔을 들어라.,
+10-4|shoulder|어깨|Tap your shoulder.|어깨를 두드려라.,
+10-4|hand|손|Wash your hands.|손을 씻어라.,
+10-4|finger|손가락|Use your finger.|손가락을 사용해라.,
+10-4|leg|다리|My leg is long.|내 다리는 길다.,
+10-4|knee|무릎|Bend your knees.|무릎을 굽혀라.,
+10-4|foot|발|Stamp your foot.|발을 굴러라.,
+10-4|toe|발가락|Touch your toes.|발가락을 만져라.,
+10-4|grow up|성장하다, 자라다|I want to grow up fast.|나는 빨리 자라고 싶다.,
+10-4|watch out|조심하다|Watch out for cars.|차를 조심해라.,
+10-5|old|늙은, 오래된|My bike is old.|내 자전거는 오래되었다.,
+10-5|young|어린, 젊은|She is young.|그녀는 어리다.,
+10-5|short|키가 작은, 짧은|The pencil is short.|연필은 짧다.,
+10-5|tall|키가 큰, 높은|The tree is tall.|나무는 키가 크다.,
+10-5|long|긴|The snake is long.|뱀은 길다.,
+10-5|pretty|예쁜, 귀여운|You look pretty.|너 예뻐 보인다.,
+10-5|ugly|못생긴, 보기 싫은|The monster is ugly.|괴물은 못생겼다.,
+10-5|handsome|잘생긴|He is handsome.|그는 잘생겼다.,
+10-5|face|얼굴|Your face is red.|네 얼굴이 빨갛다.,
+10-5|thin|날씬한, 얇은|The book is thin.|책은 얇다.,
+10-5|fat|뚱뚱한, 살찐|The pig is fat.|돼지는 뚱뚱하다.,
+10-5|curly|곱슬곱슬한|She has curly hair.|그녀는 곱슬머리다.,
+10-5|blond|금발인|He has blond hair.|그는 금발이다.,
+10-5|change|바꾸다, 변하다|Leaves change color.|나뭇잎은 색이 변한다.,
+10-5|lovely|사랑스러운|What a lovely day.|정말 사랑스러운 날이다.,
+10-5|cute|귀여운|The puppy is cute.|강아지는 귀엽다.,
+10-5|normal|평범한, 정상적인|It is a normal day.|평범한 날이다.,
+10-5|beautiful|아름다운|The flower is beautiful.|꽃은 아름답다.,
+10-5|look like|~처럼 보이다|You look like your mom.|너는 엄마를 닮았다.,
+10-5|show up|나타나다|He didn't show up.|그는 나타나지 않았다.,
+10-6|kind|친절한|She is very kind.|그녀는 매우 친절하다.,
+10-6|funny|웃기는, 재미있는|The clown is funny.|광대는 웃기다.,
+10-6|quiet|조용한|Be quiet in the library.|도서관에서는 조용히 해라.,
+10-6|careful|주의 깊은, 조심하는|Be careful with the knife.|칼을 조심해라.,
+10-6|shy|수줍음을 많이 타는|The boy is shy.|그 소년은 수줍음이 많다.,
+10-6|stupid|어리석은, 멍청한|Don't do stupid things.|어리석은 짓을 하지 마라.,
+10-6|lazy|게으른|Don't be lazy.|게으르지 마라.,
+10-6|calm|차분한, 침착한|Stay calm.|침착해라.,
+10-6|smart|똑똑한, 영리한|You are smart.|너는 똑똑하다.,
+10-6|clever|영리한, 똑똑한|The fox is clever.|여우는 영리하다.,
+10-6|wise|지혜로운, 현명한|My grandpa is wise.|우리 할아버지는 지혜로우시다.,
+10-6|honest|정직한, 솔직한|An honest person tells the truth.|정직한 사람은 진실을 말한다.,
+10-6|polite|예의 바른, 공손한|He is polite.|그는 예의 바르다.,
+10-6|friendly|친절한, 우호적인|My dog is friendly.|내 개는 친절하다.,
+10-6|active|활동적인|She is very active.|그녀는 매우 활동적이다.,
+10-6|brave|용감한|Be brave.|용감해져라.,
+10-6|curious|호기심이 많은|I am curious about it.|나는 그것이 궁금하다.,
+10-6|character|성격, 특징|He has a good character.|그는 좋은 성격을 가졌다.,
+10-6|on time|시간을 어기지 않고|Please be on time.|제시간에 와라.,
+10-6|on my own|나 혼자 힘으로|I did it on my own.|나는 나 혼자 힘으로 그것을 했다.,
+10-7|job|일, 직장|What is your job?|너의 직업은 무엇이니?,
+10-7|firefighter|소방관|The firefighter is brave.|소방관은 용감하다.,
+10-7|librarian|사서|The librarian loves books.|사서는 책을 사랑한다.,
+10-7|pilot|조종사, 비행사|A pilot flies a plane.|조종사는 비행기를 조종한다.,
+10-7|want|원하다, ~하고 싶다|I want some water.|나는 물을 좀 원한다.,
+10-7|police officer|경찰관|The police officer helps people.|경찰관은 사람들을 돕는다.,
+10-7|scientist|과학자|A scientist studies science.|과학자는 과학을 연구한다.,
+10-7|worker|노동자, 근로자|He is a hard worker.|그는 열심히 일하는 노동자다.,
+10-7|become|~이 되다|I want to become a singer.|나는 가수가 되고 싶다.,
+10-7|reporter|기자|The reporter writes news.|기자는 뉴스를 쓴다.,
+10-7|farmer|농부, 농장주|The farmer grows rice.|농부는 벼를 재배한다.,
+10-7|writer|작가|She is a famous writer.|그녀는 유명한 작가이다.,
+10-7|engineer|기사, 기술자|My dad is an engineer.|우리 아빠는 기술자이시다.,
+10-7|work|일하다, 근무하다|They work hard.|그들은 열심히 일한다.,
+10-7|company|회사, 동료|It is a big company.|그것은 큰 회사이다.,
+10-7|director|감독, 연출자|Who is the movie director?|영화 감독이 누구니?,
+10-7|future|미래|Think about the future.|미래에 대해 생각해라.,
+10-7|experience|경험|It was a good experience.|좋은 경험이었다.,
+10-7|be interested in|~에 관심이 있다|I am interested in music.|나는 음악에 관심이 있다.,
+10-7|come true|이루어지다|Dreams come true.|꿈은 이루어진다.,
+10-8|play|놀다|Let's play together.|함께 놀자.,
+10-8|walk|걷다|We walk to school.|우리는 학교에 걸어간다.,
+10-8|run|달리다, 뛰다|Can you run fast?|너는 빨리 달릴 수 있니?,
+10-8|kick|차다|Kick the ball.|공을 차라.,
+10-8|jump|뛰다, 도약하다|Jump high.|높이 뛰어라.,
+10-8|throw|던지다|Throw the stone.|돌을 던져라.,
+10-8|use|쓰다, 사용하다|Use a fork.|포크를 사용해라.,
+10-8|close|닫다|Close the door.|문을 닫아라.,
+10-8|cry|울다|Don't cry.|울지 마라.,
+10-8|act|연기하다, 행동하다|Act nicely.|멋지게 행동해라.,
+10-8|move|움직이다, 이사하다|Don't move.|움직이지 마라.,
+10-8|shout|소리치다|Never shout.|절대 소리치지 마라.,
+10-8|carry|나르다|Carry this box.|이 상자를 날라라.,
+10-8|drop|떨어뜨리다|Don't drop it.|그것을 떨어뜨리지 마라.,
+10-8|try|노력하다, 시도하다|Try again.|다시 시도해라.,
+10-8|check|확인하다|Check the time.|시간을 확인해라.,
+10-8|bring|가져오다|Bring me water.|물을 가져와라.,
+10-8|laugh|웃다|We laugh loud.|우리는 크게 웃는다.,
+10-8|have a seat|자리에 앉다|Please have a seat.|자리에 앉으세요.,
+10-8|get out of|~에서 나가다|Get out of the car.|차에서 내려라(나가라).,
+10-9|sad|슬픈|I feel sad.|나는 슬프다.,
+10-9|happy|행복한|I am happy.|나는 행복하다.,
+10-9|afraid|무서워하는, 겁내는|Don't be afraid.|무서워하지 마라.,
+10-9|angry|화난, 성난|He is angry.|그는 화가 났다.,
+10-9|glad|기쁜, 반가운|I am glad to see you.|너를 봐서 기쁘다.,
+10-9|lonely|외로운, 쓸쓸한|I feel lonely.|나는 외롭다.,
+10-9|serious|심각한, 진지한|Are you serious?|너 진심이니?,
+10-9|nervous|불안해하는, 긴장한|I am nervous.|나는 긴장된다.,
+10-9|scared|무서워하는|I am scared of ghosts.|나는 유령이 무섭다.,
+10-9|upset|속상한, 화난|Don't get upset.|속상해하지 마라.,
+10-9|surprised|놀란|I was surprised.|나는 놀랐다.,
+10-9|bored|지루해 하는|I am bored.|나는 지루하다.,
+10-9|pleased|기쁜, 만족해하는|I am pleased.|나는 기쁘다.,
+10-9|excited|신이 난, 흥분한|I am excited.|나는 신이 난다.,
+10-9|worry|걱정하다|Don't worry.|걱정하지 마라.,
+10-9|miss|그리워하다|I miss you.|나는 네가 그립다.,
+10-9|excuse|용서하다, 변명|Excuse me.|실례합니다. (용서하세요.),
+10-9|complain|불평하다|Don't complain.|불평하지 마라.,
+10-9|be proud of|~을 자랑스러워하다|I am proud of you.|나는 네가 자랑스럽다.,
+10-9|would like to|~하고 싶다|I would like to go.|나는 가고 싶다.,
+10-10|idea|발상, 생각|Good idea.|좋은 생각이다.,
+10-10|dream|꿈|I have a dream.|나는 꿈이 있다.,
+10-10|believe|믿다|Believe in yourself.|너 자신을 믿어라.,
+10-10|think|생각하다|What do you think?|너는 어떻게 생각하니?,
+10-10|know|알다|I know him.|나는 그를 안다.,
+10-10|need|필요로 하다|I need help.|나는 도움이 필요하다.,
+10-10|hope|바라다, 희망하다|I hope so.|나도 그러길 바란다.,
+10-10|wish|원하다, 소원|Make a wish.|소원을 빌어라.,
+10-10|decide|결정하다|You decide.|네가 결정해라.,
+10-10|guess|추측하다|Guess what?|뭔지 맞춰봐?,
+10-10|forget|잊다|Don't forget.|잊지 마라.,
+10-10|remember|기억하다|I remember that.|나는 그것을 기억한다.,
+10-10|wonder|궁금하다|I wonder why.|왜 그런지 궁금하다.,
+10-10|keep|유지하다, 지키다|Keep it secret.|비밀을 지켜라.,
+10-10|understand|이해하다|I understand.|나는 이해한다.,
+10-10|plan|계획|What is the plan?|계획이 무엇이니?,
+10-10|mind|마음, 정신|Change your mind.|마음을 바꿔라.,
+10-10|question|질문, 문제|Ask a question.|질문을 해라.,
+10-10|feel like|~하고 싶다|I feel like dancing.|나는 춤추고 싶다.,
+10-10|give up|포기하다|Don't give up.|포기하지 마라.,
+10-11|talk|말하다, 이야기하다|Let's talk.|이야기하자.,
+10-11|speak|말하다, 이야기하다|Can you speak English?|영어를 할 줄 아니?,
+10-11|call|부르다, 전화하다|Call me later.|나중에 전화해.,
+10-11|tell|알리다, 말하다|Tell me the truth.|진실을 말해줘.,
+10-11|say|말하다|Say yes.|'네'라고 말해라.,
+10-11|ask|묻다, 질문하다|Can I ask you?|너에게 물어봐도 될까?,
+10-11|answer|답하다, 대답|I know the answer.|나는 답을 안다.,
+10-11|show|보여 주다, 공연|Show me your bag.|네 가방을 보여줘.,
+10-11|express|나타내다, 표현하다|Express your feelings.|너의 감정을 표현해라.,
+10-11|message|메시지, 전갈|I got a message.|나는 메시지를 받았다.,
+10-11|mean|의미하다|What do you mean?|무슨 뜻이니?,
+10-11|discuss|상의하다, 논의하다|Let's discuss it.|그것을 논의하자.,
+10-11|explain|설명하다|Please explain this.|이것을 설명해 주세요.,
+10-11|problem|문제, 어려움|I have a problem.|나는 문제가 있다.,
+10-11|agree|동의하다, 찬성하다|I agree with you.|나는 너에게 동의한다.,
+10-11|allow|허락하다, 허용하다|My mom allows it.|엄마는 그것을 허락하신다.,
+10-11|accept|받아들이다, 수락하다|Accept my gift.|내 선물을 받아줘.,
+10-11|promise|약속하다, 약속|Keep your promise.|약속을 지켜라.,
+10-11|find out|알아내다, 발견하다|I will find out.|내가 알아낼 것이다.,
+10-11|say hello to|~에게 안부를 전하다|Say hello to your dad.|너의 아빠에게 안부를 전해줘.,
+10-12|hear|듣다, 들리다|Can you hear me?|내 말이 들리니?,
+10-12|listen|듣다, 귀 기울이다|Listen carefully.|주의 깊게 들어라.,
+10-12|see|보다|I see a bird.|나는 새를 본다.,
+10-12|watch|보다, 지켜보다|I watch TV.|나는 TV를 본다.,
+10-12|look|~해 보이다, 보다|You look happy.|너는 행복해 보인다.,
+10-12|voice|목소리, 음성|Your voice is nice.|너의 목소리는 좋다.,
+10-12|feel|느끼다|I feel cold.|나는 춥게 느낀다.,
+10-12|smell|냄새가 나다, 냄새|It smells good.|좋은 냄새가 난다.,
+10-12|sound|~하게 들리다, 소리|It sounds fun.|재미있게 들린다.,
+10-12|taste|맛이 나다, 맛|This tastes sweet.|이것은 단맛이 난다.,
+10-12|loud|큰, 시끄러운|The music is loud.|음악 소리가 크다.,
+10-12|touch|만지다|Don't touch it.|그것을 만지지 마라.,
+10-12|soft|부드러운, 푹신한|The cat is soft.|고양이는 부드럽다.,
+10-12|hard|단단한, 열심히|The rock is hard.|바위는 단단하다.,
+10-12|sweet|달콤한, 단|Candy is sweet.|사탕은 달콤하다.,
+10-12|sharp|날카로운, 뾰족한|The knife is sharp.|칼이 날카롭다.,
+10-12|same|같은, 동일한|We are the same.|우리는 같다.,
+10-12|color|색, 색깔|What color is it?|그것은 무슨 색이니?,
+10-12|be good at|~을 잘하다|I am good at math.|나는 수학을 잘한다.,
+10-12|make a noise|시끄럽게 하다|Don't make a noise.|시끄럽게 하지 마라.,
+10-13|visit|방문하다|I visit my grandma.|나는 할머니를 방문한다.,
+10-13|zoo|동물원|Let's go to the zoo.|동물원에 가자.,
+10-13|bank|은행|Where is the bank?|은행이 어디니?,
+10-13|park|공원|I run in the park.|나는 공원에서 달린다.,
+10-13|airport|공항|The airport is busy.|공항은 바쁘다.,
+10-13|place|장소|This is a nice place.|이곳은 좋은 장소다.,
+10-13|town|(소)도시, 마을|I live in a small town.|나는 작은 마을에 산다.,
+10-13|village|마을, 부락|My grandpa lives in a village.|할아버지는 시골 마을에 사신다.,
+10-13|city|도시|Seoul is a big city.|서울은 큰 도시다.,
+10-13|bookstore|서점|I buy books at the bookstore.|나는 서점에서 책을 산다.,
+10-13|market|시장|Mom goes to the market.|엄마는 시장에 가신다.,
+10-13|square|광장, 정사각형|Meet me at the square.|광장에서 만나자.,
+10-13|theater|극장|We watch a movie at the theater.|우리는 극장에서 영화를 본다.,
+10-13|bakery|빵집, 제과점|The bakery smells good.|빵집에서 좋은 냄새가 난다.,
+10-13|space|공간, 우주|There is no space.|공간이 없다.,
+10-13|station|역, 정류장|Go to the bus station.|버스 정류장으로 가라.,
+10-13|museum|박물관, 미술관|We learn history at the museum.|우리는 박물관에서 역사를 배운다.,
+10-13|gallery|미술관, 화랑|The gallery has pictures.|미술관에는 그림들이 있다.,
+10-13|line up|줄을 서다|Please line up.|줄을 서 주세요.,
+10-13|stop by|~에 잠시 들르다|I will stop by your house.|너희 집에 잠시 들를게.,
+10-14|wall|담, 벽|The wall is high.|담이 높다.,
+10-14|garden|정원, 뜰|I water the garden.|나는 정원에 물을 준다.,
+10-14|bathroom|욕실, 화장실|Where is the bathroom?|화장실이 어디니?,
+10-14|stair|계단|Walk up the stairs.|계단을 걸어 올라가라.,
+10-14|wash|씻다, 빨래하다|Wash your face.|세수해라.,
+10-14|gate|문, 출입구|Close the gate.|대문을 닫아라.,
+10-14|umbrella|우산|Take an umbrella.|우산을 가져가라.,
+10-14|roof|지붕|The roof is red.|지붕은 빨간색이다.,
+10-14|kitchen|부엌, 주방|Mom is in the kitchen.|엄마는 부엌에 계신다.,
+10-14|refrigerator|냉장고|The milk is in the refrigerator.|우유는 냉장고에 있다.,
+10-14|floor|바닥, 층|Clean the floor.|바닥을 청소해라.,
+10-14|living room|거실|We watch TV in the living room.|우리는 거실에서 TV를 본다.,
+10-14|bedroom|침실|I sleep in the bedroom.|나는 침실에서 잔다.,
+10-14|address|주소|What is your address?|너의 주소는 무엇이니?,
+10-14|stay|머무르다|Stay here.|여기에 머물러라.,
+10-14|garbage|쓰레기|Throw away the garbage.|쓰레기를 버려라.,
+10-14|housework|가사, 집안일|I help with housework.|나는 집안일을 돕는다.,
+10-14|comfortable|편안한, 쾌적한|The chair is comfortable.|그 의자는 편안하다.,
+10-14|turn off|~을 끄다|Turn off the light.|불을 꺼라.,
+10-14|go to bed|잠자리에 들다|I go to bed at 9.|나는 9시에 잠자리에 든다.,
+10-15|salt|소금|Pass me the salt.|소금 좀 건네줘.,
+10-15|sugar|설탕|Sugar is sweet.|설탕은 달다.,
+10-15|meat|고기|Do you like meat?|너는 고기를 좋아하니?,
+10-15|snack|간단한 식사, 간식|Let's have a snack.|간식 먹자.,
+10-15|fresh|신선한, 상쾌한|This fruit is fresh.|이 과일은 신선하다.,
+10-15|sauce|소스, 양념|The sauce is spicy.|소스가 맵다.,
+10-15|rice|쌀, 밥|We eat rice.|우리는 밥을 먹는다.,
+10-15|bottle|병|Open the bottle.|병을 열어라.,
+10-15|heat|가열하다, 열기|Heat the soup.|수프를 데워라.,
+10-15|bake|굽다|I bake cookies.|나는 쿠키를 굽는다.,
+10-15|meal|식사, 끼니|Enjoy your meal.|식사 맛있게 하세요.,
+10-15|cook|요리하다, 요리사|My dad cooks well.|우리 아빠는 요리를 잘하신다.,
+10-15|mix|섞다, 혼합하다|Mix it well.|잘 섞어라.,
+10-15|pour|붓다, 따르다|Pour the milk.|우유를 부어라.,
+10-15|melt|녹다, 녹이다|The ice melts.|얼음이 녹는다.,
+10-15|delicious|아주 맛있는|It is delicious.|그것은 아주 맛있다.,
+10-15|freeze|얼다, 얼리다|Water freezes in winter.|겨울에는 물이 언다.,
+10-15|recipe|요리법, 레시피|Follow the recipe.|요리법을 따라라.,
+10-15|such as|~와 같은|I like fruit such as apples.|나는 사과 같은 과일을 좋아한다.,
+10-15|do the dishes|설거지를 하다|I do the dishes.|나는 설거지를 한다.,
+10-16|eat|먹다|Let's eat lunch.|점심을 먹자.,
+10-16|drink|마시다|Drink some water.|물을 좀 마셔라.,
+10-16|knife|칼|The knife is sharp.|칼이 날카롭다.,
+10-16|cup|컵, 잔|A cup of tea.|차 한 잔.,
+10-16|dish|접시, 요리|Wash the dish.|접시를 씻어라.,
+10-16|juice|주스, 즙|I like orange juice.|나는 오렌지 주스를 좋아한다.,
+10-16|soup|수프, 국|The soup is hot.|수프가 뜨겁다.,
+10-16|salad|샐러드|Salad is healthy.|샐러드는 건강에 좋다.,
+10-16|seafood|해산물|I love seafood.|나는 해산물을 사랑한다.,
+10-16|menu|메뉴, 식단표|Look at the menu.|메뉴를 봐라.,
+10-16|hungry|배고픈|I am hungry.|나는 배가 고프다.,
+10-16|thirsty|목이 마른|I am thirsty.|나는 목이 마르다.,
+10-16|open|열다, 열린|The shop is open.|가게가 열려 있다.,
+10-16|order|주문하다|Can I order now?|지금 주문해도 될까요?,
+10-16|chef|요리사, 주방장|The chef cooks well.|그 요리사는 요리를 잘한다.,
+10-16|serve|제공하다, 차려 내다|They serve pizza.|그들은 피자를 제공한다.,
+10-16|dessert|디저트, 후식|I want dessert.|나는 디저트를 원한다.,
+10-16|restaurant|식당, 레스토랑|Go to a restaurant.|식당에 가라.,
+10-16|eat out|외식하다|We eat out today.|우리는 오늘 외식한다.,
+10-16|wait for|~을 기다리다|Wait for me.|나를 기다려라.,
+10-17|pants|바지|My pants are blue.|내 바지는 파란색이다.,
+10-17|belt|벨트, 허리띠|Wear a belt.|벨트를 매라.,
+10-17|shirt|셔츠|Iron your shirt.|셔츠를 다림질해라.,
+10-17|skirt|치마|She wears a skirt.|그녀는 치마를 입는다.,
+10-17|socks|양말|Put on your socks.|양말을 신어라.,
+10-17|shoes|신발|New shoes.|새 신발.,
+10-17|hat|(테가 있는) 모자|I have a big hat.|나는 큰 모자를 가지고 있다.,
+10-17|cap|(챙이 달린) 모자|He wears a cap.|그는 모자를 쓴다.,
+10-17|sweater|스웨터|A warm sweater.|따뜻한 스웨터.,
+10-17|jacket|재킷, 상의|Take your jacket.|재킷을 챙겨라.,
+10-17|gloves|장갑|Wear gloves in winter.|겨울에는 장갑을 껴라.,
+10-17|pocket|주머니|My pocket is empty.|내 주머니는 비었다.,
+10-17|clothes|옷, 의복|Wash your clothes.|옷을 빨아라.,
+10-17|wear|입다, 쓰다, 신다|I wear glasses.|나는 안경을 쓴다.,
+10-17|fashion|패션|I like fashion.|나는 패션을 좋아한다.,
+10-17|design|디자인하다, 디자인|Design a dress.|드레스를 디자인해라.,
+10-17|popular|인기 있는|He is popular.|그는 인기가 있다.,
+10-17|style|스타일, 방식|Nice style!|멋진 스타일이다!,
+10-17|put on|~을 입다(신다/쓰다)|Put on your coat.|코트를 입어라.,
+10-17|take off|~을 벗다|Take off your shoes.|신발을 벗어라.,
+10-18|subway|지하철|Take the subway.|지하철을 타라.,
+10-18|bike|자전거|Ride a bike.|자전거를 타라.,
+10-18|airplane|비행기|Look at the airplane.|비행기를 봐라.,
+10-18|truck|트럭|A big truck.|큰 트럭.,
+10-18|boat|보트, 배|Row the boat.|배를 저어라.,
+10-18|ride|타다, 몰다|I can ride a horse.|나는 말을 탈 수 있다.,
+10-18|street|거리, 도로|Walk down the street.|거리를 따라 걸어라.,
+10-18|road|도로, 길|Cross the road.|길을 건너라.,
+10-18|drive|운전하다|Drive safely.|안전하게 운전해라.,
+10-18|right|오른쪽, 오른쪽의|Turn right.|오른쪽으로 돌아라.,
+10-18|left|왼쪽, 왼쪽의|Turn left.|왼쪽으로 돌아라.,
+10-18|block|구역, 막다|Walk one block.|한 블록 걸어라.,
+10-18|straight|곧은, 똑바른|Go straight.|똑바로 가라.,
+10-18|bridge|다리|Cross the bridge.|다리를 건너라.,
+10-18|across|가로질러, 맞은편에|Walk across the street.|길을 건너라.,
+10-18|sign|표지판, 서명하다|Read the sign.|표지판을 읽어라.,
+10-18|corner|모퉁이, 구석|At the corner.|모퉁이에서.,
+10-18|stop|멈추다, 정류장|Stop here.|여기서 멈춰라.,
+10-18|get on|~에 타다|Get on the bus.|버스에 타라.,
+10-18|hurry up|서두르다|Hurry up!|서둘러!,
+10-19|teacher|교사, 선생|My teacher is nice.|나의 선생님은 좋으시다.,
+10-19|student|학생|I am a student.|나는 학생이다.,
+10-19|test|시험, 실험|We have a test.|우리는 시험이 있다.,
+10-19|library|도서관|Go to the library.|도서관에 가라.,
+10-19|playground|운동장, 놀이터|Play in the playground.|운동장에서 놀아라.,
+10-19|gym|체육관|Meet at the gym.|체육관에서 만나자.,
+10-19|contest|대회, 콘테스트|Win the contest.|대회에서 우승해라.,
+10-19|follow|따르다, 따라가다|Follow me.|나를 따라와라.,
+10-19|school uniform|교복|Wear a school uniform.|교복을 입어라.,
+10-19|hall|복도, 홀|Don't run in the hall.|복도에서 뛰지 마라.,
+10-19|cafeteria|구내식당, 급식실|Eat in the cafeteria.|급식실에서 먹어라.,
+10-19|locker|사물함|Open your locker.|사물함을 열어라.,
+10-19|homeroom|홈룸, 출석 반|Go to homeroom.|홈룸(교실)으로 가라.,
+10-19|grade|성적, 학년|Good grades.|좋은 성적.,
+10-19|teach|가르치다|Can you teach me?|나를 가르쳐 줄 수 있니?,
+10-19|learn|배우다|We learn English.|우리는 영어를 배운다.,
+10-19|subject|과목|What is your favorite subject?|네가 가장 좋아하는 과목은 뭐니?,
+10-19|borrow|빌리다|Borrow a book.|책을 빌려라.,
+10-19|make friends with|(~와) 친구가 되다|Make friends with him.|그와 친구가 되어라.,
+10-19|after school|방과 후에|See you after school.|방과 후에 보자.,
+10-20|homework|숙제, 과제|Do your homework.|숙제를 해라.,
+10-20|lesson|수업, 교훈|The lesson starts at 9.|수업은 9시에 시작한다.,
+10-20|study|공부하다|Study hard.|열심히 공부해라.,
+10-20|difficult|어려운|Math is difficult.|수학은 어렵다.,
+10-20|classroom|교실|Clean the classroom.|교실을 청소해라.,
+10-20|review|복습하다, 검토하다|Review the lesson.|수업을 복습해라.,
+10-20|write|쓰다|Write your name.|이름을 써라.,
+10-20|solve|해결하다, 풀다|Solve the problem.|문제를 풀어라.,
+10-20|correct|옳은, 맞는|The answer is correct.|답이 맞다.,
+10-20|wrong|틀린, 잘못된|It is wrong.|그것은 틀렸다.,
+10-20|diary|일기|Write a diary.|일기를 써라.,
+10-20|report|보고서, 보고하다|Write a report.|보고서를 써라.,
+10-20|fail|실패하다, 떨어지다|Don't fail the test.|시험에 떨어지지 마라.,
+10-20|note|필기, 쪽지|Take notes.|필기를 해라.,
+10-20|speech|연설|Make a speech.|연설을 해라.,
+10-20|finish|끝내다, 끝나다|Finish your work.|일을 끝내라.,
+10-20|mistake|실수, 잘못|It's a mistake.|그것은 실수다.,
+10-20|absent|결석한|He is absent.|그는 결석했다.,
+10-20|take a break|휴식을 취하다|Let's take a break.|휴식을 취하자.,
+10-20|get up|일어나다|Get up early.|일찍 일어나라.,
+10-21|date|날짜|What is the date?|날짜가 어떻게 되니?,
+10-21|week|주, 일주일|See you next week.|다음 주에 보자.,
+10-21|from|~에서, ~부터|I am from Seoul.|나는 서울에서 왔다.,
+10-21|month|달, 월|Next month is May.|다음 달은 5월이다.,
+10-21|year|한 해, 1년|Happy New Year!|새해 복 많이 받아!,
+10-21|early|일찍, 이른|I get up early.|나는 일찍 일어난다.,
+10-21|today|오늘|Today is Friday.|오늘은 금요일이다.,
+10-21|yesterday|어제|It rained yesterday.|어제 비가 왔다.,
+10-21|tomorrow|내일|I will go tomorrow.|나는 내일 갈 것이다.,
+10-21|past|과거, 지난날|Don't live in the past.|과거에 살지 마라.,
+10-21|tonight|오늘 밤, 오늘 밤에|See you tonight.|오늘 밤에 보자.,
+10-21|hour|시간, 시각|I study for an hour.|나는 한 시간 동안 공부한다.,
+10-21|minute|(시간 단위) 분|Wait a minute.|잠시만(1분만) 기다려.,
+10-21|soon|곧, 머지않아|See you soon.|곧 보자.,
+10-21|calendar|달력|Look at the calendar.|달력을 봐라.,
+10-21|during|~ 동안, ~중에|Be quiet during the test.|시험 동안에는 조용히 해라.,
+10-21|until|~까지, ~할 때까지|Wait until 5 o'clock.|5시까지 기다려라.,
+10-21|moment|순간, 잠시|Wait a moment.|잠시만 기다려.,
+10-21|be late for|~에 늦다|Don't be late for school.|학교에 늦지 마라.,
+10-21|at the same time|동시에|They arrived at the same time.|그들은 동시에 도착했다.,
+10-22|first|첫 번째의|Who is the first?|첫 번째는 누구니?,
+10-22|second|두 번째의|This is the second time.|이번이 두 번째다.,
+10-22|third|세 번째의|He won the third prize.|그는 3등 상을 탔다.,
+10-22|again|한 번 더, 다시|Try again.|다시 시도해라.,
+10-22|before|~전에|Wash hands before eating.|먹기 전에 손을 씻어라.,
+10-22|after|~후에(뒤에)|Let's play after school.|방과 후에 놀자.,
+10-22|never|절대 ~ 않다|I never tell a lie.|나는 절대 거짓말하지 않는다.,
+10-22|sometimes|때때로, 가끔|Sometimes I swim.|가끔 나는 수영한다.,
+10-22|often|자주, 종종|I often visit the park.|나는 종종 공원에 간다.,
+10-22|usually|보통, 대개|I usually wake up at 7.|나는 보통 7시에 일어난다.,
+10-22|always|항상, 언제나|I always love you.|나는 항상 너를 사랑한다.,
+10-22|once|한 번|I met him once.|나는 그를 한 번 만났다.,
+10-22|final|마지막의|This is the final game.|이것이 마지막 게임이다.,
+10-22|last|마지막의, 지난|Last week was fun.|지난주는 재미있었다.,
+10-22|next|다음의|See you next time.|다음에 보자.,
+10-22|step|단계, 걸음|Watch your step.|발밑을 조심해라.,
+10-22|repeat|반복하다, 되풀이하다|Please repeat that.|다시 말씀해 주세요.,
+10-22|suddenly|갑자기|It stopped suddenly.|그것이 갑자기 멈췄다.,
+10-22|all the time|항상, 줄곧, 내내|He smiles all the time.|그는 항상 미소 짓는다.,
+10-22|from time to time|가끔, 때때로|I see her from time to time.|나는 가끔 그녀를 본다.,
+10-23|clean|깨끗한|My room is clean.|내 방은 깨끗하다.,
+10-23|dirty|더러운|Your hands are dirty.|네 손은 더럽다.,
+10-23|busy|바쁜|I am busy today.|나는 오늘 바쁘다.,
+10-23|poor|가난한|He helps poor people.|그는 가난한 사람들을 돕는다.,
+10-23|slow|느린|The turtle is slow.|거북이는 느리다.,
+10-23|fast|빠른, 빨리|The car is fast.|그 차는 빠르다.,
+10-23|quickly|빨리, 빠르게|Do it quickly.|빨리 해라.,
+10-23|sleepy|졸린, 졸음이 오는|I am so sleepy.|나는 너무 졸리다.,
+10-23|heavy|무거운|This box is heavy.|이 상자는 무겁다.,
+10-23|light|가벼운, 밝은|A feather is light.|깃털은 가볍다.,
+10-23|safe|안전한|This place is safe.|이곳은 안전하다.,
+10-23|wet|젖은|My hair is wet.|내 머리카락은 젖었다.,
+10-23|ready|준비가 된|Are you ready?|준비됐니?,
+10-23|dark|어두운, 캄캄한|It is dark outside.|밖은 어둡다.,
+10-23|bright|밝은, 빛나는|The sun is bright.|태양은 밝다.,
+10-23|perfect|완벽한|It is perfect.|그것은 완벽하다.,
+10-23|different|다른|We are different.|우리는 다르다.,
+10-23|terrible|끔찍한, 형편없는|The food was terrible.|그 음식은 끔찍했다.,
+10-23|be full of|~로 가득 차다|The box is full of toys.|상자는 장난감으로 가득 차 있다.,
+10-23|for a while|잠시 동안|Rest for a while.|잠시 동안 쉬어라.,
+10-24|huge|엄청난, 거대한|The elephant is huge.|코끼리는 거대하다.,
+10-24|small|작은, 소규모의|The ant is small.|개미는 작다.,
+10-24|narrow|좁은|The road is narrow.|길은 좁다.,
+10-24|wide|넓은|The river is wide.|강은 넓다.,
+10-24|round|둥근, 동그란|The ball is round.|공은 둥글다.,
+10-24|part|부분, 일부|It is part of the game.|그것은 게임의 일부다.,
+10-24|line|줄, 선|Draw a line.|선을 그려라.,
+10-24|side|쪽, 면; 옆|Look at the other side.|다른 쪽을 봐라.,
+10-24|shape|모양, 형태|What shape is it?|그것은 무슨 모양이니?,
+10-24|size|크기; 치수|What is your size?|너의 사이즈는 몇이니?,
+10-24|type|종류, 유형|What type do you like?|어떤 종류를 좋아하니?,
+10-24|large|큰, 넓은|I want a large pizza.|나는 큰 피자를 원한다.,
+10-24|high|높은|The mountain is high.|산은 높다.,
+10-24|low|낮은|The wall is low.|벽은 낮다.,
+10-24|deep|깊은|The sea is deep.|바다는 깊다.,
+10-24|thick|두꺼운, 두툼한|The book is thick.|그 책은 두껍다.,
+10-24|flat|평평한, 납작한|The table is flat.|탁자는 평평하다.,
+10-24|object|물체, 물건|What is that object?|저 물체는 무엇이니?,
+10-24|for example|예를 들어|Fruits, for example, apples.|과일들, 예를 들어 사과.,
+10-24|a kind of|일종의|It is a kind of fruit.|그것은 일종의 과일이다.,
+10-25|number|수, 숫자, 번호|Pick a number.|숫자를 골라라.,
+10-25|some|몇몇의, 약간의|I want some water.|나는 물을 좀 원한다.,
+10-25|each|각각의|Each student has a book.|각각의 학생은 책을 가지고 있다.,
+10-25|every|모든|I study every day.|나는 매일 공부한다.,
+10-25|all|모든|All students are here.|모든 학생이 여기에 있다.,
+10-25|only|유일한, 단지, 오직|I have only one pen.|나는 펜이 오직 하나 있다.,
+10-25|many|(수가) 많은|I have many books.|나는 많은 책을 가지고 있다.,
+10-25|much|(양이) 많은|Thank you very much.|대단히 감사합니다.,
+10-25|half|반, 절반|Give me half.|나에게 절반을 줘.,
+10-25|add|추가하다; 더하다|Add sugar to the tea.|차에 설탕을 넣어라.,
+10-25|empty|빈, 비어 있는|The box is empty.|상자가 비어 있다.,
+10-25|fill|채우다|Fill the cup.|컵을 채워라.,
+10-25|count|(수를) 세다|Count to ten.|10까지 세어라.,
+10-25|enough|충분한, 충분히|I have enough money.|나는 충분한 돈이 있다.,
+10-25|total|전체의, 합계|What is the total?|합계가 얼마니?,
+10-25|piece|조각, 한 개|A piece of cake.|케이크 한 조각.,
+10-25|nothing|아무것도 ~ 아니다|I have nothing.|나는 아무것도 없다.,
+10-25|a lot of|(수, 양이) 많은|I have a lot of toys.|나는 많은 장난감을 가지고 있다.,
+10-25|a few|(수가) 약간의|I have a few friends.|나는 친구가 몇 명 있다.,
+10-25|a little|(양이) 약간의|I speak a little English.|나는 영어를 조금 한다.,
+10-26|south|남쪽, 남쪽의|Birds fly south.|새들은 남쪽으로 날아간다.,
+10-26|east|동쪽, 동쪽의|The sun rises in the east.|해는 동쪽에서 뜬다.,
+10-26|west|서쪽, 서쪽의|The sun sets in the west.|해는 서쪽으로 진다.,
+10-26|north|북쪽, 북쪽의|The north is cold.|북쪽은 춥다.,
+10-26|under|~아래에|Look under the bed.|침대 아래를 봐라.,
+10-26|below|(~보다) 아래에|See the picture below.|아래 그림을 봐라.,
+10-26|behind|~ 뒤에|Don't hide behind me.|내 뒤에 숨지 마라.,
+10-26|between|~ 사이에|Sit between us.|우리 사이에 앉아라.,
+10-26|center|중심, 중앙|Stand in the center.|중앙에 서라.,
+10-26|around|~ 주위(둘레)에|Run around the park.|공원 주위를 달려라.,
+10-26|toward|~ 쪽으로|Walk toward the door.|문쪽으로 걸어가라.,
+10-26|above|(~보다) 위에|Look above your head.|네 머리 위를 봐라.,
+10-26|over|~ 위에|Jump over the box.|상자를 넘어 뛰어라.,
+10-26|far|먼, 멀리|My school is far.|우리 학교는 멀다.,
+10-26|inside|안에(서)|Let's go inside.|안으로 들어가자.,
+10-26|outside|밖에(서)|It is cold outside.|밖은 춥다.,
+10-26|top|맨 위, 정상|Climb to the top.|정상으로 올라가라.,
+10-26|bottom|맨 아래, 바닥|It sank to the bottom.|그것은 바닥으로 가라앉았다.,
+10-26|next to|~ 옆에|Sit next to me.|내 옆에 앉아라.,
+10-26|in front of|~ 앞에|Meet in front of the school.|학교 앞에서 만나자.,
+10-27|map|지도|I need a map.|나는 지도가 필요하다.,
+10-27|vacation|방학|Winter vacation starts.|겨울 방학이 시작된다.,
+10-27|beach|해변, 바닷가|Let's go to the beach.|해변으로 가자.,
+10-27|trip|여행|How was your trip?|여행 어땠니?,
+10-27|tour|여행, 관광|We went on a bus tour.|우리는 버스 여행을 갔다.,
+10-27|travel|여행하다|I want to travel.|나는 여행하고 싶다.,
+10-27|backpack|배낭|Pack your backpack.|배낭을 싸라.,
+10-27|climb|오르다|Can you climb the tree?|너는 나무에 오를 수 있니?,
+10-27|leave|떠나다, 놓고 가다|Don't leave me.|나를 떠나지 마라.,
+10-27|arrive|도착하다|When do we arrive?|우리는 언제 도착하니?,
+10-27|return|돌아오다|I will return soon.|나는 곧 돌아올 것이다.,
+10-27|guide|안내하다, 안내원|He is our guide.|그는 우리의 안내원이다.,
+10-27|tourist|관광객|There are many tourists.|관광객들이 많이 있다.,
+10-27|view|전망, 견해|The view is great.|전망이 훌륭하다.,
+10-27|memory|기억, 추억|Good memory.|좋은 추억.,
+10-27|exciting|신나는|It was an exciting day.|신나는 하루였다.,
+10-27|adventure|모험|I like adventure.|나는 모험을 좋아한다.,
+10-27|pack|짐을 싸다|Pack your bag.|가방을 싸라.,
+10-27|get to|~에 도착하다|How do I get to the station?|역에 어떻게 가나요?,
+10-27|take a walk|산책을 하다|Let's take a walk.|산책하자.,
+10-28|sport|스포츠, 운동|I like sports.|나는 스포츠를 좋아한다.,
+10-28|race|경주, 경기|I won the race.|나는 경주에서 이겼다.,
+10-28|baseball|야구|We play baseball.|우리는 야구를 한다.,
+10-28|basketball|농구|He is good at basketball.|그는 농구를 잘한다.,
+10-28|soccer|축구|Let's play soccer.|축구하자.,
+10-28|catch|잡다, 받다|Catch the ball.|공을 잡아라.,
+10-28|win|이기다|I want to win.|나는 이기고 싶다.,
+10-28|lose|지다, 잃어버리다|Don't lose hope.|희망을 잃지 마라.,
+10-28|stadium|경기장|The stadium is big.|경기장은 크다.,
+10-28|cheer|환호하다, 응원하다|Cheer for our team.|우리 팀을 응원해라.,
+10-28|practice|연습하다|You must practice.|너는 연습해야 한다.,
+10-28|rule|규칙|Follow the rules.|규칙을 따라라.,
+10-28|player|선수|He is a soccer player.|그는 축구 선수이다.,
+10-28|teamwork|팀워크, 협동|Teamwork is important.|팀워크는 중요하다.,
+10-28|match|경기, 시합|Watch the match.|경기를 봐라.,
+10-28|hold|개최하다, 잡다|Hold my hand.|내 손을 잡아라.,
+10-28|score|득점, 점수|What is the score?|점수가 몇이니?,
+10-28|possible|가능한|Is it possible?|그것이 가능한가요?,
+10-28|work|일하다|I work hard.|나는 열심히 일한다.,
+10-28|work out|운동하다|I work out every day.|나는 매일 운동한다.,
+10-29|gift|선물|This is a gift.|이것은 선물이다.,
+10-29|weekend|주말|Have a nice weekend.|즐거운 주말 보내.,
+10-29|birthday|생일|Happy birthday!|생일 축하해!,
+10-29|photo|사진|Take a photo.|사진을 찍어라.,
+10-29|special|특별한|You are special.|너는 특별하다.,
+10-29|prize|상, 상품|I won a prize.|나는 상을 탔다.,
+10-29|festival|축제|The festival is fun.|축제는 재미있다.,
+10-29|firework|폭죽, 불꽃놀이|Look at the fireworks.|불꽃놀이를 봐라.,
+10-29|wonderful|멋진, 훌륭한|It is wonderful.|그것은 멋지다.,
+10-29|holiday|휴가, 휴일|Today is a holiday.|오늘은 휴일이다.,
+10-29|fair|박람회, 공정한|The game was fair.|그 게임은 공정했다.,
+10-29|party|파티|Let's have a party.|파티를 열자.,
+10-29|guest|손님|We have a guest.|손님이 계시다.,
+10-29|invite|초대하다|I invite you.|너를 초대한다.,
+10-29|meeting|회의|The meeting is at 2.|회의는 2시다.,
+10-29|present|선물|A birthday present.|생일 선물.,
+10-29|volunteer|자원봉사자|He is a volunteer.|그는 자원봉사자다.,
+10-29|interview|인터뷰|I have an interview.|나는 인터뷰가 있다.,
+10-29|be going to|~할 것이다|I am going to study.|나는 공부할 것이다.,
+10-29|take place|(행사가) 열리다|The contest takes place here.|대회가 여기서 열린다.,
+10-30|swim|수영하다|I can swim.|나는 수영할 수 있다.,
+10-30|read|읽다|Read a book.|책을 읽어라.,
+10-30|draw|그리다|I draw a picture.|나는 그림을 그린다.,
+10-30|hobby|취미|My hobby is cooking.|내 취미는 요리다.,
+10-30|dance|춤추다|Let's dance.|춤추자.,
+10-30|free|자유로운, 무료의|It is free.|그것은 무료다.,
+10-30|collect|모으다, 수집하다|I collect stamps.|나는 우표를 모은다.,
+10-30|paint|칠하다, 그리다|Paint the wall.|벽을 칠해라.,
+10-30|game|게임, 경기|Play a game.|게임을 해라.,
+10-30|favorite|가장 좋아하는|My favorite color.|내가 가장 좋아하는 색깔.,
+10-30|enjoy|즐기다|Enjoy your meal.|식사를 즐겨라.,
+10-30|exercise|운동하다|Exercise daily.|매일 운동해라.,
+10-30|activity|활동|Outdoor activity.|야외 활동.,
+10-30|hiking|하이킹|I go hiking.|나는 하이킹을 간다.,
+10-30|fishing|낚시|I like fishing.|나는 낚시를 좋아한다.,
+10-30|camping|캠핑|We went camping.|우리는 캠핑을 갔다.,
+10-30|outdoor|야외의|Outdoor sports.|야외 스포츠.,
+10-30|interesting|재미있는|That is interesting.|그것은 재미있다.,
+10-30|have fun|즐기다|Have fun!|즐거운 시간 보내!,
+10-30|take a picture of|~의 사진을 찍다|Take a picture of me.|내 사진을 찍어줘.,
+10-31|art|미술, 예술|I like art class.|나는 미술 수업을 좋아한다.,
+10-31|music|음악|Listen to the music.|음악을 들어라.,
+10-31|singer|가수|He is a great singer.|그는 훌륭한 가수다.,
+10-31|ticket|표, 입장권|I have a movie ticket.|나는 영화표를 가지고 있다.,
+10-31|film|영화|We watched a funny film.|우리는 재미있는 영화를 봤다.,
+10-31|story|이야기|Tell me a story.|나에게 이야기를 해줘.,
+10-31|famous|유명한|She is a famous actor.|그녀는 유명한 배우다.,
+10-31|band|악단, 밴드|The band plays loudly.|밴드가 크게 연주한다.,
+10-31|actor|(남자) 배우|He is a handsome actor.|그는 잘생긴 배우다.,
+10-31|actress|(여자) 배우|The actress cried.|여배우가 울었다.,
+10-31|painting|(물감으로 그린) 그림|Look at that painting.|저 그림을 봐라.,
+10-31|stage|무대; 단계|He is on the stage.|그는 무대 위에 있다.,
+10-31|artist|화가, 예술가|My mom is an artist.|나의 엄마는 예술가시다.,
+10-31|magic|마법, 마술, 마술의|It is like magic.|그것은 마법 같다.,
+10-31|novel|소설|I read a novel.|나는 소설을 읽는다.,
+10-31|concert|콘서트, 연주회|Let's go to the concert.|콘서트에 가자.,
+10-31|role|역할|What is your role?|너의 역할은 무엇이니?,
+10-31|main|주된|This is the main idea.|이것이 주된 생각이다.,
+10-31|be over|끝나다|The game is over.|게임이 끝났다.,
+10-31|go to the movies|영화를 보러 가다|I go to the movies.|나는 영화를 보러 간다.,
+10-32|buy|사다, 구입하다|I will buy a toy.|나는 장난감을 살 것이다.,
+10-32|sell|팔다, 팔리다|They sell fruit.|그들은 과일을 판다.,
+10-32|spend|(돈을) 쓰다, 소비하다|Don't spend too much.|너무 많이 쓰지 마라.,
+10-32|list|목록|Make a shopping list.|쇼핑 목록을 만들어라.,
+10-32|item|물품, 품목|Choose one item.|한 가지 물품을 골라라.,
+10-32|sale|판매; 할인 판매|It is on sale.|그것은 할인 판매 중이다.,
+10-32|store|가게, 상점|Go to the store.|가게로 가라.,
+10-32|mall|쇼핑몰, 쇼핑센터|The mall is big.|쇼핑몰은 크다.,
+10-32|choose|선택하다, 고르다|Choose a color.|색깔을 골라라.,
+10-32|pay|지불하다|I will pay for it.|내가 낼게. (지불할게.),
+10-32|coupon|쿠폰, 할인권|Use this coupon.|이 쿠폰을 사용해라.,
+10-32|waste|낭비하다, 낭비|Don't waste water.|물을 낭비하지 마라.,
+10-32|price|값, 가격|What is the price?|가격이 얼마입니까?,
+10-32|expensive|비싼|That car is expensive.|저 차는 비싸다.,
+10-32|cheap|값싼, 저렴한|This pen is cheap.|이 펜은 싸다.,
+10-32|customer|손님, 고객|The customer is happy.|손님이 행복해한다.,
+10-32|discount|할인, 할인하다|Can I get a discount?|할인받을 수 있나요?,
+10-32|useful|유용한|This tool is useful.|이 도구는 유용하다.,
+10-32|try on|~을 입어(신어) 보다|Can I try on this hat?|이 모자를 써봐도 될까요?,
+10-32|look around|(주위를) 둘러보다|Let's look around.|둘러보자.,
+10-33|nurse|간호사|The nurse helps me.|간호사가 나를 돕는다.,
+10-33|sick|아픈, 병든|I feel sick.|나는 몸이 아프다.,
+10-33|weak|약한, 힘이 없는|He is too weak.|그는 너무 약하다.,
+10-33|strong|튼튼한, 건강한|My dad is strong.|우리 아빠는 튼튼하시다.,
+10-33|fever|열|I have a fever.|나는 열이 있다.,
+10-33|cough|기침, 기침하다|He has a bad cough.|그는 기침이 심하다.,
+10-33|pain|고통, 통증|I feel pain in my leg.|나는 다리에 통증을 느낀다.,
+10-33|hospital|병원|Go to the hospital.|병원에 가라.,
+10-33|headache|두통|I have a headache.|나는 두통이 있다.,
+10-33|medicine|약, 약물|Take this medicine.|이 약을 먹어라.,
+10-33|weight|무게, 체중|Watch your weight.|체중을 조심해라.,
+10-33|tired|피곤한, 지친|I am very tired.|나는 매우 피곤하다.,
+10-33|hurt|다치게 하다; 아프다|Did you hurt yourself?|다쳤니?,
+10-33|treat|치료하다; 다루다|Doctors treat patients.|의사들은 환자를 치료한다.,
+10-33|relax|휴식을 취하다, 쉬다|Sit down and relax.|앉아서 쉬어라.,
+10-33|advice|조언, 충고|Give me some advice.|나에게 조언을 좀 해줘.,
+10-33|health|건강|Health is important.|건강은 중요하다.,
+10-33|stomach|위, 배|My stomach hurts.|배가 아프다.,
+10-33|see a doctor|병원에 가다, 진찰을 받다|You should see a doctor.|너는 병원에 가봐야 한다.,
+10-33|catch a cold|감기에 걸리다|Don't catch a cold.|감기 걸리지 마라.,
+10-34|grass|풀, 잔디|Sit on the grass.|잔디에 앉아라.,
+10-34|flower|꽃|The flower is red.|꽃이 빨갛다.,
+10-34|tree|나무|Climb the tree.|나무에 올라라.,
+10-34|leaf|잎, 나뭇잎|A green leaf.|초록색 잎.,
+10-34|stone|돌|Throw a stone.|돌을 던져라.,
+10-34|wood|나무, 목재; 숲|It is made of wood.|그것은 나무로 만들어졌다.,
+10-34|fruit|과일, 열매|Eat fresh fruit.|신선한 과일을 먹어라.,
+10-34|branch|나뭇가지|The bird is on the branch.|새가 나뭇가지 위에 있다.,
+10-34|ground|땅, 토양|Sit on the ground.|땅에 앉아라.,
+10-34|soil|토양, 흙|Plant seeds in the soil.|흙에 씨앗을 심어라.,
+10-34|field|들판, 밭; 경기장|Run in the field.|들판에서 달려라.,
+10-34|farm|농장, 농원|Animals live on a farm.|동물들은 농장에 산다.,
+10-34|water|물, 물을 주다|Water the plants.|식물에 물을 줘라.,
+10-34|dig|파다, 캐내다|Dogs dig holes.|개들은 구멍을 판다.,
+10-34|grow|재배하다; 자라다|Plants grow fast.|식물들은 빨리 자란다.,
+10-34|plant|식물, 심다|Plant a tree.|나무를 심어라.,
+10-34|bean|콩|I like bean soup.|나는 콩 수프를 좋아한다.,
+10-34|vegetable|채소|Eat your vegetables.|채소를 먹어라.,
+10-34|right away|즉시, 곧바로|Do it right away.|즉시 그것을 해라.,
+10-34|pick up|~을 집다|Pick up the trash.|쓰레기를 주워라.,
+10-35|bee|벌|A bee makes honey.|벌은 꿀을 만든다.,
+10-35|fly|파리, 날다|A fly is on the wall.|파리가 벽에 있다.,
+10-35|wolf|늑대|The wolf howls.|늑대가 울부짖는다.,
+10-35|monkey|원숭이|The monkey eats a banana.|원숭이가 바나나를 먹는다.,
+10-35|elephant|코끼리|An elephant has a long nose.|코끼리는 긴 코를 가졌다.,
+10-35|zebra|얼룩말|A zebra has stripes.|얼룩말은 줄무늬가 있다.,
+10-35|whale|고래|The whale is huge.|고래는 거대하다.,
+10-35|chicken|닭|The chicken runs.|닭이 달린다.,
+10-35|snake|뱀|The snake is long.|뱀은 길다.,
+10-35|mouse|쥐, 생쥐|The mouse is small.|쥐는 작다.,
+10-35|sheep|양|Sheep eat grass.|양은 풀을 먹는다.,
+10-35|giraffe|기린|The giraffe is tall.|기린은 키가 크다.,
+10-35|wild|야생의|Lions are wild animals.|사자는 야생 동물이다.,
+10-35|animal|동물|I like animals.|나는 동물을 좋아한다.,
+10-35|hunt|사냥하다|Tigers hunt for food.|호랑이는 먹이를 위해 사냥한다.,
+10-35|tail|꼬리|The dog wags its tail.|개가 꼬리를 흔든다.,
+10-35|colorful|알록달록한|The bird is colorful.|그 새는 알록달록하다.,
+10-35|feed|먹이를 주다|Feed the dog.|개에게 먹이를 줘라.,
+10-35|by the way|그런데, 그나저나|By the way, who are you?|그런데, 너는 누구니?,
+10-35|look for|~을 찾다|I look for my key.|나는 내 열쇠를 찾는다.,
+10-36|hill|언덕|Go up the hill.|언덕을 올라가라.,
+10-36|land|육지, 땅|The ship reached land.|배가 육지에 닿았다.,
+10-36|river|강|The river is long.|강은 길다.,
+10-36|lake|호수|Swim in the lake.|호수에서 수영해라.,
+10-36|desert|사막|The desert is hot.|사막은 덥다.,
+10-36|forest|숲|Walk in the forest.|숲속을 걸어라.,
+10-36|valley|계곡, 골짜기|The valley is deep.|계곡은 깊다.,
+10-36|island|섬|Jeju is an island.|제주는 섬이다.,
+10-36|jungle|밀림, 정글|Tigers live in the jungle.|호랑이는 정글에 산다.,
+10-36|mountain|산|Climb the mountain.|산을 올라라.,
+10-36|pond|연못|Fish live in the pond.|물고기는 연못에 산다.,
+10-36|ocean|대양, 바다|The ocean is blue.|대양은 파랗다.,
+10-36|cave|동굴|A bear is in the cave.|곰이 동굴 안에 있다.,
+10-36|polar|북극(남극)의|A polar bear is white.|북극곰은 하얗다.,
+10-36|nature|자연|We love nature.|우리는 자연을 사랑한다.,
+10-36|mystery|미스터리, 불가사의|It is a mystery.|그것은 미스터리다.,
+10-36|wave|파도, 물결|The wave is high.|파도가 높다.,
+10-36|discover|발견하다|Discover new places.|새로운 장소를 발견해라.,
+10-36|look at|~을 보다|Look at the sky.|하늘을 봐라.,
+10-36|take turns|교대로 하다|Let's take turns.|교대로 하자.,
+10-37|warm|따뜻한|It is warm today.|오늘은 따뜻하다.,
+10-37|cold|추운, 차가운|Winter is cold.|겨울은 춥다.,
+10-37|cool|시원한; 멋진|The wind is cool.|바람이 시원하다.,
+10-37|hot|더운, 뜨거운|Summer is hot.|여름은 덥다.,
+10-37|rain|비가 오다, 비|It will rain soon.|곧 비가 올 것이다.,
+10-37|snow|눈이 오다, 눈|Snow falls in winter.|겨울에는 눈이 내린다.,
+10-37|clear|(날씨가) 맑은|The sky is clear.|하늘이 맑다.,
+10-37|sunny|화창한|It is a sunny day.|화창한 날이다.,
+10-37|windy|바람이 많이 부는|It is very windy.|바람이 많이 분다.,
+10-37|cloudy|흐린, 구름 낀|It is cloudy.|날이 흐리다.,
+10-37|spring|봄|Flowers bloom in spring.|봄에는 꽃이 핀다.,
+10-37|summer|여름|I swim in summer.|나는 여름에 수영한다.,
+10-37|fall|가을|Leaves fall in fall.|가을에는 낙엽이 진다.,
+10-37|winter|겨울|I ski in winter.|나는 겨울에 스키를 탄다.,
+10-37|season|계절; 시기, 철|Four seasons.|사계절.,
+10-37|blow|(바람이) 불다|The wind blows.|바람이 분다.,
+10-37|weather|날씨, 기상|How is the weather?|날씨가 어떠니?,
+10-37|forecast|예측, 예보|Check the weather forecast.|일기 예보를 확인해라.,
+10-37|at first|처음에|At first, I was scared.|처음에 나는 무서웠다.,
+10-37|all day long|하루 종일|I played all day long.|나는 하루 종일 놀았다.,
+10-38|event|사건, 행사|It is a big event.|그것은 큰 행사다.,
+10-38|start|시작하다, 시작|Let's start now.|지금 시작하자.,
+10-38|end|끝나다, 끝|This is the end.|이것이 끝이다.,
+10-38|enter|들어가다; 참가하다|Enter the room.|방으로 들어가라.,
+10-38|luck|행운, 운|Good luck!|행운을 빌어!,
+10-38|important|중요한|It is important.|그것은 중요하다.,
+10-38|building|건물|That building is tall.|저 건물은 높다.,
+10-38|law|법|Follow the law.|법을 따라라.,
+10-38|history|역사|Study history.|역사를 공부해라.,
+10-38|hometown|고향|This is my hometown.|이곳은 나의 고향이다.,
+10-38|local|지역의, 현지의|I like local food.|나는 지역 음식을 좋아한다.,
+10-38|create|창조하다, 만들다|Create a new file.|새 파일을 만들어라.,
+10-38|project|계획; 연구 과제|Finish the project.|과제를 끝내라.,
+10-38|citizen|시민, 국민|I am a citizen of Seoul.|나는 서울 시민이다.,
+10-38|president|대통령; 회장|Who is the president?|대통령은 누구니?,
+10-38|information|정보, 자료|Get information.|정보를 얻어라.,
+10-38|program|(TV 등의) 프로그램|Watch a TV program.|TV 프로그램을 봐라.,
+10-38|traditional|전통적인|Look at traditional clothes.|전통 의상을 봐라.,
+10-38|ask for|~을 요청하다|Ask for help.|도움을 요청해라.,
+10-38|these days|요즘|I am busy these days.|나는 요즘 바쁘다.,
+10-39|air|공기|Fresh air is good.|신선한 공기는 좋다.,
+10-39|fire|불; 화재|Fire is hot.|불은 뜨겁다.,
+10-39|sand|모래|Play with sand.|모래를 가지고 놀아라.,
+10-39|rock|바위, 암석|The rock is hard.|바위는 단단하다.,
+10-39|earth|지구|The earth is round.|지구는 둥글다.,
+10-39|power|힘; 동력|Solar power.|태양열 동력.,
+10-39|glass|유리; 유리잔|Be careful with glass.|유리를 조심해라.,
+10-39|reuse|재사용하다|Reuse bottles.|병을 재사용해라.,
+10-39|recycle|재활용하다|Recycle paper.|종이를 재활용해라.,
+10-39|plastic|플라스틱|Don't use plastic.|플라스틱을 사용하지 마라.,
+10-39|trash|쓰레기|Pick up trash.|쓰레기를 주워라.,
+10-39|save|구하다; 절약하다|Save water.|물을 절약해라.,
+10-39|energy|에너지|Save energy.|에너지를 절약해라.,
+10-39|bill|청구서; 지폐|Pay the bill.|요금(청구서)을 내라.,
+10-39|protect|보호하다, 지키다|Protect nature.|자연을 보호해라.,
+10-39|dangerous|위험한|It is dangerous.|그것은 위험하다.,
+10-39|float|(물 위에) 뜨다|Wood floats.|나무는 뜬다.,
+10-39|environment|환경|Clean environment.|깨끗한 환경.,
+10-39|throw away|버리다|Don't throw away food.|음식을 버리지 마라.,
+10-39|be worried about|~에 대해 걱정하다|I am worried about you.|나는 네가 걱정된다.,
+10-40|help|돕다, 도움|Can you help me?|나를 도와줄 수 있니?,
+10-40|human|인간, 사람|We are humans.|우리는 인간이다.,
+10-40|country|나라; 시골|Which country?|어느 나라이니?,
+10-40|peace|평화|We want peace.|우리는 평화를 원한다.,
+10-40|war|전쟁|Stop the war.|전쟁을 멈춰라.,
+10-40|website|웹사이트|Visit the website.|웹사이트를 방문해라.,
+10-40|spread|퍼지다; 퍼뜨리다|News spreads fast.|뉴스는 빨리 퍼진다.,
+10-40|chat|수다 떨다, 채팅하다|Let's chat.|채팅하자.,
+10-40|post|(웹사이트에) 올리다|Post a photo.|사진을 올려라.,
+10-40|online|온라인의|Play games online.|온라인으로 게임을 해라.,
+10-40|explore|탐험하다, 답사하다|Explore the world.|세상을 탐험해라.,
+10-40|palace|궁전|The king lives in a palace.|왕은 궁전에 산다.,
+10-40|actually|사실은; 실제로|Actually, I am busy.|사실은, 나는 바쁘다.,
+10-40|science|과학|I like science.|나는 과학을 좋아한다.,
+10-40|culture|문화|Learn about Korean culture.|한국 문화에 대해 배워라.,
+10-40|universe|우주|The universe is big.|우주는 크다.,
+10-40|language|언어, 말|I speak two languages.|나는 두 가지 언어를 말한다.,
+10-40|foreigner|외국인|He is a foreigner.|그는 외국인이다.,
+10-40|believe in|~을 믿다|Believe in yourself.|너 자신을 믿어라.,
+10-40|around the world|전 세계에|Travel around the world.|전 세계를 여행해라.
+
   `;
   // 👆 여기까지가 네가 앞으로 수정·추가할 영역
 
@@ -2136,4 +3419,5 @@
   window.WORD_DB = buildDB(RAW_WORDS);
 
 })();
+
 
