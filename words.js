@@ -3445,6 +3445,7 @@ const rawVocabData = `
 12-1|such|[형] 그러한, 이러한|He is such a nice boy.|그는 정말(그러한) 착한 소년이다.
 12-1|during|[부] ~동안, ~하는 중|Quiet during the movie.|영화 보는 동안 조용히.
 12-1|river|[명] 강|The river flows.|강이 흐른다.
+  
 12-2|perhaps|[부] 아마, 어쩌면|Perhaps he is sick.|아마 그는 아플 것이다.
 12-2|shout|[동] 외치다, [명] 외침|Do not shout.|소리치지 마라.
 12-2|example|[명] 예, 보기|For example.|예를 들어.
@@ -3475,6 +3476,7 @@ const rawVocabData = `
 12-2|ever|[부] 일찍이, 언젠가|Have you ever seen it?|그것을 본 적 있니?
 12-2|famous|[형] 유명한|A famous singer.|유명한 가수.
 12-2|climb|[동] 오르다, 기어오르다|Climb the mountain.|산을 올라라.
+  
 12-3|behind|[전] ~의 뒤에, [부] 뒤에|Look behind.|뒤를 봐라.
 12-3|pay|[동] 치르다, 지불하다|You must pay.|너는 지불해야 한다.
 12-3|hill|[명] 언덕, 작은 산|Up the hill.|언덕 위로.
@@ -3505,6 +3507,7 @@ const rawVocabData = `
 12-3|speech|[명] 말, 연설|Make a speech.|연설을 해라.
 12-3|toward|[전] ~쪽으로|Walk toward the door.|문쪽으로 걸어가라.
 12-3|corner|[명] 구석, 모퉁이|In the corner.|구석에.
+  
 12-4|maybe|[부] 아마, 어쩌면|Maybe tomorrow.|아마도 내일.
 12-4|special|[형] 특별한|A special gift.|특별한 선물.
 12-4|useful|[형] 쓸모 있는, 유용한|It is useful.|그것은 유용하다.
@@ -3535,6 +3538,7 @@ const rawVocabData = `
 12-4|mask|[명] 가면, 복면|Wear a mask.|마스크를 써라.
 12-4|mean|[동] 의미하다|What do you mean?|무슨 뜻이니?
 12-4|runner|[명] 달리는 사람|A fast runner.|빠른 주자.
+  
 12-5|pool|[명] 수영장, 물웅덩이|Swim in the pool.|수영장에서 수영해라.
 12-5|show|[동] 보이다, 안내하다|Show me.|나에게 보여줘.
 12-5|animal|[명] 동물|Wild animal.|야생 동물.
@@ -3565,6 +3569,7 @@ const rawVocabData = `
 12-5|tomorrow|[명,부] 내일|See you tomorrow.|내일 보자.
 12-5|sorry|[형] 미안한|I am sorry.|미안해.
 12-5|job|[명] 일, 직업|Good job.|잘했어(좋은 일).
+  
 12-6|open|[동] 열다, [형] 열려 있는|Please open your book.|책을 펴세요(여세요).
 12-6|paper|[명] 종이, 답안, 신문|I need a piece of paper.|나는 종이 한 장이 필요하다.
 12-6|cold|[형] 추운, [명] 추위, 감기|It is very cold outside.|밖은 매우 춥다.
@@ -3595,6 +3600,7 @@ const rawVocabData = `
 12-6|since|[전, 접] ~이래, ~이므로|I have known him since 2015.|나는 2015년부터 그를 알고 있다.
 12-6|print|[동] 인쇄하다, [명] 인쇄(물)|Print this page.|이 페이지를 인쇄해라.
 12-6|building|[명] 건물|Look at that high building.|저 높은 건물을 봐라.
+  
 12-7|east|[명] 동쪽, [형] 동쪽의|The sun rises in the east.|해는 동쪽에서 뜬다.
 12-7|darkness|[명] 어둠|Lights shine in the darkness.|어둠 속에서 불빛이 빛난다.
 12-7|dark|[형] 어두운, [명] 어둠|The room is dark.|방이 어둡다.
@@ -3625,6 +3631,7 @@ const rawVocabData = `
 12-7|holiday|[명] 휴일, 휴가|Tomorrow is a holiday.|내일은 휴일이다.
 12-7|lately|[부] 요즘, 최근|I haven't seen him lately.|나는 최근에 그를 본 적이 없다.
 12-7|ground|[명] 땅, 운동장|Don't sit on the ground.|땅바닥에 앉지 마라.
+  
 12-8|look|[동] 보다, ~으로 보이다|Look at the sky.|하늘을 봐라.
 12-8|spend|[동] (돈을) 소비하다, (시간을) 보내다|I spend time reading.|나는 독서하며 시간을 보낸다.
 12-8|field|[명] 들, 밭, 경기장|Kids play on the field.|아이들이 경기장에서 논다.
@@ -3655,6 +3662,7 @@ const rawVocabData = `
 12-8|win|[동] 이기다, 얻다|I hope you win.|네가 이기기를 바란다.
 12-8|island|[명] 섬|It is a desert island.|그곳은 무인도다.
 12-8|sell|[동] 팔다, 팔리다|They sell books.|그들은 책을 판다.
+  
 12-9|full|[형] 가득한, 충분한|I am full.|나는 배부르다.
 12-9|aunt|[명] 고모, 이모, 숙모|My aunt is a nurse.|나의 이모는 간호사다.
 12-9|paint|[동] 그리다, [명] 페인트|Paint a picture.|그림을 그려라.
@@ -3685,6 +3693,7 @@ const rawVocabData = `
 12-9|foreign|[형] 외국의|Do you speak a foreign language?|너는 외국어를 할 줄 아니?
 12-9|culture|[명] 문화, 교양|Korean culture.|한국 문화.
 12-9|noise|[명] 소음|Don't make a noise.|소음을 내지 마라.
+  
 12-10|church|[명] 교회|A church is near here.|교회가 이 근처에 있다.
 12-10|easily|[부] 쉽게, 용이하게|He solved it easily.|그는 그것을 쉽게 풀었다.
 12-10|cloud|[명] 구름|The cloud covers the sun.|구름이 해를 가린다.
@@ -3715,6 +3724,7 @@ const rawVocabData = `
 12-10|television|[명] 텔레비전|Turn on the television.|텔레비전을 켜라.
 12-10|stone|[명] 돌, 석조|It is made of stone.|그것은 돌로 만들어졌다.
 12-10|foreigner|[명] 외국인, 국외자|He is a foreigner.|그는 외국인이다.
+  
 12-11|however|[부] 아무리 ~해도, 그러나|However, I was late.|그러나, 나는 늦었다.
 12-11|accident|[명] 사고, 우연|It was an accident.|그것은 사고였다.
 12-11|finally|[부] 마침내, 최후로|Finally, we won.|마침내 우리가 이겼다.
@@ -3745,6 +3755,7 @@ const rawVocabData = `
 12-11|neighbor|[명] 이웃 사람|Help your neighbor.|이웃을 도와라.
 12-11|amount|[명] 양, 액수|A large amount.|많은 양.
 12-11|dangerous|[형] 위험한|Fire is dangerous.|불은 위험하다.
+  
 12-12|space|[명] 우주, 공간|Travel to space.|우주로 여행하다.
 12-12|traffic|[명] 교통|Heavy traffic.|교통 체증(복잡한 교통).
 12-12|expensive|[형] 비싼|An expensive car.|비싼 차.
@@ -3775,6 +3786,7 @@ const rawVocabData = `
 12-12|orange|[명] 오렌지|I like orange juice.|나는 오렌지 주스를 좋아한다.
 12-12|throw|[동] 던지다|Throw a ball.|공을 던져라.
 12-12|meter|[명] 미터|100 meters.|100미터.
+  
 12-13|meal|[명] 식사|Have a meal.|식사를 하다.
 12-13|north|[명] 북쪽, [형] 북쪽의|Go north.|북쪽으로 가라.
 12-13|god|[명] 신|Thank god.|신에게 감사하다.
@@ -3805,6 +3817,7 @@ const rawVocabData = `
 12-13|size|[명] 크기|What size?|무슨 사이즈?
 12-13|bath|[명] 목욕|Take a bath.|목욕하다.
 12-13|pond|[명] 연못|Frogs in the pond.|연못 속의 개구리들.
+  
 12-14|pair|[명] 한 쌍|A pair of shoes.|신발 한 켤레.
 12-14|probably|[부] 아마|Probably not.|아마 아닐 것이다.
 12-14|mad|[형] 미친, 화난|Don't get mad.|화내지 마라.
@@ -3835,6 +3848,7 @@ const rawVocabData = `
 12-14|wall|[명] 벽|Paint the wall.|벽을 칠하다.
 12-14|tourist|[명] 관광객|A foreign tourist.|외국인 관광객.
 12-14|rise|[동] 오르다|The sun rises.|해가 뜬다.
+  
 12-15|list|[명] 목록|Make a list.|목록을 만들어라.
 12-15|singer|[명] 가수|A famous singer.|유명한 가수.
 12-15|lead|[동] 인도하다, 앞장서다|Lead the way.|길을 안내해라.
@@ -3865,6 +3879,7 @@ const rawVocabData = `
 12-15|ancient|[형] 고대의|Ancient history.|고대 역사.
 12-15|art|[명] 예술|I love art.|나는 예술을 사랑한다.
 12-15|burn|[동] 타다|Wood burns.|나무는 탄다.
+  
 12-16|contest|[명] 경쟁, 경기|I won the contest.|나는 대회에서 우승했다.
 12-16|experience|[명] 경험, [동] 경험하다|It was a good experience.|그것은 좋은 경험이었다.
 12-16|date|[명] 날짜, 데이트|What is the date?|날짜가 며칠이니?
@@ -3895,6 +3910,7 @@ const rawVocabData = `
 12-16|straight|[형] 똑바른, [부] 똑바로|Go straight.|똑바로 가라.
 12-16|precious|[형] 귀중한|Time is precious.|시간은 귀중하다.
 12-16|beyond|[전] ~저편에, [부] 저편에|Look beyond the sea.|바다 저편을 봐라.
+  
 12-17|twice|[부] 두 번, 두 배로|I went there twice.|나는 그곳에 두 번 갔다.
 12-17|celebrate|[동] 축하하다|Let's celebrate.|축하하자.
 12-17|beginning|[명] 처음, 시작|From the beginning.|처음부터.
@@ -3925,6 +3941,7 @@ const rawVocabData = `
 12-17|smoke|[동] 담배 피우다, [명] 연기|No smoke.|금연(연기 없음).
 12-17|ghost|[명] 유령|I saw a ghost.|나는 유령을 보았다.
 12-17|madam|[명] 부인|May I help you, madam?|도와드릴까요, 부인?
+  
 12-18|nearly|[부] 거의|It is nearly noon.|거의 정오다.
 12-18|smell|[동] 냄새 맡다, [명] 냄새|It smells good.|좋은 냄새가 난다.
 12-18|air|[명] 공기, [동] 방송하다|Fresh air.|신선한 공기.
@@ -3955,6 +3972,7 @@ const rawVocabData = `
 12-18|health|[명] 건강|Good health.|좋은 건강.
 12-18|musician|[명] 음악가|A famous musician.|유명한 음악가.
 12-18|neck|[명] 목|My neck hurts.|내 목이 아프다.
+  
 12-19|empty|[형] 빈, [동] 비우다|An empty box.|빈 상자.
 12-19|sacrifice|[동] 희생하다, [명] 희생|A great sacrifice.|큰 희생.
 12-19|silver|[명] 은, [형] 은(빛)의|A silver spoon.|은수저.
@@ -3985,6 +4003,7 @@ const rawVocabData = `
 12-19|rabbit|[명] 토끼|A white rabbit.|흰 토끼.
 12-19|law|[명] 법|Break the law.|법을 어기다.
 12-19|somewhere|[부] 어딘가에|Let's go somewhere.|어딘가로 가자.
+  
 12-20|umbrella|[명] 우산|An umbrella stands.|우산 꽂이.
 12-20|bit|[명] 조금|A little bit.|조금.
 12-20|stranger|[명] 낯선 사람|Don't talk to a stranger.|낯선 사람에게 말 걸지 마라.
@@ -4015,6 +4034,7 @@ const rawVocabData = `
 12-20|Russian|[형] 러시아의|Russian doll.|러시아 인형.
 12-20|funny|[형] 재미있는|A funny story.|재미있는 이야기.
 12-20|host|[명] 주인|The host of the party.|파티의 주인.
+  
 12-21|although|[접] 비록 ~일지라도|Although small, it is strong.|비록 작지만, 그것은 강하다.
 12-21|area|[명] 지역, 면적|A play area.|놀이 구역.
 12-21|prince|[명] 왕자|The prince met a princess.|왕자는 공주를 만났다.
@@ -4045,6 +4065,7 @@ const rawVocabData = `
 12-21|survive|[동] 살아남다|Plants need water to survive.|식물은 살아남기 위해 물이 필요하다.
 12-21|position|[명] 위치, 입장|What is your position?|너의 위치(입장)는 무엇이니?
 12-21|praise|[동] 칭찬하다, [명] 칭찬|The teacher praised him.|선생님은 그를 칭찬하셨다.
+  
 12-22|hero|[명] 영웅|He is a war hero.|그는 전쟁 영웅이다.
 12-22|attractive|[형] 매력적인|She is attractive.|그녀는 매력적이다.
 12-22|favor|[명] 호의, 부탁|Do me a favor.|내 부탁 하나만 들어줘.
@@ -4075,6 +4096,7 @@ const rawVocabData = `
 12-22|wet|[형] 젖은|My hair is wet.|내 머리카락은 젖었다.
 12-22|act|[명] 행위, [동] 행동하다|Think before you act.|행동하기 전에 생각해라.
 12-22|clerk|[명] 점원|Ask the clerk.|점원에게 물어봐라.
+  
 12-23|grown-up|[명] 어른, [형] 성장한|Act like a grown-up.|어른처럼 행동해라.
 12-23|healthy|[형] 건강한|Eat healthy food.|건강한 음식을 먹어라.
 12-23|complain|[동] 불평하다|Don't complain.|불평하지 마라.
@@ -4105,6 +4127,7 @@ const rawVocabData = `
 12-23|wide|[형] 넓은|A wide river.|넓은 강.
 12-23|storm|[명] 폭풍|A heavy storm.|심한 폭풍.
 12-23|medal|[명] 메달|Gold medal.|금메달.
+  
 12-24|sleepy|[형] 졸린|I feel sleepy.|나는 졸리다.
 12-24|bathroom|[명] 욕실, 화장실|Go to the bathroom.|화장실에 가라.
 12-24|ahead|[부] 앞에, 앞으로|Go ahead.|앞으로 가라(계속해라).
@@ -4135,6 +4158,7 @@ const rawVocabData = `
 12-24|honor|[명] 명예|It is an honor.|영광입니다(명예입니다).
 12-24|remind|[동] 생각나게 하다|Remind me later.|나중에 다시 말해줘(생각나게 해줘).
 12-24|textbook|[명] 교과서|Open your textbook.|교과서를 펴라.
+  
 12-25|wool|[명] 양털|A wool sweater.|양털 스웨터.
 12-25|graduate|[동] 졸업하다|Graduate from school.|학교를 졸업하다.
 12-25|painter|[명] 화가|A famous painter.|유명한 화가.
@@ -4165,6 +4189,7 @@ const rawVocabData = `
 12-25|photo|[명] 사진|Take a photo.|사진을 찍어라.
 12-25|band|[명] 악단, 밴드|A rock band.|록 밴드.
 12-25|manner|[명] 방법, 태도|Table manners.|식사 예절.
+  
 12-26|thirsty|[형] 목마른|I am very thirsty.|나는 매우 목이 마르다.
 12-26|chief|[명] 우두머리, 장|The chief of police.|경찰 서장(우두머리).
 12-26|thick|[형] 두꺼운, 굵은|A thick book.|두꺼운 책.
@@ -4195,6 +4220,7 @@ const rawVocabData = `
 12-26|upstairs|[부] 위층으로|Go upstairs.|위층으로 가라.
 12-26|steak|[명] 스테이크|I like steak.|나는 스테이크를 좋아한다.
 12-26|anywhere|[부] 어디엔가, 어디든지|Go anywhere.|어디든지 가라.
+  
 12-27|trick|[명] 속임수, 장난|A magic trick.|마술 속임수.
 12-27|actor|[명] 배우|A famous actor.|유명한 배우.
 12-27|seed|[명] 씨|Plant a seed.|씨를 심어라.
@@ -4225,6 +4251,7 @@ const rawVocabData = `
 12-27|effect|[명] 효과, 결과|Good effect.|좋은 효과.
 12-27|equal|[형] 같은|All men are equal.|모든 사람은 평등하다(같다).
 12-27|wolf|[명] 늑대|A wild wolf.|야생 늑대.
+  
 12-28|fault|[명] 결점, 잘못|It's my fault.|내 잘못이다.
 12-28|waiter|[명] 웨이터|Call the waiter.|웨이터를 불러라.
 12-28|smooth|[형] 매끄러운|Smooth skin.|매끄러운 피부.
@@ -4255,6 +4282,7 @@ const rawVocabData = `
 12-28|coast|[명] 해안|Along the coast.|해안을 따라서.
 12-28|fog|[명] 안개|Thick fog.|짙은 안개.
 12-28|rough|[형] 거친|Rough hands.|거친 손.
+  
 12-29|enter|[동] 들어가다|Enter the room.|방에 들어가라.
 12-29|guide|[동] 안내하다|Guide me.|나를 안내해라.
 12-29|fry|[동] 튀기다|Fry an egg.|달걀을 튀겨라(부쳐라).
@@ -4285,6 +4313,7 @@ const rawVocabData = `
 12-29|classical|[형] 고전의|Classical music.|고전 음악(클래식).
 12-29|examine|[동] 조사하다, 검사하다|Examine it carefully.|그것을 주의 깊게 조사해라.
 12-29|perfect|[형] 완전한|Nobody is perfect.|아무도 완벽하지 않다.
+  
 12-30|address|[명] 주소|Write your address.|주소를 써라.
 12-30|necessary|[형] 필요한|Water is necessary.|물은 필요하다.
 12-30|nest|[명] 둥지|A bird's nest.|새 둥지.
@@ -4315,6 +4344,7 @@ const rawVocabData = `
 12-30|block|[명] 블록, 구획|Walk one block.|한 블록 걸어라.
 12-30|nurse|[명] 간호사|She is a nurse.|그녀는 간호사다.
 12-30|sight|[명] 시력, 광경|Wonderful sight.|멋진 광경.
+  
 12-31|garage|[명] 차고|The car is in the garage.|차가 차고에 있다.
 12-31|female|[명] 여성, 암컷|Female lion.|암사자.
 12-31|stomach|[명] 위|My stomach hurts.|위(배)가 아프다.
@@ -4345,6 +4375,7 @@ const rawVocabData = `
 12-31|huge|[형] 거대한|A huge building.|거대한 건물.
 12-31|musical|[형] 음악의|Musical instrument.|악기.
 12-31|root|[명] 뿌리|Tree roots.|나무 뿌리.
+  
 12-32|charming|[형] 매력적인|A charming girl.|매력적인 소녀.
 12-32|bowl|[명] 사발, 그릇|A bowl of soup.|수프 한 그릇.
 12-32|disease|[명] 병, 질병|Cure a disease.|병을 치료하다.
@@ -4375,6 +4406,7 @@ const rawVocabData = `
 12-32|realize|[동] 깨닫다|I realized my mistake.|나는 내 실수를 깨달았다.
 12-32|central|[형] 중앙의|Central park.|중앙 공원.
 12-32|instance|[명] 예, 보기|For instance.|예를 들어.
+  
 12-33|delicious|[형] 맛있는|It looks delicious.|맛있어 보인다.
 12-33|goal|[명] 득점, 목표|Score a goal.|득점하다(골을 넣다).
 12-33|hunt|[동] 사냥하다, [명] 사냥|Lions hunt.|사자는 사냥한다.
@@ -4405,6 +4437,7 @@ const rawVocabData = `
 12-33|silly|[형] 어리석은|Don't be silly.|바보같이 굴지 마라.
 12-33|independent|[형] 독립의|Be independent.|독립심을 가져라.
 12-33|blossom|[명] 꽃, [동] 꽃이 피다|Cherry blossom.|벚꽃.
+  
 12-34|rub|[동] 문지르다|Rub your hands.|손을 비벼라.
 12-34|offer|[동] 제공하다|Offer help.|도움을 제공하다.
 12-34|particular|[형] 특별한|Nothing particular.|특별한 것은 없다.
@@ -4435,6 +4468,7 @@ const rawVocabData = `
 12-34|furniture|[명] 가구(기구)|Wooden furniture.|나무 가구.
 12-34|destroy|[동] 파괴하다|Destroy the building.|건물을 파괴하다.
 12-34|escape|[동] 달아나다|Escape from prison.|감옥에서 탈출하다.
+  
 12-35|extra|[형] 여분의|An extra pen.|여분의 펜.
 12-35|invent|[동] 발명하다|Invent a machine.|기계를 발명하다.
 12-35|pardon|[명] 용서|I beg your pardon?|뭐라고요?(다시 말씀해 주시겠어요?)
@@ -4465,6 +4499,7 @@ const rawVocabData = `
 12-35|various|[형] 여러 가지의|Various colors.|여러 가지 색깔들.
 12-35|single|[형] 단 하나의|Every single day.|매일매일(하루도 빠짐없이).
 12-35|blame|[동] 나무라다, 비난하다|Don't blame me.|나를 비난하지 마라.
+  
 12-36|satisfy|[동] 만족시키다|Satisfy your hunger.|너의 허기를 채워라(만족시켜라).
 12-36|uniform|[명] 제복|School uniform.|교복.
 12-36|public|[형] 공공의|Public park.|공공 공원.
@@ -4495,6 +4530,7 @@ const rawVocabData = `
 12-36|subject|[명] 과목, 주제|Favorite subject.|가장 좋아하는 과목.
 12-36|prefer|[동] 더 좋아하다|I prefer coffee.|나는 커피를 더 좋아한다.
 12-36|responsible|[형] 책임이 있는|Be responsible.|책임감을 가져라.
+  
 12-37|kind|[형] 친절한, [명] 종류|What kind of fruit?|어떤 종류의 과일?
 12-37|pretty|[형] 예쁜, [부] 꽤|She is pretty.|그녀는 예쁘다.
 12-37|free|[형] 자유로운, 무료의|It is free.|그것은 무료다.
@@ -4525,6 +4561,7 @@ const rawVocabData = `
 12-37|check|[동] 확인하다, [명] 수표|Pay by check.|수표로 지불하다.
 12-37|fair|[형] 공평한, [명] 전시회|It's not fair.|그것은 공평하지 않다.
 12-37|company|[명] 회사, 친구|A big company.|큰 회사.
+  
 12-38|touch|[동] 대다, 감동시키다|Don't touch it.|그것에 손대지 마라.
 12-38|plant|[명] 식물, 공장|A car plant.|자동차 공장.
 12-38|for|[전] ~을 위하여, ~동안|Wait for me.|나를 기다려줘.
@@ -4555,6 +4592,7 @@ const rawVocabData = `
 12-38|letter|[명] 편지, 문자|Capital letter.|대문자.
 12-38|around|[전] ~주위에, [부] 약|Around 5 o'clock.|5시쯤.
 12-38|station|[명] 역, 국|Police station.|경찰서.
+  
 12-39|over|[전] ~위에, [부] 끝나고|Game over.|게임 끝.
 12-39|still|[부] 아직, [형] 고요한|Stand still.|가만히(고요히) 서 있어라.
 12-39|get|[동] 얻다, ~이 되다|Get ready.|준비해라(준비된 상태가 되어라).
@@ -4585,6 +4623,7 @@ const rawVocabData = `
 12-39|pick|[동] 줍다, 고르다|Pick a card.|카드를 골라라.
 12-39|matter|[명] 문제, [동] 중요하다|It doesn't matter.|그것은 중요하지 않다.
 12-39|set|[동] 놓다, (해가) 지다|The sun sets.|해가 진다.
+  
 12-40|against|[전] ~에 반대하여|I am against it.|나는 그것에 반대한다.
 12-40|fat|[형] 뚱뚱한, [명] 지방|Too much fat.|너무 많은 지방.
 12-40|state|[명] 상태, 주(州)|United States.|미국(합중국).
@@ -4616,6 +4655,1209 @@ const rawVocabData = `
 12-40|blind|[형] 눈먼, [명] 블라인드|Love is blind.|사랑은 눈이 멀었다.
 12-40|suit|[명] 양복, [동] 어울리다|It suits you.|그것은 너에게 잘 어울린다.
 
+// 13-1 ~ 13-40 전체 단어 데이터 (Pipe Separated)
+const rawVocabDataLevel13 = `
+13-1|wise|지혜로운, 슬기로운|A wise man.|지혜로운 사람.
+13-1|foolish|바보같은, 어리석은|Don't be foolish.|바보같이 굴지 마라.
+13-1|proud|자랑스러워하는|I am proud of you.|나는 네가 자랑스럽다.
+13-1|honest|정직한, 솔직한|Be honest.|정직해라.
+13-1|careful|조심성 있는|Be careful with fire.|불을 조심해라.
+13-1|brave|용감한|A brave soldier.|용감한 군인.
+13-1|lazy|게으른|Don't be lazy.|게으름 피우지 마라.
+13-1|calm|차분한, 침착한|Stay calm.|침착해라.
+13-1|rude|무례한, 예의 없는|It is rude to stare.|빤히 쳐다보는 것은 무례하다.
+13-1|active|활동적인, 적극적인|Be active.|활동적으로 움직여라.
+13-1|character|성격, 기질|Good character.|좋은 성격.
+13-1|serious|진지한, 진심의|Are you serious?|진심이니? [s]
+13-1|strict|엄한, 엄격한|A strict teacher.|엄격한 선생님.
+13-1|cruel|잔인한, 무자비한|Don't be cruel to animals.|동물에게 잔인하게 굴지 마라.
+13-1|mean|못된, 심술궂은|Don't be mean.|심술궂게 굴지 마라.
+13-1|selfish|이기적인|Don't be selfish.|이기적으로 굴지 마라.
+13-1|evil|나쁜, 사악한|An evil witch.|사악한 마녀.
+13-1|curious|호기심이 많은|I am curious.|나는 궁금하다.
+13-1|cheerful|쾌활한, 명랑한|A cheerful girl.|명랑한 소녀.
+13-1|friendly|친한, 친절한|A friendly dog.|친절한 개.
+13-1|modest|겸손한, 신중한|Be modest.|겸손해라.
+13-1|generous|관대한, 후한|He is generous.|그는 관대하다.
+13-1|sensitive|민감한, 예민한|Sensitive skin.|민감한 피부.
+13-1|confident|자신만만한|Be confident.|자신감을 가져라.
+13-1|positive|긍정적인|Positive thinking.|긍정적인 사고.
+13-1|negative|부정적인|Negative answer.|부정적인 대답.
+13-1|optimistic|낙관적인|Be optimistic.|낙관적이 되어라.
+13-1|cautious|조심스러운|Be cautious.|조심해라.
+13-1|make fun of|~을 놀리다|Don't make fun of him.|그를 놀리지 마라.
+13-1|cheer up|기운을 내다|Cheer up!|기운 내!
+13-2|cute|귀여운, 예쁜|A cute baby.|귀여운 아기.
+13-2|pretty|예쁜, 매우|A pretty flower.|예쁜 꽃.
+13-2|beautiful|아름다운|A beautiful view.|아름다운 경치.
+13-2|ugly|못생긴, 추한|The ugly duckling.|미운 오리 새끼.
+13-2|overweight|과체중의|He is overweight.|그는 과체중이다.
+13-2|young|어린, 젊은|A young man.|젊은이.
+13-2|handsome|잘생긴|A handsome boy.|잘생긴 소년.
+13-2|slim|날씬한|She is slim.|그녀는 날씬하다.
+13-2|beard|턱수염|He has a beard.|그는 턱수염이 있다.
+13-2|lovely|사랑스러운|A lovely day.|사랑스러운(멋진) 날.
+13-2|neat|단정한, 깔끔한|Keep your room neat.|방을 깔끔하게 해라.
+13-2|plain|평범하게 생긴|A plain face.|평범한 얼굴.
+13-2|good-looking|잘생긴|A good-looking guy.|잘생긴 남자.
+13-2|skinny|깡마른|Skinny jeans.|딱 달라붙는 청바지.
+13-2|fit|건강한, 꼭 맞다|Keep fit.|건강을 유지해라.
+13-2|muscular|근육질의|Muscular arms.|근육질의 팔.
+13-2|thin|가는, 수척한|A thin book.|얇은 책.
+13-2|bald|대머리의|A bald head.|대머리.
+13-2|curly|곱슬거리는|Curly hair.|곱슬머리.
+13-2|dye|염색하다|Dye your hair.|머리를 염색해라.
+13-2|appearance|외모|Good appearance.|좋은 외모.
+13-2|attractive|매력적인 [a]|An attractive smile.|매력적인 미소. [a]
+13-2|charming|매력적인 [c]|A charming prince.|매력적인 왕자. [c]
+13-2|mustache|코밑수염|A long mustache.|긴 콧수염.
+13-2|sideburns|구레나룻|Long sideburns.|긴 구레나룻.
+13-2|middle-aged|중년의|A middle-aged man.|중년 남성.
+13-2|build|체격, 짓다|A strong build.|튼튼한 체격.
+13-2|image|이미지, 상|A public image.|대중적 이미지.
+13-2|grow up|자라다|I want to grow up.|나는 자라고 싶다.
+13-2|both A and B|A와 B 둘 다|Both you and I.|너와 나 둘 다.
+13-3|enjoy|즐기다|Enjoy your life.|인생을 즐겨라.
+13-3|cry|울다|Don't cry.|울지 마라.
+13-3|glad|기쁜 [g]|I am glad.|나는 기쁘다.
+13-3|fear|공포|No fear.|두려움 없음.
+13-3|joy|기쁨, 즐거움 [j]|Jump for joy.|기뻐서 뛰다. [j]
+13-3|miss|그리워하다, 놓치다|I miss you.|나는 네가 그립다.
+13-3|laugh|웃다|Laugh loudly.|크게 웃어라.
+13-3|mad|몹시 화난, 성난, 미친, 제정신이 아닌|Are you mad?|너 화났니?
+13-3|annoyed|짜증 난, 화가 난|I am annoyed.|나는 짜증 난다.
+13-3|upset|화가 난, 기분이 상한|Don't be upset.|속상해하지 마라.
+13-3|worried|걱정스러운|I am worried.|나는 걱정된다.
+13-3|regret|유감, 후회, 후회하다|I regret it.|나는 그것을 후회한다.
+13-3|bother|괴롭히다, 방해하다|Don't bother me.|나를 괴롭히지 마라. [b]
+13-3|excited|흥분한, 신이 난|I am excited.|나는 신이 난다.
+13-3|surprised|놀란|I was surprised.|나는 놀랐다.
+13-3|pleased|기쁜, 좋아하는|I am pleased.|나는 기쁘다.
+13-3|horrible|무서운, 끔찍한|A horrible dream.|끔찍한 꿈.
+13-3|grateful|감사하는, 고맙게 여기는 [g]|I am grateful.|나는 감사합니다. [g]
+13-3|anxious|걱정되는, 근심이 되는|I am anxious.|나는 걱정된다.
+13-3|delighted|매우 기뻐하는|I am delighted.|나는 매우 기쁘다.
+13-3|depressed|의기소침한, 낙담한, 우울한 [9]|He looks depressed.|그는 우울해 보인다. [d]
+13-3|frightened|깜짝 놀란, 겁이 난|I was frightened.|나는 겁이 났다.
+13-3|ashamed|부끄러워하는|Don't be ashamed.|부끄러워하지 마라. [a]
+13-3|emotion|감정|Show your emotion.|감정을 보여라.
+13-3|sympathy|동정|Have sympathy.|동정심을 가져라.
+13-3|satisfied|만족한|I am satisfied.|나는 만족한다.
+13-3|disappointed|실망한, 낙담한|I am disappointed.|나는 실망했다.
+13-3|amused|즐기는, 즐거워하는|We were amused.|우리는 즐거웠다.
+13-3|calm down|진정하다, 흥분을 가라앉히다|Please calm down.|진정해라.
+13-3|feel sorry for|~을 안쓰럽게(안됐다고) 여기다, ~에게 미안함을 느끼다|I feel sorry for him.|나는 그가 안쓰럽다.
+13-4|baker|제빵사|The baker bakes bread.|제빵사는 빵을 굽는다.
+13-4|reporter|기자, 통신원 [r]|A news reporter.|뉴스 기자.
+13-4|engineer|기사, 기술자|An expert engineer.|전문 기술자.
+13-4|scientist|과학자|A famous scientist.|유명한 과학자.
+13-4|lawyer|변호사 [l]|Ask a lawyer.|변호사에게 물어봐라. [l]
+13-4|dentist|치과의사|Go to the dentist.|치과에 가라.
+13-4|mechanic|정비공|A car mechanic.|자동차 정비공.
+13-4|architect|건축가|An architect designs houses.|건축가는 집을 설계한다.
+13-4|officer|공무원, 관리|A police officer.|경찰관.
+13-4|gardener|정원사|The gardener plants flowers.|정원사는 꽃을 심는다.
+13-4|photographer|사진사, 사진작가|Take a photo, photographer.|사진사님, 사진 좀 찍어주세요.
+13-4|president|대통령|The president speaks.|대통령이 연설한다.
+13-4|salesperson|판매원|Ask the salesperson.|판매원에게 물어봐라.
+13-4|carpenter|목수|The carpenter makes tables.|목수는 탁자를 만든다.
+13-4|businessman|사업가|A rich businessman.|부유한 사업가.
+13-4|fisherman|어부|The fisherman catches fish.|어부는 물고기를 잡는다.
+13-4|soldier|군인|A brave soldier.|용감한 군인.
+13-4|professor|교수|A university professor.|대학교수.
+13-4|judge|판사, 심사원, 판단하다|The judge decides.|판사가 결정한다.
+13-4|announcer|방송 진행자, 아나운서|TV announcer.|TV 아나운서.
+13-4|hairdresser|미용사|My mom is a hairdresser.|우리 엄마는 미용사시다.
+13-4|accountant|회계사|An accountant counts money.|회계사는 돈을 계산한다.
+13-4|novelist|소설가|A great novelist.|위대한 소설가.
+13-4|security guard|경호원, 경비원|Ask the security guard.|경비원에게 물어봐라.
+13-4|astronaut|우주비행사|An astronaut goes to space.|우주비행사는 우주로 간다.
+13-4|detective|탐정|A clever detective.|영리한 탐정.
+13-4|secretary|비서|Call my secretary.|내 비서에게 전화해라.
+13-4|illustrator|삽화가|An illustrator draws pictures.|삽화가는 그림을 그린다.
+13-4|be good at|~에 능숙하다, ~을 잘하다|I am good at English.|나는 영어를 잘한다.
+13-4|be interested in|~에 관심이(흥미가) 있다|I am interested in music.|나는 음악에 관심이 있다.
+13-5|pants|바지 [p]|Blue pants.|파란 바지.
+13-5|sweater|스웨터|A warm sweater.|따뜻한 스웨터.
+13-5|skirt|치마|A short skirt.|짧은 치마.
+13-5|tie|넥타이, ~을 묶다, 매다|Wear a tie.|넥타이를 매라.
+13-5|belt|벨트, 허리띠|Fasten your belt.|벨트를 매라.
+13-5|uniform|유니폼, 제복|School uniform.|교복.
+13-5|socks|양말|Put on socks.|양말을 신어라.
+13-5|material|직물, 천, 재료|Soft material.|부드러운 천.
+13-5|gloves|장갑|Wear gloves.|장갑을 껴라.
+13-5|boots|장화, 부츠, 목이 긴 구두|Rain boots.|장화.
+13-5|dress|옷, 의복, 옷을 입다|A pretty dress.|예쁜 원피스.
+13-5|scarf|스카프, 목도리 [s]|A red scarf.|빨간 스카프.
+13-5|jacket|재킷, 상의, 웃옷|A leather jacket.|가죽 재킷.
+13-5|shorts|반바지, 운동 팬츠|Wear shorts in summer.|여름에는 반바지를 입어라.
+13-5|button|단추, ~에 단추를 채우다|Push the button.|단추(버튼)를 눌러라.
+13-5|jeans|청바지|Blue jeans.|청바지.
+13-5|suit|정장, 슈트, ~에게 잘 어울리다|A black suit.|검은 정장.
+13-5|pocket|주머니|Empty pocket.|빈 주머니.
+13-5|bow tie|나비넥타이|A bow tie.|나비넥타이.
+13-5|heels|굽 높은 구두 [5]|High heels.|하이힐.
+13-5|stockings|긴 양말, 스타킹|Wear stockings.|스타킹을 신어라.
+13-5|sandals|샌들|Summer sandals.|여름 샌들.
+13-5|wallet|지갑|My wallet is lost.|내 지갑을 잃어버렸다.
+13-5|purse|돈주머니, 지갑 [p]|A lady's purse.|숙녀용 지갑.
+13-5|vest|조끼 [v]|A safety vest.|안전 조끼.
+13-5|overalls|멜빵바지|Blue overalls.|파란 멜빵바지.
+13-5|athletic shoes|운동화|Wear athletic shoes.|운동화를 신어라.
+13-5|put on|(옷을) 입다, (모자, 안경 등을) 쓰다 [p]|Put on your coat.|코트를 입어라.
+13-5|try on|~을 입어(신어) 보다|Can I try on this?|이것을 입어봐도 될까요?
+13-5|take off|(옷 등을) 벗다, 이륙하다|Take off your hat.|모자를 벗어라.
+13-6|butter|버터|Bread and butter.|버터 바른 빵.
+13-6|bread|빵|Fresh bread.|신선한 빵.
+13-6|jam|잼|Strawberry jam.|딸기 잼.
+13-6|meat|고기|Cook the meat.|고기를 요리해라.
+13-6|sugar|설탕|Sweet sugar.|달콤한 설탕.
+13-6|salt|소금|Pass the salt.|소금을 건네줘.
+13-6|soup|수프|Hot soup.|뜨거운 수프.
+13-6|fish|생선|Fried fish.|생선 튀김.
+13-6|grab|간단히 먹다, 잡다, 붙들다|Let's grab a bite.|간단히 먹자.
+13-6|beef|소고기|Roast beef.|구운 소고기.
+13-6|steak|스테이크|Rare steak.|덜 익힌 스테이크.
+13-6|pork|돼지고기|Pork cutlet.|돈가스(돼지고기 커틀릿).
+13-6|pepper|후추, 고추|Black pepper.|후추.
+13-6|diet|다이어트, 식이요법|Go on a diet.|다이어트를 하다.
+13-6|snack|간식|Have a snack.|간식을 먹다.
+13-6|egg|달걀|Boiled egg.|삶은 달걀.
+13-6|rice|밥|Steamed rice.|찐 밥(공기밥).
+13-6|flour|밀가루|Wheat flour.|밀가루.
+13-6|honey|꿀|Sweet as honey.|꿀처럼 달콤한.
+13-6|mustard|겨자|Mustard sauce.|겨자 소스.
+13-6|noodle|국수|Instant noodles.|라면(즉석 국수).
+13-6|pickle|(오이 등을) 절인 것, 피클, 절이다|Cucumber pickle.|오이 피클.
+13-6|stew|스튜, 찌개|Beef stew.|소고기 스튜.
+13-6|cereal|곡물 식품, 시리얼, 곡물의|Eat cereal.|시리얼을 먹다.
+13-6|meal|식사|Enjoy your meal.|식사를 즐겨라.
+13-6|side dish|반찬, 주된 요리에 곁들이는 요리|Kimchi is a side dish.|김치는 반찬이다.
+13-6|appetizer|애피타이저, 식욕을 돋우는 것|Order an appetizer.|애피타이저를 주문하다.
+13-6|powder|가루|Milk powder.|분유(우유 가루).
+13-6|set the table|식탁(밥상)을 차리다|Help set the table.|식탁 차리는 것을 도와라.
+13-6|eat out|외식하다|Let's eat out tonight.|오늘 밤 외식하자.
+13-7|bake|굽다|Bake cookies.|쿠키를 굽다.
+13-7|fry|튀기다|Fry chicken.|치킨을 튀기다.
+13-7|boil|끓이다|Boil water.|물을 끓이다.
+13-7|glass|컵, 유리잔, 한 컵(의 양)|A glass of milk.|우유 한 잔.
+13-7|knife|칼|A sharp knife.|날카로운 칼.
+13-7|basket|바구니|Fruit basket.|과일 바구니.
+13-7|chop|썰다, 다지다|Chop onions.|양파를 썰다.
+13-7|lid|뚜껑|Close the lid.|뚜껑을 닫다.
+13-7|handle|손잡이|Turn the handle.|손잡이를 돌려라.
+13-7|pour|붓다|Pour tea.|차를 붓다.
+13-7|roll|밀다|Roll the dough.|반죽을 밀다.
+13-7|slice|얇게 썰다|Slice bread.|빵을 얇게 썰다.
+13-7|refrigerator|냉장고|Open the refrigerator.|냉장고를 열어라.
+13-7|pot|(속이 깊은) 냄비|A soup pot.|수프 냄비.
+13-7|bowl|(우묵한) 그릇, 통|A rice bowl.|밥그릇.
+13-7|plate|접시|A clean plate.|깨끗한 접시.
+13-7|tray|쟁반|Put it on the tray.|그것을 쟁반 위에 놓아라.
+13-7|jar|(입구가 넓은) 병, 단지|A cookie jar.|쿠키 단지.
+13-7|pan|(납작한) 냄비, 팬|Frying pan.|프라이팬.
+13-7|beat|휘저어 섞다 [b]|Beat eggs.|달걀을 휘저어라.
+13-7|steam|찌다|Steam potatoes.|감자를 찌다.
+13-7|scoop|주걱, 국자 [s]|Ice cream scoop.|아이스크림 주걱.
+13-7|grill|(열로) 굽다, 익히다|Grill meat.|고기를 굽다.
+13-7|kettle|주전자|Boil the kettle.|주전자를 끓이다.
+13-7|opener|따개|Can opener.|캔 따개.
+13-7|cabinet|진열대|Kitchen cabinet.|주방 수납장(진열대).
+13-7|recipe|요리법|Follow the recipe.|요리법을 따라라.
+13-7|blender|부엌용 믹서기 [b]|Use a blender.|믹서기를 사용해라. [b]
+13-7|be used for|~에 사용(이용)되다|Knives are used for cutting.|칼은 자르는 데 사용된다.
+13-7|keep on ing|계속 ~하다|Keep on trying.|계속 노력해라.
+13-8|garden|정원, 정원을 가꾸다|A beautiful garden.|아름다운 정원.
+13-8|apartment|아파트|Live in an apartment.|아파트에 살다.
+13-8|yard|마당|Front yard.|앞마당.
+13-8|knock|노크를 하다, (문 등을) 두드리다|Knock on the door.|문을 두드려라.
+13-8|soap|비누|Use soap.|비누를 사용해라.
+13-8|towel|타월, 수건|Dry with a towel.|수건으로 닦아라.
+13-8|curtain|커튼|Close the curtain.|커튼을 쳐라.
+13-8|mirror|거울|Look in the mirror.|거울을 봐라.
+13-8|neighbor|이웃(사람)|A good neighbor.|좋은 이웃.
+13-8|gate|문|Open the gate.|문을 열어라.
+13-8|bedroom|침실|Go to the bedroom.|침실로 가라.
+13-8|roof|지붕|Red roof.|빨간 지붕.
+13-8|garage|차고|Park in the garage.|차고에 주차해라.
+13-8|laundry|세탁물|Do the laundry.|빨래를 하다.
+13-8|water|물, 물을 주다|Water the plants.|식물에 물을 주다.
+13-8|lawn|잔디|Cut the lawn.|잔디를 깎다.
+13-8|floor|마루, 바닥, 층|Sweep the floor.|바닥을 쓸어라.
+13-8|feed|먹이를 주다|Feed the dog.|개에게 먹이를 주다.
+13-8|bathroom|욕실|Clean bathroom.|깨끗한 욕실.
+13-8|ceiling|천장|High ceiling.|높은 천장.
+13-8|shelf|선반|Put it on the shelf.|그것을 선반에 놓아라.
+13-8|drawer|서랍|Open the drawer.|서랍을 열어라.
+13-8|lamp|전기스탠드, 램프|Turn on the lamp.|램프를 켜라.
+13-8|sheet|시트, 홑이불|Change the sheet.|시트를 갈아라.
+13-8|stair|계단, 층계|Up the stairs.|계단 위로.
+13-8|scale|체중계, 저울|Step on the scale.|체중계에 올라가라.
+13-8|sink|싱크대, 개수대|Wash in the sink.|싱크대에서 씻다.
+13-8|tap|수도꼭지|Turn off the tap.|수도꼭지를 잠가라.
+13-8|turn on|(라디오, TV, 전기, 가스 등을 ) 켜다|Turn on the TV.|TV를 켜라.
+13-8|in place|제자리에 (있는)|Put it back in place.|제자리에 갖다 놓아라.
+13-9|park|주차하다, 공원|Park here.|여기에 주차해라.
+13-9|stop|정류장, 정차하다, 그만두다|Bus stop.|버스 정류장.
+13-9|drive|운전하다|Drive a car.|차를 운전하다.
+13-9|subway|지하철 [s]|Take the subway.|지하철을 타라.
+13-9|seat|좌석|Empty seat.|빈 좌석.
+13-9|road|길, 도로|Cross the road.|길을 건너라.
+13-9|fare|요금|Pay the fare.|요금을 내라.
+13-9|bicycle|자전거 [7]|Ride a bicycle.|자전거를 타다.
+13-9|limit|한계, 제한, 제한하다|Speed limit.|속도제한.
+13-9|route|길, 경로, 루트, (버스, 기차 등의) 노선|Bus route.|버스 노선.
+13-9|cross|~을 건너다, 십자가|Cross the street.|거리를 건너다.
+13-9|track|철도 선로, 궤도|Train track.|기차 선로.
+13-9|rail|철로 [4]|By rail.|철도로(기차로).
+13-9|curve|굽이, 커브, 굴곡, 구부러지다|Sharp curve.|급커브.
+13-9|sign|표지(판), 서명하다|Traffic sign.|교통 표지판.
+13-9|station|역, 정거장, (관공)서, 국|Train station.|기차역.
+13-9|wheel|바퀴|Car wheel.|자동차 바퀴.
+13-9|license|면허증|Driver's license.|운전면허증.
+13-9|accident|사고|Car accident.|자동차 사고.
+13-9|traffic|교통(량), 교통의|Traffic jam.|교통 체증.
+13-9|forward|앞으로, 앞을 향하여|Move forward.|앞으로 이동해라.
+13-9|transfer|옮기다, 환승하다|Transfer to line 2.|2호선으로 환승해라.
+13-9|passenger|승객|Many passengers.|많은 승객들.
+13-9|harbor|항구|Ships in the harbor.|항구에 있는 배들.
+13-9|gas|휘발유, 가솔린 [g]|Gas station.|주유소.
+13-9|platform|(역의) 플랫폼, 승강장|Wait on the platform.|승강장에서 기다려라.
+13-9|transport|수송하다, 운송하다|Transport goods.|상품을 수송하다.
+13-9|crash|충돌, 충돌하다|Cars crash.|차들이 충돌하다.
+13-9|get on|(탈 것에) 타다, 승차하다|Get on the bus.|버스에 타라.
+13-9|on foot|걸어서, 도보로|Go on foot.|걸어서 가다.
+13-10|glue|풀, 풀을 바르다, 접착하다|Stick with glue.|풀로 붙여라.
+13-10|scissors|가위|Cut with scissors.|가위로 잘라라.
+13-10|eraser|지우개|Use an eraser.|지우개를 사용해라.
+13-10|desk|책상|Sit at the desk.|책상에 앉아라.
+13-10|chair|의자|A wooden chair.|나무 의자.
+13-10|room|방, 실|Classroom.|교실.
+13-10|company|회사|Work for a company.|회사에서 일하다.
+13-10|interview|면접을 보다, 인터뷰를 하다, 면접, 인터뷰|Job interview.|취업 면접.
+13-10|calendar|달력|Check the calendar.|달력을 확인해라.
+13-10|printer|인쇄기, 프린터|Color printer.|컬러 프린터.
+13-10|envelope|봉투|Put in an envelope.|봉투에 넣어라.
+13-10|folder|폴더, 서류철|File folder.|서류철(폴더).
+13-10|call|통화, 전화를 걸다|Call me.|나에게 전화해라.
+13-10|letter|편지|Write a letter.|편지를 써라.
+13-10|seal|도장, 인감, 봉인, 날인하다, 봉하다|Seal the envelope.|봉투를 봉해라.
+13-10|clip|클립, 자르다, 깎다|Paper clip.|종이 클립.
+13-10|pin|핀, 핀으로 고정하다|Safety pin.|옷핀.
+13-10|message|메시지|Leave a message.|메시지를 남겨라.
+13-10|bookcase|책장, 책꽂이|Books in the bookcase.|책장 안의 책들.
+13-10|manager|관리자|Office manager.|사무실 관리자.
+13-10|calculator|계산기|Use a calculator.|계산기를 써라.
+13-10|stationery|문구류|Stationery store.|문구점.
+13-10|staple|스테이플러로 고정시키다|Staple the papers.|종이들을 스테이플러로 찍어라.
+13-10|punch|(표에 구멍을 뚫는) 펀지, 구멍을 뚫다|Punch a hole.|구멍을 뚫다.
+13-10|highlighter|형광 컬러 펜|Use a highlighter.|형광펜을 써라.
+13-10|document|서류, 문서|Important document.|중요한 서류.
+13-10|printout|출력물|Computer printout.|컴퓨터 출력물.
+13-10|photocopy|사진 복사물, 사진 복사하다|Photocopy this page.|이 페이지를 복사해라.
+13-10|deal with|~을 다루다, 처리하다|Deal with problems.|문제를 다루다.
+13-10|fill out|~을 작성하다, 기입하다|Fill out the form.|양식을 작성해라.
+13-11|building|건물|A tall building.|높은 건물.
+13-11|bakery|제과점|Bread from the bakery.|제과점에서 산 빵.
+13-11|fire station|소방서|Call the fire station.|소방서에 전화해라.
+13-11|hospital|병원|Go to the hospital.|병원에 가라.
+13-11|museum|박물관|Visit the museum.|박물관을 방문하다.
+13-11|city hall|시청|Meet at city hall.|시청에서 만나자.
+13-11|police station|경찰서|Near the police station.|경찰서 근처에.
+13-11|left|왼쪽|Turn left.|왼쪽으로 돌아라.
+13-11|trash|쓰레기|Pick up trash.|쓰레기를 주워라.
+13-11|village|(시골) 마을, 촌락|A small village.|작은 마을.
+13-11|direction|방향|Which direction?|어느 방향이니?
+13-11|street|거리|Cross the street.|거리를 건너라.
+13-11|avenue|도시의 큰 대로, 넓은 길|Fifth Avenue.|5번가(대로).
+13-11|block|(도로의) 블록, 구획, 덩어리, 장애물, 막다, 봉쇄하다|Walk one block.|한 블록 걸어라.
+13-11|straight|똑바른, 직선의, 곧장, 일직선으로|Go straight.|곧장 가라.
+13-11|corner|모퉁이, 구석|At the corner.|모퉁이에서.
+13-11|turn|회전, 방향 전환, 돌다|Turn right.|오른쪽으로 돌아라.
+13-11|drugstore|약국 [d]|Go to the drugstore.|약국에 가라.
+13-11|pedestrian|보행자|Watch out for pedestrians.|보행자를 조심해라.
+13-11|department store|백화점|Shop at a department store.|백화점에서 쇼핑하다.
+13-11|sidewalk|인도, 보도 [8]|Walk on the sidewalk.|인도로 걸어라.
+13-11|crosswalk|횡단보도|Use the crosswalk.|횡단보도를 이용해라.
+13-11|intersection|교차로|Busy intersection.|붐비는 교차로.
+13-11|patrol|순찰대, 순찰 경관|Police patrol.|경찰 순찰대.
+13-11|signal|신호, 신호기|Traffic signal.|교통 신호.
+13-11|highway|고속도로 [h]|Drive on the highway.|고속도로에서 운전하다.
+13-11|sewer|하수구|A rat in the sewer.|하수구 속의 쥐.
+13-11|give A a ride|A를 태워주다|Give me a ride.|나를 태워줘.
+13-11|be known for|~로 알려져 있다, ~로 유명하다|Korea is known for Kimchi.|한국은 김치로 유명하다.
+13-11|in the middle of|~의 중간(중앙)에, ~의 도중에|In the middle of the night.|한밤중에.
+13-12|iron|다리미, 철, 다림질하다|Iron the shirt.|셔츠를 다림질해라.
+13-12|lift|올리다, 들어올리다|Lift the box.|상자를 들어 올려라.
+13-12|wash|세탁물, 씻다|Do the wash.|빨래를 하다.
+13-12|mop|대걸레, 대걸레로 닦다|Mop the floor.|바닥을 대걸레로 닦아라.
+13-12|daily|매일의, 나날의|Daily life.|일상생활(매일의 삶).
+13-12|hang|걸다, 매달리다|Hang the picture.|그림을 걸어라.
+13-12|hammer|망치|Hit with a hammer.|망치로 쳐라.
+13-12|switch|스위치|Turn on the switch.|스위치를 켜라.
+13-12|dust|먼지, 티끌, 먼지를 털다|Dust the table.|탁자의 먼지를 털어라.
+13-12|ladder|사다리|Climb the ladder.|사다리를 올라가라.
+13-12|carry|나르다|Carry the bag.|가방을 날라라.
+13-12|tool|도구, 연장|A useful tool.|유용한 도구.
+13-12|drill|송곳, 구멍을 뚫다|Use a drill.|드릴을 사용해라.
+13-12|saw|톱, 톱질하다|Cut with a saw.|톱으로 잘라라.
+13-12|bucket|물통, 양동이|A bucket of water.|물 한 양동이.
+13-12|housework|가사, 집안일|Help with housework.|집안일을 도와라.
+13-12|dig|파다, 파헤치다|Dig a hole.|구멍을 파라.
+13-12|sweep|청소하다, 쓸다|Sweep the floor.|바닥을 쓸어라.
+13-12|fold|개다, 접다|Fold the paper.|종이를 접어라.
+13-12|rake|갈퀴, 긁어모으다|Rake leaves.|낙엽을 갈퀴로 긁어모아라.
+13-12|trim|깎아 다듬다|Trim the hair.|머리를 다듬어라.
+13-12|polish|닦다, 윤을 내다|Polish the shoes.|구두를 닦아라(윤내라).
+13-12|screw|나사, 나사로 죄다, 비틀다|Tighten the screw.|나사를 조여라.
+13-12|broom|빗자루|Sweep with a broom.|빗자루로 쓸어라.
+13-12|shovel|삽|Dig with a shovel.|삽으로 파라.
+13-12|wrench|렌치(너트를 죄를 기구) [w]|Use a wrench.|렌치를 사용해라.
+13-12|flashlight|손전등|Shine the flashlight.|손전등을 비춰라.
+13-12|outlet|(전기) 콘센트, 출구, 배출구|Plug into the outlet.|콘센트에 꽂아라.
+13-12|set up|세우다, 설치(설립)하다|Set up a tent.|텐트를 쳐라(설치해라).
+13-12|clean up|치우다, 청소하다|Clean up your room.|방을 치워라.
+13-13|bottle|병|A water bottle.|물병.
+13-13|package|(포장용) 용기, 상자, 꾸러미, 소포|Send a package.|소포를 보내라.
+13-13|can|깡통, 통조림, (음식물을) 통조림으로 만들다|A tin can.|양철 깡통.
+13-13|item|항목, 품목|Check the item.|품목을 확인해라.
+13-13|pack|꾸러미, 한 상자, (짐을) 사다, 꾸리다|Pack your bags.|가방을 싸라.
+13-13|ice|얼음|Cold ice.|차가운 얼음.
+13-13|bar|막대기, 막대기 모양의 것|A chocolate bar.|초콜릿 바.
+13-13|piece|조각|A piece of cake.|케이크 한 조각.
+13-13|counter|계산대|Pay at the counter.|계산대에서 지불해라.
+13-13|spray|스프레이, 분무기, 뿌리다|Spray water.|물을 뿌려라.
+13-13|bin|(뚜껑 달린) 큰 상자|Trash bin.|쓰레기통.
+13-13|smoked|훈제된|Smoked salmon.|훈제 연어.
+13-13|fresh|신선한|Fresh fruit.|신선한 과일.
+13-13|grain|곡물, 곡류|Whole grain.|통곡물.
+13-13|vegetable|채소|Green vegetable.|녹색 채소.
+13-13|cart|손수레, 카트|Push the cart.|카트를 밀어라.
+13-13|seafood|해산물|Fresh seafood.|신선한 해산물.
+13-13|cashier|계산원|Ask the cashier.|계산원에게 물어봐라.
+13-13|freezer|냉동고|Put it in the freezer.|그것을 냉동고에 넣어라.
+13-13|frozen food|냉동식품|Buy frozen food.|냉동식품을 사다.
+13-13|grocery|식료 잡화점, 식품점, 식료품류|Grocery store.|식료품점.
+13-13|container|용기|Plastic container.|플라스틱 용기.
+13-13|aisle|통로|Walk down the aisle.|통로를 걸어가라.
+13-13|dairy|우유의, 유제품의|Dairy products.|유제품.
+13-13|bundle|(한 묶음의) 다발, 뭉치|A bundle of sticks.|나뭇가지 다발.
+13-13|pile|더미|A pile of books.|책 더미.
+13-13|cash register|금전 등록기|Open the cash register.|금전 등록기를 열어라.
+13-13|on sale|판매되는, 할인 중인|It is on sale.|그것은 할인 중이다.
+13-13|for free|공짜로, 무료로|Get it for free.|그것을 무료로 얻어라.
+13-13|line up|줄을 서다|Please line up.|줄을 서 주세요.
+13-14|clean|깨끗한, 청소하다, 깨끗이 하다|Clean hands.|깨끗한 손.
+13-14|high|높은|A high mountain.|높은 산.
+13-14|low|낮은|A low wall.|낮은 벽.
+13-14|open|열린, 열다|An open door.|열린 문.
+13-14|heavy|무거운|A heavy bag.|무거운 가방.
+13-14|full|가득 찬, 배부른|A full cup.|가득 찬 컵.
+13-14|flat|평평한, 편평한|A flat tire.|펑크 난(평평해진) 타이어.
+13-14|dark|어두운|A dark room.|어두운 방.
+13-14|deep|깊은|A deep sea.|깊은 바다.
+13-14|round|둥근, 한 바퀴를 도는|A round ball.|둥근 공.
+13-14|light|가벼운, (양이) 적은, 빛|A light feather.|가벼운 깃털.
+13-14|famous|유명한|A famous star.|유명한 스타.
+13-14|colorful|다채로운, 화려한|A colorful bird.|다채로운 색의 새.
+13-14|empty|텅 빈|An empty box.|텅 빈 상자.
+13-14|metal|금속|A metal spoon.|금속 숟가락.
+13-14|plastic|플라스틱의, 비닐의, 성형의|A plastic bag.|비닐봉지(플라스틱 백).
+13-14|wide|넓은|A wide river.|넓은 강.
+13-14|tight|꽉 조이는|Tight shoes.|꽉 조이는 신발.
+13-14|loose|헐렁한|Loose pants.|헐렁한 바지.
+13-14|sharp|날카로운|A sharp knife.|날카로운 칼.
+13-14|shallow|얕은|Shallow water.|얕은 물.
+13-14|oval|달걀 모양, 타원형, 달걀 모양의, 타원형의|An oval face.|달걀형 얼굴.
+13-14|square|정사각형, 광장, 정사각형의, 사각의|A square box.|정사각형 상자.
+13-14|triangle|삼각형|Draw a triangle.|삼각형을 그려라.
+13-14|crack|(갈라진) 틈, 틈새|A crack in the wall.|벽의 틈.
+13-14|glitter|빛나다 [g]|Stars glitter.|별들이 빛난다.
+13-14|firm|단단한, 굳은, 회사|A firm bed.|단단한 침대.
+13-14|wooden|나무로 만든|A wooden chair.|나무 의자.
+13-14|be covered with|~으로 덮여 있다|Hills are covered with snow.|언덕이 눈으로 덮여 있다.
+13-14|prefer A to B|B보다 A를 더 선호하다|I prefer dogs to cats.|나는 고양이보다 개를 더 좋아한다.
+13-15|watch|지켜보다|Watch TV.|TV를 보다.
+13-15|look|보다, 바라보다|Look at me.|나를 봐라.
+13-15|listen|(주의해서) 듣다 [l]|Listen carefully.|주의 깊게 들어라.
+13-15|smell|냄새, 후각, 냄새가 나다, 냄새를 맡다|It smells good.|좋은 냄새가 난다.
+13-15|loud|(소리가) 큰, 시끄러운 [l]|A loud noise.|시끄러운 소리.
+13-15|bad|불쾌한, 나쁜, (음식이) 상한|A bad dream.|나쁜 꿈.
+13-15|feel|(기분이) 들다, 느끼다|I feel happy.|나는 행복하다(행복을 느낀다).
+13-15|hard|굳은, 단단한, 어려운|A hard rock.|단단한 바위.
+13-15|scream|비명을 지르다, 소리치다, 비명, 절규|Don't scream.|비명 지르지 마라.
+13-15|noise|소음|Make a noise.|소음을 내다.
+13-15|bitter|쓴, 쓴맛의|Bitter medicine.|쓴 약.
+13-15|sweet|달콤한|Sweet candy.|달콤한 사탕.
+13-15|sour|신, 신맛의|A sour lemon.|신 레몬.
+13-15|juicy|즙이 많은|A juicy orange.|즙이 많은 오렌지.
+13-15|touch|촉감, 접촉, 만지다, 건드리다|Don't touch.|만지지 마라.
+13-15|rough|거친, 가공하지 않은|Rough skin.|거친 피부.
+13-15|soft|부드러운|A soft pillow.|부드러운 베개.
+13-15|sense|감각, 감지하다|Five senses.|오감.
+13-15|objective|객관적인, 목적, 목표|Be objective.|객관적이 되어라.
+13-15|sight|시각, 시력, 보기, 일견|Lost sight.|시력을 잃었다.
+13-15|stare|빤히 보다, 응시하다 [s]|Don't stare.|빤히 쳐다보지 마라.
+13-15|whisper|속삭임, 속삭이다|Whisper to me.|나에게 속삭여라.
+13-15|audio|음의 재생, 오디오, 음성의, 오디오의|Audio file.|오디오 파일.
+13-15|flavor|맛, 풍미 [f]|Lemon flavor.|레몬 맛.
+13-15|smooth|부드러운, 부드럽게 하다|Smooth surface.|부드러운(매끄러운) 표면.
+13-15|notice|주의, 주목, 주의하다, 알아차리다 [n]|Did you notice?|알아차렸니? [n]
+13-15|observe|관찰하다, 알아차리다|Observe nature.|자연을 관찰해라.
+13-15|discover|발견하다, 알아내다|Discover a treasure.|보물을 발견하다.
+13-15|make sense|의미가 통하다, 이해가(말이) 되다|It makes sense.|그건 말이 된다(이해가 된다).
+13-15|focus on|~에 집중하다, 초점을 맞추다|Focus on study.|공부에 집중해라.
+13-16|cough|기침, 기침하다|He has a bad cough.|그는 기침이 심하다.
+13-16|fever|열, 발열|I have a high fever.|나는 열이 높다.
+13-16|sore|아픈, 쑤시는|My throat is sore.|목이 아프다.
+13-16|cut|베인 상처, 상처를 내다, ~을 베다|I have a cut on my finger.|손가락에 베인 상처가 있다.
+13-16|pain|고통|Feel no pain.|고통을 느끼지 마라.
+13-16|medicine|약|Take this medicine.|이 약을 먹어라.
+13-16|virus|바이러스|A deadly virus.|치명적인 바이러스.
+13-16|ache|통증, 아픔, 통증이 있다|My head aches.|머리가 아프다.
+13-16|dizzy|어지러운|I feel dizzy.|나는 어지럽다.
+13-16|disease|병, 질병|Cure a disease.|병을 치료하다.
+13-16|cancer|암|Fight against cancer.|암과 싸우다.
+13-16|blind|눈이 먼, 시각 장애의|Love is blind.|사랑은 눈이 멀었다.
+13-16|deaf|귀가 먹은, 청각 장애가 있는|He is deaf.|그는 귀가 들리지 않는다.
+13-16|patient|환자, 끈기 있는, 참을성 있는|Be patient.|참을성을 가져라.
+13-16|cure|치료법, 치료하다|Cure the sick.|병자들을 치료하다.
+13-16|relax|쉬게 하다, 편히 쉬다|Just relax.|그냥 편히 쉬어라.
+13-16|burn|화상, 화상을 입다[입히다], (햇볕에) 타다|Don't burn yourself.|화상 입지 않게 조심해라.
+13-16|symptom|증상|Flu symptoms.|독감 증상들.
+13-16|wound|상처, 상처를 내다|Heal the wound.|상처를 치료하다.
+13-16|vomit|토하다|I want to vomit.|토하고 싶다.
+13-16|sneeze|재채기하다|Sneeze loudly.|크게 재채기하다.
+13-16|bruise|멍, 타박상|A blue bruise.|파란 멍.
+13-16|examine|진찰하다|Examine the patient.|환자를 진찰하다.
+13-16|recover|회복하다|Recover soon.|빨리 회복해라.
+13-16|prevent|예방하다, 막다|Prevent fire.|화재를 예방하다.
+13-16|medical|의학의|Medical care.|의료(의학적 치료).
+13-16|operate|수술하다|Operate on a patient.|환자를 수술하다.
+13-16|emergency|비상사태, 응급|In case of emergency.|비상시에.
+13-16|catch a cold|감기에 걸리다|Don't catch a cold.|감기 걸리지 마라.
+13-16|see a doctor|의사의 진찰을 받다, 병원에 가다|Go see a doctor.|가서 진찰을 받아라.
+13-17|trip|여행|School trip.|수학여행.
+13-17|journey|(보통 멀리 가는) 여행, 여정|A long journey.|긴 여정.
+13-17|sightseeing|관광|Go sightseeing.|관광하러 가다.
+13-17|visa|비자, 사증|Get a visa.|비자를 받다.
+13-17|flight|비행|Book a flight.|비행기표를 예약하다.
+13-17|landscape|풍경|Beautiful landscape.|아름다운 풍경.
+13-17|reserve|예약하다|Reserve a room.|방을 예약하다.
+13-17|cancel|취소하다, 취소|Cancel the meeting.|회의를 취소하다.
+13-17|scenery|풍경|Mountain scenery.|산의 풍경.
+13-17|apply|신청하다|Apply for a job.|일자리에 지원하다(신청하다).
+13-17|passport|여권|Show your passport.|여권을 보여 주세요.
+13-17|insurance|보험|Travel insurance.|여행자 보험.
+13-17|reach|도착하다, 도달하다|Reach the top.|정상에 도달하다.
+13-17|attendant|안내원, 종업원|Flight attendant.|승무원(비행기 안내원).
+13-17|board|탑승하다, 승차하다|Board the plane.|비행기에 탑승하다.
+13-17|depart|출발하다|The train departs soon.|기차가 곧 출발한다.
+13-17|arrive|도착하다|We arrived safely.|우리는 안전하게 도착했다.
+13-17|land|땅, 착륙하다|The plane landed.|비행기가 착륙했다.
+13-17|abroad|해외로|Study abroad.|해외 유학하다.
+13-17|itinerary|여행 일정표, 여행 일기|Check the itinerary.|여행 일정을 확인해라.
+13-17|baggage|짐, 수하물|Lost baggage.|분실 수하물.
+13-17|claim|요구, 청구, 주장, 요구하다, 주장하다|Claim your bag.|가방을 찾아라(청구해라).
+13-17|check|수표, 점검, 조사하다, 점검하다|Check the list.|목록을 점검해라.
+13-17|destination|(여행 등의) 목적지|Final destination.|최종 목적지.
+13-17|security|보안, 안전|Security check.|보안 검색.
+13-17|delay|지연, 연기, 연기하다|Don't delay.|미루지 마라.
+13-17|jet lag|시차증(여행 시차에 의한 피로, 신경 과민)|I have jet lag.|나는 시차 적응이 안 됐다.
+13-17|souvenir|기념품|Buy a souvenir.|기념품을 사다.
+13-17|all over the world|전 세계에|Famous all over the world.|전 세계적으로 유명한.
+13-17|have a good time|즐겁게 보내다, 좋은 시간을 갖다|Have a good time.|즐거운 시간 보내.
+13-18|movie|영화|Watch a movie.|영화를 보다.
+13-18|puzzle|수수께끼, 퍼즐|Solve a puzzle.|퍼즐을 풀다.
+13-18|game|게임, 시합|Play a game.|게임을 하다.
+13-18|interest|흥미, 관심|Show interest.|흥미를 보이다.
+13-18|picture|사진, 그림|Take a picture.|사진을 찍다.
+13-18|musical|음악의, 뮤지컬|See a musical.|뮤지컬을 보다.
+13-18|dance|춤, 춤을 추다|Let's dance.|춤추자.
+13-18|activity|움직임, 활동|School activity.|학교 활동.
+13-18|craft|(수)공예, 공예품을 만들다|Arts and crafts.|미술과 공예.
+13-18|collect|모으다|Collect coins.|동전을 모으다.
+13-18|chess|체스, 서양 장기|Play chess.|체스를 두다.
+13-18|hike|하이킹하다, 도보여행하다|Hike up the hill.|언덕을 하이킹해라.
+13-18|comic|희극의, 만화의|Comic book.|만화책.
+13-18|camp|야영, 캠프, 야영지, 야영하다|Camp in the woods.|숲에서 야영하다.
+13-18|pleasure|기쁨|With pleasure.|기꺼이(기쁨으로).
+13-18|stamp|우표, 도장|Stamp collection.|우표 수집.
+13-18|jog|조깅하다|Jog every morning.|매일 아침 조깅해라.
+13-18|magic|마법, 주술, 마법의|Do a magic trick.|마술을 부리다.
+13-18|fix|고치다, 고정시키다|Fix the toy.|장난감을 고쳐라.
+13-18|favorite|가장 좋아하는|My favorite color.|내가 가장 좋아하는 색.
+13-18|mania|열광|Movie mania.|영화광(열광).
+13-18|volunteer|자원 봉사자, 지원자, 자진하여 하다|Work as a volunteer.|자원 봉사자로 일하다.
+13-18|chat|수다를 떨다, (인터넷으로) 채팅하다|Chat with friends.|친구들과 수다 떨다.
+13-18|model|모형, 모델, 모형의, 모델이 되는|Build a model.|모형을 만들다.
+13-18|knit|뜨개질을 하다|Knit a scarf.|스카프를 뜨다.
+13-18|leisure|여가, 한가한 시간, 한가한|Leisure time.|여가 시간.
+13-18|involve|수반하다, 필요로 하다|Involve everyone.|모두를 참여시켜라(포함해라).
+13-18|spend A on ing|~하는 데 A를 쓰다|Spend time on reading.|독서하는 데 시간을 보내라.
+13-18|go for a walk|산책하러 가다|Let's go for a walk.|산책하러 가자.
+13-18|from time to time|때때로, 가끔|Visit from time to time.|때때로 방문해라.
+13-19|stretch|몸을 쭉 뻗다, 쭉 내밀다|Stretch your legs.|다리를 뻗어라.
+13-19|swim|수영하다|Learn to swim.|수영을 배워라.
+13-19|kick|(걷어) 차기, 발길질, 발로 차다|Kick the ball.|공을 차라.
+13-19|outdoor|실외의, 집밖의|Outdoor games.|실외 게임.
+13-19|player|경기자, 선수|Soccer player.|축구 선수.
+13-19|bowling|볼링|Go bowling.|볼링 치러 가다.
+13-19|prize|상, 상품|First prize.|1등 상.
+13-19|competition|경쟁, 대회, 시합|Swimming competition.|수영 대회.
+13-19|goal|(축구의) 골, 득점, 목적, 목표|Score a goal.|골을 넣다.
+13-19|shoot|사격, (총 등을) 쏘다, 슛을 하다|Shoot the ball.|공을 쏴라(슛해라).
+13-19|coach|코치, 지도자, 마차, 코치하다, 지도하다|Listen to the coach.|코치의 말을 들어라.
+13-19|basketball|농구|Play basketball.|농구를 하다.
+13-19|baseball|야구|Watch baseball.|야구를 보다.
+13-19|base|(야구의) 루, 토대, 기초|Run to first base.|1루로 달려라.
+13-19|match|시합, 경기, 경쟁 상대|Tennis match.|테니스 시합.
+13-19|batter|타자|The batter hit a home run.|타자가 홈런을 쳤다.
+13-19|throw|투구, 던짐, 던지다|Throw fast.|빨리 던져라.
+13-19|catch|잡다, 공을 받다|Catch the ball.|공을 잡아라.
+13-19|racket|라켓, 라켓으로 치다|Hold the racket.|라켓을 잡아라.
+13-19|athlete|(운동)선수|A trained athlete.|훈련된 운동선수.
+13-19|defender|수비수|A strong defender.|강력한 수비수.
+13-19|score|(경기) 득점, 점수, 득점하다|What is the score?|점수가 몇이니?
+13-19|referee|(운동 경기) 심판, 심판을 보다|Ask the referee.|심판에게 물어봐라.
+13-19|champion|챔피언, 우승자|World champion.|세계 챔피언.
+13-19|sweat|땀, (땀이 나도록) 힘든 일, 땀을 흘리다|Wipe off sweat.|땀을 닦아라.
+13-19|dive|잠수, 잠수하다, 물 속에 뛰어들다|Dive into the pool.|수영장으로 다이빙해라.
+13-19|skate|스케이트 구두, 스케이트를 타다|Ice skate.|아이스 스케이트.
+13-19|surf|파도, 파도를 타다, 서핑하다|Surf in the ocean.|바다에서 서핑해라.
+13-19|warm up|몸을 천천히 풀다, 준비 운동을 하다|Warm up first.|먼저 준비 운동을 해라.
+13-19|up and down|위아래로, 이리저리|Jump up and down.|위아래로 펄쩍 뛰어라.
+13-20|store|가게, 상점|Grocery store.|식료품 가게.
+13-20|gift|선물|Birthday gift.|생일 선물.
+13-20|cheap|값싼, 저렴한|It is very cheap.|그것은 매우 싸다.
+13-20|expensive|값비싼|Too expensive.|너무 비싸다.
+13-20|sale|판매, 염가 판매, 세일|For sale.|판매용.
+13-20|sell|팔다|We sell books.|우리는 책을 판다.
+13-20|choose|선택하다|Choose one.|하나를 골라라.
+13-20|pay|지불하다|I will pay.|내가 낼게.
+13-20|business|사업, 상업, 장사|Do business.|사업을 하다.
+13-20|tax|세금|Pay tax.|세금을 내다.
+13-20|exchange|교환, 거래소, 교환하다|Exchange money.|돈을 환전하다(교환하다).
+13-20|select|선발하다, 선택하다, 엄선된, 고급의|Select the best.|최고를 선택해라. [s]
+13-20|goods|상품, 물품|Leather goods.|가죽 제품.
+13-20|tag|꼬리표, 태그, 정가표|Price tag.|가격표.
+13-20|medium|중간, 중간의|Medium size.|중간 사이즈.
+13-20|cash|현금|Pay in cash.|현금으로 지불하다.
+13-20|change|거스름돈, 변화, 바꾸다|Keep the change.|거스름돈은 가지세요.
+13-20|customer|고객|Regular customer.|단골손님.
+13-20|display|전시, 진열, 전시하다|On display.|전시 중인.
+13-20|stand|노점, 가판대|Fruit stand.|과일 가판대.
+13-20|retail|소매|Retail price.|소매 가격.
+13-20|discount|할인, 할인하다|Get a discount.|할인을 받다.
+13-20|receipt|영수증|Keep the receipt.|영수증을 보관해라.
+13-20|brand-name|(유명) 상표가 붙은|Brand-name clothes.|유명 브랜드 옷.
+13-20|auction|경매|Buy at an auction.|경매에서 사다.
+13-20|reasonable|(가격이) 합리적인, 저렴한, 이치에 맞는|Reasonable price.|합리적인(적당한) 가격.
+13-20|catalog|목록, (상품 등의) 카탈로그|Order from a catalog.|카탈로그를 보고 주문하다.
+13-20|quality|질, 품질|Good quality.|좋은 품질.
+13-20|look around|둘러보다, 구경하다|Just look around.|그냥 둘러보다.
+13-20|drop by|잠깐 들르다|Drop by my house.|우리 집에 들러라.
+13-21|take|받다|I will take the call.|내가 전화를 받을게.
+13-21|order|주문, 주문하다|Take my order.|내 주문을 받아라.
+13-21|cook|요리사, 요리하다|A good cook.|훌륭한 요리사.
+13-21|chef|요리사, 주방장|The chef cooks well.|그 주방장은 요리를 잘한다.
+13-21|buffet|뷔페 식당, 뷔페식 상차림|All-you-can-eat buffet.|뷔페(마음껏 먹을 수 있는).
+13-21|waiter|웨이터|Call the waiter.|웨이터를 불러라.
+13-21|dessert|디저트, 후식|Sweet dessert.|달콤한 디저트.
+13-21|napkin|냅킨|Use a napkin.|냅킨을 사용해라.
+13-21|set|놓다, 준비하다|Set the table.|식탁을 차려라.
+13-21|deliver|배달하다|Deliver a pizza.|피자를 배달하다.
+13-21|wipe|닦다|Wipe your mouth.|입을 닦아라.
+13-21|straw|빨대, 지푸라기|Use a straw.|빨대를 사용해라.
+13-21|bite|한입, 물다|Take a bite.|한 입 먹어라.
+13-21|spill|흘리다, 엎지르다|Don't spill milk.|우유를 흘리지 마라.
+13-21|special|특별한 것, 특별 메뉴, 특별한|Today's special.|오늘의 특별 메뉴.
+13-21|rare|(고기 등이) 덜 익은, 드문, 희귀한|Rare steak.|덜 익힌 스테이크.
+13-21|calorie|칼로리, 열량|High calorie.|높은 칼로리.
+13-21|serve|시중들다, 제공하다|Serve the guests.|손님들을 시중들어라.
+13-21|tip|팁, (물건, 신체의) 뾰족한 끝|Leave a tip.|팁을 남겨라.
+13-21|beverage|음료|Cold beverage.|차가운 음료.
+13-21|refill|새 보충물, 다시 채우다, 보충하다|Free refill.|무료 리필.
+13-21|wrap|싸다, 포장하다, 포장지|Wrap it up.|그것을 포장해라.
+13-21|bill|계산서, 청구서|Ask for the bill.|계산서를 요청해라.
+13-21|total|합계, 총액, 전체의, 총계의|The total cost.|총비용.
+13-21|ingredient|재료|Fresh ingredients.|신선한 재료들.
+13-21|recommend|추천하다|I recommend this.|나는 이것을 추천한다.
+13-21|appetite|식욕|Good appetite.|좋은 식욕.
+13-21|be ready to|~할 준비가 되다|I am ready to go.|나는 갈 준비가 됐다.
+13-21|wait for|~을 기다리다|Wait for me.|나를 기다려라.
+13-21|either A or B|A와 B 둘 중 하나|Either you or I.|너 아니면 나.
+13-22|sand|모래|White sand.|하얀 모래.
+13-22|wave|파도|Big wave.|큰 파도.
+13-22|shell|조개|Sea shell.|조개껍데기.
+13-22|suntan|선탠, 볕에 그을음|Get a suntan.|선탠을 하다.
+13-22|raft|고무 보트, 뗏목|Build a raft.|뗏목을 만들다.
+13-22|yacht|요트|Sail a yacht.|요트를 타다.
+13-22|sunglasses|선글라스|Wear sunglasses.|선글라스를 써라.
+13-22|parasol|파라솔, 양산|Under the parasol.|파라솔 아래에.
+13-22|mat|돗자리, 매트|Sit on the mat.|돗자리에 앉아라.
+13-22|vacation|방학|Summer vacation.|여름 방학.
+13-22|whistle|호각, 호각을 불다|Blow the whistle.|호각을 불어라.
+13-22|lifeboat|구명보트|Get on the lifeboat.|구명보트에 타라.
+13-22|scuba|스쿠버, 잠수용 호흡 장치|Scuba diving.|스쿠버 다이빙.
+13-22|swimsuit|수영복|Put on a swimsuit.|수영복을 입어라.
+13-22|sunblock|자외선 차단제|Apply sunblock.|자외선 차단제를 발라라.
+13-22|cooler|냉장 박스|Put drinks in the cooler.|음료수를 아이스박스(쿨러)에 넣어라.
+13-22|blanket|담요|A warm blanket.|따뜻한 담요.
+13-22|shade|그늘|Sit in the shade.|그늘에 앉아라.
+13-22|shore|물가, 기슭|Walk along the shore.|물가를 따라 걸어라.
+13-22|sunbath|일광욕|Take a sunbath.|일광욕을 하다.
+13-22|lifeguard|인명 구조원|Ask the lifeguard.|구조원에게 물어봐라.
+13-22|float|물 위에 뜨다, (배 등을) 띄우다|Boats float.|배들은 뜬다.
+13-22|flipper|물갈퀴, 오리발|Wear flippers.|오리발을 착용해라.
+13-22|binoculars|쌍안경|Look through binoculars.|쌍안경으로 봐라.
+13-22|snorkel|스노쿨을 쓰고 잠수하다, 헤엄치다|Use a snorkel.||스노클을 사용해라.
+13-22|pebble|조약돌, 자갈|Smooth pebble.|매끄러운 조약돌.
+13-22|expose|노출하다|Don't expose to sun.|햇볕에 노출하지 마라.
+13-22|all day long|하루 종일|Play all day long.|하루 종일 놀다.
+13-22|look forward to ing|~을 고대하다, 손꼽아 기다리다|I look forward to seeing you.|너를 보기를 고대한다.
+13-22|throw away|(쓰레기 등을) 버리다, (기회 등을) 놓치다, 날리다|Throw away trash.|쓰레기를 버려라.
+13-23|festival|축제|Music festival.|음악 축제.
+13-23|Valentine|발렌타인|Valentine's Day.|밸런타인데이.
+13-23|blow|불다|Blow out candles.|촛불을 불어 꺼라.
+13-23|Christmas|크리스마스|Merry Christmas.|메리 크리스마스.
+13-23|candy|사탕|Sweet candy.|달콤한 사탕.
+13-23|year|해, 년|Happy New Year.|새해 복 많이 받아라.
+13-23|wish|소원, 기원하다|Make a wish.|소원을 빌어라.
+13-23|mask|가면|Wear a mask.|가면을 써라.
+13-23|celebrate|기념하다, 축하하다|Let's celebrate.|축하하자.
+13-23|gather|모이다, 모으다|Family gathering.|가족 모임.
+13-23|honeymoon|신혼여행|Go on a honeymoon.|신혼여행을 가다.
+13-23|Easter|부활절|Easter egg.|부활절 달걀.
+13-23|hide|숨기다|Hide and seek.|숨바꼭질.
+13-23|invitation|초대, 초대장|Send an invitation.|초대장을 보내라.
+13-23|Eve|전날 밤, 이브|Christmas Eve.|크리스마스이브.
+13-23|decorate|장식하다|Decorate the tree.|트리를 장식해라.
+13-23|witch|마녀|A wicked witch.|사악한 마녀.
+13-23|trick|속이다, 속임수|Trick or treat.|과자를 안 주면 장난칠 거야.
+13-23|costume|복장, 의상, 분장|Halloween costume.|핼러윈 의상.
+13-23|turkey|칠면조, 칠면조 고기|Roast turkey.|칠면조 구이.
+13-23|anniversary|기념일|Wedding anniversary.|결혼기념일.
+13-23|congratulate|축하하다|I congratulate you.|너를 축하한다.
+13-23|Thanksgiving|추수 감사절|Thanksgiving Day.|추수감사절.
+13-23|Halloween|할로윈|Happy Halloween.|즐거운 핼러윈.
+13-23|reindeer|순록|Santa's reindeer.|산타의 순록.
+13-23|lantern|랜턴|Light a lantern.|랜턴을 켜라.
+13-23|stuff|채우다, 것, 물건|Stuff the turkey.|칠면조 속을 채워라.
+13-23|crowded|붐비는, 혼잡한|A crowded bus.|붐비는 버스.
+13-23|take place|열리다, 개최되다|The party takes place here.|파티가 여기서 열린다.
+13-23|be similar to|~와 비슷하다, 유사하다|It is similar to mine.|그것은 내 것과 비슷하다.
+13-24|seesaw|시소, 시소를 타다|Play on the seesaw.|시소를 타라.
+13-24|walk|걷다, 산책하다|Go for a walk.|산책하러 가다.
+13-24|ride|탈것, 타다|Enjoy the ride.|타는 것을 즐겨라.
+13-24|bench|긴 의자, 벤치|Sit on the bench.|벤치에 앉아라.
+13-24|event|사건,  행사|School event.|학교 행사.
+13-24|picnic|소풍|Go on a picnic.|소풍 가다.
+13-24|zoo|동물원|Visit the zoo.|동물원을 방문하다.
+13-24|concert|콘서트, 공연|Rock concert.|록 콘서트.
+13-24|visit|방문하다|Visit a friend.|친구를 방문하다.
+13-24|rope|줄|Jump rope.|줄넘기.
+13-24|backpack|배낭, 배낭을 지고 걷다|Carry a backpack.|배낭을 메라.
+13-24|slide|미끄럼틀, 미끄러지다|Go down the slide.|미끄럼틀을 타고 내려가라.
+13-24|fountain|분수|Water fountain.|분수대.
+13-24|playground|놀이터, 운동장|Play in the playground.|놀이터에서 놀다.
+13-24|swing|그네, 그네를 타다|Push the swing.|그네를 밀어라.
+13-24|sleeping bag|침낭|Sleep in a sleeping bag.|침낭에서 자다.
+13-24|campfire|모닥불|Make a campfire.|모닥불을 피우다.
+13-24|fishing rod|낚시대|Hold the fishing rod.|낚싯대를 잡아라.
+13-24|sail|요트를 타다, 항해하다, 나아가다|Sail a boat.|배를 타고 항해하다.
+13-24|amusement|놀이, 즐거움, 재미|Amusement park.|놀이공원.
+13-24|merry-go-round|회전목마|Ride a merry-go-round.|회전목마를 타다.
+13-24|flea market|벼룩시장|Buy at a flea market.|벼룩시장에서 사다.
+13-24|botanical garden|식물원|Beautiful botanical garden.|아름다운 식물원.
+13-24|aquarium|수족관|Fish in the aquarium.|수족관 안의 물고기.
+13-24|thermos|보온병|Hot water in a thermos.|보온병 안의 뜨거운 물.
+13-24|peak|꼭대기|Mountain peak.|산봉우리.
+13-24|rapids|급류, 여울|Dangerous rapids.|위험한 급류.
+13-24|get together|모이다, 모으다|Let's get together.|함께 모이자.
+13-24|because of|~ 때문에|Because of rain.|비 때문에.
+13-24|be filled with|~으로 가득 차다|The cup is filled with water.|컵이 물로 가득 차 있다.
+13-25|flood|홍수|A heavy flood.|심한 홍수.
+13-25|hurricane|폭풍, 허리케인|A strong hurricane.|강력한 허리케인.
+13-25|thunder|천둥, 천둥같이 큰 소리|Loud thunder.|큰 천둥 소리.
+13-25|lightning|번개, 번개 같은|Flash of lightning.|번개 불빛.
+13-25|creature|창조물, 피조물|Sea creature.|바다 생물.
+13-25|valley|계곡, 골짜기|Deep valley.|깊은 계곡.
+13-25|polar|북극(남극)의, 극지의|Polar bear.|북극곰.
+13-25|breeze|산들바람|Cool breeze.|시원한 산들바람.
+13-25|cliff|벼랑, 절벽|High cliff.|높은 절벽.
+13-25|volcano|화산|Active volcano.|활화산.
+13-25|natural|자연의, 자연스러운|Natural beauty.|자연의 아름다움.
+13-25|forest|숲, 삼림|Green forest.|푸른 숲.
+13-25|desert|사막|Hot desert.|뜨거운 사막.
+13-25|explore|탐험하다|Explore the cave.|동굴을 탐험하다.
+13-25|stream|시내, 개울, 흐름|Small stream.|작은 시내.
+13-25|lake|호수|Swim in the lake.|호수에서 수영하다.
+13-25|waterfall|폭포|Beautiful waterfall.|아름다운 폭포.
+13-25|river|강|Cross the river.|강을 건너다.
+13-25|ocean|바다, 대양|Blue ocean.|푸른 대양.
+13-25|coast|해안, 연안|Along the coast.|해안을 따라서.
+13-25|tide|조수, 간만|High tide.|밀물(만조).
+13-25|landslide|산사태|Dangerous landslide.|위험한 산사태.
+13-25|earthquake|지진|Big earthquake.|큰 지진.
+13-25|element|요소, 성분, 원소|Key element.|핵심 요소.
+13-25|appear|나타나다|Stars appear.|별들이 나타난다.
+13-25|source|원천, 수원|Source of light.|빛의 원천.
+13-25|disaster|재난, 재해|Natural disaster.|자연재해.
+13-25|food chain|먹이 사슬|The food chain.|먹이 사슬.
+13-25|find out|~을 찾아내다, 알아내다|Find out the truth.|진실을 알아내다.
+13-25|right away|곧바로, 즉시|Do it right away.|즉시 해라.
+13-26|clear|청명한, 깨끗한, 명백한|The sky is clear.|하늘이 맑다.
+13-26|sunny|햇빛이 밝은, 화창한|It is sunny today.|오늘은 화창하다.
+13-26|cloudy|구름 낀|It's getting cloudy.|구름이 끼고 있다.
+13-26|rainy|비가 오는|A rainy day.|비 오는 날.
+13-26|windy|바람이 부는|It is very windy.|바람이 많이 분다.
+13-26|snowy|눈이 내리는|Snowy weather.|눈 내리는 날씨.
+13-26|mild|온화한, 포근한|Mild winter.|온화한 겨울.
+13-26|foggy|안개 낀|It was foggy.|안개가 꼈었다.
+13-26|freezing|몹시 추운, 얼어붙을 듯한|It is freezing outside.|밖은 몹시 춥다.
+13-26|icy|얼음의, 싸늘한|Icy road.|빙판길.
+13-26|dry|건조한|Dry skin.|건조한 피부.
+13-26|moist|축축한, 습기 있는|Moist cake.|촉촉한 케이크.
+13-26|storm|폭풍|A heavy storm.|심한 폭풍.
+13-26|rainfall|강우, 강우량|Heavy rainfall.|많은 강우량.
+13-26|hail|우박, 싸락눈|Hail fell down.|우박이 떨어졌다.
+13-26|snowstorm|눈보라|Stuck in a snowstorm.|눈보라에 갇힌.
+13-26|blizzard|강한 눈보라, 블리자드|A fierce blizzard.|맹렬한 눈보라.
+13-26|drizzle|이슬비|A light drizzle.|가벼운 이슬비.
+13-26|melt|녹다, 녹이다|Snow melts.|눈이 녹는다.
+13-26|gale|강풍|A strong gale.|강풍.
+13-26|forecast|예측, 예보, 예측하다|Weather forecast.|일기 예보.
+13-26|condition|상태, 상황|Good condition.|좋은 상태.
+13-26|drought|가뭄|A long drought.|긴 가뭄.
+13-26|climate|기후|Change of climate.|기후 변화.
+13-26|degree|도|20 degrees.|20도.
+13-26|temperature|온도|Low temperature.|낮은 온도.
+13-26|humid|습한, 눅눅한|Hot and humid.|덥고 습한.
+13-26|sticky|끈적끈적한, 무더운|Sticky weather.|끈적끈적한 날씨.
+13-26|up to|~까지|Count up to ten.|열까지 세어라.
+13-26|on the way (to)|~로 가는 길에|On the way to school.|학교 가는 길에.
+13-27|farm|농장|Work on a farm.|농장에서 일하다.
+13-27|field|밭|Corn field.|옥수수밭.
+13-27|cowboy|카우보이, 목동|A cowboy rides a horse.|카우보이가 말을 탄다.
+13-27|horse|말|Ride a horse.|말을 타다.
+13-27|bull|황소|An angry bull.|화난 황소.
+13-27|chicken|닭|Feed the chicken.|닭에게 모이를 주다.
+13-27|goat|염소|Milk a goat.|염소 젖을 짜다.
+13-27|pig|돼지|A fat pig.|뚱뚱한 돼지.
+13-27|buffalo|버팔로, 물소, 들소|Wild buffalo.|야생 버팔로.
+13-27|crop|농작물, 수확량|Gather crops.|농작물을 거두다.
+13-27|meadow|목초지, 초원|Green meadow.|푸른 목초지.
+13-27|barn|헛간|A red barn.|빨간 헛간.
+13-27|hay|건초|Dry hay.|마른 건초.
+13-27|harvest|수확하다|Harvest time.|수확기.
+13-27|calf|송아지|A young calf.|어린 송아지.
+13-27|cattle|소|Raise cattle.|소를 기르다.
+13-27|lay|알을 낳다, ~을 ~에 두다|Hens lay eggs.|암탉은 알을 낳는다.
+13-27|cotton|면|Cotton field.|목화밭.
+13-27|shepherd|양치기|The shepherd watches sheep.|양치기는 양을 지킨다.
+13-27|farmhouse|농가|An old farmhouse.|오래된 농가.
+13-27|cultivate|경작하다, 재배하다|Cultivate land.|땅을 경작하다.
+13-27|orchard|과수원|Apple orchard.|사과 과수원.
+13-27|shed|헛간, 오두막, 창고|Tool shed.|도구 창고.
+13-27|ranch|농장, 목축장|Cattle ranch.|소 목장.
+13-27|pasture|목장, 방목하다|Sheep in the pasture.|목초지의 양들.
+13-27|scarecrow|허수아비|A scarecrow in the field.|들판의 허수아비.
+13-27|livestock|가축류|Feed livestock.|가축에게 먹이를 주다.
+13-27|vineyard|포도밭, 포도원|Visit a vineyard.|포도밭을 방문하다.
+13-27|take care of|~을 돌보다|Take care of pets.|애완동물을 돌보다.
+13-27|run away|도망치다, 달아나다|Don't run away.|도망치지 마라.
+13-28|bloom|꽃, 개화, 꽃이 피다|Roses bloom.|장미꽃이 핀다.
+13-28|fruit|열매, 과일, 결과, 성과|Bear fruit.|열매를 맺다.
+13-28|grass|풀, 잔디, 잔디밭|Green grass.|푸른 잔디.
+13-28|weed|잡초, ~의 잡초를 뽑다|Pull out weeds.|잡초를 뽑다.
+13-28|seed|씨앗, 종자|Plant a seed.|씨앗을 심다.
+13-28|sprout|새싹, 발아하다|Green sprouts.|파란 새싹들.
+13-28|bud|(식물의) 눈, 봉오리|Flower bud.|꽃봉오리.
+13-28|petal|꽃잎|Rose petal.|장미 꽃잎.
+13-28|root|뿌리, 뿌리 뽑다|Deep roots.|깊은 뿌리.
+13-28|stem|(식물) 줄기, 대; 유래하다|Flower stem.|꽃줄기.
+13-28|thorn|가시|Sharp thorn.|날카로운 가시.
+13-28|branch|나뭇가지, 분점, 지점|Tree branch.|나뭇가지.
+13-28|bough|큰 가지|Hang on a bough.|큰 가지에 매달리다.
+13-28|maple|단풍나무|Maple leaf.|단풍잎.
+13-28|bamboo|대나무|Bamboo forest.|대나무 숲.
+13-28|needle|바늘처럼 뾰족한 잎, 바늘|Pine needle.|솔잎.
+13-28|pine tree|소나무|Tall pine tree.|키 큰 소나무.
+13-28|cherry tree|벚나무|Cherry tree blossoms.|벚나무 꽃.
+13-28|cactus|선인장|Prickly cactus.|가시 많은 선인장.
+13-28|trunk|나무의 몸통 부분, 코끼리의 코|Tree trunk.|나무 몸통.
+13-28|bark|나무껍질, (개가) 짖다|Rough bark.|거친 나무껍질.
+13-28|fertilizer|비료|Use fertilizer.|비료를 사용하다.
+13-28|bush|관목, 작은 나무들이 우거진 관목 숲|Hide in the bush.|덤불 속에 숨다.
+13-28|palm|야자수, 손바닥|Palm tree.|야자수.
+13-28|bulb|구근, 알뿌리, 전구|Tulip bulb.|튤립 알뿌리.
+13-28|poisonous|독이 있는|Poisonous mushroom.|독버섯.
+13-28|herb|약초, 허브|Fresh herbs.|신선한 허브.
+13-28|cut off|잘라내다, 차단하다|Cut off the branch.|가지를 잘라내라.
+13-28|little by little|조금씩, 천천히|Learn little by little.|조금씩 배워라.
+13-28|day by day|나날이, 서서히|Grow day by day.|나날이 자라다.
+13-29|lion|사자|King lion.|사자 왕.
+13-29|rat|쥐|A big rat.|큰 쥐.
+13-29|bat|박쥐|Bats fly at night.|박쥐는 밤에 난다.
+13-29|snake|뱀|Long snake.|긴 뱀.
+13-29|fox|여우|Clever fox.|영리한 여우.
+13-29|tiger|호랑이|Strong tiger.|힘센 호랑이.
+13-29|whale|고래|Huge whale.|거대한 고래.
+13-29|bear|곰|Brown bear.|갈색 곰.
+13-29|deer|사슴|Run like a deer.|사슴처럼 달리다.
+13-29|turtle|거북|Slow turtle.|느린 거북.
+13-29|kangaroo|캥거루|Jumping kangaroo.|뛰는 캥거루.
+13-29|giraffe|기린|Tall giraffe.|키 큰 기린.
+13-29|zebra|얼룩말|Striped zebra.|줄무늬 얼룩말.
+13-29|camel|낙타, 낙타색, 황갈색|Ride a camel.|낙타를 타다.
+13-29|dolphin|돌고래|Smart dolphin.|똑똑한 돌고래.
+13-29|shark|상어|Dangerous shark.|위험한 상어.
+13-29|leopard|표범|Fast leopard.|빠른 표범.
+13-29|frog|개구리|Green frog.|청개구리.
+13-29|dinosaur|공룡|Big dinosaur.|큰 공룡.
+13-29|bird cage|새장|Clean the bird cage.|새장을 청소해라.
+13-29|fish tank|어항|Goldfish in the fish tank.|어항 속의 금붕어.
+13-29|octopus|문어, 낙지|Eight-legged octopus.|다리가 8개인 문어.
+13-29|jellyfish|해파리|Stinging jellyfish.|쏘는 해파리.
+13-29|sea horse|해마|Tiny sea horse.|작은 해마.
+13-29|hippo|하마|Heavy hippo.|무거운 하마.
+13-29|rhino|코뿔소|Strong rhino.|힘센 코뿔소.
+13-29|crocodile|악어|Big crocodile.|큰 악어.
+13-29|lizard|도마뱀|Small lizard.|작은 도마뱀.
+13-29|make friends (with)|친구를 사귀다, ~와 친해지다|Make friends with him.|그와 친구가 되어라.
+13-29|on one's own|혼자, 혼자 힘으로|Do it on your own.|너 혼자 힘으로 해라.
+13-30|insect|곤충|Small insect.|작은 곤충.
+13-30|bee|벌|Busy bee.|바쁜 벌.
+13-30|wing|날개|Bird's wing.|새의 날개.
+13-30|hen|암탉|The hen lays eggs.|암탉이 알을 낳는다.
+13-30|spider|거미|Spider web.|거미줄.
+13-30|butterfly|나비|Beautiful butterfly.|아름다운 나비.
+13-30|beetle|딱정벌레|Black beetle.|검은 딱정벌레.
+13-30|ladybug|무당벌레|Red ladybug.|빨간 무당벌레.
+13-30|flea|벼룩|Jumping flea.|뛰는 벼룩.
+13-30|mosquito|모기|Mosquito bite.|모기 물린 곳.
+13-30|swan|백조|White swan.|하얀 백조.
+13-30|penguin|펭귄|Cute penguin.|귀여운 펭귄.
+13-30|eagle|독수리|Flying eagle.|나는 독수리.
+13-30|beak|부리|Sharp beak.|날카로운 부리.
+13-30|crow|까마귀|Black crow.|검은 까마귀.
+13-30|pigeon|비둘기|Feeding a pigeon.|비둘기에게 먹이 주기.
+13-30|parrot|앵무새|Talking parrot.|말하는 앵무새.
+13-30|goose|거위|Wild goose.|기러기(야생 거위).
+13-30|cuckoo|뻐꾸기|Cuckoo clock.|뻐꾸기시계.
+13-30|owl|올빼미|Wise owl.|지혜로운 올빼미.
+13-30|peacock|공작새|Colorful peacock.|화려한 공작새.
+13-30|ostrich|타조|Fast ostrich.|빠른 타조.
+13-30|swallow|제비, 삼키다|Flying swallow.|날아가는 제비.
+13-30|moth|나방, 좀벌레|Night moth.|밤 나방.
+13-30|cricket|귀뚜라미|Chirping cricket.|우는 귀뚜라미.
+13-30|caterpillar|애벌레, 유충|Green caterpillar.|초록색 애벌레.
+13-30|hummingbird|벌새|Tiny hummingbird.|아주 작은 벌새.
+13-30|such as|~와 같은|Fruits such as apples.|사과 같은 과일들.
+13-30|all the time|내내, 줄곧|Smile all the time.|항상(내내) 미소 지어라.
+13-30|thanks to|~ 덕분에, ~ 때문에|Thanks to you.|네 덕분에.
+13-31|pollution|오염|Air pollution.|대기 오염.
+13-31|protect|보호하다|Protect nature.|자연을 보호해라.
+13-31|separate|분리하다|Separate the trash.|쓰레기를 분리해라.
+13-31|environment|환경|Clean environment.|깨끗한 환경.
+13-31|effect|영향, 효과|Good effect.|좋은 영향(효과).
+13-31|resource|자원|Natural resources.|천연자원.
+13-31|destroy|파괴하다, 부수다|Don't destroy forests.|숲을 파괴하지 마라.
+13-31|global warming|지구 온난화|Stop global warming.|지구 온난화를 멈춰라.
+13-31|damage|손상, 피해|Heavy damage.|심한 손상.
+13-31|garbage|쓰레기|Throw away garbage.|쓰레기를 버려라.
+13-31|share|공유하다|Share a room.|방을 같이 쓰다(공유하다).
+13-31|cause|야기하다|What caused the fire?|무엇이 화재를 야기했니?
+13-31|ruin|파괴, 유적, 파멸시키다|Don't ruin my plan.|내 계획을 망치지 마라.
+13-31|raw|날것의, 가공하지 않은|Raw fish.|생선회(날 생선).
+13-31|electricity|전기|Save electricity.|전기를 절약해라.
+13-31|pure|순수한|Pure water.|순수한 물.
+13-31|smog|스모그, 연무|Thick smog.|짙은 스모그.
+13-31|fuel|연료|Add fuel.|연료를 더해라.
+13-31|fossil|화석|Fossil fuel.|화석 연료.
+13-31|acid|산, 산성의|Acid rain.|산성비.
+13-31|toxic|유독한|Toxic waste.|유독성 폐기물.
+13-31|exhaust|배기가스, 다 써버리다|Car exhaust.|자동차 배기가스.
+13-31|shortage|부족, 결핍|Water shortage.|물 부족.
+13-31|reduce|줄이다|Reduce waste.|쓰레기를 줄여라.
+13-31|endangered|멸종 위기의, 위험에 처한|Endangered animals.|멸종 위기 동물들.
+13-31|leak|누출, 새다|The roof leaks.|지붕이 샌다.
+13-31|overuse|남용, 남용하다|Don't overuse it.|그것을 남용하지 마라.
+13-31|greenhouse|온실|Greenhouse effect.|온실 효과.
+13-31|be worried about|~에 대해 걱정하다|I am worried about you.|나는 네가 걱정된다.
+13-31|back and forth|앞뒤로, 왔다 갔다|Walk back and forth.|왔다 갔다 걷다.
+13-32|electric|전기의|Electric car.|전기 자동차.
+13-32|invent|발명하다|Edison invented the bulb.|에디슨은 전구를 발명했다.
+13-32|machine|기계|Washing machine.|세탁기.
+13-32|data|자료, 정보|Collect data.|자료를 수집하다.
+13-32|important|중요한|It is important.|그것은 중요하다.
+13-32|cell|세포|Blood cell.|혈액 세포.
+13-32|prove|증명하다|Prove it.|그것을 증명해라.
+13-32|inform|알리다, 통지하다|Please inform me.|나에게 알려주세요.
+13-32|experiment|실험, 실험하다|Science experiment.|과학 실험.
+13-32|method|방법|A new method.|새로운 방법.
+13-32|chemical|화학의, 화학 약품|Chemical reaction.|화학 반응.
+13-32|measure|측정하다|Measure the length.|길이를 측정해라.
+13-32|technology|기술|High technology.|첨단 기술.
+13-32|inspect|조사하다|Inspect the car.|차를 조사(점검)하다.
+13-32|imagine|상상하다|Imagine the future.|미래를 상상해라.
+13-32|visible|눈에 보이는|Stars are visible.|별들이 눈에 보인다.
+13-32|vacuum|진공, 공백, 청소하다|Vacuum cleaner.|진공청소기.
+13-32|react|반응하다|How did he react?|그가 어떻게 반응했니?
+13-32|mobile|이동성의, 휴대 전화|Mobile phone.|휴대전화.
+13-32|charge|충전하다|Charge the battery.|배터리를 충전해라.
+13-32|multiply|곱하다, 증가시키다|Multiply 2 by 3.|2에 3을 곱해라.
+13-32|gravity|중력|Zero gravity.|무중력.
+13-32|browse|검색하다|Browse the internet.|인터넷을 검색하다.
+13-32|device|장치|Electronic device.|전자기기.
+13-32|delete|삭제하다|Delete the file.|파일을 삭제해라.
+13-32|wireless|무선의|Wireless mouse.|무선 마우스.
+13-32|transmit|보내다, 전송하다, 전염시키다|Transmit data.|데이터를 전송하다.
+13-32|formula|공식|Math formula.|수학 공식.
+13-32|lead to|~로 이어지다, ~을 초래하다|Roads lead to Rome.|길들은 로마로 이어진다.
+13-32|come up with|~을 찾아내다, 생각해 내다|Come up with an idea.|아이디어를 생각해 내다.
+13-33|earth|지구|Save the earth.|지구를 구하자.
+13-33|planet|행성|Red planet.|붉은 행성(화성).
+13-33|universe|우주|The vast universe.|광활한 우주.
+13-33|solar|태양의|Solar energy.|태양 에너지.
+13-33|lunar|달의|Lunar eclipse.|월식.
+13-33|crew|승무원|Flight crew.|비행 승무원.
+13-33|rocket|로켓, 로켓으로 쏘아 올리다|Launch a rocket.|로켓을 발사하다.
+13-33|outer|외부의, 외곽의|Outer space.|우주 공간(대기권 밖).
+13-33|surface|표면|Smooth surface.|매끄러운 표면.
+13-33|Mercury|수성, 수은|Mercury is hot.|수성은 뜨겁다.
+13-33|Venus|금성|Venus is bright.|금성은 밝다.
+13-33|Mars|화성|Life on Mars.|화성의 생명체.
+13-33|Jupiter|목성|Jupiter is big.|목성은 크다.
+13-33|Saturn|토성|Rings of Saturn.|토성의 고리들.
+13-33|ring|고리, 반지|A gold ring.|금반지.
+13-33|comet|혜성|Halley's Comet.|핼리 혜성.
+13-33|telescope|망원경|Look through a telescope.|망원경으로 보다.
+13-33|Milky Way|은하수|The Milky Way.|은하수.
+13-33|space shuttle|우주 왕복선|Fly a space shuttle.|우주 왕복선을 날리다.
+13-33|space station|우주 정거장|Live in a space station.|우주 정거장에서 살다.
+13-33|eclipse|식|Solar eclipse.|일식.
+13-33|satellite|위성|Artificial satellite.|인공위성.
+13-33|orbit|궤도, 궤도를 그리며 돌다|Earth's orbit.|지구의 궤도.
+13-33|galaxy|은하|Andromeda Galaxy.|안드로메다은하.
+13-33|astronomy|천문학|Study astronomy.|천문학을 공부하다.
+13-33|astronomer|천문학자|Famous astronomer.|유명한 천문학자.
+13-33|Big Bang|빅뱅|The Big Bang theory.|빅뱅 이론.
+13-33|light year|광년|Millions of light years.|수백만 광년.
+13-33|far from|~에서 멀리, 전혀 ~이 아닌|Far from home.|집에서 멀리 떨어진.
+13-33|by chance|우연히, 뜻밖에|Meet by chance.|우연히 만나다.
+13-34|power|힘, 권력, 에너지|Electric power.|전력(전기 에너지).
+13-34|produce|생산하다, 만들어 내다|Produce cars.|자동차를 생산하다.
+13-34|wind|바람|Wind blows.|바람이 분다.
+13-34|coal|석탄|Burn coal.|석탄을 태우다.
+13-34|mine|광산, 지뢰, 채굴하다|Gold mine.|금광.
+13-34|factory|공장|Shoe factory.|신발 공장.
+13-34|dam|댐|Build a dam.|댐을 짓다.
+13-34|heat|열, 가열하다|Turn up the heat.|난방을 올려라(열을 높여라).
+13-34|battery|배터리|Change the battery.|배터리를 갈아라.
+13-34|consume|소모하다|Consume less energy.|에너지를 덜 소모해라.
+13-34|generate|생성하다, 발생시키다|Generate electricity.|전기를 생성하다(발전하다).
+13-34|nuclear|원자핵의|Nuclear power.|원자력.
+13-34|windmill|풍차|Old windmill.|오래된 풍차.
+13-34|tidal|조수의|Tidal wave.|해일.
+13-34|careless|부주의한|Don't be careless.|부주의하지 마라.
+13-34|transform|바꾸다, 변형시키다|Transform energy.|에너지를 변형시키다.
+13-34|natural gas|천연가스|Use natural gas.|천연가스를 사용하다.
+13-34|abundant|풍족한, 풍부한|Abundant food.|풍부한 식량.
+13-34|utility pole|전신주|Climb a utility pole.|전신주에 오르다.
+13-34|solar collector|태양열 집열기|Install a solar collector.|태양열 집열기를 설치하다.
+13-34|transmission tower|송전탑|High transmission tower.|높은 송전탑.
+13-34|radioactive|방사능을 가진|Radioactive waste.|방사능 폐기물.
+13-34|power line|송전선|Fallen power line.|떨어진 송전선.
+13-34|conserve|보전하다, 아끼다, 절약하다|Conserve water.|물을 아껴라(보전해라).
+13-34|efficiency|효율|Energy efficiency.|에너지 효율.
+13-34|crisis|위기|Economic crisis.|경제 위기.
+13-34|authorized|권한이 부여된|Authorized person.|권한이 있는 사람.
+13-34|be made up of|~로 구성되다, 이루어지다|Water is made up of H and O.|물은 수소와 산소로 구성된다.
+13-34|turn into|~로 변하다, 바뀌다|Caterpillars turn into butterflies.|애벌레는 나비로 변한다.
+13-34|and so on|(기타) 등등|Apples, pears, and so on.|사과, 배 등등.
+13-35|exam|시험|Pass the exam.|시험에 합격하다.
+13-35|college|단과대학|Go to college.|대학에 가다.
+13-35|university|종합대학|Seoul National University.|서울대학교.
+13-35|elementary|기초의, 기본이 되는|Elementary school.|초등학교.
+13-35|tutor|가정교사, 개인 지도 교사|Math tutor.|수학 가정교사.
+13-35|discuss|토론하다|Let's discuss.|토론하자.
+13-35|explain|설명하다|Explain the rule.|규칙을 설명해라.
+13-35|memorize|암기하다|Memorize words.|단어를 암기해라.
+13-35|entrance|입장, 입학|Entrance ceremony.|입학식.
+13-35|educate|교육하다, 육성하다|Educate students.|학생들을 교육하다.
+13-35|kindergarten|유치원|Go to kindergarten.|유치원에 가다.
+13-35|graduate|졸업하다|Graduate from school.|학교를 졸업하다.
+13-35|knowledge|지식|Gain knowledge.|지식을 얻다.
+13-35|counsel|상담, 상담하다, 권고하다|Counsel a student.|학생을 상담하다.
+13-35|admit|받아들이다, 인정하다|I admit my mistake.|나는 내 실수를 인정한다.
+13-35|evaluate|평가하다|Evaluate the result.|결과를 평가하다.
+13-35|submit|제출하다|Submit homework.|숙제를 제출하다.
+13-35|lecture|강의|Give a lecture.|강의하다.
+13-35|instruct|교수하다, 가르치다|Instruct a class.|수업을 가르치다.
+13-35|absent|결석한|He is absent.|그는 결석했다.
+13-35|attend|출석하다, 참석하다|Attend the meeting.|회의에 참석하다.
+13-35|semester|학기|First semester.|1학기.
+13-35|alternative|대안, 대안의|An alternative plan.|대안 계획.
+13-35|academic|학술적인, 학문적인|Academic year.|학년도.
+13-35|pupil|학생|A bright pupil.|똑똑한 학생.
+13-35|intelligence|지성, 지능|Artificial intelligence.|인공지능.
+13-35|scholarship|장학금|Get a scholarship.|장학금을 받다.
+13-35|encourage|용기를 북돋우다, 격려하다|Encourage him.|그를 격려해라.
+13-35|pay attention to|~에 주의하다, 주목하다|Pay attention to me.|나에게 주목해라.
+13-35|play a role (in)|(~에서) 역할을 하다|Play a role in the team.|팀에서 역할을 하다.
+13-36|classroom|교실|Clean the classroom.|교실을 청소해라.
+13-36|chalk|분필|Write with chalk.|분필로 써라.
+13-36|textbook|교과서|Open your textbook.|교과서를 펴라.
+13-36|partner|짝, 동료, 협력자|Work with a partner.|짝과 함께 공부해라(일해라).
+13-36|homework|숙제|Do your homework.|숙제를 해라.
+13-36|math|수학|I like math.|나는 수학을 좋아한다.
+13-36|conversation|대화, 회화|English conversation.|영어 회화.
+13-36|classmate|급우, 학급 친구|She is my classmate.|그녀는 내 반 친구다.
+13-36|senior|선배, 손위의, 최고 학년의|He is a senior.|그는 선배다(최고 학년이다).
+13-36|locker|사물함, 로커|Use a locker.|사물함을 사용해라.
+13-36|chalk board|칠판|Look at the chalk board.|칠판을 봐라.
+13-36|marker|마커펜|Red marker.|빨간 마커펜.
+13-36|club|동아리|Join a club.|동아리에 가입해라.
+13-36|hall|강당, 부속 회관|Meet in the hall.|강당에서 만나자.
+13-36|subject|과목, 주제|Favorite subject.|가장 좋아하는 과목.
+13-36|project|계획, 기획, 프로젝트|Science project.|과학 프로젝트.
+13-36|library|도서관|Go to the library.|도서관에 가라.
+13-36|P.E.|체육|P.E. class.|체육 시간.
+13-36|hallway|복도|Walk in the hallway.|복도에서 걸어라.
+13-36|principal|교장|School principal.|학교 교장 선생님.
+13-36|schoolmate|학교 친구, 동창생|Meet a schoolmate.|학교 친구를 만나다.
+13-36|homeroom teacher|담임 선생님|My homeroom teacher.|나의 담임 선생님.
+13-36|auditorium|강당|School auditorium.|학교 강당.
+13-36|cafeteria|식당, 간이식당, 구내식당|Eat in the cafeteria.|구내식당에서 밥을 먹다.
+13-36|assignment|과제, 숙제|Finish the assignment.|과제를 끝내라.
+13-36|laboratory|실습실, 연습실|Science laboratory.|과학 실험실.
+13-36|bulletin board|게시판|Check the bulletin board.|게시판을 확인해라.
+13-36|ask ~ a favor|~에게 부탁을 하다|Can I ask you a favor?|부탁 하나 해도 될까?
+13-36|get along with|~와 잘 지내다, 어울리다|Get along with friends.|친구들과 잘 지내라.
+13-36|take part in|~에 참여하다|Take part in the game.|게임에 참여해라.
+13-37|value|가치, 값, 소중히 여기다|High value.|높은 가치.
+13-37|local|지역의, 현지의|Local food.|지역 음식.
+13-37|crowd|군중|A large crowd.|많은 군중.
+13-37|debt|빚, 부채|Pay off debt.|빚을 갚다.
+13-37|salary|급여|Monthly salary.|월급.
+13-37|invest|투자하다|Invest money.|돈을 투자하다.
+13-37|duty|의무, 임무, 세금|Do your duty.|의무를 다해라.
+13-37|status|지위, 상태|Social status.|사회적 지위.
+13-37|culture|문화|Korean culture.|한국 문화.
+13-37|citizen|시민, 국민|Good citizen.|훌륭한 시민.
+13-37|public|대중의, 공공의, 공개된|Public library.|공공 도서관.
+13-37|supply|공급, 공급하다|Water supply.|수도 공급.
+13-37|demand|수요, 요구하다|Supply and demand.|수요와 공급.
+13-37|import|수입, 수입하다|Import goods.|상품을 수입하다.
+13-37|export|수출, 수출하다|Export cars.|자동차를 수출하다.
+13-37|account|계좌|Bank account.|은행 계좌.
+13-37|employ|고용하다|Employ workers.|직원을 고용하다.
+13-37|individual|개인, 개인의, 개인적인|Each individual.|각 개인.
+13-37|relationship|관계, 사이|Close relationship.|친밀한 관계.
+13-37|tradition|전통|Keep tradition.|전통을 지키다.
+13-37|consumer|소비자|Smart consumer.|현명한 소비자.
+13-37|responsibility|책임|Take responsibility.|책임을 지다.
+13-37|influence|영향, 영향을 미치다|Good influence.|좋은 영향.
+13-37|obstacle|장애, 장애물|Overcome an obstacle.|장애물을 극복하다.
+13-37|property|재산, 소유물|Private property.|사유 재산.
+13-37|moral|도덕, 윤리, 도덕적인|Moral lesson.|도덕적 교훈.
+13-37|donate|기부하다|Donate money.|돈을 기부하다.
+13-37|predict|예측하다, 예언하다|Predict the future.|미래를 예측하다.
+13-37|show off|자랑하다, 내세우다|Don't show off.|자랑하지 마라(뽐내지 마라).
+13-37|look for|~을 찾다, 구하다|Look for a job.|일자리를 찾다.
+13-38|vote|투표, 투표하다|Vote for him.|그에게 투표해라.
+13-38|party|정당|Political party.|정당.
+13-38|gap|차이, 격차|Generation gap.|세대 차이.
+13-38|justice|정의|Fight for justice.|정의를 위해 싸우다.
+13-38|crime|범죄|Commit a crime.|범죄를 저지르다.
+13-38|murder|살인|Murder case.|살인 사건.
+13-38|victim|희생자|Save the victim.|희생자를 구하다.
+13-38|argue|논하다, 주장하다|Don't argue.|논쟁하지(주장하지) 마라.
+13-38|punish|처벌하다, 벌주다|Punish the bad.|나쁜 사람을 처벌하다.
+13-38|policy|정책|New policy.|새로운 정책.
+13-38|illegal|불법적인|Illegal act.|불법 행위.
+13-38|guilty|유죄의, 죄책감의|Found guilty.|유죄 판결을 받은.
+13-38|innocent|무죄의, 결백한|He is innocent.|그는 무죄다.
+13-38|majority|대다수, 과반수, 다수의|The majority wins.|다수가 이긴다.
+13-38|minority|소수, 소수의|Minority group.|소수 집단.
+13-38|suspect|용의자|Arrest the suspect.|용의자를 체포하다.
+13-38|witness|목격자, 증인, 목격하다|Eye witness.|목격자.
+13-38|arrest|체포, 체포하다|Arrest a thief.|도둑을 체포하다.
+13-38|candidate|후보자|Good candidate.|좋은 후보자.
+13-38|government|정부, 통치|The government helps.|정부가 돕는다.
+13-38|elect|선출하다|Elect a president.|대통령을 선출하다.
+13-38|trial|재판, 시행|Fair trial.|공정한 재판.
+13-38|sentence|형벌, 문장, 선고하다|Life sentence.|종신형.
+13-38|protest|항의, 항의하다|Protest against war.|전쟁에 항의하다.
+13-38|compensate|보상하다, 변상하다|Compensate for loss.|손실을 보상하다.
+13-38|diplomat|외교관|A skilled diplomat.|노련한 외교관.
+13-38|represent|대표하다, 나타내다|Represent the country.|나라를 대표하다.
+13-38|democracy|민주주의|Live in a democracy.|민주주의 국가에 살다.
+13-38|be supposed to|~하기로 되어 있다, ~해야 한다, ~으로 여겨진다|I am supposed to go.|나는 가기로 되어 있다.
+13-38|look into|~을 조사하다, 살펴보다|Look into the case.|사건을 조사하다.
+13-39|peace|평화|World peace.|세계 평화.
+13-39|war|전쟁|Stop the war.|전쟁을 멈춰라.
+13-39|century|세기, 100년|21st century.|21세기.
+13-39|age|나이, 시대, 시기|Stone Age.|석기 시대.
+13-39|battle|싸움, 전투|Win the battle.|전투에서 이기다.
+13-39|pray|기도하다, 기원하다|Pray for peace.|평화를 위해 기도하다.
+13-39|soul|정신, 영혼|Pure soul.|순수한 영혼.
+13-39|belief|믿음, 신념|Strong belief.|강한 믿음.
+13-39|invade|침입하다, 침략하다|Invade a country.|나라를 침략하다.
+13-39|attack|공격|Surprise attack.|기습 공격.
+13-39|weapon|무기|Nuclear weapon.|핵무기.
+13-39|empire|제국|Roman Empire.|로마 제국.
+13-39|rule|지배, 통치, 규칙, 지배하다, 통치하다|Follow the rule.|규칙을 따르라.
+13-39|religious|종교의|Religious belief.|종교적 믿음.
+13-39|charity|자선, 자애|Give to charity.|자선 단체에 기부하다.
+13-39|faithful|신실한, 성실한|Faithful servant.|충실한 하인.
+13-39|independence|독립|Independence Day.|독립 기념일.
+13-39|revolution|혁명|Industrial Revolution.|산업 혁명.
+13-39|ancient|고대의, 구식의|Ancient Greece.|고대 그리스.
+13-39|Buddhism|불교|Study Buddhism.|불교를 공부하다.
+13-39|Christianity|기독교|Believe in Christianity.|기독교를 믿다.
+13-39|Hinduism|힌두교|Indian Hinduism.|인도 힌두교.
+13-39|Islam|이슬람교|Follow Islam.|이슬람교를 따르다.
+13-39|Judaism|유대교|History of Judaism.|유대교의 역사.
+13-39|colony|식민지|British colony.|영국 식민지.
+13-39|civilization|문명|Ancient civilization.|고대 문명.
+13-39|spiritual|정신적인, 영적인|Spiritual leader.|영적 지도자.
+13-39|ceremony|의식, 예식|Tea ceremony.|다도(차 의식).
+13-39|date back|~까지 거슬러 올라가다|Date back to 1900.|1900년으로 거슬러 올라가다.
+13-39|be based on|~에 기초하다, 근거하다|Be based on fact.|사실에 기초하다.
+13-40|different|다른|We are different.|우리는 다르다.
+13-40|global|세계적인|Global warming.|지구 온난화(세계적인 온난화).
+13-40|race|인종, 민족, 경주|Human race.|인류.
+13-40|national|국가의|National flag.|국기.
+13-40|fund|기금|Raise a fund.|기금을 모으다.
+13-40|foreign|외국의|Foreign language.|외국어.
+13-40|international|국제적인|International trade.|국제 무역.
+13-40|community|주민, 지역 사회, 공동체|Our community.|우리 지역 사회.
+13-40|population|인구|Large population.|많은 인구.
+13-40|increase|증가, 증가하다|Sales increase.|판매가 증가하다.
+13-40|decrease|감소, 감소하다|Price decreases.|가격이 감소하다.
+13-40|urban|도시의|Urban area.|도시 지역.
+13-40|rural|시골의|Rural life.|시골 생활.
+13-40|region|지역, 지방|Cold region.|추운 지역.
+13-40|border|국경, 경계|Cross the border.|국경을 넘다.
+13-40|aid|원조, 지원, 구조|First aid.|응급 처치.
+13-40|suffer|겪다, 당하다|Suffer from pain.|고통을 겪다.
+13-40|native|~ 출신자, 토착민, 토착의, 타고난|Native speaker.|원어민.
+13-40|orphan|고아|Poor orphan.|불쌍한 고아.
+13-40|support|원조, 지원, 원조하다, 지지하다|Support family.|가족을 부양하다(지원하다).
+13-40|rescue|구하다|Rescue the team.|팀을 구하다.
+13-40|immigrate|이민을 오다|Immigrate to US.|미국으로 이민 가다.
+13-40|hunger|배고픔, 기아|Die of hunger.|굶어 죽다.
+13-40|ethnic|민족의, 인종의|Ethnic group.|민족 집단.
+13-40|organization|기구|World organization.|세계 기구.
+13-40|statistic|통계치|Statistics show.|통계가 보여준다.
+13-40|agreement|협정, 계약, 동의, 합의|Sign an agreement.|협정에 서명하다.
+13-40|mutual|서로의, 상호의|Mutual trust.|상호 신뢰.
+13-40|break out|발발하다, 발생하다|War breaks out.|전쟁이 발발하다.
+13-40|consist of|~으로 이루어지다, 구성되다|Consist of three parts.|세 부분으로 구성되다.
+
   `;
   // 👆 여기까지가 네가 앞으로 수정·추가할 영역
 
@@ -4623,6 +5865,7 @@ const rawVocabData = `
   window.WORD_DB = buildDB(RAW_WORDS);
 
 })();
+
 
 
 
