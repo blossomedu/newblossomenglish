@@ -4,47 +4,178 @@
   <meta charset="UTF-8" />
   <title>로그인 - 블라썸잉글리쉬</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  
   <link href="https://cdn.jsdelivr.net/npm/pretendard/dist/web/variable/pretendardvariable.css" rel="stylesheet" />
-  
-  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-  
   <style>
-    /* === 스타일 (기존 디자인 유지) === */
-    * { box-sizing: border-box; margin: 0; padding: 0; font-family: "Pretendard Variable", sans-serif; }
-    :root { --pink: #FF6FB5; --mint: #9AD7A0; --blue: #00AEEF; }
-    body { background: #f4f6fb; padding: 40px 0 60px; }
-    .page { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
-    h1.title { font-size: 34px; font-weight: 900; margin-bottom: 6px; }
-    .subtitle-main { font-size: 16px; color: #6b7280; margin-bottom: 24px; }
-    .login-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
-    .card { background: #ffffff; border-radius: 26px; padding: 24px 26px 26px; box-shadow: 0 18px 40px rgba(15, 23, 42, 0.12); }
-    .card-header { display: flex; align-items: center; gap: 8px; margin-bottom: 14px; }
-    .badge-role { padding: 3px 10px; border-radius: 999px; font-size: 12px; font-weight: 600; }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: "Pretendard Variable", -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+    }
+
+    :root {
+      --pink: #FF6FB5;
+      --mint: #9AD7A0;
+      --blue: #00AEEF;
+      --text-gray: #6b7280;
+    }
+
+    body {
+      background: #f4f6fb;
+      padding: 40px 0 60px;
+    }
+
+    .page {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    h1.title {
+      font-size: 34px;
+      font-weight: 900;
+      margin-bottom: 6px;
+    }
+
+    .subtitle-main {
+      font-size: 16px;
+      color: var(--text-gray);
+      margin-bottom: 24px;
+    }
+
+    .login-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+
+    .card {
+      background: #ffffff;
+      border-radius: 26px;
+      padding: 24px 26px 26px;
+      box-shadow: 0 18px 40px rgba(15, 23, 42, 0.12);
+    }
+
+    .card-header {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 14px;
+    }
+
+    .badge-role {
+      display: inline-flex;
+      align-items: center;
+      padding: 3px 10px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 600;
+    }
+
     .badge-teacher { background: #dbeafe; color: #1d4ed8; }
     .badge-student { background: #dcfce7; color: #15803d; }
+
     .card-title { font-size: 18px; font-weight: 700; }
-    .card-desc { font-size: 14px; color: #6b7280; margin-bottom: 16px; line-height: 1.5; }
-    .field-label { font-size: 13px; color: #4b5563; margin-bottom: 4px; }
-    .input { width: 100%; padding: 10px 12px; border-radius: 999px; border: 1px solid #d1d5db; font-size: 14px; outline: none; background: #f9fafb; }
-    .input:focus { border-color: #2563eb; background: #ffffff; }
-    .field-row { margin-bottom: 10px; }
-    .btn { width: 100%; border: none; border-radius: 999px; padding: 12px 14px; min-height: 46px; font-size: 14px; font-weight: 600; cursor: pointer; display: inline-flex; align-items: center; justify-content: center; gap: 6px; color: #ffffff; transition: 0.1s; }
-    .btn:active { transform: translateY(1px); }
-    .btn:disabled { background: #ccc !important; cursor: not-allowed; opacity: 0.7; }
     
-    /* 버튼별 색상 */
+    .card-desc {
+      font-size: 14px;
+      color: var(--text-gray);
+      margin-bottom: 16px;
+      line-height: 1.5;
+    }
+
+    .field-label {
+      font-size: 13px;
+      color: #4b5563;
+      margin-bottom: 4px;
+    }
+
+    .input {
+      width: 100%;
+      padding: 10px 12px;
+      border-radius: 999px;
+      border: 1px solid #d1d5db;
+      font-size: 14px;
+      outline: none;
+      background: #f9fafb;
+    }
+
+    .input:focus {
+      border-color: #2563eb;
+      background: #ffffff;
+      box-shadow: 0 0 0 1px rgba(37, 99, 235, 0.15);
+    }
+
+    .field-row { margin-bottom: 10px; }
+
+    .btn {
+      width: 100%;
+      border: none;
+      border-radius: 999px;
+      padding: 12px 14px; 
+      min-height: 46px;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      white-space: nowrap;
+      transition: all 0.1s ease;
+      color: #ffffff;
+    }
+
+    .btn:active { transform: translateY(1px); }
+    .btn:disabled { background: #9ca3af !important; cursor: default; }
+
     #teacherSignupBtn { background: var(--blue); margin-top: 10px; }
+    #googleLoginBtn { background: var(--pink); margin-top: 10px; }
     #studentLoginBtn { background: var(--mint); margin-top: 10px; }
     #studentSignupBtn { background: var(--blue); margin-top: 6px; }
+    #findPwActionBtn { background: #6b7280; margin-top: 6px; }
+
+    .section-title {
+      font-size: 15px;
+      font-weight: 600;
+      margin-top: 24px;
+      margin-bottom: 8px;
+      border-top: 1px solid #f3f4f6;
+      padding-top: 20px;
+    }
+    .section-title:first-child { border-top: none; padding-top: 0; }
+
+    .helper-text { font-size: 12px; color: var(--text-gray); margin-top: 2px; margin-bottom: 10px; }
     
-    .section-title { font-size: 15px; font-weight: 600; margin-top: 20px; margin-bottom: 8px; }
-    .helper-text { font-size: 12px; color: #6b7280; margin-top: 2px; margin-bottom: 10px; }
-    .status-text { font-size: 13px; color: #6b7280; margin-top: 8px; min-height: 18px; }
+    .status-text {
+      font-size: 13px;
+      color: var(--text-gray);
+      margin-top: 8px;
+      min-height: 18px;
+      white-space: pre-wrap;
+    }
     .status-text.error { color: #b91c1c; }
     .status-text.success { color: #15803d; }
 
-    @media (max-width: 900px) { .login-grid { grid-template-columns: 1fr; } }
+    .small-footnote { font-size: 11px; color: #9ca3af; margin-top: 6px; }
+
+    /* 비밀번호 찾기 토글 링크 */
+    .link-text {
+      font-size: 12px;
+      color: var(--text-gray);
+      text-decoration: underline;
+      cursor: pointer;
+      margin-top: 10px;
+      display: inline-block;
+    }
+    .link-text:hover { color: #374151; }
+
+    /* 숨김 처리 유틸리티 */
+    .hidden { display: none; }
+
+    @media (max-width: 900px) {
+      .login-grid { grid-template-columns: 1fr; }
+    }
   </style>
 </head>
 <body>
@@ -59,22 +190,17 @@
         <div class="card-title">선생님 로그인 / 가입</div>
       </div>
       <div class="card-desc">
-        <strong>관리자 인증 코드</strong>를 입력하여 본인 확인 후,<br />
-        구글 계정으로 로그인해 주세요.
+        이미 계정이 있다면 구글 로그인을,<br />
+        처음 오셨다면 <strong>가입 코드</strong>를 입력해 주세요.
       </div>
 
       <div class="field-row">
         <div class="field-label">코드 입력</div>
-        <input id="teacherCode" class="input" type="password" placeholder="학원 인증 코드 입력" />
+        <input id="teacherCode" class="input" type="password" placeholder="학원에서 받은 가입 코드를 입력하세요" />
       </div>
 
-      <button id="teacherSignupBtn" class="btn">
-        ✨ 선생님 코드 인증하기
-      </button>
-
-      <button id="googleLoginBtn" class="btn" disabled style="background-color: var(--pink); margin-top: 10px;">
-        🔒 인증 후 구글 로그인 가능
-      </button>
+      <button id="teacherSignupBtn" class="btn">✨ 선생님으로 가입</button>
+      <button id="googleLoginBtn" class="btn">🔑 구글 계정으로 로그인</button>
 
       <div id="teacherStatus" class="status-text"></div>
     </div>
@@ -84,8 +210,12 @@
         <span class="badge-role badge-student">Student</span>
         <div class="card-title">학생 로그인 / 가입</div>
       </div>
-      
-      <div class="section-title">학생 로그인</div>
+      <div class="card-desc">
+        학생 아이디로 로그인하거나,<br />
+        계정이 없다면 새로 만들어 보세요.
+      </div>
+
+      <div class="section-title" style="margin-top:0; border-top:none; padding-top:0;">학생 로그인</div>
       <div class="field-row">
         <div class="field-label">학생 아이디</div>
         <input id="studentLoginId" class="input" type="text" placeholder="예: blossom001" />
@@ -95,9 +225,30 @@
         <input id="studentLoginPw" class="input" type="password" placeholder="비밀번호 입력" />
       </div>
 
-      <button id="studentLoginBtn" class="btn">
-        👦 학생으로 로그인
-      </button>
+      <button id="studentLoginBtn" class="btn">👦 학생으로 로그인</button>
+      
+      <div style="text-align: right;">
+        <span id="toggleFindPw" class="link-text">비밀번호를 잊으셨나요?</span>
+      </div>
+
+      <div id="findPwSection" class="hidden">
+        <div class="section-title">비밀번호 찾기</div>
+        <div class="helper-text">본인 확인을 위해 가입 정보를 정확히 입력해주세요.</div>
+        
+        <div class="field-row">
+          <div class="field-label">이름</div>
+          <input id="findName" class="input" type="text" placeholder="가입한 이름" />
+        </div>
+        <div class="field-row">
+          <div class="field-label">아이디</div>
+          <input id="findId" class="input" type="text" placeholder="가입한 아이디" />
+        </div>
+        <div class="field-row">
+          <div class="field-label">부모님 전화번호</div>
+          <input id="findPhone" class="input" type="text" placeholder="가입 시 입력한 번호 (-없이)" />
+        </div>
+        <button id="findPwActionBtn" class="btn">🔍 비밀번호 조회</button>
+      </div>
 
       <div class="section-title">학생 회원가입</div>
       <div class="field-row">
@@ -107,26 +258,245 @@
       <div class="field-row">
         <div class="field-label">새 학생 아이디</div>
         <input id="studentSignupId" class="input" type="text" placeholder="예: blossom001" />
-        <div class="helper-text">4글자 이상 입력해 주세요.</div>
+        <div class="helper-text">영어+숫자 7자 이상</div>
       </div>
       <div class="field-row">
         <div class="field-label">비밀번호</div>
-        <input id="studentSignupPw" class="input" type="password" placeholder="비밀번호 입력" />
+        <input id="studentSignupPw" class="input" type="password" placeholder="영어+숫자 7자 이상" />
       </div>
       <div class="field-row">
         <div class="field-label">부모님 전화번호</div>
-        <input id="studentSignupPhone" class="input" type="text" placeholder="예: 010-1234-5678" />
+        <input id="studentSignupPhone" class="input" type="text" placeholder="예: 01012345678" />
       </div>
 
-      <button id="studentSignupBtn" class="btn">
-        ✨ 학생 계정 만들기
-      </button>
+      <button id="studentSignupBtn" class="btn">✨ 학생 계정 만들기</button>
 
       <div id="studentStatus" class="status-text"></div>
     </div>
   </div>
 </div>
 
-<script src="login.js"></script>
+<script src="https://unpkg.com/@supabase/supabase-js@2.48.0/dist/umd/supabase.js"></script>
+<script>
+  // 1. Supabase 초기화
+  const SUPABASE_URL = "https://bpdisxjhhibrgfpvtlmv.supabase.co";
+  const SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJwZGlzeGpoaGlicmdmcHZ0bG12Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjM5NTkxODQsImV4cCI6MjA3OTUzNTE4NH0.jDZ6BGirOPuWUnt4ykjhng4PLft2ZjBuYAFzApUnlYU";
+  
+  const supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
+  // 2. 상태 메시지 유틸리티
+  function setTeacherStatus(msg, type = "") {
+    const el = document.getElementById("teacherStatus");
+    el.textContent = msg || "";
+    el.className = "status-text" + (type ? " " + type : "");
+  }
+
+  function setStudentStatus(msg, type = "") {
+    const el = document.getElementById("studentStatus");
+    el.textContent = msg || "";
+    el.className = "status-text" + (type ? " " + type : "");
+  }
+
+  // 3. 선생님 로직 (기존 유지)
+  const teacherCodeEl = document.getElementById("teacherCode");
+  const teacherSignupBtn = document.getElementById("teacherSignupBtn");
+  const googleLoginBtn = document.getElementById("googleLoginBtn");
+  const SECRET_CODE = "BLOSSOM2025"; 
+
+  teacherSignupBtn.onclick = () => {
+    const inputCode = teacherCodeEl.value.trim();
+    if (!inputCode) {
+      setTeacherStatus("가입 코드를 입력해 주세요.", "error");
+      return;
+    }
+    if (inputCode === SECRET_CODE) {
+      setTeacherStatus("인증되었습니다! 아래 구글 버튼을 눌러 계정을 생성하세요.", "success");
+      teacherCodeEl.disabled = true;
+      teacherSignupBtn.disabled = true;
+    } else {
+      setTeacherStatus("코드가 올바르지 않습니다.", "error");
+    }
+  };
+
+  googleLoginBtn.onclick = async () => {
+    const redirectUrl = window.location.origin + "/newblossomenglish/index.html";
+    await supabaseClient.auth.signInWithOAuth({
+      provider: "google",
+      options: { redirectTo: redirectUrl },
+    });
+  };
+
+  // 4. 학생 로그인 로직 (Supabase 연결)
+  const studentLoginIdEl = document.getElementById("studentLoginId");
+  const studentLoginPwEl = document.getElementById("studentLoginPw");
+  const studentLoginBtn = document.getElementById("studentLoginBtn");
+
+  studentLoginBtn.onclick = async () => {
+    const loginId = studentLoginIdEl.value.trim();
+    const pw = studentLoginPwEl.value.trim();
+
+    if (!loginId || !pw) {
+      setStudentStatus("아이디와 비밀번호를 모두 입력해 주세요.", "error");
+      return;
+    }
+
+    setStudentStatus("로그인 중...", "");
+
+    // DB 조회
+    const { data, error } = await supabaseClient
+      .from('students')
+      .select('*')
+      .eq('login_id', loginId)
+      .eq('password', pw)
+      .single(); // 결과가 하나여야 함
+
+    if (error || !data) {
+      console.error(error);
+      setStudentStatus("아이디 또는 비밀번호가 일치하지 않습니다.", "error");
+      return;
+    }
+
+    // 로그인 성공 -> LocalStorage에 세션 정보 저장 (화면 이동용)
+    localStorage.setItem("blossom_student", JSON.stringify({
+      login_id: data.login_id,
+      name: data.name,
+      parent_phone: data.parent_phone,
+      id: data.id // UUID
+    }));
+
+    setStudentStatus("로그인 성공! 이동합니다...", "success");
+    // 실제 페이지 이동
+    window.location.href = "index.html"; 
+  };
+
+  // 5. 학생 회원가입 로직 (Supabase 연결)
+  const studentSignupIdEl = document.getElementById("studentSignupId");
+  const studentSignupNameEl = document.getElementById("studentSignupName");
+  const studentSignupPwEl = document.getElementById("studentSignupPw");
+  const studentSignupPhoneEl = document.getElementById("studentSignupPhone");
+  const studentSignupBtn = document.getElementById("studentSignupBtn");
+
+  function isValidIdOrPw(str) {
+    if (!str || str.length < 7) return false;
+    const hasLetter = /[a-zA-Z]/.test(str);
+    const hasNumber = /[0-9]/.test(str);
+    return hasLetter && hasNumber;
+  }
+
+  studentSignupBtn.onclick = async () => {
+    const name = studentSignupNameEl.value.trim();
+    const loginId = studentSignupIdEl.value.trim();
+    const pw = studentSignupPwEl.value.trim();
+    const phone = studentSignupPhoneEl.value.trim();
+
+    if (!name || !loginId || !pw || !phone) {
+      setStudentStatus("모든 정보를 입력해 주세요.", "error");
+      return;
+    }
+
+    if (!isValidIdOrPw(loginId) || !isValidIdOrPw(pw)) {
+      setStudentStatus("아이디와 비밀번호는 영어+숫자 조합 7자 이상이어야 합니다.", "error");
+      return;
+    }
+
+    setStudentStatus("가입 처리 중...", "");
+
+    // 1) 아이디 중복 체크
+    const { data: existingUser } = await supabaseClient
+      .from('students')
+      .select('id')
+      .eq('login_id', loginId)
+      .maybeSingle();
+
+    if (existingUser) {
+      setStudentStatus("이미 사용 중인 아이디입니다.", "error");
+      return;
+    }
+
+    // 2) 회원가입 (Insert)
+    const { error } = await supabaseClient
+      .from('students')
+      .insert([
+        { 
+          name: name,
+          login_id: loginId,
+          password: pw, // 평문 저장 (주의)
+          parent_phone: phone
+        }
+      ]);
+
+    if (error) {
+      console.error(error);
+      setStudentStatus("가입 중 오류가 발생했습니다.", "error");
+    } else {
+      setStudentStatus("가입 완료! 위에서 로그인해 주세요.", "success");
+      // 입력창 초기화
+      studentSignupIdEl.value = "";
+      studentSignupNameEl.value = "";
+      studentSignupPwEl.value = "";
+      studentSignupPhoneEl.value = "";
+    }
+  };
+
+  // 6. 비밀번호 찾기 기능 (추가됨)
+  const toggleFindPw = document.getElementById("toggleFindPw");
+  const findPwSection = document.getElementById("findPwSection");
+  const findNameEl = document.getElementById("findName");
+  const findIdEl = document.getElementById("findId");
+  const findPhoneEl = document.getElementById("findPhone");
+  const findPwActionBtn = document.getElementById("findPwActionBtn");
+
+  // 토글 버튼 클릭 시 폼 보이기/숨기기
+  toggleFindPw.onclick = () => {
+    if (findPwSection.classList.contains("hidden")) {
+      findPwSection.classList.remove("hidden");
+      toggleFindPw.textContent = "비밀번호 찾기 닫기";
+    } else {
+      findPwSection.classList.add("hidden");
+      toggleFindPw.textContent = "비밀번호를 잊으셨나요?";
+    }
+  };
+
+  findPwActionBtn.onclick = async () => {
+    const name = findNameEl.value.trim();
+    const loginId = findIdEl.value.trim();
+    const phone = findPhoneEl.value.trim();
+
+    if (!name || !loginId || !phone) {
+      alert("이름, 아이디, 부모님 전화번호를 모두 입력해주세요.");
+      return;
+    }
+
+    findPwActionBtn.textContent = "조회 중...";
+    findPwActionBtn.disabled = true;
+
+    // Supabase 조회 (이름, 아이디, 전화번호 3개가 모두 일치해야 함)
+    const { data, error } = await supabaseClient
+      .from('students')
+      .select('password')
+      .eq('name', name)
+      .eq('login_id', loginId)
+      .eq('parent_phone', phone)
+      .maybeSingle();
+
+    findPwActionBtn.textContent = "🔍 비밀번호 조회";
+    findPwActionBtn.disabled = false;
+
+    if (error) {
+      console.error(error);
+      alert("오류가 발생했습니다. 관리자에게 문의하세요.");
+      return;
+    }
+
+    if (data) {
+      // 정보 일치 시 비밀번호 알림
+      alert(`학생의 비밀번호는 [ ${data.password} ] 입니다.`);
+    } else {
+      // 정보 불일치
+      alert("일치하는 정보를 찾을 수 없습니다.\n입력 내용을 다시 확인해주세요.");
+    }
+  };
+
+</script>
 </body>
 </html>
