@@ -3412,6 +3412,1210 @@
 10-40|believe in|~을 믿다|Believe in yourself.|너 자신을 믿어라.,
 10-40|around the world|전 세계에|Travel around the world.|전 세계를 여행해라.
 
+
+// 12-1 ~ 12-40 전체 단어 데이터 (Pipe Separated)
+const rawVocabData = `
+12-1|learn|[동] 배우다, 외우다|I learn English.|나는 영어를 배운다.
+12-1|speak|[동] 말하다, 연설하다|Don't speak loudly.|크게 말하지 마라.
+12-1|something|[대] 무엇인가, 어떤 것|I need something.|나는 무언가가 필요하다.
+12-1|try|[동] 해보다, 노력하다|Try again.|다시 시도해라.
+12-1|enjoy|[동] 즐기다|Enjoy the game.|게임을 즐겨라.
+12-1|because|[접] 왜냐하면, ~이기 때문에|I smile because I'm happy.|나는 행복해서 웃는다.
+12-1|than|[접] ~보다|It is bigger than that.|그것은 저것보다 크다.
+12-1|before|[전] 앞에, [부] 이전에|Come home before dark.|어두워지기 전에 집에 와라.
+12-1|oneself|[대] 자기 자신이, 자기 자신을|Know oneself.|자신을 알아라.
+12-1|understand|[동] 이해하다, 알다|I understand you.|나는 너를 이해한다.
+12-1|become|[동] ~이 되다|It will become a butterfly.|그것은 나비가 될 것이다.
+12-1|always|[부] 언제나, 항상|He is always late.|그는 항상 늦는다.
+12-1|which|[대] 어느 것, [형] 어느|Which is yours?|어느 것이 네 것이니?
+12-1|really|[부] 정말로, 참으로|I am really sorry.|정말 미안하다.
+12-1|away|[부] 떨어져서, 저쪽에|Run away.|도망가라.
+12-1|visit|[동] 방문하다, [명] 방문|Please visit us.|우리를 방문해 주세요.
+12-1|please|[부] 부디, [동] 기쁘게 하다|The song pleased me.|그 노래는 나를 기쁘게 했다.
+12-1|stay|[동] 머무르다, [명] 체류|Stay with me.|나와 함께 머물러라.
+12-1|hope|[동] 희망하다, 바라다|I hope to win.|나는 이기기를 바란다.
+12-1|any|[형] 무언가의, 조금도|Do you have any pets?|너는 애완동물이 있니?
+12-1|let|[동] ~시키다|Let me go.|나를 가게 해줘.
+12-1|beautiful|[형] 아름다운|The flower is beautiful.|그 꽃은 아름답다.
+12-1|window|[명] 창문, 창|Open the window.|창문을 열어라.
+12-1|sure|[형] 확실한, 믿을 수 있는|I am sure.|나는 확신한다.
+12-1|almost|[부] 거의|It is almost time.|거의 시간이 다 됐다.
+12-1|without|[전] ~없이, ~이 없으면|Don't go without me.|나 없이 가지 마라.
+12-1|own|[형] 자기 자신의, [동] 소유하다|My own room.|나 자신의 방.
+12-1|such|[형] 그러한, 이러한|He is such a nice boy.|그는 정말(그러한) 착한 소년이다.
+12-1|during|[부] ~동안, ~하는 중|Quiet during the movie.|영화 보는 동안 조용히.
+12-1|river|[명] 강|The river flows.|강이 흐른다.
+12-2|perhaps|[부] 아마, 어쩌면|Perhaps he is sick.|아마 그는 아플 것이다.
+12-2|shout|[동] 외치다, [명] 외침|Do not shout.|소리치지 마라.
+12-2|example|[명] 예, 보기|For example.|예를 들어.
+12-2|off|[부] 떨어져, [전] ~에서 떨어져|Turn off the light.|불을 꺼라.
+12-2|far|[형] 먼, [부] 멀리|Is it far from here?|여기서 먼가요?
+12-2|both|[형] 양쪽의, [대] 양쪽 다|I like both.|나는 둘 다 좋다.
+12-2|busy|[형] 바쁜, 번화한|I am busy today.|나는 오늘 바쁘다.
+12-2|everything|[대] 모든 것, 무엇이나 다|Everything is fine.|모든 것이 괜찮다.
+12-2|afraid|[형] 두려워하여, 걱정하여|Don't be afraid.|두려워하지 마라.
+12-2|nothing|[대] 아무것도 ~ 않다|I have nothing.|나는 아무것도 없다.
+12-2|someone|[대] 어떤 사람, 누군가|Someone called.|누군가 전화했다.
+12-2|garden|[명] 정원|Flowers in the garden.|정원의 꽃들.
+12-2|trip|[명] 여행|Have a nice trip.|즐거운 여행 되세요.
+12-2|quite|[부] 아주, 꽤|It is quite hot.|꽤 덥다.
+12-2|seem|[동] ~처럼 보이다|You seem happy.|너는 행복해 보인다.
+12-2|travel|[명] 여행, [동] 여행하다|I want to travel.|나는 여행하고 싶다.
+12-2|piece|[명] 조각, 한 개|A piece of cake.|케이크 한 조각.
+12-2|history|[명] 역사|Study history.|역사를 공부해라.
+12-2|light|[명] 빛, [형] 밝은|Turn on the light.|불을 켜라.
+12-2|along|[전] ~을 따라서|Walk along the river.|강을 따라 걸어라.
+12-2|carry|[동] 나르다, 가지고 가다|Carry this box.|이 상자를 날라라.
+12-2|outside|[명] 바깥쪽, [부] 바깥쪽으로|Let's play outside.|밖에서 놀자.
+12-2|tired|[형] 피곤한, 싫증난|I am so tired.|나는 너무 피곤하다.
+12-2|worry|[동] 걱정하다, 괴롭히다|Don't worry.|걱정하지 마라.
+12-2|side|[명] 쪽, 옆|Stand by my side.|내 옆에 서라.
+12-2|between|[전] ~의 사이에|Sit between us.|우리 사이에 앉아라.
+12-2|front|[명] 앞, [형] 앞의|In front of me.|내 앞에서.
+12-2|ever|[부] 일찍이, 언젠가|Have you ever seen it?|그것을 본 적 있니?
+12-2|famous|[형] 유명한|A famous singer.|유명한 가수.
+12-2|climb|[동] 오르다, 기어오르다|Climb the mountain.|산을 올라라.
+12-3|behind|[전] ~의 뒤에, [부] 뒤에|Look behind.|뒤를 봐라.
+12-3|pay|[동] 치르다, 지불하다|You must pay.|너는 지불해야 한다.
+12-3|hill|[명] 언덕, 작은 산|Up the hill.|언덕 위로.
+12-3|else|[부] 그 밖에|Anything else?|그 밖에 또?
+12-3|cover|[동] 덮다, [명] 덮개|Cover your eyes.|눈을 가려라.
+12-3|TRUE|[형] 진실한, 진짜의|It is true.|그것은 사실이다.
+12-3|husband|[명] 남편|Her husband.|그녀의 남편.
+12-3|mistake|[명] 잘못, [동] 틀리다|It was a mistake.|그것은 실수였다.
+12-3|restaurant|[명] 식당, 레스토랑|Eat at a restaurant.|식당에서 먹다.
+12-3|carefully|[부] 주의 깊게|Listen carefully.|주의 깊게 들어라.
+12-3|yet|[부] 아직, 벌써|Not yet.|아직 아니다.
+12-3|everybody|[대] 누구나 다|Everybody knows.|모두가 안다.
+12-3|dance|[동] 춤추다, [명] 춤|Let's dance.|춤추자.
+12-3|album|[명] 앨범, 사진첩|Look at the album.|앨범을 봐라.
+12-3|airport|[명] 공항|Go to the airport.|공항으로 가라.
+12-3|player|[명] 선수|Soccer player.|축구 선수.
+12-3|cave|[명] 동굴|A dark cave.|어두운 동굴.
+12-3|hurry|[동] 서두르다|Hurry up.|서둘러라.
+12-3|hospital|[명] 병원|Go to the hospital.|병원에 가라.
+12-3|dream|[명] 꿈, [동] 꿈꾸다|I had a dream.|나는 꿈을 꿨다.
+12-3|dead|[형] 죽은|The tree is dead.|그 나무는 죽었다.
+12-3|whose|[대] 누구의|Whose bag is this?|이것은 누구의 가방이니?
+12-3|plan|[명] 계획, [동] 계획하다|Make a plan.|계획을 세워라.
+12-3|careful|[형] 주의 깊은|Be careful.|조심해라.
+12-3|excuse|[동] 용서하다, [명] 변명|Excuse me.|실례합니다.
+12-3|follow|[동] 따르다|Follow me.|나를 따라와라.
+12-3|ski|[동] 스키를 타다|I like to ski.|나는 스키 타는 것을 좋아한다.
+12-3|speech|[명] 말, 연설|Make a speech.|연설을 해라.
+12-3|toward|[전] ~쪽으로|Walk toward the door.|문쪽으로 걸어가라.
+12-3|corner|[명] 구석, 모퉁이|In the corner.|구석에.
+12-4|maybe|[부] 아마, 어쩌면|Maybe tomorrow.|아마도 내일.
+12-4|special|[형] 특별한|A special gift.|특별한 선물.
+12-4|useful|[형] 쓸모 있는, 유용한|It is useful.|그것은 유용하다.
+12-4|rock|[명] 바위|A hard rock.|단단한 바위.
+12-4|reason|[명] 이유, 이성|Give me a reason.|이유를 대라.
+12-4|science|[명] 과학|I like science.|나는 과학을 좋아한다.
+12-4|museum|[명] 박물관|Visit the museum.|박물관을 방문해라.
+12-4|wonder|[동] 이상하게 생각하다|I wonder why.|나는 왜 그런지 궁금하다.
+12-4|another|[형] 또 하나의|Try another one.|다른 것을 시도해 봐라.
+12-4|life|[명] 생명, 생활|Happy life.|행복한 삶.
+12-4|city|[명] 도시|A big city.|큰 도시.
+12-4|each|[형] 각각의|Each student.|각각의 학생.
+12-4|poster|[명] 포스터|Look at the poster.|포스터를 봐라.
+12-4|sometimes|[부] 가끔|Sometimes I swim.|가끔 나는 수영한다.
+12-4|inch|[명] 인치|One inch.|1인치.
+12-4|should|[조] ~일 것이다|You should go.|너는 가야 한다.
+12-4|month|[명] 달, 1개월|Last month.|지난달.
+12-4|class|[명] 학급, 수업|In the class.|교실(수업)에서.
+12-4|later|[부] 나중에|See you later.|나중에 봐.
+12-4|great|[형] 위대한, 큰|A great man.|위대한 사람.
+12-4|town|[명] 읍, 도시|Small town.|작은 마을.
+12-4|feel|[동] 느끼다|I feel good.|기분이 좋다.
+12-4|wait|[동] 기다리다|Wait here.|여기서 기다려라.
+12-4|road|[명] 길, 도로|Cross the road.|길을 건너라.
+12-4|interesting|[형] 흥미 있는|An interesting book.|재미있는 책.
+12-4|glove|[명] 장갑|Put on a glove.|장갑을 껴라.
+12-4|cream|[명] 크림|Ice cream.|아이스크림.
+12-4|mask|[명] 가면, 복면|Wear a mask.|마스크를 써라.
+12-4|mean|[동] 의미하다|What do you mean?|무슨 뜻이니?
+12-4|runner|[명] 달리는 사람|A fast runner.|빠른 주자.
+12-5|pool|[명] 수영장, 물웅덩이|Swim in the pool.|수영장에서 수영해라.
+12-5|show|[동] 보이다, 안내하다|Show me.|나에게 보여줘.
+12-5|animal|[명] 동물|Wild animal.|야생 동물.
+12-5|question|[명] 질문, 문제|Ask a question.|질문을 해라.
+12-5|bring|[동] 가져오다, 데려오다|Bring it here.|그것을 이리로 가져와라.
+12-5|minute|[명] 분, 순간|Wait a minute.|잠시만 기다려.
+12-5|anything|[대] 무엇인가|Do you need anything?|뭐 필요한 거 있니?
+12-5|through|[전] ~을 통하여|Go through the door.|문을 통과해 가라.
+12-5|low|[형] 낮은|A low wall.|낮은 벽.
+12-5|need|[동] 필요로 하다|I need help.|나는 도움이 필요하다.
+12-5|part|[명] 부분, 일부|Part of the team.|팀의 일부.
+12-5|course|[명] 진로, 과정|Of course.|물론이지.
+12-5|even|[부] 조차도|Even a child knows.|어린아이조차 안다.
+12-5|interest|[명] 흥미, 관심|I have no interest.|나는 관심이 없다.
+12-5|glad|[형] 기쁜|I am glad.|나는 기쁘다.
+12-5|remember|[동] 기억하다|Remember me.|나를 기억해라.
+12-5|arrive|[동] 도착하다|We arrived late.|우리는 늦게 도착했다.
+12-5|enough|[형] 충분한|Enough money.|충분한 돈.
+12-5|doctor|[명] 의사, 박사|See a doctor.|의사를 만나라.
+12-5|street|[명] 거리|On the street.|거리에서.
+12-5|leader|[명] 지도자|A good leader.|훌륭한 지도자.
+12-5|able|[형] ~할 수 있는|Be able to swim.|수영할 수 있다.
+12-5|usually|[부] 보통, 대개|I usually walk.|나는 보통 걷는다.
+12-5|catch|[동] 붙잡다|Catch the ball.|공을 잡아라.
+12-5|idea|[명] 생각, 관념|Good idea.|좋은 생각.
+12-5|forget|[동] 잊다|Don't forget.|잊지 마라.
+12-5|sleep|[동] 자다|Go to sleep.|자러 가라.
+12-5|tomorrow|[명,부] 내일|See you tomorrow.|내일 보자.
+12-5|sorry|[형] 미안한|I am sorry.|미안해.
+12-5|job|[명] 일, 직업|Good job.|잘했어(좋은 일).
+12-6|open|[동] 열다, [형] 열려 있는|Please open your book.|책을 펴세요(여세요).
+12-6|paper|[명] 종이, 답안, 신문|I need a piece of paper.|나는 종이 한 장이 필요하다.
+12-6|cold|[형] 추운, [명] 추위, 감기|It is very cold outside.|밖은 매우 춥다.
+12-6|laugh|[동] 웃다, [명] 웃음|They laugh at the joke.|그들은 농담을 보고 웃는다.
+12-6|plane|[명] 비행기|The plane is flying high.|비행기가 높이 날고 있다.
+12-6|early|[부] 일찍, [형] 이른|Get up early.|일찍 일어나라.
+12-6|late|[형] 늦은, [부] 늦게|Better late than never.|늦더라도 안 하는 것보다는 낫다.
+12-6|difficult|[형] 어려운, 곤란한|The exam was difficult.|시험은 어려웠다.
+12-6|everyone|[대] 모두 다, 누구나 다|Everyone likes him.|모두가 그를 좋아한다.
+12-6|happen|[동] (일, 사건 등이) 일어나다|Accidents can happen.|사고는 일어날 수 있다.
+12-6|finish|[동] 끝내다, 끝나다|Did you finish your homework?|숙제를 끝냈니?
+12-6|teach|[동] 가르치다|My dad teaches me math.|아빠는 나에게 수학을 가르쳐 주신다.
+12-6|mountain|[명] 산|We climbed the mountain.|우리는 산을 올랐다.
+12-6|sound|[명] 소리, [동] 소리가 나다|That sounds great.|그거 멋지게 들린다(좋은 생각이다).
+12-6|change|[동] 바꾸다, [명] 변화, 잔돈|Change your clothes.|옷을 갈아입어라.
+12-6|suddenly|[부] 갑자기|It stopped suddenly.|그것이 갑자기 멈췄다.
+12-6|wonderful|[형] 놀라운, 훌륭한|It is a wonderful place.|그곳은 훌륭한 장소다.
+12-6|birthday|[명] 생일|When is your birthday?|네 생일은 언제니?
+12-6|easy|[형] 쉬운|English is easy.|영어는 쉽다.
+12-6|important|[형] 중요한, 중대한|Family is important.|가족은 중요하다.
+12-6|short|[형] 짧은, 키가 작은|The summer night is short.|여름밤은 짧다.
+12-6|break|[동] 부수다, 깨지다, 어기다|Don't break the rule.|규칙을 어기지 마라.
+12-6|already|[부] 벌써, 이미|It is already dark.|벌써 어둡다.
+12-6|pound|파운드|The cake weighs a pound.|그 케이크는 무게가 1파운드다.
+12-6|quick|[형] 빠른, [부] 빨리|Be quick!|서둘러라(빨리 해라)!
+12-6|club|[명] 클럽, 곤봉|I joined a soccer club.|나는 축구 클럽에 가입했다.
+12-6|close|[동] 닫다, [형] 가까운|Close your eyes.|눈을 감아라.
+12-6|since|[전, 접] ~이래, ~이므로|I have known him since 2015.|나는 2015년부터 그를 알고 있다.
+12-6|print|[동] 인쇄하다, [명] 인쇄(물)|Print this page.|이 페이지를 인쇄해라.
+12-6|building|[명] 건물|Look at that high building.|저 높은 건물을 봐라.
+12-7|east|[명] 동쪽, [형] 동쪽의|The sun rises in the east.|해는 동쪽에서 뜬다.
+12-7|darkness|[명] 어둠|Lights shine in the darkness.|어둠 속에서 불빛이 빛난다.
+12-7|dark|[형] 어두운, [명] 어둠|The room is dark.|방이 어둡다.
+12-7|bicycle|[명] 자전거|I can ride a bicycle.|나는 자전거를 탈 수 있다.
+12-7|college|[명] 단과 대학, 대학|She wants to go to college.|그녀는 대학에 가고 싶어 한다.
+12-7|heart|[명] 심장, 마음, 중심|Listen to your heart.|너의 마음(심장) 소리를 들어라.
+12-7|lady|[명] 숙녀, 귀부인|Ladies and gentlemen.|신사 숙녀 여러분.
+12-7|radio|[명] 라디오|I listen to the radio.|나는 라디오를 듣는다.
+12-7|indoor|[형] 실내의, 옥내의|Bowling is an indoor sport.|볼링은 실내 스포츠다.
+12-7|lake|[명] 호수|The lake is deep.|호수는 깊다.
+12-7|rain|[명] 비, [동] 비가 내리다|It looks like rain.|비가 올 것 같다.
+12-7|drive|[동] 운전하다, 드라이브하다|My dad drives a bus.|우리 아빠는 버스를 운전하신다.
+12-7|tennis|[명] 테니스, 정구|Let's play tennis.|테니스 치자.
+12-7|under|[전] ~아래에|The cat is under the table.|고양이가 탁자 아래에 있다.
+12-7|shirt|[명] 와이셔츠, 셔츠|He wears a blue shirt.|그는 파란 셔츠를 입는다.
+12-7|die|[동] 죽다|All living things die.|모든 생명체는 죽는다.
+12-7|gold|[명] 금, 금화, [형] 금의|Silence is gold.|침묵은 금이다.
+12-7|ship|[명] 배|A big ship is in the sea.|큰 배가 바다에 있다.
+12-7|warm|[형] 따뜻한|Keep yourself warm.|몸을 따뜻하게 해라.
+12-7|reader|[명] 독자, 독서가|This book is for young readers.|이 책은 어린 독자들을 위한 것이다.
+12-7|clothes|[명] 옷, 의복|Put on your clothes.|옷을 입어라.
+12-7|seat|[명] 좌석|Please take a seat.|자리에 앉으세요.
+12-7|poor|[형] 가난한, 가엾은, 서투른|He helps poor people.|그는 가난한 사람들을 돕는다.
+12-7|make|[동] 만들다|Make a wish.|소원을 빌어라(만들어라).
+12-7|across|[부] 가로질러, [전] ~을 가로질러|Run across the field.|들판을 가로질러 달려라.
+12-7|believe|[동] 믿다|Do you believe in ghosts?|너는 유령을 믿니?
+12-7|library|[명] 도서관, 도서실|We study in the library.|우리는 도서관에서 공부한다.
+12-7|holiday|[명] 휴일, 휴가|Tomorrow is a holiday.|내일은 휴일이다.
+12-7|lately|[부] 요즘, 최근|I haven't seen him lately.|나는 최근에 그를 본 적이 없다.
+12-7|ground|[명] 땅, 운동장|Don't sit on the ground.|땅바닥에 앉지 마라.
+12-8|look|[동] 보다, ~으로 보이다|Look at the sky.|하늘을 봐라.
+12-8|spend|[동] (돈을) 소비하다, (시간을) 보내다|I spend time reading.|나는 독서하며 시간을 보낸다.
+12-8|field|[명] 들, 밭, 경기장|Kids play on the field.|아이들이 경기장에서 논다.
+12-8|strong|[형] 강한, 튼튼한|You are strong.|너는 튼튼하다.
+12-8|camera|[명] 카메라, 사진기|I have a digital camera.|나는 디지털카메라를 가지고 있다.
+12-8|phone|[명] 전화, [동] 전화하다|Use my phone.|내 전화를 써라.
+12-8|mile|[명] 마일|It is a mile away.|그것은 1마일 떨어져 있다.
+12-8|sick|[형] 병든, 싫증난|I feel sick.|나는 아프다.
+12-8|member|[명] 회원, 일원|Are you a member?|너는 회원이니?
+12-8|return|[동] 돌아오다(가다), 돌려주다|When will you return?|언제 돌아올 거니?
+12-8|until|[전, 접] ~까지|Wait until I come.|내가 올 때까지 기다려라.
+12-8|ready|[형] 준비된|Lunch is ready.|점심이 준비됐다.
+12-8|pull|[동] 잡아당기다, 끌다|Pull the rope.|밧줄을 당겨라.
+12-8|alone|[형] 홀로, [부] 홀로|I prefer to be alone.|나는 혼자 있는 것을 선호한다.
+12-8|tape|[명] 테이프|I need some tape.|나는 테이프가 좀 필요하다.
+12-8|living room|[명] 거실|Dad is in the living room.|아빠는 거실에 계신다.
+12-8|build|[동] 짓다, 건축하다|Let's build a sandcastle.|모래성을 짓자.
+12-8|dollar|[명] 달러 (화폐 단위)|Here is a dollar.|여기 1달러가 있다.
+12-8|half|[명] 절반, [형] 절반의|Cut the apple in half.|사과를 반으로 잘라라.
+12-8|ride|[동] (말, 탈것을) 타다|Can you ride a horse?|너는 말을 탈 수 있니?
+12-8|clean|[형] 깨끗한, [동] 청소하다|Clean air is important.|깨끗한 공기는 중요하다.
+12-8|telephone|[명] 전화|The telephone is ringing.|전화가 울리고 있다.
+12-8|wash|[동] 씻다, 세탁하다|Wash the dishes.|설거지를 해라(접시를 씻어라).
+12-8|among|[전] ~의 사이에|A wolf among sheep.|양들 사이의 늑대.
+12-8|office|[명] 사무소, 회사, 관청|My mom works in an office.|엄마는 회사에서 일하신다.
+12-8|several|[형] 여럿의, 몇 사람(개)의|I have several pens.|나는 펜을 여러 자루 가지고 있다.
+12-8|voice|[명] 목소리|She has a beautiful voice.|그녀는 아름다운 목소리를 가졌다.
+12-8|win|[동] 이기다, 얻다|I hope you win.|네가 이기기를 바란다.
+12-8|island|[명] 섬|It is a desert island.|그곳은 무인도다.
+12-8|sell|[동] 팔다, 팔리다|They sell books.|그들은 책을 판다.
+12-9|full|[형] 가득한, 충분한|I am full.|나는 배부르다.
+12-9|aunt|[명] 고모, 이모, 숙모|My aunt is a nurse.|나의 이모는 간호사다.
+12-9|paint|[동] 그리다, [명] 페인트|Paint a picture.|그림을 그려라.
+12-9|though|[접] ~이긴 하지만|Though young, he is wise.|어리지만 그는 지혜롭다.
+12-9|jump|[동] 뛰다, [명] 도약|Jump over the box.|상자를 뛰어넘어라.
+12-9|reach|[동] 도착하다, 닿다|I cannot reach the shelf.|선반에 손이 닿지 않는다.
+12-9|hole|[명] 구멍|There is a hole in my sock.|내 양말에 구멍이 있다.
+12-9|floor|[명] 바닥, 층|The floor is wet.|바닥이 젖었다.
+12-9|inside|[명] 안쪽, [전] ~의 안쪽에|Let's stay inside.|안에 머물자.
+12-9|village|[명] 마을|It is a quiet village.|조용한 마을이다.
+12-9|golden|[형] 금으로 만든, 황금빛의|A golden crown.|금으로 만든 왕관.
+12-9|skate|[명] 스케이트, [동] 스케이트를 타다|Let's go to skate.|스케이트 타러 가자.
+12-9|wood|[명] 나무, 목재|Chop some wood.|장작(나무)을 좀 패라.
+12-9|person|[명] 사람|Be a good person.|좋은 사람이 되어라.
+12-9|strange|[형] 이상한, 낯선|That's strange.|그거 이상하다.
+12-9|wear|[동] 입고(쓰고) 있다, 착용하다|Wear a hat.|모자를 써라.
+12-9|trouble|[명] 문제, [동] 괴롭히다|Don't cause trouble.|문제를 일으키지 마라.
+12-9|problem|[명] 문제|No problem.|문제없어.
+12-9|invite|[동] 초대하다|I invite you to dinner.|너를 저녁 식사에 초대한다.
+12-9|language|[명] 언어, 국어|What language do you speak?|너는 어떤 언어를 쓰니?
+12-9|lose|[동] 잃다, 지다|Don't lose your way.|길을 잃지 마라.
+12-9|different|[형] 다른|We have different ideas.|우리는 서로 다른 생각을 가지고 있다.
+12-9|surprise|[동] 놀라게 하다 [명] 놀람|Don't surprise me.|나를 놀라게 하지 마라.
+12-9|welcome|[동] 환영하다, [명] 환영|You are welcome.|천만에요(환영합니다).
+12-9|decide|[동] 결정(판단)하다, 결심하다|I cannot decide.|나는 결정할 수 없다.
+12-9|dictionary|[명] 사전|Use an English dictionary.|영어 사전을 사용해라.
+12-9|shake|[동] 흔들다, 흔들리다|Shake the bottle.|병을 흔들어라.
+12-9|foreign|[형] 외국의|Do you speak a foreign language?|너는 외국어를 할 줄 아니?
+12-9|culture|[명] 문화, 교양|Korean culture.|한국 문화.
+12-9|noise|[명] 소음|Don't make a noise.|소음을 내지 마라.
+12-10|church|[명] 교회|A church is near here.|교회가 이 근처에 있다.
+12-10|easily|[부] 쉽게, 용이하게|He solved it easily.|그는 그것을 쉽게 풀었다.
+12-10|cloud|[명] 구름|The cloud covers the sun.|구름이 해를 가린다.
+12-10|cool|[형] 시원한, 냉정한|Have a cool drink.|시원한 음료를 마셔라.
+12-10|arm|[명] 팔|He broke his arm.|그는 팔이 부러졌다.
+12-10|pocket|[명] 호주머니 [동] 호주머니에 넣다|I have coins in my pocket.|나는 주머니에 동전이 있다.
+12-10|moment|[명] 순간|Just a moment.|잠시만요.
+12-10|ticket|[명] 표, 입장권|Show me your ticket.|표를 보여 주세요.
+12-10|basketball|[명] 농구|I play basketball well.|나는 농구를 잘한다.
+12-10|line|[명] 선, 줄|Draw a line.|선을 그려라.
+12-10|shoe|[명] 신발, 신|One shoe is missing.|신발 한 짝이 없어졌다.
+12-10|fight|[명] 전투, [동] 싸우다|Don't fight with friends.|친구들과 싸우지 마라.
+12-10|police|[명] 경찰|Ask the police.|경찰에게 물어봐라.
+12-10|Mt.|[명] ~산|Mt. Everest is high.|에베레스트산은 높다.
+12-10|unhappy|[형] 불행한, 행복하지 않은|Don't be unhappy.|불행해하지 마라.
+12-10|meat|[명] 고기|Cook the meat.|고기를 요리해라.
+12-10|marry|[동] 결혼하다|Will you marry me?|나와 결혼해 줄래?
+12-10|difference|[명] 다름, 차이|Tell me the difference.|차이점을 말해줘.
+12-10|heaven|[명] 천국, 하늘|Go to heaven.|천국에 가다.
+12-10|harvest|[명] 수확(물), [동] 수확하다|It is harvest time.|수확의 계절이다.
+12-10|century|[명] 100년, 세기|This is the 21st century.|지금은 21세기다.
+12-10|soldier|[명] 군인, 병사|The soldier marches.|군인이 행진한다.
+12-10|age|[명] 나이, 시대|Act your age.|나잇값을 해라.
+12-10|weather|[명] 날씨, 기상|The weather is nice.|날씨가 좋다.
+12-10|past|[형] 과거의, [명] 과거|In the past.|과거에.
+12-10|excite|[동] 흥분 시키다|Do not excite the dog.|개를 흥분시키지 마라.
+12-10|fact|[명] 사실|It is a known fact.|그것은 알려진 사실이다.
+12-10|television|[명] 텔레비전|Turn on the television.|텔레비전을 켜라.
+12-10|stone|[명] 돌, 석조|It is made of stone.|그것은 돌로 만들어졌다.
+12-10|foreigner|[명] 외국인, 국외자|He is a foreigner.|그는 외국인이다.
+12-11|however|[부] 아무리 ~해도, 그러나|However, I was late.|그러나, 나는 늦었다.
+12-11|accident|[명] 사고, 우연|It was an accident.|그것은 사고였다.
+12-11|finally|[부] 마침내, 최후로|Finally, we won.|마침내 우리가 이겼다.
+12-11|pole|[명] 막대기, 장대|A long pole.|긴 막대기.
+12-11|idle|[형] 게으른|Don't be idle.|게으름 피우지 마라.
+12-11|guess|[동] 추측하다, [명] 추측|Guess who?|누군지 맞춰봐?
+12-11|treat|[동] 다루다, 대접하다|Treat others well.|다른 사람들을 잘 대우해라.
+12-11|Chinese|[형] 중국의, [명] 중국어|I learn Chinese.|나는 중국어를 배운다.
+12-11|wild|[형] 야생의, 난폭한|Wild flowers.|야생화.
+12-11|record|[명] 기록, [동] 기록하다|Break a record.|기록을 깨다.
+12-11|factory|[명] 공장|A shoe factory.|신발 공장.
+12-11|mix|[동] 섞다|Mix yellow and blue.|노란색과 파란색을 섞어라.
+12-11|agree|[동] 동의하다|I agree with you.|나는 너에게 동의한다.
+12-11|information|[명] 정보, 안내|Get information.|정보를 얻다.
+12-11|shopkeeper|[명] 가게 주인|The shopkeeper is kind.|가게 주인은 친절하다.
+12-11|popular|[형] 인기 있는|A popular song.|인기 있는 노래.
+12-11|forest|[명] 숲|Birds in the forest.|숲속의 새들.
+12-11|future|[명] 미래, [형] 미래의|In the near future.|가까운 미래에.
+12-11|autumn|[명] 가을|Leaves fall in autumn.|가을에는 낙엽이 진다.
+12-11|coin|[명] 동전|Flip a coin.|동전을 던져라.
+12-11|choose|[동] 선택하다|Choose carefully.|신중하게 선택해라.
+12-11|vacation|[명] 휴가|Summer vacation.|여름 휴가(방학).
+12-11|continue|[동] 계속하다|Continue studying.|공부를 계속해라.
+12-11|southern|[형] 남쪽의|The southern part.|남쪽 부분.
+12-11|business|[명] 사업, 일|My dad does business.|아빠는 사업을 하신다.
+12-11|introduce|[동] 소개하다|Let me introduce myself.|제 소개를 하겠습니다.
+12-11|practice|[명] 연습, [동] 연습하다|Practice makes perfect.|연습이 완벽을 만든다.
+12-11|neighbor|[명] 이웃 사람|Help your neighbor.|이웃을 도와라.
+12-11|amount|[명] 양, 액수|A large amount.|많은 양.
+12-11|dangerous|[형] 위험한|Fire is dangerous.|불은 위험하다.
+12-12|space|[명] 우주, 공간|Travel to space.|우주로 여행하다.
+12-12|traffic|[명] 교통|Heavy traffic.|교통 체증(복잡한 교통).
+12-12|expensive|[형] 비싼|An expensive car.|비싼 차.
+12-12|machine|[명] 기계|A washing machine.|세탁기.
+12-12|middle|[형] 한가운데의, [명] 중앙|In the middle.|한가운데에.
+12-12|slow|[형] 느린, [부] 천천히|Turtles are slow.|거북이는 느리다.
+12-12|page|[명] 쪽, 페이지|Turn the page.|페이지를 넘겨라.
+12-12|mark|[명] 표, 점수, [동] 표시하다|Get a good mark.|좋은 점수를 받아라.
+12-12|blackboard|[명] 칠판|Look at the blackboard.|칠판을 봐라.
+12-12|scientist|[명] 과학자|She is a scientist.|그녀는 과학자이다.
+12-12|grass|[명] 풀, 잔디|Green grass.|푸른 잔디.
+12-12|meaning|[명] 뜻, 의미|The meaning of life.|삶의 의미.
+12-12|cousin|[명] 사촌|My cousin lives here.|내 사촌은 여기에 산다.
+12-12|rocket|[명] 로켓|Launch a rocket.|로켓을 발사하다.
+12-12|sandwich|[명] 샌드위치|Eat a sandwich.|샌드위치를 먹다.
+12-12|candy|[명] 사탕|Sweet candy.|달콤한 사탕.
+12-12|number|[명] 수, 번호|What is your number?|너의 번호는 무엇이니?
+12-12|gentleman|[명] 신사|Be a gentleman.|신사가 되어라.
+12-12|speed|[명] 속력|High speed.|빠른 속도.
+12-12|knife|[명] 칼|A sharp knife.|날카로운 칼.
+12-12|clock|[명] 시계|The clock struck 12.|시계가 12시를 쳤다.
+12-12|team|[명] 팀, 조|A baseball team.|야구 팀.
+12-12|hurt|[동] 아프다, [명] 상처|My leg hurts.|내 다리가 아프다.
+12-12|yard|[명] 마당|Play in the yard.|마당에서 놀다.
+12-12|spell|[동] 철자하다|How do you spell it?|그것의 철자가 어떻게 되니?
+12-12|speaker|[명] 연설자, 스피커|A good speaker.|훌륭한 연설가.
+12-12|lawyer|[명] 변호사|He is a lawyer.|그는 변호사이다.
+12-12|orange|[명] 오렌지|I like orange juice.|나는 오렌지 주스를 좋아한다.
+12-12|throw|[동] 던지다|Throw a ball.|공을 던져라.
+12-12|meter|[명] 미터|100 meters.|100미터.
+12-13|meal|[명] 식사|Have a meal.|식사를 하다.
+12-13|north|[명] 북쪽, [형] 북쪽의|Go north.|북쪽으로 가라.
+12-13|god|[명] 신|Thank god.|신에게 감사하다.
+12-13|wind|[명] 바람|The wind blows.|바람이 분다.
+12-13|yellow|[형] 노란색의|A yellow bus.|노란 버스.
+12-13|concert|[명] 음악회|Go to a concert.|음악회에 가다.
+12-13|center|[명] 중앙|The center of town.|마을의 중심.
+12-13|heavy|[형] 무거운|A heavy bag.|무거운 가방.
+12-13|note|[명] 기록, [동] 적어 두다|Take a note.|메모하다.
+12-13|weak|[형] 약한|I feel weak.|나는 몸이 약해진 것 같다.
+12-13|dry|[형] 마른, [동] 말리다|Dry hair.|마른 머리카락.
+12-13|supper|[명] 저녁밥|Eat supper.|저녁을 먹다.
+12-13|noon|[명] 정오|It is noon.|정오다.
+12-13|anyone|[대] 누군가|Does anyone know?|누가 아니?
+12-13|rude|[형] 무례한|Don't be rude.|무례하게 굴지 마라.
+12-13|normal|[형] 정상의|A normal day.|평범한 날.
+12-13|dining room|[명] 식당|Eat in the dining room.|식당에서 밥을 먹다.
+12-13|south|[명] 남쪽, [형] 남쪽의|Birds fly south.|새들은 남쪽으로 날아간다.
+12-13|above|[전] ~위에|Look above.|위를 봐라.
+12-13|China|[명] 중국|I visited China.|나는 중국을 방문했다.
+12-13|group|[명] 집단|A study group.|스터디 그룹.
+12-13|guitar|[명] 기타|Play the guitar.|기타를 치다.
+12-13|most|[형] 가장 많은, [대] 대부분|Most people.|대부분의 사람들.
+12-13|join|[동] 결합하다, 참가하다|Join the club.|클럽에 가입하다.
+12-13|bridge|[명] 다리|Cross the bridge.|다리를 건너다.
+12-13|cent|[명] 센트|50 cents.|50센트.
+12-13|ill|[형] 병든|He is ill.|그는 병들었다.
+12-13|size|[명] 크기|What size?|무슨 사이즈?
+12-13|bath|[명] 목욕|Take a bath.|목욕하다.
+12-13|pond|[명] 연못|Frogs in the pond.|연못 속의 개구리들.
+12-14|pair|[명] 한 쌍|A pair of shoes.|신발 한 켤레.
+12-14|probably|[부] 아마|Probably not.|아마 아닐 것이다.
+12-14|mad|[형] 미친, 화난|Don't get mad.|화내지 마라.
+12-14|tonight|[명/부] 오늘 밤|See you tonight.|오늘 밤에 보자.
+12-14|prize|[명] 상|Win a prize.|상을 타다.
+12-14|instead|[부] 그 대신에|Use this instead.|대신 이것을 써라.
+12-14|justice|[명] 정의|Fight for justice.|정의를 위해 싸우다.
+12-14|mercy|[명] 자비|Show mercy.|자비를 베풀다.
+12-14|discuss|[동] 토론하다|Let's discuss it.|그것을 토론하자.
+12-14|rice|[명] 쌀, 밥|Eat rice.|밥을 먹다.
+12-14|flight|[명] 비행|A long flight.|긴 비행.
+12-14|fruit|[명] 과일|Fresh fruit.|신선한 과일.
+12-14|monkey|[명] 원숭이|A funny monkey.|웃기는 원숭이.
+12-14|million|[명] 100만|One million.|100만.
+12-14|certainly|[부] 확실히, 물론|Certainly!|물론이지!
+12-14|classmate|[명] 동급생|My classmate.|내 반 친구.
+12-14|west|[명] 서쪽, [형] 서쪽의|Go west.|서쪽으로 가라.
+12-14|map|[명] 지도|Look at the map.|지도를 봐라.
+12-14|tie|[동] 매다, [명] 넥타이|Tie your shoes.|신발 끈을 매라.
+12-14|push|[동] 밀다|Push the door.|문을 밀어라.
+12-14|pen pal|[명] 펜팔|Write to a pen pal.|펜팔에게 편지를 쓰다.
+12-14|favorite|[형] 아주 좋아하는|My favorite color.|내가 가장 좋아하는 색.
+12-14|terrible|[형] 끔찍한|A terrible day.|끔찍한 날.
+12-14|soft|[형] 부드러운|Soft skin.|부드러운 피부.
+12-14|cow|[명] 암소|Milk the cow.|소의 젖을 짜다.
+12-14|tail|[명] 꼬리|A long tail.|긴 꼬리.
+12-14|aloud|[부] 소리 내어|Read aloud.|소리 내어 읽어라.
+12-14|wall|[명] 벽|Paint the wall.|벽을 칠하다.
+12-14|tourist|[명] 관광객|A foreign tourist.|외국인 관광객.
+12-14|rise|[동] 오르다|The sun rises.|해가 뜬다.
+12-15|list|[명] 목록|Make a list.|목록을 만들어라.
+12-15|singer|[명] 가수|A famous singer.|유명한 가수.
+12-15|lead|[동] 인도하다, 앞장서다|Lead the way.|길을 안내해라.
+12-15|turtle|[명] 거북|A slow turtle.|느린 거북이.
+12-15|sailor|[명] 선원|A brave sailor.|용감한 선원.
+12-15|clever|[형] 영리한|A clever boy.|영리한 소년.
+12-15|beach|[명] 해변|Play on the beach.|해변에서 놀다.
+12-15|impressive|[형] 인상적인|An impressive sight.|인상적인 광경.
+12-15|painting|[명] 그림|A beautiful painting.|아름다운 그림.
+12-15|receive|[동] 받다|Receive a letter.|편지를 받다.
+12-15|friendly|[형] 친절한|A friendly dog.|친절한(사람을 잘 따르는) 개.
+12-15|cook|[동] 요리하다, [명] 요리사|I like to cook.|나는 요리하는 것을 좋아한다.
+12-15|loud|[형] 큰소리의|A loud noise.|시끄러운 소리.
+12-15|northern|[형] 북쪽의|Northern wind.|북풍.
+12-15|less|[형] ~보다 적은|Eat less.|덜 먹어라.
+12-15|dig|[동] 파다|Dig a hole.|구멍을 파라.
+12-15|fill|[동] 채우다|Fill the cup.|컵을 채워라.
+12-15|pet|[명] 애완동물|I have a pet.|나는 애완동물이 있다.
+12-15|garbage|[명] 쓰레기|Pick up garbage.|쓰레기를 주워라.
+12-15|lucky|[형] 운 좋은|You are lucky.|너는 운이 좋다.
+12-15|secret|[명] 비밀|Keep a secret.|비밀을 지켜라.
+12-15|beside|[전] ~의 곁에|Sit beside me.|내 곁에 앉아라.
+12-15|shape|[명] 모양|What shape is it?|그것은 무슨 모양이니?
+12-15|tiny|[형] 아주 작은|A tiny ant.|아주 작은 개미.
+12-15|United States|[명] 미합중국(미국)|The United States.|미국.
+12-15|feeling|[명] 느낌|A good feeling.|좋은 느낌.
+12-15|statue|[명] 조각상|A stone statue.|돌로 된 조각상.
+12-15|ancient|[형] 고대의|Ancient history.|고대 역사.
+12-15|art|[명] 예술|I love art.|나는 예술을 사랑한다.
+12-15|burn|[동] 타다|Wood burns.|나무는 탄다.
+12-16|contest|[명] 경쟁, 경기|I won the contest.|나는 대회에서 우승했다.
+12-16|experience|[명] 경험, [동] 경험하다|It was a good experience.|그것은 좋은 경험이었다.
+12-16|date|[명] 날짜, 데이트|What is the date?|날짜가 며칠이니?
+12-16|explain|[동] 설명하다|Please explain it.|그것을 설명해 주세요.
+12-16|habit|[명] 습관|A good habit.|좋은 습관.
+12-16|boring|[형] 지루한, 따분한|This book is boring.|이 책은 지루하다.
+12-16|bother|[동] 괴롭히다, 귀찮게 굴다|Don't bother me.|나를 괴롭히지 마라.
+12-16|gesture|[명] 몸짓, 손짓|He made a gesture.|그는 몸짓을 했다.
+12-16|battle|[명] 전투, 싸움|Win the battle.|전투에서 이기다.
+12-16|promise|[명] 약속, [동] 약속하다|Keep your promise.|약속을 지켜라.
+12-16|artist|[명] 예술가, 화가|My dad is an artist.|우리 아빠는 화가시다.
+12-16|nobody|[대] 아무도 ~않다|Nobody knows.|아무도 모른다.
+12-16|sentence|[명] 문장|Read the sentence.|문장을 읽어라.
+12-16|scholar|[명] 학자|A great scholar.|위대한 학자.
+12-16|stupid|[형] 어리석은|Don't be stupid.|어리석게 굴지 마라.
+12-16|rather|[부] 오히려, 꽤|It is rather cold.|꽤 춥다.
+12-16|wish|[동] 바라다, [명] 소원|Make a wish.|소원을 빌어라.
+12-16|drop|[동] 떨어지다, [명] 방울|Drop the ball.|공을 떨어뜨려라.
+12-16|hide|[동] 숨기다, 숨다|Hide under the bed.|침대 밑에 숨어라.
+12-16|forward|[부] 앞으로, [형] 앞쪽의|Look forward.|앞을 봐라.
+12-16|diary|[명] 일기|Write a diary.|일기를 써라.
+12-16|expect|[동] 기대하다|I expect good news.|나는 좋은 소식을 기대한다.
+12-16|international|[형] 국제적인|An international school.|국제 학교.
+12-16|mayor|[명] 시장|The mayor of Seoul.|서울 시장.
+12-16|master|[명] 주인, [동] 습득하다|Master English.|영어를 습득해라(마스터해라).
+12-16|vegetable|[명] 채소, 야채|Eat your vegetables.|채소를 먹어라.
+12-16|borrow|[동] 빌리다|Can I borrow a pen?|펜을 빌릴 수 있을까?
+12-16|straight|[형] 똑바른, [부] 똑바로|Go straight.|똑바로 가라.
+12-16|precious|[형] 귀중한|Time is precious.|시간은 귀중하다.
+12-16|beyond|[전] ~저편에, [부] 저편에|Look beyond the sea.|바다 저편을 봐라.
+12-17|twice|[부] 두 번, 두 배로|I went there twice.|나는 그곳에 두 번 갔다.
+12-17|celebrate|[동] 축하하다|Let's celebrate.|축하하자.
+12-17|beginning|[명] 처음, 시작|From the beginning.|처음부터.
+12-17|below|[전] ~의 아래에|See below.|아래를 봐라.
+12-17|guest|[명] 손님|Be my guest.|사양하지 마세요(내 손님이 되어라).
+12-17|plate|[명] 접시, 얇은 판|A clean plate.|깨끗한 접시.
+12-17|proud|[형] 자랑스러운|I am proud of you.|나는 네가 자랑스럽다.
+12-17|wake|[동] 깨다, 깨우다|Wake up!|일어나!
+12-17|season|[명] 계절, 시기|My favorite season.|내가 좋아하는 계절.
+12-17|shine|[동] 빛나다|The sun shines.|태양이 빛난다.
+12-17|clear|[형] 맑은, [동] 깨끗하게 하다|The water is clear.|물이 맑다.
+12-17|control|[명] 지배, [동] 지배하다|Control yourself.|자제해라(자신을 지배해라).
+12-17|desert|[명] 사막|Camels live in the desert.|낙타는 사막에 산다.
+12-17|consist|[동] ~으로 이루어지다|Water consists of H and O.|물은 수소와 산소로 이루어져 있다.
+12-17|symbol|[명] 상징|A dove is a symbol of peace.|비둘기는 평화의 상징이다.
+12-17|fantastic|[형] 환상적인|It was fantastic.|그것은 환상적이었다.
+12-17|monument|[명] 기념비|A stone monument.|돌 기념비.
+12-17|turkey|[명] 칠면조|Eat turkey.|칠면조를 먹다.
+12-17|frog|[명] 개구리|A green frog.|청개구리.
+12-17|fit|[형] 알맞은, [동] ~에 맞다|The shoes fit me.|그 신발은 나에게 맞다.
+12-17|modern|[형] 현대의|Modern art.|현대 미술.
+12-17|government|[명] 정부|The Korean government.|한국 정부.
+12-17|simple|[형] 간단한, 단순한|It is simple.|그것은 간단하다.
+12-17|price|[명] 값, 가격|A low price.|낮은 가격.
+12-17|lazy|[형] 게으른|Don't be lazy.|게으름 피우지 마라.
+12-17|chicken|[명] 닭, 닭고기|Fried chicken.|튀긴 닭(치킨).
+12-17|engine|[명] 기관, 기관차|Start the engine.|엔진을 켜라.
+12-17|smoke|[동] 담배 피우다, [명] 연기|No smoke.|금연(연기 없음).
+12-17|ghost|[명] 유령|I saw a ghost.|나는 유령을 보았다.
+12-17|madam|[명] 부인|May I help you, madam?|도와드릴까요, 부인?
+12-18|nearly|[부] 거의|It is nearly noon.|거의 정오다.
+12-18|smell|[동] 냄새 맡다, [명] 냄새|It smells good.|좋은 냄새가 난다.
+12-18|air|[명] 공기, [동] 방송하다|Fresh air.|신선한 공기.
+12-18|Spain|[명] 스페인|I went to Spain.|나는 스페인에 갔다.
+12-18|lovely|[형] 사랑스러운|A lovely day.|사랑스러운 날.
+12-18|stamp|[명] 우표, 도장|Put a stamp on it.|거기에 우표를 붙여라.
+12-18|elect|[동] 선거하다, 뽑다|Elect a leader.|지도자를 뽑다.
+12-18|limit|[명] 제한, [동] 제한하다|Speed limit.|속도제한.
+12-18|whole|[형] 전체의, [명] 전체|The whole world.|전 세계.
+12-18|blow|[동] 불다|The wind blows.|바람이 분다.
+12-18|hall|[명] 홀, 회관|City hall.|시청(홀).
+12-18|pilot|[명] 조종사|He is a pilot.|그는 조종사이다.
+12-18|bottle|[명] 병|A milk bottle.|우유병.
+12-18|power|[명] 힘, 능력|Knowledge is power.|아는 것이 힘이다.
+12-18|serve|[동] 섬기다, (음식을) 내다|Serve dinner.|저녁을 내다.
+12-18|hometown|[명] 고향|My hometown.|나의 고향.
+12-18|step|[명] 걸음, 계단, [동] 걷다|Watch your step.|발밑을 조심해라.
+12-18|cheap|[형] 값싼|It is cheap.|그것은 싸다.
+12-18|add|[동] 더하다|Add sugar.|설탕을 더해라.
+12-18|blood|[명] 피, 혈액|Red blood.|붉은 피.
+12-18|wing|[명] 날개|A bird's wing.|새의 날개.
+12-18|rope|[명] 밧줄|Pull the rope.|밧줄을 당겨라.
+12-18|dirty|[형] 더러운|Dirty hands.|더러운 손.
+12-18|fox|[명] 여우|A clever fox.|영리한 여우.
+12-18|kindness|[명] 친절|Thank you for your kindness.|친절에 감사합니다.
+12-18|worse|[형] 더 나쁜|It gets worse.|더 나빠진다.
+12-18|gate|[명] 문, 출입문|Open the gate.|문을 열어라.
+12-18|health|[명] 건강|Good health.|좋은 건강.
+12-18|musician|[명] 음악가|A famous musician.|유명한 음악가.
+12-18|neck|[명] 목|My neck hurts.|내 목이 아프다.
+12-19|empty|[형] 빈, [동] 비우다|An empty box.|빈 상자.
+12-19|sacrifice|[동] 희생하다, [명] 희생|A great sacrifice.|큰 희생.
+12-19|silver|[명] 은, [형] 은(빛)의|A silver spoon.|은수저.
+12-19|officer|[명] 관리, 장교|Police officer.|경찰관.
+12-19|none|[대] 아무도 ~않다|None of us.|우리 중 아무도(아니다).
+12-19|anyway|[부] 어쨌든|Thanks anyway.|어쨌든 고마워.
+12-19|sunshine|[명] 햇빛|Bright sunshine.|밝은 햇빛.
+12-19|especially|[부] 특히|I like fruit, especially apples.|나는 과일, 특히 사과를 좋아한다.
+12-19|opera|[명] 오페라|Watch an opera.|오페라를 보다.
+12-19|peace|[명] 평화|World peace.|세계 평화.
+12-19|shut|[동] 닫다|Shut the door.|문을 닫아라.
+12-19|captain|[명] 우두머리, 선장|The captain of the ship.|배의 선장.
+12-19|principal|[명] 교장|The school principal.|학교 교장 선생님.
+12-19|universe|[명] 우주|The vast universe.|광활한 우주.
+12-19|generally|[부] 일반적으로|Generally speaking.|일반적으로 말해서.
+12-19|discover|[동] 발견하다|Discover treasure.|보물을 발견하다.
+12-19|engineer|[명] 기사, 기술자|An expert engineer.|전문 기술자.
+12-19|value|[명] 가치|Of great value.|큰 가치가 있는.
+12-19|ambitious|[형] 야망을 품은|Be ambitious.|야망을 가져라.
+12-19|diligent|[형] 부지런한|A diligent student.|부지런한 학생.
+12-19|forgive|[동] 용서하다|Please forgive me.|나를 용서해 주세요.
+12-19|wander|[동] 떠돌아다니다|Wander around.|주위를 헤매다.
+12-19|remove|[동] 옮기다, 제거하다|Remove the cover.|덮개를 치워라.
+12-19|gun|[명] 총|A toy gun.|장난감 총.
+12-19|leaf|[명] 나뭇잎|A green leaf.|초록색 나뭇잎.
+12-19|possible|[형] 가능한|Is it possible?|그것이 가능한가?
+12-19|lend|[동] 빌려 주다|Lend me a hand.|나를 도와줘라(손을 빌려줘라).
+12-19|rabbit|[명] 토끼|A white rabbit.|흰 토끼.
+12-19|law|[명] 법|Break the law.|법을 어기다.
+12-19|somewhere|[부] 어딘가에|Let's go somewhere.|어딘가로 가자.
+12-20|umbrella|[명] 우산|An umbrella stands.|우산 꽂이.
+12-20|bit|[명] 조금|A little bit.|조금.
+12-20|stranger|[명] 낯선 사람|Don't talk to a stranger.|낯선 사람에게 말 걸지 마라.
+12-20|advice|[명] 충고, 조언|Good advice.|좋은 충고.
+12-20|method|[명] 방법|A new method.|새로운 방법.
+12-20|appreciate|[동] 감사하다, 감상하다|I appreciate it.|감사합니다.
+12-20|adult|[명] 어른, [형] 어른의|An adult ticket.|성인용 표.
+12-20|magazine|[명] 잡지|Read a magazine.|잡지를 읽다.
+12-20|endure|[동] 참다, 견디다|Endure the pain.|고통을 참아라.
+12-20|talent|[명] 재능|Musical talent.|음악적 재능.
+12-20|protect|[동] 보호하다|Protect nature.|자연을 보호해라.
+12-20|program|[명] 프로그램|TV program.|TV 프로그램.
+12-20|shoulder|[명] 어깨|Touch your shoulder.|어깨를 만져라.
+12-20|tear|[명] 눈물, [동] 찢다|Shed a tear.|눈물을 흘리다.
+12-20|pollute|[동] 오염시키다|Don't pollute the air.|공기를 오염시키지 마라.
+12-20|throat|[명] 목구멍|Sore throat.|아픈 목.
+12-20|glory|[명] 영광|Morning glory.|나팔꽃(아침의 영광).
+12-20|climate|[명] 기후|Mild climate.|온화한 기후.
+12-20|pollution|[명] 오염|Air pollution.|대기 오염.
+12-20|unless|[접] 만일 ~하지 않으면|Unless you go.|네가 가지 않는다면.
+12-20|lift|[동] 들어 올리다|Lift the box.|상자를 들어 올려라.
+12-20|bark|[동] 짖다|Dogs bark.|개들이 짖는다.
+12-20|belong|[동] ~에 속하다|I belong to the club.|나는 그 클럽에 속해 있다.
+12-20|raise|[동] 올리다|Raise your hand.|손을 들어라.
+12-20|deep|[형] 깊은, [부] 깊게|A deep hole.|깊은 구멍.
+12-20|form|[명] 모양, 형식|Fill out the form.|양식을 작성해라.
+12-20|candle|[명] 양초|Light a candle.|초를 켜라.
+12-20|Russian|[형] 러시아의|Russian doll.|러시아 인형.
+12-20|funny|[형] 재미있는|A funny story.|재미있는 이야기.
+12-20|host|[명] 주인|The host of the party.|파티의 주인.
+12-21|although|[접] 비록 ~일지라도|Although small, it is strong.|비록 작지만, 그것은 강하다.
+12-21|area|[명] 지역, 면적|A play area.|놀이 구역.
+12-21|prince|[명] 왕자|The prince met a princess.|왕자는 공주를 만났다.
+12-21|rush|[동] 돌진하다, [명] 돌진|Don't rush.|서두르지 마라(돌진하지 마라).
+12-21|theater|[명] 극장|Let's go to the theater.|극장에 가자.
+12-21|thought|[명] 생각, [동] think의 과거|That's a good thought.|그것은 좋은 생각이다.
+12-21|hang|[동] 걸다, 매달다|Hang your coat here.|코트를 여기에 걸어라.
+12-21|suppose|[동] 상상하다, 가정하다|I suppose so.|나도 그렇게 생각한다(가정한다).
+12-21|university|[명] 대학교|Seoul National University.|서울대학교.
+12-21|event|[명] 사건, 행사|A big event.|큰 행사.
+12-21|message|[명] 전갈, 소식|Leave a message.|메시지를 남겨라.
+12-21|metal|[명] 금속|Gold is a metal.|금은 금속이다.
+12-21|communicate|[동] 의사소통하다|We communicate with words.|우리는 말로 의사소통한다.
+12-21|cost|[명] 비용, [동] (비용이) 들다|How much does it cost?|비용이 얼마나 드니?
+12-21|medicine|[명] 약, 의학|Take this medicine.|이 약을 먹어라.
+12-21|memory|[명] 기억(력), 추억|I have a good memory.|나는 기억력이 좋다.
+12-21|nervous|[형] 신경질의, 초조한|Don't be nervous.|초조해하지 마라.
+12-21|queen|[명] 여왕|The queen wears a crown.|여왕은 왕관을 쓴다.
+12-21|custom|[명] 관습, 습관|It is a Korean custom.|그것은 한국의 관습이다.
+12-21|create|[동] 창조하다|God created the world.|신이 세상을 창조했다.
+12-21|remain|[동] 남다|Only one cookie remains.|쿠키가 하나만 남았다.
+12-21|cultural|[형] 문화의|A cultural event.|문화 행사.
+12-21|harmony|[명] 조화, 화합|Live in harmony.|조화롭게 살아라.
+12-21|model|[명] 모형, 모범|A model plane.|모형 비행기.
+12-21|servant|[명] 하인|A faithful servant.|충실한 하인.
+12-21|prepare|[동] 준비하다|Prepare for the test.|시험을 준비해라.
+12-21|challenge|[명] 도전, [동] 도전하다|I like a challenge.|나는 도전을 좋아한다.
+12-21|survive|[동] 살아남다|Plants need water to survive.|식물은 살아남기 위해 물이 필요하다.
+12-21|position|[명] 위치, 입장|What is your position?|너의 위치(입장)는 무엇이니?
+12-21|praise|[동] 칭찬하다, [명] 칭찬|The teacher praised him.|선생님은 그를 칭찬하셨다.
+12-22|hero|[명] 영웅|He is a war hero.|그는 전쟁 영웅이다.
+12-22|attractive|[형] 매력적인|She is attractive.|그녀는 매력적이다.
+12-22|favor|[명] 호의, 부탁|Do me a favor.|내 부탁 하나만 들어줘.
+12-22|palace|[명] 궁전|The king lives in a palace.|왕은 궁전에 산다.
+12-22|repeat|[동] 반복하다|Repeat after me.|나를 따라 해라(반복해라).
+12-22|citizen|[명] 시민|A good citizen.|훌륭한 시민.
+12-22|unite|[동] 결합하다|We must unite.|우리는 뭉쳐야(결합해야) 한다.
+12-22|warn|[동] 경고하다|I warned you.|나는 너에게 경고했다.
+12-22|medical|[형] 의학의|Medical help.|의학적 도움.
+12-22|devil|[명] 악마|An evil devil.|사악한 악마.
+12-22|valley|[명] 골짜기, 계곡|A deep valley.|깊은 계곡.
+12-22|breath|[명] 숨, 호흡|Take a deep breath.|깊게 숨을 쉬어라.
+12-22|source|[명] 원천, 출처|The source of the river.|강의 발원지(원천).
+12-22|harm|[명] 해, [동] 해치다|Do no harm.|해를 끼치지 마라.
+12-22|wave|[명] 물결, [동] 손을 흔들다|Big waves.|큰 파도(물결).
+12-22|pain|[명] 아픔, 고통|No pain, no gain.|고통 없이는 얻는 것도 없다.
+12-22|taste|[명] 맛, [동] 맛이 나다|It tastes sweet.|단맛이 난다.
+12-22|quarrel|[명] 싸움, [동] 말다툼하다|Don't quarrel.|말다툼하지 마라.
+12-22|report|[동] 보고하다, [명] 보고서|Write a report.|보고서를 써라.
+12-22|athlete|[명] 운동선수|A famous athlete.|유명한 운동선수.
+12-22|bottom|[명] 밑바닥|At the bottom of the sea.|바다 밑바닥에.
+12-22|condition|[명] 조건, 상태|Good condition.|좋은 상태.
+12-22|sightsee|[동] 구경하다|We went sightseeing.|우리는 구경(관광)하러 갔다.
+12-22|fare|[명] 요금|Bus fare.|버스 요금.
+12-22|giant|[명] 거인, [형] 거대한|A huge giant.|거대한 거인.
+12-22|Spanish|[형] 스페인의, [명] 스페인어|I speak Spanish.|나는 스페인어를 한다.
+12-22|imagine|[동] 상상하다|Imagine that.|그것을 상상해 봐라.
+12-22|wet|[형] 젖은|My hair is wet.|내 머리카락은 젖었다.
+12-22|act|[명] 행위, [동] 행동하다|Think before you act.|행동하기 전에 생각해라.
+12-22|clerk|[명] 점원|Ask the clerk.|점원에게 물어봐라.
+12-23|grown-up|[명] 어른, [형] 성장한|Act like a grown-up.|어른처럼 행동해라.
+12-23|healthy|[형] 건강한|Eat healthy food.|건강한 음식을 먹어라.
+12-23|complain|[동] 불평하다|Don't complain.|불평하지 마라.
+12-23|weekend|[명] 주말|Have a nice weekend.|즐거운 주말 보내.
+12-23|coach|[명] 코치|Soccer coach.|축구 코치.
+12-23|rose|[명] 장미|A red rose.|빨간 장미.
+12-23|upon|[전] ~위에|Once upon a time.|옛날에.
+12-23|dozen|[명] 1다스, 12개|A dozen eggs.|달걀 한 다스(12개).
+12-23|copy|[명] 사본, [동] 베끼다|Copy this page.|이 페이지를 복사해라(베껴라).
+12-23|curtain|[명] 커튼|Open the curtain.|커튼을 열어라.
+12-23|market|[명] 시장|Go to the market.|시장에 가라.
+12-23|wine|[명] 포도주|Red wine.|적포도주.
+12-23|jacket|[명] 재킷|Wear a jacket.|재킷을 입어라.
+12-23|everyday|[형] 매일의|Everyday life.|일상생활(매일의 삶).
+12-23|post|[명] 우편, [동] 부치다|Post a letter.|편지를 부치다.
+12-23|double|[형] 두 배의|Double bed.|2인용 침대.
+12-23|asleep|[형] 잠들어 있는|The baby is asleep.|아기는 잠들어 있다.
+12-23|alphabet|[명] 알파벳|The English alphabet.|영어 알파벳.
+12-23|racket|[명] 라켓|Tennis racket.|테니스 라켓.
+12-23|apartment|[명] 아파트|I live in an apartment.|나는 아파트에 산다.
+12-23|headache|[명] 두통|I have a headache.|나는 두통이 있다.
+12-23|sale|[명] 판매, 세일|On sale.|판매 중(세일 중).
+12-23|salt|[명] 소금|Pass me the salt.|소금 좀 건네줘.
+12-23|cookie|[명] 쿠키|Chocolate cookie.|초콜릿 쿠키.
+12-23|impossible|[형] 불가능한|Nothing is impossible.|불가능한 것은 없다.
+12-23|everywhere|[부] 어디에나|God is everywhere.|신은 어디에나 있다.
+12-23|pants|[명] 바지|Blue pants.|파란 바지.
+12-23|wide|[형] 넓은|A wide river.|넓은 강.
+12-23|storm|[명] 폭풍|A heavy storm.|심한 폭풍.
+12-23|medal|[명] 메달|Gold medal.|금메달.
+12-24|sleepy|[형] 졸린|I feel sleepy.|나는 졸리다.
+12-24|bathroom|[명] 욕실, 화장실|Go to the bathroom.|화장실에 가라.
+12-24|ahead|[부] 앞에, 앞으로|Go ahead.|앞으로 가라(계속해라).
+12-24|cheer|[명] 환호, [동] 환호하다|Cheer up!|기운 내(환호해)!
+12-24|jam|[명] 혼잡, 잼|Traffic jam.|교통 혼잡.
+12-24|picnic|[명] 소풍|Go on a picnic.|소풍 가다.
+12-24|tower|[명] 탑|A high tower.|높은 탑.
+12-24|strike|[동] 치다, 때리다|Strike the ball.|공을 쳐라.
+12-24|midnight|[명] 자정|At midnight.|자정에.
+12-24|basket|[명] 바구니|A fruit basket.|과일 바구니.
+12-24|blanket|[명] 담요|A warm blanket.|따뜻한 담요.
+12-24|indeed|[부] 정말로|Yes, indeed.|네, 정말로요.
+12-24|certain|[형] 확실한, 어떤|I am certain.|나는 확실하다.
+12-24|recorder|[명] 녹음기, 리코더|Tape recorder.|테이프 녹음기.
+12-24|volleyball|[명] 배구|Play volleyball.|배구를 하다.
+12-24|stove|[명] 난로|A hot stove.|뜨거운 난로.
+12-24|castle|[명] 성|An old castle.|오래된 성.
+12-24|tunnel|[명] 터널|A long tunnel.|긴 터널.
+12-24|sharp|[형] 날카로운|A sharp knife.|날카로운 칼.
+12-24|role|[명] 역할|Play a role.|역할을 하다.
+12-24|helpful|[형] 도움이 되는|It was helpful.|그것은 도움이 되었다.
+12-24|bookstore|[명] 서점|Go to a bookstore.|서점에 가라.
+12-24|death|[명] 죽음|Life and death.|삶과 죽음.
+12-24|except|[전] ~을 제외하고는|Everyone except me.|나를 제외한 모두.
+12-24|excellent|[형] 우수한|Excellent work.|훌륭한 솜씨(작품).
+12-24|attack|[동] 공격하다|Attack the enemy.|적을 공격해라.
+12-24|enemy|[명] 적|Fight the enemy.|적과 싸워라.
+12-24|honor|[명] 명예|It is an honor.|영광입니다(명예입니다).
+12-24|remind|[동] 생각나게 하다|Remind me later.|나중에 다시 말해줘(생각나게 해줘).
+12-24|textbook|[명] 교과서|Open your textbook.|교과서를 펴라.
+12-25|wool|[명] 양털|A wool sweater.|양털 스웨터.
+12-25|graduate|[동] 졸업하다|Graduate from school.|학교를 졸업하다.
+12-25|painter|[명] 화가|A famous painter.|유명한 화가.
+12-25|knock|[동] 두드리다|Knock on the door.|문을 두드려라.
+12-25|somebody|[대] 누군가|Somebody help me!|누가 좀 도와줘요!
+12-25|joy|[명] 기쁨|Jump for joy.|기뻐서 펄쩍 뛰다.
+12-25|anybody|[대] 누군가, 누구도|Is anybody home?|집에 누구 있어요?
+12-25|goods|[명] 상품|Leather goods.|가죽 제품(상품).
+12-25|couple|[명] 한 쌍, 부부|A married couple.|부부.
+12-25|handsome|[형] 잘생긴|A handsome boy.|잘생긴 소년.
+12-25|p.m.|[부] 오후|2 p.m.|오후 2시.
+12-25|jet|[명] 제트기|A jet plane.|제트기.
+12-25|disappear|[동] 사라지다|The sun disappeared.|해가 사라졌다.
+12-25|rapidly|[부] 빠르게|Run rapidly.|빠르게 달려라.
+12-25|president|[명] 대통령|The president of Korea.|한국의 대통령.
+12-25|feed|[동] 먹을 것을 주다|Feed the dog.|개에게 먹이를 줘라.
+12-25|gym|[명] 체육관|Go to the gym.|체육관에 가라.
+12-25|worst|[형] 최악의|The worst day.|최악의 날.
+12-25|mail|[명] 우편, [동] 부치다|Send mail.|우편을 보내다.
+12-25|department|[명] 부, 매장|Toy department.|장난감 매장.
+12-25|mend|[동] 고치다|Mend the shoes.|신발을 고쳐라.
+12-25|humor|[명] 유머|Sense of humor.|유머 감각.
+12-25|jungle|[명] 정글|King of the jungle.|정글의 왕.
+12-25|butter|[명] 버터|Bread and butter.|버터 바른 빵.
+12-25|lonely|[형] 쓸쓸한|I feel lonely.|나는 쓸쓸하다.
+12-25|cage|[명] 새장, 우리|A bird in a cage.|새장 속의 새.
+12-25|subway|[명] 지하철|Take the subway.|지하철을 타라.
+12-25|photo|[명] 사진|Take a photo.|사진을 찍어라.
+12-25|band|[명] 악단, 밴드|A rock band.|록 밴드.
+12-25|manner|[명] 방법, 태도|Table manners.|식사 예절.
+12-26|thirsty|[형] 목마른|I am very thirsty.|나는 매우 목이 마르다.
+12-26|chief|[명] 우두머리, 장|The chief of police.|경찰 서장(우두머리).
+12-26|thick|[형] 두꺼운, 굵은|A thick book.|두꺼운 책.
+12-26|wise|[형] 현명한|A wise king.|현명한 왕.
+12-26|result|[명] 결과|Good result.|좋은 결과.
+12-26|sunlight|[명] 햇빛|Bright sunlight.|밝은 햇빛.
+12-26|kangaroo|[명] 캥거루|A kangaroo jumps.|캥거루가 뛴다.
+12-26|scenery|[명] 풍경, 경치|Beautiful scenery.|아름다운 풍경.
+12-26|neither|[대] ~도 ~도 아니다|Neither of them came.|그들 중 아무도 오지 않았다.
+12-26|simply|[부] 간단히, 다만|Simply do it.|그냥(간단히) 해라.
+12-26|thin|[형] 얇은, 야윈|A thin book.|얇은 책.
+12-26|alive|[형] 살아있는|Is it alive?|그것은 살아 있니?
+12-26|homeroom|[명] 홈룸|Go to homeroom.|홈룸(교실)으로 가라.
+12-26|noisy|[형] 시끄러운|A noisy street.|시끄러운 거리.
+12-26|nation|[명] 국민, 국가|One nation.|하나의 국가.
+12-26|fellow|[명] 동료, 녀석|Good fellow.|좋은 동료(친구).
+12-26|luck|[명] 운, 행운|Good luck!|행운을 빌어!
+12-26|downstairs|[부] 아래층으로|Go downstairs.|아래층으로 가라.
+12-26|advise|[동] 충고하다|I advise you to stop.|나는 네가 멈추기를 충고한다.
+12-26|serious|[형] 진지한, 심각한|Be serious.|진지해져라.
+12-26|ache|[동] 아프다, [명] 아픔|My head aches.|머리가 아프다.
+12-26|foolish|[형] 어리석은|Don't be foolish.|어리석게 굴지 마라.
+12-26|success|[명] 성공|I wish you success.|성공을 빈다.
+12-26|abroad|[부] 외국에|Study abroad.|외국에서 공부하다(유학하다).
+12-26|visitor|[명] 방문자|A foreign visitor.|외국인 방문객.
+12-26|Greek|[형] 그리스의|Greek myths.|그리스 신화.
+12-26|energy|[명] 에너지, 힘|Save energy.|에너지를 절약해라.
+12-26|upstairs|[부] 위층으로|Go upstairs.|위층으로 가라.
+12-26|steak|[명] 스테이크|I like steak.|나는 스테이크를 좋아한다.
+12-26|anywhere|[부] 어디엔가, 어디든지|Go anywhere.|어디든지 가라.
+12-27|trick|[명] 속임수, 장난|A magic trick.|마술 속임수.
+12-27|actor|[명] 배우|A famous actor.|유명한 배우.
+12-27|seed|[명] 씨|Plant a seed.|씨를 심어라.
+12-27|weight|[명] 무게|Watch your weight.|체중(무게)을 조심해라.
+12-27|twinkle|[동] 반짝이다|Stars twinkle.|별들이 반짝인다.
+12-27|happiness|[명] 행복|True happiness.|진정한 행복.
+12-27|fool|[명] 바보|Don't be a fool.|바보같이 굴지 마라.
+12-27|count|[동] 세다|Count to ten.|10까지 세어라.
+12-27|sweet|[형] 단, 향기로운|Sweet candy.|달콤한 사탕.
+12-27|hammer|[명] 망치|Use a hammer.|망치를 사용해라.
+12-27|cloth|[명] 천|A piece of cloth.|천 조각.
+12-27|calendar|[명] 달력|Check the calendar.|달력을 확인해라.
+12-27|heat|[명] 열, 더위|Summer heat.|여름 더위.
+12-27|till|[전] ~까지|Wait till noon.|정오까지 기다려라.
+12-27|lip|[명] 입술|Red lips.|붉은 입술.
+12-27|medium|[형] 중간의|Medium size.|중간 크기.
+12-27|wrap|[동] 싸다, 포장하다|Wrap the gift.|선물을 포장해라.
+12-27|well-done|[형] 잘 구워진|Well-done steak.|잘 구워진 스테이크.
+12-27|truly|[부] 진실로|I am truly sorry.|정말로 미안하다.
+12-27|Asia|[명] 아시아|I live in Asia.|나는 아시아에 산다.
+12-27|danger|[명] 위험|In danger.|위험에 처한.
+12-27|earn|[동] 벌다|Earn money.|돈을 벌다.
+12-27|marathon|[명] 마라톤|Run a marathon.|마라톤을 뛰다.
+12-27|express|[동] 표현하다|Express yourself.|자신을 표현해라.
+12-27|population|[명] 인구|Large population.|많은 인구.
+12-27|pleasure|[명] 즐거움|It's my pleasure.|저의 즐거움입니다(천만에요).
+12-27|unfortunately|[부] 불행하게도|Unfortunately, I lost.|불행하게도, 나는 졌다.
+12-27|effect|[명] 효과, 결과|Good effect.|좋은 효과.
+12-27|equal|[형] 같은|All men are equal.|모든 사람은 평등하다(같다).
+12-27|wolf|[명] 늑대|A wild wolf.|야생 늑대.
+12-28|fault|[명] 결점, 잘못|It's my fault.|내 잘못이다.
+12-28|waiter|[명] 웨이터|Call the waiter.|웨이터를 불러라.
+12-28|smooth|[형] 매끄러운|Smooth skin.|매끄러운 피부.
+12-28|kick|[동] 차다|Kick the ball.|공을 차라.
+12-28|branch|[명] 가지, 지점|A tree branch.|나뭇가지.
+12-28|operator|[명] 기사, 교환수|Phone operator.|전화 교환원.
+12-28|local|[형] 지방의, 지역의|Local news.|지역 뉴스.
+12-28|according|[부] ~에 의하면|According to him.|그에 의하면.
+12-28|army|[명] 육군, 군대|Join the army.|군대에 가다.
+12-28|bow|[동] 절하다|Bow to the teacher.|선생님께 절해라(인사해라).
+12-28|businessman|[명] 사업가|A rich businessman.|부유한 사업가.
+12-28|festival|[명] 축제|School festival.|학교 축제.
+12-28|forever|[부] 영원히|Friends forever.|영원한 친구.
+12-28|main|[형] 주요한|Main street.|주요 거리(대로).
+12-28|poem|[명] 시|Write a poem.|시를 써라.
+12-28|kid|[명] 아이|He is just a kid.|그는 그저 아이다.
+12-28|distance|[명] 거리|Long distance.|긴 거리.
+12-28|prison|[명] 감옥|Go to prison.|감옥에 가다.
+12-28|safety|[명] 안전|Safety first.|안전 제일.
+12-28|community|[명] 공동체, 지역 사회|Our community.|우리 지역 사회.
+12-28|charge|[동] 청구하다, [명] 요금|How much do you charge?|얼마를 청구하나요?
+12-28|flame|[명] 불꽃|Red flame.|붉은 불꽃.
+12-28|Europe|[명] 유럽|Travel to Europe.|유럽으로 여행하다.
+12-28|Roman|[형] 로마의|Roman Empire.|로마 제국.
+12-28|scene|[명] 장면, 광경|A beautiful scene.|아름다운 광경.
+12-28|absent|[형] 결석한|He is absent.|그는 결석했다.
+12-28|Japanese|[형] 일본의, [명] 일본어|I like Japanese food.|나는 일본 음식을 좋아한다.
+12-28|coast|[명] 해안|Along the coast.|해안을 따라서.
+12-28|fog|[명] 안개|Thick fog.|짙은 안개.
+12-28|rough|[형] 거친|Rough hands.|거친 손.
+12-29|enter|[동] 들어가다|Enter the room.|방에 들어가라.
+12-29|guide|[동] 안내하다|Guide me.|나를 안내해라.
+12-29|fry|[동] 튀기다|Fry an egg.|달걀을 튀겨라(부쳐라).
+12-29|handkerchief|[명] 손수건|Use a handkerchief.|손수건을 사용해라.
+12-29|skin|[명] 피부|Soft skin.|부드러운 피부.
+12-29|stream|[명] 시내, 개울|A small stream.|작은 시내.
+12-29|track|[명] 자국, 선로|Train track.|기차 선로.
+12-29|Japan|[명] 일본|Japan is near Korea.|일본은 한국에서 가깝다.
+12-29|jewel|[명] 보석|A shining jewel.|빛나는 보석.
+12-29|Olympic|[형] 올림픽의|Olympic Games.|올림픽 경기.
+12-29|attract|[동] 끌다, 유인하다|Flowers attract bees.|꽃은 벌을 유인한다.
+12-29|schedule|[명] 시간표, 일정|Check the schedule.|일정을 확인해라.
+12-29|unusual|[형] 별난, 특이한|An unusual hat.|특이한 모자.
+12-29|human|[형] 인간의|Human rights.|인권(인간의 권리).
+12-29|knee|[명] 무릎|Bend your knees.|무릎을 굽혀라.
+12-29|French|[형] 프랑스의|French bread.|프랑스 빵.
+12-29|manager|[명] 지배인, 감독|Store manager.|상점 지배인.
+12-29|wagon|[명] 짐마차|A horse wagon.|말이 끄는 짐마차.
+12-29|Pacific|[명] 태평양|The Pacific Ocean.|태평양.
+12-29|shoot|[동] 사격하다, 쏘다|Shoot the ball.|공을 쏴라.
+12-29|national|[형] 국가의|National flag.|국기.
+12-29|allow|[동] 허락하다|Please allow me.|나를 허락해 주세요.
+12-29|collect|[동] 모으다|Collect stamps.|우표를 모으다.
+12-29|fix|[동] 고치다, 고정하다|Fix the car.|차를 고쳐라.
+12-29|brave|[형] 용감한|A brave soldier.|용감한 군인.
+12-29|dive|[동] 뛰어들다, 잠수하다|Dive into water.|물속으로 뛰어들어라.
+12-29|barn|[명] 헛간|A red barn.|빨간 헛간.
+12-29|classical|[형] 고전의|Classical music.|고전 음악(클래식).
+12-29|examine|[동] 조사하다, 검사하다|Examine it carefully.|그것을 주의 깊게 조사해라.
+12-29|perfect|[형] 완전한|Nobody is perfect.|아무도 완벽하지 않다.
+12-30|address|[명] 주소|Write your address.|주소를 써라.
+12-30|necessary|[형] 필요한|Water is necessary.|물은 필요하다.
+12-30|nest|[명] 둥지|A bird's nest.|새 둥지.
+12-30|expression|[명] 표현|Facial expression.|얼굴 표정(표현).
+12-30|scientific|[형] 과학의|Scientific study.|과학적 연구.
+12-30|attention|[명] 주의, 주목|Pay attention.|주목해라.
+12-30|nor|[접] ~도 또한 ~아니다|Neither he nor I went.|그도 나도 가지 않았다.
+12-30|hardly|[부] 거의 ~않다|I can hardly hear you.|네 말이 거의 안 들린다.
+12-30|planet|[명] 행성|Earth is a planet.|지구는 행성이다.
+12-30|pride|[명] 자존심, 자랑|Take pride in yourself.|자부심을 가져라.
+12-30|hate|[동] 싫어하다|I hate lies.|나는 거짓말을 싫어한다.
+12-30|nearby|[형] 가까운|A nearby park.|가까운 공원.
+12-30|pleasant|[형] 즐거운|Have a pleasant day.|즐거운 하루 보내세요.
+12-30|starve|[동] 굶어 죽다|Don't starve.|굶지 마라.
+12-30|nature|[명] 자연|We must protect nature.|우리는 자연을 보호해야 한다.
+12-30|movement|[명] 움직임|Slow movement.|느린 움직임.
+12-30|signal|[명] 신호|Traffic signal.|교통 신호.
+12-30|cinema|[명] 영화관|Go to the cinema.|영화관에 가다.
+12-30|mild|[형] 온화한|Mild weather.|온화한 날씨.
+12-30|search|[동] 찾다, 수색하다|Search for truth.|진실을 찾아라.
+12-30|experiment|[명] 실험|Do an experiment.|실험을 하다.
+12-30|silent|[형] 조용한|Be silent.|조용히 해라.
+12-30|part-time|[형] 파트타임의|Part-time job.|아르바이트(파트타임 일).
+12-30|hobby|[명] 취미|My hobby is reading.|내 취미는 독서다.
+12-30|devote|[동] 바치다|Devote your time.|시간을 바쳐라.
+12-30|fail|[동] 실패하다|Don't be afraid to fail.|실패하는 것을 두려워하지 마라.
+12-30|pop|[형] 대중적인|Pop music.|대중음악.
+12-30|block|[명] 블록, 구획|Walk one block.|한 블록 걸어라.
+12-30|nurse|[명] 간호사|She is a nurse.|그녀는 간호사다.
+12-30|sight|[명] 시력, 광경|Wonderful sight.|멋진 광경.
+12-31|garage|[명] 차고|The car is in the garage.|차가 차고에 있다.
+12-31|female|[명] 여성, 암컷|Female lion.|암사자.
+12-31|stomach|[명] 위|My stomach hurts.|위(배)가 아프다.
+12-31|exchange|[동] 교환하다|Exchange gifts.|선물을 교환해라.
+12-31|equipment|[명] 장비|Sports equipment.|스포츠 장비.
+12-31|magic|[명] 마법, 요술|Do magic.|마법을 부리다.
+12-31|admire|[동] 감탄하다|I admire you.|나는 너에게 감탄한다(존경한다).
+12-31|memorize|[동] 외우다|Memorize the words.|단어를 외워라.
+12-31|appointment|[명] 약속|Make an appointment.|약속을 잡아라.
+12-31|invitation|[명] 초대|Thank you for the invitation.|초대에 감사합니다.
+12-31|sense|[명] 감각, 의미|Five senses.|오감.
+12-31|crop|[명] 농작물|Good crop.|풍작(좋은 수확).
+12-31|spread|[동] 펴다, 퍼뜨리다|Spread the map.|지도를 펴라.
+12-31|whether|[접] ~인지 어떤지|I don't know whether it is true.|나는 그것이 사실인지 아닌지 모른다.
+12-31|applaud|[동] 박수갈채를 보내다|They applauded loudly.|그들은 크게 박수를 쳤다.
+12-31|badly|[부] 나쁘게, 몹시|He was injured badly.|그는 심하게 다쳤다.
+12-31|fresh|[형] 신선한|Fresh fruit.|신선한 과일.
+12-31|melt|[동] 녹다|Ice melts.|얼음이 녹는다.
+12-31|pity|[명] 동정, [동] 불쌍히 여기다|Have pity on him.|그를 불쌍히 여겨라.
+12-31|sweat|[명] 땀, [동] 땀을 흘리다|Wipe the sweat.|땀을 닦아라.
+12-31|comfortable|[형] 편안한|A comfortable chair.|편안한 의자.
+12-31|friendship|[명] 우정|True friendship.|진정한 우정.
+12-31|adventure|[명] 모험|Go on an adventure.|모험을 떠나다.
+12-31|etc.|~등, ~따위|Pens, pencils, etc.|펜, 연필 등등.
+12-31|freedom|[명] 자유|Fight for freedom.|자유를 위해 싸우다.
+12-31|fence|[명] 울타리|Jump over the fence.|울타리를 뛰어넘어라.
+12-31|France|[명] 프랑스|Paris is in France.|파리는 프랑스에 있다.
+12-31|huge|[형] 거대한|A huge building.|거대한 건물.
+12-31|musical|[형] 음악의|Musical instrument.|악기.
+12-31|root|[명] 뿌리|Tree roots.|나무 뿌리.
+12-32|charming|[형] 매력적인|A charming girl.|매력적인 소녀.
+12-32|bowl|[명] 사발, 그릇|A bowl of soup.|수프 한 그릇.
+12-32|disease|[명] 병, 질병|Cure a disease.|병을 치료하다.
+12-32|gather|[동] 모으다, 모이다|Gather together.|함께 모여라.
+12-32|judge|[명] 재판관, [동] 판단하다|Don't judge others.|남을 판단하지 마라.
+12-32|pour|[동] 붓다|Pour water.|물을 부어라.
+12-32|service|[명] 봉사, 서비스|Good service.|좋은 서비스.
+12-32|electric|[형] 전기의|Electric fan.|선풍기.
+12-32|effort|[명] 노력|Make an effort.|노력해라.
+12-32|bury|[동] 묻다|Bury a bone.|뼈를 묻어라.
+12-32|feather|[명] 깃털|Light as a feather.|깃털처럼 가벼운.
+12-32|quarter|[명] 4분의 1, 15분|A quarter past two.|2시 15분.
+12-32|attend|[동] 출석하다|Attend school.|학교에 출석하다(다니다).
+12-32|junior|[형] 연소한, [명] 후배|He is my junior.|그는 내 후배다.
+12-32|shy|[형] 수줍어하는|Don't be shy.|부끄러워하지 마라.
+12-32|suggest|[동] 제안하다|I suggest a plan.|나는 계획을 제안한다.
+12-32|education|[명] 교육|School education.|학교 교육.
+12-32|calm|[형] 고요한, [명] 고요|Stay calm.|침착해라(고요함을 유지해라).
+12-32|social|[형] 사회의|Social studies.|사회 과목.
+12-32|honest|[형] 정직한|Be honest.|정직해라.
+12-32|boil|[동] 끓다, 끓이다|Boil water.|물을 끓여라.
+12-32|reply|[동] 대답하다, [명] 대답|Please reply.|대답해 주세요.
+12-32|polite|[형] 공손한|A polite boy.|공손한 소년.
+12-32|temperature|[명] 온도, 체온|Check the temperature.|온도를 확인해라.
+12-32|doubt|[동] 의심하다, [명] 의심|No doubt.|의심할 여지 없이.
+12-32|avenue|[명] 큰 거리|Fifth Avenue.|5번가(거리 이름).
+12-32|shock|[명] 충격, [동] 충격을 주다|It was a big shock.|그것은 큰 충격이었다.
+12-32|realize|[동] 깨닫다|I realized my mistake.|나는 내 실수를 깨달았다.
+12-32|central|[형] 중앙의|Central park.|중앙 공원.
+12-32|instance|[명] 예, 보기|For instance.|예를 들어.
+12-33|delicious|[형] 맛있는|It looks delicious.|맛있어 보인다.
+12-33|goal|[명] 득점, 목표|Score a goal.|득점하다(골을 넣다).
+12-33|hunt|[동] 사냥하다, [명] 사냥|Lions hunt.|사자는 사냥한다.
+12-33|powerful|[형] 강력한|A powerful car.|강력한 차.
+12-33|Australian|[형] 오스트레일리아의|An Australian animal.|오스트레일리아 동물.
+12-33|continent|[명] 대륙|The Asian continent.|아시아 대륙.
+12-33|path|[명] 작은 길|Follow the path.|길을 따라가라.
+12-33|exactly|[부] 정확히|That's exactly right.|그것이 정확히 맞다.
+12-33|similar|[형] 비슷한|They look similar.|그들은 비슷해 보인다.
+12-33|ocean|[명] 대양|The wide ocean.|넓은 대양.
+12-33|truth|[명] 진실|Tell the truth.|진실을 말해라.
+12-33|opinion|[명] 의견|What is your opinion?|너의 의견은 무엇이니?
+12-33|loose|[형] 헐거운|A loose tooth.|흔들리는(헐거운) 이.
+12-33|crash|[명] 충돌, [동] 충돌하다|A car crash.|자동차 충돌 사고.
+12-33|temple|[명] 절, 사원|An old temple.|오래된 절.
+12-33|instruction|[명] 교육, 지시|Follow the instruction.|지시를 따르라.
+12-33|direction|[명] 방향|Which direction?|어느 방향이니?
+12-33|author|[명] 저자, 작가|Who is the author?|작가가 누구니?
+12-33|divide|[동] 나누다|Divide the cake.|케이크를 나누어라.
+12-33|unify|[동] 통일하다|Unify the country.|나라를 통일하다.
+12-33|share|[동] 나누다, 공유하다|Share your toys.|장난감을 나누어 써라.
+12-33|trade|[명] 무역|Free trade.|자유 무역.
+12-33|unification|[명] 통일|Peaceful unification.|평화 통일.
+12-33|connect|[동] 연결하다|Connect the dots.|점들을 연결해라.
+12-33|relative|[명] 친척|Visit a relative.|친척을 방문하다.
+12-33|trust|[명] 신용, [동] 믿다|Trust me.|나를 믿어라.
+12-33|democracy|[명] 민주주의|Fight for democracy.|민주주의를 위해 싸우다.
+12-33|silly|[형] 어리석은|Don't be silly.|바보같이 굴지 마라.
+12-33|independent|[형] 독립의|Be independent.|독립심을 가져라.
+12-33|blossom|[명] 꽃, [동] 꽃이 피다|Cherry blossom.|벚꽃.
+12-34|rub|[동] 문지르다|Rub your hands.|손을 비벼라.
+12-34|offer|[동] 제공하다|Offer help.|도움을 제공하다.
+12-34|particular|[형] 특별한|Nothing particular.|특별한 것은 없다.
+12-34|conversation|[명] 대화|English conversation.|영어 회화.
+12-34|professor|[명] 교수|A university professor.|대학교수.
+12-34|completely|[부] 완전히|Completely different.|완전히 다른.
+12-34|succeed|[동] 성공하다|You will succeed.|너는 성공할 것이다.
+12-34|sorrow|[명] 슬픔|Joy and sorrow.|기쁨과 슬픔.
+12-34|bite|[동] 물다|Dogs bite.|개들은 문다.
+12-34|obey|[동] 복종하다|Obey the rules.|규칙을 따르라.
+12-34|congratulate|[동] 축하하다|I congratulate you.|너를 축하한다.
+12-34|avoid|[동] 피하다|Avoid danger.|위험을 피하라.
+12-34|congratulation|[명] 축하|Congratulations!|축하해!
+12-34|mention|[동] 말하다, 언급하다|Don't mention it.|천만에요(그걸 언급하지 마세요).
+12-34|accept|[동] 받다|Accept the gift.|선물을 받아라.
+12-34|private|[형] 사적인|Private life.|사생활.
+12-34|society|[명] 사회|Modern society.|현대 사회.
+12-34|sow|[동] 뿌리다|Sow seeds.|씨를 뿌려라.
+12-34|solve|[동] 풀다|Solve the problem.|문제를 풀어라.
+12-34|choice|[명] 선택|Good choice.|좋은 선택.
+12-34|actually|[부] 실제로|Actually, I am busy.|사실, 나는 바쁘다.
+12-34|economy|[명] 경제|The world economy.|세계 경제.
+12-34|curious|[형] 호기심이 강한|I am curious.|나는 궁금하다.
+12-34|spirit|[명] 정신|Team spirit.|협동심(팀 정신).
+12-34|frankly|[부] 솔직히|Frankly speaking.|솔직히 말해서.
+12-34|greet|[동] 인사하다|Greet your teacher.|선생님께 인사해라.
+12-34|active|[형] 활동적인|Be active.|활동적으로 움직여라.
+12-34|furniture|[명] 가구(기구)|Wooden furniture.|나무 가구.
+12-34|destroy|[동] 파괴하다|Destroy the building.|건물을 파괴하다.
+12-34|escape|[동] 달아나다|Escape from prison.|감옥에서 탈출하다.
+12-35|extra|[형] 여분의|An extra pen.|여분의 펜.
+12-35|invent|[동] 발명하다|Invent a machine.|기계를 발명하다.
+12-35|pardon|[명] 용서|I beg your pardon?|뭐라고요?(다시 말씀해 주시겠어요?)
+12-35|waste|[동] 낭비하다|Don't waste time.|시간을 낭비하지 마라.
+12-35|disappoint|[동] 실망시키다|Don't disappoint me.|나를 실망시키지 마라.
+12-35|freeze|[동] 얼다|Water freezes.|물은 언다.
+12-35|educate|[동] 교육하다|Educate children.|아이들을 교육하다.
+12-35|breathe|[동] 호흡하다|Breathe deeply.|깊게 숨을 쉬어라.
+12-35|tooth|[명] 이|Brush your tooth.|이를 닦아라. (보통 teeth 사용)
+12-35|successful|[형] 성공한|A successful man.|성공한 남자.
+12-35|cause|[명] 원인, [동] 일으키다|The cause of the fire.|화재의 원인.
+12-35|lecture|[명] 강의|Give a lecture.|강의를 하다.
+12-35|communication|[명] 의사소통|Good communication.|원활한 의사소통.
+12-35|elementary|[형] 초보의, 기본의|Elementary school.|초등학교.
+12-35|exercise|[명] 운동, 연습|Do exercise.|운동을 해라.
+12-35|recently|[부] 최근에|I met him recently.|나는 최근에 그를 만났다.
+12-35|repair|[동] 수리하다|Repair the car.|차를 수리하다.
+12-35|proverb|[명] 속담|An old proverb.|옛 속담.
+12-35|view|[명] 경치, 의견|A fine view.|멋진 경치.
+12-35|patience|[명] 인내|Have patience.|인내심을 가져라.
+12-35|progress|[명] 진보, [동] 나아가다|Make progress.|진보하다(발전하다).
+12-35|basic|[형] 기초의|Basic English.|기초 영어.
+12-35|punish|[동] 벌하다|Punish the criminal.|범인을 벌하다.
+12-35|refuse|[동] 거절하다|I refuse to go.|나는 가기를 거절한다.
+12-35|depend|[동] 의지하다|Depend on you.|너에게 의지하다.
+12-35|excitement|[명] 흥분|Full of excitement.|흥분으로 가득 찬.
+12-35|design|[명] 디자인, [동] 설계하다|Design a house.|집을 설계하다.
+12-35|various|[형] 여러 가지의|Various colors.|여러 가지 색깔들.
+12-35|single|[형] 단 하나의|Every single day.|매일매일(하루도 빠짐없이).
+12-35|blame|[동] 나무라다, 비난하다|Don't blame me.|나를 비난하지 마라.
+12-36|satisfy|[동] 만족시키다|Satisfy your hunger.|너의 허기를 채워라(만족시켜라).
+12-36|uniform|[명] 제복|School uniform.|교복.
+12-36|public|[형] 공공의|Public park.|공공 공원.
+12-36|courage|[명] 용기|Have courage.|용기를 가져라.
+12-36|shame|[명] 부끄러움|What a shame!|정말 부끄러운 일이다! (안타깝다!)
+12-36|dress|[명] 의복, [동] 옷을 입다|Wear a nice dress.|멋진 옷을 입어라.
+12-36|skill|[명] 솜씨, 숙련|Good skill.|좋은 솜씨.
+12-36|develop|[동] 발달하다|Plants develop.|식물이 발달한다(자란다).
+12-36|produce|[동] 생산하다|Bees produce honey.|벌은 꿀을 생산한다.
+12-36|entrance|[명] 입구, 입학|Entrance exam.|입학 시험.
+12-36|fear|[명] 두려움, [동] 두려워하다|I have no fear.|나는 두려움이 없다.
+12-36|youth|[명] 젊음|Eternal youth.|영원한 젊음.
+12-36|increase|[동] 증가하다|Sales increased.|판매가 증가했다.
+12-36|ceremony|[명] 의식, 식|Wedding ceremony.|결혼식.
+12-36|pray|[동] 빌다, 기도하다|Pray to God.|신에게 기도해라.
+12-36|system|[명] 조직, 체계|Computer system.|컴퓨터 시스템.
+12-36|when|[부] 언제, [접] ~할 때|When will you come?|언제 올 거니?
+12-36|tomb|[명] 무덤|A king's tomb.|왕의 무덤.
+12-36|invade|[동] 침입하다|Enemies invade.|적들이 침입한다.
+12-36|respect|[명] 존경, [동] 존경하다|Respect your parents.|부모님을 존경해라.
+12-36|circle|[명] 원, [동] 회전하다|Draw a circle.|원을 그려라.
+12-36|wisdom|[명] 지혜|Words of wisdom.|지혜의 말.
+12-36|relax|[동] 쉬다|Relax at home.|집에서 쉬어라.
+12-36|treasure|[명] 보물|Hidden treasure.|숨겨진 보물.
+12-36|stretch|[동] 뻗다|Stretch your arms.|팔을 뻗어라.
+12-36|notice|[명] 주의, [동] 알아차리다|I didn't notice it.|나는 그것을 알아차리지 못했다.
+12-36|ancestor|[명] 조상|My ancestors.|나의 조상들.
+12-36|subject|[명] 과목, 주제|Favorite subject.|가장 좋아하는 과목.
+12-36|prefer|[동] 더 좋아하다|I prefer coffee.|나는 커피를 더 좋아한다.
+12-36|responsible|[형] 책임이 있는|Be responsible.|책임감을 가져라.
+12-37|kind|[형] 친절한, [명] 종류|What kind of fruit?|어떤 종류의 과일?
+12-37|pretty|[형] 예쁜, [부] 꽤|She is pretty.|그녀는 예쁘다.
+12-37|free|[형] 자유로운, 무료의|It is free.|그것은 무료다.
+12-37|about|[전] ~에 대하여, [부] 약|Think about it.|그것에 대해 생각해 봐.
+12-37|time|[명] 시간, ~번(회)|Three times a day.|하루에 세 번.
+12-37|like|[동] 좋아하다, [전] ~처럼|He looks like his dad.|그는 아빠처럼 보인다(닮았다).
+12-37|story|[명] 이야기, 층|A two-story house.|2층 집.
+12-37|park|[명] 공원, [동] 주차하다|Park the car here.|차를 여기에 주차해라.
+12-37|fall|[명] 가을, 폭포|Niagara Falls.|나이아가라 폭포.
+12-37|watch|[동] 보다, [명] 시계|Watch TV.|TV를 보다.
+12-37|bear|[동] 참다, [명] 곰|I can't bear it.|나는 그것을 참을 수 없다.
+12-37|miss|[동] 놓치다, 그리워하다|Don't miss the bus.|버스를 놓치지 마라.
+12-37|safe|[형] 안전한, [명] 금고|Put money in the safe.|돈을 금고에 넣어라.
+12-37|end|[명] 끝, 목적, [동] 끝나다|To the end.|끝까지.
+12-37|store|[명] 가게, [동] 저장하다|Store food for winter.|겨울을 위해 식량을 저장해라.
+12-37|party|[명] 파티, 정당|Birthday party.|생일 파티.
+12-37|draw|[동] 당기다, 그리다|Draw a line.|선을 그려라.
+12-37|race|[명] 경주, 인종|Human race.|인류(인종).
+12-37|case|[명] 상자, 경우|In that case.|그 경우에.
+12-37|have|[동] 가지다, 먹다|Have lunch.|점심을 먹다.
+12-37|match|[명] 시합, 성냥|Light a match.|성냥을 켜라.
+12-37|rest|[동] 쉬다, [명] 나머지|Take a rest.|휴식을 취해라.
+12-37|bank|[명] 은행, 둑|River bank.|강둑.
+12-37|gift|[명] 선물, 재능|A special gift.|특별한 선물.
+12-37|spring|[명] 봄, 용수철|A metal spring.|금속 용수철.
+12-37|lie|[동] 눕다, 거짓말하다|Don't lie to me.|나에게 거짓말하지 마라.
+12-37|blue|[형] 파란, 우울한|I feel blue.|나는 우울하다.
+12-37|check|[동] 확인하다, [명] 수표|Pay by check.|수표로 지불하다.
+12-37|fair|[형] 공평한, [명] 전시회|It's not fair.|그것은 공평하지 않다.
+12-37|company|[명] 회사, 친구|A big company.|큰 회사.
+12-38|touch|[동] 대다, 감동시키다|Don't touch it.|그것에 손대지 마라.
+12-38|plant|[명] 식물, 공장|A car plant.|자동차 공장.
+12-38|for|[전] ~을 위하여, ~동안|Wait for me.|나를 기다려줘.
+12-38|fine|[형] 훌륭한, [명] 벌금|Pay a fine.|벌금을 내다.
+12-38|take|[동] 잡다, 데려가다|Take my hand.|내 손을 잡아라.
+12-38|present|[명] 선물, [형] 현재의|Present time.|현재 시간.
+12-38|by|[전] ~옆에, ~에 의하여|Stand by me.|내 옆에 서라.
+12-38|work|[동] 일하다, [명] 작품|Art work.|예술 작품.
+12-38|right|[형] 오른쪽의, 옳은, [명] 권리|Human rights.|인권(인간의 권리).
+12-38|face|[명] 얼굴, [동] 직면하다|Face the problem.|문제에 직면해라.
+12-38|cross|[동] 건너다, [명] 십자가|The Red Cross.|적십자.
+12-38|back|[명] 등, [부] 뒤로|Come back.|돌아와라.
+12-38|country|[명] 나라, 시골|I live in the country.|나는 시골에 산다.
+12-38|or|[접] 또는, 그렇지 않으면|Hurry up, or you'll be late.|서둘러라, 그렇지 않으면 늦을 것이다.
+12-38|leave|[동] 떠나다, 남기다|Leave a message.|메시지를 남겨라.
+12-38|hard|[형] 어려운, 단단한|Hard rock.|단단한 바위.
+12-38|place|[명] 장소, [동] 놓다|Place it here.|그것을 여기에 놓아라.
+12-38|land|[명] 육지, [동] 착륙하다|The plane landed.|비행기가 착륙했다.
+12-38|dear|[형] 친애하는, 비싼|Oh dear!|어머나! (감탄사) / 친애하는 (편지 서두).
+12-38|chance|[명] 기회, 우연|By chance.|우연히.
+12-38|ring|[명] 반지, [동] 울리다|The bell rings.|종이 울린다.
+12-38|wrong|[형] 틀린, 나쁜|What's wrong?|무슨 일이니(무엇이 잘못됐니)?
+12-38|round|[형] 둥근, [전] ~의 주위에|Walk round the pond.|연못 주위를 걸어라.
+12-38|glass|[명] 유리, 안경|Wear glasses.|안경을 써라.
+12-38|every|[형] 모든, ~마다|Every day.|매일.
+12-38|lesson|[명] 수업, 교훈|Learn a lesson.|교훈을 얻다.
+12-38|either|[대] 어느 한 쪽|Either will do.|어느 쪽이든 좋다.
+12-38|letter|[명] 편지, 문자|Capital letter.|대문자.
+12-38|around|[전] ~주위에, [부] 약|Around 5 o'clock.|5시쯤.
+12-38|station|[명] 역, 국|Police station.|경찰서.
+12-39|over|[전] ~위에, [부] 끝나고|Game over.|게임 끝.
+12-39|still|[부] 아직, [형] 고요한|Stand still.|가만히(고요히) 서 있어라.
+12-39|get|[동] 얻다, ~이 되다|Get ready.|준비해라(준비된 상태가 되어라).
+12-39|move|[동] 움직이다, 감동시키다|It moved me.|그것은 나를 감동시켰다.
+12-39|fly|[동] 날다, [명] 파리|A fly on the wall.|벽에 붙은 파리.
+12-39|stand|[동] 서다, 참다|I can't stand it.|나는 그것을 참을 수 없다.
+12-39|turn|[동] 돌다, [명] 차례|My turn.|내 차례.
+12-39|keep|[동] 지키다, 유지하다|Keep a promise.|약속을 지켜라.
+12-39|while|[전] ~하는 동안, [명] 잠시|Wait a while.|잠시만 기다려라.
+12-39|once|[부] 한 번, 한때|Once upon a time.|옛날 옛적에.
+12-39|ask|[동] 묻다, 부탁하다|Ask for help.|도움을 요청해라.
+12-39|hold|[동] 잡다, 개최하다|Hold a meeting.|회의를 열다(개최하다).
+12-39|mind|[명] 마음, [동] 싫어하다|Do you mind?|싫으신가요(꺼리시나요)?
+12-39|pass|[동] 지나가다, 건네주다|Pass me the salt.|소금을 건네줘.
+12-39|so|[부] 매우, [접] 그래서|It was raining, so I stayed home.|비가 와서 나는 집에 있었다.
+12-39|left|[형] 왼쪽의, [동] 떠났다|He left home.|그는 집을 떠났다.
+12-39|care|[명] 걱정, 돌봄|Take care of yourself.|몸조심해라.
+12-39|see|[동] 보다, 알다|I see.|알겠어.
+12-39|dish|[명] 접시, 요리|A delicious dish.|맛있는 요리.
+12-39|bright|[형] 밝은, 영리한|A bright student.|영리한 학생.
+12-39|sign|[명] 신호, [동] 서명하다|Sign your name.|이름을 서명해라.
+12-39|well|[부] 잘, [명] 우물|An old well.|오래된 우물.
+12-39|save|[동] 구하다, 저축하다|Save energy.|에너지를 절약해라.
+12-39|order|[명] 명령, 순서|In alphabetical order.|알파벳 순서로.
+12-39|school|[명] 학교, (물고기) 떼|A school of fish.|물고기 떼.
+12-39|film|[명] 영화, 필름|Take a film.|영화를 찍다.
+12-39|point|[명] 점, 요점|That's the point.|그것이 요점이다.
+12-39|pick|[동] 줍다, 고르다|Pick a card.|카드를 골라라.
+12-39|matter|[명] 문제, [동] 중요하다|It doesn't matter.|그것은 중요하지 않다.
+12-39|set|[동] 놓다, (해가) 지다|The sun sets.|해가 진다.
+12-40|against|[전] ~에 반대하여|I am against it.|나는 그것에 반대한다.
+12-40|fat|[형] 뚱뚱한, [명] 지방|Too much fat.|너무 많은 지방.
+12-40|state|[명] 상태, 주(州)|United States.|미국(합중국).
+12-40|stick|[명] 막대기, [동] 찌르다|A walking stick.|지팡이.
+12-40|natural|[형] 자연의, 당연한|It is natural.|그것은 당연하다.
+12-40|character|[명] 성격, 등장인물|A cartoon character.|만화 등장인물.
+12-40|grow|[동] 자라다, ~이 되다|He grew old.|그는 늙게 되었다.
+12-40|appear|[동] 나타나다, ~인 듯하다|He appears happy.|그는 행복해 보인다.
+12-40|grade|[명] 학년, 성적|First grade.|1학년.
+12-40|rare|[형] 드문, (고기가) 덜 익은|A rare bird.|희귀한 새.
+12-40|earth|[명] 지구, 흙|Soft earth.|부드러운 흙.
+12-40|period|[명] 기간, 마침표|Put a period.|마침표를 찍어라.
+12-40|find|[동] 찾다, 알다|I found it easy.|나는 그것이 쉽다는 것을 알았다.
+12-40|rule|[명] 규칙, [동] 지배하다|The king rules.|왕이 지배한다.
+12-40|conductor|[명] 지휘자|A bus conductor.|버스 차장.
+12-40|common|[형] 흔한, 공통의|Common sense.|상식(공통된 센스).
+12-40|force|[명] 힘, [동] 강요하다|Don't force me.|나에게 강요하지 마라.
+12-40|good|[형] 좋은, 유익한|Milk is good for you.|우유는 너에게 유익하다.
+12-40|capital|[명] 수도, 대문자|Capital city.|수도.
+12-40|much|[형] 많은, [부] 매우|Thank you very much.|대단히 감사합니다.
+12-40|correct|[형] 올바른, [동] 고치다|Correct the errors.|오류를 고쳐라.
+12-40|industry|[명] 산업, 근면|Auto industry.|자동차 산업.
+12-40|court|[명] 법정, 경기장|Tennis court.|테니스 경기장.
+12-40|little|[형] 작은, [부] 거의 ~없는|I have little money.|나는 돈이 거의 없다.
+12-40|say|[동] 말하다, ~라고 쓰여 있다|The sign says stop.|표지판에 멈춤이라고 쓰여 있다.
+12-40|roll|[동] 구르다, [명] 두루마리|A roll of paper.|종이 두루마리.
+12-40|sail|[동] 항해하다, [명] 돛|Raise the sail.|돛을 올려라.
+12-40|crowd|[명] 군중, [동] 붐비다|A large crowd.|많은 군중.
+12-40|blind|[형] 눈먼, [명] 블라인드|Love is blind.|사랑은 눈이 멀었다.
+12-40|suit|[명] 양복, [동] 어울리다|It suits you.|그것은 너에게 잘 어울린다.
+
   `;
   // 👆 여기까지가 네가 앞으로 수정·추가할 영역
 
@@ -3419,5 +4623,6 @@
   window.WORD_DB = buildDB(RAW_WORDS);
 
 })();
+
 
 
