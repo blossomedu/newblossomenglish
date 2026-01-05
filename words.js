@@ -6093,8 +6093,8 @@
 20-6|conclude|결론을 내리다, 끝내다|Conclude that he is right.|그가 옳다고 결론짓다.
 20-6|struggle|분투하다, 싸우다, 애쓰다, 싸움, 노력|Struggle for survival.|생존을 위해 몸부림치다.
 20-6|unique|유일한, 독특한|Unique style.|독특한 스타일.
-20-6|proper|적절한, 올바른|Proper care.|적절한 관리.
-20-6|appropriate|적절한, 적합한|Appropriate action.|적절한 조치.
+20-6|proper|적절한, 올바른 [P] |Proper care.|적절한 관리.
+20-6|appropriate|적절한, 적합한 [A]|Appropriate action.|적절한 조치.
 20-6|supplement|(동) 보충하다, (명) 보충(물), 추가(물)|Vitamin supplement.|비타민 보충제.
 20-6|trial|(명) 시도, 재판|Fair trial.|공정한 재판.
 20-6|infant|(명) 유아, 젖먹이, 아기|Infant mortality.|영아 사망률.
@@ -10024,6 +10024,7 @@
   window.WORD_DB = buildDB(RAW_WORDS);
 
 })();
+
 
 
 
