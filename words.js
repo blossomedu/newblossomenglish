@@ -5854,6 +5854,906 @@
 13-40|break out|발발하다, 발생하다|War breaks out.|전쟁이 발발하다.
 13-40|consist of|~으로 이루어지다, 구성되다|Consist of three parts.|세 부분으로 구성되다.
 
+14-1|generation|(명) 세대, 1대, 같은 시대의 사람들|older generation|기성 세대
+14-1|supporter|(명) 지지자, 후원자, 부양자|strong supporter|열렬한 지지자
+14-1|niece|(명) 조카딸|my niece|나의 조카딸
+14-1|engage|(동) 약혼시키다(to), 약속하다, 계약하다, 종사시키다(in)|engage in activities|활동에 종사하다
+14-1|celebrate|(동) 기념하다, 축하하다|celebrate the victory|승리를 축하하다
+14-1|anniversary|(명) 기념일|wedding anniversary|결혼 기념일
+14-1|fate|(명) 운명, 숙명, 죽음|twist of fate|운명의 장난
+14-1|advise|(동) 충고하다, 조언하다|advise the client|고객에게 조언하다
+14-1|lifetime|(명) 일생, 생애, (형) 일생의|once in a lifetime|평생에 단 한 번
+14-1|elder|(형) 나이가 위인, 선배의, (명) 연장자, 선배|elder brother|형
+14-1|parental|(형) 부모의, 부모다운|parental guidance|부모의 지도
+14-1|breed|(동) (동물이) 새끼를 낳다, 기르다, (명) 품종|rare dog breed|희귀한 개 품종
+14-1|obedient|(형) 순종하는, 말을 잘 듣는|obedient child|말을 잘 듣는 아이
+14-1|treat|(동) 다루다, 대우하다, 치료하다|treat with respect|존중하며 대하다
+14-1|interact|(동) 상호작용을 하다, 서로 영향을 미치다|interact with others|타인과 상호작용하다
+14-1|contact|(명) 연락, 접촉, (동) ~와 연락하다|direct contact|직접적인 접촉
+14-1|relationship|(명) 관계, 관련, 연관|build a relationship|관계를 쌓다
+14-1|funeral|(명) 장례식|attend a funeral|장례식에 참석하다
+14-1|behave|(동) 행동하다, 처신하다|behave well|바르게 행동하다
+14-1|sibling|(명) 형제자매|sibling rivalry|형제자매간의 경쟁
+14-1|resemble|(동) ~와 닮다|resemble the father|아버지를 닮다
+14-1|background|(명) (환경적, 문화적) 배경|family background|가족 배경
+14-1|daycare|(형) 탁아소의, 보육의|daycare center|보육 시설
+14-1|pregnant|(형) 임신한|pregnant woman|임신한 여성
+14-1|nurture|(동) 양육하다, 키우다|nature and nurture|천성과 양육
+14-1|accompany|(동) 동행하다, 함께 가다, (악기로) 반주하다|accompany a friend|친구와 동행하다
+14-1|mature|(형) 성숙한|mature behavior|성숙한 행동
+14-1|spouse|(명) 배우자, 남편, 아내|legal spouse|법적 배우자
+14-1|bring up|~을 기르다, 양육하다|bring up children|아이들을 기르다
+14-1|break up with|~와 헤어지다, 관계를 끊다|break up with him|그와 헤어지다
+14-2|shape|(명) 모양, 꼴, 모습|human shape|인간의 형체
+14-2|appearance|(명) 출현, 나타남, 외관, 겉모습|physical appearance|신체적 외관
+14-2|personality|(명) 성격, 인성, 개성|bright personality|밝은 성격
+14-2|gender|(명) 성별|gender equality|양성 평등
+14-2|impression|(명) 인상, 감동, 감명|first impression|첫인상
+14-2|typical|(형) 전형적인|typical example|전형적인 예
+14-2|capable|(형) 유능한, ~할 능력이 있는|highly capable|매우 유능한
+14-2|attractive|(형) 매력적인, 사람을 끄는|attractive features|매력적인 특징
+14-2|active|(형) 적극적인, 활동적인|active participation|적극적인 참여
+14-2|passive|(형) 소극적인, 수동적인|passive attitude|소극적인 태도
+14-2|diligent|(형) 근면 성실한, 부지런한|diligent student|부지런한 학생
+14-2|bold|(형) 대담한, 용감한, (문자, 선 등이) 굵은|bold move|대담한 조치
+14-2|confident|(형) 자신만만한, 확신하는|feel confident|자신감을 느끼다
+14-2|impatient|(형) 성급한, 참을성 없는|become impatient|성급해지다
+14-2|ambitious|(형) 야망이 있는, 야심 찬|ambitious plan|야심 찬 계획
+14-2|brilliant|(형) 훌륭한, 눈부신, (재능이) 뛰어난, 빛나는|brilliant idea|훌륭한 아이디어
+14-2|elegant|(형) 우아한, 품위 있는|elegant dress|우아한 드레스
+14-2|humble|(형) 겸손한, 초라한, 소박한|humble origin|비천한 태생
+14-2|arrogant|(형) 오만한, 거만한|arrogant behavior|오만한 행동
+14-2|aggressive|(형) 공격적인, 매우 적극적인|aggressive behavior|공격적인 행동
+14-2|fierce|(형) 사나운, 흉포한, 격렬한|fierce competition|격렬한 경쟁
+14-2|kindness|(명) 친절, 다정함|act of kindness|친절한 행위
+14-2|oval|(형) 타원형의, 달걀형의, (명) 달걀 모양, 타원체|oval face|달걀형 얼굴
+14-2|odd|(형) 이상한, 기묘한, 홀수의|odd number|홀수
+14-2|forehead|(명) 이마|high forehead|넓은 이마
+14-2|ignorant|(형) 무지한, 무식한, (정보가 없어) 모르는|ignorant of law|법을 모르는
+14-2|wrinkle|(명) 주름, (동) 주름지게 하다|facial wrinkles|얼굴 주름
+14-2|greed|(명) 욕심, 탐욕|human greed|인간의 탐욕
+14-2|take after|~을 닮다|take after mother|어머니를 닮다
+14-2|stand out|눈에 띄다, 빼어나다|stand out clearly|명확히 눈에 띄다
+14-3|mood|(명) 기분, 분위기|good mood|좋은 기분
+14-3|sorrow|(명) 슬픔, 비애|deep sorrow|깊은 슬픔
+14-3|emotion|(명) 감정|human emotion|인간의 감정
+14-3|anxious|(형) 불안해하는, 걱정하는, 갈망하는|feel anxious|불안해하다
+14-3|ashamed|(형) 부끄러워하는|feel ashamed|부끄러워하다
+14-3|depression|(명) 우울, 불경기|severe depression|심한 우울증
+14-3|weep|(동) 울다|weep silently|소리 없이 울다
+14-3|annoy|(동) 짜증 나게 하다, 귀찮게 하다|annoy others|남을 짜증 나게 하다
+14-3|relieve|(동) 완화하다, 긴장을 풀게 하다|relieve stress|스트레스를 완화하다
+14-3|amaze|(동) 놀라게 하다|amaze everyone|모두를 놀라게 하다
+14-3|sentiment|(명) 감정, 정서, 감상|public sentiment|대중의 정서
+14-3|envy|(명) 부러움, 질투 (동) 부러워하다|feel envy|부러움을 느끼다
+14-3|jealous|(형) 질투하는, 시기하는|feel jealous|질투를 느끼다
+14-3|nerve|(명) 신경, 긴장, 용기|keep your nerve|침착함을 유지하다
+14-3|temper|(명) 성질, 성미, 기분|bad temper|나쁜 성미
+14-3|resent|(동) 분개하다, 화를 내다|resent the decision|결정에 분개하다
+14-3|desperate|(형) 자포자기한, 절박한, 필사적인|desperate situation|절박한 상황
+14-3|awful|(형) 끔찍한, 지독한|awful smell|지독한 냄새
+14-3|miserable|(형) 비참한, 불쌍한|feel miserable|비참함을 느끼다
+14-3|disgust|(명) 혐오감, 메스꺼움 (동) 혐오감을 주다|deep disgust|깊은 혐오감
+14-3|astound|(동) 몹시 놀라게 하다|astound the audience|관객을 놀라게 하다
+14-3|frighten|(동) 겁나게 하다, 놀라게 하다|frighten children|아이들을 겁주다
+14-3|panic|(명) 갑작스러운 공포, 패닉 (동) 당황하다|panic attack|공황 발작
+14-3|scream|(동) 비명을 지르다 (명) 비명|scream in pain|고통으로 비명 지르다
+14-3|sympathy|(명) 동정, 공감|express sympathy|동정심을 표하다
+14-3|ridicule|(명) 조롱, 비웃음 (동) 비웃다|public ridicule|공개적인 조롱
+14-3|warm-hearted|(형) 마음씨 따뜻한, 친절한|warm-hearted person|마음이 따뜻한 사람
+14-3|burst into|갑자기 ~하기 시작하다|burst into tears|울음을 터뜨리다
+14-3|be tired of|~에 싫증 나다, ~에 지치다|be tired of waiting|기다리는 것에 지치다
+14-3|put up with|~을 참다, 견디다|put up with noise|소음을 참다
+14-4|fiber|(명) 섬유, 섬유질|dietary fiber|식이 섬유
+14-4|contain|(동) 포함하다, 함유하다|contain water|물을 포함하다
+14-4|instant|(형) 즉석의, 즉각적인|instant coffee|인스턴트 커피
+14-4|peel|(동) 껍질을 벗기다 (명) 껍질|peel an orange|오렌지 껍질을 벗기다
+14-4|nourish|(동) 영양분을 공급하다, 기르다|nourish the body|몸에 영양을 공급하다
+14-4|chop|(동) (음식 재료를) 잘게 썰다, 다지다|chop onions|양파를 다지다
+14-4|grind|(동) 갈다, 빻다|grind coffee beans|커피 원두를 갈다
+14-4|roast|(동) 굽다, 볶다|roast beef|소고기를 굽다
+14-4|rotten|(형) 썩은, 부패한|rotten egg|썩은 달걀
+14-4|cuisine|(명) 요리, 요리법|local cuisine|지역 요리
+14-4|raw|(형) 익히지 않은, 날것의|raw fish|생선회
+14-4|grill|(동) 그릴에 굽다 (명) 석쇠|grill meat|고기를 굽다
+14-4|edible|(형) 먹을 수 있는, 식용의|edible plants|식용 식물
+14-4|nutrition|(명) 영양, 영양분|balanced nutrition|균형 잡힌 영양
+14-4|vegetarian|(명) 채식주의자 (형) 채식주의의|vegetarian diet|채식주의 식단
+14-4|dairy|(형) 유제품의, 낙농의 (명) 낙농장|dairy products|유제품
+14-4|kettle|(명) 주전자|boiling kettle|끓는 주전자
+14-4|tray|(명) 쟁반|serving tray|서빙 쟁반
+14-4|seasoning|(명) 양념, 조미료|spicy seasoning|매운 양념
+14-4|flavor|(명) 맛, 풍미|natural flavor|천연 풍미
+14-4|scent|(명) 향기, 냄새|floral scent|꽃 향기
+14-4|leftover|(명) 남은 음식 (형) 남은|leftover food|남은 음식
+14-4|swallow|(동) 삼키다|swallow a pill|알약을 삼키다
+14-4|beverage|(명) 음료|alcoholic beverage|알코올 음료
+14-4|squeeze|(동) 짜내다, 쥐어짜다|squeeze a lemon|레몬을 짜다
+14-4|ripen|(동) 익다, 숙성하다|ripen slowly|천천히 익다
+14-4|paste|(명) 반죽, 페이스트|tomato paste|토마토 페이스트
+14-4|blend|(동) 섞다, 혼합하다|blend ingredients|재료를 섞다
+14-4|go off|(음식이) 상하다|food goes off|음식이 상하다
+14-4|feed on|~을 먹고 살다|feed on grass|풀을 먹고 살다
+14-5|uniform|(명) 제복, 유니폼 (형) 일정한|school uniform|학교 교복
+14-5|costume|(명) 의상, 복장|stage costume|무대 의상
+14-5|collar|(명) (옷의) 깃, 칼라|shirt collar|셔츠 깃
+14-5|thread|(명) 실 (동) 실을 꿰다|needle and thread|바늘과 실
+14-5|length|(명) 길이|total length|총 길이
+14-5|casual|(형) 평상시의, 격식을 차리지 않는|casual clothes|평상복
+14-5|fashion|(명) 유행, 패션|latest fashion|최신 유행
+14-5|loose|(형) 헐거운, 헐렁한|loose pants|헐렁한 바지
+14-5|stripe|(명) 줄무늬|blue stripe|파란 줄무늬
+14-5|comfort|(명) 안락, 편안함 (동) 위로하다|maximum comfort|최대한의 편안함
+14-5|fade|(색이) 바래다, 시들다|colors fade|색이 바래다
+14-5|fold|(동) 접다|fold the paper|종이를 접다
+14-5|plain|(형) 무늬가 없는, 명백한, 평이한|plain t-shirt|무늬 없는 티셔츠
+14-5|premium|(형) 아주 높은, 고급의 (명) 할증료|premium quality|프리미엄 품질
+14-5|formal|(형) 격식을 차린, 공식적인|formal dress|정식 복장
+14-5|fancy|(형) 화려한, 장식적인|fancy dress|화려한 드레스
+14-5|outfit|(명) 의상 한 벌|complete outfit|완벽한 의상
+14-5|sew|(동) 바느질하다, 꿰매다|sew by hand|손으로 바느질하다
+14-5|alter|(동) 바꾸다, 수선하다|alter a dress|옷을 수선하다
+14-5|trousers|(명) 바지|grey trousers|회색 바지
+14-5|suit|(명) 정장 (동) 어울리다|business suit|비즈니스 정장
+14-5|vest|(명) 조끼|safety vest|안전 조끼
+14-5|fabric|(명) 직물, 천|silk fabric|실크 원단
+14-5|cotton|(명) 면, 면화|organic cotton|유기농 면
+14-5|fur|(명) 털, 모피|rabbit fur|토끼 털
+14-5|laundry|(명) 세탁물, 세탁소|dirty laundry|더러운 세탁물
+14-5|detergent|(명) 세제|laundry detergent|세탁 세제
+14-5|dress up|정장을 갖춰 입다|dress up formal|정장을 차려입다
+14-5|wear out|닳다, 해어지다|shoes wear out|신발이 닳다
+14-5|show off|뽐내다, 자랑하다|show off clothes|옷을 뽐내다
+14-6|cottage|(명) 작은 집, 오두막집, 작은 별장|cozy cottage|아늑한 오두막
+14-6|priceless|(형) 값을 매길 수 없는, 대단히 귀중한|priceless treasure|매우 귀중한 보물
+14-6|tap|(명) 수도꼭지, 마개|turn on the tap|수도꼭지를 틀다
+14-6|alarm|(명) 경보기, 자명종, 놀람 (동) 놀라게 하다|set the alarm|알람을 맞추다
+14-6|mess|(명) 어질러진 것, 쓰레기 더미, 혼잡|make a mess|어지럽히다
+14-6|usual|(형) 평소의, 일상의|usual routine|평소의 일과
+14-6|routine|(명) 판에 박힌 일, 일과 (형) 일상적인|daily routine|매일의 일과
+14-6|rely|(동) 믿다, 의지하다, 의존하다|rely on parents|부모에게 의지하다
+14-6|dust|(동) 먼지를 털다 (명) 먼지, 흙|thick dust|두꺼운 먼지
+14-6|spread|(동) 펴다, 펼치다, 퍼지다|spread the word|말을 퍼뜨리다
+14-6|cleanse|(동) 세척하다, 씻다, 정화하다|cleanse the skin|피부를 세척하다
+14-6|wipe|(동) 닦다, 훔치다, 문지르다|wipe the window|창문을 닦다
+14-6|mop|(동) 대걸레로 닦다 (명) 대걸레|mop the floor|바닥을 대걸레로 닦다
+14-6|drawer|(명) 서랍, 장롱|top drawer|맨 위 서랍
+14-6|stair|(명) 계단|climb the stairs|계단을 오르다
+14-6|rubbish|(명) 쓰레기, 폐물|throw away rubbish|쓰레기를 버리다
+14-6|dispose|(동) 처리하다, 처분하다|dispose of waste|폐기물을 처리하다
+14-6|discard|(동) 버리다, 처분하다|discard old clothes|헌 옷을 버리다
+14-6|appliance|(명) 기구, 장치, 전기 제품|home appliance|가전제품
+14-6|spacious|(형) 넓은, 광대한|spacious living room|넓은 거실
+14-6|chore|(명) 자질구레한 일, 허드렛일|household chores|집안일
+14-6|polish|(동) 닦다, 광을 내다, 다듬다|polish the shoes|구두를 닦다
+14-6|flush|(동) 씻어 내리다, 얼굴을 붉히다|flush the toilet|변기 물을 내리다
+14-6|nap|(명) 낮잠, 선잠 (동) 졸다|take a nap|낮잠을 자다
+14-6|outlet|(명) 콘센트, 할인점|electrical outlet|전기 콘센트
+14-6|trim|(동) 다듬다, 손질하다 (형) 잘 정돈된|trim the garden|정원을 다듬다
+14-6|crack|(동) 깨지다, 금이 가다 (명) 갈라진 틈|crack in wall|벽의 균열
+14-6|leak|(명) 새어나옴, 누출 (동) 새다|gas leak|가스 누출
+14-6|run out of|~을 다 써 버리다, 바닥내다|run out of time|시간이 다 되다
+14-6|hang up|~을 걸다, 전화를 끊다|hang up the coat|코트를 걸다
+14-7|insight|(명) 통찰력, 간파|gain insight|통찰력을 얻다
+14-7|academic|(형) 학업의, 학구적인|academic achievement|학업 성취
+14-7|essence|(명) 본질, 기초|essence of beauty|미의 본질
+14-7|intelligence|(명) 지능, 이해력, 영리함|artificial intelligence|인공 지능
+14-7|solve|(동) 풀다, 해결하다|solve the problem|문제를 풀다
+14-7|inspire|(동) 격려하다, 영감을 주다|inspire students|학생들에게 영감을 주다
+14-7|refer|(동) 언급하다, 참고하다|refer to notes|필기를 참고하다
+14-7|review|(동) 복습하다, 다시 검토하다 (명) 비평|movie review|영화 비평
+14-7|linguistics|(명) 언어학|study linguistics|언어학을 공부하다
+14-7|improve|(동) 향상시키다, 나아지다|improve skills|기술을 향상시키다
+14-7|content|(명) 내용, 목차 (형) 만족하는|table of contents|목차
+14-7|figure|(명) 그림, 수치, 모습, 인물|historical figure|역사적 인물
+14-7|scholar|(명) 학자, 장학생|classical scholar|고전 학자
+14-7|concept|(명) 개념, 발상|basic concept|기본 개념
+14-7|principle|(명) 원리, 원칙|moral principle|도덕 원칙
+14-7|expose|(동) 노출시키다, 드러내다|expose the truth|진실을 밝히다
+14-7|theory|(명) 이론, 학설|scientific theory|과학 이론
+14-7|define|(동) 정의하다, 명확히 하다|define the term|용어를 정의하다
+14-7|demonstrate|(동) 보여 주다, 증명하다, 설명하다|demonstrate the skill|기술을 시연하다
+14-7|conclude|(동) 끝내다, 결론 내리다|conclude the meeting|회의를 끝내다
+14-7|statistics|(명) 통계학, 통계 자료|official statistics|공식 통계
+14-7|physics|(명) 물리학|laws of physics|물리학 법칙
+14-7|geology|(명) 지질학|local geology|지역 지질
+14-7|diameter|(명) 지름|outer diameter|외경
+14-7|literal|(형) 글자 그대로의, 정확한|literal translation|직역
+14-7|literate|(형) 읽고 쓸 줄 아는, 교양 있는|computer literate|컴퓨터 활용 능력이 있는
+14-7|fluent|(형) 유창한|fluent in English|영어가 유창한
+14-7|go over|~을 점검하다, 주의 깊게 살피다|go over the report|보고서를 검토하다
+14-7|look up|찾아보다, 조사하다|look up words|단어를 찾아보다
+14-7|dwell on|~을 깊이 생각하다, 자세히 이야기하다|dwell on past|과거에 연연하다
+14-8|educate|(동) 교육하다|educate children|아이들을 교육하다
+14-8|instruct|(동) 교육하다, 가르치다|instruct the class|학급을 가르치다
+14-8|lecture|(명) 강의, 훈계 (동) 강의하다|attend a lecture|강의에 참석하다
+14-8|due|(형) 기일이 다 된|due date|마감 기한
+14-8|term|(명) 학기, 기간, 용어|technical term|전문 용어
+14-8|examine|(동) 시험하다, 검사하다, 진찰하다|examine the patient|환자를 진찰하다
+14-8|award|(명) 상 (동) 상을 주다|win an award|상을 받다
+14-8|multiply|(동) 곱하다, 증식하다|multiply by ten|10을 곱하다
+14-8|calculate|(동) 계산하다|calculate the cost|비용을 계산하다
+14-8|memorize|(동) 기억하다, 암기하다|memorize vocabulary|단어를 암기하다
+14-8|institute|(명) 협회, 연구소, 대학|research institute|연구소
+14-8|laboratory|(명) 실험실, 연구실|science laboratory|과학 실험실
+14-8|dormitory|(명) 기숙사|college dormitory|대학 기숙사
+14-8|principal|(명) (학교 등의) 장|school principal|교장 선생님
+14-8|aisle|(명) 통로, 복도|aisle seat|복도 쪽 좌석
+14-8|semester|(명) 학기|fall semester|가을 학기
+14-8|absent|(형) 결석한, 불참한|absent from school|학교에 결석한
+14-8|attendance|(명) 출석, 참석|check attendance|출석을 확인하다
+14-8|motivate|(동) 동기를 부여하다|motivate students|학생들을 격려하다
+14-8|attitude|(명) 태도, 마음가짐|positive attitude|긍정적인 태도
+14-8|eager|(형) 열성적인, 간절히 원하는|eager to learn|배우기를 갈망하는
+14-8|entrance|(명) 입학, 입장, 입구|main entrance|정문
+14-8|submit|(동) 제출하다, 굴복하다|submit a report|보고서를 제출하다
+14-8|portfolio|(명) 작품 모음, 포트폴리오|design portfolio|디자인 포트폴리오
+14-8|peer|(명) 동등한 사람, 또래|peer pressure|또래 압박
+14-8|scholarship|(명) 장학금|apply for scholarship|장학금을 신청하다
+14-8|grant|(명) 장학금 (동) 주다, 허가하다|research grant|연구 보조금
+14-8|get along with|~와 잘 지내다|get along with friends|친구들과 잘 지내다
+14-8|catch up with|따라잡다, 만회하다|catch up with studies|공부를 따라잡다
+14-8|drop out of|~에서 중퇴하다|drop out of college|대학을 중퇴하다
+14-9|manufacture|(동) 제조하다, 지어내다 (명) 생산|manufacture cars|자동차를 제조하다
+14-9|manage|(동) 경영하다, 운영하다, 해내다|manage a team|팀을 관리하다
+14-9|operate|(동) 관리하다, 작동하다|operate a machine|기계를 작동하다
+14-9|expert|(명) 전문가, 숙련가 (형) 숙련된|subject expert|주제 전문가
+14-9|senior|(형) 선임의, 선배의 (명) 연장자|senior official|고위 관리
+14-9|psychologist|(명) 심리학자|child psychologist|아동 심리학자
+14-9|personnel|(명) 전 직원, 인원, 인사과|personnel management|인사 관리
+14-9|barber|(명) 이발사|visit the barber|이발소에 가다
+14-9|counselor|(명) 지도 교사, 상담역|school counselor|학교 상담 교사
+14-9|reward|(명) 보상, 보수 (동) 보답하다|cash reward|현금 보상
+14-9|wage|(명) 임금, 급료|minimum wage|최저 임금
+14-9|shift|(명) 교체, 교대 (동) 바꾸다|night shift|야간 근무
+14-9|retire|(동) 퇴직하다, 은퇴하다|retire from work|직장에서 은퇴하다
+14-9|supervise|(동) 감독하다, 관리하다|supervise workers|근로자를 감독하다
+14-9|accomplish|(동) 달성하다, 이루다|accomplish a goal|목표를 달성하다
+14-9|architect|(명) 건축가, 설계자|famous architect|유명한 건축가
+14-9|secretary|(명) 비서, 장관|private secretary|비서
+14-9|experienced|(형) 경험이 있는, 숙달한|experienced doctor|숙련된 의사
+14-9|vend|(동) 행상하다, 팔다|vending machine|자판기
+14-9|requirement|(명) 필요조건, 자격|entry requirement|입학 요건
+14-9|superior|(명) 상사, 윗사람 (형) 우수한|superior quality|우수한 품질
+14-9|career|(명) 경력, 이력, 직업|career path|진로
+14-9|profession|(명) 직업, 전문직|legal profession|법조계
+14-9|application|(명) 신청서, 원서, 응모|job application|입사 지원서
+14-9|salary|(명) 봉급, 급여|monthly salary|월급
+14-9|labor|(명) 노동, 일, 업무|manual labor|육체 노동
+14-9|proficient|(형) 익숙한, 능숙한|proficient in English|영어가 능숙한
+14-9|prompt|(형) 신속한|prompt response|신속한 응답
+14-9|insist on|~을 주장하다, 고집하다|insist on payment|지불을 고집하다
+14-9|turn down|거절하다, 거부하다|turn down an offer|제안을 거절하다
+14-10|pile|(명) 더미 (동) 쌓아 올리다|pile of books|책더미
+14-10|colleague|(명) 동료|office colleague|직장 동료
+14-10|attach|(동) 붙이다, 첨부하다|attach a file|파일을 첨부하다
+14-10|photocopy|(명) 사진 복사물 (동) 복사하다|make a photocopy|복사하다
+14-10|appoint|(동) 임명하다, 약속하다|appoint a manager|매니저를 임명하다
+14-10|agency|(명) 대리점, 대행 회사|travel agency|여행사
+14-10|basis|(명) 기준, 기초|daily basis|매일 단위로
+14-10|index|(명) 지수, 지표, 색인|stock index|주가 지수
+14-10|deny|(동) 거절하다, 부인하다|deny the truth|진실을 부인하다
+14-10|stationery|(명) 문방구, 문구류|office stationery|사무용 문구
+14-10|staple|(명) 스테이플러 침 (동) 고정하다|staple the papers|종이를 철하다
+14-10|confirm|(동) 승인하다, 확인하다|confirm the booking|예약을 확인하다
+14-10|detail|(명) 세부 사항|minute details|미세한 세부 사항
+14-10|classify|(동) 분류하다|classify books|책을 분류하다
+14-10|document|(명) 문서, 서류|official document|공식 문서
+14-10|misplace|(동) 잘못 두다, 잊다|misplace the keys|열쇠를 잘못 두다
+14-10|procedure|(명) 절차, 순서|standard procedure|표준 절차
+14-10|firm|(명) 회사 (형) 굳은, 확고한|law firm|법률 회사
+14-10|client|(명) 의뢰인, 고객|important client|중요한 고객
+14-10|frequent|(형) 자주 일어나는, 빈번한|frequent visits|잦은 방문
+14-10|commute|(동) 통근하다, 통학하다|long commute|긴 통근 시간
+14-10|division|(명) 부서, 분열|sales division|영업 부서
+14-10|notify|(동) 통지하다, 통보하다|notify the winner|우승자에게 통지하다
+14- assigning|assign|(동) 할당하다, 임명하다|assign a task|작업을 할당하다
+14-10|booth|(명) 부스, 작은 공간|voting booth|기표소
+14-10|brochure|(명) 안내 소책자|travel brochure|여행 안내서
+14-10|distribute|(동) 분배하다|distribute flyers|전단지를 배포하다
+14-10|make up for|~을 만회하다, 보충하다|make up for lost time|잃어버린 시간을 만회하다
+14-10|get ahead|성공하다, 출세하다|get ahead in life|인생에서 성공하다
+14-10|take over|인계받다, 일을 넘겨받다|take over the business|사업을 인계받다
+14-11|report|(동) 보도하다, 전하다 (명) 보도, 보고|report the news|뉴스를 보도하다
+14-11|press|(명) 신문, 잡지, 언론|freedom of press|언론의 자유
+14-11|article|(명) 기사, 논설, 관사|news article|뉴스 기사
+14-11|journal|(명) 잡지, 정기 간행물, 일기|academic journal|학술지
+14-11|broadcast|(동) 방송하다, 방영하다|broadcast live|생방송하다
+14-11|post|(동) 게시하다, 공고하다|post a notice|공고를 게시하다
+14-11|pose|(동) 자세를 취하다 (명) 자세|pose for photos|사진 포즈를 취하다
+14-11|scene|(명) 장면, 무대, 현장|crime scene|범죄 현장
+14-11|survey|(명) 조사, 측량 (동) 조사하다|online survey|온라인 설문조사
+14-11|mass|(명) 대중, 집단 (형) 대중의|mass media|대중 매체
+14-11|factual|(형) 사실의, 사실에 입각한|factual information|사실적 정보
+14-11|fame|(명) 명성, 평판|international fame|국제적 명성
+14-11|poll|(명) 투표, 여론 조사|opinion poll|여론 조사
+14-11|channel|(명) 채널, 수로, 해협|news channel|뉴스 채널
+14-11|criticize|(동) 비판하다, 혹평하다|criticize the policy|정책을 비판하다
+14-11|compliment|(명) 칭찬 (동) 칭찬하다|pay a compliment|칭찬하다
+14-11|series|(명) 연속물, 시리즈|tv series|tv 시리즈
+14-11|feature|(명) 연재 기사, 특징 (동) 대서특필하다|special feature|특별 기획
+14-11|script|(명) 대본, 각본|movie script|영화 대본
+14-11|bulletin|(명) 보고, 게시, 뉴스 속보|news bulletin|뉴스 속보
+14-11|preview|(명) 시사회, 예고편|movie preview|영화 예고편
+14-11|column|(명) 신문의 칸, 기고란|weekly column|주간 칼럼
+14-11|release|(동) 발매하다, 개봉하다, 발표하다|release an album|앨범을 발매하다
+14-11|announce|(동) 알리다, 공표하다|announce the winner|우승자를 발표하다
+14-11|reveal|(동) 드러내다, 폭로하다|reveal the truth|진실을 밝히다
+14-11|audience|(명) 청중, 관객|large audience|많은 관객
+14-11|panel|(명) 패널, 심사위원단|expert panel|전문가 위원단
+14-11|focus|(동) 초점을 맞추다 (명) 초점|focus on study|공부에 집중하다
+14-11|argue over|~을 두고 논쟁하다|argue over money|돈 문제로 다투다
+14-11|come up with|~을 생각해 내다|come up with idea|아이디어를 내다
+14-12|variety|(명) 다양성, 변화|variety of food|다양한 음식
+14-12|square|(명) 정사각형, 광장|town square|마을 광장
+14-12|delicate|(형) 연약한, 섬세한|delicate skin|섬세한 피부
+14-12|flat|(형) 평평한|flat surface|평평한 표면
+14-12|broad|(형) 폭 넓은, 광범위한|broad smile|활짝 웃는 웃음
+14-12|compact|(형) 소형의, 간편한|compact car|소형차
+14-12|brief|(형) 간단한, 짧은|brief introduction|짧은 소개
+14-12|sharp|(형) 날카로운, 예리한|sharp knife|날카로운 칼
+14-12|precious|(형) 소중한, 값비싼|precious metal|귀금속
+14-12|artificial|(형) 인공적인, 가짜의|artificial flavor|인공 향료
+14-12|gigantic|(형) 거대한|gigantic wave|거대한 파도
+14-12|enormous|(형) 엄청난, 거대한|enormous amount|엄청난 양
+14-12|ultimate|(형) 궁극적인, 최후의|ultimate goal|궁극적 목표
+14-12|faint|(형) 희미한, 어렴풋한|faint light|희미한 빛
+14-12|steep|(형) 가파른|steep hill|가파른 언덕
+14-12|fundamental|(형) 근본적인, 기본적인|fundamental rights|기본권
+14-12|shallow|(형) 얕은, 얄팍한|shallow water|얕은 물
+14-12|symbolic|(형) 상징적인|symbolic meaning|상징적 의미
+14-12|appropriate|(형) 적당한, 알맞은|appropriate behavior|적절한 행동
+14-12|moderate|(형) 중간 정도의, 적당한|moderate exercise|적당한 운동
+14-12|flexible|(형) 유연성 있는, 융통성 있는|flexible hours|유연한 시간
+14-12|monotonous|(형) 단조로운, 지루한|monotonous voice|단조로운 목소리
+14-12|obscure|(형) 애매한, 분명하지 않은|obscure reason|모호한 이유
+14-12|drawback|(명) 결점, 문제점|main drawback|주된 단점
+14-12|paradox|(명) 역설, 모순|logical paradox|논리적 역설
+14-12|describe|(동) 묘사하다|describe the scene|장면을 묘사하다
+14-12|marvel|(명) 놀라운 일 (동) 놀라다|marvel at nature|자연에 경탄하다
+14-12|glitter|(동) 반짝이다 (명) 반짝거림|glittering stars|반짝이는 별들
+14-12|differ from|~와 다르다|differ from each other|서로 다르다
+14-12|stand for|~을 상징하다, 나타내다|stand for peace|평화를 상징하다
+14-13|goods|(명) 상품|consumer goods|소비재
+14-13|label|(명) 꼬리표, 상표|designer label|유명 브랜드
+14-13|tag|(명) 꼬리표|price tag|가격표
+14-13|wrap|(동) 감싸다, 포장하다|gift wrap|선물 포장
+14-13|bargain|(명) 싼 물건 (형) 값싼|bargain price|저렴한 가격
+14-13|purchase|(동) 사다 (명) 구입|online purchase|온라인 구매
+14-13|total|(명) 합계 (형) 전체의|total cost|총 비용
+14-13|quality|(명) 질, 특성|high quality|높은 품질
+14-13|value|(동) 가치 있게 여기다 (명) 가치|cultural value|문화적 가치
+14-13|reduce|(동) 줄이다, 낮추다|reduce prices|가격을 낮추다
+14-13|trend|(명) 유행, 경향|latest trend|최신 유행
+14-13|quantity|(명) 양|large quantity|많은 양
+14-13|retail|(명) 소매|retail price|소매 가격
+14-13|merchandise|(명) 상품|general merchandise|잡화
+14-13|insert|(동) 집어넣다|insert coins|동전을 넣다
+14-13|necessity|(명) 필요성, 필수품|daily necessity|생필품
+14-13|luxury|(명) 호화, 사치품|luxury brand|명품 브랜드
+14-13|auction|(동) 경매에서 팔다 (명) 경매|public auction|공개 경매
+14-13|receipt|(명) 영수증|keep the receipt|영수증을 보관하다
+14-13|refund|(명) 환불 (동) 환불하다|get a refund|환불받다
+14-13|exchange|(동) 교환하다 (명) 교환|exchange students|교환 학생
+14-13|claim|(동) 요구하다, 주장하다|claim a refund|환불을 요구하다
+14-13|satisfy|(동) 만족시키다|satisfy customers|고객을 만족시키다
+14-13|guarantee|(명) 보증 (동) 보증하다|money back guarantee|환불 보증
+14-13|exclude|(동) 배제하다|exclude taxes|세금을 제외하다
+14-13|reasonable|(형) 합리적인, 적절한|reasonable price|적정한 가격
+14-13|steady|(형) 안정된, 꾸준한|steady growth|꾸준한 성장
+14-13|pay for|대금을 지불하다|pay for dinner|저녁값을 내다
+14-13|leave out|~을 빠뜨리다|leave out details|세부 사항을 빠뜨리다
+14-13|add up|합산하다|add up the bill|계산서를 합산하다
+14-14|champion|(명) 우승자 (형) 우승한|world champion|세계 챔피언
+14-14|match|(명) 경기 (동) 대결하다|football match|축구 경기
+14-14|tournament|(명) 토너먼트|tennis tournament|테니스 토너먼트
+14-14|rival|(명) 경쟁자 (동) 경쟁하다|bitter rival|숙적
+14-14|rank|(동) 순위를 매기다 (명) 순위|top rank|최고 순위
+14-14|coach|(명) 코치, 감독 (동) 코치하다|team coach|팀 코치
+14-14|serve|(동) 공을 서브하다|serve ball|공을 서브하다
+14-14|glide|(동) 미끄러지다 (명) 미끄러짐|glide on ice|얼음 위를 미끄러지다
+14-14|beat|(동) 이기다, 박동하다|beat opponent|상대를 이기다
+14-14|compete|(동) 경쟁하다, 겨루다|compete in race|경주에 참여하다
+14-14|ability|(명) 능력, 할 수 있음|natural ability|타고난 능력
+14-14|leisure|(명) 여가, 자유 시간|leisure activity|여가 활동
+14-14|pastime|(명) 취미, 오락|favorite pastime|가장 좋아하는 취미
+14-14|outdoor|(형) 야외의, 집 밖의|outdoor sport|야외 스포츠
+14-14|defeat|(명) 패배 (동) 패배시키다|defeat enemy|적을 패배시키다
+14-14|amateur|(명) 아마추어 (형) 비전문가의|amateur golfer|아마추어 골퍼
+14-14|mound|(명) (투수의) 마운드|pitcher mound|투수 마운드
+14-14|athletic|(형) 운동 경기의|athletic talent|운동적 재능
+14-14|opponent|(명) 적수, 반대자|strong opponent|강한 상대
+14-14|referee|(명) 심판, 중재자|football referee|축구 심판
+14-14|fair|(형) 공평한, 정정당당한|fair play|공정한 경기
+14-14|penalty|(명) 벌칙, 처벌|pay penalty|벌금을 내다
+14-14|foul|(동) 반칙하다 (형) 반칙인|commit foul|반칙을 범하다
+14-14|outstanding|(형) 눈에 띄는, 우수한|outstanding performance|뛰어난 실적
+14-14|participate|(동) 참여하다, 참가하다|participate in game|경기에 참가하다
+14-14|applaud|(동) 박수 치다|applaud performance|공연에 박수치다
+14-14|encourage|(동) 용기를 북돋다, 격려하다|encourage student|학생을 격려하다
+14-14|extreme|(형) 극단적인|extreme sport|익스트림 스포츠
+14-14|call off|~을 취소하다|call off meeting|회의를 취소하다
+14-14|take place|개최되다, 열리다|take place annually|매년 열리다
+14-15|transport|(명) 운송, 운송 수단 (동) 운반하다|public transport|대중 교통
+14-15|passenger|(명) 승객|train passenger|열차 승객
+14-15|underground|(형) 지하의|underground station|지하철역
+14-15|aboard|(부) 탑승한, 승선한|all aboard|모두 탑승
+14-15|depart|(동) 출발하다|depart early|일찍 출발하다
+14-15|sightseeing|(명) 관광, 유람|go sightseeing|관광하러 가다
+14-15|downtown|(형) 도심의 (부) 도심지에|downtown area|도심 지역
+14-15|ride|(동) 타다 (명) 승차|ride bike|자전거를 타다
+14-15|abroad|(부) 해외로|travel abroad|해외 여행을 가다
+14-15|baggage|(명) 수하물|check baggage|수하물을 부치다
+14-15|cabin|(명) 선실, 객실, 오두막|log cabin|통나무 집
+14-15|check-out|(명) 퇴실, 계산대|check-out time|퇴실 시간
+14-15|tip|(명) 사례금, 팁, 조언|helpful tip|도움이 되는 조언
+14-15|destination|(명) 목적지|final destination|최종 목적지
+14-15|available|(형) 이용 가능한|available seat|이용 가능한 좌석
+14-15|delay|(동) 지연시키다 (명) 지연|traffic delay|교통 지체
+14-15|transfer|(동) 갈아타다, 이동하다|transfer flight|환승편
+14-15|vehicle|(명) 탈것, 운송 수단|motor vehicle|자동차
+14-15|highway|(명) 고속 도로|main highway|주요 고속도로
+14-15|convey|(동) 나르다, 전달하다|convey message|메시지를 전달하다
+14-15|accommodate|(동) 수용하다, 숙박시키다|accommodate guest|손님을 수용하다
+14-15|cruise|(명) 크루즈 여행 (동) 순항하다|luxury cruise|호화 크루즈
+14-15|crew|(명) 승무원|cabin crew|객실 승무원
+14-15|navigate|(동) 항해하다, 건너다|navigate sea|바다를 항해하다
+14-15|locate|(동) 정하다, 두다|be located|위치하다
+14-15|journey|(명) 여행, 여정|long journey|긴 여정
+14-15|spectacle|(명) 광경, 구경거리|grand spectacle|장관
+14-15|come across|마주치다, 발견하다|come across friend|친구를 우연히 만나다
+14-15|head for|~로 향해 가다|head for home|집으로 향하다
+14-15|pull over|차를 길 한쪽에 대다|pull over car|차를 길가에 세우다
+14-16|appreciate|(동) 감상하다, 평가하다, 감사하다|appreciate art|예술을 감상하다
+14-16|craft|(명) 공예, 기술|handicraft|수공예
+14-16|exhibit|(동) 전시하다 (명) 전시|exhibit painting|그림을 전시하다
+14-16|literature|(명) 문학|english literature|영문학
+14-16|version|(명) 각색, 번역서|latest version|최신 버전
+14-16|copyright|(명) 판권, 저작권|hold copyright|저작권을 보유하다
+14-16|tone|(명) 어조, 음색|voice tone|목소리 톤
+14-16|noble|(형) 고귀한, 고상한 (명) 귀족|noble heart|고귀한 마음
+14-16|conduct|(동) 지휘하다, 수행하다|conduct orchestra|오케스트라를 지휘하다
+14-16|tune|(동) 조율하다 (명) 곡조|catchy tune|기억하기 쉬운 곡조
+14-16|director|(명) 감독, 연출자|film director|영화 감독
+14-16|theme|(명) 주제, 테마|main theme|주요 테마
+14-16|chorus|(명) 합창, 합창단|sing in chorus|합창하다
+14-16|interval|(명) 막간, 간격|time interval|시간 간격
+14-16|rehearse|(동) 예행연습을 하다|rehearse play|연극을 연습하다
+14-16|compose|(동) 작곡하다, 구성하다|compose music|음악을 작곡하다
+14-16|sculpture|(명) 조각 (동) 조각하다|stone sculpture|석조각
+14-16|masterpiece|(명) 걸작, 명작|artistic masterpiece|예술적 걸작
+14-16|classic|(형) 일류의, 고전의 (명) 고전|classic movie|고전 영화
+14-16|imitate|(동) 모방하다|imitate voice|목소리를 흉내내다
+14-16|tradition|(명) 전통, 관례|follow tradition|전통을 따르다
+14-16|exclaim|(동) 외치다|exclaim in surprise|놀라서 외치다
+14-16|creature|(명) 생물, 동물|mythical creature|신화 속 생물
+14-16|distinct|(형) 다른, 뚜렷한|distinct difference|뚜렷한 차이
+14-16|context|(명) 문맥, 주변 상황|social context|사회적 맥락
+14-16|monologue|(명) 독백|dramatic monologue|극적 독백
+14-16|tragedy|(명) 비극, 재난|human tragedy|인간적 비극
+14-16|line up|줄을 서다|line up early|일찍 줄 서다
+14-16|live up to|부응하다|live up to expectation|기대에 부응하다
+14-16|be into|~에 푹 빠져있다|be into music|음악에 빠져있다
+14-17|condition|(명) 건강 상태, 상황|medical condition|의학적 상태
+14-17|chemical|(명) 화학 물질 (형) 화학의|chemical reaction|화학 반응
+14-17|digest|(동) 소화하다|digest food|음식을 소화하다
+14-17|disorder|(명) 병, 장애, 무질서|sleeping disorder|수면 장애
+14-17|worsen|(동) 악화되다|situation worsens|상황이 악화되다
+14-17|dental|(형) 치아의|dental care|치아 관리
+14-17|medical|(형) 의학의|medical insurance|의료 보험
+14-17|mental|(형) 정신의|mental health|정신 건강
+14-17|recover|(동) 회복하다, 되찾다|recover from flu|독감에서 회복하다
+14-17|emergency|(명) 비상사태|emergency exit|비상구
+14-17|allergy|(명) 알레르기|pollen allergy|꽃가루 알레르기
+14-17|joint|(명) 관절, 접합|knee joint|무릎 관절
+14-17|spine|(명) 척추, 등뼈|injured spine|다친 척추
+14-17|sightseeing|(명) 시각, 시력|lose sight|시력을 잃다
+14-17|pulse|(명) 맥박, 고동|check pulse|맥박을 확인하다
+14-17|infection|(명) 감염, 전염병|bacterial infection|세균 감염
+14-17|sanitary|(형) 위생의, 깨끗한|sanitary facility|위생 시설
+14-17|symptom|(명) 징후, 증상|flu symptom|독감 증상
+14-17|disabled|(형) 장애를 입은|disabled person|장애인
+14-17|inject|(동) 주사하다, 투여하다|inject insulin|인슐린을 주사하다
+14-17|prescribe|(동) 처방하다|prescribe medicine|약을 처방하다
+14-17|tablet|(명) 알약, 정제|aspirin tablet|아스피린 한 알
+14-17|wound|(명) 상처 (동) 상처를 입히다|clean wound|상처를 소독하다
+14-17|injure|(동) 상처를 입히다|injure arm|팔을 다치다
+14-17|heal|(동) 치유되다, 고치다|heal quickly|빨리 낫다
+14-17|immune|(형) 면역의|immune system|면역 체계
+14-17|strain|(명) 긴장, 부담 (동) 긴장시키다|muscle strain|근육 염좌
+14-17|bruise|(명) 멍, 타박상|dark bruise|검푸른 멍
+14-17|come down with|~의 병에 걸리다|come down with cold|감기에 걸리다
+14-17|ease off|누그러지다|pain eases off|통증이 누그러지다
+14-18|enrich|(동) 풍부하게 하다|enrich soil|토양을 비옥하게 하다
+14-18|barrel|(명) 배럴, 통|oil barrel|석유 배럴
+14-18|herd|(명) 떼, 무리|herd of cattle|소 떼
+14-18|crisis|(명) 위기|economic crisis|경제 위기
+14-18|provide|(동) 공급하다, 준비하다|provide help|도움을 제공하다
+14-18|material|(명) 물질, 재료|building material|건축 자재
+14-18|export|(동) 수출하다 (명) 수출|export goods|상품을 수출하다
+14-18|construct|(동) 건설하다, 조립하다|construct building|건물을 짓다
+14-18|pollution|(명) 오염, 공해|air pollution|대기 오염
+14-18|agriculture|(명) 농업|modern agriculture|현대 농업
+14-18|graze|(동) 풀을 뜯어 먹다|graze in pasture|목초지에서 풀을 뜯다
+14-18|pasture|(명) 목초지|green pasture|푸른 목초지
+14-18|cattle|(명) 소, 가축|raise cattle|소를 키우다
+14-18|cultivate|(동) 경작하다, 재배하다|cultivate land|땅을 일구다
+14-18|concrete|(명) 콘크리트 (형) 구체적인|concrete evidence|구체적인 증거
+14-18|crane|(명) 기중기|tower crane|타워 크레인
+14-18|invest|(동) 투자하다|invest money|돈을 투자하다
+14-18|expand|(동) 확장하다, 팽창하다|expand business|사업을 확장하다
+14-18|scale|(명) 규모, 저울|large scale|대규모
+14-18|proportion|(명) 비율|high proportion|높은 비율
+14-18|surpass|(동) 초월하다, 능가하다|surpass expectation|기대를 뛰어넘다
+14-18|generate|(동) 발생시키다|generate electricity|전기를 발생시키다
+14-18|constant|(형) 일정한, 지속적인|constant pressure|지속적인 압박
+14-18|optimistic|(형) 낙관적인|optimistic view|낙관적인 견해
+14-18|undertake|(동) 떠맡다, 착수하다|undertake project|프로젝트를 맡다
+14-18|assemble|(동) 조립하다, 모으다|assemble car|자동차를 조립하다
+14-18|innovative|(형) 획기적인, 혁신적인|innovative idea|혁신적인 아이디어
+14-18|enterprise|(명) 기업, 회사, 사업|private enterprise|사기업
+14-18|shut down|문을 닫다, 폐쇄하다|shut down factory|공장을 폐쇄하다
+14-18|set up|시작하다, 창설하다|set up business|사업을 시작하다
+14-19|budget|(명) 예산, 예산안|monthly budget|한 달 예산
+14-19|capital|(명) 자본, 수도|venture capital|벤처 자본
+14-19|account|(명) 거래, 예금 계좌|bank account|은행 계좌
+14-19|expense|(명) 지출, 비용|travel expense|여행 경비
+14-19|collapse|(동) 붕괴되다, 폭락하다|market collapse|시장 붕괴
+14-19|economic|(형) 경제학의, 경제의|economic growth|경제 성장
+14-19|risk|(명) 위험, 모험|take risk|위험을 무릅쓰다
+14-19|decline|(명) 하락 (동) 하락하다|decline in price|가격 하락
+14-19|stock|(명) 주식, 재고|stock market|주식 시장
+14-19|possess|(동) 소유하다, 가지다|possess talent|재능을 갖다
+14-19|property|(명) 재산, 소유물, 부동산|private property|사유 재산
+14-19|asset|(명) 자산, 재산|valuable asset|가치 있는 자산
+14-19|finance|(명) 재정, 재무|personal finance|개인 금융
+14-19|loan|(명) 대출, 대여|bank loan|은행 대출
+14-19|estimate|(동) 평가하다, 견적하다|cost estimate|비용 견적
+14-19|commerce|(명) 상업, 통상|electronic commerce|전자 상거래
+14-19|negotiate|(동) 협상하다|negotiate salary|연봉을 협상하다
+14-19|currency|(명) 통화, 화폐|foreign currency|외화
+14-19|boost|(동) 증대하다 (명) 부양|boost economy|경제를 부양하다
+14-19|fortune|(명) 재산, 행운|make fortune|재산을 모으다
+14-19|unemployed|(형) 실업의, 무직의|unemployed youth|실업 청년
+14-19|income|(명) 수입, 소득|annual income|연간 수입
+14-19|annual|(형) 1년의, 해마다의|annual report|연례 보고서
+14-19|strategy|(명) 전략, 계획|marketing strategy|마케팅 전략
+14-19|temporary|(형) 일시적인, 임시의|temporary job|임시직
+14-19|outcome|(명) 결과, 성과|expected outcome|예상된 결과
+14-19|potential|(형) 잠재적인|potential customer|잠재 고객
+14-19|pay off|다 갚다, 성공하다|pay off debt|빚을 다 갚다
+14-19|lay off|~을 해고하다|lay off worker|직원을 해고하다
+14-19|in need|어려움에 처한, 궁핍한|people in need|도움이 필요한 사람들
+14-20|elect|(동) 선거하다, 선출하다|elect president|대통령을 선출하다
+14-20|declare|(동) 선언하다, 공표하다|declare war|전쟁을 선언하다
+14-20|democracy|(명) 민주주의, 민주제|liberal democracy|자유 민주주의
+14-20|official|(명) 공무원, 관리 (형) 공식의|government official|정부 관리
+14-20|candidate|(명) 후보자, 지원자|presidential candidate|대통령 후보
+14-20|oppose|(동) 반대하다, 대항하다|strongly oppose|강력히 반대하다
+14-20|immediate|(형) 즉각적인, 직접적인|immediate response|즉각적인 응답
+14-20|insist|(동) 고집하다, 주장하다|insist on truth|진실을 주장하다
+14-20|union|(명) 연합, 조합|labor union|노동 조합
+14-20|indifferent|(형) 무관심한|indifferent attitude|무관심한 태도
+14-20|campaign|(명) 선거 운동, 캠페인|election campaign|선거 운동
+14-20|party|(명) 정당, 파티|political party|정당
+14-20|dispute|(명) 논쟁 (동) 논쟁하다|border dispute|국경 분쟁
+14-20|postpone|(동) 연기하다, 미루다|postpone event|행사를 연기하다
+14-20|convince|(동) 납득시키다, 확신시키다|convince jury|배심원을 설득하다
+14-20|persuade|(동) 설득하다|persuade friend|친구를 설득하다
+14-20|assume|(동) 추측하다, 가정하다|assume role|역할을 맡다
+14-20|approve|(동) 찬성하다, 승인하다|approve plan|계획을 승인하다
+14-20|session|(명) 회기, 기간, 수업|training session|교육 시간
+14-20|deed|(명) 업적, 행위|good deed|선행
+14-20|reputation|(명) 평판, 명성|good reputation|좋은 평판
+14-20|conservative|(형) 보수적인|conservative party|보수당
+14-20|command|(동) 지휘하다 (명) 명령|at command|명령에 따라
+14-20|hostile|(형) 적대적인|hostile environment|적대적인 환경
+14-20|authority|(명) 권위, 권한, 당국|local authority|지방 당국
+14-20|cabinet|(명) 내각, 장식장|cabinet member|각료
+14-20|federal|(형) 연방의, 연방제의|federal government|연방 정부
+14-20|unify|(동) 통일하다, 단일화하다|unify nation|나라를 통일하다
+14-20|run for|~에 출마하다|run for office|공직에 출마하다
+14-20|speak for|~을 대변하다|speak for people|국민을 대변하다
+14-21|social|(형) 사회의|social issue|사회 문제
+14-21|moral|(형) 도덕적인 (명) 교훈|moral standard|도덕적 기준
+14-21|ethic|(명) 윤리, 도덕|work ethic|직업 윤리
+14-21|tend|(동) ~하는 경향이 있다|tend to lie|거짓말하는 경향이 있다
+14-21|allow|(동) 허락하다, 허가하다|allow entry|입장을 허용하다
+14-21|affect|(동) ~에 영향을 미치다|affect health|건강에 영향을 주다
+14-21|expire|(동) 만기가 되다|passport expires|여권이 만료되다
+14-21|organization|(명) 조직, 단체|nonprofit organization|비영리 단체
+14-21|liberty|(명) 자유, 해방|religious liberty|종교의 자유
+14-21|factor|(명) 요소, 요인|key factor|핵심 요인
+14-21|opportunity|(명) 기회|equal opportunity|평등한 기회
+14-21|standard|(명) 표준, 기준|quality standard|품질 기준
+14-21|status|(명) 지위, 신분, 상태|social status|사회적 지위
+14-21|facility|(명) 편의 시설|public facility|공공 시설
+14-21|circumstance|(명) 상황, 환경|difficult circumstance|어려운 상황
+14-21|charity|(명) 자선, 자선 단체|charity event|자선 행사
+14-21|volunteer|(명) 자원봉사자 (동) 자발적으로 하다|volunteer work|자원봉사 활동
+14-21|prospect|(명) 전망, 가능성|future prospect|미래 전망
+14-21|advantage|(명) 이익, 유리한 점|unfair advantage|불공평한 이점
+14-21|stereotype|(명) 고정 관념|gender stereotype|성 고정관념
+14-21|secure|(형) 안전한|secure building|안전한 건물
+14-21|complex|(형) 복잡한 (명) 복합 건물|complex problem|복잡한 문제
+14-21|inadequate|(형) 부적당한, 불충분한|inadequate supply|불충분한 공급
+14-21|proper|(형) 적절한, 알맞은|proper usage|올바른 사용법
+14-21|indicate|(동) 나타내다, 가리키다|indicate direction|방향을 가리키다
+14-21|deserve|(동) ~할 자격이 있다|deserve reward|보상을 받을 만하다
+14-21|acquire|(동) 얻다, 습득하다|acquire skill|기술을 습득하다
+14-21|sign up for|등록하다, 신청하다|sign up for class|수업을 신청하다
+14-21|contribute to|기여하다, 원인이 되다|contribute to success|성공에 기여하다
+14-21|put off|연기하다, 보류하다|put off trip|여행을 미루다
+14-22|evident|(형) 분명한, 명백한|self evident|자명한
+14-22|arrest|(동) 체포하다, 구속하다|arrest suspect|용의자를 체포하다
+14-22|suspect|(명) 용의자 (동) 의심하다|murder suspect|살인 용의자
+14-22|guilty|(형) 유죄의|found guilty|유죄로 판결된
+14-22|trap|(명) 덫, 속임수 (동) 잡다|mouse trap|쥐덫
+14-22|robber|(명) 강도|armed robber|무장 강도
+14-22|criminal|(명) 범인 (형) 범죄의|criminal record|범죄 기록
+14-22|prevent|(동) 막다, 예방하다|prevent fire|화재를 예방하다
+14-22|intentional|(형) 의도적인, 계획된|intentional damage|의도적인 훼손
+14-22|restrict|(동) 제한하다|restrict speed|속도를 제한하다
+14-22|regulate|(동) 규제하다, 통제하다|regulate traffic|교통을 규제하다
+14-22|forbid|(동) 금하다|forbid smoking|흡연을 금하다
+14-22|sentence|(명) 판결, 선고 (동) 선고하다|death sentence|사형 선고
+14-22|admit|(동) 인정하다|admit mistake|실수를 인정하다
+14-22|jury|(명) 배심원단|member of jury|배심원의 일원
+14-22|deceive|(동) 속이다, 기만하다|deceive people|사람들을 속이다
+14-22|sue|(동) 고소하다|sue for damage|손해 배상을 청구하다
+14-22|commit|(동) 범하다, 저지르다|commit crime|범죄를 저지르다
+14-22|violate|(동) 위반하다|violate law|법을 위반하다
+14-22|offend|(동) 기분 상하게 하다|offend audience|청중을 불쾌하게 하다
+14-22|investigate|(동) 조사하다, 수사하다|investigate case|사건을 조사하다
+14-22|inquire|(동) 조사하다, 묻다|inquire about price|가격을 문의하다
+14-22|insult|(동) 모욕하다 (명) 모욕|public insult|공개적 모욕
+14-22|identify|(동) 확인하다, 감정하다|identify body|신원을 확인하다
+14-22|confess|(동) 자백하다, 고백하다|confess crime|범죄를 자백하다
+14-22|convict|(동) 유죄를 선고하다|convict him|그에게 유죄를 선고하다
+14-22|appeal|(동) 항소하다, 간청하다|make an appeal|호소하다
+14-22|break down|부수다, 고장 나다|car breaks down|차가 고장 나다
+14-22|accuse A of B|A를 B의 혐의로 고소하다|accuse him of theft|그를 절도죄로 기소하다
+14-22|get away with|처벌을 모면하다|get away with it|그냥 넘어가다
+14-23|gap|(명) 차이, 틈|generation gap|세대 차이
+14-23|population|(명) 인구|world population|세계 인구
+14-23|crash|(명) 충돌, 사고 (동) 충돌하다|car crash|자동차 사고
+14-23|majority|(명) 대다수|vast majority|절대 다수
+14-23|temptation|(명) 유혹|resist temptation|유혹을 뿌리치다
+14-23|confuse|(동) 혼란시키다, 혼동하다|confuse names|이름을 혼동하다
+14-23|aspect|(명) 면, 양상|positive aspect|긍정적인 측면
+14-23|violent|(형) 폭력적인, 강렬한|violent movie|폭력적인 영화
+14-23|obstacle|(명) 장애, 장애물|overcome obstacle|장애물을 극복하다
+14-23|isolate|(동) 고립시키다, 격리시키다|isolate virus|바이러스를 격리하다
+14-23|collide|(동) 충돌하다|cars collide|차가 충돌하다
+14-23|negative|(형) 부정의, 소극적인|negative impact|부정적인 영향
+14-23|abnormal|(형) 비정상적인|abnormal behavior|비정상적 행동
+14-23|unite|(동) 통합하다, 단결하다|unite people|사람들을 결집하다
+14-23|poverty|(명) 가난, 빈곤|live in poverty|가난하게 살다
+14-23|abuse|(명) 남용, 학대 (동) 남용하다|child abuse|아동 학대
+14-23|distress|(명) 고통, 고충 (동) 슬프게 하다|mental distress|정신적 고통
+14-23|divorce|(명) 이혼 (동) 이혼하다|get divorce|이혼하다
+14-23|arise|(동) 일어나다, 나타나다|problem arises|문제가 발생하다
+14-23|degenerate|(동) 퇴보하다, 타락하다|degenerate into violence|폭력으로 변질되다
+14-23|incident|(명) 사건, 사고|strange incident|이상한 사건
+14-23|defect|(명) 결점, 단점|birth defect|선천적 결함
+14-23|manipulate|(동) 조종하다, 조작하다|manipulate data|데이터를 조작하다
+14-23|mislead|(동) 잘못 인도하다, 속이다|mislead public|대중을 오도하다
+14-23|alcohol|(명) 술, 알코올|alcohol abuse|알코올 남용
+14-23|addict|(명) 중독자 (동) 빠지게 하다|drug addict|마약 중독자
+14-23|premature|(형) 시기상조의, 조급한|premature death|조기 사망
+14-23|abandon|(동) 버리다, 포기하다|abandon baby|아기를 버리다
+14-23|do away with|없애다, 끝내다|do away with rule|규칙을 없애다
+14-23|keep away from|멀리하다, 피하다|keep away from fire|불을 멀리하다
+14-24|reserve|(동) 남겨 두다, 예약하다 (명) 비축|reserve seat|좌석을 예약하다
+14-24|occasion|(명) 경우, 특별한 일|special occasion|특별한 날
+14-24|local|(형) 지역의 (명) 주민|local food|현지 음식
+14-24|civil|(형) 시민의, 국내의|civil right|시민권
+14-24|inner|(형) 내부의|inner beauty|내면의 미
+14-24|tax|(명) 세금|pay tax|세금을 내다
+14-24|harbor|(명) 항구, 항만|deep harbor|깊은 항구
+14-24|equal|(형) 같은, 평등한|equal right|평등한 권리
+14-24|intend|(동) 의도하다|intend to go|갈 생각이다
+14-24|exhaust|(동) 소진시키다|exhaust resources|자원을 고갈시키다
+14-24|globalize|(동) 세계화하다|globalize business|사업을 세계화하다
+14-24|independence|(명) 독립, 자주|national independence|국가 독립
+14-24|territory|(명) 영역, 영토|disputed territory|분쟁 영토
+14-24|reside|(동) 거주하다|reside in city|도시에 거주하다
+14-24|domestic|(형) 국내의, 가정의|domestic flight|국내선 항공편
+14-24|immigrate|(동) 이주해 들어오다|immigrate to korea|한국으로 이민 오다
+14-24|emigrate|(동) 타국으로 이주하다|emigrate from country|나라를 떠나 이민 가다
+14-24|custom|(명) 풍습, 세관|local custom|지역 풍습
+14-24|tribe|(명) 부족|african tribe|아프리카 부족
+14-24|racial|(형) 인종의|racial discrimination|인종 차별
+14-24|trait|(명) 특성, 특색|character trait|성격적 특성
+14-24|ethnic|(형) 민족의, 인종의|ethnic minority|소수 민족
+14-24|attempt|(명) 시도 (동) 시도하다|make attempt|시도하다
+14-24|dominate|(동) 지배하다, 우세하다|dominate market|시장을 지배하다
+14-24|resist|(동) 저항하다|resist pressure|압박에 저항하다
+14-24|invade|(동) 침입하다, 침해하다|invade privacy|사생활을 침해하다
+14-24|cooperate|(동) 협동하다, 협력하다|cooperate with each other|서로 협력하다
+14-24|hold on to|고수하다, 계속 보유하다|hold on to belief|신념을 지키다
+14-24|long for|갈망하다, 그리워하다|long for peace|평화를 갈구하다
+14-24|consist of|~로 구성되다|consist of five parts|다섯 부분으로 구성되다
+14-25|suggest|(동) 제안하다, 시사하다|suggest idea|아이디어를 제안하다
+14-25|propose|(동) 제안하다, 청혼하다|propose plan|계획을 제안하다
+14-25|universal|(형) 보편적인, 일반적인|universal truth|보편적 진리
+14-25|vary|(동) 다르다, 바꾸다|vary in size|크기가 다양하다
+14-25|conflict|(명) 충돌, 갈등 (동) 충돌하다|inner conflict|내적 갈등
+14-25|aware|(형) 알아차리고 있는|be aware of|~을 알고 있다
+14-25|approach|(동) 접근하다 (명) 접근|new approach|새로운 접근법
+14-25|urge|(동) 촉구하다, 재촉하다|urge him to stay|남으라고 권하다
+14-25|associate|(동) 제휴하다, 연합하다 (명) 동료|associate a with b|a를 b와 연관짓다
+14-25|interpret|(동) 해석하다, 통역하다|interpret dream|꿈을 해석하다
+14-25|alternative|(명) 대안 (형) 대안적인|alternative energy|대체 에너지
+14-25|assist|(동) 원조하다, 돕다|assist the poor|가난한 이를 돕다
+14-25|affair|(명) 사건, 사무, 직무|foreign affairs|외교 문제
+14-25|widespread|(형) 광범위한, 널리 퍼진|widespread rumor| 널리 퍼진 소문
+14-25|external|(형) 외부의, 대외적인|external factor|외부 요인
+14-25|alien|(형) 외국의, 이질적인|alien culture|이질적인 문화
+14-25|famine|(명) 기근, 배고픔|severe famine|심각한 기근
+14-25|refuge|(명) 피난처, 도피|seek refuge|피난처를 찾다
+14-25|shortage|(명) 부족, 결핍|water shortage|물 부족
+14-25|endanger|(동) 위험에 빠뜨리다|endangered species|멸종 위기종
+14-25|contaminate|(동) 오염시키다|contaminate water|물을 오염시키다
+14-25|preserve|(동) 보존하다, 지키다|preserve environment|환경을 보존하다
+14-25|explode|(동) 폭발하다|bomb explodes|폭탄이 터지다
+14-25|integrate|(동) 통합하다|integrate system|시스템을 통합하다
+14-25|guard|(동) 보호하다 (명) 경비원|security guard|경비원
+14-25|remark|(명) 발언 (동) 언급하다|opening remark|개회사
+14-25|accord|(명) 일치, 조화 (동) 일치하다|peace accord|평화 협정
+14-25|interfere in|간섭하다, 개입하다|interfere in business|남의 일에 참견하다
+14-25|keep up with|뒤떨어지지 않게 따라가다|keep up with trend|유행을 따르다
+14-25|break off|단절하다, 결렬되다|break off relation|관계를 끊다
+14-26|previous|(형) 이전의, 앞의|previous chapter|이전 장
+14-26|prior|(형) 이전의, 우선하는|prior notice|사전 통지
+14-26|decade|(명) 10년간|last decade|지난 십 년
+14-26|biography|(명) 전기, 일대기|write biography|전기를 쓰다
+14-26|devote|(동) 바치다, 헌신하다|devote time|시간을 바치다
+14-26|faith|(명) 신념, 믿음|have faith|믿음을 갖다
+14-26|minority|(명) 소수, 소수 민족|ethnic minority|소수 민족
+14-26|mummy|(명) 미라|egyptian mummy|이집트 미라
+14-26|remains|(명) 유해, 나머지|human remains|인간의 유해
+14-26|rid|(동) 제거하다, 자유롭게 하다|get rid of|~을 제거하다
+14-26|origin|(명) 기원, 유래|country of origin|원산지
+14-26|civilization|(명) 문명, 문화|ancient civilization|고대 문명
+14-26|revolution|(명) 혁명, 변혁|industrial revolution|산업 혁명
+14-26|royal|(형) 왕의, 왕실의|royal family|왕족
+14-26|heritage|(명) 유산, 전통|cultural heritage|문화 유산
+14-26|missionary|(명) 선교사, 전도사|christian missionary|기독교 선교사
+14-26|sermon|(명) 설교, 교훈|give sermon|설교하다
+14-26|settle|(동) 정착하다, 해결하다|settle dispute|분쟁을 해결하다
+14-26|replace|(동) 대신하다, 대체하다|replace part|부품을 교체하다
+14-26|signify|(동) 의미하다, 나타내다|signify change|변화를 의미하다
+14-26|conserve|(동) 보존하다|conserve energy|에너지를 절약하다
+14-26|evaluate|(동) 평가하다|evaluate performance|성과를 평가하다
+14-26|descend|(동) 계통을 잇다, 내려가다|descend stairs|계단을 내려가다
+14-26|disappear|(동) 사라지다|disappear forever|영원히 사라지다
+14-26|sequence|(명) 순서, 연속|logical sequence|논리적 순서
+14-26|gradual|(형) 점차적인, 단계적인|gradual increase|점진적 증가
+14-26|sacred|(형) 신성한, 성스러운|sacred place|신성한 장소
+14-26|break out|발생하다, 발발하다|war breaks out|전쟁이 터지다
+14-26|derive from|~에서 유래하다|derive from nature|자연에서 유래하다
+14-26|hand down|전하다, 물려주다|hand down knowledge|지식을 전수하다
+14-27|biology|(명) 생물학|marine biology|해양 생물학
+14-27|chemistry|(명) 화학|organic chemistry|유기 화학
+14-27|element|(명) 요소, 성분, 원소|essential element|필수 요소
+14-27|acid|(명) 산 (형) 산성의, 신맛의|acid rain|산성비
+14-27|storage|(명) 저장, 저장소|data storage|데이터 저장소
+14-27|steam|(명) 증기|steam engine|증기 기관
+14-27|gene|(명) 유전자|human gene|인간 유전자
+14-27|mammal|(명) 포유동물|marine mammal|해양 포유동물
+14-27|melt|(동) 녹다, 녹이다 (명) 용해|ice melts|얼음이 녹다
+14-27|cell|(명) 세포, 작은 방|nerve cell|신경 세포
+14-27|microscope|(명) 현미경|under microscope|현미경 아래에서
+14-27|reproduce|(동) 번식하다, 복제하다|reproduce sexually|유성 생식하다
+14-27|evolution|(명) 진화|theory of evolution|진화론
+14-27|extinct|(형) 멸종된, 사라진|become extinct|멸종되다
+14-27|clone|(동) 복제하다 (명) 복제 생물|clone a sheep|양을 복제하다
+14-27|identical|(형) 동일한|identical twins|일란성 쌍둥이
+14-27|animate|(형) 살아 있는, 생물인|animate beings|살아있는 존재들
+14-27|carbon|(명) 탄소|carbon dioxide|이산화탄소
+14-27|mixture|(명) 혼합물, 혼합|chemical mixture|화학 혼합물
+14-27|substance|(명) 물질|toxic substance|독성 물질
+14-27|liquid|(명) 액체 (형) 액체의|liquid state|액체 상태
+14-27|filter|(동) 거르다, 여과하다 (명) 여과 장치|water filter|정수 필터
+14-27|absorb|(동) 흡수하다, 열중시키다|absorb water|물을 흡수하다
+14-27|toxic|(형) 유독한|toxic waste|유독 폐기물
+14-27|ray|(명) 빛, 광선|x ray|x선
+14-27|compound|(명) 화합물, 복합물|chemical compound|화학 화합물
+14-27|detach|(동) 떼어 놓다, 분리하다|detach the label|라벨을 떼다
+14-27|turn A into B|A를 B로 바꾸다|turn water into ice|물을 얼음으로 바꾸다
+14-27|tell from|~을 구별하다|tell truth from lies|진실과 거짓을 구별하다
+14-27|give off|내다, 방출하다, 발산하다|give off smell|냄새를 풍기다
+14-28|temperature|(명) 온도, 기온|room temperature|실온
+14-28|forecast|(명) 예보 (동) 예상하다|weather forecast|일기 예보
+14-28|climate|(명) 기후|climate change|기후 변화
+14-28|rubber|(명) 고무 (형) 고무의|rubber band|고무줄
+14-28|severe|(형) 극심한, 심각한, 가혹한|severe storm|심한 폭풍
+14-28|resource|(명) 자원, 재원|natural resource|천연 자원
+14-28|spark|(동) 도화선이 되다 (명) 불꽃|electric spark|전기 불꽃
+14-28|Arctic|(명) 북극 지방 (형) 북극의|arctic ocean|북극해
+14-28|depth|(명) 심해, 깊이|water depth|수심
+14-28|shield|(동) 보호하다 (명) 방패|shield from sun|햇빛으로부터 보호하다
+14-28|wildlife|(명) 야생 생물|protect wildlife|야생 동물을 보호하다
+14-28|disaster|(명) 재난, 재해, 재앙|natural disaster|자연 재해
+14-28|occur|(동) 발생하다, 일어나다|occur naturally|자연적으로 발생하다
+14-28|Atlantic|(명) 대서양 (형) 대서양의|atlantic ocean|대서양
+14-28|canyon|(명) 협곡|grand canyon|그랜드 캐니언
+14-28|swamp|(명) 늪 (동) 늪에 빠져들다|mangrove swamp|망그로브 늪
+14-28|moisture|(명) 수분, 습기|soil moisture|토양 수분
+14-28|reflect|(동) 반사하다, 반영하다|reflect light|빛을 반사하다
+14-28|Celsius|(명) 섭씨|degrees celsius|섭씨 온도
+14-28|thermometer|(명) 온도계|mercury thermometer|수은 온도계
+14-28|destructive|(형) 파괴적인, 해로운|destructive power|파괴적인 힘
+14-28|wreck|(명) 난파, 잔해 (동) 파괴하다|ship wreck|난파선
+14-28|peak|(명) 정상, 봉우리, 절정|mountain peak|산봉우리
+14-28|erupt|(동) 폭발하다, 분출하다|volcano erupts|화산이 분출하다
+14-28|eject|(동) 내뿜다, 배출하다|eject smoke|연기를 내뿜다
+14-28|purify|(동) 정화하다, 정제하다|purify water|물을 정화하다
+14-28|surround|(동) 둘러싸다, 포위하다|surrounded by mountains|산으로 둘러싸인
+14-28|wash away|~을 쓸어 가다|wash away soil|흙을 쓸어가다
+14-28|wipe out|~을 완전히 파괴하다|wipe out population|인구를 전멸시키다
+14-28|use up|다 써 버리다, 소모하다|use up energy|에너지를 다 쓰다
+14-29|astronaut|(명) 우주 비행사|brave astronaut|용감한 우주 비행사
+14-29|solar|(형) 태양의|solar system|태양계
+14-29|remote|(형) 먼, 외진|remote area|외진 곳
+14-29|benefit|(명) 이익|mutual benefit|상호 이익
+14-29|efficiency|(명) 효율, 능률|fuel efficiency|연비
+14-29|enable|(동) 할 수 있게 하다|enable access|접근을 가능하게 하다
+14-29|discover|(동) 발견하다|discover new planet|새 행성을 발견하다
+14-29|observe|(동) 관찰하다, 준수하다|observe stars|별을 관찰하다
+14-29|digital|(형) 디지털의|digital age|디지털 시대
+14-29|shuttle|(명) 우주 왕복선 (동) 왕복하다|space shuttle|우주 왕복선
+14-29|astronomer|(명) 천문학자|famous astronomer|유명한 천문학자
+14-29|orbit|(명) 궤도|earth's orbit|지구의 궤도
+14-29|galaxy|(명) 은하, 은하계|milky way galaxy|우리 은하
+14-29|rotate|(동) 회전하다, 교대하다|earth rotates|지구가 자전하다
+14-29|satellite|(명) 위성, 인공위성|artificial satellite|인공위성
+14-29|launch|(동) 발사하다, 출시하다|launch rocket|로켓을 발사하다
+14-29|lunar|(형) 달의|lunar eclipse|월식
+14-29|electronic|(형) 전자의|electronic device|전자 장치
+14-29|eclipse|(명) 식 (동) 빛을 잃게 하다|solar eclipse|일식
+14-29|gravity|(명) 중력|zero gravity|무중력
+14-29|automatic|(형) 자동의|automatic system|자동 시스템
+14-29|device|(명) 도구, 장치|electronic device|전자 기기
+14-29|manual|(형) 손의, 수동의|manual labor|육체 노동
+14-29|accurate|(형) 정확한|accurate data|정확한 데이터
+14-29|analyze|(동) 분석하다, 분해하다|analyze result|결과를 분석하다
+14-29|adjust|(동) 조절하다, 적응하다|adjust volume|볼륨을 조절하다
+14-29|accelerate|(동) 가속하다|accelerate growth|성장을 가속하다
+14-29|bring about|~을 불러일으키다, 초래하다|bring about change|변화를 초래하다
+14-29|sort out|~을 분류하다, 선별하다|sort out problem|문제를 해결하다
+14-29|substitute for|~을 대신하다, 대리하다|substitute for sugar|설탕 대용물
+14-30|online|(형) 온라인의 (부) 온라인으로|online shopping|온라인 쇼핑
+14-30|database|(명) 데이터베이스|access database|데이터베이스에 접속하다
+14-30|capture|(동) 포착하다, 붙잡다|capture moment|순간을 포착하다
+14-30|tool|(명) 툴, 도구, 연장|useful tool|유용한 도구
+14-30|junk|(명) 폐물, 고물|junk mail|스팸 메일
+14-30|delete|(동) 삭제하다|delete file|파일을 삭제하다
+14-30|communicate|(동) 의사소통하다, 통신하다|communicate well|의사소통을 잘하다
+14-30|browse|(동) 검색하다, 열람하다|browse web|웹을 검색하다
+14-30|link|(명) 링크, 연결 (동) 연결하다|broken link|끊어진 링크
+14-30|oral|(형) 구두의, 구술의|oral exam|구술 시험
+14-30|edit|(동) 편집하다, 교정하다|edit video|영상을 편집하다
+14-30|warn|(동) 경고하다, 주의를 주다|warn students|학생들에게 경고하다
+14-30|dot|(명) 닷, 점|dot com|닷컴
+14-30|visual|(형) 시각의, 눈에 보이는|visual aids|시각 자료
+14-30|profile|(명) 프로필, 인물 소개|user profile|사용자 프로필
+14-30|access|(명) 접근 (동) 접근하다|gain access|접근 권한을 얻다
+14-30|circulate|(동) 보급시키다, 유포하다|circulate rumors|소문을 퍼뜨리다
+14-30|activate|(동) 활성화하다|activate account|계정을 활성화하다
+14-30|surf|(동) 파도타기를 하다|surf the internet|인터넷을 서핑하다
+14-30|request|(명) 요청 (동) 요청하다|send request|요청을 보내다
+14-30|interrupt|(동) 방해하다, 중단하다|interrupt speech|말을 가로막다
+14-30|pause|(명) 중단 (동) 잠시 멈추다|pause the video|영상을 멈추다
+14-30|response|(명) 응답, 반응|quick response|빠른 응답
+14-30|debate|(명) 토론, 토의 (동) 토론하다|public debate|공개 토론
+14-30|illogical|(형) 비논리적인, 불합리한|illogical argument|비논리적인 주장
+14-30|hesitate|(동) 주저하다, 망설이다|hesitate to answer|대답을 주저하다
+14-30|suppose|(동) 가정하다, 생각하다|suppose that|~라고 가정하다
+14-30|combine|(동) 결합시키다|combine efforts|힘을 합치다
+14-30|keep in touch with|~와 연락을 유지하다|keep in touch with friends|친구들과 연락하다
+14-30|cut in|대화에 끼어들다|cut in on conversation|대화에 끼어들다
 
 20-1|include|포함하다|Include tax.|세금을 포함하다.
 20-1|produce|생산하다, 만들어 내다, 초래하다 [명] 농산물|Produce goods.|상품을 생산하다.
@@ -10024,6 +10924,7 @@
   window.WORD_DB = buildDB(RAW_WORDS);
 
 })();
+
 
 
 
