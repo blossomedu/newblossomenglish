@@ -26,6 +26,18 @@
       padding: 0 20px;
     }
 
+    .header-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 32px;
+    }
+
+    .header-text {
+      display: flex;
+      flex-direction: column;
+    }
+
     .title-big {
       font-size: 34px;
       font-weight: 900;
@@ -35,8 +47,36 @@
     .subtitle {
       font-size: 16px;
       color: #6b7280;
-      margin-bottom: 32px;
     }
+
+    .header-buttons {
+      display: flex;
+      gap: 8px;
+    }
+
+    .nav-pill {
+      padding: 9px 18px;
+      border-radius: 999px;
+      border: none;
+      font-size: 14px;
+      cursor: pointer;
+      white-space: nowrap;
+      font-weight: 600;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      transition: opacity 0.2s;
+      font-family: "Pretendard Variable", sans-serif;
+    }
+
+    .nav-pill:hover {
+      opacity: 0.9;
+    }
+
+    /* ✨ 색상 변경 ✨ */
+    .pill-home { background: #9AD7A0; color: #ffffff; } /* 민트(연두) */
+    .pill-back { background: #00AEEF; color: #ffffff; } /* 하늘색으로 변경! */
 
     .grid {
       display: grid;
@@ -78,8 +118,17 @@
 <body>
 
 <div class="page">
-  <div class="title-big" id="page-title">세트 선택</div>
-  <div class="subtitle">학습할 세트를 선택하세요.</div>
+  <div class="header-row">
+    <div class="header-text">
+      <div class="title-big" id="page-title">세트 선택</div>
+      <div class="subtitle">학습할 세트를 선택하세요.</div>
+    </div>
+    
+    <div class="header-buttons">
+      <a href="index.html" class="nav-pill pill-home">Home</a>
+      <button onclick="history.back()" class="nav-pill pill-back">돌아가기</button>
+    </div>
+  </div>
 
   <div class="grid" id="set-grid"></div>
   <div id="error-container"></div>
@@ -87,43 +136,35 @@
 
 <script>
   const params = new URLSearchParams(window.location.search);
-  const stage = params.get("stage");   // "1", "2", "3"
+  const stage = params.get("stage");
 
   const titleEl = document.getElementById("page-title");
   const gridEl  = document.getElementById("set-grid");
   const errorEl = document.getElementById("error-container");
 
-  // 단계별 세트 범위
   let startSet, endSet;
 
   if (stage === "1") {
-    startSet = 1;
-    endSet   = 9;
+    startSet = 1; endSet = 9;
   } else if (stage === "2") {
-    startSet = 10;
-    endSet   = 18;
+    startSet = 10; endSet = 18;
   } else if (stage === "3") {
-    startSet = 19;
-    endSet   = 27;
+    startSet = 19; endSet = 27;
   }
 
-  // stage가 이상하면 에러
   if (!startSet || !endSet) {
     const msg = document.createElement("div");
     msg.className = "error-box";
     msg.textContent = "단계 정보가 올바르지 않습니다.";
     errorEl.appendChild(msg);
   } else {
-    // 상단 제목: 1단계 / 2단계 / 3단계
     titleEl.textContent = `${stage}단계`;
 
-    // 세트 카드 생성
     for (let n = startSet; n <= endSet; n++) {
       const card = document.createElement("div");
       card.className = "set-card";
-      card.textContent = n;     // 카드에 보이는 숫자
+      card.textContent = n;
       card.onclick = () => {
-        // 👉 units-detail.html 로 set=n 그대로 넘김
         location.href = `units-detail.html?stage=${stage}&set=${n}`;
       };
       gridEl.appendChild(card);
