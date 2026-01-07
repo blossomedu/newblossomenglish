@@ -4952,7 +4952,7 @@
 13-11|highway|고속도로 [h]|Drive on the highway.|고속도로에서 운전하다.
 13-11|sewer|하수구|A rat in the sewer.|하수구 속의 쥐.
 13-11|give A a ride|A를 태워주다|Give me a ride.|나를 태워줘.
-13-11|be known for|~로 알려져 있다, ~로 유명하다|Korea is known for Kimchi.|한국은 김치로 유명하다.
+13-11|be known for|~로 알려져 있다, ~로 유명하다|Korea is {known for} Kimchi.|한국은 김치로 유명하다.
 13-11|in the middle of|~의 중간(중앙)에, ~의 도중에|In the middle of the night.|한밤중에.
 
 13-12|iron|다리미, 철, 다림질하다|Iron the shirt.|셔츠를 다림질해라.
@@ -10924,6 +10924,7 @@
   window.WORD_DB = buildDB(RAW_WORDS);
 
 })();
+
 
 
 
