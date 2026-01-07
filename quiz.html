@@ -333,7 +333,7 @@
   const modeTabs = document.querySelectorAll(".mode-tab:not(#printVocabBtn)");
   const modeResetBtn = document.getElementById("modeResetBtn");
   const backToUnitsBtn = document.getElementById("backToUnitsBtn");
-  const homeBtn = document.getElementById("homeBtn"); // ✨ [수정 완료] Home 버튼 연결
+  const homeBtn = document.getElementById("homeBtn");
 
   // --- 어휘 보기 버튼 ---
   const printVocabBtn = document.getElementById("printVocabBtn");
@@ -456,7 +456,6 @@
     centerArea.innerHTML =
       '<div class="question-title">모든 문제를 다 풀었어요!</div>' +
       '<div style="margin-top:10px;font-size:22px;color:#16a34a;font-weight:700;">100점 🎉</div>' +
-      // ✨ [수정 완료] 멘트 변경: 다시 시작 -> 다시 풀기
       '<div style="margin-top:12px;font-size:14px;color:#6b7280;">다시 연습하려면 "다시 풀기"를 눌러주세요.</div>';
     setProgress(wordCount, wordCount);
 
@@ -647,6 +646,27 @@
     }, 13000);
   }
 
+  // ▼▼▼ [새로 추가된 함수] 스마트 빈칸 생성기 (자동 감지용) ▼▼▼
+  function createBlankQuestion(targetPhrase, fullSentence) {
+    if (!targetPhrase || !fullSentence) return fullSentence;
+    // 숙어 변형 패턴 처리
+    let pattern = targetPhrase
+        .replace(/[.*+?^${}()|[\]\\]/g, '\\$&')
+        .replace(/ A /g, " [a-zA-Z\\s]+? ")
+        .replace(/ B /g, " [a-zA-Z\\s]+? ")
+        .replace(/one\\'s|one's/g, "[a-zA-Z]+")
+        .replace(/~/g, "[a-zA-Z\\s]+?")
+        .trim().replace(/\s+/g, "\\s+");
+    try {
+        const regex = new RegExp(pattern, "gi");
+        // 자동 감지된 부분 빈칸 처리
+        return fullSentence.replace(regex, '<span style="border-bottom:2px solid #333;color:transparent;user-select:none;">______</span>');
+    } catch (e) {
+        return fullSentence;
+    }
+  }
+
+  // ▼▼▼ [완전히 교체된 함수] 문장 빈칸 퀴즈 (수동/자동 모두 지원) ▼▼▼
   function renderSentenceQuiz() {
     stopSpeech();
     if (answerTimer) clearTimeout(answerTimer);
@@ -656,21 +676,47 @@
     if (sentencePos >= wordCount) { showQuizFinished(); return; }
 
     const item = words[sentenceOrder[sentencePos]];
-    const blanked = item.exampleEn.replace(new RegExp(item.word, "i"), "____");
+    let displaySentence = "";
+    let manualAnswer = null; 
+
+    // 1. 수동 지정 체크 ({...} 감지)
+    const manualMatch = item.exampleEn.match(/\{(.*?)\}/);
+
+    if (manualMatch) {
+      // ✅ 수동 모드: { } 안의 내용을 정답으로 사용
+      manualAnswer = manualMatch[1].trim(); 
+      // 화면에는 빈칸(밑줄)으로 표시
+      displaySentence = item.exampleEn.replace(/\{.*?\}/, 
+        '<span style="display:inline-block; border-bottom: 2px solid #333; min-width: 50px; text-align:center; color: transparent; user-select: none;">______</span>'
+      );
+    } else {
+      // 🤖 자동 모드: { }가 없으면 스마트 함수로 자동 생성
+      displaySentence = createBlankQuestion(item.word, item.exampleEn);
+    }
 
     centerArea.classList.add("sentence-mode");
     centerArea.innerHTML =
-      '<div class="sentence-en">' + blanked + "</div>" +
+      '<div class="sentence-en">' + displaySentence + "</div>" +
       '<div class="sentence-ko">' + item.exampleKo + "</div>";
 
     const row = document.createElement("div");
     row.className = "sentence-row";
+    
     const input = document.createElement("input");
     input.className = "sentence-input";
-    input.placeholder = "단어 입력";
+    input.autocomplete = "off";
+
+    // 힌트(Placeholder)
+    if (manualAnswer) {
+        input.placeholder = "빈칸에 들어갈 말을 입력하세요";
+    } else {
+        input.placeholder = "단어 원형을 입력하세요 (예: " + item.word + ")";
+    }
+
     const btn = document.createElement("button");
     btn.className = "check-btn";
     btn.textContent = "확인";
+    
     row.appendChild(input);
     row.appendChild(btn);
     centerArea.appendChild(row);
@@ -687,20 +733,35 @@
     function check() {
       const val = input.value.trim().toLowerCase();
       if (!val) return;
-      if (val === item.word.toLowerCase()) {
+
+      const headword = item.word.toLowerCase(); // 단어장 표제어
+      const answerText = manualAnswer ? manualAnswer.toLowerCase() : "";
+
+      // ✅ 정답 로직: 원형(give A a ride) 또는 문맥 정답(gave me a ride) 둘 중 하나면 OK
+      let isCorrect = (val === headword);
+      if (answerText && val === answerText) {
+          isCorrect = true;
+      }
+
+      if (isCorrect) {
         input.style.borderColor = "#22c55e";
         res.textContent = "정답! 👍";
         hint.textContent = "";
         setTimeout(function () { sentencePos++; renderSentenceQuiz(); }, 900);
       } else {
         input.style.borderColor = "#f97373";
-        hint.textContent = '힌트: "' + item.word[0] + '"로 시작';
+        // 오답 시 힌트 제공
+        if (manualAnswer) {
+           hint.textContent = `힌트: ${item.word} (문맥에 맞게)`;
+        } else {
+           hint.textContent = `힌트: "${item.word.charAt(0)}"로 시작`;
+        }
         res.textContent = "다시 해보세요.";
       }
     }
     btn.onclick = check;
     input.onkeydown = function (e) { if (e.key === "Enter") check(); };
-    input.focus();
+    setTimeout(() => input.focus(), 100);
   }
 
   function renderCurrent() {
@@ -739,7 +800,6 @@
     window.history.back();
   };
 
-  // ✨ [수정 완료] Home 버튼 클릭 시 index.html로 이동
   homeBtn.onclick = function () {
     window.location.href = "index.html";
   };
@@ -749,5 +809,3 @@
 </script>
 </body>
 </html>
-
-
