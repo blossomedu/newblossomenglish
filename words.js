@@ -10916,6 +10916,1467 @@
 23-30|subsequent|(형) 차후의, 이후의|subsequent events|그 이후의 사건들
 23-30|consequent|(형) 결과로 일어나는|consequent loss|그 결과로 생긴 손실
 
+30-1|effect|(명) 영향, 결과|side effect|부작용
+30-1|effective|(형) 효과적인|effective method|효과적인 방법
+30-1|effectively|(부) 효과적으로|work effectively|효과적으로 일하다
+30-1|describe|(동) 묘사하다|describe the scene|장면을 묘사하다
+30-1|description|(명) 묘사, 설명|job description|직무 설명
+30-1|professional|(명/형) 전문가, 전문적인|professional advice|전문적인 조언
+30-1|profession|(명) 직업, 전문직|medical profession|의료직
+30-1|perform|(동) 수행하다|perform on stage|무대에서 공연하다
+30-1|performance|(명) 성과, 공연|high performance|높은 성과
+30-1|wonder|(동) 궁금해하다, (명) 경이로움|wonder why|왜 그런지 궁금해하다
+30-1|wonderful|(형) 멋진, 훌륭한|wonderful world|멋진 세상
+30-1|cure|(동) 치료하다|cure the disease|병을 치료하다
+30-1|curable|(형) 치료할 수 있는|curable disease|치료 가능한 병
+30-1|benefit|(명) 혜택, 이익|mutual benefit|상호 이익
+30-1|beneficial|(형) 이로운, 유익한|beneficial effect|이로운 영향
+30-1|enable|(동) 가능하게 하다|enable access|접근을 가능하게 하다
+30-1|knowledge|(명) 지식|basic knowledge|기초 지식
+30-1|native|(형) 원주민의, 토착의|native language|모국어
+30-1|in terms of|~의 관점에서|in terms of cost|비용 측면에서
+30-1|cope with|대처하다, 해결하다|cope with stress|스트레스에 대처하다
+30-2|entertain|(동) 즐겁게 하다|entertain guests|손님을 즐겁게 하다
+30-2|entertainment|(명) 오락 또는 즐거움을 주는 것|entertainment industry|엔터테인먼트 산업
+30-2|attend|(동) 참석하다|attend a meeting|회의에 참석하다
+30-2|attention|(명) 주의, 주목|pay attention|주의를 기울이다
+30-2|ignore|(동) 무시하다|ignore warnings|경고를 무시하다
+30-2|ignorance|(명) 무지, 무지함|total ignorance|완전한 무지
+30-2|dependent|(형) 의존적인|highly dependent|매우 의존적인
+30-2|independent|(형) 독립적인|independent state|독립 국가
+30-2|purpose|(명) 목적|main purpose|주된 목적
+30-2|on purpose|(구) 고의로, 일부러|do it on purpose|그것을 일부러 하다
+30-2|recognize|(동) 인식하다, 알아보다|recognize the face|얼굴을 알아보다
+30-2|recognition|(명) 인식, 알아보음|gain recognition|인정을 받다
+30-2|appoint|(동) 지명하다, 임명하다|appoint a leader|리더를 임명하다
+30-2|appointment|(명) 약속, 임명|make an appointment|약속을 잡다
+30-2|chef|(명) 주방장, 요리사|professional chef|전문 요리사
+30-2|likely|(형) 가능성이 높은, 있음직한|most likely|아마도
+30-2|be likely to|~할 것 같다|be likely to rain|비가 올 것 같다
+30-2|pause|(명) 일시 정지, 멈춤|brief pause|짧은 멈춤
+30-2|possibility|(명) 가능성, 가능한 일|limitless possibility|무한한 가능성
+30-2|possible|(형) 가능한, 실현 가능한|as soon as possible|가능한 한 빨리
+30-2|remain|(동) 남다, 계속되다|remain silent|침묵을 지키다
+30-3|rough|(형) 거친, 험한|rough sea|거친 바다
+30-3|frequently|(부) 자주, 빈번히|frequently asked questions|자주 묻는 질문
+30-3|frequent|(형) 빈번한|frequent visits|잦은 방문
+30-3|moreover|(부) 게다가, 더욱이|moreover, it is cheap|게다가, 그것은 싸다
+30-3|transport|(동) 운송하다|transport goods|상품을 운송하다
+30-3|transportation|(명) 운송, 교통|public transportation|대중교통
+30-3|run short of|~이 부족하다|run short of money|돈이 부족해지다
+30-3|take A into account|A를 고려하다|take feelings into account|감정을 고려하다
+30-3|set free|해방시키다|set the birds free|새들을 풀어주다
+30-3|confidence|(명) 자신감|full of confidence|자신감이 넘치는
+30-3|confident|(형) 자신 있는|feel confident|자신감을 느끼다
+30-3|confidential|(형) 기밀의|confidential document|기밀 서류
+30-3|heat|(명) 열, 온도|summer heat|여름 열기
+30-3|romantic|(형) 로맨틱한|romantic relationship|로맨틱한 관계
+30-3|romance|(명) 로맨스, 연애 이야기|classic romance|고전 로맨스
+30-3|recipe|(명) 조리법|secret recipe|비밀 레시피
+30-3|treatment|(명) 치료, 대우|fair treatment|공정한 대우
+30-3|treat|(동) 대하다, 치료하다|treat with respect|존중하며 대하다
+30-3|trend|(명) 추세, 경향|latest trend|최신 유행
+30-3|unforgettable|(형) 잊을 수 없는|unforgettable memory|잊을 수 없는 기억
+30-3|forgettable|(형) 잊을 만한|easily forgettable|쉽게 잊히는
+30-3|priceless|(형) 값비싼, 매우 귀중한|priceless treasure|대단히 귀중한 보물
+30-4|hunger|(명) 굶주림|feel hunger|배고픔을 느끼다
+30-4|hungry|(형) 배고픈|hungry child|배고픈 아이
+30-4|decoration|(명) 장식|interior decoration|실내 장식
+30-4|decorate|(동) 장식하다|decorate the room|방을 장식하다
+30-4|fancy|(형) 화려한, 멋진|fancy dress|화려한 드레스
+30-4|attractive|(형) 매력적인|attractive features|매력적인 특징
+30-4|attraction|(명) 끌림, 매력|tourist attraction|관광 명소
+30-4|pure|(형) 순수한|pure water|순수한 물
+30-4|purify|(동) 정화하다|purify the air|공기를 정화하다
+30-4|content|(명) 내용 (형) 만족한|table of contents|목차
+30-4|glow|(동) 빛나다 (명) 광채|soft glow|부드러운 빛
+30-4|figure|(명) 형상, 숫자|historical figure|역사적 인물
+30-4|figure out|(동) 이해하다, 풀다|figure out the answer|정답을 찾아내다
+30-4|emotion|(명) 감정|human emotion|인간의 감정
+30-4|emotional|(형) 감정적인|emotional support|정서적 지지
+30-4|sweat|(명) 땀 (동) 땀을 흘리다|cold sweat|식은땀
+30-4|sweaty|(형) 땀이 많이 나는|sweaty palms|땀에 젖은 손바닥
+30-4|reaction|(명) 반응|chemical reaction|화학 반응
+30-4|react|(동) 반응하다|react quickly|빠르게 반응하다
+30-4|appearance|(명) 외모, 출현|physical appearance|신체적 외모
+30-4|appear|(동) 나타나다|appear suddenly|갑자기 나타나다
+30-4|athlete|(명) 선수|professional athlete|프로 운동선수
+30-4|athletic|(형) 체육적인|athletic talent|운동적 재능
+30-5|drought|(명) 가뭄|severe drought|심한 가뭄
+30-5|flood|(명) 홍수|flash flood|갑작스러운 홍수
+30-5|tourist|(명) 관광객|foreign tourist|외국인 관광객
+30-5|tour|(명) 여행 (동) 여행하다|guided tour|가이드 투어
+30-5|spread|(동) 퍼뜨리다 (명) 전파|spread the news|소식을 퍼뜨리다
+30-5|panic|(명) 공포 (동) 당황하다|panic attack|공황 발작
+30-5|regard|(동) 간주하다 (명) 주의|regard as important|중요하게 여기다
+30-5|regardless|(부) 무관하게|regardless of age|나이에 상관없이
+30-5|regard A as B|(구) A를 B로 간주하다|regard him as hero|그를 영웅으로 간주하다
+30-5|fame|(명) 명성, 유명함|world fame|세계적인 명성
+30-5|useless|(형) 쓸모없는|useless information|쓸모없는 정보
+30-5|use|(명) 사용 (동) 사용하다|daily use|매일 사용
+30-5|education|(명) 교육|higher education|고등 교육
+30-5|educate|(동) 교육하다|educate the public|대중을 교육하다
+30-5|rise to fame|(구) 명성을 얻다|rise to sudden fame|갑자기 유명해지다
+30-5|entirely|(부) 완전히|entirely different|완전히 다른
+30-5|entire|(형) 전체의|entire world|전 세계
+30-5|particular|(형) 특정한|particular reason|특정한 이유
+30-5|particularly|(부) 특히|particularly helpful|특히 도움이 되는
+30-5|pleased|(형) 기쁜, 만족한|be pleased with|~에 만족하다
+30-5|pleasant|(형) 쾌적한, 즐거운|pleasant weather|쾌적한 날씨
+30-5|pleasure|(명) 기쁨, 즐거움|with pleasure|기꺼이
+30-5|cultural|(형) 문화적인|cultural heritage|문화 유산
+30-5|culture|(명) 문화|pop culture|대중 문화
+30-6|freedom|(명) 자유|freedom of speech|언론의 자유
+30-6|free|(형) 자유로운, 무료의|free of charge|무료의
+30-6|instant|(형) 즉각적인, 즉석의|instant coffee|인스턴트 커피
+30-6|explore|(동) 탐험하다|explore the world|세계를 탐험하다
+30-6|explorer|(명) 탐험가|famous explorer|유명한 탐험가
+30-6|enterprising|(형) 진취적인|enterprising spirit|진취적인 정신
+30-6|enterprise|(명) 기업, 사업|private enterprise|사기업
+30-6|encourage|(동) 격려하다|encourage students|학생들을 격려하다
+30-6|courage|(명) 용기|gain courage|용기를 얻다
+30-6|relative|(명) 친척 (형) 상대적인|close relative|가까운 친척
+30-6|relate|(동) 관련시키다|relate to others|타인과 공감하다
+30-6|traditional|(형) 전통적인|traditional music|전통 음악
+30-6|tradition|(명) 전통|follow tradition|전통을 따르다
+30-6|typical|(형) 전형적인|typical example|전형적인 예
+30-6|sightseeing|(명) 관광|go sightseeing|관광하러 가다
+30-6|go sightseeing|(구) 관광하다|go sightseeing in Seoul|서울을 관광하다
+30-6|aware|(형) 알고 있는|aware of the risk|위험을 알고 있는
+30-6|awareness|(명) 인식|public awareness|대중의 인식
+30-6|be aware of|(구) ~을 알고 있다|be aware of changes|변화를 인지하다
+30-6|display|(동) 전시하다 (명) 전시|on display|전시 중인
+30-6|dramatically|(부) 극적으로|increase dramatically|급격히 증가하다
+30-6|rescue|(동) 구조하다 (명) 구조|rescue operation|구조 작업
+30-6|rescuer|(명) 구조자|brave rescuer|용감한 구조자
+30-6|discover|(동) 발견하다|discover new land|새 땅을 발견하다
+30-6|discovery|(명) 발견|scientific discovery|과학적 발견
+30-7|generate|(동) 발생시키다|generate electricity|전기를 발생시키다
+30-7|generation|(명) 세대|future generation|미래 세대
+30-7|general|(형) 일반적인 (명) 장군|general public|일반 대중
+30-7|location|(명) 장소, 위치|current location|현재 위치
+30-7|locate|(동) 위치시키다|locate the building|건물의 위치를 찾다
+30-7|shore|(명) 해안|sandy shore|모래 해안
+30-7|shoreline|(명) 해안선|rocky shoreline|암석 해안선
+30-7|worth|(형) 가치 있는 (명) 가치|worth the price|그 가격의 가치가 있는
+30-7|worthless|(형) 가치 없는|worthless efforts|가치 없는 노력
+30-7|antique|(형) 골동품의 (명) 골동품|antique furniture|골동품 가구
+30-7|range|(명) 범위 (동) 정렬하다|wide range|넓은 범위
+30-7|a full range of|(구) 모든 종류의|a full range of products|전 종류의 제품
+30-7|manage|(동) 관리하다, 경영하다|manage a business|사업을 경영하다
+30-7|manager|(명) 매니저, 경영자|project manager|프로젝트 매니저
+30-7|theme|(명) 주제, 테마|main theme|주요 테마
+30-7|preserve|(동) 보존하다|preserve nature|자연을 보존하다
+30-7|preservation|(명) 보존|food preservation|식품 보존
+30-7|mess|(명) 어질러진 것 (동) 엉망으로 만들다|clean up the mess|지저분한 것을 치우다
+30-7|messy|(형) 지저분한|messy room|지저분한 방
+30-7|scientific|(형) 과학적인|scientific method|과학적 방법
+30-7|science|(명) 과학|natural science|자연 과학
+30-7|laboratory|(명) 실험실|research laboratory|연구 실험실
+30-7|creativity|(명) 창의성|artistic creativity|예술적 창의성
+30-7|create|(동) 창조하다|create a problem|문제를 일으키다
+30-7|transfer|(동) 옮기다, 갈아타다|transfer money|돈을 송금하다
+30-7|position|(명) 위치, 직책|current position|현재 위치
+
+30-8|recommendation|(명) 추천, 권고|letter of recommendation|추천서
+30-8|recommend|(동) 추천하다|recommend a book|책을 추천하다
+30-8|author|(명) 작가, 저자|famous author|유명한 작가
+30-8|copyright|(명) 저작권|hold the copyright|저작권을 보유하다
+30-8|imagine|(동) 상상하다|imagine the future|미래를 상상하다
+30-8|imagination|(명) 상상력|creative imagination|창의적인 상상력
+30-8|mystery|(명) 신비, 미스터리|unsolved mystery|풀리지 않은 미스터리
+30-8|mysterious|(형) 신비로운|mysterious island|신비로운 섬
+30-8|article|(명) 기사, 물품|news article|뉴스 기사
+30-8|obvious|(형) 명백한|obvious mistake|명백한 실수
+30-8|obviously|(부) 분명히|obviously wrong|분명히 잘못된
+30-8|reason|(명) 이유, 근거|valid reason|타당한 이유
+30-8|reasonable|(형) 합리적인|reasonable price|합리적인 가격
+30-8|debate|(명) 토론 (동) 토론하다|public debate|공개 토론
+30-8|publish|(동) 출판하다|publish a novel|소설을 출간하다
+30-8|publisher|(명) 출판사|book publisher|도서 출판사
+30-8|error|(명) 오류, 실수|human error|인간의 실수
+30-8|advertise|(동) 광고하다|advertise on tv|텔레비전에 광고하다
+30-8|advertisement|(명) 광고|online advertisement|온라인 광고
+30-8|discount|(명) 할인 (동) 할인하다|student discount|학생 할인
+30-8|brand|(명) 상표, 브랜드|global brand|세계적인 브랜드
+30-8|brand new|(형) 완전히 새것인|brand new car|완전 새 차
+30-8|volunteer|(명) 자원봉사자 (동) 자원하다|volunteer work|자원봉사 활동
+30-8|voluntary|(형) 자발적인|voluntary participation|자발적인 참여
+30-8|refer|(동) 언급하다, 참조하다|refer to notes|필기를 참조하다
+30-8|reference|(명) 참조, 추천서|quick reference|빠른 참조
+30-8|refer to|(구) ~을 언급하다|refer to the past|과거를 언급하다
+30-9|curious|(형) 궁금한, 호기심 많은|be curious about|~에 대해 궁금해하다
+30-9|curiosity|(명) 호기심|natural curiosity|타고난 호기심
+30-9|issue|(명) 주제, 발행물|current issue|현재의 쟁점
+30-9|political|(형) 정치적인|political party|정당
+30-9|politics|(명) 정치|international politics|국제 정치
+30-9|pursue|(동) 추구하다|pursue a career|경력을 쌓다
+30-9|prove|(동) 증명하다|prove a theory|이론을 증명하다
+30-9|proof|(명) 증거|solid proof|확실한 증거
+30-9|faith|(명) 신념, 믿음|lose faith|믿음을 잃다
+30-9|faithful|(형) 충실한|faithful friend|충실한 친구
+30-9|have faith in|(구) ~을 믿다|have faith in god|신을 믿다
+30-9|principle|(명) 원리, 원칙|moral principle|도덕적 원칙
+30-9|in principle|(구) 원칙적으로는|agree in principle|원칙적으로 동의하다
+30-9|proper|(형) 적절한|proper way|적절한 방법
+30-9|properly|(부) 제대로, 적절히|function properly|제대로 작동하다
+30-9|expose|(동) 노출시키다|expose the truth|진실을 밝히다
+30-9|expose to|(구) ~에 노출시키다|expose to sunlight|햇빛에 노출시키다
+30-9|inform|(동) 알리다|inform the public|대중에게 알리다
+30-9|information|(명) 정보|useful information|유용한 정보
+30-9|inform A of B|(구) A에게 B를 알리다|inform him of results|그에게 결과를 알리다
+30-9|arrange|(동) 배열하다, 준비하다|arrange a meeting|회의를 준비하다
+30-9|arrangement|(명) 준비, 방식|travel arrangement|여행 준비
+30-9|goal|(명) 목표|achieve a goal|목표를 달성하다
+30-9|counselor|(명) 상담가|school counselor|학교 상담 교사
+30-9|counseling|(명) 상담|marriage counseling|부부 상담
+30-9|consumer|(명) 소비자|consumer rights|소비자 권리
+30-9|consume|(동) 소비하다|consume energy|에너지를 소비하다
+30-9|fuel|(명) 연료|fossil fuel|화석 연료
+30-10|decrease|(동) 감소하다 (명) 감소|decrease in population|인구 감소
+30-10|increase|(동) 증가하다 (명) 증가|increase the speed|속도를 높이다
+30-10|economy|(명) 경제|global economy|세계 경제
+30-10|economic|(형) 경제의|economic growth|경제 성장
+30-10|avoid|(동) 피하다|avoid contact|접촉을 피하다
+30-10|totally|(부) 완전히|totally different|완전히 다른
+30-10|total|(명) 총계 (형) 전체의|total cost|총 비용
+30-10|nearly|(부) 거의|nearly finished|거의 끝난
+30-10|near|(형) 가까운 (부) 가까이|near future|가까운 미래
+30-10|refund|(명) 환불 (동) 환불하다|full refund|전액 환불
+30-10|get a refund|(구) 환불받다|get a full refund|전액을 환불받다
+30-10|invitation|(명) 초대|wedding invitation|결혼 초대장
+30-10|invite|(동) 초대하다|invite friends|친구들을 초대하다
+30-10|merchant|(명) 상인|local merchant|지역 상인
+30-10|disappointed|(형) 실망한|feel disappointed|실망감을 느끼다
+30-10|disappointing|(형) 실망스러운|disappointing result|실망스러운 결과
+30-10|certain|(형) 확실한, 특정한|certain reason|특정한 이유
+30-10|certainly|(부) 확실히|certainly helpful|확실히 도움이 되는
+30-10|match|(동) 어울리다 (명) 경기|perfect match|완벽한 조화
+30-10|network|(명) 네트워크|social network|사회적 관계망
+30-10|mechanical|(형) 기계적인|mechanical engineering|기계 공학
+30-10|machine|(명) 기계|vending machine|자동 판매기
+30-10|automobile|(명) 자동차|automobile industry|자동차 산업
+30-10|mobile|(형) 이동하는|mobile phone|휴대전화
+30-10|instant|(형) 즉각적인|instant coffee|인스턴트 커피
+30-10|invent|(동) 발명하다|invent a tool|도구를 발명하다
+30-10|invention|(명) 발명|useful invention|유용한 발명
+30-10|imitate|(동) 모방하다|imitate the sound|소리를 흉내 내다
+30-10|imitation|(명) 모방, 모조품|cheap imitation|저렴한 모조품
+30-11|gravity|(명) 중력|zero gravity|무중력
+30-11|astronaut|(명) 우주 비행사|brave astronaut|용감한 우주 비행사
+30-11|decade|(명) 10년|over the decade|10년에 걸쳐
+30-11|climate|(명) 기후|climate change|기후 변화
+30-11|volcano|(명) 화산|active volcano|활화산
+30-11|volcanic|(형) 화산의|volcanic eruption|화산 폭발
+30-11|stare|(동) 빤히 쳐다보다|stare at him|그를 빤히 보다
+30-11|stare at|(구) ~을 응시하다|stare at screen|화면을 응시하다
+30-11|sweep|(동) 쓸다|sweep the floor|바닥을 쓸다
+30-11|sweeper|(명) 청소부|street sweeper|도로 청소차
+30-11|injure|(동) 다치게 하다|injure the arm|팔을 다치다
+30-11|injury|(명) 부상|serious injury|심각한 부상
+30-11|serious|(형) 심각한|serious problem|심각한 문제
+30-11|seriously|(부) 심각하게|take it seriously|심각하게 받아들이다
+30-11|damage|(명) 손상 (동) 피해를 주다|severe damage|심각한 피해
+30-11|contain|(동) 포함하다|contain water|물을 함유하다
+30-11|container|(명) 용기, 그릇|plastic container|플라스틱 용기
+30-11|float|(동) 뜨다|float on water|물에 뜨다
+30-11|floating|(형) 떠 있는|floating island|떠 있는 섬
+30-11|force|(명) 힘 (동) 강요하다|physical force|물리적인 힘
+30-11|effort|(명) 노력|make an effort|노력하다
+30-11|make an effort|(구) 노력하다|make every effort|온갖 노력을 다하다
+30-11|frighten|(동) 겁먹게 하다|frighten children|아이들을 겁주다
+30-11|frightened|(형) 겁먹은|feel frightened|겁을 느끼다
+30-11|incident|(명) 사건|unusual incident|특이한 사건
+30-11|pollution|(명) 오염|air pollution|대기 오염
+30-11|pollute|(동) 오염시키다|pollute the river|강을 오염시키다
+30-11|delay|(명) 지연 (동) 미루다|flight delay|비행기 지연
+30-11|crazy|(형) 미친, 열광적인|go crazy|미쳐버리다
+30-11|be crazy about|(구) ~에 열광하다|be crazy about soccer|축구에 열광하다
+30-12|mass|(명) 덩어리, 대중 (형) 대중적인|mass media|대중 매체
+30-12|massive|(형) 거대한, 엄청난|massive amount|엄청난 양
+30-12|medical|(형) 의학의, 의료의|medical checkup|건강 검진
+30-12|medicine|(명) 약, 의학|take medicine|약을 복용하다
+30-12|anger|(명) 화, 분노|feel anger|분노를 느끼다
+30-12|angry|(형) 화난|get angry|화가 나다
+30-12|exhausted|(형) 기진맥진한, 다 써버린|feel exhausted|기운이 다 빠지다
+30-12|exhausting|(형) 소모적인, 몹시 지치게 하는|exhausting work|몹시 지치는 일
+30-12|horror|(명) 공포, 전율|horror movie|공포 영화
+30-12|horrible|(형) 끔찍한, 지독한|horrible smell|지독한 냄새
+30-12|handicapped|(형) 장애가 있는|handicapped children|장애 아동들
+30-12|handicap|(명) 장애, 불리한 조건|physical handicap|신체적 장애
+30-12|harmful|(형) 해로운|harmful effect|해로운 영향
+30-12|harm|(명) 손해, 해 (동) 해치다|do more harm|해를 더 끼치다
+30-12|depress|(동) 우울하게 하다, 침체시키다|depress the spirit|기운을 꺾다
+30-12|depression|(명) 우울증, 불경기|economic depression|경제 불황
+30-12|violent|(형) 폭력적인, 격렬한|violent behavior|폭력적인 행동
+30-12|violence|(명) 폭력, 격렬함|domestic violence|가정 폭력
+30-12|eager|(형) 열망하는, 간절히 바라는|eager for success|성공을 갈망하는
+30-12|be eager to|(구) 간절히 ~하고 싶어 하다|be eager to learn|배우기를 갈망하다
+30-12|downtown|(명) 도심 (부) 시내에서|go downtown|시내에 가다
+30-12|distant|(형) 먼, 거리를 두는|distant future|먼 미래
+30-12|distance|(명) 거리, 먼 곳|long distance|먼 거리
+30-12|rural|(형) 시골의, 전원의|rural area|시골 지역
+30-12|safety|(명) 안전|safety rules|안전 수칙
+30-12|safe|(형) 안전한|safe place|안전한 장소
+30-12|crime|(명) 범죄|commit a crime|범죄를 저지르다
+30-12|criminal|(명) 범죄자 (형) 범죄의|criminal record|범죄 기록
+30-12|garbage|(명) 쓰레기|garbage can|쓰레기통
+30-12|development|(명) 발달, 개발|economic development|경제 발전
+30-12|develop|(동) 발달시키다, 개발하다|develop a skill|기술을 개발하다
+30-13|crop|(명) 농작물, 수확물|wheat crop|밀 수확물
+30-13|urban|(형) 도시의|urban development|도시 개발
+30-13|border|(명) 국경, 경계|cross the border|국경을 넘다
+30-13|annoy|(동) 짜증나게 하다|annoy the neighbors|이웃을 짜증나게 하다
+30-13|annoying|(형) 짜증나는|annoying noise|짜증나는 소음
+30-13|annoyed|(형) 짜증난|feel annoyed|짜증이 나다
+30-13|drugstore|(명) 약국|local drugstore|동네 약국
+30-13|aid|(명) 원조, 도움 (동) 돕다|first aid|응급 처치
+30-13|fasten|(동) 매다, 고정시키다|fasten your seatbelt|안전벨트를 매다
+30-13|fasten a seat belt|(구) 안전벨트를 매다|fasten a seat belt|안전벨트를 매다
+30-13|combine|(동) 결합하다|combine two ideas|두 아이디어를 결합하다
+30-13|combination|(명) 결합, 조합|powerful combination|강력한 결합
+30-13|interrupt|(동) 방해하다, 가로막다|interrupt the speech|연설을 가로막다
+30-13|interruption|(명) 방해, 중단|without interruption|방해 없이
+30-13|loose|(형) 헐거운, 풀린|loose tooth|흔들리는 이빨
+30-13|loosen|(동) 느슨하게 하다|loosen the tie|넥타이를 풀다
+30-13|grocery|(명) 식료품|grocery store|식료품점
+30-13|passenger|(명) 승객|passenger train|여객 열차
+30-13|female|(형) 여성의 (명) 여성|female athlete|여성 운동선수
+30-13|lightning|(명) 번개|flash of lightning|번개불
+30-13|tight|(형) 팽팽한, 단단한|tight control|엄격한 통제
+30-13|tighten|(동) 조이다, 팽팽하게 하다|tighten the screw|나사를 조이다
+30-13|operate|(동) 작동하다, 수술하다|operate the machine|기계를 작동하다
+30-13|operation|(명) 작동, 수술|secret operation|비밀 작전
+30-13|quality|(명) 질, 품질|high quality|고품질
+30-13|paralyze|(동) 마비시키다|paralyze the city|도시를 마비시키다
+30-13|paralyzed|(형) 마비된|paralyzed from waist|하반신이 마비된
+30-13|diplomat|(명) 외교관|career diplomat|직업 외교관
+30-13|diplomatic|(형) 외교의|diplomatic relations|외교 관계
+30-13|president|(명) 대통령, 회장|current president|현직 대통령
+30-13|presidential|(형) 대통령의|presidential election|대통령 선거
+30-13|penalty|(명) 형벌, 처벌|death penalty|사형
+30-14|govern|(동) 통치하다, 다스리다|govern the country|나라를 다스리다
+30-14|government|(명) 정부|local government|지방 정부
+30-14|representative|(명) 대표자 (형) 대표하는|sales representative|영업 담당자
+30-14|represent|(동) 대표하다, 나타내다|represent the people|국민을 대표하다
+30-14|loyal|(형) 충성스러운|loyal customer|단골 고객
+30-14|loyalty|(명) 충성심|brand loyalty|브랜드 충성도
+30-14|elect|(동) 선출하다|elect a leader|리더를 선출하다
+30-14|election|(명) 선거|presidential election|대통령 선거
+30-14|battle|(명) 전투, 싸움|win the battle|전투에서 이기다
+30-14|sensitive|(형) 민감한, 세심한|sensitive skin|민감한 피부
+30-14|sense|(명) 감각, 의미|common sense|상식
+30-14|drag|(동) 끌다|drag the bag|가방을 끌다
+30-14|announce|(동) 발표하다, 알리다|announce the plan|계획을 발표하다
+30-14|announcer|(명) 아나운서|news announcer|뉴스 아나운서
+30-14|announcement|(명) 발표, 공고|official announcement|공식 발표
+30-14|shame|(명) 수치심, 창피|feel shame|수치심을 느끼다
+30-14|shameful|(형) 창피한, 부끄러운|shameful act|부끄러운 행동
+30-14|belong|(동) 속하다|belong to group|그룹에 속하다
+30-14|belong to|(구) ~에 속하다|belong to her|그녀의 것이다
+30-14|lack|(명) 부족 (동) ~이 부족하다|lack of experience|경험 부족
+30-14|approach|(동) 접근하다 (명) 접근|cautious approach|신중한 접근
+30-14|bury|(동) 묻다, 매장하다|bury the treasure|보물을 묻다
+30-14|burial|(명) 매장, 장례|burial site|매장지
+30-14|immediately|(부) 즉시|call immediately|즉시 전화하다
+30-14|immediate|(형) 즉각적인|immediate response|즉각적인 응답
+30-14|frank|(형) 솔직한|frank opinion|솔직한 의견
+30-14|frankly|(부) 솔직히|frankly speaking|솔직히 말해서
+30-14|regret|(동) 후회하다 (명) 후회|deep regret|깊은 후회
+30-14|rotten|(형) 썩은, 부패한|rotten apple|썩은 달걀
+30-14|whisper|(동) 속삭이다 (명) 속삭임|whisper a secret|비밀을 속삭이다
+30-14|subtitle|(명) 자막|movie with subtitles|자막 있는 영화
+30-14|fool|(명) 바보 (동) 속이다|April fool|만우절 장난
+30-14|foolish|(형) 어리석은|foolish behavior|어리석은 행동
+30-15|protect|(동) 보호하다|protect the child|아이를 보호하다
+30-15|protection|(명) 보호|environmental protection|환경 보호
+30-15|wrap|(동) 싸다, 포장하다|gift wrap|선물을 포장하다
+30-15|wrap up|(동) 싸다, 포장하다|wrap up gifts|선물을 포장하다
+30-15|transform|(동) 변형시키다|transform the area|지역을 변형시키다
+30-15|transformation|(명) 변화, 변형|complete transformation|완전한 변화
+30-15|amused|(형) 즐거워하는|feel amused|즐거워하다
+30-15|amusement|(명) 즐거움|amusement park|놀이공원
+30-15|observe|(동) 관찰하다|observe the stars|별을 관찰하다
+30-15|observation|(명) 관찰|scientific observation|과학적 관찰
+30-15|audition|(명) 오디션|pass the audition|오디션에 합격하다
+30-15|silence|(명) 침묵|break the silence|침묵을 깨다
+30-15|silent|(형) 침묵하는|keep silent|침묵을 지키다
+30-15|academic|(형) 학문의|academic achievement|학업 성취
+30-15|academy|(명) 학원, 예술원|art academy|예술 아카데미
+30-15|heaven|(명) 천국|heaven on earth|지상의 낙원
+30-15|classic|(명) 고전 (형) 고전적인|classic music|고전 음악
+30-15|exhibit|(동) 전시하다 (명) 전시물|exhibit paintings|그림을 전시하다
+30-15|exhibition|(명) 전시회|art exhibition|미술 전시회
+30-15|personal|(형) 개인의|personal preference|개인적 선호
+30-15|personality|(명) 성격, 개성|bright personality|밝은 성격
+30-15|multicultural|(형) 다문화의|multicultural society|다문화 사회
+30-15|scent|(명) 향기|floral scent|꽃 향기
+30-15|relax|(동) 편안해지다|relax on beach|해변에서 휴식하다
+30-15|relaxation|(명) 휴식|time for relaxation|휴식 시간
+30-15|costume|(명) 복장, 의상|traditional costume|전통 의상
+30-15|graduation|(명) 졸업|graduation ceremony|졸업식
+30-15|graduate|(동) 졸업하다 (명) 졸업생|graduate from college|대학을 졸업하다
+30-15|myth|(명) 신화|greek myth|그리스 신화
+30-15|swallow|(동) 삼키다 (명) 제비|swallow the pill|알약을 삼키다
+30-15|expect|(동) 기대하다|expect a baby|아이를 가질 예정이다
+30-15|expectation|(명) 기대|meet expectations|기대에 부응하다
+30-15|loud|(형) 시끄러운|loud voice|큰 목소리
+30-15|aloud|(부) 큰 소리로|read aloud|소리 내어 읽다
+30-16|hopefully|(부) 바라건대, 희망을 갖고|hopefully better tomorrow|바라건대 더 나은 내일
+30-16|awesome|(형) 아주 멋진, 대단한|awesome natural view|멋진 자연 경관
+30-16|summarize|(동) 요약하다|summarize the story|이야기를 요약하다
+30-16|summary|(명) 요약|short executive summary|짧은 요약 보고서
+30-16|adapt|(동) 적응하다, 맞추다|adapt to change|변화에 적응하다
+30-16|replace|(동) 교체하다, 대신하다|replace the battery|배터리를 교체하다
+30-16|replace A with B|(구) A를 B로 교체하다|replace old with new|새것으로 교체하다
+30-16|responsible|(형) 책임이 있는|responsible for action|행동에 책임 있는
+30-16|responsibility|(명) 책임|take full responsibility|모든 책임을 지다
+30-16|be responsible for|(구) ~에 대해 책임이 있다|be responsible for debt|빚에 책임이 있다
+30-16|humble|(형) 겸손한, 초라한|humble family background|비천한 가문 배경
+30-16|scream|(동) 비명을 지르다|scream in pain|고통으로 비명 지르다
+30-16|originate|(동) 유래하다, 시작되다|originate from nature|자연에서 유래하다
+30-16|origin|(명) 기원, 유래|country of origin|원산지
+30-16|originate in|(구) ~에서 시작되다|originate in Seoul|서울에서 시작되다
+30-16|conform|(동) 순응하다, 따르다|conform to rules|규칙에 따르다
+30-16|conform to|(구) ~에 따르다, 일치하다|conform to standard|표준에 따르다
+30-16|decay|(동) 부패하다, 쇠퇴하다|prevent tooth decay|충치를 예방하다
+30-16|remind A of B|(구) A에게 B를 상기시키다|remind me of him|그를 생각나게 하다
+30-16|improvement|(명) 개선, 향상|room for improvement|개선의 여지
+30-16|improve|(동) 개선하다, 나아지다|improve your skills|기술을 향상시키다
+30-16|input|(명) 입력, 조언|valuable user input|가치 있는 사용자 조언
+30-16|dump|(동) 버리다 (명) 쓰레기장|garbage dump site|쓰레기 매립지
+30-16|evolve|(동) 진화하다, 발전하다|evolve slowly over time|시간에 따라 서서히 진화하다
+30-16|evolution|(명) 진화|theory of evolution|진화론
+30-16|indeed|(부) 정말로, 사실|very fast indeed|정말로 매우 빠른
+30-16|limit|(명) 한계 (동) 제한하다|legal speed limit|법적 속도 제한
+30-16|limitless|(형) 무한한|limitless human potential|무한한 인간의 잠재력
+30-16|distinguish|(동) 구별하다|distinguish right from wrong|옳고 그름을 구별하다
+30-16|distinguished|(형) 유명한, 성공한|distinguished guest|귀빈
+30-16|promote|(동) 승진시키다, 홍보하다|promote the product|제품을 홍보하다
+30-16|promotion|(명) 승진, 홍보|get a promotion|승진하다
+30-16|essential|(형) 필수적인|essential for health|건강에 필수적인
+30-16|essence|(명) 본질, 정수|essence of beauty|미의 본질
+30-16|account|(명) 계좌, 설명 (동) 간주하다|open bank account|은행 계좌를 개설하다
+30-17|migrate|(동) 이주하다|migrate south|남쪽으로 이주하다
+30-17|migration|(명) 이주|bird migration|철새의 이동
+30-17|overcrowded|(형) 너무 붐비는|overcrowded city|과밀한 도시
+30-17|be overcrowded with|(구) ~로 가득 차다|be overcrowded with tourists|관광객으로 가득 차다
+30-17|organize|(동) 조직하다, 정리하다|organize the meeting|회의를 조직하다
+30-17|organization|(명) 조직, 단체|international organization|국제 기구
+30-17|research|(명) 연구, 조사|scientific research|과학적 연구
+30-17|research on|(구) ~에 대한 연구|research on cancer|암에 대한 연구
+30-17|account|(명) 계좌, 설명|bank account|은행 계좌
+30-17|require|(동) 필요로 하다, 요구하다|require attention|주의를 필요로 하다
+30-17|request|(명) 요청 (동) 요청하다|send formal request|공식 요청을 보내다
+30-17|process|(명) 과정, 절차|natural process|자연스러운 과정
+30-17|proceed|(동) 계속하다, 진행하다|proceed with caution|주의하며 진행하다
+30-17|in the process of|(구) ~하는 과정 중에|in the process of change|변화하는 과정 중에
+30-17|humor|(명) 유머, 익살|sense of humor|유머 감각
+30-17|humorous|(형) 재미있는|humorous story|재미있는 이야기
+30-17|sense of humor|(명) 유머 감각|great sense of humor|뛰어난 유머 감각
+30-17|mechanic|(명) 정비공|car mechanic|자동차 정비공
+30-17|charge|(명) 요금, 책임|service charge|서비스 요금
+30-17|free of charge|(형) 무료의|available free of charge|무료로 이용 가능한
+30-17|recharge|(동) 재충전하다|recharge the battery|배터리를 충전하다
+30-17|individual|(명) 개인 (형) 개별적인|individual freedom|개인의 자유
+30-17|automatically|(부) 자동적으로|save automatically|자동으로 저장하다
+30-17|automagical|(형) 자동의|automagical process|자동화된 과정
+30-17|available|(형) 이용 가능한|readily available|쉽게 이용 가능한
+30-17|species|(명) 종|endangered species|멸종 위기종
+30-17|specific|(형) 구체적인, 특정한|specific reasons|구체적인 이유들
+30-17|failure|(명) 실패|failure to comply|준수 실패
+30-17|fail|(동) 실패하다|fail the test|시험에 떨어지다
+30-17|helpless|(형) 무력한|feel helpless|무력감을 느끼다
+30-17|circular|(형) 원형의, 순환하는|circular motion|원운동
+30-17|circle|(명) 원 (동) 돌다|draw a circle|원을 그리다
+30-17|circulate|(동) 순환하다, 유포하다|circulate rumors|소문을 퍼뜨리다
+30-17|further|(형) 더 먼 (부) 더 나아가|further information|추가 정보
+30-17|far|(형) 먼 (부) 멀리|far away|멀리 떨어진
+30-17|timid|(형) 겁 많은, 소심한|timid child|겁 많은 아이
+30-18|accommodate|(동) 수용하다, 숙박시키다|accommodate many guests|많은 손님을 수용하다
+30-18|accommodation|(명) 숙박 시설|luxury accommodation|호화 숙박 시설
+30-18|purchase|(동) 구매하다 (명) 구매|make a purchase|구매하다
+30-18|involve|(동) 포함하다, 관련시키다|involve many people|많은 사람을 관련시키다
+30-18|involvement|(명) 참여, 관련|active involvement|적극적인 참여
+30-18|reserve|(동) 예약하다, 보존하다|reserve a table|테이블을 예약하다
+30-18|reservation|(명) 예약|make a reservation|예약하다
+30-18|import|(동) 수입하다 (명) 수입|import raw materials|원자재를 수입하다
+30-18|import from|(구) ~에서 수입하다|import from China|중국에서 수입하다
+30-18|incredible|(형) 믿을 수 없는, 놀라운|incredible story|놀라운 이야기
+30-18|dynamic|(형) 동적인, 역동적인|dynamic personality|역동적인 성격
+30-18|participate|(동) 참여하다, 참가하다|participate in sports|스포츠에 참여하다
+30-18|participation|(명) 참여|public participation|대중의 참여
+30-18|specify|(동) 명시하다|specify the rules|규칙을 명시하다
+30-18|advance|(명) 전진, 발전 (동) 나아가다|technological advance|기술적 발전
+30-18|advanced|(형) 진보한, 상급의|advanced technology|첨단 기술
+30-18|register|(동) 등록하다|register for classes|수업을 등록하다
+30-18|registration|(명) 등록|voter registration|유권자 등록
+30-18|advantage|(명) 이점, 유리한 점|unfair advantage|불공평한 이점
+30-18|audience|(명) 청중, 관객|large audience|많은 관중
+30-18|industry|(명) 산업|automobile industry|자동차 산업
+30-18|industrial|(형) 산업의|industrial zone|산업 지역
+30-18|detail|(명) 세부 사항|minute details|상세한 부분
+30-18|contribute|(동) 기여하다, 기부하다|contribute to success|성공에 기여하다
+30-18|contribution|(명) 기여, 기부금|make a contribution|기여하다
+30-18|establish|(동) 설립하다, 확립하다|establish a company|회사를 설립하다
+30-18|establishment|(명) 설립, 시설|educational establishment|교육 시설
+30-18|interact|(동) 상호작용하다|interact with others|타인과 상호작용하다
+30-18|interaction|(명) 상호작용|social interaction|사회적 상호작용
+30-18|interact with|(구) ~와 상호작용하다|interact with users|사용자와 상호작용하다
+30-18|affect|(동) 영향을 미치다|affect human health|인간 건강에 영향을 주다
+30-18|affective|(형) 정서적인|affective disorder|정서 장애
+30-18|affection|(명) 애정|deep affection|깊은 애정
+30-18|risk|(명) 위험|take a risk|위험을 무릅쓰다
+30-18|take a risk|(구) 위험을 감수하다|take a big risk|큰 위험을 감수하다
+30-18|pressure|(명) 압력, 압박|blood pressure|혈압
+30-18|press|(동) 누르다 (명) 언론|freedom of press|언론의 자유
+30-19|construct|(동) 건설하다, 구성하다|construct a building|건물을 건설하다
+30-19|construction|(명) 건설, 공사|under construction|공사 중인
+30-19|assume|(동) 가정하다, 떠맡다|assume the worst|최악을 가정하다
+30-19|assumption|(명) 가정, 추정|make an assumption|가정하다
+30-19|apply|(동) 신청하다, 적용하다|apply the rules|규칙을 적용하다
+30-19|application|(명) 신청, 적용|job application|입사 지원서
+30-19|apply for|(구) ~에 지원하다|apply for job|직장에 지원하다
+30-19|fabulous|(형) 아주 멋진, 엄청난|fabulous natural scenery|멋진 자연 경관
+30-19|fabulously|(부) 엄청나게, 굉장히|fabulously wealthy|엄청나게 부유한
+30-19|relieve|(동) 완화하다, 안도하게 하다|relieve the pain|통증을 완화하다
+30-19|relief|(명) 안도, 완화|sense of relief|안도감
+30-19|device|(명) 장치, 기구|electronic device|전자 기기
+30-19|devise|(동) 고안하다, 창안하다|devise a plan|계획을 고안하다
+30-19|budget|(명) 예산 (동) 예산을 세우다|annual budget|연간 예산
+30-19|conflict|(명) 갈등, 충돌|resolve the conflict|갈등을 해결하다
+30-19|associated|(형) 관련된|associated risks|관련된 위험들
+30-19|associate|(동) 연상하다, 관련시키다|associate with success|성공과 연관짓다
+30-19|be associated with|(구) ~와 관련되다|be associated with health|건강과 관련되다
+30-19|assign|(동) 할당하다, 임명하다|assign a task|작업을 할당하다
+30-19|assignment|(명) 과제, 임무|school assignment|학교 과제
+30-19|seek|(동) 찾다, 추구하다|seek the truth|진실을 추구하다
+30-19|seek after|(구) ~을 추구하다|seek after happiness|행복을 추구하다
+30-19|conscious|(형) 의식하는, 자각하는|environmentally conscious|환경을 의식하는
+30-19|consciousness|(명) 의식, 자각|lose consciousness|의식을 잃다
+30-19|ensure|(동) 확실하게 하다, 보장하다|ensure safety|안전을 보장하다
+30-19|sure|(형) 확신하는, 확실한|make sure|확인하다
+30-19|indicate|(동) 나타내다, 가리키다|indicate the direction|방향을 가리키다
+30-19|indication|(명) 징후, 표시|clear indication|명확한 표시
+30-19|settle|(동) 해결하다, 정착하다|settle the dispute|분쟁을 해결하다
+30-19|awkward|(형) 어색한, 서투른|awkward silence|어색한 침묵
+30-19|awkwardly|(부) 어색하게|smile awkwardly|어색하게 웃다
+30-19|exist|(동) 존재하다|exist in nature|자연에 존재하다
+30-19|existence|(명) 존재, 실재|human existence|인간의 존재
+30-19|submit|(동) 제출하다, 굴복하다|submit the report|보고서를 제출하다
+30-19|submit to|(구) ~에 굴복하다|submit to pressure|압력에 굴복하다
+30-19|compose|(동) 구성하다, 작곡하다|compose a song|노래를 작곡하다
+30-19|composer|(명) 작곡가|famous classical composer|유명한 고전 작곡가
+30-19|be composed of|(구) ~로 구성되다|be composed of parts|부분들로 구성되다
+30-20|conduct|(동) 수행하다, 실시하다|conduct an experiment|실험을 실시하다
+30-20|conduct a survey|(구) 설문조사를 실시하다|conduct a survey|설문조사를 실시하다
+30-20|significant|(형) 중요한, 상당한|significant change|상당한 변화
+30-20|significantly|(부) 상당히, 유의미하게|increase significantly|상당히 증가하다
+30-20|response|(명) 대답, 응답|quick response|빠른 응답
+30-20|respond|(동) 대답하다, 반응하다|respond to emails|이메일에 답장하다
+30-20|reveal|(동) 드러내다, 폭로하다|reveal the secret|비밀을 드러내다
+30-20|extreme|(형) 극도의, 극심한|extreme weather|극심한 날씨
+30-20|extremely|(부) 매우, 극도로|extremely hot weather|매우 뜨거운 날씨
+30-20|instruct|(동) 가르치다, 지시하다|instruct students|학생들을 가르치다
+30-20|instruction|(명) 지시, 교육|follow the instruction|지시를 따르다
+30-20|eventually|(부) 결국, 마침내|eventually win|결국 이기다
+30-20|eventual|(형) 최종적인, 궁극적인|eventual outcome|최종 결과
+30-20|current|(형) 현재의 (명) 흐름|current trend|현재의 유행
+30-20|currency|(명) 통화, 화폐|foreign currency|외국 통화
+30-20|steep|(형) 가파른, 급격한|steep hill|가파른 언덕
+30-20|steeply|(부) 가파르게, 급격히|fall steeply|급격히 떨어지다
+30-20|determined|(형) 단호한, 결연한|determined to succeed|성공하기로 결심한
+30-20|determine|(동) 결정하다, 알아내다|determine the cause|원인을 알아내다
+30-20|be determined to|(구) ~하기로 굳게 결심하다|be determined to go|가기로 결심하다
+30-20|impact|(명) 영향, 충격|negative impact|부정적인 영향
+30-20|have an impact on|(구) ~에 영향을 미치다|have an impact on life|인생에 영향을 주다
+30-20|demonstrate|(동) 입증하다, 보여주다|demonstrate the skill|기술을 입증하다
+30-20|demonstration|(명) 입증, 시연|practical demonstration|실질적인 시연
+30-20|region|(명) 지역, 지방|mountain region|산악 지역
+30-20|secure|(형) 안전한 (동) 확보하다|secure the future|미래를 확보하다
+30-20|security|(명) 보안, 안전|national security|국가 안보
+30-20|separate|(형) 분리된 (동) 분리하다|separate the trash|쓰레기를 분리하다
+30-20|separation|(명) 분리|separation of power|권력 분립
+30-20|separate from|(구) ~에서 분리하다|separate from family|가족과 떨어지다
+30-20|commerce|(명) 상업, 무역|international commerce|국제 무역
+30-20|commercial|(형) 상업적인 (명) 광고|commercial purpose|상업적 목적
+30-20|structure|(명) 구조, 건축물|social structure|사회 구조
+30-20|surround|(동) 둘러싸다|surround the house|집을 둘러싸다
+30-20|surrounding|(형) 주변의|surrounding environment|주변 환경
+30-20|alternative|(명) 대안 (형) 대안의|alternative energy|대체 에너지
+30-20|alternate|(형) 번갈아 하는 (동) 교체하다|alternate between options|옵션 사이를 오가다
+30-20|investment|(명) 투자|foreign investment|외국인 투자
+30-20|invest|(동) 투자하다|invest in stocks|주식에 투자하다
+
+30-21|cultivate|(동) 경작하다, 기르다, 함양하다|cultivate the land|땅을 경작하다
+30-21|cultivation|(명) 경작, 재배, 양성|soil cultivation|토양 경작
+30-21|gender|(명) 성별, 성|gender equality|양성 평등
+30-21|mature|(형) 성숙한 (동) 성숙하다|mature behavior|성숙한 행동
+30-21|neglect|(동) 소홀히 하다, 무시하다 (명) 방치|neglect duties|의무를 소홀히 하다
+30-21|neglectful|(형) 태만한, 부주의한|neglectful of health|건강에 소홀한
+30-21|swell|(동) 부풀다, 팽창하다|swell with pride|자부심으로 가득 차다
+30-21|formal|(형) 격식을 차린, 공식적인|formal dress|정식 복장
+30-21|form|(명) 형태 (동) 형성하다|form a habit|습관을 형성하다
+30-21|formally|(부) 정식으로, 공식적으로|formally announce|공식적으로 발표하다
+30-21|precise|(형) 정확한, 정밀한|precise measurement|정확한 측정
+30-21|precision|(명) 정확, 정밀|high precision|높은 정밀도
+30-21|anticipate|(동) 예상하다, 기대하다|anticipate the future|미래를 예상하다
+30-21|anticipation|(명) 예상, 기대|in anticipation|기대하여
+30-21|component|(명) 구성 요소, 부품|essential component|필수 구성 요소
+30-21|discipline|(명) 훈련, 규율, 학과|self discipline|자기 수양
+30-21|intelligence|(명) 지능, 지성|artificial intelligence|인공 지능
+30-21|intelligent|(형) 지적인, 총명한|intelligent choice|현명한 선택
+30-21|contemporary|(형) 현대의, 동시대의|contemporary art|현대 미술
+30-21|domestic|(형) 국내의, 가정의|domestic flight|국내선 항공편
+30-21|convenient|(형) 편리한, 사용하기 쉬운|convenient location|편리한 위치
+30-21|convenience|(명) 편리, 편의|at your convenience|당신이 편한 시간에
+30-21|refine|(동) 정제하다, 개선하다|refine the process|과정을 개선하다
+30-21|refined|(형) 정제된, 세련된|refined taste|세련된 취향
+30-21|fade|(동) 바래다, 서서히 사라지다|colors fade|색이 바래다
+30-21|fade away|(구) 서서히 사라지다|fade away slowly|천천히 사라지다
+30-21|institution|(명) 기관, 제도|educational institution|교육 기관
+30-21|institute|(명) 협회, 연구소 (동) 도입하다|research institute|연구소
+30-21|insert|(동) 삽입하다, 끼워 넣다|insert a coin|동전을 넣다
+30-21|insert A into B|(구) A를 B에 삽입하다|insert key into lock|자물쇠에 열쇠를 넣다
+30-21|occupy|(동) 차지하다, 점령하다|occupy the space|공간을 차지하다
+30-21|occupation|(명) 직업, 점유|former occupation|이전 직업
+30-21|emphasize|(동) 강조하다|emphasize the importance|중요성을 강조하다
+30-21|emphasis|(명) 강조, 역점|put emphasis on|~에 역점을 두다
+30-21|sufficient|(형) 충분한|sufficient evidence|충분한 증거
+30-21|modification|(명) 수정, 변경|minor modification|약간의 수정
+30-21|modify|(동) 수정하다, 바꾸다|modify the plan|계획을 수정하다
+30-21|religious|(형) 종교적인|religious belief|종교적 신념
+30-21|religion|(명) 종교|freedom of religion|종교의 자유
+30-21|resist|(동) 저항하다, 견디다|resist the urge|충동을 참다
+30-21|resistance|(명) 저항|passive resistance|소극적 저항
+30-21|considerate|(형) 사려 깊은, 배려하는|considerate of others|타인을 배려하는
+30-21|consider|(동) 고려하다, 간주하다|consider the options|옵션을 고려하다
+30-21|considerable|(형) 상당한, 적지 않은|considerable amount|상당한 양
+30-21|precious|(형) 귀중한, 소중한|precious metal|귀금속
+30-21|reverse|(동) 뒤바꾸다 (형) 반대의|reverse the decision|결정을 뒤집다
+30-21|convert|(동) 전환하다, 개조하다|convert into energy|에너지로 전환하다
+30-21|convert into|(구) ~로 전환하다|convert into cash|현금으로 바꾸다
+30-21|thorough|(형) 철저한, 빈틈없는|thorough investigation|철저한 조사
+30-21|thoroughly|(부) 철저히, 완전히|clean thoroughly|철저히 청소하다
+
+30-22|approve|(동) 승인하다, 찬성하다|approve the plan|계획을 승인하다
+30-22|approval|(명) 승인, 찬성|official approval|공식 승인
+30-22|approve of|(구) ~을 찬성하다|approve of the idea|아이디어에 찬성하다
+30-22|inspect|(동) 점검하다, 검사하다|inspect the facility|시설을 점검하다
+30-22|defend|(동) 방어하다, 변호하다|defend the title|타이틀을 방어하다
+30-22|defense|(명) 방어, 수비|national defense|국방
+30-22|defensive|(형) 방어적인|defensive player|수비 선수
+30-22|sequence|(명) 순서, 연속|logical sequence|논리적 순서
+30-22|dispose|(동) 배치하다, 처리하다|dispose the furniture|가구를 배치하다
+30-22|disposal|(명) 처분, 처리|waste disposal|폐기물 처리
+30-22|dispose of|(구) ~을 처리하다|dispose of garbage|쓰레기를 처리하다
+30-22|ordinary|(형) 보통의, 평범한|ordinary people|평범한 사람들
+30-22|simulate|(동) 흉내 내다, 모의실험하다|simulate the flight|비행을 시뮬레이션하다
+30-22|simulation|(명) 모의실험|computer simulation|컴퓨터 시뮬레이션
+30-22|insight|(명) 통찰력|deep insight|깊은 통찰력
+30-22|exclude|(동) 제외하다, 배제하다|exclude taxes|세금을 제외하다
+30-22|exclude A from B|(구) B에서 A를 제외하다|exclude him from list|목록에서 그를 제외하다
+30-22|legal|(형) 법률의, 합법적인|legal advice|법률 자문
+30-22|legally|(부) 법적으로, 합법적으로|legally binding|법적 구속력이 있는
+30-22|ban|(동) 금지하다 (명) 금지|ban smoking|흡연을 금지하다
+30-22|valid|(형) 유효한, 타당한|valid passport|유효한 여권
+30-22|validity|(명) 유효함, 타당성|test validity|검사 타당성
+30-22|wrinkle|(명) 주름 (동) 주름지게 하다|facial wrinkles|얼굴 주름
+30-22|committee|(명) 위원회|steering committee|운영 위원회
+30-22|prohibit|(동) 금지하다|prohibit entry|출입을 금지하다
+30-22|prohibition|(명) 금지|alcohol prohibition|금주령
+30-22|offend|(동) 기분 상하게 하다, 위반하다|offend the law|법을 위반하다
+30-22|offensive|(형) 모욕적인, 공격적인|offensive remark|모욕적인 발언
+30-22|offense|(명) 위반, 공격|criminal offense|범죄 행위
+30-22|assist|(동) 돕다, 보조하다|assist the disabled|장애인을 돕다
+30-22|assistant|(명) 보조자, 조수|research assistant|연구 보조원
+30-22|correspond|(동) 일치하다, 서신을 주고받다|correspond to reality|현실과 일치하다
+30-22|correspondent|(명) 통신원, 특파원|foreign correspondent|해외 특파원
+30-22|defeat|(동) 패배시키다 (명) 패배|defeat the enemy|적을 물리치다
+30-22|suffer a defeat|(구) 패배를 겪다|suffer a heavy defeat|참패를 당하다
+30-22|interfere|(동) 간섭하다, 방해하다|interfere in business|남의 일에 참견하다
+30-22|bitter|(형) 쓴, 지독한|bitter coffee|쓴 커피
+30-22|bitterly|(부) 몹시, 비통하게|cry bitterly|서럽게 울다
+30-22|spirit|(명) 정신, 영혼|team spirit|팀 정신
+30-22|spiritual|(형) 정신적인, 영적인|spiritual growth|정신적 성장
+30-22|in spirit|(구) 마음속으로|be with you in spirit|마음으로 함께하다
+
+30-23|rational|(형) 이성적인, 합리적인|rational decision|합리적인 결정
+30-23|rationally|(부) 이성적으로, 합리적으로|think rationally|이성적으로 생각하다
+30-23|relevant|(형) 관련 있는, 적절한|relevant information|관련된 정보
+30-23|relevant to|(구) ~와 관련 있는|relevant to the topic|주제와 관련 있는
+30-23|resolve|(동) 해결하다, 결심하다|resolve the conflict|갈등을 해결하다
+30-23|resolution|(명) 해결, 결심, 해상도|New Year's resolution|새해 결심
+30-23|vertical|(형) 수직의, 세로의|vertical line|수직선
+30-23|coordinate|(동) 조정하다, 통합하다|coordinate the schedule|일정을 조정하다
+30-23|coordinator|(명) 조정자, 코디네이터|project coordinator|프로젝트 조정자
+30-23|anniversary|(명) 기념일|wedding anniversary|결혼 기념일
+30-23|sacrifice|(동) 희생하다 (명) 희생|sacrifice time|시간을 희생하다
+30-23|solid|(형) 고체의, 견고한 (명) 고체|solid evidence|확실한 증거
+30-23|punish|(동) 처벌하다|punish the criminal|범죄자를 처벌하다
+30-23|punishment|(명) 처벌, 형벌|capital punishment|사형
+30-23|punish for|(구) ~의 이유로 처벌하다|punish for lying|거짓말에 대해 처벌하다
+30-23|dismiss|(동) 묵살하다, 해고하다|dismiss the idea|아이디어를 묵살하다
+30-23|revise|(동) 개정하다, 수정하다|revise the plan|계획을 수정하다
+30-23|revision|(명) 수정, 검토|make a revision|수정하다
+30-23|prejudice|(명) 편견, 선입관|racial prejudice|인종적 편견
+30-23|sincere|(형) 진실된, 진심 어린|sincere apology|진심 어린 사과
+30-23|sincerely|(부) 진심으로|yours sincerely|진심을 담아
+30-23|accustomed|(형) 익숙한|accustomed smell|익숙한 냄새
+30-23|be accustomed to|(구) ~에 익숙하다|be accustomed to noise|소음에 익숙하다
+30-23|comfort|(명) 안락, 위로 (동) 위로하다|word of comfort|위로의 말
+30-23|comfortable|(형) 편안한|comfortable chair|편안한 의자
+30-23|administer|(동) 관리하다, 집행하다|administer the law|법을 집행하다
+30-23|draft|(명) 초안 (동) 초안을 작성하다|final draft|최종 원고
+30-23|rough draft|(명) 초안, 가안|write a rough draft|초안을 쓰다
+30-23|astonished|(형) 깜짝 놀란|be astonished at news|뉴스를 보고 깜짝 놀라다
+30-23|prevent|(동) 예방하다, 방해하다|prevent fire|화재를 예방하다
+30-23|prevention|(명) 예방, 저지|crime prevention|범죄 예방
+30-23|deliberate|(형) 의도적인, 신중한|deliberate lie|의도적인 거짓말
+30-23|deliberately|(부) 의도적으로|act deliberately|의도적으로 행동하다
+30-23|split|(동) 나누다, 쪼개다 (명) 분열|split the bill|비용을 각자 내다
+30-23|tribe|(명) 부족, 종족|native tribe|원주민 부족
+30-23|attain|(동) 달성하다, 도달하다|attain a goal|목표를 달성하다
+30-23|attainable|(형) 달성 가능한|attainable target|달성 가능한 목표
+30-23|chemistry|(명) 화학, 화학적 성질|organic chemistry|유기 화학
+30-23|chemical|(형) 화학의 (명) 화학 물질|chemical reaction|화학 반응
+30-23|vessel|(명) 용기, 배, 혈관|blood vessel|혈관
+30-23|supplement|(명) 보충(제) (동) 보충하다|dietary supplement|건강 보조 식품
+30-23|supplementary|(형) 보충의, 추가의|supplementary material|보충 자료
+
+30-24|debt|(명) 빚, 부채|pay off debt|빚을 갚다
+30-24|crisis|(명) 위기|economic crisis|경제 위기
+30-24|incline|(동) ~하는 경향이 있다, 기울다|be inclined to|~하는 경향이 있다
+30-24|assemble|(동) 모으다, 조립하다|assemble parts|부품을 조립하다
+30-24|assembly|(명) 의회, 조립, 집회|assembly line|조립 라인
+30-24|coincide|(동) 동시에 일어나다, 일치하다|coincide with event|행사와 동시에 일어나다
+30-24|converse|(동) 대화하다 (형) 거꾸로의|converse with friends|친구들과 대화하다
+30-24|conversation|(명) 대화|have a conversation|대화를 나누다
+30-24|converse with|(구) ~와 대화하다|converse with him|그와 대화하다
+30-24|coincidence|(명) 우연의 일치|by coincidence|우연히
+30-24|coincide with|(구) ~와 일치하다|coincide with interests|관심사와 일치하다
+30-24|fellow|(명) 동료, 녀석|school fellow|학교 동료
+30-24|companion|(명) 동료, 친구|travel companion|여행 동반자
+30-24|loan|(명) 대출, 빌려줌|bank loan|은행 대출
+30-24|awful|(형) 끔찍한, 지독한|awful smell|지독한 냄새
+30-24|imply|(동) 암시하다, 의미하다|imply the truth|진실을 암시하다
+30-24|implication|(명) 암시, 영향|social implication|사회적 영향
+30-24|burden|(명) 짐, 부담 (동) 부담을 주다|tax burden|세금 부담
+30-24|miserable|(형) 비참한|feel miserable|비참함을 느끼다
+30-24|random|(형) 무작위의|random selection|무작위 선택
+30-24|randomly|(부) 무작위로|chosen randomly|무작위로 선택된
+30-24|at random|(구) 무작위로|pick at random|무작위로 뽑다
+30-24|delicate|(형) 섬세한, 연약한|delicate skin|섬세한 피부
+30-24|reward|(명) 보상 (동) 보상하다|cash reward|현금 보상
+30-24|reward for|(구) ~에 대한 보상|reward for efforts|노력에 대한 보상
+30-24|rob|(동) 강탈하다, 털다|rob a bank|은행을 털다
+30-24|robbery|(명) 강도 사건|bank robbery|은행 강도
+30-24|maintain|(동) 유지하다, 관리하다|maintain health|건강을 유지하다
+30-24|maintenance|(명) 유지, 관리|regular maintenance|정기 점검
+30-24|initiate|(동) 시작하다, 창시하다|initiate a plan|계획을 시작하다
+30-24|initial|(형) 처음의, 초기의|initial stage|초기 단계
+30-24|royal|(형) 왕실의, 국왕의|royal family|왕실 가문
+30-24|royalty|(명) 왕족, 저작권료|pay royalty|로열티를 지불하다
+30-24|scatter|(동) 흩뿌리다, 흩어지다|scatter seeds|씨앗을 뿌리다
+30-24|negotiate|(동) 협상하다|negotiate a deal|거래를 협상하다
+30-24|negotiation|(명) 협상|peace negotiation|평화 협상
+30-24|sudden|(형) 갑작스러운|sudden change|갑작스러운 변화
+30-24|suddenly|(부) 갑자기|suddenly appear|갑자기 나타나다
+30-24|ripe|(형) 익은, 숙성한|ripe tomato|익은 토마토
+30-24|ripen|(동) 익다, 숙성하다|ripen quickly|빨리 익다
+30-24|sustain|(동) 유지하다, 지탱하다|sustain life|생명을 유지하다
+30-24|slip|(동) 미끄러지다|slip on ice|얼음 위에서 미끄러지다
+30-24|slippery|(형) 미끄러운|slippery road|미끄러운 도로
+
+30-25|leadership|(명) 지도력, 리더십|strong leadership|강력한 리더십
+30-25|dominate|(동) 지배하다, 우세하다|dominate the market|시장을 지배하다
+30-25|dominant|(형) 지배적인, 우세한|dominant culture|지배적인 문화
+30-25|export|(동) 수출하다 (명) 수출|export goods|상품을 수출하다
+30-25|incorporate|(동) 통합하다, 포함하다|incorporate new ideas|새로운 아이디어를 통합하다
+30-25|incorporation|(명) 합병, 법인격 부여|company incorporation|회사 설립
+30-25|multiply|(동) 곱하다, 증식하다|multiply by ten|10을 곱하다
+30-25|multiple|(형) 다수의, 다양한|multiple choices|다지선다형
+30-25|outstanding|(형) 뛰어난, 눈에 띄는|outstanding achievement|뛰어난 업적
+30-25|portion|(명) 부분, 1인분|large portion|많은 양
+30-25|resign|(동) 사직하다, 물러나다|resign from office|공직에서 물러나다
+30-25|disappear|(동) 사라지다|disappear forever|영원히 사라지다
+30-25|innocent|(형) 무죄의, 순진한|innocent child|순진한 아이
+30-25|bound|(형) 얽매인, ~할 것 같은|be bound to|~하게 마련이다
+30-25|broad|(형) 넓은, 광범위한|broad shoulders|넓은 어깨
+30-25|broaden|(동) 넓히다|broaden horizons|시야를 넓히다
+30-25|incentive|(명) 장려책, 동기|economic incentive|경제적 유인책
+30-25|enforce|(동) 집행하다, 강요하다|enforce the law|법을 집행하다
+30-25|enforcement|(명) 집행, 강제|law enforcement|법 집행
+30-25|universe|(명) 우주, 만물|infinite universe|무한한 우주
+30-25|universal|(형) 보편적인, 일반적인|universal truth|보편적 진리
+30-25|division|(명) 분할, 부서|sales division|영업 부서
+30-25|divide|(동) 나누다|divide into groups|그룹으로 나누다
+30-25|beneath|(전) ~의 아래에|beneath the surface|표면 아래에
+30-25|enclose|(동) 에워싸다, 동봉하다|enclose a photo|사진을 동봉하다
+30-25|close|(형) 가까운 (동) 닫다|close relationship|가까운 관계
+30-25|extract|(동) 뽑다, 추출하다|extract information|정보를 추출하다
+30-25|intermediate|(형) 중간의, 중급의|intermediate level|중급 단계
+30-25|load|(명) 짐, 부하 (동) 싣다|heavy load|무거운 짐
+30-25|passive|(형) 수동적인, 소극적인|passive role|수동적인 역할
+30-25|noble|(형) 고귀한, 숭고한|noble goal|숭고한 목표
+30-25|nobly|(부) 고귀하게, 훌륭하게|act nobly|훌륭하게 행동하다
+30-25|reform|(동) 개혁하다 (명) 개혁|educational reform|교육 개혁
+30-25|suspend|(동) 중단하다, 매달다|suspend the meeting|회의를 중단하다
+30-25|suspension|(명) 중지, 정직|suspension of activity|활동 중단
+30-25|withdraw|(동) 철회하다, 인출하다|withdraw money|돈을 인출하다
+30-25|barely|(부) 거의 ~않다, 간신히|barely survive|간신히 살아남다
+30-25|bare|(형) 벌거벗은, 노출된|bare feet|맨발
+30-25|accuse|(동) 비난하다, 고소하다|accuse of lying|거짓말한다고 비난하다
+30-25|chief|(형) 주요한 (명) 장|chief executive|최고 경영자
+30-25|chiefly|(부) 주로|chiefly responsible|주로 책임이 있는
+30-25|output|(명) 생산량, 출력|industrial output|산업 생산량
+30-25|suspect|(동) 의심하다 (명) 용의자|murder suspect|살인 용의자
+30-25|suspicious|(형) 의심스러운|suspicious behavior|수상한 행동
+
+30-26|diverse|(형) 다양한|diverse cultures|다양한 문화들
+30-26|diversity|(명) 다양성|cultural diversity|문화 다양성
+30-26|absolutely|(부) 전적으로, 절대적으로|absolutely right|전적으로 옳은
+30-26|absolute|(형) 절대적인, 완전한|absolute power|절대 권력
+30-26|pale|(형) 창백한, 옅은|pale skin|창백한 피부
+30-26|controversy|(명) 논쟁, 논란|cause controversy|논란을 일으키다
+30-26|controversial|(형) 논란이 많은|controversial issue|논란이 되는 문제
+30-26|cause controversy|(구) 논란을 일으키다|cause controversy|논란을 일으키다
+30-26|persist|(동) 지속하다, 고집하다|persist in effort|노력을 지속하다
+30-26|persistent|(형) 끈질긴, 끊임없는|persistent rain|끊임없이 내리는 비
+30-26|modest|(형) 겸손한, 적당한|modest house|아담한 집
+30-26|modesty|(명) 겸손|modesty and humility|겸손과 비굴하지 않음
+30-26|assure|(동) 확신시키다, 보장하다|assure safety|안전을 보장하다
+30-26|assurance|(명) 확신, 보증|quality assurance|품질 보증
+30-26|abstract|(형) 추상적인 (명) 개요|abstract art|추상 예술
+30-26|intellectual|(형) 지적인 (명) 지식인|intellectual property|지적 재산
+30-26|intellect|(명) 지성, 사고력|human intellect|인간의 지성
+30-26|weaken|(동) 약화시키다|weaken the wall|벽을 약화시키다
+30-26|weak|(형) 약한|weak signal|약한 신호
+30-26|bind|(동) 묶다, 결합시키다|bind together|함께 묶다
+30-26|constitute|(동) 구성하다, 제정하다|constitute a group|그룹을 구성하다
+30-26|dare|(동) 감히 ~하다|dare to dream|감히 꿈꾸다
+30-26|daring|(형) 대담한|daring plan|대담한 계획
+30-26|demand|(동) 요구하다 (명) 수요|supply and demand|공급과 수요
+30-26|greedy|(형) 탐욕스러운|greedy for power|권력에 굶주린
+30-26|greed|(명) 탐욕|pure greed|순전한 탐욕
+30-26|equivalent|(형) 동등한 (명) 상당하는 것|equivalent value|동등한 가치
+30-26|equivalence|(명) 등가, 동등함|logical equivalence|논리적 동등함
+30-26|tide|(명) 조수, 흐름|high tide|만조
+30-26|tidal|(형) 조수의|tidal wave|해일
+30-26|fierce|(형) 격렬한, 사나운|fierce competition|격렬한 경쟁
+30-26|guideline|(명) 가이드라인, 지침|follow the guideline|지침을 따르다
+30-26|impose|(동) 부과하다, 강요하다|impose a tax|세금을 부과하다
+30-26|inquire|(동) 문의하다, 조사하다|inquire about price|가격에 대해 문의하다
+30-26|fate|(명) 운명|cruel fate|잔인한 운명
+30-26|fatal|(형) 치명적인|fatal accident|치명적인 사고
+30-26|polish|(동) 닦다, 다듬다|polish the shoes|구두를 닦다
+30-26|launch|(동) 발사하다, 시작하다|launch a satellite|위성을 발사하다
+30-26|slave|(명) 노예|work like slave|노예처럼 일하다
+30-26|slavery|(명) 노예 제도|abolish slavery|노예 제도를 폐지하다
+30-26|personnel|(명) 인원, 인사과|personnel management|인사 관리
+30-26|insult|(동) 모욕하다 (명) 모욕|insult the audience|관객을 모욕하다
+30-26|insulting|(형) 모욕적인|insulting remark|모욕적인 발언
+30-26|sympathetic|(형) 동정적인, 공감하는|feel sympathetic|동정심을 느끼다
+30-26|sympathy|(명) 동정, 공감|deep sympathy|깊은 동정심
+
+30-27|protest|(동) 항의하다 (명) 항의|peaceful protest|평화로운 항의
+30-27|conceive|(동) 생각하다, 임신하다|conceive an idea|아이디어를 생각해내다
+30-27|conception|(명) 개념, 임신|basic conception|기초적인 개념
+30-27|conceive of|(구) ~을 생각하다|conceive of future|미래를 구상하다
+30-27|charm|(명) 매력|charming smile|매력적인 미소
+30-27|charming|(형) 매력적인|charming lady|매력적인 여성
+30-27|clarify|(동) 명확하게 하다|clarify the situation|상황을 명확히 하다
+30-27|retain|(동) 유지하다, 보유하다|retain information|정보를 보유하다
+30-27|desperate|(형) 절망적인, 필사적인|desperate attempt|필사적인 시도
+30-27|despair|(명) 절망 (동) 절망하다|fall into despair|절망에 빠지다
+30-27|caution|(명) 주의, 경고|handle with caution|주의해서 다루다
+30-27|cautious|(형) 신중한, 조심스러운|cautious approach|신중한 접근
+30-27|with caution|(부) 조심스럽게|proceed with caution|조심스럽게 진행하다
+30-27|wage|(명) 임금, 급료|minimum wage|최저 임금
+30-27|sociable|(형) 사교적인|sociable person|사교적인 사람
+30-27|social|(형) 사회적인|social media|소셜 미디어
+30-27|solution|(명) 해결책, 정답|perfect solution|완벽한 해결책
+30-27|solve|(동) 풀다, 해결하다|solve a problem|문제를 해결하다
+30-27|fantastic|(형) 환상적인, 멋진|fantastic view|환상적인 경치
+30-27|fantasy|(명) 공상, 판타지|world of fantasy|공상의 세계
+30-27|sword|(명) 칼, 검|sharp sword|날카로운 칼
+30-27|majority|(명) 대다수, 과반수|vast majority|절대 다수
+30-27|major|(형) 주요한 (명) 전공|major subject|주요 과목
+30-27|fond|(형) 좋아하는|fond of music|음악을 좋아하는
+30-27|hospitality|(명) 환대|warm hospitality|따뜻한 환대
+30-27|tease|(동) 괴롭히다, 놀리다|tease a friend|친구를 놀리다
+30-27|inherent|(형) 내재된, 타고난|inherent rights|타고난 권리
+30-27|carve|(동) 새기다, 조각하다|carve a statue|동상을 조각하다
+30-27|donate|(동) 기부하다|donate money|돈을 기부하다
+30-27|donation|(명) 기부|charity donation|자선 기부
+30-27|donate blood|(구) 헌혈하다|donate blood|헌혈하다
+30-27|crush|(동) 으깨다, 진압하다|crush the ice|얼음을 으깨다
+30-27|troop|(명) 군대, 부대|military troops|군 부대
+30-27|whole|(형) 전체의 (명) 전체|whole world|전 세계
+30-27|wholly|(부) 완전히|wholly responsible|전적으로 책임 있는
+30-27|brief|(형) 짧은, 잠시의|brief explanation|짧은 설명
+30-27|briefly|(부) 잠시, 간단히|explain briefly|간단히 설명하다
+30-27|architect|(명) 건축가|famous architect|유명한 건축가
+30-27|architecture|(명) 건축, 구조|modern architecture|현대 건축
+30-27|estate|(명) 재산, 토지|real estate|부동산
+30-27|real estate|(명) 부동산|real estate agent|부동산 중개인
+30-27|overflow|(동) 넘치다|rivers overflow|강이 넘치다
+30-27|faint|(형) 희미한 (동) 기절하다|faint light|희미한 빛
+30-27|faintly|(부) 희미하게|smile faintly|희미하게 웃다
+30-27|envious|(형) 부러워하는|be envious of|~를 부러워하다
+30-27|envy|(명) 부러움 (동) 부러워하다|green with envy|몹시 부러워하는
+
+30-28|bless|(동) 축복하다|bless you|신의 가호가 있기를
+30-28|bliss|(명) 더할 나위 없는 행복|pure bliss|순수한 행복
+30-28|cruel|(형) 잔인한|cruel treatment|잔인한 대우
+30-28|cruelty|(명) 잔인함|animal cruelty|동물 학대
+30-28|remedy|(명) 해결책, 치료제|natural remedy|천연 치료제
+30-28|widespread|(형) 널리 퍼진|widespread rumor|널리 퍼진 소문
+30-28|praise|(동) 칭찬하다 (명) 칭찬|praise the student|학생을 칭찬하다
+30-28|exposure|(명) 노출|exposure to light|빛에 대한 노출
+30-28|expose|(동) 노출시키다|expose the truth|진실을 밝히다
+30-28|radical|(형) 근본적인, 급진적인|radical change|급격한 변화
+30-28|radically|(부) 근본적으로, 급진적으로|radically different|근본적으로 다른
+30-28|blend|(동) 섞다, 혼합하다|blend together|함께 섞이다
+30-28|blend A with B|(구) A와 B를 섞다|blend colors|색을 섞다
+30-28|sole|(형) 유일한, 단 하나의|sole survivor|유일한 생존자
+30-28|extinct|(형) 멸종된|extinct species|멸종된 종
+30-28|extinction|(명) 멸종|mass extinction|대멸종
+30-28|go extinct|(구) 멸종되다|go extinct|멸종되다
+30-28|private|(형) 사적인, 비공개의|private life|사생활
+30-28|privacy|(명) 사생활|protect privacy|사생활을 보호하다
+30-28|remove|(동) 제거하다|remove the stain|얼룩을 제거하다
+30-28|removal|(명) 제거|snow removal|제설
+30-28|gloomy|(형) 우울한, 어두운|gloomy weather|우울한 날씨
+30-28|gloom|(명) 어둠, 우울|gloom and doom|암담한 상태
+30-28|funeral|(명) 장례식|attend a funeral|장례식에 참석하다
+30-28|congress|(명) 의회, 국회|members of congress|의회 의원들
+30-28|civil|(형) 시민의, 민간의|civil rights|시민권
+30-28|civilize|(동) 문명화하다|civilize a tribe|부족을 문명화하다
+30-28|civil war|(명) 내전|American Civil War|미국 내전
+30-28|precede|(동) 앞서다|precede in rank|계급에서 앞서다
+30-28|mediate|(동) 중재하다|mediate a dispute|분쟁을 중재하다
+30-28|mediation|(명) 중재|international mediation|국제적 중재
+30-28|rotate|(동) 회전하다, 교대하다|earth rotates|지구가 자전하다
+30-28|rotation|(명) 회전, 교대|crop rotation|윤작
+30-28|portrait|(명) 초상화|paint a portrait|초상화를 그리다
+30-28|portray|(동) 묘사하다, 그리다|portray the hero|영웅을 묘사하다
+30-28|grave|(명) 무덤 (형) 중대한|grave situation|중대한 상황
+30-28|gravely|(부) 진지하게, 중대하게|gravely ill|중태인
+30-28|motivate|(동) 동기를 부여하다|motivate students|학생들에게 동기를 부여하다
+30-28|motive|(명) 동기|hidden motive|숨겨진 동기
+30-28|chase|(동) 추격하다 (명) 추격|police chase|경찰의 추격
+30-28|scar|(명) 흉터|facial scar|얼굴의 흉터
+30-28|temper|(명) 성질, 기분|lose one's temper|화내다
+30-28|grasp|(동) 움켜잡다, 이해하다|grasp the concept|개념을 이해하다
+30-28|tolerate|(동) 참다, 견디다|tolerate the heat|더위를 견디다
+30-28|utility|(명) 유용성, 공공시설|public utility|공공시설
+30-28|notify|(동) 통지하다|notify the winner|우승자에게 통지하다
+30-28|notice|(동) 알아차리다 (명) 통지|take notice|주목하다
+
+30-29|scared|(형) 겁먹은|feel scared|겁을 느끼다
+30-29|scare|(동) 겁주다|scare birds away|새들을 쫓아버리다
+30-29|scared of|(구) ~을 두려워하는|scared of spiders|거미를 무서워하는
+30-29|accelerate|(동) 가속하다|accelerate growth|성장을 가속하다
+30-29|exotic|(형) 이국적인|exotic plants|이국적인 식물
+30-29|inferior|(형) 열등한|inferior quality|낮은 품질
+30-29|be inferior to|(구) ~보다 열등하다|be inferior to others|타인보다 열등하다
+30-29|mixture|(명) 혼합물|chemical mixture|화학 혼합물
+30-29|mix|(동) 섞다|mix colors|색을 섞다
+30-29|illusion|(명) 환상, 착각|optical illusion|착시
+30-29|fluent|(형) 유창한|fluent in English|영어가 유창한
+30-29|fluency|(명) 유창함|native fluency|원어민 같은 유창함
+30-29|fluently|(부) 유창하게|speak fluently|유창하게 말하다
+30-29|marine|(형) 바다의, 해양의|marine life|해양 생물
+30-29|convey|(동) 전달하다, 운반하다|convey a message|메시지를 전달하다
+30-29|utilize|(동) 이용하다, 활용하다|utilize resources|자원을 활용하다
+30-29|vividly|(부) 생생하게|remember vividly|생생하게 기억하다
+30-29|humid|(형) 습한|humid weather|습한 날씨
+30-29|humidity|(명) 습도|high humidity|높은 습도
+30-29|bounce|(동) 튀어 오르다|bounce the ball|공을 튀기다
+30-29|comprehensive|(형) 포괄적인|comprehensive plan|포괄적인 계획
+30-29|comprehend|(동) 이해하다|comprehend the meaning|의미를 이해하다
+30-29|commute|(동) 통근하다|daily commute|매일의 통근
+30-29|commuter|(명) 통근자|train commuters|기차 통근자들
+30-29|stack|(동) 쌓다 (명) 더미|stack books|책을 쌓다
+30-29|stack up|(구) 쌓이다|stack up paper|종이를 쌓아 올리다
+30-29|count|(동) 세다, 중요하다|count the money|돈을 세다
+30-29|countless|(형) 셀 수 없는|countless stars|셀 수 없이 많은 별
+30-29|discard|(동) 버리다, 폐기하다|discard old clothes|헌 옷을 버리다
+30-29|fluid|(명) 유체, 액체 (형) 유동적인|fluid situation|유동적인 상황
+30-29|rely|(동) 의지하다|rely on family|가족에게 의지하다
+30-29|reliable|(형) 믿을 수 있는|reliable source|신뢰할 수 있는 출처
+30-29|rely on|(구) ~에 의지하다|rely on technology|기술에 의존하다
+30-29|gratitude|(명) 감사|show gratitude|감사를 표하다
+30-29|hardship|(명) 고난, 어려움|face hardship|고난에 직면하다
+30-29|suffer hardship|(구) 고난을 겪다|suffer hardship|고난을 겪다
+30-29|disgust|(명) 혐오 (동) 역겹게 하다|feel disgust|혐오감을 느끼다
+30-29|disgusting|(형) 역겨운|disgusting smell|역겨운 냄새
+30-29|disgusted|(형) 혐오감을 느끼는|be disgusted with|~에 넌더리나다
+30-29|heritage|(명) 유산|cultural heritage|문화 유산
+30-29|cherish|(동) 소중히 여기다|cherish memories|기억을 소중히 간직하다
+30-29|ridiculous|(형) 말도 안 되는|ridiculous idea|터무니없는 생각
+30-29|ambitious|(형) 야심 찬|ambitious project|야심 찬 프로젝트
+30-29|ambition|(명) 야망|political ambition|정치적 야망
+30-29|reduce|(동) 줄이다, 감소시키다|reduce costs|비용을 줄이다
+30-29|reduction|(명) 감소|price reduction|가격 인하
+30-29|horrible|(형) 끔찍한|horrible accident|끔찍한 사고
+30-29|horror|(명) 공포|horror movie|공포 영화
+
+30-30|trial|(명) 시험, 재판|trial and error|시행착오
+30-30|memorable|(형) 기억할 만한|memorable moment|기억에 남는 순간
+30-30|memory|(명) 기억|faded memory|흐릿한 기억
+30-30|memorize|(동) 암기하다|memorize vocabulary|어휘를 암기하다
+30-30|toxic|(형) 유독한|toxic chemicals|유독 화학물질
+30-30|value|(명) 가치 (동) 소중히 여기다|cultural value|문화적 가치
+30-30|valuable|(형) 가치 있는|valuable advice|가치 있는 조언
+30-30|vibration|(명) 진동|sound vibration|음파 진동
+30-30|vibrate|(동) 진동하다|vibrate the phone|전화기를 진동시키다
+30-30|warranty|(명) 보증|product warranty|제품 보증
+30-30|liberty|(명) 자유|religious liberty|종교의 자유
+30-30|liberal|(형) 자유주의적인, 후한|liberal arts|교양 과목
+30-30|leap|(동) 뛰다 (명) 도약|giant leap|거대한 도약
+30-30|invade|(동) 침입하다, 침해하다|invade privacy|사생활을 침해하다
+30-30|invasion|(명) 침략, 침해|military invasion|군사 침략
+30-30|compel|(동) 강요하다|compel obedience|복종을 강요하다
+30-30|compulsory|(형) 의무적인|compulsory education|의무 교육
+30-30|wound|(명) 상처 (동) 상처를 입히다|clean the wound|상처를 소독하다
+30-30|wounded|(형) 부상당한|wounded soldiers|부상당한 군인들
+30-30|illegal|(형) 불법의|illegal parking|불법 주차
+30-30|merit|(명) 장점, 가치|merits and demerits|장단점
+30-30|monotonous|(형) 단조로운|monotonous voice|단조로운 목소리
+30-30|vice|(명) 악덕, 결함|virtue and vice|덕과 악
+30-30|vicious|(형) 사악한, 잔인한|vicious circle|악순환
+30-30|exaggerate|(동) 과장하다|exaggerate the facts|사실을 과장하다
+30-30|exaggeration|(명) 과장|gross exaggeration|심한 과장
+30-30|prominent|(형) 저명한, 두드러진|prominent figure|저명한 인물
+30-30|energetic|(형) 활기찬|energetic performance|활기찬 공연
+30-30|energy|(명) 에너지, 활기|solar energy|태양 에너지
+30-30|recreate|(동) 재현하다, 휴양하다|recreate the scene|장면을 재현하다
+30-30|recreation|(명) 레크리에이션, 오락|outdoor recreation|야외 활동
+30-30|unify|(동) 통합하다, 단일화하다|unify the nation|나라를 통일하다
+30-30|weave|(동) 짜다, 엮다|weave a basket|바구니를 짜다
+30-30|stimulate|(동) 자극하다|stimulate the economy|경제를 자극하다
+30-30|stimulation|(명) 자극|visual stimulation|시각적 자극
+30-30|ingredient|(명) 재료, 성분|key ingredient|핵심 재료
+30-30|sorrow|(명) 슬픔|deep sorrow|깊은 슬픔
+30-30|sorrowful|(형) 슬픈|sorrowful news|슬픈 소식
+30-30|sorrow at|(구) ~에 대한 슬픔|sorrow at death|죽음에 대한 슬픔
+30-30|indifferent|(형) 무관심한|indifferent to others|타인에게 무관심한
+30-30|indifferent to|(구) ~에 무관심한|indifferent to politics|정치에 무관심한
+30-30|inspire|(동) 영감을 주다|inspire many people|많은 사람에게 영감을 주다
+30-30|inspiration|(명) 영감|source of inspiration|영감의 원천
+30-30|routine|(명) 일상적인 일 (형) 일상적인|daily routine|매일의 일과
+30-30|accomplish|(동) 달성하다|accomplish a goal|목표를 달성하다
+30-30|accomplishment|(명) 성취, 업적|great accomplishment|위대한 업적
+30-30|enthusiasm|(명) 열정|show enthusiasm|열정을 보이다
+30-30|enthusiastic|(형) 열정적인|enthusiastic support|열성적인 지지
+30-30|frustrated|(형) 좌절감을 느끼는|feel frustrated|좌절감을 느끼다
+30-30|frustrate|(동) 좌절시키다|frustrate the plan|계획을 좌절시키다
+
+30-31|frustration|(명) 좌절, 불만|feel frustration|좌절감을 느끼다
+30-31|sponsor|(명) 후원자 (동) 후원하다|official sponsor|공식 후원사
+30-31|capture|(동) 붙잡다, 포착하다 (명) 포획|capture the moment|순간을 포착하다
+30-31|destination|(명) 목적지, 행선지|final destination|최종 목적지
+30-31|nutrient|(명) 영양소, 영양분|essential nutrient|필수 영양소
+30-31|passion|(명) 열정, 정열|follow your passion|열정을 따르다
+30-31|grab|(동) 움켜잡다, 붙잡다|grab a bite|간단히 먹다
+30-31|landscape|(명) 풍경, 경치|natural landscape|자연 경관
+30-31|gene|(명) 유전자|human gene|인간 유전자
+30-31|quit|(동) 그만두다, 포기하다|quit smoking|담배를 끊다
+30-31|instinct|(명) 본능|survival instinct|생존 본능
+30-31|by instinct|(구) 본능적으로|act by instinct|본능적으로 행동하다
+30-31|souvenir|(명) 기념품|buy a souvenir|기념품을 사다
+30-31|sue|(동) 고소하다|sue for damages|손해 배상을 청구하다
+30-31|excessive|(형) 과도한, 지나친|excessive drinking|과음
+30-31|shortage|(명) 부족, 결핍|water shortage|물 부족
+30-31|disorder|(명) 무질서, 장애|mental disorder|정신 장애
+30-31|celebrity|(명) 유명인, 명성|hollywood celebrity|할리우드 유명인
+30-31|storage|(명) 저장, 보관|cold storage|냉동 보관
+30-31|store|(명) 가게 (동) 저장하다|store information|정보를 저장하다
+30-31|primitive|(형) 원시적인, 기본적인|primitive society|원시 사회
+30-31|tropical|(형) 열대의|tropical fruit|열대 과일
+30-31|superior|(형) 우월한, 상위의|superior quality|우수한 품질
+30-31|superior to|(구) ~보다 우월한|superior to rivals|경쟁자보다 우월한
+30-31|nutrition|(명) 영양, 영양 섭취|poor nutrition|영양 부족
+30-31|nutritious|(형) 영양가 있는|nutritious meal|영양가 있는 식사
+30-31|remote|(형) 먼, 외진|remote area|오지
+30-31|distract|(동) 산만하게 하다|distract attention|주의를 산만하게 하다
+30-31|distraction|(명) 방해, 기분 전환|without distraction|방해 없이
+30-31|subtle|(형) 미묘한, 섬세한|subtle difference|미묘한 차이
+30-31|trauma|(명) 정신적 충격, 외상|childhood trauma|어린 시절의 트라우마
+30-31|possess|(동) 소유하다|possess talent|재능을 소유하다
+30-31|forecast|(명) 예측 (동) 예보하다|weather forecast|일기 예보
+30-31|peak|(명) 정점 (형) 절정의|peak season|성수기
+30-31|seal|(명) 물개, 도장 (동) 봉인하다|seal the envelope|봉투를 봉하다
+30-31|productivity|(명) 생산성|increase productivity|생산성을 높이다
+30-31|productive|(형) 생산적인, 효과적인|productive meeting|생산적인 회의
+30-31|fake|(형) 가짜의 (명) 가짜 (동) 속이다|fake news|가짜 뉴스
+30-31|compliment|(명) 칭찬 (동) 칭찬하다|pay a compliment|칭찬하다
+30-31|complimentary|(형) 무료의, 칭찬하는|complimentary breakfast|무료 조식
+30-31|tuition|(명) 수업료, 등록금|college tuition|대학 등록금
+30-31|sniff|(동) 코를 킁킁거리다|sniff the air|공기 냄새를 맡다
+30-31|taboo|(명) 금기 (형) 금기의|social taboo|사회적 금기
+30-31|emission|(명) 배출, 방출|carbon emission|탄소 배출
+30-31|strength|(명) 힘, 강점|inner strength|내면의 힘
+30-31|strengthen|(동) 강화하다|strengthen the tie|유대를 강화하다
+30-31|superstition|(명) 미신|ancient superstition|고대 미신
+30-31|superstitious|(형) 미신을 믿는|superstitious belief|미신적인 믿음
+30-31|bump|(동) 부딪치다 (명) 충돌|bump into a wall|벽에 부딪히다
+30-31|bump into|(구) ~와 우연히 마주치다|bump into an old friend|옛 친구와 우연히 마주치다
+
+30-32|glance|(명) 흘긋 봄 (동) 곁눈질하다|at a glance|한눈에
+30-32|glance at|(구) ~을 흘긋 보다|glance at watch|시계를 흘긋 보다
+30-32|direct|(형) 직접적인 (동) 지휘하다|direct contact|직접적인 접촉
+30-32|fatigue|(명) 피로, 피곤|extreme fatigue|극심한 피로
+30-32|tremendous|(형) 엄청난, 거대한|tremendous amount|엄청난 양
+30-32|install|(동) 설치하다|install software|소프트웨어를 설치하다
+30-32|installation|(명) 설치|installation fee|설치비
+30-32|patent|(명) 특허 (동) 특허를 받다|apply for patent|특허를 신청하다
+30-32|irrigate|(동) 관개하다, 물을 대다|irrigate the land|땅에 물을 대다
+30-32|irrigation|(명) 관개, 수로|irrigation system|관개 시설
+30-32|territory|(명) 영토, 지역|disputed territory|분쟁 영토
+30-32|boost|(동) 북돋우다, 밀어 올리다|boost confidence|자신감을 북돋우다
+30-32|deposit|(동) 예금하다 (명) 보증금|cash deposit|현금 예금
+30-32|disguise|(동) 변장하다 (명) 위장|disguise oneself|변장하다
+30-32|fragile|(형) 깨지기 쉬운|fragile glass|깨지기 쉬운 유리
+30-32|opponent|(명) 상대, 반대자|political opponent|정치적 상대
+30-32|oppose|(동) 반대하다|strongly oppose|강력히 반대하다
+30-32|sensation|(명) 느낌, 선풍적 사건|cause a sensation|선풍을 일으키다
+30-32|sensational|(형) 선풍적인, 놀라운|sensational news|놀라운 뉴스
+30-32|talented|(형) 재능 있는|talented artist|재능 있는 예술가
+30-32|talent|(명) 재능|natural talent|타고난 재능
+30-32|leftover|(형) 남은 (명) 남은 음식|leftover food|남은 음식
+30-32|resemble|(동) 닮다|resemble each other|서로 닮다
+30-32|appetite|(명) 식욕|loss of appetite|식욕 부진
+30-32|appetizer|(명) 에피타이저|order an appetizer|전채 요리를 주문하다
+30-32|conceal|(동) 숨기다|conceal the truth|진실을 숨기다
+30-32|concrete|(형) 구체적인 (명) 콘크리트|concrete example|구체적인 예시
+30-32|concretely|(부) 구체적으로|explain concretely|구체적으로 설명하다
+30-32|reliable|(형) 신뢰할 수 있는|reliable source|믿을만한 소식통
+30-32|obstacle|(명) 장애물|overcome obstacle|장애물을 극복하다
+30-32|scan|(동) 훑어보다 (명) 정밀 검사|scan the document|서류를 훑어보다
+30-32|scan through|(구) ~을 훑어보다|scan through book|책을 훑어보다
+30-32|abundant|(형) 풍부한|abundant resources|풍부한 자원
+30-32|abundance|(명) 풍부, 부유|in abundance|풍부하게
+30-32|suffer|(동) 고통받다, 겪다|suffer from cold|감기로 고생하다
+30-32|conserve|(동) 보존하다, 아끼다|conserve energy|에너지를 아끼다
+30-32|conservative|(형) 보수적인|conservative party|보수당
+30-32|conservation|(명) 보존|nature conservation|자연 보존
+30-32|famine|(명) 기근|severe famine|심각한 기근
+30-32|confront|(동) 직면하다|confront danger|위험에 직면하다
+30-32|confront with|(구) ~에 직면하게 하다|confront with problem|문제에 직면하다
+30-32|prosperity|(명) 번영|economic prosperity|경제적 번영
+30-32|prosper|(동) 번영하다|prosper and grow|번영하고 성장하다
+30-32|gorgeous|(형) 아주 멋진, 화려한|gorgeous dress|화려한 드레스
+30-32|gorgeously|(부) 아주 멋지게|gorgeously decorated|화려하게 장식된
+30-32|tragic|(형) 비극적인|tragic accident|비극적인 사고
+30-32|tragedy|(명) 비극|human tragedy|인간의 비극
+30-32|livestock|(명) 가축|raise livestock|가축을 기르다
+30-32|defect|(명) 결함|factory defect|제조 결함
+30-32|defective|(형) 결함이 있는|defective product|결함이 있는 제품
+30-33|continent|(명) 대륙|asian continent|아시아 대륙
+30-33|continental|(형) 대륙의|continental climate|대륙성 기후
+30-33|outgoing|(형) 외향적인|outgoing personality|외향적인 성격
+30-33|competent|(형) 유능한|competent worker|유능한 직원
+30-33|competence|(명) 능력, 역량|professional competence|직업적 역량
+30-33|overlap|(동) 겹치다|overlap each other|서로 겹치다
+30-33|poisonous|(형) 독이 있는|poisonous snake|독사
+30-33|poison|(명) 독|deadly poison|치명적인 독
+30-33|thrive|(동) 번성하다, 잘 자라다|thrive on challenge|도전하며 성장하다
+30-33|pioneer|(명) 개척자|pioneer of science|과학의 개척자
+30-33|pioneering|(형) 개척적인|pioneering work|개척적인 업무
+30-33|virtue|(명) 미덕, 장점|patience is virtue|인내는 미덕이다
+30-33|craft|(명) 공예, 기술|handicraft work|수공예 작업
+30-33|crafty|(형) 교활한, 술수가 뛰어난|crafty plan|교묘한 계획
+30-33|compromise|(명) 타협 (동) 타협하다|reach a compromise|타협에 도달하다
+30-33|emit|(동) 방출하다|emit light|빛을 내뿜다
+30-33|corrupt|(형) 부패한|corrupt official|부패한 관리
+30-33|corruption|(명) 부패|political corruption|정치적 부패
+30-33|consistent|(형) 일관된|consistent results|일관된 결과
+30-33|consistency|(명) 일관성|lack of consistency|일관성 부족
+30-33|consistent in|(구) ~에서 일관된|consistent in action|행동이 일관된
+30-33|fulfill|(동) 완수하다, 이행하다|fulfill the requirement|요건을 충족하다
+30-33|leak|(동) 새다 (명) 누출|water leak|물 누수
+30-33|leak out|(구) 새어 나오다|information leaks out|정보가 새어 나가다
+30-33|various|(형) 다양한|various reasons|다양한 이유들
+30-33|variety|(명) 다양성|wide variety|폭넓은 다양성
+30-33|departure|(명) 출발|departure time|출발 시간
+30-33|depart|(동) 출발하다|depart for london|런던으로 출발하다
+30-33|hostile|(형) 적대적인|hostile environment|적대적인 환경
+30-33|hostility|(명) 적대감|show hostility|적대감을 보이다
+30-33|hostile to|(구) ~에 적대적인|hostile to change|변화에 적대적인
+30-33|invisible|(형) 보이지 않는|invisible power|보이지 않는 힘
+30-33|grip|(명) 움켜쥠 (동) 꽉 잡다|tight grip|꽉 잡음
+30-33|cognitive|(형) 인지의|cognitive development|인지 발달
+30-33|cognition|(명) 인지, 인식|human cognition|인간의 인지
+30-33|harsh|(형) 가혹한, 혹독한|harsh winter|혹독한 겨울
+30-33|digest|(동) 소화하다|digest food|음식을 소화하다
+30-33|digestion|(명) 소화|good digestion|좋은 소화 기능
+30-33|suppress|(동) 억압하다, 참다|suppress anger|화력을 참다
+30-33|magnificent|(형) 장엄한, 훌륭한|magnificent view|장엄한 광경
+30-33|magnificently|(부) 장엄하게|magnificently decorated|화려하게 장식된
+30-33|endure|(동) 견디다, 참다|endure pain|고통을 견디다
+30-33|endurance|(명) 인내, 지구력|test of endurance|인내력 테스트
+30-33|privilege|(명) 특권|special privilege|특별한 특권
+30-33|trivial|(형) 사소한, 하찮은|trivial matter|사소한 문제
+30-33|stubborn|(형) 고집 센|stubborn child|고집 센 아이
+30-33|expedition|(명) 탐험|arctic expedition|북극 탐험
+30-33|gaze|(동) 응시하다|gaze at stars|별을 응시하다
+30-33|intent|(명) 의도|evil intent|나쁜 의도
+30-33|intend|(동) 의도하다|intend to win|이길 생각이다
+30-34|intuition|(명) 직관, 직감|follow your intuition|직관을 따르다
+30-34|loss|(명) 손실, 분실|financial loss|재정적 손실
+30-34|interval|(명) 간격, 틈|at regular intervals|정기적인 간격으로
+30-34|narration|(명) 서사, 내레이션|voice narration|음성 내레이션
+30-34|narrate|(동) 이야기하다|narrate the story|이야기를 들려주다
+30-34|self-esteem|(명) 자존감|low self-esteem|낮은 자존감
+30-34|reference|(명) 참고, 추천서|reference book|참고 도서
+30-34|refer|(동) 참조하다, 언급하다|refer to notes|노트를 참조하다
+30-34|imaginary|(형) 상상의, 가공의|imaginary friend|상상의 친구
+30-34|imagine|(동) 상상하다|imagine the future|미래를 상상하다
+30-34|vacant|(형) 비어 있는|vacant seat|빈 좌석
+30-34|vacancy|(명) 공석, 빈방|job vacancy|일자리 공석
+30-34|vague|(형) 모호한, 희미한|vague memory|희미한 기억
+30-34|profound|(형) 심오한, 깊은|profound impact|심오한 영향
+30-34|resort|(동) 의지하다 (명) 휴양지|resort to violence|폭력에 의지하다
+30-34|revive|(동) 활기를 되찾다, 소생시키다|revive the economy|경제를 회생시키다
+30-34|revival|(명) 회생, 부활|cultural revival|문화적 부활
+30-34|worthwhile|(형) 가치 있는|worthwhile experience|가치 있는 경험
+30-34|misleading|(형) 오해의 소지가 있는|misleading information|오해를 부르는 정보
+30-34|mislead|(동) 오도하다, 속이다|mislead the public|대중을 오도하다
+30-34|supreme|(형) 최고의, 최상의|supreme court|대법원
+30-34|fascinating|(형) 매혹적인|fascinating story|매혹적인 이야기
+30-34|fascinated|(형) 매료된|fascinated by art|예술에 매료된
+30-34|mimic|(동) 흉내 내다|mimic human speech|인간의 말을 흉내 내다
+30-34|optimist|(명) 낙관주의자|be an optimist|낙관주의자가 되다
+30-34|overtake|(동) 추월하다|overtake the car|차를 추월하다
+30-34|spectacular|(형) 장관인, 화려한|spectacular view|장관인 경치
+30-34|spectacle|(명) 광경, 구경거리|grand spectacle|웅장한 광경
+30-34|auction|(명) 경매|art auction|예술품 경매
+30-34|soar|(동) 치솟다|prices soar|물가가 치솟다
+30-34|upcoming|(형) 다가오는|upcoming event|다가오는 행사
+30-34|splash|(동) 튀기다|splash water|물을 튀기다
+30-34|murder|(명) 살인 (동) 살해하다|commit murder|살인을 저지르다
+30-34|temptation|(명) 유혹|resist temptation|유혹을 뿌리치다
+30-34|tempt|(동) 유혹하다|tempt fate|운명을 시험하다
+30-34|inflation|(명) 인플레이션, 팽창|economic inflation|경제 인플레이션
+30-34|inflate|(동) 부풀리다|inflate the tires|타이어를 부풀리다
+30-34|bilingual|(형) 2개 국어를 구사하는|bilingual education|이중 언어 교육
+30-34|fare|(명) 요금|bus fare|버스 요금
+30-34|obey|(동) 복종하다, 따르다|obey the rules|규칙을 따르다
+30-34|frost|(명) 서리|heavy frost|심한 서리
+30-34|occur|(동) 발생하다|occur suddenly|갑자기 발생하다
+30-34|overcome|(동) 극복하다|overcome obstacles|장애를 극복하다
+30-34|skeptical|(형) 회의적인|be skeptical of|~에 회의적이다
+30-34|rehearsal|(명) 리허설, 예행연습|final rehearsal|최종 리허설
+30-34|rehearse|(동) 예행연습을 하다|rehearse a play|연극을 연습하다
+30-34|curator|(명) 큐레이터|museum curator|박물관 큐레이터
+30-34|litter|(명) 쓰레기 (동) 어지르다|pick up litter|쓰레기를 줍다
+30-34|explosion|(명) 폭발|gas explosion|가스 폭발
+30-34|explode|(동) 폭발하다|explode with anger|분노로 폭발하다
+30-35|trim|(동) 다듬다, 손질하다|trim the hedges|울타리를 다듬다
+30-35|arrest|(동) 체포하다|arrest a suspect|용의자를 체포하다
+30-35|arrest for|(구) ~으로 체포하다|arrest for theft|절도 혐의로 체포하다
+30-35|deceive|(동) 속이다, 기만하다|deceive the public|대중을 속이다
+30-35|deception|(명) 속임수, 기만|act of deception|기만 행위
+30-35|overwhelm|(동) 압도하다|overwhelm the enemy|적을 압도하다
+30-35|enroll|(동) 등록하다, 입학하다|enroll in classes|수업에 등록하다
+30-35|enrollment|(명) 등록, 입학|enrollment fee|등록비
+30-35|cease|(동) 그만두다, 중지하다|cease all activities|모든 활동을 중단하다
+30-35|terrific|(형) 아주 좋은, 멋진|terrific news|아주 멋진 소식
+30-35|terrify|(동) 겁나게 하다|terrify the kids|아이들을 겁나게 하다
+30-35|duplicate|(명) 복제 (동) 복사하다|duplicate a document|문서를 복사하다
+30-35|splendid|(형) 화려한, 훌륭한|splendid view|장엄한 광경
+30-35|expire|(동) 만료되다, 끝나다|passport expires|여권이 만료되다
+30-35|expiration|(명) 만료, 종결|expiration date|만료일
+30-35|shield|(명) 방패 (동) 보호하다|shield from light|빛으로부터 보호하다
+30-35|decent|(형) 괜찮은, 품위 있는|decent salary|괜찮은 급여
+30-35|excel|(동) 뛰어나다, 탁월하다|excel in sports|스포츠에서 두각을 나타내다
+30-35|excellent|(형) 탁월한, 훌륭한|excellent performance|탁월한 성과
+30-35|excellence|(명) 우수함, 탁월함|academic excellence|학업적 우수성
+30-35|distress|(명) 고통, 괴로움|mental distress|정신적 고통
+30-35|addicted|(형) 중독된|addicted to caffeine|카페인에 중독된
+30-35|addict|(명) 중독자|drug addict|마약 중독자
+30-35|addiction|(명) 중독|smartphone addiction|스마트폰 중독
+30-35|be addicted to|(구) ~에 중독되다|be addicted to sugar|설탕에 중독되다
+30-35|marvelous|(형) 놀라운, 믿기 어려운|marvelous discovery|놀라운 발견
+30-35|emergency|(명) 비상사태|in an emergency|비상시에
+30-35|in an emergency|(구) 비상시에|in an emergency|비상시에
+30-35|reception|(명) 환영회, 접수처|wedding reception|결혼 피로연
+30-35|receive|(동) 받다, 수령하다|receive a package|택배를 받다
+30-35|overlook|(동) 간과하다, 내려다보다|overlook a mistake|실수를 간과하다
+30-35|inherit|(동) 물려받다, 상속받다|inherit a fortune|재산을 물려받다
+30-35|inherit from|(구) ~로부터 물려받다|inherit from parents|부모로부터 물려받다
+30-35|lean|(동) 기대다 (형) 마른|lean on me|나에게 기대다
+30-35|lean on|(구) ~에 의지하다|lean on friends|친구에게 의지하다
+30-35|lean against|(구) ~에 기대다|lean against the wall|벽에 기대다
+30-35|bruise|(명) 멍, 타박상|bad bruise|심한 멍
+30-35|revenge|(명) 복수 (동) 복수하다|take revenge|복수하다
+30-35|vain|(형) 헛된, 허영심 많은|in vain|헛되이
+30-35|try in vain|(구) 헛수고하다|try in vain|헛되이 노력하다
+30-35|confess|(동) 고백하다, 자백하다|confess the truth|진실을 고백하다
+30-35|confession|(명) 고백, 자백|full confession|완전한 자백
+30-35|confess to|(구) ~을 자백하다|confess to a crime|범죄를 자백하다
+30-35|qualify|(동) 자격을 얻다|qualify for the final|결승 자격을 얻다
+30-35|qualified|(형) 자격 있는|highly qualified|매우 자격 있는
+30-35|qualification|(명) 자격, 자격증|job qualification|직업 자격
+30-35|qualify for|(구) ~의 자격을 갖추다|qualify for the role|그 역할의 자격을 갖추다
+30-35|dissolve|(동) 녹이다, 용해하다|dissolve in water|물에 녹다
+30-35|furious|(형) 몹시 화난|get furious|몹시 화내다
+30-35|furiously|(부) 맹렬하게|work furiously|맹렬히 일하다
+30-36|affair|(명) 일, 사건|foreign affairs|외교 문제
+30-36|consent|(동) 동의하다 (명) 동의|parental consent|부모의 동의
+30-36|weird|(형) 기괴한, 이상한|weird noise|이상한 소리
+30-36|shrink|(동) 줄어들다|shrink in the wash|세탁 중에 줄어들다
+30-36|minimum|(명/형) 최소한(의)|minimum wage|최저 임금
+30-36|minimize|(동) 최소화하다|minimize the risk|위험을 최소화하다
+30-36|classify|(동) 분류하다|classify information|정보를 분류하다
+30-36|classify as|(구) ~로 분류하다|classify as secret|비밀로 분류하다
+30-36|naive|(형) 순진한, 천진난만한|naive person|순진한 사람
+30-36|naively|(부) 순진하게|naively believe|순진하게 믿다
+30-36|alter|(동) 바꾸다, 변경하다|alter the plan|계획을 바꾸다
+30-36|strategy|(명) 전략|marketing strategy|마케팅 전략
+30-36|stiff|(형) 뻣뻣한, 굳은|stiff muscles|뻣뻣한 근육
+30-36|instance|(명) 사례, 경우|for instance|예를 들어
+30-36|for instance|(구) 예를 들어|for instance|예를 들어
+30-36|approximately|(부) 대략|approximately ten miles|대략 10마일
+30-36|approximate|(형) 대략의|approximate cost|대략적인 비용
+30-36|procedure|(명) 절차, 순서|surgical procedure|수술 절차
+30-36|permanent|(형) 영구적인|permanent job|정규직
+30-36|permanently|(부) 영구히|permanently closed|영구 폐쇄된
+30-36|take away|(구) 가져가다, 치우다|take away the plates|접시를 치우다
+30-36|quote|(동) 인용하다|quote a sentence|문장을 인용하다
+30-36|quotation|(명) 인용|direct quotation|직접 인용
+30-36|proportion|(명) 비율, 부분|large proportion|큰 비율
+30-36|fundamental|(형) 근본적인|fundamental rights|근본적인 권리
+30-36|fundamentally|(부) 근본적으로|fundamentally different|근본적으로 다른
+30-36|abnormal|(형) 비정상적인|abnormal behavior|비정상적인 행동
+30-36|abnormally|(부) 비정상적으로|abnormally high|비정상적으로 높은
+30-36|phenomenon|(명) 현상|natural phenomenon|자연 현상
+30-36|colleague|(명) 동료|office colleague|직장 동료
+30-36|apparent|(형) 분명한, 외관상의|apparent reason|분명한 이유
+30-36|conquer|(동) 정복하다|conquer the world|세계를 정복하다
+30-36|mutual|(형) 상호 간의|mutual respect|상호 존중
+30-36|subscribe|(동) 구독하다|subscribe to a magazine|잡지를 구독하다
+30-36|subscription|(명) 구독|annual subscription|연간 구독
+30-36|surrender|(동) 항복하다|surrender to the enemy|적에게 항복하다
+30-36|flock|(명) 무리 (동) 모이다|flock of sheep|양 떼
+30-36|aptitude|(명) 적성, 소질|natural aptitude|타고난 소질
+30-36|available|(형) 이용 가능한|available resources|가용 자원
+30-36|avail|(명) 효용 (동) 도움이 되다|to no avail|소용없이
+30-36|affect|(동) 영향을 미치다|affect the outcome|결과에 영향을 미치다
+30-36|affection|(명) 애정|deep affection|깊은 애정
+30-36|affectionate|(형) 다정한|affectionate hug|다정한 포옹
+30-36|approach|(동) 접근하다|approach the station|역에 접근하다
+30-36|psychology|(명) 심리학|child psychology|아동 심리학
+30-36|psychological|(형) 심리적인|psychological pressure|심리적 압박
+30-36|psychologist|(명) 심리학자|school psychologist|학교 심리학자
+30-36|degree|(명) 도, 학위|university degree|대학 학위
+30-36|seize|(동) 붙잡다, 압수하다|seize the moment|순간을 포착하다
+30-36|trait|(명) 특성, 특징|personality trait|성격 특성
+30-37|injure|(동) 부상을 입히다|injure the leg|다리를 다치다
+30-37|injury|(명) 부상|head injury|머리 부상
+30-37|appeal|(명) 호소, 매력 (동) 호소하다|appeal to emotion|감정에 호소하다
+30-37|appealing|(형) 매력적인, 호소하는|appealing offer|매력적인 제안
+30-37|ultimate|(형) 궁극적인, 최후의|ultimate goal|궁극적인 목표
+30-37|ultimately|(부) 결국, 최종적으로|ultimately fail|결국 실패하다
+30-37|satellite|(명) 위성, 인공위성|communications satellite|통신 위성
+30-37|regard|(명) 존경, 고려 (동) 간주하다|regard as important|중요하게 여기다
+30-37|verbal|(형) 말로 하는, 구두의|verbal agreement|구두 합의
+30-37|nonverbal|(형) 비언어적인, 말이 아닌|nonverbal signals|비언어적 신호
+30-37|flat|(형) 평평한, 단조로운|flat tire|펑크 난 타이어
+30-37|comparison|(명) 비교|by comparison|비교해 보면
+30-37|compare|(동) 비교하다|compare prices|가격을 비교하다
+30-37|comparable|(형) 비교할 만한, 비슷한|comparable quality|비슷한 품질
+30-37|eager|(형) 열망하는, 간절히 바라는|eager to learn|배우기를 열망하는
+30-37|sincere|(형) 진실한, 진정한|sincere apology|진심 어린 사과
+30-37|trial|(명) 시험, 시도, 재판|trial and error|시행착오
+30-37|distort|(동) 왜곡하다|distort the truth|진실을 왜곡하다
+30-37|distortion|(명) 왜곡|image distortion|이미지 왜곡
+30-37|autograph|(명/동) 서명(하다)|get an autograph|사인을 받다
+30-37|continent|(명) 대륙|asian continent|아시아 대륙
+30-37|continental|(형) 대륙의|continental climate|대륙성 기후
+30-37|superstition|(명) 미신|old superstition|오래된 미신
+30-37|superstitious|(형) 미신을 믿는|superstitious belief|미신적인 믿음
+30-37|prompt|(형) 신속한 (동) 촉구하다|prompt reply|신속한 답변
+30-37|found|(동) 설립하다|found a company|회사를 설립하다
+30-37|recover|(동) 회복하다|recover from illness|병에서 회복하다
+30-37|recovery|(명) 회복|economic recovery|경제 회복
+30-37|replace|(동) 교체하다, 대체하다|replace the battery|배터리를 교체하다
+30-37|replacement|(명) 교체, 대체|temporary replacement|임시 대체물
+30-37|reinforce|(동) 강화하다|reinforce the wall|벽을 강화하다
+30-37|reinforcement|(명) 강화, 보강|positive reinforcement|긍정적 강화
+30-37|refund|(명/동) 환불(하다)|full refund|전액 환불
+30-37|competition|(명) 경쟁, 대회|win the competition|대회에서 우승하다
+30-37|compete|(동) 경쟁하다|compete with others|타인과 경쟁하다
+30-37|competitive|(형) 경쟁적인|competitive market|경쟁적인 시장
+30-37|conflict|(명/동) 갈등(하다), 충돌(하다)|armed conflict|무력 충돌
+30-37|remedy|(명) 치료법, 해결책|natural remedy|천연 치료제
+30-37|characteristic|(명/형) 특징(적인)|unique characteristic|독특한 특징
+30-37|characterize|(동) 특징짓다|characterize the era|시대를 특징짓다
+30-37|shed|(동) 흘리다, 벗다|shed tears|눈물을 흘리다
+30-37|consist|(동) 구성되다|consist of parts|부품들로 구성되다
+30-37|grasp|(동) 움켜잡다, 이해하다|grasp the concept|개념을 이해하다
+30-37|inspire|(동) 영감을 주다|inspire young people|젊은이들에게 영감을 주다
+30-37|inspiration|(명) 영감|source of inspiration|영감의 원천
+30-37|accommodate|(동) 수용하다, 적응시키다|accommodate guests|손님을 수용하다
+30-37|accommodation|(명) 숙박 시설, 거처|luxury accommodation|호화 숙박 시설
+30-37|vulnerable|(형) 취약한, 연약한|vulnerable children|취약한 아동
+30-37|vulnerability|(명) 취약성|security vulnerability|보안 취약점
+30-37|wander|(동) 돌아다니다, 방황하다|wander the streets|거리를 방황하다
+30-38|barrier|(명) 장벽|language barrier|언어 장벽
+30-38|occasion|(명) 경우, 특별한 일|special occasion|특별한 일
+30-38|occasionally|(부) 가끔|visit occasionally|가끔 방문하다
+30-38|impact|(명/동) 영향(을 주다)|environmental impact|환경적 영향
+30-38|behalf|(명) 이익, 자기편|on my behalf|나를 대신하여
+30-38|creep|(동) 살금살금 걷다|creep into the room|방으로 살금살금 기어가다
+30-38|identity|(명) 정체성|cultural identity|문화적 정체성
+30-38|identification|(명) 신원 확인, 신분증|show identification|신분증을 제시하다
+30-38|nerve|(명) 신경, 용기|get on my nerves|나의 신경을 건드리고
+30-38|whisper|(명/동) 속삭임(이다)|loud whisper|큰 속삭임
+30-38|plain|(형) 명백한, 평범한|plain truth|명백한 진실
+30-38|simultaneously|(부) 동시에|happen simultaneously|동시에 일어나다
+30-38|simultaneous|(형) 동시의|simultaneous translation|동시 통역
+30-38|myth|(명) 신화, 근거 없는 믿음|greek myth|그리스 신화
+30-38|mythical|(형) 신화적인|mythical creature|신화 속의 생물
+30-38|mythology|(명) 신화학, 신화|roman mythology|로마 신화
+30-38|ritual|(명/형) 의식(의), 관습|daily ritual|매일의 의식
+30-38|skeptical|(형) 회의적인|be skeptical of|~에 대해 회의적인
+30-38|skeptic|(명) 회의론자|global warming skeptic|지구 온난화 회의론자
+30-38|outlet|(명) 배출구, 직판점|electric outlet|전기 콘센트
+30-38|outcome|(명) 결과|desired outcome|원하는 결과
+30-38|insight|(명) 통찰력|deep insight|깊은 통찰력
+30-38|insightful|(형) 통찰력 있는|insightful observation|통찰력 있는 관찰
+30-38|income|(명) 소득|annual income|연간 소득
+30-38|appreciate|(동) 감사하다, 감상하다|appreciate your help|너의 도움에 감사하다
+30-38|appreciation|(명) 감사, 감상|show appreciation|감사를 표하다
+30-38|quality|(명/형) 품질(의), 특성|high quality|높은 품질
+30-38|qualification|(명) 자격, 자격증|job qualification|직업 자격
+30-38|excessive|(형) 과도한, 지나친|excessive noise|과도한 소음
+30-38|shortage|(명) 부족, 결핍|food shortage|식량 부족
+30-38|disorder|(명) 무질서, 장애|eating disorder|섭식 장애
+30-38|complimentary|(형) 무료의, 칭찬하는|complimentary tickets|무료 티켓
+30-38|emission|(명) 배출, 방출|carbon emission|탄소 배출
+30-38|fatigue|(명) 피로, 피곤|mental fatigue|정신적 피로
+30-38|tremendous|(형) 엄청난, 거대한|tremendous pressure|엄청난 압박
+30-38|deposit|(명/동) 예금(하다), 보증금|bank deposit|은행 예금
+30-38|disguise|(명/동) 변장(하다)|clever disguise|교묘한 변장
+30-38|fragile|(형) 깨지기 쉬운|fragile items|깨지기 쉬운 물건들
+30-38|conceal|(동) 숨기다, 은닉하다|conceal the weapon|무기를 숨기다
+30-38|abundant|(형) 풍부한|abundant harvest|풍부한 수확
+30-38|conservative|(형) 보수적인|conservative estimate|보수적인 추정치
+30-38|virtue|(명) 미덕, 장점|by virtue of|~의 덕분에
+30-38|consistency|(명) 일관성|internal consistency|내부적 일관성
+30-38|endurance|(명) 인내, 지구력|mental endurance|정신력
+30-38|trivial|(형) 사소한, 하찮은|trivial matter|사소한 문제
+30-38|intuition|(명) 직관|maternal intuition|어머니의 직관
+30-38|imaginary|(형) 상상의, 가상의|imaginary world|상상의 세계
+30-38|profound|(형) 심오한, 깊은|profound wisdom|심오한 지혜
+30-38|bilingual|(형) 2개 국어를 구사하는|bilingual child|2개 국어 구사 아동
+30-38|enroll|(동) 등록하다, 명부에 올리다|enroll in school|학교에 등록하다
+
+
 
   `;
   // 👆 여기까지가 네가 앞으로 수정·추가할 영역
@@ -10924,6 +12385,7 @@
   window.WORD_DB = buildDB(RAW_WORDS);
 
 })();
+
 
 
 
