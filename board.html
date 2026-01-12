@@ -983,10 +983,13 @@
   };
 
   // --- 글 등록/수정 (Supabase board_posts) ---
-  // --- 글 등록/수정 (Supabase board_posts) ---
 submitWriteBtn.onclick = async () => {
   if (currentRole !== "teacher") {
-    alert("선생님 계정으로 로그인해야 사용할 수 있어요.");
+    alert("선생님 계정으로 로그인해야 글을 작성할 수 있어요.");
+    return;
+  }
+  if (!currentUserId) {
+    setWriteStatus("로그인 정보를 확인할 수 없습니다. 다시 로그인해주세요.", true);
     return;
   }
 
@@ -994,50 +997,57 @@ submitWriteBtn.onclick = async () => {
   const title   = writeTitleEl.value.trim();
   const content = writeContentEl.value.trim();
 
-  setWriteStatus("저장 중...");
+  if (!classId || !title || !content) {
+    setWriteStatus("모든 항목을 입력해 주세요.", true);
+    return;
+  }
+
+  setWriteStatus("저장 중입니다…");
   submitWriteBtn.disabled = true;
 
   try {
+    // 공통 데이터 객체 (DB에 실제 존재하는 컬럼만 포함)
+    const postData = {
+      class_id: classId,
+      title: title,
+      content: content,
+      author_id: currentUserId
+    };
+
     let response;
-    
+
     if (editingPostId) {
-      // 수정 모드
+      // [수정 모드] 테이블에 없는 updated_at을 제외하고 업데이트합니다.
       response = await client
         .from("board_posts")
-        .update({
-          class_id: classId,
-          title: title,
-          content: content
-          // updated_at이나 author_id는 일단 제외하고 테스트합시다.
-        })
+        .update(postData)
         .eq("id", editingPostId);
     } else {
-      // 새 글 등록
+      // [새 글 등록]
       response = await client
         .from("board_posts")
-        .insert([{
-          class_id: classId,
-          title: title,
-          content: content,
-          author_id: currentUserId
-        }]);
+        .insert([postData]);
     }
 
     if (response.error) {
-      // ★ 여기가 핵심입니다. Supabase가 보내는 진짜 에러 메시지를 화면에 띄웁니다.
-      console.error("Supabase 상세 에러:", response.error);
-      setWriteStatus(`오류: ${response.error.message} (${response.error.code})`, true);
-    } else {
-      setWriteStatus("성공적으로 저장되었습니다!");
-      setTimeout(() => {
-        writeBoxEl.style.display = "none";
-        editingPostId = null;
-        location.reload(); // 안전하게 새로고침으로 목록 갱신
-      }, 1000);
+      console.error("Supabase 에러 상세:", response.error);
+      throw new Error(response.error.message);
     }
 
+    setWriteStatus("저장 성공!");
+
+    // UI 초기화 및 목록 갱신
+    setTimeout(async () => {
+      writeBoxEl.style.display = "none";
+      editingPostId = null;
+      submitWriteBtn.textContent = "등록";
+      writeTitleLabelEl.textContent = "새 글 쓰기";
+      await loadGroups(); // 목록 다시 불러오기
+    }, 500);
+
   } catch (e) {
-    setWriteStatus("시스템 오류: " + e.message, true);
+    console.error("최종 처리 오류:", e);
+    setWriteStatus("오류 발생: " + e.message, true);
   } finally {
     submitWriteBtn.disabled = false;
   }
