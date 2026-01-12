@@ -983,85 +983,76 @@
   };
 
   // --- 글 등록/수정 (Supabase board_posts) ---
-  submitWriteBtn.onclick = async () => {
-    if (currentRole !== "teacher") {
-      alert("선생님 계정으로 로그인해야 글을 작성할 수 있어요.");
-      return;
-    }
-    if (!currentUserId) {
-      setWriteStatus("로그인 정보를 찾을 수 없어요.", true);
-      return;
-    }
+  // --- 글 등록/수정 (Supabase board_posts) ---
+submitWriteBtn.onclick = async () => {
+  if (currentRole !== "teacher") {
+    alert("선생님 계정으로 로그인해야 사용할 수 있어요.");
+    return;
+  }
 
-    const classId = writeClassEl.value;
-    const title   = writeTitleEl.value.trim();
-    const content = writeContentEl.value.trim();
+  const classId = writeClassEl.value;
+  const title   = writeTitleEl.value.trim();
+  const content = writeContentEl.value.trim();
 
-    if (!classId) {
-      setWriteStatus("반을 선택해 주세요.", true);
-      return;
-    }
-    if (!title || !content) {
-      setWriteStatus("제목과 내용을 입력해 주세요.", true);
-      return;
-    }
+  if (!classId || !title || !content) {
+    setWriteStatus("모든 항목을 입력해 주세요.", true);
+    return;
+  }
 
-    setWriteStatus("저장 중입니다…");
-    submitWriteBtn.disabled = true;
+  setWriteStatus("저장 중입니다…");
+  submitWriteBtn.disabled = true;
 
-    const nowIso = new Date().toISOString();
-
-    try {
-      if (editingPostId) {
-        // 수정 모드
-        const { error } = await client
-          .from("board_posts")
-          .update({
-            class_id: classId,
-            title,
-            content,
-            author_id: currentUserId,
-            updated_at: nowIso
-          })
-          .eq("id", editingPostId);
-
-        if (error) {
-          console.error("게시글 수정 오류:", error);
-          setWriteStatus("글을 수정하는 중 오류가 발생했어요.", true);
-        } else {
-          setWriteStatus("수정되었습니다!");
-          writeBoxEl.style.display = "none";
-          editingPostId = null;
-          submitWriteBtn.textContent = "등록";
-          writeTitleLabelEl.textContent = "새 글 쓰기";
-          await loadGroups();
-        }
-      } else {
-        // 새 글 등록
-        const { error } = await client.from("board_posts").insert({
+  try {
+    if (editingPostId) {
+      // [수정 모드] 
+      // 오류 방지를 위해 꼭 필요한 필드만 보냅니다. (author_id 제외)
+      const { error } = await client
+        .from("board_posts")
+        .update({
           class_id: classId,
-          title,
-          content,
-          author_id: currentUserId,
-          created_at: nowIso
-        });
+          title: title,
+          content: content
+          // 만약 DB에 updated_at 컬럼이 확실히 있다면 아래 주석을 푸세요.
+          // , updated_at: new Date().toISOString() 
+        })
+        .eq("id", editingPostId);
 
-        if (error) {
-          console.error("게시글 저장 오류:", error);
-          setWriteStatus("글을 저장하는 중 오류가 발생했어요.", true);
-        } else {
-          setWriteStatus("저장되었습니다!");
-          writeBoxEl.style.display = "none";
-          await loadGroups();
-        }
-      }
-    } catch (e) {
-      console.error("게시글 저장 예외:", e);
-      setWriteStatus("글을 저장하는 중 오류가 발생했어요.", true);
-    } finally {
-      submitWriteBtn.disabled = false;
+      if (error) throw error;
+      
+      setWriteStatus("수정되었습니다!");
+    } else {
+      // [새 글 등록]
+      const { error } = await client
+        .from("board_posts")
+        .insert([{
+          class_id: classId,
+          title: title,
+          content: content,
+          author_id: currentUserId
+        }]);
+
+      if (error) throw error;
+      
+      setWriteStatus("저장되었습니다!");
     }
-  };
+
+    // 성공 시 공통 처리
+    setTimeout(async () => {
+      writeBoxEl.style.display = "none";
+      editingPostId = null;
+      submitWriteBtn.textContent = "등록";
+      writeTitleLabelEl.textContent = "새 글 쓰기";
+      await loadGroups(); // 목록 새로고침
+    }, 500);
+
+  } catch (e) {
+    console.error("오류 상세 내용:", e);
+    // 에러 메시지를 구체적으로 보여줘서 원인을 파악합니다.
+    setWriteStatus("오류 발생: " + (e.message || "알 수 없는 오류"), true);
+  } finally {
+    submitWriteBtn.disabled = false;
+  }
+};
 
   // 온라인 숙제 버튼 → homework-teacher.html 로 이동
   onlineHwBtn.onclick = () => {
