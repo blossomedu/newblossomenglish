@@ -994,35 +994,26 @@ submitWriteBtn.onclick = async () => {
   const title   = writeTitleEl.value.trim();
   const content = writeContentEl.value.trim();
 
-  if (!classId || !title || !content) {
-    setWriteStatus("모든 항목을 입력해 주세요.", true);
-    return;
-  }
-
-  setWriteStatus("저장 중입니다…");
+  setWriteStatus("저장 중...");
   submitWriteBtn.disabled = true;
 
   try {
+    let response;
+    
     if (editingPostId) {
-      // [수정 모드] 
-      // 오류 방지를 위해 꼭 필요한 필드만 보냅니다. (author_id 제외)
-      const { error } = await client
+      // 수정 모드
+      response = await client
         .from("board_posts")
         .update({
           class_id: classId,
           title: title,
           content: content
-          // 만약 DB에 updated_at 컬럼이 확실히 있다면 아래 주석을 푸세요.
-          // , updated_at: new Date().toISOString() 
+          // updated_at이나 author_id는 일단 제외하고 테스트합시다.
         })
         .eq("id", editingPostId);
-
-      if (error) throw error;
-      
-      setWriteStatus("수정되었습니다!");
     } else {
-      // [새 글 등록]
-      const { error } = await client
+      // 새 글 등록
+      response = await client
         .from("board_posts")
         .insert([{
           class_id: classId,
@@ -1030,25 +1021,23 @@ submitWriteBtn.onclick = async () => {
           content: content,
           author_id: currentUserId
         }]);
-
-      if (error) throw error;
-      
-      setWriteStatus("저장되었습니다!");
     }
 
-    // 성공 시 공통 처리
-    setTimeout(async () => {
-      writeBoxEl.style.display = "none";
-      editingPostId = null;
-      submitWriteBtn.textContent = "등록";
-      writeTitleLabelEl.textContent = "새 글 쓰기";
-      await loadGroups(); // 목록 새로고침
-    }, 500);
+    if (response.error) {
+      // ★ 여기가 핵심입니다. Supabase가 보내는 진짜 에러 메시지를 화면에 띄웁니다.
+      console.error("Supabase 상세 에러:", response.error);
+      setWriteStatus(`오류: ${response.error.message} (${response.error.code})`, true);
+    } else {
+      setWriteStatus("성공적으로 저장되었습니다!");
+      setTimeout(() => {
+        writeBoxEl.style.display = "none";
+        editingPostId = null;
+        location.reload(); // 안전하게 새로고침으로 목록 갱신
+      }, 1000);
+    }
 
   } catch (e) {
-    console.error("오류 상세 내용:", e);
-    // 에러 메시지를 구체적으로 보여줘서 원인을 파악합니다.
-    setWriteStatus("오류 발생: " + (e.message || "알 수 없는 오류"), true);
+    setWriteStatus("시스템 오류: " + e.message, true);
   } finally {
     submitWriteBtn.disabled = false;
   }
