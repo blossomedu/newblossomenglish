@@ -11211,7 +11211,7 @@
 30-12|violent|(형) 폭력적인, 격렬한|violent behavior|폭력적인 행동
 30-12|violence|(명) 폭력, 격렬함|domestic violence|가정 폭력
 30-12|eager|(형) 열망하는, 간절히 바라는|eager for success|성공을 갈망하는
-30-12|be eager to|(구) 간절히 ~하고 싶어 하다|be eager to learn|배우기를 갈망하다
+30-12|be eager to|(구) 간절히 ~하고 싶어 하다|He {is eager to} learn Korean.|그는 배우기를 갈망한다.
 30-12|downtown|(명) 도심 (부) 시내에서|go downtown|시내에 가다
 30-12|distant|(형) 먼, 거리를 두는|distant future|먼 미래
 30-12|distance|(명) 거리, 먼 곳|long distance|먼 거리
@@ -12385,6 +12385,7 @@
   window.WORD_DB = buildDB(RAW_WORDS);
 
 })();
+
 
 
 
