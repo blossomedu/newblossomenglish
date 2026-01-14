@@ -655,15 +655,15 @@
     let displaySentence = "";
     let manualAnswer = null; 
 
-    // 1. 수동 지정 체크 ({...} 감지)
-    const manualMatch = item.exampleEn.match(/\{(.*?)\}/);
+  // 1. 수동 지정 체크 ({...} 모두 감지)
+    const manualMatches = [...item.exampleEn.matchAll(/\{(.*?)\}/g)];
 
-    if (manualMatch) {
-      // ✅ 수동 모드: { }가 있으면 그 안의 내용을 정답으로 씀
-      manualAnswer = manualMatch[1].trim(); 
+    if (manualMatches.length > 0) {
+      // ✅ 모든 중괄호 안의 텍스트를 공백 한 칸으로 합쳐서 하나의 정답으로 만듦
+      manualAnswer = manualMatches.map(m => m[1].trim()).join(" "); 
       
-      // 화면에는 {내용}을 밑줄로 바꿔서 보여줌
-      displaySentence = item.exampleEn.replace(/\{.*?\}/, 
+      // 모든 {내용}을 밑줄로 교체
+      displaySentence = item.exampleEn.replace(/\{.*?\}/g, 
         '<span style="display:inline-block; border-bottom: 2px solid #333; min-width: 50px; text-align:center; color: transparent; user-select: none;">______</span>'
       );
     } else {
@@ -796,4 +796,5 @@
 </script>
 </body>
 </html>
+
 
