@@ -1286,10 +1286,10 @@
 5-1|bath|목욕|take a bath|목욕을 하다
 5-1|bathroom|화장실, 욕실|in the bathroom|욕실 안에서
 5-1|living room|거실|in the living room|거실 안에서
-5-1|look at|~을 보다|look at the stars|별을 바라보다
-5-1|look for|~을 찾다|look for jeans|청바지를 찾다
-5-1|look like|~을 닮다|look like his father|그의 아버지처럼 보이다
-5-1|look after|~을 돌보다|look after my cat|나의 고양이를 돌보다
+5-1|look at|~을 보다|{look at} the stars|별을 바라보다
+5-1|look for|~을 찾다|{look for} jeans|청바지를 찾다
+5-1|look like|~을 닮다|{look like} his father|그의 아버지처럼 보이다
+5-1|look after|~을 돌보다|{look after} my cat|나의 고양이를 돌보다
 
 5-2|close|닫다, 가까운|Close the door.|문을 닫아.
 5-2|closet|옷장|in the closet|옷장 안에
@@ -12385,6 +12385,7 @@
   window.WORD_DB = buildDB(RAW_WORDS);
 
 })();
+
 
 
 
