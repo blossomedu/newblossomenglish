@@ -516,11 +516,7 @@
     if (voice) { u1.voice = voice; u2.voice = voice; }
     u1.rate = 0.8; u2.rate = 0.8;
 
-    u1.onend = function () {
-      setTimeout(function () {
-        try { synth.speak(u2); } catch (e) { if (cb) cb(); }
-      }, 1000);
-    };
+    u1.onend = function () { if (cb) cb(); };
     u2.onend = function () { if (cb) cb(); };
     try { synth.speak(u1); } catch (e) { if (cb) cb(); }
   }
@@ -800,3 +796,4 @@
 </script>
 </body>
 </html>
+
