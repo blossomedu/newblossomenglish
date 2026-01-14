@@ -715,29 +715,38 @@
 
     setProgress(sentencePos + 1, wordCount);
 
+   // 1. 함수 시작 부분에 상태 변수 선언 (잠금 장치)
+    let isProcessing = false; 
+
     function check() {
+      // 2. 이미 정답을 맞춰서 다음 문제로 넘어가는 중이면 무시
+      if (isProcessing) return; 
+
       const val = input.value.trim().toLowerCase();
       if (!val) return;
 
-      const headword = item.word.toLowerCase(); // 단어장 표제어
+      const headword = item.word.toLowerCase();
       const answerText = manualAnswer ? manualAnswer.toLowerCase() : "";
 
-      // ✅ 정답 인정 로직 (유연하게)
-      // 1. 단어장 원형(give A a ride) 입력 -> 정답
-      // 2. 수동 정답({give me a ride}) 입력 -> 정답
       let isCorrect = (val === headword);
       if (answerText && val === answerText) {
           isCorrect = true;
       }
 
       if (isCorrect) {
+        // 3. 정답인 경우 즉시 잠금 활성화
+        isProcessing = true; 
         input.style.borderColor = "#22c55e";
         res.textContent = "정답! 👍";
         hint.textContent = "";
-        setTimeout(function () { sentencePos++; renderSentenceQuiz(); }, 900);
+        
+        // 0.9초 뒤에 다음 문제로 넘어가며 함수가 다시 실행될 때 변수도 초기화됨
+        setTimeout(function () { 
+            sentencePos++; 
+            renderSentenceQuiz(); 
+        }, 900);
       } else {
         input.style.borderColor = "#f97373";
-        // 오답 힌트
         if (manualAnswer) {
            hint.textContent = `힌트: ${item.word}`;
         } else {
@@ -796,5 +805,6 @@
 </script>
 </body>
 </html>
+
 
 
