@@ -7845,7 +7845,7 @@
 20-27|famine|(명) 기근, 기아|Die of famine.|기근으로 죽다.
 20-27|feminine|(형) 여성의, 여성스러운|Feminine voice.|여성적인 목소리.
 20-27|be known for|~으로[때문에] 유명하다|Be known for kimchi.|김치로 유명하다.
-20-27|be known as|~으로 알려져 있다|He is known as a poet.|그는 시인으로 알려져 있다.
+20-27|be known as|~으로 알려져 있다|He {is known as} a poet.|그는 시인으로 알려져 있다.
 
 20-28|bear|곰, 참다|Polar bear.|북극곰.
 20-28|bear one's rude attitude|무례한 태도를 참다|Cannot bear the pain.|고통을 참을 수 없다.
@@ -10924,6 +10924,7 @@
   window.WORD_DB = buildDB(RAW_WORDS);
 
 })();
+
 
 
 
