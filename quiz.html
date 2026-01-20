@@ -747,11 +747,10 @@
         }, 900);
       } else {
         input.style.borderColor = "#f97373";
-        if (manualAnswer) {
-           hint.textContent = `힌트: ${item.word}`;
-        } else {
-           hint.textContent = `힌트: "${item.word.charAt(0)}"로 시작`;
-        }
+        // 수동 모드 정답(manualAnswer)이든 표제어(item.word)든 첫 글자만 힌트로 제공
+        const targetWord = manualAnswer || item.word;
+        hint.textContent = `힌트: "${targetWord.trim().charAt(0)}"로 시작`;
+        
         res.textContent = "다시 해보세요.";
       }
     }
@@ -805,6 +804,7 @@
 </script>
 </body>
 </html>
+
 
 
 
