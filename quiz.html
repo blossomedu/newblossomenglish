@@ -516,7 +516,7 @@
     if (voice) { u1.voice = voice; u2.voice = voice; }
     u1.rate = 0.8; u2.rate = 0.8;
 
-    u1.onend = function () { if (cb) cb(); };
+    u1.onend = function () { setTimeout(() => { try { synth.speak(u2); } catch (e) { if (cb) cb(); } }, 2000); };
     u2.onend = function () { if (cb) cb(); };
     try { synth.speak(u1); } catch (e) { if (cb) cb(); }
   }
@@ -746,10 +746,14 @@
             renderSentenceQuiz(); 
         }, 900);
       } else {
-        input.style.borderColor = "#f97373";
-        // 수동 모드 정답(manualAnswer)이든 표제어(item.word)든 첫 글자만 힌트로 제공
-        const targetWord = manualAnswer || item.word;
-        hint.textContent = `힌트: "${targetWord.trim().charAt(0)}"로 시작`;
+       input.style.borderColor = "#f97373";
+
+        // ✅ manualAnswer(수동 정답)가 있으면 그것의 첫 글자, 없으면 표제어의 첫 글자만 추출
+        const targetForHint = manualAnswer || item.word;
+        const firstChar = targetForHint.trim().charAt(0);
+        
+        // 정답(item.word) 대신 첫 글자 힌트만 보여줌
+        hint.textContent = `힌트: "${firstChar}"로 시작`;
         
         res.textContent = "다시 해보세요.";
       }
@@ -804,6 +808,7 @@
 </script>
 </body>
 </html>
+
 
 
 
