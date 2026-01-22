@@ -548,13 +548,23 @@
       '<div class="example-ko">' + item.exampleKo + "</div>";
     setProgress(currentIndex + 1, wordCount);
 
-    speakWordTwice(item.word, function () {
-      if (currentMode !== "study") return;
+  // 1. 목소리 설정 및 딱 한 번 읽기 실행
+  const u = new SpeechSynthesisUtterance(item.word);
+  u.voice = getEnglishVoice(); u.rate = 0.8;
+  speechSynthesis.cancel();
+  speechSynthesis.speak(u);
+
+  // 2. 읽기가 끝나면(onend) 포즈를 취한 뒤 다음 단어로 이동
+  u.onend = function() {
+    if (currentMode !== "study") return;
+    
+    setTimeout(function() {
+      if (currentMode !== "study") return; 
       currentIndex = (currentIndex + 1) % wordCount;
       renderStudy();
-    });
-  }
-
+    }, 4000); // ◀ 이 4000이 단어 사이의 포즈(4초)입니다.
+  };
+}
   function formatChoiceText(txt) {
     const MAX_LEN = 9;
     if (txt.length < MAX_LEN) return txt;
@@ -814,6 +824,7 @@
 </script>
 </body>
 </html>
+
 
 
 
