@@ -516,7 +516,7 @@
     if (voice) { u1.voice = voice; u2.voice = voice; }
     u1.rate = 0.8; u2.rate = 0.8;
 
-    u1.onend = function () { setTimeout(() => { try { synth.speak(u2); } catch (e) { if (cb) cb(); } }, 2000); };
+    u1.onend = function () { setTimeout(() => { try { synth.speak(u2); } catch (e) { if (cb) cb(); } }, 4000); };
     u2.onend = function () { if (cb) cb(); };
     try { synth.speak(u1); } catch (e) { if (cb) cb(); }
   }
@@ -632,7 +632,13 @@
     });
 
     setProgress(Math.min(quizPos + 1, wordCount), wordCount);
-    if (type === "listening") speakWordTwice(item.word, null);
+    
+    if (type === "listening") {
+      const u = new SpeechSynthesisUtterance(item.word);
+      u.voice = getEnglishVoice(); u.rate = 0.8;
+      speechSynthesis.cancel();
+      speechSynthesis.speak(u);
+    }
 
     answerTimer = setTimeout(function () {
       if (centerArea.dataset.answered === "false") {
@@ -641,7 +647,7 @@
       }
     }, 13000);
   }
-
+  
   // ▼▼▼ [수정된 함수] 자동 함수 제거하고, 오직 { } 수동 체크 + 단순 단어 체크만 수행 ▼▼▼
   function renderSentenceQuiz() {
     stopSpeech();
@@ -808,6 +814,7 @@
 </script>
 </body>
 </html>
+
 
 
 
