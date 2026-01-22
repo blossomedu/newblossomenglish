@@ -6755,2116 +6755,2088 @@
 14-30|keep in touch with|~와 연락을 유지하다|keep in touch with friends|친구들과 연락하다
 14-30|cut in|대화에 끼어들다|cut in on conversation|대화에 끼어들다
 
-20-1|include|포함하다|include tax|세금을 포함하다
-20-1|produce|생산하다, 만들어 내다, 초래하다 [명] 농산물|produce goods|상품을 생산하다
-20-1|belief|믿음, 신념, 신앙|strong belief|강한 믿음
-20-1|similar|비슷한, 유사한|similar to mine|내 것과 비슷한
-20-1|moment|순간, 중요성|at the moment|바로 지금(그 순간에)
-20-1|situation|상황, 위치|difficult situation|어려운 상황
-20-1|improve|개선하다, 향상하다|improve skills|기술을 향상시키다
-20-1|increase|증가하다, 증가시키다, 증가, 인상|increase in value|가치가 증가하다
-20-1|decrease|감소하다, 감소시키다, 감소, 축소|decrease in number|수가 감소하다
-20-1|share|나누다, 공유하다, [명] 몫|share ideas|아이디어를 공유하다
-20-1|emotion|감정, 정서|express emotion|감정을 표현하다
-20-1|common|흔한, 보통의, 공통의|common sense|상식(공통된 감각)
-20-1|recover|회복하다, 복구되다|recover from illness|병에서 회복하다
-20-1|advanced|진보한, 상급의|advanced technology|진보된 기술
-20-1|reject|거절하다, 거부하다 (J)|reject an offer|제안을 거절하다
-20-1|refuse|거절하다, 거부하다 (F)|refuse to go|가기를 거부하다
-20-1|accept|받아들이다, 수락하다|accept an invitation|초대를 수락하다
-20-1|indifferent|무관심한|indifferent to politics|정치에 무관심한
-20-1|experience|경험하다, 경험|gain experience|경험을 쌓다
-20-1|certain|확실한, 확신하는, 어떤|certain outcome|확실한 결과
-20-1|consider|고려[숙고]하다, ~으로 여기다|consider a problem|문제를 고려하다
-20-1|supply|공급하다, 제공하다, 공급|supply and demand|수요와 공급
-20-1|provide|공급하다, 제공하다, 대비하다 (P)|provide food|음식을 제공하다
-20-1|practical|실용적인, 실제적인|practical advice|실용적인 조언
-20-1|express|표현하다, 나타내다, 속달로 보내다, 급행의, 신속한, 급행, 속달|express feelings|감정을 표현하다
-20-1|quantity|양, 수량|large quantity|많은 양
-20-1|superior|뛰어난, 우월한, 상급의, 윗사람, 상급자|superior to others|남보다 우월한
-20-1|inferior|열등한, 하위의, 손아랫사람, 하급자|inferior quality|낮은 품질
-20-1|seek|찾다, 추구하다, 청하다|seek advice|조언을 구하다
-20-1|aim|[명] 목표, 목적 [동] 목표하다, 겨냥하다|aim at success|성공을 목표로 하다
-20-1|fade|희미해지다, 사라지다|colors fade|색이 바래다
-20-1|disappear|사라지다, 없어지다|disappear suddenly|갑자기 사라지다
-20-1|emerge|나타나다, 나오다|emerge from darkness|어둠 속에서 나타나다
-20-1|grief|(깊은) 슬픔, 비탄|deep grief|깊은 슬픔
-20-1|slight|약간의, 하찮은|slight change|약간의 변화
-20-1|success|성공, 성공작|achieve success|성공을 거두다
-20-1|failure|실패, 실패작, 고장|fear of failure|실패에 대한 두려움
+
+
+20-1|include|(동) 포함하다|include tax|세금을 포함하다
+20-1|produce|(동) 생산하다, 만들어 내다, 초래하다 (명) 농산물|produce goods|상품을 생산하다
+20-1|belief|(명) 믿음, 신념, 신앙|strong belief|강한 믿음
+20-1|similar|(형) 비슷한, 유사한|similar to mine|내 것과 비슷한
+20-1|moment|(명) 순간, 중요성|at the moment|바로 지금(그 순간에)
+20-1|situation|(명) 상황, 위치|difficult situation|어려운 상황
+20-1|improve|(동) 개선하다, 향상하다|improve skills|기술을 향상시키다
+20-1|increase|(동) 증가하다, 증가시키다 (명) 증가, 인상|increase in value|가치가 증가하다
+20-1|decrease|(동) 감소하다, 감소시키다 (명) 감소, 축소|decrease in number|수가 감소하다
+20-1|share|(동) 나누다, 공유하다 (명) 몫|share ideas|아이디어를 공유하다
+20-1|emotion|(명) 감정, 정서|express emotion|감정을 표현하다
+20-1|common|(형) 흔한, 보통의, 공통의|common sense|상식
+20-1|recover|(동) 회복하다, 복구되다|recover from illness|병에서 회복하다
+20-1|advanced|(형) 진보한, 상급의|advanced technology|진보된 기술
+20-1|reject|(동) 거절하다, 거부하다|reject an offer|제안을 거절하다 [J]
+20-1|refuse|(동) 거절하다, 거부하다|refuse to go|가기를 거부하다 [F]
+20-1|accept|(동) 받아들이다, 수락하다|accept an invitation|초대를 수락하다
+20-1|indifferent|(형) 무관심한|indifferent to politics|정치에 무관심한
+20-1|experience|(동) 경험하다 (명) 경험|gain experience|경험을 쌓다
+20-1|certain|(형) 확실한, 확신하는, 어떤|certain outcome|확실한 결과
+20-1|consider|(동) 고려[숙고]하다, ~으로 여기다|consider a problem|문제를 고려하다
+20-1|supply|(동) 공급하다, 제공하다 (명) 공급|supply and demand|수요와 공급
+20-1|provide|(동) 공급하다, 제공하다, 대비하다|provide food|음식을 제공하다 [P]
+20-1|practical|(형) 실용적인, 실제적인|practical advice|실용적인 조언
+20-1|express|(동) 표현하다, 나타내다, 속달로 보내다 (형) 급행의, 신속한 (명) 급행, 속달|express feelings|감정을 표현하다
+20-1|quantity|(명) 양, 수량|large quantity|많은 양
+20-1|superior|(형) 뛰어난, 우월한, 상급의 (명) 윗사람, 상급자|superior to others|남보다 우월한
+20-1|inferior|(형) 열등한, 하위의 (명) 손아랫사람, 하급자|inferior quality|낮은 품질
+20-1|seek|(동) 찾다, 추구하다, 청하다|seek advice|조언을 구하다
+20-1|aim|(명) 목표, 목적 (동) 목표하다, 겨냥하다|aim at success|성공을 목표로 하다
+20-1|fade|(동) 희미해지다, 사라지다|Colors fade.|색이 바래다.
+20-1|disappear|(동) 사라지다, 없어지다|Disappear suddenly.|갑자기 사라지다.
+20-1|emerge|(동) 나타나다, 나오다|Emerge from darkness.|어둠 속에서 나타나다.
+20-1|grief|(명) (깊은) 슬픔, 비탄|deep grief|깊은 슬픔
+20-1|slight|(형) 약간의, 하찮은|slight change|약간의 변화
+20-1|success|(명) 성공, 성공작|achieve success|성공을 거두다
+20-1|failure|(명) 실패, 실패작, 고장|fear of failure|실패에 대한 두려움
 20-1|run into|~와 우연히 만나다, ~와 충돌하다|run into a friend|친구와 우연히 마주치다
 20-1|depend on|~에 의존[의지]하다, ~에 달려 있다|depend on parents|부모님께 의지하다
 20-1|carry out|~을 실행[수행]하다, ~을 완료하다|carry out a plan|계획을 실행하다
 
-
-20-2|illegal|불법적인, 위법인|illegal drugs|불법 약물
-20-2|local|지역의, 현지의, 현지인|local news|지역 뉴스
-20-2|amount|총계, 양, 총계가 ~이 되다|large amount|많은 양
-20-2|historical|역사적인, 역사(상)의|historical event|역사적 사건
-20-2|found|설립하다, 기초를 세우다|found a company|회사를 설립하다 [F]
-20-2|establish|설립하다, 수립하다|establish a rule|규칙을 제정하다 [E]
-20-2|process|과정, 처리, 처리하다, 가공하다|manufacturing process|제조 과정
-20-2|expert|전문가, 숙련된, 전문적인|expert opinion|전문가 의견
-20-2|decade|10년, 10년간|for a decade|10년 동안
-20-2|continue|계속하다, 연장하다|continue to work|일을 계속하다
-20-2|dedicate|바치다, 헌신하다|dedicate oneself to|~에 헌신하다 [8]
-20-2|devote|바치다, 전념하다|devote time to|~에 시간을 쏟다 [6]
-20-2|period|기간, 시기, 시대|short period|짧은 기간
-20-2|perceive|인지[감지]하다, ~으로 여기다|perceive danger|위험을 감지하다 [P]
-20-2|recognize|인식[인지]하다, 인정하다|recognize a face|얼굴을 알아보다 [R]
-20-2|exhausted|지친, 고갈된|feel exhausted|지치다
-20-2|crime|범죄, 범행, 죄악|commit a crime|범죄를 저지르다
-20-2|charity|자선 단체[기금], 자비심|give to charity|자선 단체에 기부하다
-20-2|expose|노출시키다, 폭로하다|expose the truth|진실을 폭로하다 [E]
-20-2|reveal|드러내다, 폭로하다|reveal a secret|비밀을 드러내다 [R]
-20-2|conceal|숨기다, 비밀로 하다|conceal a weapon|무기를 숨기다
-20-2|deserve|~을 받을 만하다, ~할 가치가 있다|deserve praise|칭찬받을 만하다
-20-2|unite|결합[연합]하다, 결속시키다|unite for peace|평화를 위해 단결하다 [U]
-20-2|combine|결합시키다, 겸비하다|combine forces|힘을 합치다 [C]
-20-2|separate|분리하다, 별개의, 각각의|separate rooms|분리된 방
-20-2|complete|완료하다, 완전한|complete the task|과업을 완수하다
-20-2|connect|연결하다, 관련시키다|connect to the internet|인터넷에 연결하다
-20-2|overcome|극복하다, 이기다, 압도하다|overcome difficulties|어려움을 극복하다
-20-2|rapid|빠른, 신속한|rapid growth|빠른 성장
-20-2|chase|쫓다, 추적하다 [명] 추적|chase a thief|도둑을 쫓다
-20-2|achieve|이루다, 성취하다|achieve a goal|목표를 달성하다 [7]
-20-2|accomplish|이루다, 성취하다|accomplish a mission|임무를 완수하다 [10]
-20-2|mislead|잘못 인도하다, 오해하게 하다|mislead the public|대중을 호도하다
-20-2|random|무작위의, 임의의|random choice|무작위 선택
-20-2|organ|장기, 기관|internal organs|내장 기관
-20-2|vital|아주 중요한, 필수적인, 생명 유지에 필요한|vital role|중요한 역할
-20-2|reliable|믿을 수 있는, 의지가 되는|reliable source|믿을 수 있는 소식통
+20-2|illegal|(형) 불법적인, 위법인|illegal drugs|불법 약물
+20-2|local|(형) 지역의, 현지의 (명) 현지인|local news|지역 뉴스
+20-2|amount|(명) 총계, 양 (동) 총계가 ~이 되다|large amount|많은 양
+20-2|historical|(형) 역사적인, 역사상의|historical event|역사적 사건
+20-2|found|(동) 설립하다, 기초를 세우다|found a company|회사를 설립하다 [F]
+20-2|establish|(동) 설립하다, 수립하다|establish a rule|규칙을 제정하다 [E]
+20-2|process|(명) 과정, 처리 (동) 처리하다, 가공하다|manufacturing process|제조 과정
+20-2|expert|(명) 전문가 (형) 숙련된, 전문적인|expert opinion|전문가 의견
+20-2|decade|(명) 10년, 10년간|for a decade|10년 동안
+20-2|continue|(동) 계속하다, 연장하다|continue to work|일을 계속하다
+20-2|dedicate|(동) 바치다, 헌신하다|dedicate oneself to|~에 헌신하다 [8]
+20-2|devote|(동) 바치다, 전념하다|devote time to|~에 시간을 쏟다 [6]
+20-2|period|(명) 기간, 시기, 시대|short period|짧은 기간
+20-2|perceive|(동) 인지[감지]하다, ~으로 여기다|perceive danger|위험을 감지하다 [P]
+20-2|recognize|(동) 인식[인지]하다, 인정하다|recognize a face|얼굴을 알아보다 [R]
+20-2|exhausted|(형) 지친, 고갈된|Feel exhausted.|지치다.
+20-2|crime|(명) 범죄, 범행, 죄악|commit a crime|범죄를 저지르다
+20-2|charity|(명) 자선 단체[기금], 자비심|give to charity|자선 단체에 기부하다
+20-2|expose|(동) 노출시키다, 폭로하다|expose the truth|진실을 폭로하다 [E]
+20-2|reveal|(동) 드러내다, 폭로하다|reveal a secret|비밀을 드러내다 [R]
+20-2|conceal|(동) 숨기다, 비밀로 하다|conceal a weapon|무기를 숨기다
+20-2|deserve|(동) ~을 받을 만하다, ~할 가치가 있다|deserve praise|칭찬받을 만하다
+20-2|unite|(동) 결합[연합]하다, 결속시키다|unite for peace|평화를 위해 단결하다 [U]
+20-2|combine|(동) 결합시키다, 겸비하다|combine forces|힘을 합치다 [C]
+20-2|separate|(동) 분리하다 (형) 별개의, 각각의|separate rooms|분리된 방
+20-2|complete|(동) 완료하다 (형) 완전한|complete the task|과업을 완수하다
+20-2|connect|(동) 연결하다, 관련시키다|connect to the internet|인터넷에 연결하다
+20-2|overcome|(동) 극복하다, 이기다, 압도하다|overcome difficulties|어려움을 극복하다
+20-2|rapid|(형) 빠른, 신속한|rapid growth|빠른 성장
+20-2|chase|(동) 쫓다, 추적하다 (명) 추적|chase a thief|도둑을 쫓다
+20-2|achieve|(동) 이루다, 성취하다|achieve a goal|목표를 달성하다 [7]
+20-2|accomplish|(동) 이루다, 성취하다|accomplish a mission|임무를 완수하다 [10]
+20-2|mislead|(동) 잘못 인도하다, 오해하게 하다|mislead the public|대중을 호도하다
+20-2|random|(형) 무작위의, 임의의|random choice|무작위 선택
+20-2|organ|(명) 장기, 기관|internal organs|내장 기관
+20-2|vital|(형) 아주 중요한, 필수적인, 생명 유지에 필요한|vital role|중요한 역할
+20-2|reliable|(형) 믿을 수 있는, 의지가 되는|reliable source|믿을 수 있는 소식통
 20-2|deal with|~을 처리하다, ~을 다루다|deal with a problem|문제를 다루다
 20-2|lead to|~으로 이어지다, ~을 야기[초래]하다|lead to success|성공으로 이끌다
 20-2|get along with|~와 잘 지내다|get along with others|다른 사람들과 잘 지내다
 
-20-3|knowledge|지식, 알고 있음|general knowledge|일반 상식
-20-3|encourage|용기를 북돋우다, 격려하다, 장려하다|encourage students|학생들을 격려하다
-20-3|discourage|낙담 시키다, 방해하다|discourage smoking|흡연을 말리다(낙담시키다)
-20-3|detail|세부 사항, 상세|in detail|상세하게
-20-3|resolution|결심, 결의, 해결|new year's resolution|새해 결심
-20-3|probable|있을 법한, 예상되는|probable cause|개연성 있는 원인
-20-3|trait|특성, 특색|personality trait|성격적 특성
-20-3|direct|감독하다, (길을) 안내하다, 직접적인, 직행의|direct flight|직항편
-20-3|distance|거리, 간격|long distance|먼 거리
-20-3|income|수입, 소득|annual income|연간 수입
-20-3|revise|개정하다, 정정하다|revise a plan|계획을 수정하다 [R]
-20-3|mark|표시하다, 채점하다, 표시, 흔적|mark the date|날짜를 표시하다
-20-3|negative|부정적인|negative attitude|부정적인 태도
-20-3|official|공식적인, 공무의, 정식의|official document|공식 문서
-20-3|search|찾다, 검색하다, 수색, 검색|search for truth|진실을 찾다
-20-3|benefit|혜택, 이익, 자선 행사, 이롭다, 이익을 얻다|mutual benefit|상호 이익
-20-3|profit|이익, 수익, 이윤, 이익을 얻다|net profit|순이익
-20-3|damage|손상, 피해, 손상을 입히다|serious damage|심각한 손상
-20-3|amaze|(대단히) 놀라게 하다|amaze the audience|관중을 놀라게 하다
-20-3|opportunity|기회, 가망|golden opportunity|절호의 기회
-20-3|ignore|무시하다, 모르는 체하다|ignore a warning|경고를 무시하다
-20-3|contact|접촉하다, 연락하다, 접촉, 연락|keep in contact|연락을 유지하다
-20-3|various|다양한, 여라 가지의|various kinds|여러 가지 종류 [V]
-20-3|diverse|다양한, 다른|diverse cultures|다양한 문화 [D]
-20-3|performance|공연, 성과, 수행|high performance|고성능
-20-3|contain|포함하다, 억누르다|contain anger|화를 참다(억누르다)
-20-3|involve|포함[수반]하다, 관련시키다|involve risk|위험을 수반하다
-20-3|concentrate|집중하다, 전력을 기울이다|concentrate on work|일에 집중하다
-20-3|disturb|방해하다, 어지럽히다|disturb sleep|수면을 방해하다
-20-3|due|만기가 된, ~을 하기로 되어 있는|due date|마감일
-20-3|examine|조사하다, 검진하다, 시험하다|examine closely|면밀히 조사하다 [E]
-20-3|investigate|조사하다, 수사하다|investigate a crime|범죄를 수사하다 [I]
-20-3|research|연구[조사]하다, 연구, 조사|conduct research|연구를 수행하다 [R]
-20-3|material|재료, 자료, 물질, 물질의, 육체적인|raw material|원자재
-20-3|medical|의학의, 의료의|medical care|의료
-20-3|pursue|추구하다, 추적하다|pursue happiness|행복을 추구하다
-20-3|alter|바꾸다, 변경하다|alter plans|계획을 변경하다 [A]
+
+
+20-3|knowledge|(명) 지식, 알고 있음|general knowledge|일반 상식
+20-3|encourage|(동) 용기를 북돋우다, 격려하다, 장려하다|encourage students|학생들을 격려하다
+20-3|discourage|(동) 낙담 시키다, 방해하다|discourage smoking|흡연을 말리다(낙담시키다)
+20-3|detail|(명) 세부 사항, 상세|in detail|상세하게
+20-3|resolution|(명) 결심, 결의, 해결|new year's resolution|새해 결심
+20-3|probable|(형) 있을 법한, 예상되는|probable cause|개연성 있는 원인
+20-3|trait|(명) 특성, 특색|personality trait|성격적 특성
+20-3|direct|(동) 감독하다, (길을) 안내하다 (형) 직접적인, 직항의|direct flight|직항편
+20-3|distance|(명) 거리, 간격|long distance|먼 거리
+20-3|income|(명) 수입, 소득|annual income|연간 수입
+20-3|revise|(동) 개정하다, 정정하다|revise a plan|계획을 수정하다 [R]
+20-3|mark|(동) 표시하다, 채점하다 (명) 표시, 흔적|mark the date|날짜를 표시하다
+20-3|negative|(형) 부정적인|negative attitude|부정적인 태도
+20-3|official|(형) 공식적인, 공무의, 정식의|official document|공식 문서
+20-3|search|(동) 찾다, 검색하다 (명) 수색, 검색|search for truth|진실을 찾다
+20-3|benefit|(명) 혜택, 이익, 자선 행사 (동) 이롭다, 이익을 얻다|mutual benefit|상호 이익
+20-3|profit|(명) 이익, 수익, 이윤 (동) 이익을 얻다|net profit|순이익
+20-3|damage|(명) 손상, 피해 (동) 손상을 입히다|serious damage|심각한 손상
+20-3|amaze|(동) (대단히) 놀라게 하다|amaze the audience|관중을 놀라게 하다
+20-3|opportunity|(명) 기회, 가망|golden opportunity|절호의 기회
+20-3|ignore|(동) 무시하다, 모르는 체하다|ignore a warning|경고를 무시하다
+20-3|contact|(동) 접촉하다, 연락하다 (명) 접촉, 연락|keep in contact|연락을 유지하다
+20-3|various|(형) 다양한, 여라 가지의|various kinds|여러 가지 종류 [V]
+20-3|diverse|(형) 다양한, 다른|diverse cultures|다양한 문화 [D]
+20-3|performance|(명) 공연, 성과, 수행|high performance|고성능
+20-3|contain|(동) 포함하다, 억누르다|contain anger|화를 참다(억누르다)
+20-3|involve|(동) 포함[수반]하다, 관련시키다|involve risk|위험을 수반하다
+20-3|concentrate|(동) 집중하다, 전력을 기울이다|concentrate on work|일에 집중하다
+20-3|disturb|(동) 방해하다, 어지럽히다|disturb sleep|수면을 방해하다
+20-3|due|(형) 만기가 된, ~을 하기로 되어 있는|due date|마감일
+20-3|examine|(동) 조사하다, 검진하다, 시험하다|examine closely|면밀히 조사하다 [E]
+20-3|investigate|(동) 조사하다, 수사하다|investigate a crime|범죄를 수사하다 [I]
+20-3|research|(동) 연구[조사]하다 (명) 연구, 조사|conduct research|연구를 수행하다 [R]
+20-3|material|(명) 재료, 자료, 물질 (형) 물질의, 육체적인|raw material|원자재
+20-3|medical|(형) 의학의, 의료의|medical care|의료
+20-3|pursue|(동) 추구하다, 추적하다|pursue happiness|행복을 추구하다
+20-3|alter|(동) 바꾸다, 변경하다|alter plans|계획을 변경하다 [A]
 20-3|according to|~에 따라서, ~에 따르면|according to the rules|규칙에 따르면
 20-3|participate in|~에 참여하다, ~에 참가하다|participate in a game|경기에 참가하다
 20-3|look into|~을 조사하다, ~을 주의 깊게 살피다|look into the matter|문제를 조사하다 [L]
 
-20-4|circumstance|환경, 상황, 형편|under no circumstances|어떤 상황에서도 ~않다
-20-4|environment|(자연, 주변의) 환경|protect the environment|환경을 보호하다
-20-4|active|활동적인, 적극적인, 활발한|active participation|적극적인 참여
-20-4|community|지역 사회, 공동체|local community|지역 사회
-20-4|necessity|필요(성), 필수품|basic necessity|기본 필수품
-20-4|effort|노력, 수고, 결과|make an effort|노력하다
-20-4|participation|참가, 참여|active participation|활발한 참여
-20-4|regular|규칙적인, 정기적인, 보통의, 단골손님|regular exercise|규칙적인 운동
-20-4|development|발전, 성장, 개발|economic development|경제 발전
-20-4|progress|진전, 진보, 진보[발전]하다, 전진하다|make progress|진전을 보이다
-20-4|permit|허락[허용]하다|permit parking|주차를 허용하다
-20-4|forbid|금지하다|forbid entry|입장을 금지하다
-20-4|emission|배출, 방출, 배출물|carbon emission|탄소 배출
-20-4|perspective|관점, 시각, 원근법|different perspective|다른 관점
-20-4|conservative|보수적인, 보수주의의|conservative view|보수적인 견해
-20-4|entire|전체의, 완전한|entire life|평생
-20-4|measure|측정하다, 재다, 측정, 조치|measure height|키를 재다
-20-4|maintain|유지하다, 지지하다, 부양하다|maintain order|질서를 유지하다 [M]
-20-4|support|지지하다, 지원하다, 부양하다, 지지, 후원|support a family|가족을 부양하다 [S]
-20-4|prevent|막다, 예방하다|prevent accidents|사고를 예방하다
-20-4|occur|발생하다, 일어나다, 생각나다|problem occurred|문제가 발생했다
-20-4|passion|열정, 걱정|passion for music|음악에 대한 열정
-20-4|determine|결정하다, 밝혀내다|determine the cause|원인을 밝혀내다
-20-4|influence|영향(력), 영향을 주다|bad influence|나쁜 영향 [I]
-20-4|impact|영향, 충격, 영향[충격]을 주다|huge impact|큰 영향 [M]
-20-4|immediate|즉각적인, 직접의|immediate action|즉각적인 조치
-20-4|military|군대, 군대의|military service|군 복무
-20-4|ancient|고대의, 옛날의|ancient history|고대사
-20-4|emphasize|강조[역설]하다, 두드러지게 하다|emphasize importance|중요성을 강조하다
-20-4|preference|선호(도), 선호하는 것|personal preference|개인적인 선호
-20-4|respect|존경[존중]하다, 존경, 측면|respect elders|어른을 공경하다
-20-4|concern|[명] 염려, 관심 [동] 관련되다|public concern|대중의 관심사
-20-4|forecast|예측하다, 예보하다, 예측, 예보|weather forecast|일기 예보 [F]
-20-4|predict|예측하다, 예언하다|predict the future|미래를 예측하다 [P]
-20-4|tendency|경향, 추세, 성향|tendency to forget|잊어버리는 경향
-20-4|function|기능, 행사, 작용하다|proper function|적절한 기능
-20-4|significant|중요한, 의미 있는, 상당한|significant change|상당한 변화
+
+20-4|circumstance|(명) 환경, 상황, 형편|under no circumstances|어떤 상황에서도 ~않다
+20-4|environment|(명) (자연, 주변의) 환경|protect the environment|환경을 보호하다
+20-4|active|(형) 활동적인, 적극적인, 활발한|active participation|적극적인 참여
+20-4|community|(명) 지역 사회, 공동체|local community|지역 사회
+20-4|necessity|(명) 필요(성), 필수품|basic necessity|기본 필수품
+20-4|effort|(명) 노력, 수고, 결과|make an effort|노력하다
+20-4|participation|(명) 참가, 참여|active participation|활발한 참여
+20-4|regular|(형) 규칙적인, 정기적인, 보통의 (명) 단골손님|regular exercise|규칙적인 운동
+20-4|development|(명) 발전, 성장, 개발|economic development|경제 발전
+20-4|progress|(명) 진전, 진보 (동) 진보[발전]하다, 전진하다|make progress|진전을 보이다
+20-4|permit|(동) 허락[허용]하다|permit parking|주차를 허용하다
+20-4|forbid|(동) 금지하다|forbid entry|입장을 금지하다
+20-4|emission|(명) 배출, 방출, 배출물|carbon emission|탄소 배출
+20-4|perspective|(명) 관점, 시각, 원근법|different perspective|다른 관점
+20-4|conservative|(형) 보수적인, 보수주의의|conservative view|보수적인 견해
+20-4|entire|(형) 전체의, 완전한|entire life|평생
+20-4|measure|(동) 측정하다, 재다 (명) 측정, 조치|measure height|키를 재다
+20-4|maintain|(동) 유지하다, 지지하다, 부양하다|maintain order|질서를 유지하다
+20-4|support|(동) 지지하다, 지원하다, 부양하다 (명) 지지, 후원|support a family|가족을 부양하다
+20-4|prevent|(동) 막다, 예방하다|prevent accidents|사고를 예방하다
+20-4|occur|(동) 발생하다, 일어나다, 생각나다|Problem [occurred].|문제가 발생했다.
+20-4|passion|(명) 열정, 걱정|passion for music|음악에 대한 열정
+20-4|determine|(동) 결정하다, 밝혀내다|determine the cause|원인을 밝혀내다
+20-4|influence|(명) 영향(력) (동) 영향을 주다|bad influence|나쁜 영향
+20-4|impact|(명) 영향, 충격 (동) 영향[충격]을 주다|huge impact|큰 영향
+20-4|immediate|(형) 즉각적인, 직접의|immediate action|즉각적인 조치
+20-4|military|(명) 군대 (형) 군대의|military service|군 복무
+20-4|ancient|(형) 고대의, 옛날의|ancient history|고대사
+20-4|emphasize|(동) 강조[역설]하다, 두드러지게 하다|emphasize importance|중요성을 강조하다
+20-4|preference|(명) 선호(도), 선호하는 것|personal preference|개인적인 선호
+20-4|respect|(동) 존경[존중]하다 (명) 존경, 측면|respect elders|어른을 공경하다
+20-4|concern|(명) 염려, 관심 (동) 관련되다|public concern|대중의 관심사
+20-4|forecast|(동) 예측하다, 예보하다 (명) 예측, 예보|weather forecast|일기 예보
+20-4|predict|(동) 예측하다, 예언하다|predict the future|미래를 예측하다
+20-4|tendency|(명) 경향, 추세, 성향|tendency to forget|잊어버리는 경향
+20-4|function|(명) 기능, 행사 (동) 작용하다|proper function|적절한 기능
+20-4|significant|(형) 중요한, 의미 있는, 상당한|significant change|상당한 변화
 20-4|due to|~ 때문에, ~에 기인하는|due to rain|비 때문에
 20-4|be aware of|~을 인식하다, ~을 알다, ~을 깨닫다|be aware of danger|위험을 인지하다
 20-4|provide A with B|A에게 B를 제공하다|provide people with food|사람들에게 음식을 제공하다
 
-20-5|apologize|사과하다|apologize for mistake|실수를 사과하다
-20-5|confuse|혼동하다, 혼란 시키다|confuse a with b|a와 b를 혼동하다
-20-5|disorder|무질서, 혼란, 장애|mental disorder|정신 장애
-20-5|gather|모이다, 모으다|gather together|함께 모이다
-20-5|accident|사고, 재난, 우연|car accident|자동차 사고
-20-5|suppose|가정하다, 추정하다|suppose it's true|그것이 사실이라고 가정하다
-20-5|recommend|추천하다, 권장하다|recommend a book|책을 추천하다
-20-5|adjust|조정하다, 조절하다|adjust the volume|볼륨을 조절하다
-20-5|aspect|측면, 양상, 관점|positive aspect|긍정적인 측면
-20-5|purchase|구입하다, 구입, 구입품|purchase goods|상품을 구매하다
-20-5|purpose|목적, 의도, 결심|main purpose|주목적
-20-5|organize|조직하다, 준비하다, 정리하다|organize a team|팀을 조직하다 [O]
-20-5|arrange|정리(배열)하다, 준비하다|arrange a meeting|회의를 마련하다 [A]
-20-5|communicate|의사소통을 하다, (정보를) 전달하다|communicate with people|사람들과 소통하다
-20-5|represent|대표하다, 나타내다, 대변하다|represent a country|나라를 대표하다
-20-5|treatment|치료(법), 대우, 처리|medical treatment|의학적 치료
-20-5|approach|접근하다, 접근|new approach|새로운 접근법
-20-5|claim|주장하다, 요구하다, 주장, 요구, 청구|claim damages|손해 배상을 청구하다
-20-5|disappoint|실망시키다, 낙담 시키다|disappoint parents|부모님을 실망시키다
-20-5|observe|관찰하다, 목격하다, 준수하다|observe nature|자연을 관찰하다
-20-5|compare|비교하다, 비유하다|compare prices|가격을 비교하다
-20-5|alarm|경보, 불안, 불안하게 하다, 경보를 발하다|fire alarm|화재 경보기
-20-5|exist|존재하다, (근근이) 살아가다|cease to exist|존재하지 않게 되다
-20-5|attract|(주의, 관심 등을) 끌다, 끌어들이다, 매혹하다|attract attention|주의를 끌다
-20-5|crucial|결정적인, 중대한|crucial decision|중대한 결정
-20-5|display|전시하다, 드러내다, 전시|display talent|재능을 보여주다 [D]
-20-5|exhibit|전시하다, 보이다, 전시품|exhibit paintings|그림을 전시하다 [E]
-20-5|describe|묘사하다, 설명하다|describe the scene|장면을 묘사하다
-20-5|general|일반적인, 보통의, 종합적인, 장군|general idea|대략적인 생각 [G]
-20-5|universal|보편적인, 전 세계의, 우주의|universal truth|보편적인 진리 [U]
-20-5|specific|구체적인, 특정한, 특유의|specific example|구체적인 예시
-20-5|reward|보상, 사례금, 보상하다|offer a reward|보상을 제공하다
-20-5|motivate|동기를 부여하다|motivate students|학생들에게 동기를 부여하다
-20-5|fee|수수료, 요금|entrance fee|입장료
-20-5|demand|요구하다, 요구, 수요|meet the demand|수요를 충족시키다
-20-5|handle|다루다, 처리하다, 손잡이|handle with care|조심해서 다루다 [H]
-20-5|manage|관리하다, 다루다, 용케 해내다|manage time|시간을 관리하다 [M]
+
+20-5|apologize|(동) 사과하다|apologize for mistake|실수를 사과하다
+20-5|confuse|(동) 혼동하다, 혼란 시키다|confuse A with B|A와 B를 혼동하다
+20-5|disorder|(명) 무질서, 혼란, 장애|mental disorder|정신 장애
+20-5|gather|(동) 모이다, 모으다|gather together|함께 모이다
+20-5|accident|(명) 사고, 재난, 우연|car accident|자동차 사고
+20-5|suppose|(동) 가정하다, 추정하다|suppose it's true|그것이 사실이라고 가정하다
+20-5|recommend|(동) 추천하다, 권장하다|recommend a book|책을 추천하다
+20-5|adjust|(동) 조정하다, 조절하다|adjust the volume|볼륨을 조절하다
+20-5|aspect|(명) 측면, 양상, 관점|positive aspect|긍정적인 측면
+20-5|purchase|(동) 구입하다 (명) 구입, 구입품|purchase goods|상품을 구매하다
+20-5|purpose|(명) 목적, 의도, 결심|main purpose|주목적
+20-5|organize|(동) 조직하다, 준비하다, 정리하다|organize a team|팀을 조직하다 [O]
+20-5|arrange|(동) 정리(배열)하다, 준비하다|arrange a meeting|회의를 마련하다 [A]
+20-5|communicate|(동) 의사소통을 하다, (정보를) 전달하다|communicate with people|사람들과 소통하다
+20-5|represent|(동) 대표하다, 나타내다, 대변하다|represent a country|나라를 대표하다
+20-5|treatment|(명) 치료(법), 대우, 처리|medical treatment|의학적 치료
+20-5|approach|(동) 접근하다 (명) 접근|new approach|새로운 접근법
+20-5|claim|(동) 주장하다, 요구하다 (명) 주장, 요구, 청구|claim damages|손해 배상을 청구하다
+20-5|disappoint|(동) 실망시키다, 낙담 시키다|disappoint parents|부모님을 실망시키다
+20-5|observe|(동) 관찰하다, 목격하다, 준수하다|observe nature|자연을 관찰하다
+20-5|compare|(동) 비교하다, 비유하다|compare prices|가격을 비교하다
+20-5|alarm|(명) 경보, 불안 (동) 불안하게 하다, 경보를 발하다|fire alarm|화재 경보기
+20-5|exist|(동) 존재하다, (근근이) 살아가다|cease to exist|존재하지 않게 되다
+20-5|attract|(동) (주의, 관심 등을) 끌다, 끌어들이다, 매혹하다|attract attention|주의를 끌다
+20-5|crucial|(형) 결정적인, 중대한|crucial decision|중대한 결정
+20-5|display|(동) 전시하다, 드러내다 (명) 전시|display talent|재능을 보여주다 [D]
+20-5|exhibit|(동) 전시하다, 보이다 (명) 전시품|exhibit paintings|그림을 전시하다 [E]
+20-5|describe|(동) 묘사하다, 설명하다|describe the scene|장면을 묘사하다
+20-5|general|(형) 일반적인, 보통의, 종합적인 (명) 장군|general idea|대략적인 생각 [G]
+20-5|universal|(형) 보편적인, 전 세계의, 우주의|universal truth|보편적인 진리 [U]
+20-5|specific|(형) 구체적인, 특정한, 특유의|specific example|구체적인 예시
+20-5|reward|(명) 보상, 사례금 (동) 보상하다|offer a reward|보상을 제공하다
+20-5|motivate|(동) 동기를 부여하다|motivate students|학생들에게 동기를 부여하다
+20-5|fee|(명) 수수료, 요금|entrance fee|입장료
+20-5|demand|(동) 요구하다 (명) 요구, 수요|meet the demand|수요를 충족시키다
+20-5|handle|(동) 다루다, 처리하다 (명) 손잡이|handle with care|조심해서 다루다 [H]
+20-5|manage|(동) 관리하다, 다루다, 용케 해내다|manage time|시간을 관리하다 [M]
 20-5|refer to|~을 가리키다, ~을 언급하다, ~을 참고하다|refer to a dictionary|사전을 참조하다
 20-5|take on|~을 떠맡다, ~을 고용하다, (특정한 특질을) 띠다|take on a challenge|도전을 받아들이다
 20-5|pay attention to|~에 유의하다, ~에 주목하다|pay attention to details|세부 사항에 주의를 기울이다
 
 
-20-6|category|범주, 부분|fall into a category|범주에 속하다
-20-6|except|~을 제외하고, 제외하다|everyone except me|나를 제외한 모두
-20-6|discuss|토론하다, 논의하다|discuss the issue|그 문제를 논의하다 [DI]
-20-6|debate|토론[논의]하다, 숙고하다, 토론, 논쟁|heated debate|열띤 토론 [DE]
-20-6|judgment|판단, 판결, 의견|make a judgment|판단을 내리다
-20-6|consume|소비[소모]하다, 섭취하다|consume energy|에너지를 소비하다
-20-6|alive|살아있는|stay alive|살아남다
-20-6|valuable|소중한, 값비싼|valuable lesson|소중한 교훈
-20-6|complain|불평[항의]하다, 호소하다|complain about the noise|소음에 대해 불평하다
-20-6|replace|대체[대신]하다, 교체하다|replace a with b|a를 b로 대체하다
-20-6|norm|표준, 기준, 규범|social norms|사회적 규범 [N]
-20-6|standard|표준, 기준, 수준, (도덕) 규범|safety standard|안전 기준 [S]
-20-6|advertise|광고하다, 알리다|advertise a product|제품을 광고하다
-20-6|awareness|의식, 인식|raise awareness|인식을 높이다
-20-6|concept|개념, 생각|basic concept|기본 개념
-20-6|respond|반응하다, 응답하다|respond to a question|질문에 응답하다
-20-6|credit|신용, 입금, 학점, 신용하다, ~에게 돌리다|give credit to|~에게 공로를 돌리다
-20-6|poison|독, 독약, 독을 넣다, 해치다|deadly poison|치명적인 독
-20-6|indicate|나타내다, 가리키다, 암시하다|indicate the direction|방향을 가리키다
-20-6|chemical|화학의, 화학 작용의, 화학 약품[물질]|chemical reaction|화학 반응
-20-6|primary|주요한, 최초의, 초등의, 근본적인|primary cause|주된 원인
-20-6|essential|필수의, 중요한, 본질적인|essential element|필수 요소
-20-6|opinion|의견, 견해|public opinion|여론
-20-6|efficient|효율적인, 유능한|energy efficient|에너지 효율적인
-20-6|welfare|복지, 행복|social welfare|사회 복지
-20-6|eliminate|없애다, 제거[배제]하다|eliminate waste|낭비를 없애다
-20-6|locate|두다, ~의 위치를 알아내다|locate the store|가게의 위치를 찾다
-20-6|invention|발명, 발명품, 날조|great invention|위래한 발명
-20-6|ideal|이상적인, 상상의, 이상, 공상|ideal partner|이상적인 배우자
-20-6|realistic|현실적인, 사실주의의|realistic goal|현실적인 목표
-20-6|conclude|결론을 내리다, 끝내다|conclude that he is right|그가 옳다고 결론짓다
-20-6|struggle|분투하다, 싸우다, 애쓰다, 싸움, 노력|struggle for survival|생존을 위해 몸부림치다
-20-6|unique|유일한, 독특한|unique style|독특한 스타일
-20-6|proper|적절한, 올바른|proper care|적절한 관리 [P]
-20-6|appropriate|적절한, 적합한|appropriate action|적절한 조치 [A]
-20-6|supplement|보충하다, 보충(물), 추가(물)|vitamin supplement|비타민 보충제
-20-6|trial|시도, 재판|fair trial|공정한 재판
-20-6|infant|유아, 젖먹이, 아기|infant mortality|영아 사망률
+
+20-6|category|(명) 범주, 부분|fall into a category|범주에 속하다
+20-6|except|(전) ~을 제외하고 (동) 제외하다|everyone except me|나를 제외한 모두
+20-6|discuss|(동) 토론하다, 논의하다|discuss the issue|그 문제를 논의하다
+20-6|debate|(동) 토론[논의]하다, 숙고하다 (명) 토론, 논쟁|heated debate|열띤 토론
+20-6|judgment|(명) 판단, 판결, 의견|make a judgment|판단을 내리다
+20-6|consume|(동) 소비[소모]하다, 섭취하다|consume energy|에너지를 소비하다
+20-6|alive|(형) 살아있는|stay alive|살아남다
+20-6|valuable|(형) 소중한, 값비싼|valuable lesson|소중한 교훈
+20-6|complain|(동) 불평[항의]하다, 호소하다|complain about the noise|소음에 대해 불평하다
+20-6|replace|(동) 대체[대신]하다, 교체하다|replace A with B|A를 B로 대체하다
+20-6|norm|(명) 표준, 기준, 규범|social norms|사회적 규범
+20-6|standard|(명) 표준, 기준, 수준, (도덕) 규범|safety standard|안전 기준
+20-6|advertise|(동) 광고하다, 알리다|advertise a product|제품을 광고하다
+20-6|awareness|(명) 의식, 인식|raise awareness|인식을 높이다
+20-6|concept|(명) 개념, 생각|basic concept|기본 개념
+20-6|respond|(동) 반응하다, 응답하다|respond to a question|질문에 응답하다
+20-6|credit|(명) 신용, 입금, 학점 (동) 신용하다, ~에게 돌리다|give credit to|~에게 공로를 돌리다
+20-6|poison|(명) 독, 독약 (동) 독을 넣다, 해치다|deadly poison|치명적인 독
+20-6|indicate|(동) 나타내다, 가리키다, 암시하다|indicate the direction|방향을 가리키다
+20-6|chemical|(형) 화학의, 화학 작용의 (명) 화학 약품[물질]|chemical reaction|화학 반응
+20-6|primary|(형) 주요한, 최초의, 초등의, 근본적인|primary cause|주된 원인
+20-6|essential|(형) 필수의, 중요한, 본질적인|essential element|필수 요소
+20-6|opinion|(명) 의견, 견해|public opinion|여론
+20-6|efficient|(형) 효율적인, 유능한|energy efficient|에너지 효율적인
+20-6|welfare|(명) 복지, 행복|social welfare|사회 복지
+20-6|eliminate|(동) 없애다, 제거[배제]하다|eliminate waste|낭비를 없애다
+20-6|locate|(동) 두다, ~의 위치를 알아내다|locate the store|가게의 위치를 찾다
+20-6|invention|(명) 발명, 발명품, 날조|great invention|위대한 발명
+20-6|ideal|(형) 이상적인, 상상의 (명) 이상, 공상|ideal partner|이상적인 배우자
+20-6|realistic|(형) 현실적인, 사실주의의|realistic goal|현실적인 목표
+20-6|conclude|(동) 결론을 내리다, 끝내다|conclude that he is right|그가 옳다고 결론짓다
+20-6|struggle|(동) 분투하다, 싸우다, 애쓰다 (명) 싸움, 노력|struggle for survival|생존을 위해 몸부림치다
+20-6|unique|(형) 유일한, 독특한|unique style|독특한 스타일
+20-6|proper|(형) 적절한, 올바른|proper care|적절한 관리
+20-6|appropriate|(형) 적절한, 적합한|appropriate action|적절한 조치
+20-6|supplement|(동) 보충하다 (명) 보충(물), 추가(물)|vitamin supplement|비타민 보충제
+20-6|trial|(명) 시도, 재판|fair trial|공정한 재판
+20-6|infant|(명) 유아, 젖먹이, 아기|infant mortality|영아 사망률
 20-6|run out of|~을 다 써 버리다, ~을 바닥내다|run out of gas|기름이 떨어지다
 20-6|can afford to do|~할 여유가 있다|can afford to buy a car|차를 살 여유가 있다
 
 
-20-7|protest|항의하다, 주장하다, 항의, 시위|protest against the war|전쟁에 반대하여 시위하다
-20-7|organic|유기적인, 유기농의|organic food|유기농 식품
-20-7|brilliant|훌륭한, 뛰어난, 눈부신|brilliant idea|훌륭한 아이디어
-20-7|finance|재정, 재무, 자금, 자금을 대다|ministry of finance|재무부
-20-7|incredible|믿을 수 없는, 놀라운, 대단한|incredible speed|믿을 수 없는 속도
-20-7|interest|관심, 흥미, 이자, ~의 관심을 끌다|show interest in|~에 관심을 보이다
-20-7|rare|드문, 희박한|rare species|희귀종
-20-7|employ|고용하다, 이용하다|employ workers|직원을 고용하다 [E]
-20-7|hire|고용하다|hire a lawyer|변호사를 고용하다 [H]
-20-7|define|정의하다, 규정하다|define the meaning|의미를 정의하다
-20-7|donate|기부[기증]하다|donate money|돈을 기부하다
-20-7|average|평균, 표준, 평균의|above average|평균 이상
-20-7|gender|성, 성별|gender equality|성 평등
-20-7|invest|투자하다, (시간, 노력 등을) 쏟다|invest in stocks|주식에 투자하다
-20-7|previous|이전의, 먼저의|previous experience|이전의 경험
-20-7|worth|~의[할] 가치가 있는, 가치, (얼마) 어치|worth seeing|볼 가치가 있는
-20-7|alternative|대안, 양자택일, 대체의, 양자택일의|alternative energy|대체 에너지
-20-7|factor|요인, 요소|key factor|핵심 요인 [F]
-20-7|element|요소, 성분, 원소, 원리|essential element|필수 요소 [E]
-20-7|deadly|치명적인, 극도의, 죽은 듯이, 극도로|deadly weapon|치명적인 무기
-20-7|firm|단단한, 확고한, 회사, 단단하게 하다|law firm|법률 회사
-20-7|independence|독립, 자립|declaration of independence|독립 선언
-20-7|occasion|때, 경우, 행사|special occasion|특별한 행사
-20-7|publish|출판[발행]하다, 발표하다|publish a book|책을 출판하다
-20-7|appearance|겉모습, 외모, 출현|judge by appearance|외모로 판단하다
-20-7|appoint|지명하다, (시간, 장소 등을) 정하다|appoint a committee|위원회를 임명하다
-20-7|blend|혼합하다, 조화하다, 조화되다, 혼합(물)|blend coffee beans|커피 원두를 섞다
-20-7|barrier|장벽, 장애물, 한계|language barrier|언어 장벽 [B]
-20-7|obstacle|장애(물)|overcome an obstacle|장애물을 극복하다 [O]
-20-7|detect|발견하다, 탐지하다, 감지하다|detect a lie|거짓말을 간파하다
-20-7|education|교육, 훈련|higher education|고등 교육
-20-7|enormous|거대한, 막대한|enormous impact|막대한 영향 [E]
-20-7|vast|거대한, 방대한|vast area|방대한 지역 [V]
-20-7|tiny|아주 작은(적은)|tiny insect|아주 작은 곤충
-20-7|ordinary|평범한, 보통의|ordinary people|평범한 사람들
-20-7|application|적용, 지원, 신청(서)|job application|입사 지원
-20-7|reasonable|합리적인, 분별 있는, (가격이) 적정한|reasonable price|합리적인 가격
-20-7|abandon|버리다, 포기하다|abandon hope|희망을 버리다
+20-7|protest|(동) 항의하다, 주장하다 (명) 항의, 시위|protest against the war|전쟁에 반대하여 시위하다
+20-7|organic|(형) 유기적인, 유기농의|organic food|유기농 식품
+20-7|brilliant|(형) 훌륭한, 뛰어난, 눈부신|brilliant idea|훌륭한 아이디어
+20-7|finance|(명) 재정, 재무, 자금 (동) 자금을 대다|ministry of finance|재무부
+20-7|incredible|(형) 믿을 수 없는, 놀라운, 대단한|incredible speed|믿을 수 없는 속도
+20-7|interest|(명) 관심, 흥미, 이자 (동) ~의 관심을 끌다|show interest in|~에 관심을 보이다
+20-7|rare|(형) 드문, 희박한|rare species|희귀종
+20-7|employ|(동) 고용하다, 이용하다|employ workers|직원을 고용하다 [E]
+20-7|hire|(동) 고용하다|hire a lawyer|변호사를 고용하다 [H]
+20-7|define|(동) 정의하다, 규정하다|define the meaning|의미를 정의하다
+20-7|donate|(동) 기부[기증]하다|donate money|돈을 기부하다
+20-7|average|(명) 평균, 표준 (형) 평균의|above average|평균 이상
+20-7|gender|(명) 성, 성별|gender equality|성 평등
+20-7|invest|(동) 투자하다, (시간, 노력 등을) 쏟다|invest in stocks|주식에 투자하다
+20-7|previous|(형) 이전의, 먼저의|previous experience|이전의 경험
+20-7|worth|(전) ~의[할] 가치가 있는 (명) 가치, (얼마) 어치|worth seeing|볼 가치가 있는
+20-7|alternative|(명) 대안, 양자택일 (형) 대체의, 양자택일의|alternative energy|대체 에너지
+20-7|factor|(명) 요인, 요소|key factor|핵심 요인 [F]
+20-7|element|(명) 요소, 성분, 원소, 원리|essential element|필수 요소 [E]
+20-7|deadly|(형) 치명적인, 극도의 (부) 죽은 듯이, 극도로|deadly weapon|치명적인 무기
+20-7|firm|(형) 단단한, 확고한 (명) 회사 (동) 단단하게 하다|law firm|법률 회사
+20-7|independence|(명) 독립, 자립|declaration of independence|독립 선언
+20-7|occasion|(명) 때, 경우, 행사|special occasion|특별한 행사
+20-7|publish|(동) 출판[발행]하다, 발표하다|publish a book|책을 출판하다
+20-7|appearance|(명) 겉모습, 외모, 출현|judge by appearance|외모로 판단하다
+20-7|appoint|(동) 지명하다, (시간, 장소 등을) 정하다|appoint a committee|위원회를 임명하다
+20-7|blend|(동) 혼합하다, 조화하다, 조화되다 (명) 혼합(물)|blend coffee beans|커피 원두를 섞다
+20-7|barrier|(명) 장벽, 장애물, 한계|language barrier|언어 장벽 [B]
+20-7|obstacle|(명) 장애(물)|overcome an obstacle|장애물을 극복하다 [O]
+20-7|detect|(동) 발견하다, 탐지하다, 감지하다|detect a lie|거짓말을 간파하다
+20-7|education|(명) 교육, 훈련|higher education|고등 교육
+20-7|enormous|(형) 거대한, 막대한|enormous impact|막대한 영향 [E]
+20-7|vast|(형) 거대한, 방대한|vast area|방대한 지역 [V]
+20-7|tiny|(형) 아주 작은(적은)|tiny insect|아주 작은 곤충
+20-7|ordinary|(형) 평범한, 보통의|ordinary people|평범한 사람들
+20-7|application|(명) 적용, 지원, 신청(서)|job application|입사 지원
+20-7|reasonable|(형) 합리적인, 분별 있는, (가격이) 적정한|reasonable price|합리적인 가격
+20-7|abandon|(동) 버리다, 포기하다|abandon hope|희망을 버리다
 20-7|get used to|~에 익숙해지다|get used to the cold|추위에 익숙해지다
 20-7|figure out|~을 알아내다, ~을 이해하다|figure out a solution|해결책을 알아내다
 
 
-20-8|accurate|정확한, 정밀한|accurate information|정확한 정보 [A]
-20-8|precise|정확한, 정밀한, 꼼꼼한|precise measurement|정밀한 측정 [P]
-20-8|estimate|추정하다, 평가하다, 추정, 견적|estimate the cost|비용을 추정하다
-20-8|compete|경쟁하다, 겨루다|compete with others|타인과 경쟁하다
-20-8|submit|제출하다, 굴복하다|submit a report|보고서를 제출하다
-20-8|grab|붙잡다, 움켜잡다, 움켜잡음|grab a bite|간단히 먹다
-20-8|theory|이론, 학설|evolution theory|진화론
-20-8|document|문서, 서류, 기록하다|official document|공식 문서
-20-8|enable|가능하게 하다|enable him to go|그가 가는 것을 가능하게 하다
-20-8|avoid|피하다, 막다|avoid mistakes|실수를 피하다 [A]
-20-8|escape|달아나다, 탈출하다, 탈출, 도망|escape from reality|현실에서 도피하다 [E]
-20-8|innovate|혁신하다, 쇄신하다|innovate technology|기술을 혁신하다
-20-8|insight|통찰력, 이해|deep insight|깊은 통찰력
-20-8|insurance|보험|health insurance|건강 보험
-20-8|infection|감염, 전염|prevent infection|감염을 예방하다
-20-8|vehicle|차량, 탈것, 운송 수단|electric vehicle|전기차
-20-8|belong|속하다, 제자리에 있다|belong to a club|동아리에 속하다
-20-8|celebrate|기념하다, 축하하다, 찬양하다|celebrate a birthday|생일을 축하하다
-20-8|demonstrate|시범을 보이다, 증명하다|demonstrate ability|능력을 보여주다
-20-8|disaster|재난, 재앙|natural disaster|자연재해
-20-8|economic|경제의, 경제학의|economic growth|경제 성장
-20-8|household|가족, 가정, 가족[가정]의|household chores|집안일
-20-8|assign|할당하다, 임명하다, 지정하다|assign homework|숙제를 내주다
-20-8|transfer|옮기다, 갈아타다, 이동, 이전, 환승|transfer files|파일을 전송하다
-20-8|preserve|보존하다, 지키다, 저장하다|preserve traditions|전통을 보존하다
-20-8|opposite|정반대의, 맞은편의, 정반대의 것|opposite direction|반대 방향
-20-8|satisfaction|만족(감)|customer satisfaction|고객 만족
-20-8|comfort|편안함, 위로, 편하게 하다, 위로하다|seek comfort|안락함을 찾다 [C]
-20-8|ease|편안함, 용이함, 편하게 하다, 덜어 주다|ease the pain|고통을 덜어주다 [E]
-20-8|motion|운동, 움직임, 동작, 몸짓으로 신호하다|slow motion|슬로 모션
-20-8|operation|수술, 운영, 작업|rescue operation|구조 작업
-20-8|blame|비난하다, ~의 책임(탓)으로 돌리다, 비난, 책임|blame oneself|자신을 탓하다
-20-8|refreshing|상쾌하게 하는, 신선한|refreshing drink|상쾌한 음료
-20-8|trend|경향, 추세, 유행|fashion trend|패션 유행
-20-8|journal|신문, 간행물, 일기|keep a journal|일기를 쓰다
-20-8|private|사적인, 사유의, 비밀의|private life|사생활
-20-8|sentence|문장, 판결, 선고, 판결을 내리다|life sentence|종신형
-20-8|majority|(대)다수, 대부분|the majority of people|대다수의 사람들
+20-8|accurate|(형) 정확한, 정밀한|accurate information|정확한 정보 [A]
+20-8|precise|(형) 정확한, 정밀한, 꼼꼼한|precise measurement|정밀한 측정 [P]
+20-8|estimate|(동) 추정하다, 평가하다 (명) 추정, 견적|estimate the cost|비용을 추정하다
+20-8|compete|(동) 경쟁하다, 겨루다|compete with others|타인과 경쟁하다
+20-8|submit|(동) 제출하다, 굴복하다|submit a report|보고서를 제출하다
+20-8|grab|(동) 붙잡다, 움켜잡다 (명) 움켜잡음|grab a bite|간단히 먹다
+20-8|theory|(명) 이론, 학설|evolution theory|진화론
+20-8|document|(명) 문서, 서류 (동) 기록하다|official document|공식 문서
+20-8|enable|(동) 가능하게 하다|enable him to go|그가 가는 것을 가능하게 하다
+20-8|avoid|(동) 피하다, 막다|avoid mistakes|실수를 피하다 [A]
+20-8|escape|(동) 달아나다, 탈출하다 (명) 탈출, 도망|escape from reality|현실에서 도피하다 [E]
+20-8|innovate|(동) 혁신하다, 쇄신하다|innovate technology|기술을 혁신하다
+20-8|insight|(명) 통찰력, 이해|deep insight|깊은 통찰력
+20-8|insurance|(명) 보험|health insurance|건강 보험
+20-8|infection|(명) 감염, 전염|prevent infection|감염을 예방하다
+20-8|vehicle|(명) 차량, 탈것, 운송 수단|electric vehicle|전기차
+20-8|belong|(동) 속하다, 제자리에 있다|belong to a club|동아리에 속하다
+20-8|celebrate|(동) 기념하다, 축하하다, 찬양하다|celebrate a birthday|생일을 축하하다
+20-8|demonstrate|(동) 시범을 보이다, 증명하다|demonstrate ability|능력을 보여주다
+20-8|disaster|(명) 재난, 재앙|natural disaster|자연재해
+20-8|economic|(형) 경제의, 경제학의|economic growth|경제 성장
+20-8|household|(명) 가족, 가정 (형) 가족[가정]의|household chores|집안일
+20-8|assign|(동) 할당하다, 임명하다, 지정하다|assign homework|숙제를 내주다
+20-8|transfer|(동) 옮기다, 갈아타다 (명) 이동, 이전, 환승|transfer files|파일을 전송하다
+20-8|preserve|(동) 보존하다, 지키다, 저장하다|preserve traditions|전통을 보존하다
+20-8|opposite|(형) 정반대의, 맞은편의 (명) 정반대의 것|opposite direction|반대 방향
+20-8|satisfaction|(명) 만족(감)|customer satisfaction|고객 만족
+20-8|comfort|(명) 편안함, 위로 (동) 편하게 하다, 위로하다|seek comfort|안락함을 찾다 [C]
+20-8|ease|(명) 편안함, 용이함 (동) 편하게 하다, 덜어 주다|ease the pain|고통을 덜어주다 [E]
+20-8|motion|(명) 운동, 움직임, 동작 (동) 몸짓으로 신호하다|slow motion|슬로 모션
+20-8|operation|(명) 수술, 운영, 작업|rescue operation|구조 작업
+20-8|blame|(동) 비난하다, ~의 책임(탓)으로 돌리다 (명) 비난, 책임|blame oneself|자신을 탓하다
+20-8|refreshing|(형) 상쾌하게 하는, 신선한|refreshing drink|상쾌한 음료
+20-8|trend|(명) 경향, 추세, 유행|fashion trend|패션 유행
+20-8|journal|(명) 신문, 간행물, 일기|keep a journal|일기를 쓰다
+20-8|private|(형) 사적인, 사유의, 비밀의|private life|사생활
+20-8|sentence|(명) 문장, 판결, 선고 (동) 판결을 내리다|life sentence|종신형
+20-8|majority|(명) (대)다수, 대부분|the majority of people|대다수의 사람들
 20-8|dozens of|수십의, 많은|dozens of times|수십 번
-20-8|rather than|~보다는, ~ 대신에, ~하지 말고|a rather than b|b보다는 a
+20-8|rather than|~보다는, ~ 대신에, ~하지 말고|A rather than B|B보다는 A
 
-20-9|punish|처벌하다|punish severely|엄격하게 처벌하다
-20-9|civilization|문명|ancient civilization|고대 문명
-20-9|construct|건설하다|construct a bridge|다리를 건설하다
-20-9|recall|상기하다|recall a memory|기억을 되살리다
-20-9|gradually|점차|gradually increase|점차 증가하다
-20-9|delay|지연|flight delay|비행기 지연
-20-9|genetic|유전적인|genetic engineering|유전 공학
-20-9|sustainable|지속 가능한|sustainable development|지속 가능한 발전
-20-9|register|등록하다|register for a course|수강 신청하다
-20-9|rotate|회전하다|earth rotates|지구는 자전한다
-20-9|declare|선언하다|declare independence|독립을 선언하다
-20-9|reputation|평판|good reputation|좋은 평판
-20-9|settle|정착하다, 해결하다|settle down|정착하다
-20-9|agent|대리인|travel agent|여행사 직원
-20-9|crisis|위기|economic crisis|경제 위기
-20-9|guilty|유죄의|feel guilty|죄책감을 느끼다
-20-9|innocent|무죄의|innocent people|무고한 사람들
-20-9|analyze|분석하다|analyze data|데이터를 분석하다
-20-9|commit|저지르다, 헌신하다|commit suicide|자살하다
-20-9|comment|논평|no comment|할 말 없음
-20-9|edit|편집하다|edit a video|영상을 편집하다
-20-9|equip|갖추다|equip with tools|도구를 갖추다
-20-9|genius|천재|musical genius|음악 천재
-20-9|adequate|적절한|adequate supply|충분한 공급 [AD]
-20-9|aggressive|공격적인|aggressive behavior|공격적인 행동
-20-9|load|짐|heavy load|무거운 짐
-20-9|manufacture|제조하다|manufacture cars|자동차를 제조하다
-20-9|acknowledge|인정하다|acknowledge receipt|수령을 알리다(인정하다) [AC]
-20-9|deny|부인하다|deny the fact|사실을 부인하다
-20-9|behavior|행동|strange behavior|이상한 행동
-20-9|mature|성숙한|mature person|성숙한 사람
-20-9|thrust|밀다|thrust forward|앞으로 밀다
-20-9|corporate|기업의|corporate culture|기업 문화
-20-9|severe|심한|severe pain|심한 고통
-20-9|alert|경계하는|stay alert|경계를 늦추지 마라
-20-9|violent|폭력적인|violent movie|폭력적인 영화
-20-9|glow|빛나다|glow in the dark|어둠 속에서 빛나다
-20-9|guarantee|보장하다|guarantee quality|품질을 보장하다
+
+
+20-9|punish|(동) 처벌하다|punish severely|엄격하게 처벌하다
+20-9|civilization|(명) 문명|ancient civilization|고대 문명
+20-9|construct|(동) 건설하다|construct a bridge|다리를 건설하다
+20-9|recall|(동) 상기하다|recall a memory|기억을 되살리다
+20-9|gradually|(부) 점차|gradually increase|점차 증가하다
+20-9|delay|(명) 지연 (동) 미루다, 연기하다|flight delay|비행기 지연
+20-9|genetic|(형) 유전적인|genetic engineering|유전 공학
+20-9|sustainable|(형) 지속 가능한|sustainable development|지속 가능한 발전
+20-9|register|(동) 등록하다|register for a course|수강 신청하다
+20-9|rotate|(동) 회전하다|Earth rotates.|지구는 자전한다.
+20-9|declare|(동) 선언하다|declare independence|독립을 선언하다
+20-9|reputation|(명) 평판|good reputation|좋은 평판
+20-9|settle|(동) 정착하다, 해결하다|settle down|정착하다
+20-9|agent|(명) 대리인|travel agent|여행사 직원
+20-9|crisis|(명) 위기|economic crisis|경제 위기
+20-9|guilty|(형) 유죄의|feel guilty|죄책감을 느끼다
+20-9|innocent|(형) 무죄의|innocent people|무고한 사람들
+20-9|analyze|(동) 분석하다|analyze data|데이터를 분석하다
+20-9|commit|(동) 저지르다, 헌신하다|commit suicide|자살하다
+20-9|comment|(명) 논평 (동) 비평하다|no comment|할 말 없음
+20-9|edit|(동) 편집하다|edit a video|영상을 편집하다
+20-9|equip|(동) 갖추다|equip with tools|도구를 갖추다
+20-9|genius|(명) 천재|musical genius|음악 천재
+20-9|adequate|(형) 적절한|adequate supply|충분한 공급 [AD]
+20-9|aggressive|(형) 공격적인|aggressive behavior|공격적인 행동
+20-9|load|(명) 짐 (동) 싣다|heavy load|무거운 짐
+20-9|manufacture|(동) 제조하다 (명) 제조|manufacture cars|자동차를 제조하다
+20-9|acknowledge|(동) 인정하다|acknowledge receipt|수령을 알리다(인정하다) [AC]
+20-9|deny|(동) 부인하다|deny the fact|사실을 부인하다
+20-9|behavior|(명) 행동|strange behavior|이상한 행동
+20-9|mature|(형) 성숙한|mature person|성숙한 사람
+20-9|thrust|(동) 밀다 (명) 밀기|thrust forward|앞으로 밀다
+20-9|corporate|(형) 기업의|corporate culture|기업 문화
+20-9|severe|(형) 심한|severe pain|심한 고통
+20-9|alert|(형) 경계하는 (동) 알리다 (명) 경보|Stay alert.|경계를 늦추지 마라.
+20-9|violent|(형) 폭력적인|violent movie|폭력적인 영화
+20-9|glow|(동) 빛나다 (명) 불빛|glow in the dark|어둠 속에서 빛나다
+20-9|guarantee|(동) 보장하다 (명) 보증|guarantee quality|품질을 보장하다
 20-9|be based on|~에 근거하다|be based on facts|사실에 근거하다
 20-9|remind A of B|A에게 B를 상기시키다|remind me of home|고향을 생각나게 하다
 
 
-
-20-10|obvious|명백한, 분명한|obvious reason|명백한 이유 [O]
-20-10|apparent|분명한, 외관상의|apparent failure|명백한 실패 [A]
-20-10|persist|고집하다, 지속되다|persist in doing|계속하다
-20-10|temporary|일시적인, 임시의|temporary job|임시직
-20-10|permanent|영구적인, 영원한|permanent resident|영주권자
-20-10|rescue|구조하다, 구조, 구출|rescue team|구조대
-20-10|embrace|받아들이다, 수용하다, 포옹하다|embrace change|변화를 받아들이다
-20-10|tremble|떨다, 흔들리다, 걱정하다, 떨림|tremble with fear|공포에 떨다
-20-10|ancestor|조상, 선조|common ancestor|공통 조상
-20-10|cautious|조심스러운, 신중한|be cautious|조심해라
-20-10|clarify|명확히(분명히)하다, 정화하다|clarify the meaning|의미를 명확히 하다
-20-10|drag|끌다, 끌리다, 끌기, 장애물|drag and drop|끌어다 놓다
-20-10|horizontal|수평(선)의, 가로의|horizontal line|수평선
-20-10|vertical|수직의, 세로의|vertical line|수직선
-20-10|remarkable|주목할 만한, 놀랄 만한, 훌륭한|remarkable achievement|놀라운 성취
-20-10|individual|개인, 개개의, 개인적인|individual rights|개인의 권리
-20-10|memorize|암기하다, 기억하다|memorize words|단어를 암기하다
-20-10|retire|퇴직하다, 철수하다|retire from work|직장에서 은퇴하다
-20-10|athlete|운동선수|professional athlete|프로 운동선수
-20-10|victim|희생, 희생자|war victim|전쟁 희생자
-20-10|aboard|(배, 항공기 등을) 타고|welcome aboard|탑승을 환영합니다
-20-10|departure|출발, 출항|departure time|출발 시간
-20-10|broaden|넓어지다, 넓히다|broaden horizons|시야를 넓히다 [B]
-20-10|extend|넓히다, 연장하다, 뻗다|extend the deadline|마감을 연장하다 [E]
-20-10|sacrifice|희생, 제물, 희생하다|sacrifice for love|사랑을 위해 희생하다
-20-10|devise|고안하다, 발명하다|devise a plan|계획을 고안하다
-20-10|electricity|전기|generate electricity|전기를 생산하다
-20-10|logical|논리적인, 타당한|logical thinking|논리적 사고
-20-10|inherit|물려받다, 이어받다, 상속받다|inherit a fortune|재산을 상속받다
-20-10|length|길이, 시간|full length|전체 길이
-20-10|initial|처음의, 초기의, 머리글자|initial stage|초기 단계
-20-10|qualified|자격 있는, 적임의|qualified teacher|자격 있는 교사
-20-10|reform|개혁하다, 개선하다, 개혁, 개선|reform the system|시스템을 개혁하다
-20-10|regulate|통제하다, 조절하다|regulate traffic|교통을 통제하다
-20-10|delicate|섬세한, 연약한, 정교한|delicate skin|연약한 피부
-20-10|resist|저항하다, 견디다|resist temptation|유혹에 저항하다
-20-10|restrict|제한하다, 한정하다|restrict access|접근을 제한하다
-20-10|possess|소유하다, 지니다, 사로잡다|possess wisdom|지혜를 소유하다
+20-10|obvious|(형) 명백한, 분명한|obvious reason|명백한 이유 [O]
+20-10|apparent|(형) 분명한, 외관상의|apparent failure|명백한 실패 [A]
+20-10|persist|(동) 고집하다, 지속되다|persist in doing|계속하다
+20-10|temporary|(형) 일시적인, 임시의|temporary job|임시직
+20-10|permanent|(형) 영구적인, 영원한|permanent resident|영주권자
+20-10|rescue|(동) 구조하다 (명) 구조, 구출|rescue team|구조대
+20-10|embrace|(동) 받아들이다, 수용하다, 포옹하다|embrace change|변화를 받아들이다
+20-10|tremble|(동) 떨다, 흔들리다, 걱정하다 (명) 떨림|tremble with fear|공포에 떨다
+20-10|ancestor|(명) 조상, 선조|common ancestor|공통 조상
+20-10|cautious|(형) 조심스러운, 신중한|Be cautious.|조심해라.
+20-10|clarify|(동) 명확히(분명히)하다, 정화하다|clarify the meaning|의미를 명확히 하다
+20-10|drag|(동) 끌다, 끌리다 (명) 끌기, 장애물|drag and drop|끌어다 놓다
+20-10|horizontal|(형) 수평(선)의, 가로의|horizontal line|수평선
+20-10|vertical|(형) 수직의, 세로의|vertical line|수직선
+20-10|remarkable|(형) 주목할 만한, 놀랄 만한, 훌륭한|remarkable achievement|놀라운 성취
+20-10|individual|(명) 개인 (형) 개개의, 개인적인|individual rights|개인의 권리
+20-10|memorize|(동) 암기하다, 기억하다|memorize words|단어를 암기하다
+20-10|retire|(동) 퇴직하다, 철수하다|retire from work|직장에서 은퇴하다
+20-10|athlete|(명) 운동선수|professional athlete|프로 운동선수
+20-10|victim|(명) 희생, 희생자|war victim|전쟁 희생자
+20-10|aboard|(부) (배, 항공기 등을) 타고|Welcome aboard.|탑승을 환영합니다.
+20-10|departure|(명) 출발, 출항|departure time|출발 시간
+20-10|broaden|(동) 넓어지다, 넓히다|broaden horizons|시야를 넓히다 [B]
+20-10|extend|(동) 넓히다, 연장하다, 뻗다|extend the deadline|마감을 연장하다 [E]
+20-10|sacrifice|(명) 희생, 제물 (동) 희생하다|sacrifice for love|사랑을 위해 희생하다
+20-10|devise|(동) 고안하다, 발명하다|devise a plan|계획을 고안하다
+20-10|electricity|(명) 전기|generate electricity|전기를 생산하다
+20-10|logical|(형) 논리적인, 타당한|logical thinking|논리적 사고
+20-10|inherit|(동) 물려받다, 이어받다, 상속받다|inherit a fortune|재산을 상속받다
+20-10|length|(명) 길이, 시간|full length|전체 길이
+20-10|initial|(형) 처음의, 초기의 (명) 머리글자|initial stage|초기 단계
+20-10|qualified|(형) 자격 있는, 적임의|qualified teacher|자격 있는 교사
+20-10|reform|(동) 개혁하다, 개선하다 (명) 개혁, 개선|reform the system|시스템을 개혁하다
+20-10|regulate|(동) 통제하다, 조절하다|regulate traffic|교통을 통제하다
+20-10|delicate|(형) 섬세한, 연약한, 정교한|delicate skin|연약한 피부
+20-10|resist|(동) 저항하다, 견디다|resist temptation|유혹에 저항하다
+20-10|restrict|(동) 제한하다, 한정하다|restrict access|접근을 제한하다
+20-10|possess|(동) 소유하다, 지니다, 사로잡다|possess wisdom|지혜를 소유하다
 20-10|be related to|~와 관계가 있다|be related to health|건강과 관련되다
 20-10|contribute to|~에 기여하다|contribute to society|사회에 공헌하다
 
-
-20-11|population|인구, 주민, 개체군|growing population|증가하는 인구
-20-11|foster|양육하다, 육성하다, 촉진하다|foster creativity|창의성을 육성하다 [F]
-20-11|nurture|양육하다, 육성하다|nurture talent|재능을 키우다(양육하다) [N]
-20-11|available|이용할[얻을] 수 있는, 시간이 있는|is it available?|이용 가능한가요?
-20-11|discover|발발견하다, 알아내다, 발굴하다|discover a planet|행성을 발견하다
-20-11|carbon|탄소|carbon dioxide|이산화탄소
-20-11|pressure|압력, 압박(감)|blood pressure|혈압
-20-11|accuse|고발하다, 비난하다|accuse of theft|절도로 고발하다
-20-11|outstanding|뛰어난, 눈부신, 현저한|outstanding work|뛰어난 작품
-20-11|conversation|대화, 대담|private conversation|사적인 대화
-20-11|massive|거대한, 대량의|massive star|거대한 별
-20-11|analogy|비유, 유사, 유추|use an analogy|비유를 사용하다
-20-11|wound|상처를 입히다, 감정을 상하게 하다|heal the wound|상처를 치료하다
-20-11|cause|원인이 되다, 야기[초래]하다|cause and effect|원인과 결과
-20-11|consequence|결과, 영향(력), 중요함|face the consequences|결과를 직면하다
-20-11|election|선거, 당선|win an election|선거에서 이기다
-20-11|trace|추적하다, 추적하여 찾아내다|trace the origin|기원을 추적하다
-20-11|wire|철사, 전선, 연결하다|copper wire|구리선
-20-11|restore|회복시키다, 복원하다, 되찾다|restore health|건강을 회복하다
-20-11|cognitive|인식의, 인지의|cognitive ability|인지 능력
-20-11|biological|생물학의, 생(물)체의|biological clock|생체 시계
-20-11|ability|능력, 재능|ability to read|읽는 능력 [A]
-20-11|capacity|용량, 수용력, 능력|memory capacity|기억 용량 [C]
-20-11|ingredient|재료, 성분, 구성 요소|main ingredient|주재료
-20-11|adversity|역경, 불운|overcome adversity|역경을 극복하다
-20-11|intelligent|지적인, 지성을 갖춘|intelligent life|지적 생명체
-20-11|multiple|다수의, 많은, 복합적인|multiple choices|다중 선택
-20-11|exotic|외국의, 이국적인|exotic fruit|이국적인 과일
-20-11|reference|언급, 참조, 추천서, 참고 문헌|for reference|참조용으로
-20-11|scatter|뿌리다, 흩어지다[흩어지게 하다]|scatter seeds|씨를 흩뿌리다
-20-11|conflict|갈등, 충돌|resolve conflict|갈등을 해결하다 [C]
-20-11|friction|마찰, 갈등|reduce friction|마찰을 줄이다 [F]
-20-11|asset|자산, 재산|valuable asset|귀중한 자산
-20-11|professional|직업의, 전문적인|professional player|프로 선수
-20-11|disclose|밝히다, 폭로하다, 드러내다|disclose information|정보를 공개하다
-20-11|negotiate|협상[교섭]하다, 타결하다|negotiate a deal|거래를 협상하다
-20-11|split|나누다[나뉘다], 분열하다, 갈라지다|split the bill|계산을 나눠서 하다
+20-11|population|(명) 인구, 주민, 개체군|growing population|증가하는 인구
+20-11|foster|(동) 양육하다, 육성하다, 촉진하다|foster creativity|창의성을 육성하다 [F]
+20-11|nurture|(동) 양육하다, 육성하다|nurture talent|재능을 키우다(양육하다) [N]
+20-11|available|(형) 이용할[얻을] 수 있는, 시간이 있는|Is it available?|이용 가능한가요?
+20-11|discover|(동) 발견하다, 알아내다, 발굴하다|discover a planet|행성을 발견하다
+20-11|carbon|(명) 탄소|carbon dioxide|이산화탄소
+20-11|pressure|(명) 압력, 압박(감)|blood pressure|혈압
+20-11|accuse|(동) 고발하다, 비난하다|accuse of theft|절도로 고발하다
+20-11|outstanding|(형) 뛰어난, 눈부신, 현저한|outstanding work|뛰어난 작품
+20-11|conversation|(명) 대화, 대담|private conversation|사적인 대화
+20-11|massive|(형) 거대한, 대량의|massive star|거대한 별
+20-11|analogy|(명) 비유, 유사, 유추|use an analogy|비유를 사용하다
+20-11|wound|(동) 상처를 입히다, 감정을 상하게 하다 (명) 상처|heal the wound|상처를 치료하다
+20-11|cause|(동) 원인이 되다, 야기[초래]하다 (명) 원인|cause and effect|원인과 결과
+20-11|consequence|(명) 결과, 영향(력), 중요함|face the consequences|결과를 직면하다
+20-11|election|(명) 선거, 당선|win an election|선거에서 이기다
+20-11|trace|(동) 추적하다, 추적하여 찾아내다 (명) 흔적|trace the origin|기원을 추적하다
+20-11|wire|(명) 철사, 전선 (동) 연결하다|copper wire|구리선
+20-11|restore|(동) 회복시키다, 복원하다, 되찾다|restore health|건강을 회복하다
+20-11|cognitive|(형) 인식의, 인지의|cognitive ability|인지 능력
+20-11|biological|(형) 생물학의, 생(물)체의|biological clock|생체 시계
+20-11|ability|(명) 능력, 재능|ability to read|읽는 능력 [A]
+20-11|capacity|(명) 용량, 수용력, 능력|memory capacity|기억 용량 [C]
+20-11|ingredient|(명) 재료, 성분, 구성 요소|main ingredient|주재료
+20-11|adversity|(명) 역경, 불운|overcome adversity|역경을 극복하다
+20-11|intelligent|(형) 지적인, 지성을 갖춘|intelligent life|지적 생명체
+20-11|multiple|(형) 다수의, 많은, 복합적인|multiple choices|다중 선택
+20-11|exotic|(형) 외국의, 이국적인|exotic fruit|이국적인 과일
+20-11|reference|(명) 언급, 참조, 추천서, 참고 문헌|for reference|참조용으로
+20-11|scatter|(동) 뿌리다, 흩어지다[흩어지게 하다]|scatter seeds|씨를 흩뿌리다
+20-11|conflict|(명) 갈등, 충돌 (동) 충돌하다|resolve conflict|갈등을 해결하다 [C]
+20-11|friction|(명) 마찰, 갈등|reduce friction|마찰을 줄이다 [F]
+20-11|asset|(명) 자산, 재산|valuable asset|귀중한 자산
+20-11|professional|(형) 직업의, 전문적인 (명) 전문가|professional player|프로 선수
+20-11|disclose|(동) 밝히다, 폭로하다, 드러내다|disclose information|정보를 공개하다
+20-11|negotiate|(동) 협상[교섭]하다, 타결하다|negotiate a deal|거래를 협상하다
+20-11|split|(동) 나누다[나뉘다], 분열하다, 갈라지다 (명) 분열|split the bill|계산을 나눠서 하다
 20-11|have difficulty -ing|~하는 데 어려움을 겪다|have difficulty sleeping|잠자는 데 어려움을 겪다
 20-11|go through|~을 겪다, ~을 거치다, ~을 조사하다|go through hard times|힘든 시기를 겪다
 20-11|be regarded as|~으로 간주되다[여겨지다]|be regarded as a hero|영웅으로 여겨지다
 
-
-20-12|modern|현대의, 현대인|modern society|현대 사회 [M]
-20-12|contemporary|동시대의, 현대의, 당대의|contemporary art|현대 미술 [C]
-20-12|urgent|긴급한, 시급한|urgent matter|긴급한 문제
-20-12|relevant|관련된, 적절한, 유의미한|relevant to the topic|주제와 관련된
-20-12|explicit|분명한, 명백한, 솔직한|explicit instruction|명확한 지시
-20-12|approve|승인하다, 찬성하다, 인가하다|approve the plan|계획을 승인하다
-20-12|confront|맞서다, 직면하게 만들다|confront danger|위험에 직면하다
-20-12|poverty|가난, 빈곤|fight against poverty|빈곤과 싸우다
-20-12|wealth|부, 재산, 풍부|accumulate wealth|부를 축적하다
-20-12|integrate|통합하다, 통합되다|integrate systems|시스템을 통합하다
-20-12|destructive|파괴적인|destructive power|파괴력
-20-12|hierarchy|위계, 계급(제), 지배층|social hierarchy|사회 계급
-20-12|expertise|전문 지식(기술)|tech expertise|기술 전문 지식
-20-12|reproduce|복제하다, 재생하다, 번식하다|reproduce quickly|빠르게 번식하다
-20-12|frequency|빈도, 빈번함, 진동(수), 주파수|high frequency|높은 빈도
-20-12|identical|동일한, 일치하는|identical twins|일란성 쌍둥이
-20-12|reinforce|강화하다, 증강하다, 보강하다|reinforce concrete|콘크리트를 보강하다 [R]
-20-12|strengthen|강화하다, 견고히 하다|strengthen muscles|근육을 강화하다 [S]
-20-12|industrial|산업의, 공업의|industrial revolution|산업 혁명
-20-12|classify|분류하다, 구분하다|classify books|책을 분류하다
-20-12|mutual|상호 간의, 서로의, 공동[공통]의|mutual trust|상호 신뢰
-20-12|decorate|장식하다, 꾸미다|decorate a room|방을 장식하다
-20-12|potential|잠재적인, 가능성 있는|full potential|무한한 잠재력 [PO]
-20-12|possibility|가능성, 실현성, 장래성|no possibility|가능성 없음 [PS]
-20-12|implement|이행하다, 실행하다, 도구|implement a policy|정책을 실행하다
-20-12|widespread|널리 퍼진, 광범위한|widespread belief|널리 퍼진 믿음
-20-12|resemble|닮다, 유사하다|resemble mother|엄마를 닮다
-20-12|fundamental|근본적인, 본질적인, 필수적인|fundamental right|기본 권리
-20-12|enthusiastic|열정적인, 열렬한, 열심인|enthusiastic fan|열성 팬
-20-12|consult|상담하다, 상의하다, 참고하다|consult a doctor|의사와 상담하다
-20-12|disadvantage|단점, 약점, 불이익|weigh the disadvantages|단점을 따져보다 [12]
-20-12|drawback|단점, 결점, 장애|main drawback|주된 결점 [8]
-20-12|steady|꾸준한, 한결같은|steady growth|꾸준한 성장
-20-12|primitive|원시의, 원시적인|primitive man|원시인
-20-12|dominant|우세한, 지배적인|dominant species|지배종
-20-12|inhabit|거주하다, 살다|inhabit the earth|지구에 거주하다
-20-12|adolescence|청소년기|during adolescence|청소년기에
-20-12|attach|붙이다, 첨부하다|attach a file|파일을 첨부하다
+20-12|modern|(형) 현대의 (명) 현대인|modern society|현대 사회 [M]
+20-12|contemporary|(형) 동시대의, 현대의, 당대의|contemporary art|현대 미술 [C]
+20-12|urgent|(형) 긴급한, 시급한|urgent matter|긴급한 문제
+20-12|relevant|(형) 관련된, 적절한, 유의미한|relevant to the topic|주제와 관련된
+20-12|explicit|(형) 분명한, 명백한, 솔직한|explicit instruction|명확한 지시
+20-12|approve|(동) 승인하다, 찬성하다, 인가하다|approve the plan|계획을 승인하다
+20-12|confront|(동) 맞서다, 직면하게 만들다|confront danger|위험에 직면하다
+20-12|poverty|(명) 가난, 빈곤|fight against poverty|빈곤과 싸우다
+20-12|wealth|(명) 부, 재산, 풍부|accumulate wealth|부를 축적하다
+20-12|integrate|(동) 통합하다, 통합되다|integrate systems|시스템을 통합하다
+20-12|destructive|(형) 파괴적인|destructive power|파괴력
+20-12|hierarchy|(명) 위계, 계급(제), 지배층|social hierarchy|사회 계급
+20-12|expertise|(명) 전문 지식(기술)|tech expertise|기술 전문 지식
+20-12|reproduce|(동) 복제하다, 재생하다, 번식하다|reproduce quickly|빠르게 번식하다
+20-12|frequency|(명) 빈도, 빈번함, 진동(수), 주파수|high frequency|높은 빈도
+20-12|identical|(형) 동일한, 일치하는|identical twins|일란성 쌍둥이
+20-12|reinforce|(동) 강화하다, 증강하다, 보강하다|reinforce concrete|콘크리트를 보강하다 [R]
+20-12|strengthen|(동) 강화하다, 견고히 하다|strengthen muscles|근육을 강화하다 [S]
+20-12|industrial|(형) 산업의, 공업의|industrial revolution|산업 혁명
+20-12|classify|(동) 분류하다, 구분하다|classify books|책을 분류하다
+20-12|mutual|(형) 상호 간의, 서로의, 공동[공통]의|mutual trust|상호 신뢰
+20-12|decorate|(동) 장식하다, 꾸미다|decorate a room|방을 장식하다
+20-12|potential|(형) 잠재적인, 가능성 있는|full potential|무한한 잠재력 [PO]
+20-12|possibility|(명) 가능성, 실현성, 장래성|no possibility|가능성 없음 [PS]
+20-12|implement|(동) 이행하다, 실행하다 (명) 도구|implement a policy|정책을 실행하다
+20-12|widespread|(형) 널리 퍼진, 광범위한|widespread belief|널리 퍼진 믿음
+20-12|resemble|(동) 닮다, 유사하다|resemble mother|엄마를 닮다
+20-12|fundamental|(형) 근본적인, 본질적인, 필수적인|fundamental right|기본 권리
+20-12|enthusiastic|(형) 열정적인, 열렬한, 열심인|enthusiastic fan|열성 팬
+20-12|consult|(동) 상담하다, 상의하다, 참고하다|consult a doctor|의사와 상담하다
+20-12|disadvantage|(명) 단점, 약점, 불이익|weigh the disadvantages|단점을 따져보다 [12]
+20-12|drawback|(명) 단점, 결점, 장애|main drawback|주된 결점 [8]
+20-12|steady|(형) 꾸준한, 한결같은|steady growth|꾸준한 성장
+20-12|primitive|(형) 원시의, 원시적인|primitive man|원시인
+20-12|dominant|(형) 우세한, 지배적인|dominant species|지배종
+20-12|inhabit|(동) 거주하다, 살다|inhabit the earth|지구에 거주하다
+20-12|adolescence|(명) 청소년기|during adolescence|청소년기에
+20-12|attach|(동) 붙이다, 첨부하다|attach a file|파일을 첨부하다
 20-12|in terms of|~의 관점에서, ~에 관해서|in terms of cost|비용 면에서
 20-12|bring about|~을 야기[초래]하다, ~을 유발하다|bring about change|변화를 가져오다
 
 
 20-13|applause|(명) 박수갈채|Round of applause.|박수갈채.
-20-13|glance|흘긋 보다, 흘긋 봄|Glance at a watch.|시계를 힐끗 보다.
-20-13|crawl|기어가다, 서행하다, 기어가기, 서행|Crawl on knees.|무릎으로 기어가다.
-20-13|hesitate|주저하다, 망설이다|Don't hesitate.|주저하지 마라.
+20-13|glance|(동) 흘긋 보다 (명) 흘긋 봄|glance at a watch|시계를 힐끗 보다
+20-13|crawl|(동) 기어가다, 서행하다 (명) 기어가기, 서행|crawl on knees|무릎으로 기어가다
+20-13|hesitate|(동) 주저하다, 망설이다|Don't hesitate.|주저하지 마라.
 20-13|make sense of|~을 이해하다, ~을 파악하다|Make sense of it.|그것을 이해하다.
-20-13|eager|열망하는, 열심인|Eager to learn.|배우기를 열망하는.
-20-13|impatient|참을 수 없는, 성급한|Get impatient.|참을성이 없어지다.
-20-13|frank|솔직한, 숨김없는|To be frank.|솔직히 말해서.
-20-13|arrogant|거만한, 오만한|Arrogant attitude.|거만한 태도.
-20-13|humble|겸손한, 비천한|Be humble.|겸손해라.
-20-13|awkward|서투른, 어색한|Awkward silence.|어색한 침묵.
-20-13|sincere|진실된, 진심의|Sincere apology.|진심 어린 사과.
-20-13|genuine|진짜의, 진실한|Genuine leather.|진짜 가죽.
-20-13|anticipate|(동) 기대하다, 예상하다|Anticipate trouble.|문제를 예상하다.
-20-13|responsible|책임감 있는, 책임이 있는|Be responsible for.|~에 책임이 있다.
-20-13|tolerate|참다, 견디다, 용인하다 (t)|Tolerate pain.|고통을 참다.
-20-13|endure|견디다, 참다|Endure hardship.|고난을 견디다.
-20-13|put up with|~을 참다, ~을 참고 견디다 (3)|Put up with noise.|소음을 참다.
-20-13|depression|(명) 우울(증), 불황|Severe depression.|심한 우울증.
-20-13|ashamed|부끄러워하는|Be ashamed of.|~을 부끄러워하다.
-20-13|delight|기쁨, 기쁘게 하다|With delight.|기꺼이(기쁨으로).
-20-13|fascinated|(형) 매료된, 매혹된|Fascinated by art.|예술에 매료된.
-20-13|resent|화를 내다, 분개하다|Resent the treatment.|대우에 분개하다.
-20-13|irritate|짜증나게 하다, 거슬리다|Irritate skin.|피부를 자극하다.
-20-13|humiliate|창피를 주다, 굴욕감을 느끼게 하다|Feel humiliated.|창피함을 느끼다.
-20-13|impulse|충동|On impulse.|충동적으로.
-20-13|reluctant|마음 내키지 않는, 마지못한|Reluctant to go.|가기를 꺼리는.
-20-13|astonished|(형) 깜짝 놀란|Be astonished at.|~에 깜짝 놀라다.
-20-13|miserable|비참한, 불쌍한|Miserable life.|비참한 삶.
-20-13|arouse|불러일으키다, 유발하다, 깨우다|Arouse interest.|흥미를 불러일으키다.
-20-13|frustrated|(형) 좌절감을 느끼는|Feel frustrated.|좌절감을 느끼다.
-20-13|empathy|감정 이입, 공감|Have empathy.|공감하다.
-20-13|offend|감정을 상하게 하다|Offend a friend.|친구의 기분을 상하게 하다.
-20-13|compassion|동정, 연민|Show compassion.|연민을 보이다.
-20-13|despair|절망, 절망하다|In deep despair.|깊은 절망에 빠져.
+20-13|eager|(형) 열망하는, 열심인|eager to learn|배우기를 열망하는
+20-13|impatient|(형) 참을 수 없는, 성급한|get impatient|참을성이 없어지다
+20-13|frank|(형) 솔직한, 숨김없는|to be frank|솔직히 말해서
+20-13|arrogant|(형) 거만한, 오만한|arrogant attitude|거만한 태도
+20-13|humble|(형) 겸손한, 비천한|Be humble.|겸손해라.
+20-13|awkward|(형) 서투른, 어색한|awkward silence|어색한 침묵
+20-13|sincere|(형) 진실된, 진심의|sincere apology|진심 어린 사과
+20-13|genuine|(형) 진짜의, 진실한|genuine leather|진짜 가죽
+20-13|anticipate|(동) 기대하다, 예상하다|anticipate trouble|문제를 예상하다
+20-13|responsible|(형) 책임감 있는, 책임이 있는|be responsible for|~에 책임이 있다
+20-13|tolerate|(동) 참다, 견디다, 용인하다|tolerate pain|고통을 참다 [T]
+20-13|endure|(동) 견디다, 참다|endure hardship|고난을 견디다 [E]
+20-13|put up with|~을 참다, ~을 참고 견디다|put up with noise|소음을 참다 [3]
+20-13|depression|(명) 우울(증), 불황|severe depression|심한 우울증
+20-13|ashamed|(형) 부끄러워하는|be ashamed of|~을 부끄러워하다
+20-13|delight|(명) 기쁨 (동) 기쁘게 하다|with delight|기꺼이(기쁨으로)
+20-13|fascinated|(형) 매료된, 매혹된|fascinated by art|예술에 매료된
+20-13|resent|(동) 화를 내다, 분개하다|resent the treatment|대우에 분개하다
+20-13|irritate|(동) 짜증나게 하다, 거슬리다|irritate skin|피부를 자극하다
+20-13|humiliate|(동) 창피를 주다, 굴욕감을 느끼게 하다|feel humiliated|창피함을 느끼다
+20-13|impulse|(명) 충동|on impulse|충동적으로
+20-13|reluctant|(형) 마음 내키지 않는, 마지못한|reluctant to go|가기를 꺼리는
+20-13|astonished|(형) 깜짝 놀란|be astonished at|~에 깜짝 놀라다
+20-13|miserable|(형) 비참한, 불쌍한|miserable life|비참한 삶
+20-13|arouse|(동) 불러일으키다, 유발하다, 깨우다|arouse interest|흥미를 불러일으키다
+20-13|frustrated|(형) 좌절감을 느끼는|feel frustrated|좌절감을 느끼다
+20-13|empathy|(명) 감정 이입, 공감|have empathy|공감하다
+20-13|offend|(동) 감정을 상하게 하다|offend a friend|친구의 기분을 상하게 하다
+20-13|compassion|(명) 동정, 연민|show compassion|연민을 보이다
+20-13|despair|(명) 절망 (동) 절망하다|in deep despair|깊은 절망에 빠져
 20-13|confident|(형) 자신감 있는, 확신하는|Be confident.|자신감을 가져라.
-20-13|jealous|질투하는|Be jealous of.|~을 질투하다.
-20-13|ridiculous|터무니없는, 어리석은, 우스운|Ridiculous idea.|터무니없는 생각.
-20-13|generous|관대한, 후한|Generous donation.|후한 기부.
-20-13|faithful|충실한|Faithful dog.|충실한 개.
+20-13|jealous|(형) 질투하는|be jealous of|~을 질투하다
+20-13|ridiculous|(형) 터무니없는, 어리석은, 우스운|ridiculous idea|터무니없는 생각
+20-13|generous|(형) 관대한, 후한|generous donation|후한 기부
+20-13|faithful|(형) 충실한|faithful dog|충실한 개
 
 
-20-14|occupation|직업, 점유|choosing an occupation|직업 선택
-20-14|supervise|감독하다, 관리하다, 통제하다|supervise work|일을 감독하다
-20-14|specialize|전문적으로 하다, 전공하다|specialize in law|법을 전공하다
-20-14|bond|유대, 결속, 채권|strong bond|강한 유대감
-20-14|certificate|증명서, 자격증|gift certificate|상품권
-20-14|chief|(단체의) 장, 우두머리, 주요한, 최고의|chief editor|편집장
-20-14|collaborate|협력하다|collaborate with others|타인과 협력하다
-20-14|deprive|박탈하다|deprive of sleep|잠을 빼앗다
-20-14|colleague|(직장) 동료|work colleague|직장 동료
-20-14|shift|바꾸다, 이동하다, 변화, 이동, 교대|night shift|야간 근무
-20-14|outcome|결과, 성과|final outcome|최종 결과
-20-14|exceed|넘어서다, 초과하다|exceed the limit|한도를 초과하다
-20-14|procedure|절차, 수순|safety procedure|안전 절차
-20-14|attendant|종업원, 수행원|flight attendant|승무원
-20-14|negotiation|협상|peace negotiation|평화 협상
-20-14|incentive|동기, 유인, 장려(책)|give an incentive|인센티브를 주다
-20-14|strategy|전략|marketing strategy|마케팅 전략
-20-14|challenge|도전, 난관, 도전하다|face a challenge|도전에 직면하다
-20-14|routine|일과, 늘 하던 방식, 일상적인|daily routine|일과
-20-14|shelter|피난처, 주거지, 보호소, 보호하다, 피하다|find shelter|피난처를 찾다
-20-14|withdraw|인출하다, 철회하다|withdraw money|돈을 인출하다 [W]
-20-14|deposit|예금하다, 맡기다, 보증금|deposit money|돈을 예금하다 [D]
-20-14|secure|안전한, 안정된, 안전하게 하다|secure job|안정된 직업
-20-14|chore|허드렛일, 집안일|household chores|집안일
-20-14|react|반응하다, 반작용하다|react to stimuli|자극에 반응하다
-20-14|urban|도시의|urban area|도시 지역
-20-14|rural|시골의|rural life|시골 생활
-20-14|complicated|복잡한|complicated problem|복잡한 문제
-20-14|resident|거주자, 레지던트(수련의), 거주하는|local resident|지역 주민
-20-14|familiar|익숙한, 친숙한, 잘 아는|familiar face|낯익은 얼굴
-20-14|miracle|기적|it's a miracle|기적이다
-20-14|companion|동반자, 동행, 친구|travel companion|여행 동반자 [C]
+20-14|occupation|(명) 직업, 점유|choosing an occupation|직업 선택
+20-14|supervise|(동) 감독하다, 관리하다, 통제하다|supervise work|일을 감독하다
+20-14|specialize|(동) 전문적으로 하다, 전공하다|specialize in law|법을 전공하다
+20-14|bond|(명) 유대, 결속, 채권|strong bond|강한 유대감
+20-14|certificate|(명) 증명서, 자격증|gift certificate|상품권
+20-14|chief|(명) (단체의) 장, 우두머리 (형) 주요한, 최고의|chief editor|편집장
+20-14|collaborate|(동) 협력하다|collaborate with others|타인과 협력하다
+20-14|deprive|(동) 박탈하다|deprive of sleep|잠을 빼앗다
+20-14|colleague|(명) (직장) 동료|work colleague|직장 동료
+20-14|shift|(동) 바꾸다, 이동하다 (명) 변화, 이동, 교대|night shift|야간 근무
+20-14|outcome|(명) 결과, 성과|final outcome|최종 결과
+20-14|exceed|(동) 넘어서다, 초과하다|exceed the limit|한도를 초과하다
+20-14|procedure|(명) 절차, 수순|safety procedure|안전 절차
+20-14|attendant|(명) 종업원, 수행원|flight attendant|승무원
+20-14|negotiation|(명) 협상|peace negotiation|평화 협상
+20-14|incentive|(명) 동기, 유인, 장려(책)|give an incentive|인센티브를 주다
+20-14|strategy|(명) 전략|marketing strategy|마케팅 전략
+20-14|challenge|(명) 도전, 난관 (동) 도전하다|face a challenge|도전에 직면하다
+20-14|routine|(명) 일과, 늘 하던 방식 (형) 일상적인|daily routine|일과
+20-14|shelter|(명) 피난처, 주거지, 보호소 (동) 보호하다, 피하다|find shelter|피난처를 찾다
+20-14|withdraw|(동) 인출하다, 철회하다|withdraw money|돈을 인출하다 [W]
+20-14|deposit|(동) 예금하다, 맡기다 (명) 예금, 보증금|deposit money|돈을 예금하다 [D]
+20-14|secure|(형) 안전한, 안정된 (동) 안전하게 하다|secure job|안정된 직업
+20-14|chore|(명) 허드렛일, 집안일|household chores|집안일
+20-14|react|(동) 반응하다, 반작용하다|react to stimuli|자극에 반응하다
+20-14|urban|(형) 도시의|urban area|도시 지역
+20-14|rural|(형) 시골의|rural life|시골 생활
+20-14|complicated|(형) 복잡한|complicated problem|복잡한 문제
+20-14|resident|(명) 거주자, 레지던트 (형) 거주하는|local resident|지역 주민
+20-14|familiar|(형) 익숙한, 친숙한, 잘 아는|familiar face|낯익은 얼굴
+20-14|miracle|(명) 기적|it's a miracle|기적이다
+20-14|companion|(명) 동반자, 동행, 친구|travel companion|여행 동반자 [C]
 20-14|keep up with|~에 뒤처지지 않다, ~을 따라가다|keep up with trends|유행을 따라가다 [3]
 20-14|make the most of|~을 최대한 활용하다|make the most of time|시간을 최대한 활용하다 [4]
-20-14|exchange|교환, 환전, 교환하다, 환전하다|exchange gifts|선물을 교환하다
-20-14|strain|긴장, 부담, 긴장시키다, 혹사하다|eye strain|눈의 피로
-20-14|adventure|모험|go on an adventure|모험을 떠나다
-20-14|destination|목적지, 도착지, 목표|final destination|최종 목적지
-20-14|accompany|동행하다, 수반하다|accompany a friend|친구와 동행하다 [A]
-20-14|remote|먼, 외진, 원격의|remote control|원격 조종(리모컨)
+20-14|exchange|(명) 교환, 환전 (동) 교환하다, 환전하다|exchange gifts|선물을 교환하다
+20-14|strain|(명) 긴장, 부담 (동) 긴장시키다, 혹사하다|eye strain|눈의 피로
+20-14|adventure|(명) 모험|go on an adventure|모험을 떠나다
+20-14|destination|(명) 목적지, 도착지, 목표|final destination|최종 목적지
+20-14|accompany|(동) 동행하다, 수반하다|accompany a friend|친구와 동행하다 [A]
+20-14|remote|(형) 먼, 외진, 원격의|remote control|원격 조종
 
 
-20-15|dominate|지배하다, 우세하다|dominate the market|시장을 장악하다 [D]
-20-15|govern|통치하다, 지배(좌우)하다|govern a country|나라를 통치하다 [G]
-20-15|domestic|국내의, 가정의|domestic flight|국내선 비행기
-20-15|territory|영토, 세력권|enemy territory|적의 영토
-20-15|wield|(권력을) 행사하다, (무기를) 휘두르다|wield power|권력을 휘두르다
-20-15|region|지역, 지방, 영역|tropical region|열대 지방
-20-15|immigration|이민, 이주|illegal immigration|불법 이민
-20-15|diplomat|외교관|foreign diplomat|외국 외교관
-20-15|candidate|후보자|presidential candidate|대통령 후보
-20-15|compromise|타협하다, 손상시키다, 타협|reach a compromise|타협에 이르다
-20-15|radical|급진적인, 과격한, 급진주의자|radical change|급진적인 변화
-20-15|administration|관리, 경영, 행정부|obama administration|오바마 행정부
-20-15|executive|중역, 간부, 경영진, 실행하는|chief executive officer|최고 경영자(ceo)
-20-15|refuge|피난, 은신처, 위안|take refuge|피난하다
-20-15|authority|권위, 당국|moral authority|도덕적 권위
-20-15|democracy|민주주의, 민주 국가|restore democracy|민주주의를 회복하다
+20-15|dominate|(동) 지배하다, 우세하다|dominate the market|시장을 장악하다 [D]
+20-15|govern|(동) 통치하다, 지배(좌우)하다|govern a country|나라를 통치하다 [G]
+20-15|domestic|(형) 국내의, 가정의|domestic flight|국내선 비행기
+20-15|territory|(명) 영토, 세력권|enemy territory|적의 영토
+20-15|wield|(동) (권력을) 행사하다, (무기를) 휘두르다|wield power|권력을 휘두르다
+20-15|region|(명) 지역, 지방, 영역|tropical region|열대 지방
+20-15|immigration|(명) 이민, 이주|illegal immigration|불법 이민
+20-15|diplomat|(명) 외교관|foreign diplomat|외국 외교관
+20-15|candidate|(명) 후보자|presidential candidate|대통령 후보
+20-15|compromise|(동) 타협하다, 손상시키다 (명) 타협|reach a compromise|타협에 이르다
+20-15|radical|(형) 급진적인, 과격한 (명) 급진주의자|radical change|급진적인 변화
+20-15|administration|(명) 관리, 경영, 행정부|Obama administration|오바마 행정부
+20-15|executive|(명) 중역, 간부, 경영진 (형) 실행하는|chief executive officer|최고 경영자(ceo)
+20-15|refuge|(명) 피난, 은신처, 위안|take refuge|피난하다
+20-15|authority|(명) 권위, 당국|moral authority|도덕적 권위
+20-15|democracy|(명) 민주주의, 민주 국가|restore democracy|민주주의를 회복하다
 20-15|in charge of|~할 책임이 있는, ~을 담당하는|be in charge of|~을 담당하다
-20-15|suspect|의심하다, 용의자|main suspect|유력 용의자
-20-15|sue|고소하다, 소송을 제기하다|sue for damages|손해 배상 청구 소송을 하다
-20-15|violate|위반하다, 침해하다|violate the law|법을 위반하다
-20-15|patent|특허, 특허권, 특허를 받다|apply for a patent|특허를 출원하다
-20-15|equivalent|동등한, 상당하는, 동등한 것|equivalent to money|돈과 동등한
-20-15|witness|목격자, 증인, 목격하다, 증언하다|eye witness|목격자
-20-15|priority|우선 사항, 우선권|top priority|최우선 순위
-20-15|ban|금지하다, 금지|ban smoking|흡연을 금지하다
-20-15|imprison|투옥하다, 감금하다|be imprisoned|투옥되다
-20-15|justify|정당화하다|justify an action|행동을 정당화하다
-20-15|privilege|특권, 특혜, 특권을 주다|special privilege|특권
-20-15|dispute|논쟁, 분쟁, 논쟁하다, 반박하다|border dispute|국경 분쟁
+20-15|suspect|(동) 의심하다 (명) 용의자|main suspect|유력 용의자
+20-15|sue|(동) 고소하다, 소송을 제기하다|sue for damages|손해 배상 청구 소송을 하다
+20-15|violate|(동) 위반하다, 침해하다|violate the law|법을 위반하다
+20-15|patent|(명) 특허, 특허권 (동) 특허를 받다|apply for a patent|특허를 출원하다
+20-15|equivalent|(형) 동동한, 상당하는 (명) 동등한 것|equivalent to money|돈과 동등한
+20-15|witness|(명) 목격자, 증인 (동) 목격하다, 증언하다|eye witness|목격자
+20-15|priority|(명) 우선 사항, 우선권|top priority|최우선 순위
+20-15|ban|(동) 금지하다 (명) 금지|ban smoking|흡연을 금지하다
+20-15|imprison|(동) 투옥하다, 감금하다|be imprisoned|투옥되다
+20-15|justify|(동) 정당화하다|justify an action|행동을 정당화하다
+20-15|privilege|(명) 특권, 특혜 (동) 특권을 주다|special privilege|특권
+20-15|dispute|(명) 논쟁, 분쟁 (동) 논쟁하다, 반박하다|border dispute|국경 분쟁
 20-15|regardless of|~에 상관없이|regardless of age|나이에 상관없이
-20-15|fund|기금, 자금, 자금을 대다|raise funds|자금을 모으다
-20-15|promote|촉진하다, 홍보하다, 승진시키다|promote health|건강을 증진하다
-20-15|owe|빚지다, 신세지다|owe money|돈을 빚지다
-20-15|debt|빚, 부채|pay off debt|빚을 갚다
-20-15|commission|수수료, 위원회|sales commission|판매 수수료
-20-15|refund|환불, 환불하다|full refund|전액 환불
-20-15|distribute|배포하다, 분배하다|distribute food|음식을 나눠주다
-20-15|property|재산, 특성|private property|사유 재산
-20-15|commodity|상품, 물품, 일용품|basic commodity|생필품
-20-15|industrialize|산업화하다|industrialized nation|산업화된 국가
+20-15|fund|(명) 기금, 자금 (동) 자금을 대다|raise funds|자금을 모으다
+20-15|promote|(동) 촉진하다, 홍보하다, 승진시키다|promote health|건강을 증진하다
+20-15|owe|(동) 빚지다, 신세지다|owe money|돈을 빚지다
+20-15|debt|(명) 빚, 부채|pay off debt|빚을 갚다
+20-15|commission|(명) 수수료, 위원회|sales commission|판매 수수료
+20-15|refund|(명) 환불 (동) 환불하다|full refund|전액 환불
+20-15|distribute|(동) 배포하다, 분배하다|distribute food|음식을 나눠주다
+20-15|property|(명) 재산, 특성|private property|사유 재산
+20-15|commodity|(명) 상품, 물품, 일용품|basic commodity|생필품
+20-15|industrialize|(동) 산업화하다|industrialized nation|산업화된 국가
 
 
-20-16|mixture|혼합, 혼합물|complex mixture|복잡한 혼합물
-20-16|burst|폭발하다, 터뜨리다, 파열|burst into tears|왈칵 울음을 터뜨리다
-20-16|method|방법, 수단|scientific method|과학적 방법
-20-16|laboratory|실험실, 실험용의|research laboratory|연구 실험실
-20-16|observation|관찰, 관측, 의견|careful observation|주의 깊은 관찰
-20-16|toxic|독성의, 유독한|toxic waste|유독성 폐기물
-20-16|vapor|증기, 수증기, 증발하다|water vapor|수증기
-20-16|gas|기체|natural gas|천연가스
-20-16|fluid|유체, 유동체, 유동체의|body fluid|체액 [F]
-20-16|liquid|액체, 액체의, 유동체의|liquid state|액체 상태 [L]
-20-16|solid|고체, 고체의, 견고한|solid evidence|확실한 증거
-20-16|metal|금속|precious metal|귀금속
-20-16|extract|추출하다, 뽑아내다, 추출물|extract oil|기름을 추출하다
-20-16|hypothesis|가설, 가정|test a hypothesis|가설을 검증하다
-20-16|gravity|중력, 중대성|law of gravity|중력의 법칙
-20-16|particle|입자, 극소량|tiny particle|아주 작은 입자
-20-16|component|성분, 구성 요소, 부품|key component|핵심 구성 요소
-20-16|molecule|분자, 미량|water molecule|물 분자
+
+20-16|mixture|(명) 혼합, 혼합물|complex mixture|복잡한 혼합물
+20-16|burst|(동) 폭발하다, 터뜨리다 (명) 파열|burst into tears|왈칵 울음을 터뜨리다
+20-16|method|(명) 방법, 수단|scientific method|과학적 방법
+20-16|laboratory|(명) 실험실 (형) 실험용의|research laboratory|연구 실험실
+20-16|observation|(명) 관찰, 관측, 의견|careful observation|주의 깊은 관찰
+20-16|toxic|(형) 독성의, 유독한|toxic waste|유독성 폐기물
+20-16|vapor|(명) 증기, 수증기 (동) 증발하다|water vapor|수증기
+20-16|gas|(명) 기체|natural gas|천연가스
+20-16|fluid|(명) 유체, 유동체 (형) 유동체의|body fluid|체액 [F]
+20-16|liquid|(명) 액체 (형) 액체의, 유동체의|liquid state|액체 상태 [L]
+20-16|solid|(명) 고체 (형) 고체의, 견고한|solid evidence|확실한 증거
+20-16|metal|(명) 금속|precious metal|귀금속
+20-16|extract|(동) 추출하다, 뽑아내다 (명) 추출물|extract oil|기름을 추출하다
+20-16|hypothesis|(명) 가설, 가정|test a hypothesis|가설을 검증하다
+20-16|gravity|(명) 중력, 중대성|law of gravity|중력의 법칙
+20-16|particle|(명) 입자, 극소량|tiny particle|아주 작은 입자
+20-16|component|(명) 성분, 구성 요소, 부품|key component|핵심 구성 요소
+20-16|molecule|(명) 분자, 미량|water molecule|물 분자
 20-16|keep A from -ing|~가 ~하는 것을 막다|keep him from going|그가 가는 것을 막다 [4]
-20-16|habitat|서식지, 주거지|natural habitat|자연 서식지
-20-16|species|종, 종류|endangered species|멸종 위기종
-20-16|mammal|포유동물|marine mammal|해양 포유류
-20-16|predator|포식자, 약탈자|top predator|최상위 포식자
-20-16|migrate|이주하다, 이동하다|birds migrate|새들이 이동하다
-20-16|survive|살아남다, 생존하다, 견디다|survive in the wild|야생에서 살아남다
-20-16|skeleton|해골, 뼈대|human skeleton|인간의 뼈대
-20-16|nerve|신경|nerve cell|신경 세포
-20-16|stem|줄기, 유래하다|stem from|~에서 유래하다
-20-16|organism|유기체, 생물|living organism|살아있는 유기체
-20-16|branch|나뭇가지, 지점, 분과|branch office|지점
-20-16|tissue|조직, 화장지|muscle tissue|근육 조직
+20-16|habitat|(명) 서식지, 주거지|natural habitat|자연 서식지
+20-16|species|(명) 종, 종류|endangered species|멸종 위기종
+20-16|mammal|(명) 포유동물|marine mammal|해양 포유류
+20-16|predator|(명) 포식자, 약탈자|top predator|최상위 포식자
+20-16|migrate|(동) 이주하다, 이동하다|Birds migrate.|새들이 이동하다.
+20-16|survive|(동) 살아남다, 생존하다, 견디다|survive in the wild|야생에서 살아남다
+20-16|skeleton|(명) 해골, 뼈대|human skeleton|인간의 뼈대
+20-16|nerve|(명) 신경|nerve cell|신경 세포
+20-16|stem|(명) 줄기 (동) 유래하다|stem from|~에서 유래하다
+20-16|organism|(명) 유기체, 생물|living organism|살아있는 유기체
+20-16|branch|(명) 나뭇가지, 지점, 분과|branch office|지점
+20-16|tissue|(명) 조직, 화장지|muscle tissue|근육 조직
 20-16|come up with|~을 생각해 내다|come up with an idea|아이디어를 생각해 내다 [3]
-20-16|volcanic|화산의, 화산 작용에 의한|volcanic eruption|화산 폭발
-20-16|vibrate|떨다, 진동하다, 울리다|phone vibrates|전화기가 진동한다
-20-16|layer|층, 층층이 쌓다|ozone layer|오존층
-20-16|temperature|온도, 기온, 체온|room temperature|상온(실온)
-20-16|glacier|빙하|melting glaciers|녹는 빙하들
-20-16|astronomy|천문학|study astronomy|천문학을 공부하다
-20-16|ray|빛, 광선|x-ray|엑스선
+20-16|volcanic|(형) 화산의, 화산 작용에 의한|volcanic eruption|화산 폭발
+20-16|vibrate|(동) 떨다, 진동하다, 울리다|Phone vibrates.|전화기가 진동한다.
+20-16|layer|(명) 층 (동) 층층이 쌓다|ozone layer|오존층
+20-16|temperature|(명) 온도, 기온, 체온|room temperature|상온(실온)
+20-16|glacier|(명) 빙하|melting glaciers|녹는 빙하들
+20-16|astronomy|(명) 천문학|study astronomy|천문학을 공부하다
+20-16|ray|(명) 빛, 광선|x-ray|엑스선
 20-16|consist of|~으로 이루어지다[구성되다]|consist of water|물로 구성되다 [2]
 
-20-17|conquer|정복하다, 극복하다, 이기다|conquer fear|두려움을 정복하다(극복하다)
-20-17|heritage|유산|cultural heritage|문화 유산
-20-17|artificial|인공의, 인위적인, 인조의|artificial intelligence|인공 지능
-20-17|conventional|전통적인, 관습적인|conventional wisdom|사회적 통념(관습적 지혜)
-20-17|colonial|식민지의|colonial period|식민지 시대
-20-17|noble|귀족의, 고귀한, 귀족|noble deed|고귀한 행위
-20-17|ascend|오르다, 올라가다|ascend the throne|왕위에 오르다
-20-17|empower|권능을 주다, 권한을 주다|empower women|여성에게 권한을 주다
-20-17|be derived from|~에서 유래하다, ~에서 파생되다|be derived from latin|라틴어에서 유래하다 [3]
-20-17|take - into account|~을 고려[참작]하다|take it into account|그것을 고려하다 [3]
-20-17|philosophy|철학|moral philosophy|도덕 철학
-20-17|profound|심오한, 깊은|profound effect|심오한(지대한) 영향
-20-17|shallow|얕은, 피상적인, 천박한|shallow water|얕은 물
-20-17|oppose|반대하다, 방해하다, 대항하다|oppose the plan|계획에 반대하다
-20-17|spirit|정신, 영혼|team spirit|협동심(팀 정신)
-20-17|ritual|의식, 의식의, 의례적인|religious ritual|종교 의식
-20-17|substance|물질, 실체, 본질|toxic substance|유독 물질
-20-17|prejudice|편견, 편견을 갖게 하다|racial prejudice|인종적 편견 [P]
-20-17|bias|편견, 편향, 편견[선입견]을 갖게 하다|gender bias|성차별(편향) [B]
-20-17|ultimate|궁극적인, 최후의, 최고의|ultimate goal|궁극적인 목표
-20-17|absolute|절대적인, 완전한|absolute power|절대 권력
-20-17|humanity|인류, 인간성, 인간애|serve humanity|인류에 봉사하다
-20-17|draft|초안, 밑그림, 초안을 작성하다|rough draft|대략적인 초안
-20-17|spell|철자를 말하다(쓰다), 마법, 한동안(잠깐)|cast a spell|마법을 걸다
-20-17|modify|수정하다, 변형하다|modify the plan|계획을 수정하다
-20-17|comic|희극의, 웃기는|comic book|만화책
-20-17|tragic|비극의, 비참한|tragic ending|비극적인 결말
-20-17|simplify|단순화하다, 간소화하다|simplify the process|과정을 단순화하다
-20-17|myth|신화, (근거 없는) 사회적 통념|greek myth|그리스 신화
-20-17|imply|함축하다, 암시하다|imply a meaning|의미를 암시하다
-20-17|context|(글의) 맥락, (사건의) 정황|in this context|이러한 맥락에서
-20-17|inherent|내재하는, 고유의, 타고난|inherent risk|내재적 위험
-20-17|outline|윤곽을 그리다, 개요를 말하다, 개요, 윤곽|outline the plan|계획의 개요를 서술하다
-20-17|translate|번역하다|translate into english|영어로 번역하다
-20-17|series|연속, 시리즈|a series of events|일련의 사건들
-20-17|plot|줄거리, 음모, 음모를 꾸미다|movie plot|영화 줄거리
-20-17|paradoxically|역설적으로|paradoxically, it helps|역설적으로, 그것은 도움이 된다 [P]
-20-17|ironically|반어적으로, 역설적으로|ironically, he lost|아이러니하게도, 그가 졌다 [I]
-20-17|metaphor|비유, 은유|use a metaphor|은유를 사용하다
-20-17|fiction|소설, 허구|science fiction|공상 과학 소설
 
-20-18|creative|창의적인|creative thinking|창의적 사고
-20-18|abstract|추상적인, 개요, 추출하다, 요약하다|abstract art|추상 미술
-20-18|concrete|구체적인, 콘크리트|concrete evidence|구체적인 증거
-20-18|masterpiece|걸작, 명작|a true masterpiece|진정한 걸작
-20-18|polish|닦다, 윤(광)내다, 다듬다, 광택제|polish shoes|구두를 닦다
-20-18|craft|공예, 기술, 공들여 만들다|arts and crafts|미술과 공예
-20-18|authentic|진짜의, 진본[진품]인|authentic food|정통(진정한) 음식
-20-18|sculpture|조각, 조각하다|bronze sculpture|청동 조각상
-20-18|precious|귀중한, 소중한|precious stone|보석(귀중한 돌)
-20-18|proportion|비율, 부분, 균형|in proportion to|~에 비례하여
-20-18|portrait|초상화|self-portrait|자화상
-20-18|play a role|(~에서) 역할을 하다|play a role in|~에서 역할을 하다
-20-18|elaborate|정교한, 공들인|elaborate design|정교한 디자인
-20-18|external|외부의|external factor|외부 요인
-20-18|internal|내부의|internal organ|내장 기관
-20-18|memorial|기념물, 기념의, 추도의|war memorial|전쟁 기념비
-20-18|differ|다르다|opinions differ|의견이 다르다
-20-18|distinguish|구별하다|distinguish a from b|a와 b를 구별하다
-20-18|contrast|대조, 대비, 대조를 이루다|in contrast to|~와 대조적으로
-20-18|architect|건축가|famous architect|유명한 건축가
-20-18|institute|연구소, 협회, 설립하다|research institute|연구소
-20-18|coordinate|조정하다, 동등한|coordinate efforts|노력을 조정하다(협력하다)
-20-18|collapse|무너지다, 붕괴하다|building collapsed|건물이 붕괴했다
-20-18|entertain|즐겁게 하다|entertain guests|손님을 즐겁게 하다
-20-18|compose|구성하다, 작곡하다, 조정하다|compose music|음악을 작곡하다
-20-18|orchestra|오케스트라, 관현악단|symphony orchestra|교향악단
-20-18|rehearse|연습(시연)하다, 리허설을 하다|rehearse a play|연극을 연습하다
-20-18|popularity|인기|gain popularity|인기를 얻다
-20-18|perform|공연하다, 실행하다|perform on stage|무대에서 공연하다
-20-18|impressive|인상적인, 감동적인|impressive performance|인상적인 공연
-20-18|flash|번쩍이다, 번쩍임, 플래시|lightning flashed|번개가 쳤다(번쩍였다)
-20-18|harmonize|조화를 이루다, 화음을 넣다|harmonize with|~와 조화를 이루다
-20-18|encounter|만나다, 마주치다, 마주침|encounter a problem|문제에 부닥치다
-20-18|socialize|사회화하다, 교제하다|socialize with friends|친구들과 어울리다
-20-18|imaginative|상상력이 풍부한, 상상의|imaginative writer|상상력이 풍부한 작가
-20-18|magical|마법의|magical power|마법의 힘
-20-18|theme|주제, 테마|main theme|주요 테마(주제)
-20-18|entrance|입장, 입구, 입학|entrance exam|입학 시험
-20-18|classical|고전의, 클래식의|classical music|고전 음악
+20-17|conquer|(동) 정복하다, 극복하다, 이기다|conquer fear|두려움을 정복하다(극복하다)
+20-17|heritage|(명) 유산|cultural heritage|문화 유산
+20-17|artificial|(형) 인공의, 인위적인, 인조의|artificial intelligence|인공 지능
+20-17|conventional|(형) 전통적인, 관습적인|conventional wisdom|사회적 통념
+20-17|colonial|(형) 식민지의|colonial period|식민지 시대
+20-17|noble|(형) 귀족의, 고귀한 (명) 귀족|noble deed|고귀한 행위
+20-17|ascend|(동) 오르다, 올라가다|ascend the throne|왕위에 오르다
+20-17|empower|(동) 권능을 주다, 권한을 주다|empower women|여성에게 권한을 주다
+20-17|be derived from|~에서 유래하다, ~에서 파생되다|be derived from Latin|라틴어에서 유래하다 [3]
+20-17|take - into account|~을 고려[참작]하다|take it into account|그것을 고려하다 [3]
+20-17|philosophy|(명) 철학|moral philosophy|도덕 철학
+20-17|profound|(형) 심오한, 깊은|profound effect|심오한 영향
+20-17|shallow|(형) 얕은, 피상적인, 천박한|shallow water|얕은 물
+20-17|oppose|(동) 반대하다, 방해하다, 대항하다|oppose the plan|계획에 반대하다
+20-17|spirit|(명) 정신, 영혼|team spirit|협동심
+20-17|ritual|(명) 의식 (형) 의식의, 의례적인|religious ritual|종교 의식
+20-17|substance|(명) 물질, 실체, 본질|toxic substance|유독 물질
+20-17|prejudice|(명) 편견 (동) 편견을 갖게 하다|racial prejudice|인종적 편견 [P]
+20-17|bias|(명) 편견, 편향 (동) 편견[선입견]을 갖게 하다|gender bias|성차별 [B]
+20-17|ultimate|(형) 궁극적인, 최후의, 최고의|ultimate goal|궁극적인 목표
+20-17|absolute|(형) 절대적인, 완전한|absolute power|절대 권력
+20-17|humanity|(명) 인류, 인간성, 인간애|serve humanity|인류에 봉사하다
+20-17|draft|(명) 초안, 밑그림 (동) 초안을 작성하다|rough draft|대략적인 초안
+20-17|spell|(동) 철자를 말하다 (명) 마법, 한동안|cast a spell|마법을 걸다
+20-17|modify|(동) 수정하다, 변형하다|modify the plan|계획을 수정하다
+20-17|comic|(형) 희극의, 웃기는|comic book|만화책
+20-17|tragic|(형) 비극의, 비참한|tragic ending|비극적인 결말
+20-17|simplify|(동) 단순화하다, 간소화하다|simplify the process|과정을 단순화하다
+20-17|myth|(명) 신화, 사회적 통념|Greek myth|그리스 신화
+20-17|imply|(동) 함축하다, 암시하다|imply a meaning|의미를 암시하다
+20-17|context|(명) 맥락, 정황|in this context|이러한 맥락에서
+20-17|inherent|(형) 내재하는, 고유의, 타고난|inherent risk|내재적 위험
+20-17|outline|(동) 윤곽을 그리다, 개요를 말하다 (명) 개요, 윤곽|outline the plan|계획의 개요를 서술하다
+20-17|translate|(동) 번역하다|translate into English|영어로 번역하다
+20-17|series|(명) 연속, 시리즈|a series of events|일련의 사건들
+20-17|plot|(명) 줄거리, 음모 (동) 음모를 꾸미다|movie plot|영화 줄거리
+20-17|paradoxically|(부) 역설적으로|Paradoxically, it helps.|역설적으로, 그것은 도움이 된다. [P]
+20-17|ironically|(부) 반어적으로, 역설적으로|Ironically, he lost.|아이러니하게도, 그가 졌다. [I]
+20-17|metaphor|(명) 비유, 은유|use a metaphor|은유를 사용하다
+20-17|fiction|(명) 소설, 허구|science fiction|공상 과학 소설
+
+
+20-18|creative|(형) 창의적인|creative thinking|창의적 사고
+20-18|abstract|(형) 추상적인 (명) 개요 (동) 추출하다, 요약하다|abstract art|추상 미술
+20-18|concrete|(형) 구체적인 (명) 콘크리트|concrete evidence|구체적인 증거
+20-18|masterpiece|(명) 걸작, 명작|a true masterpiece|진정한 걸작
+20-18|polish|(동) 닦다, 윤(광)내다, 다듬다 (명) 광택제|polish shoes|구두를 닦다
+20-18|craft|(명) 공예, 기술 (동) 공들여 만들다|arts and crafts|미술과 공예
+20-18|authentic|(형) 진짜의, 진본[진품]인|authentic food|정통(진정한) 음식
+20-18|sculpture|(명) 조각 (동) 조각하다|bronze sculpture|청동 조각상
+20-18|precious|(형) 귀중한, 소중한|precious stone|보석
+20-18|proportion|(명) 비율, 부분, 균형|in proportion to|~에 비례하여
+20-18|portrait|(명) 초상화|self-portrait|자화상
+20-18|play a role| 역할을 하다|play a role in|~에서 역할을 하다
+20-18|elaborate|(형) 정교한, 공들인|elaborate design|정교한 디자인
+20-18|external|(형) 외부의|external factor|외부 요인
+20-18|internal|(형) 내부의|internal organ|내장 기관
+20-18|memorial|(명) 기념물 (형) 기념의, 추도의|war memorial|전쟁 기념비
+20-18|differ|(동) 다르다|Opinions differ.|의견이 다르다.
+20-18|distinguish|(동) 구별하다|distinguish A from B|A와 B를 구별하다
+20-18|contrast|(명) 대조, 대비 (동) 대조를 이루다|in contrast to|~와 대조적으로
+20-18|architect|(명) 건축가|famous architect|유명한 건축가
+20-18|institute|(명) 연구소, 협회 (동) 설립하다|research institute|연구소
+20-18|coordinate|(동) 조정하다 (형) 동등한|coordinate efforts|노력을 조정하다
+20-18|collapse|(동) 무너지다, 붕괴하다|Building collapsed.|건물이 붕괴했다.
+20-18|entertain|(동) 즐겁게 하다|entertain guests|손님을 즐겁게 하다
+20-18|compose|(동) 구성하다, 작곡하다, 조정하다|compose music|음악을 작곡하다
+20-18|orchestra|(명) 오케스트라, 관현악단|symphony orchestra|교향악단
+20-18|rehearse|(동) 연습(시연)하다, 리허설을 하다|rehearse a play|연극을 연습하다
+20-18|popularity|(명) 인기|gain popularity|인기를 얻다
+20-18|perform|(동) 공연하다, 실행하다|perform on stage|무대에서 공연하다
+20-18|impressive|(형) 인상적인, 감동적인|impressive performance|인상적인 공연
+20-18|flash|(동) 번쩍이다 (명) 번쩍임, 플래시|Lightning flashed.|번개가 쳤다.
+20-18|harmonize|(동) 조화를 이루다, 화음을 넣다|harmonize with|~와 조화를 이루다
+20-18|encounter|(동) 만나다, 마주치다 (명) 마주침|encounter a problem|문제에 부닥치다
+20-18|socialize|(동) 사회화하다, 교제하다|socialize with friends|친구들과 어울리다
+20-18|imaginative|(형) 상상력이 풍부한, 상상의|imaginative writer|상상력이 풍부한 작가
+20-18|magical|(형) 마법의|magical power|마법의 힘
+20-18|theme|(명) 주제, 테마|main theme|주요 테마
+20-18|entrance|(명) 입장, 입구, 입학|entrance exam|입학 시험
+20-18|classical|(형) 고전의, 클래식의|classical music|고전 음악
 20-18|be associated with|~와 관련[연관]되다|be associated with risk|위험과 관련되다 [3]
 
 
-20-19|electronic|전자의|electronic device|전자기기
-20-19|multiply|곱하다|multiply numbers|수를 곱하다
-20-19|upload|업로드하다, 업로드|upload a file|파일을 업로드하다
-20-19|download|다운로드하다, 다운로드|download music|음악을 다운로드하다
-20-19|virtual|가상의, 사실상의|virtual reality|가상 현실
-20-19|activate|작동시키다, 활성화시키다|activate a system|시스템을 가동하다
-20-19|nuclear|원자력의, 핵의|nuclear energy|핵에너지
-20-19|install|설치하다|install software|소프트웨어를 설치하다
-20-19|circuit|회로, 순환|electric circuit|전기 회로
-20-19|maximize|최대화하다|maximize profit|이익을 극대화하다
-20-19|minimize|최소화하다|minimize risk|위험을 최소화하다
-20-19|sort|종류, 부류, 분류하다|sort by size|크기별로 분류하다
-20-19|automatic|자동의, 무의식적인|automatic door|자동문
-20-19|manual|수동의, 육체노동의, 설명서|manual labor|육체노동
-20-19|visual|시각의, 눈에 보이는, 시각 자료|visual aids|시각 자료
-20-19|recharge|충전하다, 재충전하다|recharge batteries|배터리를 재충전하다
-20-19|numerous|다수의, 수많은|numerous books|수많은 책
-20-19|statistics|통계, 통계 자료, 통계학|according to statistics|통계에 따르면
-20-19|angle|각도|different angle|다른 각도
-20-19|equation|방정식|solve an equation|방정식을 풀다
-20-19|ride|(탈것을) 타다, 승마하다, 타고 가기|ride a bike|자전거를 타다
-20-19|crash|추락하다, 충돌하다, 충돌, 폭락|plane crash|비행기 추락 사고
-20-19|rush|서두르다, 돌진하다|rush hour|혼잡 시간대
-20-19|bump|부딪치다, 혹|bump into|~와 부딪치다
-20-19|aircraft|항공기|military aircraft|군용기
-20-19|astronaut|우주 비행사|become an astronaut|우주 비행사가 되다
-20-19|mechanical|기계의, 역학의, 기계적인|mechanical engineer|기계 공학자
-20-19|loosen|풀다, 느슨하게 하다|loosen the tie|넥타이를 느슨하게 하다
-20-19|spare|여분의, 예비의, 할애하다, 아끼다|spare tire|스페어타이어
-20-19|rough|거친, 대강의|rough surface|거친 표면
-20-19|transport|수송하다, 운반하다, 수송|public transport|대중교통
-20-19|passenger|승객|train passenger|기차 승객
-20-19|commute|통근하다, 통근, 통근 거리(시간)|commute to work|직장으로 통근하다
-20-19|inspect|(세밀히) 조사하다|inspect the car|차를 점검하다
-20-19|accelerate|가속하다, 촉진하다|accelerate growth|성장을 가속하다
-20-19|navigate|항해하다, 조종하다, 길을 찾다|navigate the sea|바다를 항해하다
-20-19|shipment|수송, 선적, 수송품|overseas shipment|해외 배송
-20-19|assemble|조립하다, 모으다|assemble a computer|컴퓨터를 조립하다
+20-19|electronic|(형) 전자의|electronic device|전자기기
+20-19|multiply|(동) 곱하다|multiply numbers|수를 곱하다
+20-19|upload|(동) 업로드하다 (명) 업로드|upload a file|파일을 업로드하다
+20-19|download|(동) 다운로드하다 (명) 다운로드|download music|음악을 다운로드하다
+20-19|virtual|(형) 가상의, 사실상의|virtual reality|가상 현실
+20-19|activate|(동) 작동시키다, 활성화시키다|activate a system|시스템을 가동하다
+20-19|nuclear|(형) 원자력의, 핵의|nuclear energy|핵에너지
+20-19|install|(동) 설치하다|install software|소프트웨어를 설치하다
+20-19|circuit|(명) 회로, 순환|electric circuit|전기 회로
+20-19|maximize|(동) 최대화하다|maximize profit|이익을 극대화하다
+20-19|minimize|(동) 최소화하다|minimize risk|위험을 최소화하다
+20-19|sort|(명) 종류, 부류 (동) 분류하다|sort by size|크기별로 분류하다
+20-19|automatic|(형) 자동의, 무의식적인|automatic door|자동문
+20-19|manual|(형) 수동의, 육체노동의 (명) 설명서|manual labor|육체노동
+20-19|visual|(형) 시각의, 눈에 보이는 (명) 시각 자료|visual aids|시각 자료
+20-19|recharge|(동) 충전하다, 재충전하다|recharge batteries|배터리를 재충전하다
+20-19|numerous|(형) 다수의, 수많은|numerous books|수많은 책
+20-19|statistics|(명) 통계, 통계 자료, 통계학|according to statistics|통계에 따르면
+20-19|angle|(명) 각도|different angle|다른 각도
+20-19|equation|(명) 방정식|solve an equation|방정식을 풀다
+20-19|ride|(동) (탈것을) 타다, 승마하다 (명) 타고 가기|ride a bike|자전거를 타다
+20-19|crash|(동) 추락하다, 충돌하다 (명) 추락, 충돌, 폭락|plane crash|비행기 추락 사고
+20-19|rush|(동) 서두르다, 돌진하다|rush hour|혼잡 시간대
+20-19|bump|(동) 부딪치다 (명) 혹|bump into|~와 부딪치다
+20-19|aircraft|(명) 항공기|military aircraft|군용기
+20-19|astronaut|(명) 우주 비행사|become an astronaut|우주 비행사가 되다
+20-19|mechanical|(형) 기계의, 역학의, 기계적인|mechanical engineer|기계 공학자
+20-19|loosen|(동) 풀다, 느슨하게 하다|loosen the tie|넥타이를 느슨하게 하다
+20-19|spare|(형) 여분의, 예비의 (동) 할애하다, 아끼다|spare tire|스페어타이어
+20-19|rough|(형) 거친, 대강의|rough surface|거친 표면
+20-19|transport|(동) 수송하다, 운반하다 (명) 수송|public transport|대중교통
+20-19|passenger|(명) 승객|train passenger|기차 승객
+20-19|commute|(동) 통근하다 (명) 통근, 통근 거리(시간)|commute to work|직장으로 통근하다
+20-19|inspect|(동) (세밀히) 조사하다|inspect the car|차를 점검하다
+20-19|accelerate|(동) 가속하다, 촉진하다|accelerate growth|성장을 가속하다
+20-19|navigate|(동) 항해하다, 조종하다, 길을 찾다|navigate the sea|바다를 항해하다
+20-19|shipment|(명) 수송, 선적, 수송품|overseas shipment|해외 배송
+20-19|assemble|(동) 조립하다, 모으다|assemble a computer|컴퓨터를 조립하다
 20-19|have A in common|A를 공통점으로 가지다|have a lot in common|공통점이 많다
 20-19|turn A into B|A를 B로 바꾸다|turn water into ice|물을 얼음으로 바꾸다
 
-
-20-20|physical|신체의, 물질[물리]적인|physical education|체육
-20-20|opponent|반대자, 경기 상대|defeat an opponent|상대를 물리치다
-20-20|target|목표, 과녁, 목표로 삼다, 겨냥하다|hit the target|과녁을 맞히다
-20-20|posture|자세, 자세를 취하다|good posture|좋은 자세
-20-20|track|트랙, 자국, 추적하다|track location|위치를 추적하다
-20-20|row|줄, 열, 노를 젓다|front row|앞열
-20-20|stretch|늘이다, 뻗다, 스트레칭|stretch muscles|근육을 스트레칭하다
-20-20|extreme|극심한, 극단의, 극도|extreme cold|혹한(극심한 추위)
-20-20|flexible|구부릴 수 있는, 유연한, 융통성 있는|flexible body|유연한 몸
-20-20|muscle|근육, 근력|build muscle|근육을 키우다
-20-20|surgery|수술, 외과|plastic surgery|성형 수술
-20-20|cure|치료하다, 고치다, 치유(법)|cure a disease|병을 치료하다 [C]
-20-20|heal|치유되다, 치료하다|time heals|시간이 약이다(치유한다) [H]
-20-20|symptom|증상, 징후|flu symptom|독감 증상
-20-20|immune|면역성의|immune system|면역 체계
-20-20|therapy|치료, 요법|physical therapy|물리 치료
-20-20|faint|기절하다, 희미한|faint hope|희미한 희망
-20-20|stroke|타격, 뇌졸중|heat stroke|열사병
-20-20|breath|숨, 호흡|take a deep breath|심호흡을 하다
-20-20|bleed|피를 흘리다, 출혈하다|nose bleeds|코피가 나다
-20-20|diagnose|진단하다|diagnose cancer|암을 진단하다
-20-20|prescribe|처방하다, 규정하다|prescribe medicine|약을 처방하다
-20-20|chronic|만성적인, 장기간의|chronic pain|만성 통증
-20-20|obesity|비만|childhood obesity|소아 비만
-20-20|pregnant|임신한|pregnant woman|임산부
-20-20|fatigue|피로|chronic fatigue|만성 피로
-20-20|digestion|소화, 소화력|good digestion|소화가 잘 됨
+20-20|physical|(형) 신체의, 물질[물리]적인|physical education|체육
+20-20|opponent|(명) 반대자, 경기 상대|defeat an opponent|상대를 물리치다
+20-20|target|(명) 목표, 과녁 (동) 목표로 삼다, 겨냥하다|hit the target|과녁을 맞히다
+20-20|posture|(명) 자세 (동) 자세를 취하다|good posture|좋은 자세
+20-20|track|(명) 트랙, 자국 (동) 추적하다|track location|위치를 추적하다
+20-20|row|(명) 줄, 열 (동) 노를 젓다|front row|앞열
+20-20|stretch|(동) 늘이다, 뻗다 (명) 스트레칭|stretch muscles|근육을 스트레칭하다
+20-20|extreme|(형) 극심한, 극단의 (명) 극도|extreme cold|혹한(극심한 추위)
+20-20|flexible|(형) 구부릴 수 있는, 유연한, 융통성 있는|flexible body|유연한 몸
+20-20|muscle|(명) 근육, 근력|build muscle|근육을 키우다
+20-20|surgery|(명) 수술, 외과|plastic surgery|성형 수술
+20-20|cure|(동) 치료하다, 고치다 (명) 치유(법)|cure a disease|병을 치료하다 [C]
+20-20|heal|(동) 치유되다, 치료하다|Time heals.|시간이 약이다(치유한다). [H]
+20-20|symptom|(명) 증상, 징후|flu symptom|독감 증상
+20-20|immune|(형) 면역성의|immune system|면역 체계
+20-20|therapy|(명) 치료, 요법|physical therapy|물리 치료
+20-20|faint|(동) 기절하다 (형) 희미한|faint hope|희미한 희망
+20-20|stroke|(명) 타격, 뇌졸중|heat stroke|열사병
+20-20|breath|(명) 숨, 호흡|take a deep breath|심호흡을 하다
+20-20|bleed|(동) 피를 흘리다, 출혈하다|Nose bleeds.|코피가 나다.
+20-20|diagnose|(동) 진단하다|diagnose cancer|암을 진단하다
+20-20|prescribe|(동) 처방하다, 규정하다|prescribe medicine|약을 처방하다
+20-20|chronic|(형) 만성적인, 장기간의|chronic pain|만성 통증
+20-20|obesity|(명) 비만|childhood obesity|소아 비만
+20-20|pregnant|(형) 임신한|pregnant woman|임산부
+20-20|fatigue|(명) 피로|chronic fatigue|만성 피로
+20-20|digestion|(명) 소화, 소화력|good digestion|소화가 잘 됨
 20-20|have an effect on|~에 영향을 미치다|have an effect on health|건강에 영향을 미치다 [4]
 20-20|suffer from|~으로 고통받다, ~을 앓다|suffer from a cold|감기로 고생하다 [2]
-20-20|scent|향기, 냄새|scent of flowers|꽃향기
-20-20|flavor|맛, 풍미, 향미(료)|artificial flavor|인공 향료(맛)
-20-20|nutrient|영양소, 영양분|essential nutrient|필수 영양소
-20-20|fiber|섬유, 섬유질|dietary fiber|식이 섬유
-20-20|stir|휘젓다, 휘젓기, 동요|stir the soup|수프를 휘젓다
-20-20|edible|먹을 수 있는, 식용의|edible mushrooms|식용 버섯
-20-20|spill|쏟다, 흘리다, 유출|spill milk|우유를 쏟다
-20-20|recipe|조리법, 비법, 비결|cookie recipe|쿠키 조리법
-20-20|portion|일부, 1인분, 분배하다|small portion|적은 양(부분)
-20-20|dietary|음식물의, 식이요법의, 규정식|dietary habits|식습관
-20-20|starve|굶주리다, 굶기다, 갈망하다|starve to death|굶어 죽다
+20-20|scent|(명) 향기, 냄새|scent of flowers|꽃향기
+20-20|flavor|(명) 맛, 풍미, 향미(료)|artificial flavor|인공 향료(맛)
+20-20|nutrient|(명) 영양소, 영양분|essential nutrient|필수 영양소
+20-20|fiber|(명) 섬유, 섬유질|dietary fiber|식이 섬유
+20-20|stir|(동) 휘젓다 (명) 휘젓기, 동요|stir the soup|수프를 휘젓다
+20-20|edible|(형) 먹을 수 있는, 식용의|edible mushrooms|식용 버섯
+20-20|spill|(동) 쏟다, 흘리다 (명) 유출|spill milk|우유를 쏟다
+20-20|recipe|(명) 조리법, 비법, 비결|cookie recipe|쿠키 조리법
+20-20|portion|(명) 일부, 1인분 (동) 분배하다|small portion|적은 양(부분)
+20-20|dietary|(형) 음식물의, 식이요법의 (명) 규정식|dietary habits|식습관
+20-20|starve|(동) 굶주리다, 굶기다, 갈망하다|starve to death|굶어 죽다
 
-20-21|instruct|가르치다, 지시하다|instruct students|학생들을 가르치다
-20-21|academic|학업의, 학구적인|academic performance|학업 성취도
-20-21|gratitude|감사|express gratitude|감사를 표하다
-20-21|score|점수, 악보, 득점하다|high score|높은 점수
-20-21|pupil|학생, 눈동자|dilated pupil|확장된 동공(또는 학생)
-20-21|enroll|등록하다|enroll in a course|강좌에 등록하다
-20-21|discipline|훈육하다, 규율, 훈육, 학과|strict discipline|엄격한 훈육
-20-21|strict|엄격한|strict rules|엄격한 규칙
-20-21|interact|상호 작용하다, 교류하다|interact with others|타인과 상호 작용하다
-20-21|argue|주장하다, 논쟁하다|argue that|~라고 주장하다
-20-21|bother|괴롭히다, 성가시게 하다, 성가심|don't bother me|나를 괴롭히지 마라
-20-21|guidance|지도, 안내|under the guidance|지도하에
-20-21|collective|집단의, 공동의, 집단|collective effort|집단적인 노력
-20-21|admire|존경하다, 감탄하다|admire a teacher|선생님을 존경하다
-20-21|intellectual|지적인, 지성의, 지식인|intellectual curiosity|지적 호기심
+
+20-21|instruct|(동) 가르치다, 지시하다|instruct students|학생들을 가르치다
+20-21|academic|(형) 학업의, 학구적인|academic performance|학업 성취도
+20-21|gratitude|(명) 감사|express gratitude|감사를 표하다
+20-21|score|(명) 점수, 악보 (동) 득점하다|high score|높은 점수
+20-21|pupil|(명) 학생, 눈동자|dilated pupil|확장된 동공
+20-21|enroll|(동) 등록하다|enroll in a course|강좌에 등록하다
+20-21|discipline|(동) 훈육하다 (명) 규율, 훈육, 학과|strict discipline|엄격한 훈육
+20-21|strict|(형) 엄격한|strict rules|엄격한 규칙
+20-21|interact|(동) 상호 작용하다, 교류하다|interact with others|타인과 상호 작용하다
+20-21|argue|(동) 주장하다, 논쟁하다|argue that|~라고 주장하다
+20-21|bother|(동) 괴롭히다, 성가시게 하다 (명) 성가심|Don't bother me.|나를 괴롭히지 마라.
+20-21|guidance|(명) 지도, 안내|under the guidance|지도하에
+20-21|collective|(형) 집단의, 공동의 (명) 집단|collective effort|집단적인 노력
+20-21|admire|(동) 존경하다, 감탄하다|admire a teacher|선생님을 존경하다
+20-21|intellectual|(형) 지적인, 지성의 (명) 지식인|intellectual curiosity|지적 호기심
 20-21|result from|~에서 기인하다, ~에서 비롯되다|result from stress|스트레스에서 기인하다
-20-21|evaluate|평가하다|evaluate the result|결과를 평가하다 [E]
-20-21|assess|평가하다, 산정하다|assess the value|가치를 평가하다 [A]
-20-21|presentation|발표, 설명, 제출|oral presentation|구두 발표
-20-21|range|범위, 폭, 영역, 이르다|wide range of|광범위한
-20-21|formal|공식적인, 형식적인, 정규적인|formal education|정규(공식) 교육
-20-21|intermediate|중간의, 중급의|intermediate level|중급 수준
-20-21|attempt|시도하다, 시도|attempt to escape|탈출을 시도하다
-20-21|assist|돕다, 조력|assist in learning|학습을 돕다 [AS]
-20-21|aid|돕다, 조력하다, 지원, 도움|financial aid|재정 지원 [AI]
-20-21|explanation|설명, 해명|detailed explanation|자세한 설명
-20-21|grant|수여하다, 인정하다, 보조금|research grant|연구 보조금 [G]
-20-21|award|수여하다, 상, 상금|win an award|상을 받다 [A]
-20-21|typical|전형적인, 보통의|typical example|전형적인 예
-20-21|inevitable|피할 수 없는, 당연한|inevitable result|피할 수 없는 결과
+20-21|evaluate|(동) 평가하다|evaluate the result|결과를 평가하다 [E]
+20-21|assess|(동) 평가하다, 산정하다|assess the value|가치를 평가하다 [A]
+20-21|presentation|(명) 발표, 설명, 제출|oral presentation|구두 발표
+20-21|range|(명) 범위, 폭, 영역 (동) 이르다|wide range of|광범위한
+20-21|formal|(형) 공식적인, 형식적인, 정규적인|formal education|정규 교육
+20-21|intermediate|(형) 중간의, 중급의|intermediate level|중급 수준
+20-21|attempt|(동) 시도하다 (명) 시도|attempt to escape|탈출을 시도하다
+20-21|assist|(동) 돕다 (명) 조력|assist in learning|학습을 돕다 [AS]
+20-21|aid|(동) 돕다, 조력하다 (명) 지원, 도움|financial aid|재정 지원 [AI]
+20-21|explanation|(명) 설명, 해명|detailed explanation|자세한 설명
+20-21|grant|(동) 수여하다, 인정하다 (명) 보조금|research grant|연구 보조금 [G]
+20-21|award|(동) 수여하다 (명) 상, 상금|win an award|상을 받다 [A]
+20-21|typical|(형) 전형적인, 보통의|typical example|전형적인 예
+20-21|inevitable|(형) 피할 수 없는, 당연한|inevitable result|피할 수 없는 결과
 20-21|get rid of|~을 제거하다, ~을 처리하다|get rid of bad habits|나쁜 습관을 없애다
-20-21|policy|정책, 방침|school policy|학교 방침
-20-21|trigger|방아쇠를 당기다, 유발하다, 방아쇠|trigger a response|반응을 유발하다
-20-21|disguise|위장하다, 변장하다, 위장|in disguise|변장하여
-20-21|isolate|고립시키다, 격리하다|isolate oneself|스스로를 고립시키다
-20-21|invade|침략하다, 침입하다|invade privacy|사생활을 침해하다
-20-21|captive|사로잡힌, 감금된, 포로|captive audience|사로잡힌 청중
-20-21|command|명령하다, 지휘하다, 명령, 통솔|command respect|존경을 받다(명령하다)
-20-21|recruit|모집하다, 징집하다, 신병, 신입사원|recruit new members|신입 회원을 모집하다
-20-21|voluntary|자발적인, 자원봉사의|voluntary work|자원봉사 활동
+20-21|policy|(명) 정책, 방침|school policy|학교 방침
+20-21|trigger|(동) 방아쇠를 당기다, 유발하다 (명) 방아쇠|trigger a response|반응을 유발하다
+20-21|disguise|(동) 위장하다, 변장하다 (명) 위장|in disguise|변장하여
+20-21|isolate|(동) 고립시키다, 격리하다|isolate oneself|스스로를 고립시키다
+20-21|invade|(동) 침략하다, 침입하다|invade privacy|사생활을 침해하다
+20-21|captive|(형) 사로잡힌, 감금된 (명) 포로|captive audience|사로잡힌 청중
+20-21|command|(동) 명령하다, 지휘하다 (명) 명령, 통솔|command respect|존경을 받다
+20-21|recruit|(동) 모집하다, 징집하다 (명) 신병, 신입사원|recruit new members|신입 회원을 모집하다
+20-21|voluntary|(형) 자발적인, 자원봉사의|voluntary work|자원봉사 활동
 
-20-22|psychology|심리학, 심리|child psychology|아동 심리학
-20-22|relief|안도, 구조, 완화|sign of relief|안도의 한숨
-20-22|mental|정신의, 마음의, 지적인|mental health|정신 건강
-20-22|manipulate|조종하다, 다루다|manipulate people|사람들을 조종하다
-20-22|uneasy|불안한, 불편한|feel uneasy|불안함을 느끼다
-20-22|frightened|깜짝 놀란, 겁먹은|be frightened of|~을 무서워하다
-20-22|afraid|두려워하는|be afraid to go|가기를 두려워하다
-20-22|illusion|환영, 환상, 착각|optical illusion|착시 현상
-20-22|undergo|경험하다, 겪다|undergo changes|변화를 겪다
-20-22|identify|확인하다, 식별하다, 동일시하다|identify the problem|문제를 확인하다
-20-22|stress|스트레스, 강조, 강조하다, 압박하다|relieve stress|스트레스를 풀다
-20-22|desperate|절박한, 필사적인, 자포자기한|desperate attempt|필사적인 시도
-20-22|stable|안정된, 견고한|stable condition|안정된 상태
-20-22|overwhelm|압도하다, 사로잡다|be overwhelmed|압도되다
-20-22|anxiety|불안, 걱정, 염려|deep anxiety|깊은 불안
-20-22|burden|짐, 부담, ~에게 짐을 지우다|heavy burden|무거운 짐
-20-22|complex|복잡한, 콤플렉스, 복합체|complex system|복잡한 시스템
-20-22|intend|~할 작정이다, 의도하다|intend to do|~할 작정이다
-20-22|sudden|갑작스러운|sudden change|갑작스러운 변화
-20-22|favorable|호의적인, 우호적인|favorable condition|유리한 조건
-20-22|curiosity|호기심|satisfy curiosity|호기심을 충족시키다
-20-22|innate|타고난, 선천적인, 고유의|innate ability|타고난 능력
-20-22|ignorant|무지한, 무식한|ignorant of the law|법을 모르는
-20-22|associate|연상하다, 연관 짓다, 동료|associate a with b|a와 b를 연관 짓다
-20-22|assumption|가정, 추측, 인수|make an assumption|가정하다
-20-22|distraction|집중을 방해하는 것, 주의 산만|avoid distractions|주의 산만 요소를 피하다
-20-22|subjective|주관적인, 주관의|subjective view|주관적인 견해
+
+20-22|psychology|(명) 심리학, 심리|child psychology|아동 심리학
+20-22|relief|(명) 안도, 구조, 완화|sign of relief|안도의 한숨
+20-22|mental|(형) 정신의, 마음의, 지적인|mental health|정신 건강
+20-22|manipulate|(동) 조종하다, 다루다|manipulate people|사람들을 조종하다
+20-22|uneasy|(형) 불안한, 불편한|feel uneasy|불안함을 느끼다
+20-22|frightened|(형) 깜짝 놀란, 겁먹은|be frightened of|~을 무서워하다
+20-22|afraid|(형) 두려워하는|be afraid to go|가기를 두려워하다
+20-22|illusion|(명) 환영, 환상, 착각|optical illusion|착시 현상
+20-22|undergo|(동) 경험하다, 겪다|undergo changes|변화를 겪다
+20-22|identify|(동) 확인하다, 식별하다, 동일시하다|identify the problem|문제를 확인하다
+20-22|stress|(명) 스트레스, 강조 (동) 강조하다, 압박하다|relieve stress|스트레스를 풀다
+20-22|desperate|(형) 절박한, 필사적인, 자포자기한|desperate attempt|필사적인 시도
+20-22|stable|(형) 안정된, 견고한|stable condition|안정된 상태
+20-22|overwhelm|(동) 압도하다, 사로잡다|be overwhelmed|압도되다
+20-22|anxiety|(명) 불안, 걱정, 염려|deep anxiety|깊은 불안
+20-22|burden|(명) 짐, 부담 (동) ~에게 짐을 지우다|heavy burden|무거운 짐
+20-22|complex|(형) 복잡한 (명) 콤플렉스, 복합체|complex system|복잡한 시스템
+20-22|intend|(동) ~할 작정이다, 의도하다|intend to do|~할 작정이다
+20-22|sudden|(형) 갑작스러운|sudden change|갑작스러운 변화
+20-22|favorable|(형) 호의적인, 우호적인|favorable condition|유리한 조건
+20-22|curiosity|(명) 호기심|satisfy curiosity|호기심을 충족시키다
+20-22|innate|(형) 타고난, 선천적인, 고유의|innate ability|타고난 능력
+20-22|ignorant|(형) 무지한, 무식한|ignorant of the law|법을 모르는
+20-22|associate|(동) 연상하다, 연관 짓다 (명) 동료|associate A with B|A와 B를 연관 짓다
+20-22|assumption|(명) 가정, 추측, 인수|make an assumption|가정하다
+20-22|distraction|(명) 집중을 방해하는 것, 주의 산만|avoid distractions|주의 산만 요소를 피하다
+20-22|subjective|(형) 주관적인, 주관의|subjective view|주관적인 견해
 20-22|end up -ing|결국 ~이 되다, 결국 ~하다|end up crying|결국 울게 되다
 20-22|interfere|간섭하다, 방해하다|interfere in|~에 간섭하다 [F]
 20-22|intervene|간섭하다, 개입하다, 중재하다|intervene in a dispute|분쟁에 개입하다 [V]
-20-22|exclude|제외하다, 배제하다|exclude from the list|목록에서 제외하다
-20-22|persuade|설득하다|persuade him|그를 설득하다 [P]
-20-22|convince|설득하다, 확신시키다|convince the jury|배심원을 설득하다 [C]
-20-22|ensure|보장하다, 확보하다|ensure safety|안전을 보장하다
-20-22|cheat|속이다, 부정행위를 하다|cheat on a test|시험 부정행위를 하다
-20-22|boost|북돋우다, 증가시키다, 향상, 격려|boost confidence|자신감을 북돋우다
-20-22|attribute|~의 탓[덕분]으로 돌리다|attribute a to b|a를 b의 탓으로 돌리다
-20-22|skeptical|회의적인, 의심 많은|skeptical about|~에 회의적인
-20-22|optimistic|낙관적인, 낙관하는|optimistic outlook|낙관적인 전망
+20-22|exclude|(동) 제외하다, 배제하다|exclude from the list|목록에서 제외하다
+20-22|persuade|(동) 설득하다|persuade him|그를 설득하다 [P]
+20-22|convince|(동) 설득하다, 확신시키다|convince the jury|배심원을 설득하다 [C]
+20-22|ensure|(동) 보장하다, 확보하다|ensure safety|안전을 보장하다
+20-22|cheat|(동) 속이다, 부정행위를 하다|cheat on a test|시험 부정행위를 하다
+20-22|boost|(동) 북돋우다, 증가시키다 (명) 향상, 격려|boost confidence|자신감을 북돋우다
+20-22|attribute|~의 탓[덕분]으로 돌리다|attribute A to B|A를 B의 탓으로 돌리다
+20-22|skeptical|(형) 회의적인, 의심 많은|skeptical about|~에 회의적인
+20-22|optimistic|(형) 낙관적인, 낙관하는|optimistic outlook|낙관적인 전망
 20-22|out of place|상황에 맞지 않은, 제자리에 있지 않은|feel out of place|불편하다(어울리지 않는 느낌)
 
-
-20-23|column|칼럼, 기둥|newspaper column|신문 칼럼
-20-23|announce|발표하다, 알리다|announce the news|뉴스를 발표하다
-20-23|union|조합, 연합, 동맹|labor union|노동조합
-20-23|convey|전(달)하다, 운반하다|convey meaning|의미를 전달하다
-20-23|leak|누설하다, 새다, 새는 곳, 누출|leak information|정보를 누설하다
-20-23|affair|일, 문제, 사건|current affairs|시사 문제
-20-23|brief|간결한, 잠시의, 짧은 보고, 요약하다|brief summary|간결한 요약
-20-23|enhance|높이다, 향상시키다|enhance quality|품질을 높이다
-20-23|verbal|말의, 언어의, 구두의|verbal skill|언어 능력
-20-23|medium|매체, 수단, 방법, 중간의|mass medium|대중매체
-20-23|signal|신호를 보내다, 암시하다, 신호|send a signal|신호를 보내다
-20-23|transmit|보내다, 전송하다, 전염시키다|transmit data|데이터를 전송하다
-20-23|broadcast|방송하다, 널리 알리다|live broadcast|생방송
-20-23|audience|청중, 관중, 시청자|large audience|많은 청중
-20-23|viewer|관객, 시청자|tv viewer|tv 시청자
-20-23|commercial|광고, 상업의|tv commercial|tv 광고
-20-23|appealing|매력적인, 흥미를 끄는|appealing offer|매력적인 제안
-20-23|evident|분명한, 눈에 띄는|self-evident|자명한
-20-23|obscure|분명치 않은, 모호한, 모호하게 하다|obscure meaning|모호한 의미
-20-23|limitation|제한, 한계|time limitation|시간 제한
-20-23|visible|눈에 보이는|visible light|가시광선
-20-23|compelling|설득력 있는, 강력한|compelling reason|설득력 있는 이유
-20-23|illustrate|설명하다, 삽화를 넣다|illustrate with examples|예시로 설명하다
-20-23|diminish|감소하다, 약화시키다|diminish pain|고통을 줄이다 [D]
-20-23|lessen|줄다, 완화시키다|lessen the burden|짐을 덜다 [L]
-20-23|informative|정보를 주는, 유익한|informative book|유익한 책
-20-23|satellite|인공위성|artificial satellite|인공위성
-20-23|mobile|움직이기 쉬운, 기동성의|mobile phone|휴대전화 [M]
-20-23|portable|휴대용의, 이동이 쉬운|portable computer|휴대용 컴퓨터 [P]
-20-23|collect|수집하다, 모으다, 수신자 부담의|collect coins|동전을 수집하다
-20-23|variable|변수, 변하기 쉬운|dependent variable|종속 변수
-20-23|pile|더미, 쌓아 놓은 것, 쌓다|a pile of books|책 더미
-20-23|wrap|싸다, 포장하다|wrap a gift|선물을 포장하다
-20-23|deliver|배달하다, 연설하다, 분말하다|deliver a package|소포를 배달하다
-20-23|envelope|봉투|open the envelope|봉투를 열다
-20-23|stamp|우표, 도장, 날인하다, 발을 구르다|postage stamp|우표
-20-23|respondent|응답자|survey respondent|설문 응답자
-20-23|transaction|거래, 매매, 처리(과정)|bank transaction|은행 거래
-20-23|feel free to do|자유롭게[마음대로] ~하다|feel free to ask|편하게 질문하세요
+20-23|column|(명) 칼럼, 기둥|newspaper column|신문 칼럼
+20-23|announce|(동) 발표하다, 알리다|announce the news|뉴스를 발표하다
+20-23|union|(명) 조합, 연합, 동맹|labor union|노동조합
+20-23|convey|(동) 전(달)하다, 운반하다|convey meaning|의미를 전달하다
+20-23|leak|(동) 누설하다, 새다 (명) 새는 곳, 누출|leak information|정보를 누설하다
+20-23|affair|(명) 일, 문제, 사건|current affairs|시사 문제
+20-23|brief|(형) 간결한, 잠시의 (명) 짧은 보고 (동) 요약하다|brief summary|간결한 요약
+20-23|enhance|(동) 높이다, 향상시키다|enhance quality|품질을 높이다
+20-23|verbal|(형) 말의, 언어의, 구두의|verbal skill|언어 능력
+20-23|medium|(명) 매체, 수단, 방법 (형) 중간의|mass medium|대중매체
+20-23|signal|(동) 신호를 보내다, 암시하다 (명) 신호|send a signal|신호를 보내다
+20-23|transmit|(동) 보내다, 전송하다, 전염시키다|transmit data|데이터를 전송하다
+20-23|broadcast|(동) 방송하다, 널리 알리다|live broadcast|생방송
+20-23|audience|(명) 청중, 관중, 시청자|large audience|많은 청중
+20-23|viewer|(명) 관객, 시청자|TV viewer|TV 시청자
+20-23|commercial|(명) 광고 (형) 상업의|TV commercial|TV 광고
+20-23|appealing|(형) 매력적인, 흥미를 끄는|appealing offer|매력적인 제안
+20-23|evident|(형) 분명한, 눈에 띄는|self-evident|자명한
+20-23|obscure|(형) 분명치 않은, 모호한 (동) 모호하게 하다|obscure meaning|모호한 의미
+20-23|limitation|(명) 제한, 한계|time limitation|시간 제한
+20-23|visible|(형) 눈에 보이는|visible light|가시광선
+20-23|compelling|(형) 설득력 있는, 강력한|compelling reason|설득력 있는 이유
+20-23|illustrate|(동) 설명하다, 삽화를 넣다|illustrate with examples|예시로 설명하다
+20-23|diminish|(동) 감소하다, 약화시키다|diminish pain|고통을 줄이다 [D]
+20-23|lessen|(동) 줄다, 완화시키다|lessen the burden|짐을 덜다 [L]
+20-23|informative|(형) 정보를 주는, 유익한|informative book|유익한 책
+20-23|satellite|(명) 인공위성|artificial satellite|인공위성
+20-23|mobile|(형) 움직이기 쉬운, 기동성의|mobile phone|휴대전화 [M]
+20-23|portable|(형) 휴대용의, 이동이 쉬운|portable computer|휴대용 컴퓨터 [P]
+20-23|collect|(동) 수집하다, 모으다 (부) 수신자 부담의|collect coins|동전을 수집하다
+20-23|variable|(명) 변수 (형) 변하기 쉬운|dependent variable|종속 변수
+20-23|pile|(명) 더미, 쌓아 놓은 것 (동) 쌓다|a pile of books|책 더미
+20-23|wrap|(동) 싸다, 포장하다|wrap a gift|선물을 포장하다
+20-23|deliver|(동) 배달하다, 연설하다, 분만하다|deliver a package|소포를 배달하다
+20-23|envelope|(명) 봉투|open the envelope|봉투를 열다
+20-23|stamp|(명) 우표, 도장 (동) 날인하다, 발을 구르다|postage stamp|우표
+20-23|respondent|(명) 응답자|survey respondent|설문 응답자
+20-23|transaction|(명) 거래, 매매, 처리(과정)|bank transaction|은행 거래
+20-23|feel free to do|자유롭게[마음대로] ~하다|[Feel free to] ask.|편하게 질문하세요.
 20-23|get in touch with|~와 연락[접촉]하다|get in touch with him|그와 연락하다
 
-20-24|cherish|소중히 하다|cherish memories|추억을 소중히 하다
-20-24|rainforest|열대 우림|amazon rainforest|아마존 열대 우림
-20-24|landscape|풍경, 경치|rural landscape|시골 풍경
-20-24|surface|표면, 외관, 수면으로 올라오다|smooth surface|매끄러운 표면
-20-24|peak|산봉우리, 정상, 정점, 절정에 이르다|reach the peak|정상에 도달하다
-20-24|steep|가파른, 급격한|steep slope|가파른 경사
-20-24|incline|경사, 경사지다, 기울다|incline to agree|동의하는 쪽으로 기울다
-20-24|cliff|절벽|high cliff|높은 절벽
-20-24|suitable|적절한, 적합한|suitable place|적절한 장소
-20-24|atmosphere|대기(권), 분위기|friendly atmosphere|친근한 분위기
-20-24|endangered|멸종 위기에 처한, 위험에 빠진|endangered species|멸종 위기종
-20-24|pollution|오염|air pollution|대기 오염
-20-24|fossil|화석|fossil fuel|화석 연료
-20-24|ecosystem|생태계|marine ecosystem|해양 생태계
-20-24|pesticide|살충제|use pesticides|살충제를 사용하다
-20-24|landfill|쓰레기 매립지|garbage landfill|쓰레기 매립지
-20-24|purify|깨끗이 하다, 정화하다|purify water|물을 정화하다
-20-24|sweep|쓸다, 휩쓸다, 쓸기|sweep the floor|바닥을 쓸다
-20-24|litter|쓰레기, 버리다, 어지럽히다|don't litter|쓰레기를 버리지 마라
-20-24|acid|산, 산성의|acid rain|산성비
-20-24|threaten|위협하다, 협박하다|threaten to leave|떠나겠다고 위협하다
-20-24|resource|자원, 물자|natural resources|천연자원
-20-24|raw|날것의, 가공하지 않은|raw fish|생선회
-20-24|wasteful|낭비하는, 헛된|wasteful spending|낭비하는 지출
-20-24|straw|빨대, 짚, 지푸라기|drinking straw|빨대
-20-24|remain|남아 있다, 여전히 ~인 채로 있다|remain silent|침묵을 지키다
-20-24|utilize|활용하다, 이용하다|utilize solar energy|태양 에너지를 활용하다
-20-24|recycle|재활용하다|recycle paper|종이를 재활용하다
-20-24|conserve|보존[보호]하다, 아끼다|conserve energy|에너지를 아끼다(보존하다)
-20-24|filter|필터, 여과 장치, 여과하다|filter dust|먼지를 거르다
-20-24|generate|발생시키다, 만들어 내다|generate power|전력을 생산하다
-20-24|convert|전환하다, 바꾸다|convert files|파일을 변환하다 [C]
-20-24|transform|변형시키다, 바꾸다|transform society|사회를 변혁하다 [T]
-20-24|reduce|줄이다, 감소시키다|reduce waste|쓰레기를 줄이다
-20-24|fragile|부서지기 쉬운, 취약한|fragile glass|깨지기 쉬운 유리
-20-24|fabric|직물, 천, 구조|cotton fabric|면직물
-20-24|accumulate|축적하다, 축적되다, 모으다|accumulate wealth|부를 축적하다
-20-24|discard|버리다, 폐기하다|discard old clothes|헌 옷을 버리다 [DI]
+20-24|cherish|(동) 소중히 하다|cherish memories|추억을 소중히 하다
+20-24|rainforest|(명) 열대 우림|Amazon rainforest|아마존 열대 우림
+20-24|landscape|(명) 풍경, 경치|rural landscape|시골 풍경
+20-24|surface|(명) 표면, 외관 (동) 수면으로 올라오다|smooth surface|매끄러운 표면
+20-24|peak|(명) 산봉우리, 정상, 정점 (동) 절정에 이르다|reach the peak|정상에 도달하다
+20-24|steep|(형) 가파른, 급격한|steep slope|가파른 경사
+20-24|incline|(명) 경사 (동) 경사지다, 기울다|incline to agree|동의하는 쪽으로 기울다
+20-24|cliff|(명) 절벽|high cliff|높은 절벽
+20-24|suitable|(형) 적절한, 적합한|suitable place|적절한 장소
+20-24|atmosphere|(명) 대기(권), 분위기|friendly atmosphere|친근한 분위기
+20-24|endangered|(형) 멸종 위기에 처한, 위험에 빠진|endangered species|멸종 위기종
+20-24|pollution|(명) 오염|air pollution|대기 오염
+20-24|fossil|(명) 화석|fossil fuel|화석 연료
+20-24|ecosystem|(명) 생태계|marine ecosystem|해양 생태계
+20-24|pesticide|(명) 살충제|use pesticides|살충제를 사용하다
+20-24|landfill|(명) 쓰레기 매립지|garbage landfill|쓰레기 매립지
+20-24|purify|(동) 깨끗이 하다, 정화하다|purify water|물을 정화하다
+20-24|sweep|(동) 쓸다, 휩쓸다 (명) 쓸기|sweep the floor|바닥을 쓸다
+20-24|litter|(명) 쓰레기 (동) 버리다, 어지럽히다|Don't litter.|쓰레기를 버리지 마라.
+20-24|acid|(명) 산 (형) 산성의|acid rain|산성비
+20-24|threaten|(동) 위협하다, 협박하다|threaten to leave|떠나겠다고 위협하다
+20-24|resource|(명) 자원, 물자|natural resources|천연자원
+20-24|raw|(형) 날것의, 가공하지 않은|raw fish|생선회
+20-24|wasteful|(형) 낭비하는, 헛된|wasteful spending|낭비하는 지출
+20-24|straw|(명) 빨대, 짚, 지푸라기|drinking straw|빨대
+20-24|remain|(동) 남아 있다, 여전히 ~인 채로 있다|remain silent|침묵을 지키다
+20-24|utilize|(동) 활용하다, 이용하다|utilize solar energy|태양 에너지를 활용하다
+20-24|recycle|(동) 재활용하다|recycle paper|종이를 재활용하다
+20-24|conserve|(동) 보존[보호]하다, 아끼다|conserve energy|에너지를 아끼다
+20-24|filter|(명) 필터, 여과 장치 (동) 여과하다|filter dust|먼지를 거르다
+20-24|generate|(동) 발생시키다, 만들어 내다|generate power|전력을 생산하다
+20-24|convert|(동) 전환하다, 바꾸다|convert files|파일을 변환하다 [C]
+20-24|transform|(동) 변형시키다, 바꾸다|transform society|사회를 변혁하다 [T]
+20-24|reduce|(동) 줄이다, 감소시키다|reduce waste|쓰레기를 줄이다
+20-24|fragile|(형) 부서지기 쉬운, 취약한|fragile glass|깨지기 쉬운 유리
+20-24|fabric|(명) 직물, 천, 구조|cotton fabric|면직물
+20-24|accumulate|(동) 축적하다, 축적되다, 모으다|accumulate wealth|부를 축적하다
+20-24|discard|(동) 버리다, 폐기하다|discard old clothes|헌 옷을 버리다 [DI]
 20-24|dispose of|~을 버리다, ~을 처리하다|dispose of waste|쓰레기를 처리하다 [2]
 20-24|chances are|아마 ~일 것이다, ~할 가능성이 충분하다|chances are high|가능성이 높다
 
 
-20-25|climate|기후|climate change|기후 변화
-20-25|freeze|얼다, 동결 시키다|water freezes|물은 언다
-20-25|melt|녹다, 녹이다|ice melts|얼음이 녹는다
-20-25|wave|파도, 물결, 파도치다, 흔들다|tidal wave|해일
-20-25|humid|습한, 습기 찬|humid weather|습한 날씨
-20-25|temperate|온화한, 차분한|temperate zone|온대 지방
-20-25|sufficient|충분한|sufficient food|충분한 식량
-20-25|tropical|열대의, 열대 지방의|tropical fruit|열대 과일
-20-25|intense|극심한, 치열한|intense heat|극심한 더위 [I]
-20-25|fierce|사나운, 극심한|fierce storm|사나운 폭풍 [F]
-20-25|light|가벼운, 밝은, 밝히다, 빛|light rain|가벼운 비
-20-25|phenomenon|현상|natural phenomenon|자연 현상
-20-25|creature|창조물, 생물|living creature|살아있는 생물
-20-25|tide|조수, 조류, 흐름|high tide|만조(밀물)
-20-25|shadow|그림자, 그늘, 그늘지게 하다|cast a shadow|그림자를 드리우다
-20-25|float|뜨다, 떠다니다|float on water|물에 뜨다
-20-25|earthquake|지진|massive earthquake|대지진
-20-25|eruption|폭발, 분화|volcanic eruption|화산 폭발
-20-25|drought|가뭄|severe drought|심한 가뭄
-20-25|originate|유래하다, 발생하다, 고안하다|originate from|~에서 유래하다
-20-25|hatch|부화하다|eggs hatch|알이 부화하다
-20-25|agriculture|농업|agriculture industry|농업
-20-25|ripe|익은, 숙성한|ripe tomato|익은 토마토
-20-25|cultivate|경작하다, 재배하다, 기르다|cultivate land|땅을 경작하다
-20-25|crop|농작물, 수확물|harvest a crop|작물을 수확하다
-20-25|harvest|수확하다, 수확, 수확물|good harvest|풍작
-20-25|annual|연례의, 연간의|annual meeting|연례 회의
-20-25|folk|민속의, 민간의, 사람들|folk song|민요
-20-25|native|토착의, 원산의, 원주민|native speaker|원어민
-20-25|resistant|저항력이 있는, 저항하는, 잘 견디는|heat resistant|내열성의
-20-25|durable|내구성이 있는|durable goods|내구재
-20-25|transplant|옮겨 심다, 이식하다, 이식|transplant a tree|나무를 옮겨 심다
-20-25|enrich|비옥하게 하다, 풍요롭게 하다|enrich the soil|토양을 비옥하게 하다
-20-25|fertile|비옥한, 번식력이 있는|fertile land|비옥한 땅
-20-25|barren|척박한, 결실이 없는|barren desert|척박한 사막
-20-25|drain|물을 빼내다, 배수하다, 소모시키다|drain the water|물을 빼다
-20-25|pest|해충, 골칫거리|pest control|해충 방제
-20-25|weed|잡초, 잡초를 제거하다|pull out weeds|잡초를 뽑다
+
+20-25|climate|(명) 기후|climate change|기후 변화
+20-25|freeze|(동) 얼다, 동결 시키다|Water freezes.|물은 언다.
+20-25|melt|(동) 녹다, 녹이다|Ice melts.|얼음이 녹는다.
+20-25|wave|(명) 파도, 물결 (동) 파도치다, 흔들다|tidal wave|해일
+20-25|humid|(형) 습한, 습기 찬|humid weather|습한 날씨
+20-25|temperate|(형) 온화한, 차분한|temperate zone|온대 지방
+20-25|sufficient|(형) 충분한|sufficient food|충분한 식량
+20-25|tropical|(형) 열대의, 열대 지방의|tropical fruit|열대 과일
+20-25|intense|(형) 극심한, 치열한|intense heat|극심한 더위 [I]
+20-25|fierce|(형) 사나운, 극심한|fierce storm|사나운 폭폭 [F]
+20-25|light|(형) 가벼운, 밝은 (동) 밝히다 (명) 빛|light rain|가벼운 비
+20-25|phenomenon|(명) 현상|natural phenomenon|자연 현상
+20-25|creature|(명) 창조물, 생물|living creature|살아있는 생물
+20-25|tide|(명) 조수, 조류, 흐름|high tide|만조(밀물)
+20-25|shadow|(명) 그림자, 그늘 (동) 그늘지게 하다|cast a shadow|그림자를 드리우다
+20-25|float|(동) 뜨다, 떠다니다|float on water|물에 뜨다
+20-25|earthquake|(명) 지진|massive earthquake|대지진
+20-25|eruption|(명) 폭발, 분화|volcanic eruption|화산 폭발
+20-25|drought|(명) 가뭄|severe drought|심한 가뭄
+20-25|originate|(동) 유래하다, 발생하다, 고안하다|originate from|~에서 유래하다
+20-25|hatch|(동) 부화하다|Eggs hatch.|알이 부화하다.
+20-25|agriculture|(명) 농업|agriculture industry|농업
+20-25|ripe|(형) 익은, 숙성한|ripe tomato|익은 토마토
+20-25|cultivate|(동) 경작하다, 재배하다, 기르다|cultivate land|땅을 경작하다
+20-25|crop|(명) 농작물, 수확물|harvest a crop|작물을 수확하다
+20-25|harvest|(동) 수확하다 (명) 수확, 수확물|good harvest|풍작
+20-25|annual|(형) 연례의, 연간의|annual meeting|연례 회의
+20-25|folk|(형) 민속의, 민간의 (명) 사람들|folk song|민요
+20-25|native|(형) 토착의, 원산의 (명) 원주민|native speaker|원어민
+20-25|resistant|(형) 저항력이 있는, 저항하는, 잘 견디는|heat resistant|내열성의
+20-25|durable|(형) 내구성이 있는|durable goods|내구재
+20-25|transplant|(동) 옮겨 심다, 이식하다 (명) 이식|transplant a tree|나무를 옮겨 심다
+20-25|enrich|(동) 비옥하게 하다, 풍요롭게 하다|enrich the soil|토양을 비옥하게 하다
+20-25|fertile|(형) 비옥한, 번식력이 있는|fertile land|비옥한 땅
+20-25|barren|(형) 척박한, 결실이 없는|barren desert|척박한 사막
+20-25|drain|(동) 물을 빼내다, 배수하다, 소모시키다|drain the water|물을 빼다
+20-25|pest|(명) 해충, 골칫거리|pest control|해충 방제
+20-25|weed|(명) 잡초 (동) 잡초를 제거하다|pull out weeds|잡초를 뽑다
 20-25|take over|~을 차지하다, ~을 인계받다, ~을 인수하다|take over a company|회사를 인수하다
 20-25|take advantage of|~을 이용하다, ~을 활용하다|take advantage of time|시간을 활용하다
 
+
 20-26|open an account|계좌를 개설하다|open an account|계좌를 개설하다
 20-26|on this account|이런 이유로|on this account|이런 이유로(때문에)
-20-26|account for the case|그 사건에 대해 설명하다|[account for] the error|오류를 설명하다 [설명]
-20-26|account for only 1 percent|1퍼센트를 차지하다|[account for] 50%|50%를 차지하다 [차지]
-20-26|the correct answer|올바른 답을 하다|choose the [correct answer]|정답을 고르시오
-20-26|correct a lot of mistakes|많은 오류를 정정하다[|correct] mistakes|실수를 바로잡다
-20-26|charge $50|$50를 청구하다|charge a fee|요금을 청구하다
-20-26|in charge of the project|그 프로젝트에 대한 책임을 맡은|be [in charge of]|~을 담당하다
+20-26|account for|(동) 설명하다|[account for] the error|오류를 설명하다 
+20-26|account for|(동) 차지하다|[account for] 50%|50%를 차지하다 
+20-26|correct|(형) 올바른, 정확한|choose the [correct answer]|정답을 고르시오
+20-26|correct|(동) 정정하다, 바로잡다|[correct] mistakes|실수를 바로잡다
+20-26|charge|(동) 청구하다|charge a fee|요금을 청구하다
+20-26|in charge of|~을 담당하는, ~의 책임을 맡은|be [in charge of]|~을 담당하다
 20-26|be charged with|~의 혐의로 고발당하다|[be charged with] theft|절도 혐의로 기소되다
-20-26|charge the battery|배터리를 충전하다|[charge] the phone|전화기를 충전하다
-20-26|regular checks|정기 검사|regular checks|정기 점검
-20-26|give a check|수표를 주다|pay [by check]|수표로 지불하다
-20-26|on the check|계산서에서|check, please|계산서 주세요
-20-26|in the air|공중에|up in the air|공중에 뜬(미정인)
-20-26|travel by air|항공기로 여행하다|send [by air]|항공편으로 보내다
-20-26|be aired|방송이 되다|the show [was aired]|그 쇼가 방송되었다.
-20-26|southern tip of africa|아프리카의 남쪽 끝|on the [tip of] my tongue|혀끝에서 맴도는
-20-26|tips on|~에 대한 조언|useful tips|유용한 조언들
-20-26|stay still|가만히 있다|stand still|가만히 서 있다
-20-26|still bigger|훨씬(비교급) 더 큰|still better|훨씬 더 좋은
-20-26|still|그럼에도 불구하고|still, i love you|그럼에도 불구하고, 널 사랑해.
-20-26|be still|조용하다|The wind is still.|바람이 잠잠하다.
-20-26|customs of korea|한국의 관습, 풍습|social [customs]|사회적 관습
-20-26|customs officer|관세 직원|go through [customs]|세관을 통과하다
-20-26|custom motorcycle|주문 제작한 오토바이|[custom]-made suit|맞춤 양복
-20-26|pay deep regard to|~을 매우 존중하다|[regard for] others|타인에 대한 배려
-20-26|have no special regards to|~와 특별한 관련이 없다|with [regard] to|~에 관하여
-20-26|give one's regards to|~에게 안부를 전해주다|send my [regards]|안부 전해줘
-20-26|be regarded as|~으로 간주하다[여기다]|be regarded as a hero|영웅으로 여겨지다
-20-26|develop the disease|그 병에 걸리다|[develop] symptoms|증상이 나타나다
-20-26|have the film developed|그 필름을 현상하다|[develop] photos|사진을 현상하다
-20-26|object in life|인생의 목표|main [object]|주된 목표 
-20-26|objects of study|연구 대상|unknown [object]|미확인 물체 
-20-26|object to|~에 반대하다|[object to] the plan|계획에 반대하다 
-20-26|yield fossils|화석을 내다[산출하다]|[yield] a profit|이익을 내다 
-20-26|yield control of|통제권을 양도하다|[yield] right of way|통행권을 양보하다 
-20-26|yield to temptation|유혹에 굴복하다|[yield to] pressure|압력에 굴복하다 
+20-26|charge|(동) 충전하다|[charge] the phone|전화기를 충전하다
+20-26|check|(명) 검사, 점검|regular checks|정기 점검
+20-26|check|(명) 수표|pay [by check]|수표로 지불하다
+20-26|check|(명) 계산서|Check, please.|계산서 주세요.
+20-26|air|(명) 공중, 하늘|up in the air|공중에 뜬(미정인)
+20-26|air|(명) 항공, 항공편|send [by air]|항공편으로 보내다
+20-26|air|(동) 방송하다[되다]|The show [was aired].|그 쇼가 방송되었다.
+20-26|tip|(명) 끝, 끝부분|on the [tip of] my tongue|혀끝에서 맴도는
+20-26|tip|(명) 조언, 비결|useful tips|유용한 조언들
+20-26|still|(형) 가만히 있는, 정지한|stand still|가만히 서 있다
+20-26|still|(부) 훨씬 (비교급 강조)|still better|훨씬 더 좋은
+20-26|still|(부) 그럼에도 불구하고|Still, I love you.|그럼에도 불구하고, 널 사랑해.
+20-26|still|(형) 잠잠한, 조용한|The wind is still.|바람이 잠잠하다.
+20-26|custom|(명) 관습, 풍습|social [customs]|사회적 관습
+20-26|customs|(명) 세관, 관세|go through [customs]|세관을 통과하다
+20-26|custom|(형) 주문 제작한, 맞춤의|[custom]-made suit|맞춤 양복
+20-26|regard|(명) 존중, 배려|[regard for] others|타인에 대한 배려
+20-26|regard|(명) 관련, 관계|with [regard] to|~에 관하여
+20-26|regards|(명) 안부 (인사)|send my [regards]|안부 전해줘
+20-26|be regarded as|~으로 간주되다[여겨지다]|be regarded as a hero|영웅으로 여겨지다
+20-26|develop|(동) (병이) 생기다, 나타나다|[develop] symptoms|증상이 나타나다
+20-26|develop|(동) 현상하다|[develop] photos|사진을 현상하다
+20-26|object|(명) 목표, 목적|main [object]|주된 목표
+20-26|object|(명) 물체, 대상|unknown [object]|미확인 물체
+20-26|object to|(동) 반대하다|[object to] the plan|계획에 반대하다
+20-26|yield|(동) 내다, 산출하다|[yield] a profit|이익을 내다
+20-26|yield|(동) 양도하다, 양보하다|[yield] right of way|통행권을 양보하다
+20-26|yield to|(동) 굴복하다|[yield to] pressure|압력에 굴복하다
 
 
-20-27|sacred|신성한, 성스러운|sacred place|신성한 장소
-20-27|scared|무서워하는|be scared of|~을 무서워하다
-20-27|vain|헛된, 허영심이 많은|in vain|헛되이
-20-27|vein|정맥, 맥락|blood vein|정맥
-20-27|cite|인용하다|cite a source|출처를 인용하다
-20-27|site|장소, 위치, 현장|construction site|공사 현장
-20-27|mass|덩어리, 집단, 부피, 질량, 대량의, 대중의|mass media|대중매체
-20-27|mess|엉망, 혼란한 상태, 더럽히다|make a mess|엉망으로 만들다
-20-27|expand|확대하다, 확장하다|expand business|사업을 확장하다
-20-27|expend|소비하다, 쓰다|expend energy|에너지를 소비하다
-20-27|literal|문자 그대로의, 문자상의|literal meaning|문자 그대로의 의미
-20-27|literate|읽고 쓸 수 있는|computer literate|컴퓨터를 다룰 줄 아는
-20-27|literary|문학의, 문학적인|literary work|문학 작품
-20-27|considerable|상당한, 꽤 많은|considerable amount|상당한 양
-20-27|considerate|사려 깊은, 배려하는|be considerate of|~을 배려하다
-20-27|optical|시각적인, 광학의|optical illusion|착시 현상
-20-27|optional|선택적인|optional subject|선택 과목
-20-27|optimal|최적의, 최상의|optimal condition|최적의 조건
-20-27|vague|모호한|vague idea|막연한 생각
-20-27|vogue|유행|in vogue|유행하는
-20-27|extinct|멸종한, 사라진|become extinct|멸종되다
-20-27|instinct|본능|survival instinct|생존 본능
-20-27|wander|돌아다니다, 배회하다|wander around|돌아다니다
-20-27|wonder|궁금해하다, 놀라다|no wonder|놀랄 일이 아니다(당연하다)
-20-27|famine|기근, 기아|die of famine|기근으로 죽다
-20-27|feminine|여성의, 여성스러운|feminine voice|여성적인 목소리
-20-27|be known for|~으로[때문에] 유명하다|korea is known for kimchi|한국은 김치로 유명하다
-20-27|be known as|~으로 알려져 있다|he is known as a poet|그는 시인으로 알려져 있다
+20-27|sacred|(형) 신성한, 성스러운|sacred place|신성한 장소
+20-27|scared|(형) 무서워하는|be scared of|~을 무서워하다
+20-27|vain|(형) 헛된, 허영심이 많은|in vain|헛되이
+20-27|vein|(명) 정맥, 맥락|blood vein|정맥
+20-27|cite|(동) 인용하다|cite a source|출처를 인용하다
+20-27|site|(명) 장소, 위치, 현장|construction site|공사 현장
+20-27|mass|(명) 덩어리, 집단, 부피, 질량 (형) 대량의, 대중의|mass media|대중매체
+20-27|mess|(명) 엉망, 혼란 (동) 더럽히다|make a mess|엉망으로 만들다
+20-27|expand|(동) 확대하다, 확장하다|expand business|사업을 확장하다
+20-27|expend|(동) 소비하다, 쓰다|expend energy|에너지를 소비하다
+20-27|literal|(형) 문자 그대로의, 문자상의|literal meaning|문자 그대로의 의미
+20-27|literate|(형) 읽고 쓸 수 있는|computer literate|컴퓨터를 다룰 줄 아는
+20-27|literary|(형) 문학의, 문학적인|literary work|문학 작품
+20-27|considerable|(형) 상당한, 꽤 많은|considerable amount|상당한 양
+20-27|considerate|(형) 사려 깊은, 배려하는|be considerate of|~을 배려하다
+20-27|optical|(형) 시각적인, 광학의|optical illusion|착시 현상
+20-27|optional|(형) 선택적인|optional subject|선택 과목
+20-27|optimal|(형) 최적의, 최상의|optimal condition|최적의 조건
+20-27|vague|(형) 모호한|vague idea|막연한 생각
+20-27|vogue|(명) 유행|in vogue|유행하는
+20-27|extinct|(형) 멸종한, 사라진|become extinct|멸종되다
+20-27|instinct|(명) 본능|survival instinct|생존 본능
+20-27|wander|(동) 돌아다니다, 배회하다|wander around|돌아다니다
+20-27|wonder|(동) 궁금해하다, 놀라다|No wonder.|놀랄 일이 아니다(당연하다).
+20-27|famine|(명) 기근, 기아|die of famine|기근으로 죽다
+20-27|feminine|(형) 여성의, 여성스러운|feminine voice|여성적인 목소리
+20-27|be known for|~으로[때문에] 유명하다|Korea is known for Kimchi.|한국은 김치로 유명하다.
+20-27|be known as|~으로 알려져 있다|He is known as a poet.|그는 시인으로 알려져 있다.
 
 
-20-28|bear|곰, 참다|polar bear|북극곰
-20-28|bear one's rude attitude|무례한 태도를 참다|cannot bear the pain|고통을 참을 수 없다
-20-28|bear good fruit|좋은 결실을 맺다|bear fruit|결실을 맺다
-20-28|sound|소리, 건전한|strange sound|이상한 소리
-20-28|sound reasonable|합리적으로 들리다|it sounds good|좋게 들린다
-20-28|sound judgement|건전한 판단력|safe and sound|무사히
-20-28|sound asleep|깊게 잠든|sound asleep|깊이 잠든
-20-28|bill|청구서, 지폐|dollar bill|달러 지폐
-20-28|bill has pass|법안이 통과하다|pass a bill|법안을 통과시키다
-20-28|big bill|큰 부리|duck's bill|오리 부리
-20-28|count|세다, 중요하다|count the money|돈을 세다
-20-28|count in|~을 포함하다|don't count me in|나를 빼줘
-20-28|count as|~로 간주하다|every vote counts|모든 표가 중요하다
-20-28|present|현재의, 선물|at present|현재
-20-28|present something|~을 제시하다|present a passport|여권을 제시하다
-20-28|grave|무덤, 심각한|dig a grave|무덤을 파다
-20-28|in grave danger|심각한 위험에|grave concern|심각한 우려
-20-28|make a grave mistake|중대한 실수를 저지르다|grave expression|심각한 표정
-20-28|subject|주제, 피실험자|main subject|주요 주제
-20-28|favorite subject|가장 좋아하는 과목|school subject|학교 과목
-20-28|male subject|남성 피실험자|experimental subject|실험 대상
-20-28|be subject to|~을 받기 쉬운|subject to change|변경될 수 있는
-20-28|draw|그리다, 끌다|draw a picture|그림을 그리다
-20-28|draw the wagon|마차를 끌다|draw a sword|칼을 뽑다
-20-28|drawing attention|관심을 끌다|draw a conclusion|결론을 도출하다
-20-28|draw conclusion|결론을 도출하다|the game ended in a draw|게임은 무승부로 끝났다
-20-28|contract|계약(서), 수축하다|sign a contract|계약서에 서명하다
-20-28|the air contract|공기가 수축하다|muscles contract|근육이 수축하다
-20-28|contract a disease|병에 걸리다|contract a virus|바이러스에 걸리다
-20-28|hold|잡다, 개최하다|hold a hand|손을 잡다
-20-28|hold a party|파티를 열다|hold a meeting|회의를 열다
-20-28|hold the door open|문을 계속 열어 두다|hold one's breath|숨을 참다
-20-28|hold 100 people|100명을 수용하다|can hold water|물을 담을 수 있다
-20-28|balance|균형, 잔고|lose balance|균형을 잃다
-20-28|bank balance|은행 잔고|check the balance|잔액을 확인하다
-20-28|on a balance|저울에|use a balance|천칭(저울)을 사용하다
-20-28|character|성격, 등장인물|strong character|강한 성격
-20-28|main character|주인공|comic character|만화 캐릭터
-20-28|have 24 characters|24개의 글자가 있다|chinese character|한자
+
+20-28|bear|(명) 곰 (동) 참다|polar bear|북극곰
+20-28|bear|(동) 참다, 견디다|cannot bear the pain|고통을 참을 수 없다
+20-28|bear|(동) (결실을) 맺다, (아이를) 낳다|bear fruit|결실을 맺다
+20-28|sound|(명) 소리 (형) 건전한, 건강한|strange sound|이상한 소리
+20-28|sound|(동) ~하게 들리다|It sounds good.|좋게 들린다.
+20-28|sound|(형) 건전한, 믿을 만한|safe and sound|무사히
+20-28|sound|(부) 깊게, 푹|sound asleep|깊이 잠든
+20-28|bill|(명) 청구서, 지폐|dollar bill|달러 지폐
+20-28|bill|(명) 법안|pass a bill|법안을 통과시키다
+20-28|bill|(명) (새의) 부리|duck's bill|오리 부리
+20-28|count|(동) 세다, 계산하다 (동) 중요하다|count the money|돈을 세다
+20-28|count in|~을 포함하다|Don't count me in.|나를 빼줘.
+20-28|count as|~로 간주되다 (동) 중요하다|Every vote counts.|모든 표가 중요하다.
+20-28|present|(형) 현재의 (명) 선물 (동) 출석한|at present|현재
+20-28|present|(동) 제시하다, 주다|present a passport|여권을 제시하다
+20-28|grave|(명) 무덤 (형) 심각한, 중대한|dig a grave|무덤을 파다
+20-28|grave|(형) 심각한, 중대한|grave concern|심각한 우려
+20-28|grave|(형) 중대한, 엄숙한|grave expression|심각한 표정
+20-28|subject|(명) 주제, 피실험자, 학과|main subject|주요 주제
+20-28|subject|(명) 과목, 학과|school subject|학교 과목
+20-28|subject|(명) 피실험자, 대상|experimental subject|실험 대상
+20-28|be subject to|~하기 쉬운, ~을 받아야 하는|subject to change|변경될 수 있는
+20-28|draw|(동) 그리다, 끌다, 뽑다|draw a picture|그림을 그리다
+20-28|draw|(동) 끌다, 당기다, 뽑다|draw a sword|칼을 뽑다
+20-28|draw|(동) (관심 등을) 끌다, 도출하다|draw a conclusion|결론을 도출하다
+20-28|draw|(명) 무승부 (동) 도출하다|The game ended in a draw.|게임은 무승부로 끝났다.
+20-28|contract|(명) 계약(서) (동) 수축하다, (병에) 걸리다|sign a contract|계약서에 서명하다
+20-28|contract|(동) 수축하다, 줄어들다|Muscles contract.|근육이 수축하다.
+20-28|contract|(동) (병에) 걸리다|[contract] a virus|바이러스에 걸리다
+20-28|hold|(동) 잡다, 쥐다, 개최하다|hold a hand|손을 잡다
+20-28|hold|(동) 개최하다, 열다|hold a meeting|회의를 열다
+20-28|hold|(동) 유지하다, 참다|hold one's breath|숨을 참다
+20-28|hold|(동) 수용하다, 담다|can hold water|물을 담을 수 있다
+20-28|balance|(명) 균형, 잔고, 저울|lose balance|균형을 잃다
+20-28|balance|(명) 잔액, 잔고|check the balance|잔액을 확인하다
+20-28|balance|(명) 저울, 천칭|use a balance|천칭(저울)을 사용하다
+20-28|character|(명) 성격, 특징, 등장인물, 글자|strong character|강한 성격
+20-28|character|(명) 등장인물, 특징|comic character|만화 캐릭터
+20-28|character|(명) 글자, 문자|Chinese character|한자
 
 
-20-29|absorb|흡수하다|absorb water|물을 흡수하다
-20-29|absurd|터무니없는, 불합리한|absurd idea|터무니없는 생각
-20-29|carve|조각하다, 새기다|carve wood|나무를 조각하다
-20-29|curve|곡선, 커브|dangerous curve|위험한 커브
-20-29|complement|보완, 보충, 보완하다|complement each other|서로 보완하다
-20-29|compliment|칭찬, 칭찬하다|pay a compliment|칭찬하다
-20-29|respectable|존경할 만한|respectable person|존경할 만한 사람
-20-29|respective|각각의|their respective roles|그들의 각각의 역할
-20-29|principal|교장, 주요한, 중요한|principal reason|주된 이유
-20-29|principle|원칙, 원리, 신념|basic principle|기본 원칙
-20-29|acquire|얻다, 획득하다, 습득하다|acquire knowledge|지식을 습득하다
-20-29|inquire|묻다|inquire about|~에 대해 문의하다
-20-29|require|필요로 하다, 요구하다|require help|도움을 필요로 하다
-20-29|lie|거짓말하다, 눕다, 거짓말|don't lie|거짓말하지 마라
-20-29|lay|놓다, 두다, 낳다|lay eggs|알을 낳다
-20-29|imitate|모방하다, 흉내 내다|imitate a voice|목소리를 흉내 내다
-20-29|initiate|시작하다, 개시하다|initiate a plan|계획을 시작하다
-20-29|defeat|패배시키다, 패배|defeat the enemy|적을 물리치다
-20-29|defect|결함, 결점|birth defect|선천적 결함
-20-29|frame|뼈대, 틀, 액자|picture frame|사진 액자
-20-29|flame|불길, 불꽃|burst into flames|불길에 휩싸이다
-20-29|successive|잇따른, 연속하는|successive wins|연승
-20-29|successful|성공적인|successful career|성공적인 경력
-20-29|cooperation|협동, 협력, 협조|international cooperation|국제 협력
-20-29|corporation|기업, 회사, 법인|multinational corporation|다국적 기업
+20-29|absorb|(동) 흡수하다|absorb water|물을 흡수하다
+20-29|absurd|(형) 터무니없는, 불합리한|absurd idea|터무니없는 생각
+20-29|carve|(동) 조각하다, 새기다|carve wood|나무를 조각하다
+20-29|curve|(명) 곡선, 커브|dangerous curve|위험한 커브
+20-29|complement|(명) 보완, 보충 (동) 보완하다|complement each other|서로 보완하다
+20-29|compliment|(명) 칭찬 (동) 칭찬하다|pay a compliment|칭찬하다
+20-29|respectable|(형) 존경할 만한|respectable person|존경할 만한 사람
+20-29|respective|(형) 각각의|their respective roles|그들의 각각의 역할
+20-29|principal|(명) 교장 (형) 주요한, 중요한|principal reason|주된 이유
+20-29|principle|(명) 원칙, 원리, 신념|basic principle|기본 원칙
+20-29|acquire|(동) 얻다, 획득하다, 습득하다|acquire knowledge|지식을 습득하다
+20-29|inquire|(동) 묻다, 문의하다|inquire about|~에 대해 문의하다
+20-29|require|(동) 필요로 하다, 요구하다|require help|도움을 필요로 하다
+20-29|lie|(동) 거짓말하다, 눕다 (명) 거짓말|Don't lie.|거짓말하지 마라.
+20-29|lay|(동) 놓다, 두다, (알을) 낳다|lay eggs|알을 낳다
+20-29|imitate|(동) 모방하다, 흉내 내다|imitate a voice|목소리를 흉내 내다
+20-29|initiate|(동) 시작하다, 개시하다|initiate a plan|계획을 시작하다
+20-29|defeat|(동) 패배시키다 (명) 패배|defeat the enemy|적을 물리치다
+20-29|defect|(명) 결함, 결점|birth defect|선천적 결함
+20-29|frame|(명) 뼈대, 틀, 액자|picture frame|사진 액자
+20-29|flame|(명) 불길, 불꽃|burst into flames|불길에 휩싸이다
+20-29|successive|(형) 잇따른, 연속하는|successive wins|연승
+20-29|successful|(형) 성공적인|successful career|성공적인 경력
+20-29|cooperation|(명) 협동, 협력, 협조|international cooperation|국제 협력
+20-29|corporation|(명) 기업, 회사, 법인|multinational corporation|다국적 기업
 20-29|call for|~을 요구[요청]하다|call for help|도움을 요청하다
 20-29|call off|중지하다, 취소하다|call off the meeting|회의를 취소하다
 
 
+20-30|rate|(명) 비율, 속도, 요금 (동) 평가하다|birth rate|출생률
+20-30|at a rate of|~의 속도로|at a rate of|~의 속도로
+20-30|rate|(명) 요금, 이율|interest rate|이자율
+20-30|rate|(동) 평가하다|rate a movie|영화를 평가하다
+20-30|fine|(명) 벌금 (동) 벌금을 부과하다|pay a fine|벌금을 내다
+20-30|fine|(형) 괜찮은, 좋은|I am fine.|난 괜찮아.
+20-30|fine|(형) 고운, 미세한|fine dust|미세 먼지
+20-30|fine|(형) 맑은|one fine day|어느 맑은 날
+20-30|term|(명) 용어, 기간, 학기, 조건, 사이|technical term|전문 용어
+20-30|term|(명) 학기, 기간|mid-term exam|중간고사
+20-30|in terms of|~의 관점에서|in terms of|~의 관점에서
+20-30|be on good terms|~와 사이가 좋다|be on good terms|사이가 좋다
+20-30|term|(명) 조건|terms of contract|계약 조건
+20-30|press|(동) 누르다, 강요하다 (명) 언론, 신문, 기자단|press the button|버튼을 누르다
+20-30|press|(동) 압박하다, 강요하다|hard pressed|압박을 받는
+20-30|press|(명) 언론, 보도진|freedom of the press|언론의 자유
+20-30|condition|(명) 상태, 환경, 조건|good condition|좋은 상태
+20-30|condition|(명) 환경, 상황|living conditions|생활 환경
+20-30|on condition that|~라는 조건으로|on condition that|~라는 조건으로
+20-30|solution|(명) 해결책, 용액|find a solution|해결책을 찾다
+20-30|solution|(명) 용액|saline solution|식염수
+20-30|conduct|(동) 수행하다, 지휘하다, 전도하다 (명) 행위, 품행|conduct a survey|조사를 수행하다
+20-30|conduct|(동) 지휘하다, 전도하다|conduct electricity|전기를 전도하다
+20-30|conduct|(명) 행위, 안내 (동) 안내하다|code of conduct|행동 강령
+20-30|conduct|(동) 전도하다|Copper conducts electricity.|구리는 전기를 전도한다.
+20-30|conduct|(명) 품행, 행동|professional conduct|직업적 행위
+20-30|fair|(형) 공평한, 상당한, 맑은, 아름다운 (명) 박람회|It's not fair.|불공평하다.
+20-30|fair|(형) 상당한, 꽤 많은|fair chance|공평한 기회
+20-30|fair|(형) 아름다운, 매력적인|my fair lady|나의 아름다운 숙녀
+20-30|fair|(형) 맑은, (피부가) 흰|fair skin|흰 피부
+20-30|fair|(명) 박람회|job fair|채용 박람회
+20-30|book|(명) 책 (동) 예약하다|read a book|책을 읽다
+20-30|book|(동) 예약하다, 예매하다|book a ticket|표를 예매하다
+20-30|current|(형) 현재의 (명) 흐름, 해류, 기류, 전류|current events|시사
+20-30|current|(명) (물, 공기 등의) 흐름|ocean current|해류
+20-30|current|(명) 추세, 경향, 흐름|air current|기류
+20-30|current|(명) 전류|alternating current|교류
+20-30|feature|(명) 특징, 이목구비, 특집 (동) 특징으로 하다|main feature|주요 특징
+20-30|features|(명) 이목구비, 얼굴 생김새|facial features|이목구비
+20-30|feature|(명) 특집 기사, 장편 영화|feature film|장편 영화
+20-30|critical|(형) 비판적인, 중대한, 위독한, 결정적인|critical thinking|비판적 사고
+20-30|critical|(형) 위독한, 중대한|critical condition|위독한 상태
+20-30|critical|(형) 결정적인, 아주 중요한|highly critical|매우 비판적인
 
-20-30|rate|비율|birth rate|출생률
-20-30|rate of 80 miles|시속 80마일|at a rate of|~의 속도로
-20-30|rate of a single room|1인실 요금|interest rate|이자율
-20-30|rate him highly|그를 높게 평가하다|rate a movie|영화를 평가하다
-20-30|fine|벌금, 벌금을 부과하다|pay a fine|벌금을 내다
-20-30|fine play|멋진 플레이|i am fine|난 괜찮아
-20-30|fine sand|고운 모래|fine dust|미세 먼지
-20-30|fine weather|맑은 날씨|one fine day|어느 맑은 날
-20-30|term|기간|technical term|전문 용어
-20-30|final term paper|학기말 리포트|mid-term exam|중간고사
-20-30|term is interpreted|용어가 해석되다|in terms of|~의 관점에서
-20-30|on good terms with|~와 사이가 좋은|be on good terms|사이가 좋다
-20-30|under the terms|조건에 따라|terms of contract|계약 조건
-20-30|press|누르다|press the button|버튼을 누르다
-20-30|press his opinion|그의 의견을 강요하다|hard pressed|압박을 받는
-20-30|the press conference|기자 회견|freedom of the press|언론의 자유
-20-30|condition|상태|good condition|좋은 상태
-20-30|working condition|근무 환경|living conditions|생활 환경
-20-30|necessary condition|필요조건|on condition that|~라는 조건으로
-20-30|solution|해결, 해결책|find a solution|해결책을 찾다
-20-30|an acid solution|산성 용액|saline solution|식염수
-20-30|conduct|수행하다|conduct a survey|조사를 수행하다
-20-30|the concert is conducted|그 연주회가 지휘되다|conduct electricity|전기를 전도하다
-20-30|the guide conducted us|그 가이드는 우리를 안내했다|code of conduct|행동 강령
-20-30|copper conducts electricity|구리는 전기를 전도한다|bad conduct|나쁜 품행
-20-30|his conduct|그의 행동|professional conduct|직업적 행위
-20-30|fair|공평한, 공정한|it's not fair|불공평하다
-20-30|a fair amount|상당한 양|fair chance|공평한 기회
-20-30|a fair lady|아름다운 여성, 매력적인 여성|my fair lady|나의 아름다운 숙녀
-20-30|the weather is expected to be fair|날씨가 맑을 것으로 예상되다|fair skin|흰 피부
-20-30|the science fair|과학 박람회|job fair|채용 박람회
-20-30|book|책, 서적|read a book|책을 읽다
-20-30|book three seats|세 개의 좌석을 예약하다|book a ticket|표를 예매하다
-20-30|current|현재의|current events|시사(현재의 사건들)
-20-30|current of the river|강의 흐름|ocean current|해류
-20-30|current of public opinion|여론의 추세|air current|기류
-20-30|electric currents|전류|alternating current|교류
-20-30|feature|특징, ~을 특징으로 하다|main feature|주요 특징
-20-30|handsome features|잘생긴 이목구비|facial features|이목구비
-20-30|a special feature|특집 기사|feature film|장편 영화
-20-30|critical|비판적인|critical thinking|비판적 사고
-20-30|more critical|더 중요한|critical condition|위독한 상태
-20-30|the critical moment|결정적인 순간|highly critical|매우 비판적인
 
 
-20-31|expire|(기한이) 만료되다|visa expires|비자가 만료되다
-20-31|inspire|고무(격려)하다, 영감을 주다|inspire students|학생들에게 영감을 주다
-20-31|loyal|충성스러운, 충실한|loyal customer|충성스러운 고객
-20-31|royal|왕의, 왕국의|royal family|왕족
-20-31|emergency|비상사태|in case of emergency|비상시에
-20-31|emergence|출현, 발생|emergence of life|생명의 출현
-20-31|terrible|끔찍한, 심한, 지독한|terrible accident|끔찍한 사고
-20-31|terrific|아주 멋진, 훌륭한|terrific job|훌륭한 일(잘했다)
-20-31|personal|개인적인|personal opinion|개인적인 견해
-20-31|personnel|인원, 직원, 인사과|personnel department|인사과
-20-31|conscience|양심|clear conscience|깨끗한 양심
-20-31|conscious|의식하는, 의식이 있는, 의도적인|conscious of|~을 의식하는
-20-31|simulate|모의 실험하다|simulate flight|비행을 시뮬레이션하다
-20-31|stimulate|자극(격려)하다, 관심을 불러일으키다|stimulate growth|성장을 자극하다
-20-31|raise|올리다, 들어올리다|raise a hand|손을 들다
-20-31|rise|오르다, 올라가다|sun rises|해가 뜬다
-20-31|confirm|확인하다, 승인하다, 입증하다|confirm a reservation|예약을 확인하다
-20-31|conform|따르다, 순응하다|conform to rules|규칙에 따르다
-20-31|calculate|계산하다|calculate the cost|비용을 계산하다
-20-31|circulate|순환하다|blood circulates|피가 순환한다
-20-31|depend|의존하다|depend on|~에 의존하다
-20-31|defend|방어(수비)하다, 변호하다|defend against|~에 맞서 방어하다
-20-31|neural|신경 (계통)의|neural network|신경망
-20-31|neutral|중립의, 중성의|neutral position|중립적인 위치
-20-31|evolution|진화, 발전|theory of evolution|진화론
-20-31|revolution|혁명, 회전|industrial revolution|산업 혁명
+20-31|expire|(동) (기한이) 만료되다|visa expires|비자가 만료되다
+20-31|inspire|(동) 고무(격려)하다, 영감을 주다|inspire students|학생들에게 영감을 주다
+20-31|loyal|(형) 충성스러운, 충실한|loyal customer|충성스러운 고객
+20-31|royal|(형) 왕의, 왕국의|royal family|왕족
+20-31|emergency|(명) 비상사태|in case of emergency|비상시에
+20-31|emergence|(명) 출현, 발생|emergence of life|생명의 출현
+20-31|terrible|(형) 끔찍한, 심한, 지독한|terrible accident|끔찍한 사고
+20-31|terrific|(형) 아주 멋진, 훌륭한|terrific job|훌륭한 일(잘했다)
+20-31|personal|(형) 개인적인|personal opinion|개인적인 견해
+20-31|personnel|(명) 인원, 직원, 인사과|personnel department|인사과
+20-31|conscience|(명) 양심|clear conscience|깨끗한 양심
+20-31|conscious|(형) 의식하는, 의식이 있는, 의도적인|conscious of|~을 의식하는
+20-31|simulate|(동) 모의 실험하다|simulate flight|비행을 시뮬레이션하다
+20-31|stimulate|(동) 자극(격려)하다, 관심을 불러일으키다|stimulate growth|성장을 자극하다
+20-31|raise|(동) 올리다, 들어올리다|raise a hand|손을 들다
+20-31|rise|(동) 오르다, 올라가다|Sun rises.|해가 뜬다.
+20-31|confirm|(동) 확인하다, 승인하다, 입증하다|confirm a reservation|예약을 확인하다
+20-31|conform|(동) 따르다, 순응하다|conform to rules|규칙에 따르다
+20-31|calculate|(동) 계산하다|calculate the cost|비용을 계산하다
+20-31|circulate|(동) 순환하다|Blood circulates.|피가 순환한다.
+20-31|depend|(동) 의존하다|depend on|~에 의존하다
+20-31|defend|(동) 방어(수비)하다, 변호하다|defend against|~에 맞서 방어하다
+20-31|neural|(형) 신경 (계통)의|neural network|신경망
+20-31|neutral|(형) 중립의, 중성의|neutral position|중립적인 위치
+20-31|evolution|(명) 진화, 발전|theory of evolution|진화론
+20-31|revolution|(명) 혁명, 회전|industrial revolution|산업 혁명
 20-31|be concerned about|~을 염려하다, ~을 걱정하다|be concerned about health|건강을 걱정하다
 20-31|be concerned with|~와 관련이 있다, ~에 관심이 있다|be concerned with results|결과와 관련이 있다
 
 
-20-32|company|함께 있는 사람들, 친구, 회사|keep company|동행하다(함께 있다)
-20-32|their company|그들의 동행|enjoy their company|그들과 함께 있는 것을 즐기다
-20-32|a large company|한 대기업|work for a large company|대기업에서 일하다
-20-32|article|기사, 물건, 조항|newspaper article|신문 기사
-20-32|toiletry articles|세면용품들|pack toiletry articles|세면용품을 챙기다
-20-32|every article|모든 조항|read every article|모든 조항을 읽다
-20-32|correspond|일치하다, 서신을 주고받다, 조화를 이루다|correspond to|~에 해당하다(일치하다)
-20-32|correspond to idea|개념에 해당하다|does it correspond to the idea|그것이 그 개념에 부합하나요
-20-32|correspond with friends|친구들과 서신을 주고받다|correspond with friends|친구들과 펜팔하다
-20-32|correspond with his suit|그의 정장과 조화를 이루다|tie corresponds with his suit|넥타이가 정장과 어울린다
-20-32|reflect|반사하다, 반영하다, 심사숙고하다|mirror reflects light|거울은 빛을 반사한다
-20-32|reflect our desire|우리의 열망을 반영하다|actions reflect our desire|행동은 우리의 열망을 반영한다
-20-32|reflect on his life|그의 삶을 회고하다, 심사숙고하다|reflect on his life|그의 삶을 되돌아보다
-20-32|post|기둥, 우편, 게시하다, 발송하다|lamp post|가로등 기둥
-20-32|through the post|우편으로|send through the post|우편으로 보내다
-20-32|post a video|영상을 게시하다|post a video online|영상을 온라인에 올리다
-20-32|post a letter|편지를 발송하다|post a letter|편지를 부치다
-20-32|decline|감소하다, 하락하다, 거절하다, 경사지다|decline an invitation|초대를 거절하다
-20-32|decline to join|가입하는 것을 거절하다|decline to join|가입을 거절하다
-20-32|the road declines|그 도로가 아래로 경사져 있다|the road declines steeply|도로가 가파르게 내려간다
-20-32|suit|정장, 소송, 맞다, 어울리다|wear a suit|정장을 입다
-20-32|bring a suit|소송을 내다|bring a suit against|~에게 소송을 걸다
-20-32|suit everyone|모든 사람에게 맞다, 어울리다|this time suits everyone|이 시간은 모두에게 맞다
-20-32|figure|수치, 몸매, 인물, 모양, 이해하다|sales figure|판매 수치
-20-32|a slim figure|날씬한 몸매|she has a slim figure|그녀는 날씬한 몸매를 가졌다
-20-32|an important figure|중요한 인물|historical figure|역사적 인물
-20-32|figures of flowers|꽃무늬|figures of flowers|꽃무늬
-20-32|figure out|이해하다, 생각해 내다|figure out the answer|답을 알아내다
-20-32|case|경우, 사례, 사건, 소송, 상자|in that case|그 경우에는
-20-32|the murder case|그 살인 사건|solve the murder case|살인 사건을 해결하다
-20-32|win the case|소송에서 이기다|lawyer wins the case|변호사가 승소하다
-20-32|pencil case|필통|put in the pencil case|필통에 넣다
-20-32|dismiss|해산시키다, 해고하다, 일축하다|dismiss a worker|직원을 해고하다
-20-32|unfairly dismiss|부당하게 해고하다|be unfairly dismissed|부당 해고당하다
-20-32|dismiss any question|어떤 질문도 떨쳐 버리다|dismiss any question|질문을 일축하다
-20-32|reserve|예약하다, 남겨두다, 보유하다, 매장량, 보호 구역|reserve a table|테이블을 예약하다
-20-32|seats are reserved|좌석들이 따로 남겨지다|seats are reserved|좌석이 예약되어 있다
-20-32|reserve the right|권리를 보유하다|we reserve the right|우리는 권리를 가진다
-20-32|reserve of natural gas|천연가스 매장량|vast reserve of natural gas|막대한 천연가스 매장량
-20-32|a wildlife reserve|야생 동물 보호 구역|visit a wildlife reserve|야생 동물 보호 구역을 방문하다
-20-32|appreciate|진가를 알아보다, 이해하다, 감사하다, 감상하다|appreciate art|예술을 감상하다
-20-32|appreciate your business|귀하의 거래에 감사드리다|we appreciate your business|거래해 주셔서 감사합니다
-20-32|appreciate details|세부 사항의 진가를 알아보다|appreciate details|세부 사항의 진가를 알아보다
+20-32|company|(명) 함께 있는 사람들, 친구, 회사|keep company|동행하다(함께 있다)
+20-32|company|(명) 동행, 함께 있음|enjoy their company|그들과 함께 있는 것을 즐기다
+20-32|company|(명) 회사, 기업|work for a large company|대기업에서 일하다
+20-32|article|(명) 기사, 물건, 조항|newspaper article|신문 기사
+20-32|article|(명) 물건, 물품|pack toiletry articles|세면용품을 챙기다
+20-32|article|(명) 조항|read every article|모든 조항을 읽다
+20-32|correspond|(동) 일치하다, 서신을 주고받다, 조화를 이루다|correspond to|~에 해당하다(일치하다)
+20-32|correspond|(동) 부합하다, 일치하다|Does it correspond to the idea?|그것이 그 개념에 부합하나요?
+20-32|correspond|(동) 서신을 주고받다|correspond with friends|친구들과 펜팔하다
+20-32|correspond|(동) 조화를 이루다, 어울리다|Tie corresponds with his suit.|넥타이가 정장과 어울린다.
+20-32|reflect|(동) 반사하다, 반영하다, 심사숙고하다|Mirror reflects light.|거울은 빛을 반사한다.
+20-32|reflect|(동) 반영하다, 나타내다|Actions reflect our desire.|행동은 우리의 열망을 반영한다.
+20-32|reflect on|(동) 회고하다, 심사숙고하다|reflect on his life|그의 삶을 되돌아보다
+20-32|post|(명) 기둥, 우편 (동) 게시하다, 발송하다|lamp post|가로등 기둥
+20-32|post|(명) 우편, 우편물|send through the post|우편으로 보내다
+20-32|post|(동) (온라인에) 게시하다, 올리다|post a video online|영상을 온라인에 올리다
+20-32|post|(동) (우편물을) 발송하다, 부치다|post a letter|편지를 부치다
+20-32|decline|(동) 감소하다, 거절하다 (명) 하락, 경사|decline an invitation|초대를 거절하다
+20-32|decline|(동) 거절하다|decline to join|가입을 거절하다
+20-32|decline|(동) 기울다, 내리막이 되다|The road declines steeply.|도로가 가파르게 내려간다.
+20-32|suit|(명) 정장, 소송 (동) 맞다, 어울리다|wear a suit|정장을 입다
+20-32|suit|(명) 소송|bring a suit against|~에게 소송을 걸다
+20-32|suit|(동) (격식, 형편 등에) 맞다, 어울리다|This time suits everyone.|이 시간은 모두에게 맞다.
+20-32|figure|(명) 수치, 몸매, 인물, 모양 (동) 이해하다|sales figure|판매 수치
+20-32|figure|(명) 몸매, 모습|She has a slim figure.|그녀는 날씬한 몸매를 가졌다.
+20-32|figure|(명) 인물|historical figure|역사적 인물
+20-32|figure|(명) 모양, 무늬|figures of flowers|꽃무늬
+20-32|figure out|(동) 이해하다, 생각해 내다|figure out the answer|답을 알아내다
+20-32|case|(명) 경우, 사례, 사건, 소송, 상자|in that case|그 경우에는
+20-32|case|(명) 사건|solve the murder case|살인 사건을 해결하다
+20-32|case|(명) 소송, 재판|Lawyer wins the case.|변호사가 승소하다.
+20-32|case|(명) 상자, 용기|put in the pencil case|필통에 넣다
+20-32|dismiss|(동) 해산시키다, 해고하다, 일축하다|dismiss a worker|직원을 해고하다
+20-32|dismiss|(동) 해고하다, 내쫓다|be unfairly dismissed|부당 해고당하다
+20-32|dismiss|(동) 일축하다, 떨쳐 버리다|dismiss any question|질문을 일축하다
+20-32|reserve|(동) 예약하다, 남겨두다 (명) 매장량, 보호 구역|reserve a table|테이블을 예약하다
+20-32|reserve|(동) 예약하다, 남겨두다|Seats are reserved.|좌석이 예약되어 있다.
+20-32|reserve|(동) (권리 등을) 보유하다, 가지다|We reserve the right.|우리는 권리를 가진다.
+20-32|reserve|(명) 매장량, 비축물|vast reserve of natural gas|막대한 천연가스 매장량
+20-32|reserve|(명) 보호 구역|visit a wildlife reserve|야생 동물 보호 구역을 방문하다
+20-32|appreciate|(동) 진가를 알아보다, 이해하다, 감사하다, 감상하다|appreciate art|예술을 감상하다
+20-32|appreciate|(동) 감사하다|We appreciate your business.|거래해 주셔서 감사합니다.
+20-32|appreciate|(동) 진가를 알아보다, 가치를 인정하다|appreciate details|세부 사항의 진가를 알아보다
 
 
-20-33|state|상태, 국가, 말하다, 진술하다|mental state|정신 상태
-20-33|statue|조각상|bronze statue|청동 조각상
-20-33|status|지위, 신분, 상황|social status|사회적 지위
-20-33|explode|폭발하다, 터뜨리다|bomb explodes|폭탄이 폭발하다
-20-33|explore|탐험하다|explore the world|세계를 탐험하다
-20-33|ethical|윤리적인|ethical issue|윤리적 문제
-20-33|ethnic|민족의, 종족의|ethnic group|민족 집단
-20-33|waist|허리|waist size|허리 치수
-20-33|waste|낭비, 폐기물, 낭비하다|waste time|시간을 낭비하다
-20-33|hospitality|환대, 접대|thank you for your hospitality|환대에 감사합니다
-20-33|hostility|적대감|show hostility|적대감을 보이다
-20-33|constant|불변의, 끊임없는|constant effort|끊임없는 노력
-20-33|consistent|일관된, 일치하는, 모순 없는|consistent behavior|일관된 행동
-20-33|brake|브레이크, 제동 장치|step on the brake|브레이크를 밟다
-20-33|break|휴식, 부서지다, 고장 나다, 쉬다, 어기다|break a glass|유리잔을 깨다
-20-33|saw|톱, 톱질하다|cut with a saw|톱으로 자르다
-20-33|sew|바느질하다, 꿰매다|sew a button|단추를 달다
-20-33|sow|씨를 뿌리다, 심다|sow seeds|씨앗을 뿌리다
-20-33|precede|~에 앞서다(선행하다)|a precedes b|a가 b보다 앞서다
-20-33|proceed|나아가다, 진행하다|proceed with the plan|계획을 진행하다
-20-33|desert|사막|sahara desert|사하라 사막
-20-33|dessert|후식, 디저트|sweet dessert|달콤한 디저트
-20-33|addition|추가, 첨가, 덧셈|in addition|게다가
-20-33|addiction|중독, 열중|drug addiction|약물 중독
-20-33|substitute|대신하다, 교체하다, 대리자, 대용품|substitute teacher|대체 교사
-20-33|constitute|구성하다, ~이 되다|constitute a crime|범죄를 구성하다
+
+20-33|state|(명) 상태, 국가 (동) 말하다, 진술하다|mental state|정신 상태
+20-33|statue|(명) 조각상|bronze statue|청동 조각상
+20-33|status|(명) 지위, 신분, 상황|social status|사회적 지위
+20-33|explode|(동) 폭발하다, 터뜨리다|Bomb explodes.|폭탄이 폭발하다.
+20-33|explore|(동) 탐험하다|explore the world|세계를 탐험하다
+20-33|ethical|(형) 윤리적인|ethical issue|윤리적 문제
+20-33|ethnic|(형) 민족의, 종족의|ethnic group|민족 집단
+20-33|waist|(명) 허리|waist size|허리 치수
+20-33|waste|(명) 낭비, 폐기물 (동) 낭비하다|waste time|시간을 낭비하다
+20-33|hospitality|(명) 환대, 접대|Thank you for your hospitality.|환대에 감사합니다.
+20-33|hostility|(명) 적대감|show hostility|적대감을 보이다
+20-33|constant|(형) 불변의, 끊임없는|constant effort|끊임없는 노력
+20-33|consistent|(형) 일관된, 일치하는, 모순 없는|consistent behavior|일관된 행동
+20-33|brake|(명) 브레이크, 제동 장치|step on the brake|브레이크를 밟다
+20-33|break|(명) 휴식 (동) 부서지다, 고장 나다, 쉬다, 어기다|break a glass|유리잔을 깨다
+20-33|saw|(명) 톱 (동) 톱질하다|cut with a saw|톱으로 자르다
+20-33|sew|(동) 바느질하다, 꿰매다|sew a button|단추를 달다
+20-33|sow|(동) 씨를 뿌리다, 심다|sow seeds|씨앗을 뿌리다
+20-33|precede|(동) ~에 앞서다(선행하다)|A precedes B.|A가 B보다 앞서다.
+20-33|proceed|(동) 나아가다, 진행하다|proceed with the plan|계획을 진행하다
+20-33|desert|(명) 사막|Sahara desert|사하라 사막
+20-33|dessert|(명) 후식, 디저트|sweet dessert|달콤한 디저트
+20-33|addition|(명) 추가, 첨가, 덧셈|in addition|게다가
+20-33|addiction|(명) 중독, 열중|drug addiction|약물 중독
+20-33|substitute|(동) 대신하다, 교체하다 (명) 대리자, 대용품|substitute teacher|대체 교사
+20-33|constitute|(동) 구성하다, ~이 되다|constitute a crime|범죄를 구성하다
 20-33|be engaged in|~에 종사하고 있다, ~에 열중하다|be engaged in business|사업에 종사하다
 20-33|be engaged to|~와 약혼한 사이다|be engaged to marry|결혼을 약속하다
 
 
-20-34|address|주소, 연설하다, 다루다(해결하다)|email address|이메일 주소
-20-34|the congressman addressed the crowd|그 국회의원은 군중들에게 연설했다|he addressed the crowd|그가 군중에게 연설했다
-20-34|address all complaints|모든 불만을 말하다|address the problem|문제를 다루다(해결하다)
-20-34|spring|봄, 온천, 샘, 용수철|hot spring|온천
-20-34|spring of clean water|깨끗한 물이 솟는 샘|mountain spring|산속의 샘
-20-34|some springs in the bed|그 침대의 일부 용수철|bed springs|침대 스프링
-20-34|board|판, 이사회, 위원회, 탑승하다, 하숙하다|blackboard|칠판
-20-34|all members of the board|이사회의 모든 회원들|school board|교육 위원회
-20-34|board the ship|배에 탑승하다|board a plane|비행기에 탑승하다
-20-34|board in a house|집에서 하숙하다|room and board|식숙(하숙)
-20-34|block|사각형 덩어리, 구획(블록), 차단하다, 가리다|building block|건축 블록
-20-34|two blocks from school|학교에서 두 블록 떨어진|walk a block|한 블록 걷다
-20-34|the road is blocked|도로가 차단되다|block the view|시야를 가리다
-20-34|reason|이유, 이성, 추론하다|for no reason|아무 이유 없이
-20-34|calm reason|차분한 이성|listen to reason|이성적으로 행동하다(이성에 귀 기울이다)
-20-34|he reasoned|그는 생각했다|reason out|논리적으로 추론하다
-20-34|cover|덮다, 담당하다, 보도하다, 표지|cover the pot|냄비 뚜껑을 덮다
-20-34|cover the region|그 지역을 담당하다|sales rep covers the area|영업 사원이 그 지역을 담당한다
-20-34|cover the scandal|그 소문을 보도하다|media covers the news|언론이 뉴스를 보도하다
-20-34|a cover of magazine|잡지의 표지|book cover|책 표지
-20-34|flat|평평한, 납작한, 펑크 난, 아파트|flat surface|평평한 표면
-20-34|flat type of bread|납작한 종류의 빵|flat bread|납작한 빵
-20-34|flat tire|펑크 난 타이어|get a flat tire|타이어가 펑크 나다
-20-34|flat downtown|도심의 아파트|live in a flat|아파트에 살다
-20-34|margin|차이, 이윤 폭, 수익, 가장자리, 여백|profit margin|이윤 폭
-20-34|the margin of the company|그 회사의 수익|increase margin|수익을 늘리다
-20-34|margin of the river|강가|margin of error|오차 범위
-20-34|issue|문제, 쟁점, (잡지 등의) 호, 발급하다, 나오다|current issue|시사 문제
-20-34|august issue of the magazine|그 잡지의 8월 호|back issue|과월 호
-20-34|your new passport will be issued|당신의 새 여권은 발급될 것입니다|issue a passport|여권을 발급하다
-20-34|smoke issues|연기가 나오다|smoke issues from the chimney|굴뚝에서 연기가 나온다
-20-34|even|심지어, 훨씬(비교급 강조), 평평한, 짝수의, 공정한|even number|짝수
-20-34|even page|짝수 쪽|even pages|짝수 페이지들
-20-34|even deal|공정한 거래|get an even deal|공정한 거래를 하다
-20-34|even a simple problem|심지어 단순한 문제라도|even a child knows|심지어 아이도 안다
-20-34|even taller|훨씬 키가 큰|even better|훨씬 더 좋은
-20-34|release|석방하다, 방출하다, 발표하다, 발매하다|release a prisoner|죄수를 석방하다
-20-34|release methane|메탄을 방출하다|release toxic gas|유독 가스를 방출하다
-20-34|release a statement|성명을 발표하다|press release|보도 자료
-20-34|release a new novel|새로운 소설을 발간하다|release an album|앨범을 발매하다
-20-34|content|내용(물), 함량, 만족하는|table of contents|목차
-20-34|the table of content|목차|contents of the box|상자의 내용물
+20-34|address|(명) 주소 (동) 연설하다, 다루다(해결하다)|email address|이메일 주소
+20-34|address|(동) 연설하다|He addressed the crowd.|그가 군중에게 연설했다.
+20-34|address|(동) 다루다, 해결하다|address the problem|문제를 다루다(해결하다)
+20-34|spring|(명) 봄, 온천, 샘, 용수철|hot spring|온천
+20-34|spring|(명) 샘, 근원|mountain spring|산속의 샘
+20-34|spring|(명) 용수철, 스프링|bed springs|침대 스프링
+20-34|board|(명) 판, 이사회, 위원회 (동) 탑승하다, 하숙하다|blackboard|칠판
+20-34|board|(명) 이사회, 위원회|school board|교육 위원회
+20-34|board|(동) 탑승하다|board a plane|비행기에 탑승하다
+20-34|board|(동) 하숙하다 (명) 식사|room and board|식숙(하숙)
+20-34|block|(명) 사각형 덩어리, 구획 (동) 차단하다, 가리다|building block|건축 블록
+20-34|block|(명) (도시의) 한 구역, 블록|walk a block|한 블록 걷다
+20-34|block|(동) 차단하다, 방해하다|block the view|시야를 가리다
+20-34|reason|(명) 이유, 이성 (동) 추론하다|for no reason|아무 이유 없이
+20-34|reason|(명) 이성, 사고력|listen to reason|이성적으로 행동하다
+20-34|reason out|(동) 논리적으로 추론하다|reason out|논리적으로 추론하다
+20-34|cover|(동) 덮다, 담당하다, 보도하다 (명) 표지|cover the pot|냄비 뚜껑을 덮다
+20-34|cover|(동) (어떤 지역을) 담당하다, 맡다|sales rep covers the area|영업 사원이 그 지역을 담당한다
+20-34|cover|(동) 보도하다, 취재하다|media covers the news|언론이 뉴스를 보도하다
+20-34|cover|(명) 표지, 덮개|book cover|책 표지
+20-34|flat|(형) 평평한, 납작한, 펑크 난 (명) 아파트|flat surface|평평한 표면
+20-34|flat|(형) 납작한, 평평한|flat bread|납작한 빵
+20-34|flat|(형) (타이어가) 펑크 난|get a flat tire|타이어가 펑크 나다
+20-34|flat|(명) 아파트|live in a flat|아파트에 살다
+20-34|margin|(명) 차이, 이윤 폭, 가장자리, 여백|profit margin|이윤 폭
+20-34|margin|(명) 수익, 이윤|increase margin|수익을 늘리다
+20-34|margin|(명) 가장자리, (오차 등의) 범위|margin of error|오차 범위
+20-34|issue|(명) 문제, (잡지 등의) 호 (동) 발급하다, 나오다|current issue|시사 문제
+20-34|issue|(명) (정기 간행물의) 호, 발행물|back issue|과월 호
+20-34|issue|(동) 발급하다, 발행하다|issue a passport|여권을 발급하다
+20-34|issue|(동) 나오다, 흘러나오다|Smoke issues from the chimney.|굴뚝에서 연기가 나온다.
+20-34|even|(부) 심지어, 훨씬 (형) 평평한, 짝수의, 공정한|even number|짝수
+20-34|even|(형) 짝수의|even pages|짝수 페이지들
+20-34|even|(형) 공정한, 대등한|get an even deal|공정한 거래를 하다
+20-34|even|(부) 심지어 ~조차|even a child knows|심지어 아이도 안다
+20-34|even|(부) 훨씬 (비교급 강조)|even better|훨씬 더 좋은
+20-34|release|(동) 석방하다, 방출하다, 발표하다, 발매하다|release a prisoner|죄수를 석방하다
+20-34|release|(동) 방출하다, 발산하다|release toxic gas|유독 가스를 방출하다
+20-34|release|(동) 발표하다, 공개하다 (명) 보도 자료|press release|보도 자료
+20-34|release|(동) 발매하다, 개봉하다, 발간하다|release an album|앨범을 발매하다
+20-34|content|(명) 내용(물), 함량 (형) 만족하는|table of contents|목차
+20-34|content|(명) 내용물|contents of the box|상자의 내용물
 20-34|be content with|만족하다|be content with life|삶에 만족하다
-20-34|content of wheat|밀의 함량|high sugar content|높은 당 함량
+20-34|content|(명) 함유량, 함량|high sugar content|높은 당 함량
 
-
-
-20-35|adapt|적응하다, 조정하다|adapt to change|변화에 적응하다
-20-35|adopt|채택하다, 입양하다|adopt a plan|계획을 채택하다
-20-35|altitude|고도, 높이|high altitude|높은 고도
-20-35|aptitude|적성, 소질, 경향|aptitude test|적성 검사
-20-35|attitude|태도|positive attitude|긍정적인 태도
-20-35|access|접근, 입장, 접근하다, 이용하다, 접속하다|have access to|~에 접근 권한이 있다
-20-35|excess|초과, 과도, 초과한, 여분의|excess baggage|초과 수하물
-20-35|council|의회, 회의|city council|시의회
-20-35|counsel|조언, 상담, 조언하다, 상담하다|seek counsel|조언을 구하다
-20-35|flight|비행, 항공편|book a flight|비행편을 예약하다
-20-35|fright|놀람, 두려움|die of fright|공포로 죽다(놀라 죽다)
-20-35|phase|단계, 국면|initial phase|초기 단계
-20-35|phrase|어구, 구|catchy phrase|기억하기 쉬운 문구
-20-35|interpret|해석하다, 이해하다|interpret a dream|꿈을 해석하다
-20-35|interrupt|방해하다, 중단하다|don't interrupt|방해하지 마라
-20-35|moral|도덕의, 도덕적인|moral duty|도덕적 의무
-20-35|morale|사기, 의욕|boost morale|사기를 북돋우다
-20-35|mortal|죽을 운명인, 치명적인|mortal being|죽을 운명의 존재(인간)
-20-35|affect|영향을 미치다|affect health|건강에 영향을 미치다
-20-35|effect|효과, 영향, 결과|side effect|부작용
-20-35|mediate|중재하다|mediate a dispute|분쟁을 중재하다
-20-35|meditate|명상하다, 묵상하다|meditate on life|인생에 대해 명상하다
-20-35|simultaneously|동시에|happen simultaneously|동시에 발생하다
-20-35|spontaneously|자발적으로, 자연스럽게|occur spontaneously|저절로(자발적으로) 발생하다
-20-35|comparative|비교를 통한, 비교의, 상대적인|comparative study|비교 연구
-20-35|competitive|경쟁적인, 경쟁력 있는|competitive market|경쟁 시장
-20-35|make up|~을 구성(형성)하다, ~을 지어내다, 화장하다|make up a story|이야기를 지어내다
-20-35|make up for|~을 보충하다, ~을 보상하다|make up for lost time|잃어버린 시간을 만회하다
-
-
-
-
-21-1|provide|제공하다, 공급하다, 준비하다|provide students with books|학생들에게 책을 제공하다
-21-1|develop|개발하다, 발전하다|develop a new skill|새로운 기술을 개발하다
-21-1|cultural|문화의, 문화적인|cultural heritage|문화 유산
-21-1|inform|알리다, 통지하다|inform us of the result|우리에게 결과를 알리다
-21-1|social|사회의, 사교적인|social interaction|사회적 상호작용
-21-1|improve|향상시키다, 향상하다|improve the quality of life|삶의 질을 향상시키다
-21-1|individual|개인, 개인의, 개인적인|respect individual rights|개인의 권리를 존중하다
-21-1|require|필요로 하다, 요구하다|require patience|인내심을 필요로 하다
-21-1|volunteer|자원봉사, 자원하다|volunteer work|자원봉사 활동
-21-1|behave|행동하다|behave responsibly|책임감 있게 행동하다
-21-1|amount|총액, 총계, 액수, 양|a large amount of data|방대한 양의 데이터
-21-1|relationship|관계|establish a relationship|관계를 맺다
-21-1|employ|고용하다, 쓰다(채택하다)|employ a method|방법을 쓰다(채택하다)
-21-1|attitude|태도, 입장|a positive attitude|긍정적인 태도
-21-1|research|연구, 조사하다|conduct research|연구를 수행하다
-21-1|audience|청중, 관객|attract an audience|청중을 끌어모으다
-21-1|challenge|도전, 도전하다|face a challenge|도전에 직면하다
-21-1|influence| 영향, 영향을 끼치다|have an influence on kids|아이들에게 영향을 미치다
-21-1|material|자료, 재료, 물질|raw materials|원자재
-21-1|opportunity|기회|miss an opportunity|기회를 놓치다
-21-1|environment|환경|protect the environment|환경을 보호하다
-21-1|expense|비용, 지출|at the expense of health|건강을 희생하여(대가로)
-21-1|local|지방의, 지역의, 장소의|local residents|지역 주민들
-21-1|involve|포함하다, 관련되다|be [involved] in the project|프로젝트에 참여(관련)하다
-21-1|stress|스트레스, 강조|stress the importance|중요성을 강조하다
-21-1|therefore|그러므로, 그 결과|Therefore, it is true.|그러므로 그것은 사실이다.
-21-1|contain|함유하다, 포함하다|contain harmful substances|해로운 물질을 포함하다
-21-1|average|평균, 평균의|above average|평균 이상
-21-1|ride|타다, 타기|give him a ride|그를 태워주다
-21-1|encourage|촉구하다, 격려하다|encourage students to read|학생들이 독서하도록 장려하다
-21-1|determine|결정하다, 결심하다|determine the cause|원인을 결정하다(알아내다)
-21-1|international|국제의, 국제적인|international trade|국제 무역
-21-1|consume|소비하다, 먹다|consume energy|에너지를 소비하다
-21-1|impress|깊은 인상을 주다, 감동시키다|be deeply [impressed]|깊이 감명받다
-21-1|object|물체, 목표, 반대하다|object to the plan|계획에 반대하다
-21-1|available|이용 가능한, 쓸모 있는|readily available|손쉽게 이용 가능한
-21-1|positive|긍정적인, 확신하는|positive effect|긍정적인 효과
-21-1|recognize|인지하다, 인정하다|recognize the value|가치를 알아보다(인정하다)
-21-1|commodity|상품, 물품|basic commodity|생필품(기본 상품)
-21-1|comfort|편안하게 하다, 위로하다, 편안, 위로|seek comfort|위안을 찾다
-21-1|materialism|물질(만능)주의|rise of materialism|물질만능주의의 대두
-21-1|unemployed|실직한|the unemployed|실직자들
-21-1|employer|고용주|a fair employer|공정한 고용주
-21-1|employee|고용인, 종업원|a loyal employee|충실한 직원
-21-1|objection|반대|raise an objection|이의(반대)를 제기하다
+21-1|provide|(동) 제공하다, 공급하다, 준비하다|provide students with books|학생들에게 책을 제공하다
+21-1|develop|(동) 개발하다, 발전하다|develop a new skill|새로운 기술을 개발하다
+21-1|cultural|(형) 문화의, 문화적인|cultural heritage|문화 유산
+21-1|inform|(동) 알리다, 통지하다|inform us of the result|우리에게 결과를 알리다
+21-1|social|(형) 사회의, 사교적인|social interaction|사회적 상호작용
+21-1|improve|(동) 향상시키다, 향상하다|improve the quality of life|삶의 질을 향상시키다
+21-1|individual|(명) 개인 (형) 개인의, 개인적인|respect individual rights|개인의 권리를 존중하다
+21-1|require|(동) 필요로 하다, 요구하다|require patience|인내심을 필요로 하다
+21-1|volunteer|(명) 자원봉사 (동) 자원하다|volunteer work|자원봉사 활동
+21-1|behave|(동) 행동하다|behave responsibly|책임감 있게 행동하다
+21-1|amount|(명) 총액, 총계, 액수, 양|a large amount of data|방대한 양의 데이터
+21-1|relationship|(명) 관계|establish a relationship|관계를 맺다
+21-1|employ|(동) 고용하다, 쓰다(채택하다)|employ a method|방법을 쓰다(채택하다)
+21-1|attitude|(명) 태도, 입장|a positive attitude|긍정적인 태도
+21-1|research|(명) 연구 (동) 조사하다|conduct research|연구를 수행하다
+21-1|audience|(명) 청중, 관객|attract an audience|청중을 끌어모으다
+21-1|challenge|(명) 도전 (동) 도전하다|face a challenge|도전에 직면하다
+21-1|influence|(명) 영향 (동) 영향을 끼치다|have an influence on kids|아이들에게 영향을 미치다
+21-1|material|(명) 자료, 재료, 물질|raw materials|원자재
+21-1|opportunity|(명) 기회|miss an opportunity|기회를 놓치다
+21-1|environment|(명) 환경|protect the environment|환경을 보호하다
+21-1|expense|(명) 비용, 지출|at the expense of health|건강을 희생하여(대가로)
+21-1|local|(형) 지방의, 지역의, 장소의|local residents|지역 주민들
+21-1|involve|(동) 포함하다, 관련되다|be [involved] in the project|프로젝트에 참여(관련)하다
+21-1|stress|(명) 스트레스 (동) 강조하다|stress the importance|중요성을 강조하다
+21-1|therefore|(부) 그러므로, 그 결과|Therefore, it is true.|그러므로 그것은 사실이다.
+21-1|contain|(동) 함유하다, 포함하다|contain harmful substances|해로운 물질을 포함하다
+21-1|average|(명) 평균 (형) 평균의|above average|평균 이상
+21-1|ride|(동) 타다 (명) 타기|give him a ride|그를 태워주다
+21-1|encourage|(동) 촉구하다, 격려하다|encourage students to read|학생들이 독서하도록 장려하다
+21-1|determine|(동) 결정하다, 결심하다|determine the cause|원인을 결정하다(알아내다)
+21-1|international|(형) 국제의, 국제적인|international trade|국제 무역
+21-1|consume|(동) 소비하다, 먹다|consume energy|에너지를 소비하다
+21-1|impress|(동) 깊은 인상을 주다, 감동시키다|be deeply [impressed]|깊이 감명받다
+21-1|object|(명) 물체, 목표 (동) 반대하다|object to the plan|계획에 반대하다
+21-1|available|(형) 이용 가능한, 쓸모 있는|readily available|손쉽게 이용 가능한
+21-1|positive|(형) 긍정적인, 확신하는|positive effect|긍정적인 효과
+21-1|recognize|(동) 인지하다, 인정하다|recognize the value|가치를 알아보다(인정하다)
+21-1|commodity|(명) 상품, 물품|basic commodity|생필품
+21-1|comfort|(동) 편안하게 하다, 위로하다 (명) 편안, 위로|seek comfort|위안을 찾다
+21-1|materialism|(명) 물질(만능)주의|rise of materialism|물질만능주의의 대두
+21-1|unemployed|(형) 실직한|the unemployed|실직자들
+21-1|employer|(명) 고용주|a fair employer|공정한 고용주
+21-1|employee|(명) 고용인, 종업원|a loyal employee|충실한 직원
+21-1|objection|(명) 반대|raise an objection|이의(반대)를 제기하다
 21-1|pass away|돌아가시다|He [passed away] peacefully.|그는 평온하게 돌아가셨다.
 21-1|give away|거저 주다, 누설하다|give away a secret|비밀을 누설하다
 
 
-21-2|emotion|정서, 감정|express emotion|감정을 표현하다
-21-2|amaze|놀라게 하다|be [amazed] at the news|소식에 놀라다 [6]
-21-2|reduce|줄이다, 낮추다|reduce pollution|오염을 줄이다
-21-2|discover|발견하다|discover a cure|치료법을 발견하다
-21-2|decide|결심하다, 결정하다|decide to go|가기로 결심하다
-21-2|benefit|이익, 이익이 되다|mutual benefit|상호 이익
-21-2|affect|영향을 미치다|affect the outcome|결과에 영향을 미치다
-21-2|level|수준, 수평, 수평의|high level of anxiety|높은 수준의 불안
-21-2|chemistry|화학|organic chemistry|유기 화학
-21-2|immediate|즉각적인, 가까이에 있는|immediate action|즉각적인 조치
-21-2|thus|그러므로, 따라서|Thus, we concluded.|따라서 우리는 결론 내렸다.
-21-2|proper|적절한, 알맞은|proper treatment|적절한 대우(치료)
-21-2|performance|공연, 성적, 성과|academic performance|학업 성취도(성적)
-21-2|essence|본질, 정수|the essence of nature|자연의 본질
-21-2|economic|경제의, 경제학의|economic growth|경제 성장
-21-2|cell|세포, 작은 방, 독방|cell division|세포 분열
-21-2|focus|초점, 초점을 맞추다, 집중하다|focus on the problem|문제에 집중하다
-21-2|issue|화제, 문제, 발행(물), 발행하다|environmental issues|환경 문제들
-21-2|participate|참여하다, 참가하다|participate in the event|행사에 참여하다
-21-2|demand|요구하다, 수요|supply and demand|수요와 공급
-21-2|occur|일어나다, 발생하다|An accident [occurred].|사고가 발생했다.
-21-2|complex|복잡한, 복합체|complex structure|복잡한 구조
-21-2|define|정의하다, 한계 짓다, 한정하다|define the term|용어를 정의하다
-21-2|proud|자랑스러워하는|be proud of oneself|자신을 자랑스러워하다
-21-2|aware|인지하는, 알고 있는|be aware of danger|위험을 인지하다
-21-2|contact|접촉, 접촉하다|keep in contact|연락하고 지내다
-21-2|profession|전문직, 직종|medical profession|의료직
-21-2|detail|세부적인 것, 상술하다|in detail|상세하게
-21-2|approach|접근하다, 접근, 접근법|a new approach|새로운 접근법
-21-2|career|직업, 경력|pursue a career|직업(경력)을 추구하다
-21-2|package|꾸러미, 포장, 포장하다|package tour|패키지 여행
-21-2|disappear|사라지다|disappear from sight|시야에서 사라지다
-21-2|novel|소설, 참신한|a novel idea|참신한 아이디어
-21-2|secure|안전한, 안전하게 하다, 확보하다|secure a job|일자리를 확보하다
-21-2|function|기능, 기능하다, 작용하다|proper function|적절한 기능
+21-2|emotion|(명) 정서, 감정|express emotion|감정을 표현하다
+21-2|amaze|(동) 놀라게 하다|be [amazed] at the news|소식에 놀라다 [6]
+21-2|reduce|(동) 줄이다, 낮추다|reduce pollution|오염을 줄이다
+21-2|discover|(동) 발견하다|discover a cure|치료법을 발견하다
+21-2|decide|(동) 결심하다, 결정하다|decide to go|가기로 결심하다
+21-2|benefit|(명) 이익 (동) 이익이 되다|mutual benefit|상호 이익
+21-2|affect|(동) 영향을 미치다|affect the outcome|결과에 영향을 미치다
+21-2|level|(명) 수준 (동) 수평으로 만들다 (형) 수평의|high level of anxiety|높은 수준의 불안
+21-2|chemistry|(명) 화학|organic chemistry|유기 화학
+21-2|immediate|(형) 즉각적인, 가까이에 있는|immediate action|즉각적인 조치
+21-2|thus|(부) 그러므로, 따라서|Thus, we concluded.|따라서 우리는 결론 내렸다.
+21-2|proper|(형) 적절한, 알맞은|proper treatment|적절한 대우
+21-2|performance|(명) 공연, 성적, 성과|academic performance|학업 성취도
+21-2|essence|(명) 본질, 정수|the essence of nature|자연의 본질
+21-2|economic|(형) 경제의, 경제학의|economic growth|경제 성장
+21-2|cell|(명) 세포, 작은 방, 독방|cell division|세포 분열
+21-2|focus|(명) 초점 (동) 초점을 맞추다, 집중하다|focus on the problem|문제에 집중하다
+21-2|issue|(명) 화제, 문제, 발행(물) (동) 발행하다|environmental issues|환경 문제들
+21-2|participate|(동) 참여하다, 참가하다|participate in the event|행사에 참여하다
+21-2|demand|(동) 요구하다 (명) 수요|supply and demand|수요와 공급
+21-2|occur|(동) 일어나다, 발생하다|An accident [occurred].|사고가 발생했다.
+21-2|complex|(형) 복잡한 (명) 복합체|complex structure|복잡한 구조
+21-2|define|(동) 정의하다, 한계 짓다, 한정하다|define the term|용어를 정의하다
+21-2|proud|(형) 자랑스러워하는|be proud of oneself|자신을 자랑스러워하다
+21-2|aware|(형) 인지하는, 알고 있는|be aware of danger|위험을 인지하다
+21-2|contact|(명) 접촉 (동) 접촉하다|keep in contact|연락하고 지내다
+21-2|profession|(명) 전문직, 직종|medical profession|의료직
+21-2|detail|(명) 세부적인 것 (동) 상술하다|in detail|상세하게
+21-2|approach|(동) 접근하다 (명) 접근, 접근법|a new approach|새로운 접근법
+21-2|career|(명) 직업, 경력|pursue a career|직업을 추구하다
+21-2|package|(명) 꾸러미, 포장 (동) 포장하다|package tour|패키지 여행
+21-2|disappear|(동) 사라지다|disappear from sight|시야에서 사라지다
+21-2|novel|(명) 소설 (형) 참신한|a novel idea|참신한 아이디어
+21-2|secure|(형) 안전한 (동) 안전하게 하다, 확보하다|secure a job|일자리를 확보하다
+21-2|function|(명) 기능 (동) 기능하다, 작용하다|proper function|적절한 기능
 21-2|despite|~에도 불구하고|despite the rain|비에도 불구하고
-21-2|background|배경, 배경 지식|educational background|학력(교육적 배경)
-21-2|solution|해결, 해결책|find a solution|해결책을 찾다
-21-2|generate|일으키다, 발생시키다|generate electricity|전기를 발생시키다
-21-2|eventually|결국|eventually succeed|결국 성공하다
-21-2|astonish|놀라게 하다|be [astonished]|깜짝 놀라다 [9]
-21-2|detect|탐지하다, 발견하다|detect a change|변화를 감지하다
-21-2|beneficial|유익한|mutually beneficial|상호 유익한
-21-2|appropriate|적절한, 알맞은|appropriate behavior|적절한 행동
-21-2|insecure|불안정한|feel insecure|불안함을 느끼다
-21-2|ignorant|무지한, 모르는|ignorant of the law|법을 모르는
+21-2|background|(명) 배경, 배경 지식|educational background|학력
+21-2|solution|(명) 해결, 해결책|find a solution|해결책을 찾다
+21-2|generate|(동) 일으키다, 발생시키다|generate electricity|전기를 발생시키다
+21-2|eventually|(부) 결국|eventually succeed|결국 성공하다
+21-2|astonish|(동) 놀라게 하다|be [astonished]|깜짝 놀라다 [9]
+21-2|detect|(동) 탐지하다, 발견하다|detect a change|변화를 감지하다
+21-2|beneficial|(형) 유익한|mutually beneficial|상호 유익한
+21-2|appropriate|(형) 적절한, 알맞은|appropriate behavior|적절한 행동
+21-2|insecure|(형) 불안정한|feel insecure|불안함을 느끼다
+21-2|ignorant|(형) 무지한, 모르는|ignorant of the law|법을 모르는
 21-2|hold back|억제하다, ~을 말리다|hold back tears|눈물을 참다
 21-2|keep back|감추다|keep back the truth|진실을 숨기다
 
 
-
-21-3|decrease|줄다, 줄이다, 감소|decrease the risk|위험을 줄이다
-21-3|recycle|재활용하다|recycle paper|종이를 재활용하다
-21-3|desire|욕망, 욕구, 바라다|a strong desire|강한 욕구
-21-3|balance|균형, 은행 잔고, 균형을 이루다|strike a balance|균형을 맞추다
-21-3|negative|부정적인|negative attitude|부정적인 태도
-21-3|follow|따라가다, 따르다|follow the rules|규칙을 따르다
-21-3|account|은행 계좌, 이야기, 설명, 설명하다|account for the error|오류를 설명하다(원인이 되다)
-21-3|publish|발표하다, 출판하다|publish a book|책을 출판하다
-21-3|occasion|경우, 특별한 일|on special occasions|특별한 경우에
-21-3|replace|대체하다|replace A with B|A를 B로 대체하다
-21-3|constant|일정한, 불변의|constant effort|꾸준한 노력
-21-3|expert|전문가|an expert in this field|이 분야의 전문가
-21-3|term|용어, 기간, 학기|technical terms|전문 용어들
-21-3|relieve|경감하다, 안도시키다|relieve stress|스트레스를 덜다
-21-3|describe|묘사하다, 표현하다|describe the scene|그 장면을 묘사하다
-21-3|congratulate|축하하다|congratulate him on success|그의 성공을 축하하다
-21-3|due|만기의, ~하기로 되어 있는|The report is due tomorrow.|그 보고서는 내일까지 제출해야 한다.
-21-3|equipment|장치, 장비|protective equipment|보호 장비
-21-3|biology|생물학|molecular biology|분자 생물학
-21-3|imagine|상상하다|can't imagine life without you|너 없는 삶은 상상할 수 없다
-21-3|compose|구성하다, 작곡하다, 작문하다|be [composed] [C] of water|물로 구성되다
-21-3|genius|천재, 천재성|musical genius|음악 천재
-21-3|reflect|반영하다, 반사하다, 숙고하다|reflect on oneself|자신을 되돌아보다(성찰하다)
-21-3|cause|~의 원인이 되다, 야기하다, 원인|cause and effect|원인과 결과
-21-3|frequent|빈번한, 자주 가다|frequent visits|잦은 방문
-21-3|factor|요인, 요소|key factor|핵심 요인
-21-3|extreme|극단의, 극단적인, 극단|extreme sports|익스트림 스포츠
-21-3|tend|~하는 경향이 있다|tend to ignore|무시하는 경향이 있다
-21-3|politics|정치, 정치학|discuss politics|정치를 논하다
-21-3|insist|주장하다|insist on going|가겠다고 고집하다
-21-3|extend|연장하다, 넓히다|extend the deadline|마감 기한을 연장하다
-21-3|lonely|외로운|feel lonely|외로움을 느끼다
-21-3|habitat|서식지, 주거지|natural habitat|자연 서식지
-21-3|mental|정신의|mental health|정신 건강
-21-3|steady|안정된, 한결같은, 꾸준한|slow but steady|느리지만 꾸준한
-21-3|exchange|교환하다, 교환|exchange opinions|의견을 교환하다
-21-3|active|활동적인, 적극적인|active participant|적극적인 참여자
-21-3|species|종|endangered species|멸종 위기종
-21-3|athletic|운동의, 운동 경기의|athletic ability|운동 능력
-21-3|dental|치아의|dental care|치아 관리
-21-3|decline|감소하다, 거절하다|sharp decline|급격한 감소
-21-3|occasionally|때때로, 가끔|occasionally visit|가끔 방문하다
-21-3|substitute|대체하다|substitute teacher|대체 교사
+21-3|decrease|(동) 줄다, 줄이다 (명) 감소|decrease the risk|위험을 줄이다
+21-3|recycle|(동) 재활용하다|recycle paper|종이를 재활용하다
+21-3|desire|(명) 욕망, 욕구 (동) 바라다|a strong desire|강한 욕구
+21-3|balance|(명) 균형, 은행 잔고 (동) 균형을 이루다|strike a balance|균형을 맞추다
+21-3|negative|(형) 부정적인|negative attitude|부정적인 태도
+21-3|follow|(동) 따라가다, 따르다|follow the rules|규칙을 따르다
+21-3|account|(명) 은행 계좌, 이야기, 설명 (동) 설명하다|account for the error|오류를 설명하다
+21-3|publish|(동) 발표하다, 출판하다|publish a book|책을 출판하다
+21-3|occasion|(명) 경우, 특별한 일|on special occasions|특별한 경우에
+21-3|replace|(동) 대체하다|replace A with B|A를 B로 대체하다
+21-3|constant|(형) 일정한, 불변의|constant effort|꾸준한 노력
+21-3|expert|(명) 전문가|an expert in this field|이 분야의 전문가
+21-3|term|(명) 용어, 기간, 학기|technical terms|전문 용어들
+21-3|relieve|(동) 경감하다, 안도시키다|relieve stress|스트레스를 덜다
+21-3|describe|(동) 묘사하다, 표현하다|describe the scene|그 장면을 묘사하다
+21-3|congratulate|(동) 축하하다|congratulate him on success|그의 성공을 축하하다
+21-3|due|(형) 만기의, ~하기로 되어 있는|The report is due tomorrow.|그 보고서는 내일까지 제출해야 한다.
+21-3|equipment|(명) 장치, 장비|protective equipment|보호 장비
+21-3|biology|(명) 생물학|molecular biology|분자 생물학
+21-3|imagine|(동) 상상하다|can't imagine life without you|너 없는 삶은 상상할 수 없다
+21-3|compose|(동) 구성하다, 작곡하다, 작문하다|be [composed] [C] of water|물로 구성되다
+21-3|genius|(명) 천재, 천재성|musical genius|음악 천재
+21-3|reflect|(동) 반영하다, 반사하다, 숙고하다|reflect on oneself|자신을 되돌아보다
+21-3|cause|(동) ~의 원인이 되다, 야기하다 (명) 원인|cause and effect|원인과 결과
+21-3|frequent|(형) 빈번한 (동) 자주 가다|frequent visits|잦은 방문
+21-3|factor|(명) 요인, 요소|key factor|핵심 요인
+21-3|extreme|(형) 극단의, 극단적인 (명) 극단|extreme sports|익스트림 스포츠
+21-3|tend|(동) ~하는 경향이 있다|tend to ignore|무시하는 경향이 있다
+21-3|politics|(명) 정치, 정치학|discuss politics|정치를 논하다
+21-3|insist|(동) 주장하다|insist on going|가겠다고 고집하다
+21-3|extend|(동) 연장하다, 넓히다|extend the deadline|마감 기한을 연장하다
+21-3|lonely|(형) 외로운|feel lonely|외로움을 느끼다
+21-3|habitat|(명) 서식지, 주거지|natural habitat|자연 서식지
+21-3|mental|(형) 정신의|mental health|정신 건강
+21-3|steady|(형) 안정된, 한결같은, 꾸준한|slow but steady|느리지만 꾸준한
+21-3|exchange|(동) 교환하다 (명) 교환|exchange opinions|의견을 교환하다
+21-3|active|(형) 활동적인, 적극적인|active participant|적극적인 참여자
+21-3|species|(명) 종|endangered species|멸종 위기종
+21-3|athletic|(형) 운동의, 운동 경기의|athletic ability|운동 능력
+21-3|dental|(형) 치아의|dental care|치아 관리
+21-3|decline|(동) 감소하다, 거절하다 (명) 감소, 하락|sharp decline|급격한 감소
+21-3|occasionally|(부) 때때로, 가끔|occasionally visit|가끔 방문하다
+21-3|substitute|(동) 대체하다 (명) 대리자, 대용품|substitute teacher|대체 교사
 21-3|in terms of|~ 면에서, ~의 관점에서|in terms of cost|비용 면에서
 21-3|due to|~때문에|delay due to snow|눈으로 인한 지연
-21-3|comprise|구성하다|comprise the majority|다수를 차지하다
-21-3|extent|넓이, 범위|to some extent|어느 정도까지는
+21-3|comprise|(동) 구성하다|comprise the majority|다수를 차지하다
+21-3|extent|(명) 넓이, 범위|to some extent|어느 정도까지는
 21-3|bring up|키우다, 양육하다|[bring up] children|아이들을 기르다
 21-3|sum up|요약하다|To [sum up], it is a great movie.|요약하자면, 그것은 훌륭한 영화이다.
 
 
 
-21-4|delight|기쁨, 기쁘게 하다|take delight in learning|배우는 즐거움을 느끼다
-21-4|confident|자신 있는|be confident of success|성공을 확신하다
-21-4|gradually|점차, 서서히|gradually increase|점차 증가하다
-21-4|shadow|그림자, 그늘지게 하다|cast a shadow|그림자를 드리우다
-21-4|access|접근, 입장, 이용, 접근하다|have access to the internet|인터넷에 접속할 수 있다
-21-4|announce|발표하다, 알리다|announce the winner|우승자를 발표하다
-21-4|allow|허락하다, 인정하다|allow him to go|그가 가는 것을 허락하다
-21-4|firm|확고한, 단단한, 회사|a law firm|법률 회사(로펌)
-21-4|vary|바꾸다, 변하다, 다르다|opinions vary|의견이 다양하다(다르다)
-21-4|injure|상처를 입히다, 손상시키다|be seriously [injured] [I]|심하게 다치다
-21-4|permit|허용(허락)하다|permit entry|입장을 허용하다
-21-4|response|응답, 반응|quick response|빠른 반응
-21-4|increase|증가하다, 증가, 이자|increase in population|인구 증가
-21-4|electricity|전기|generate electricity|전기를 생산하다
-21-4|disabled|장애를 가진, 무능력하게 된|facilities for the disabled|장애인용 시설
-21-4|lack|부족, ~이 부족하다|lack of sleep|수면 부족
-21-4|possibility|가능성, 가망|future possibility|미래의 가능성
-21-4|concentrate|집중하다|concentrate on study|공부에 집중하다
-21-4|emphasize|강조하다|emphasize the importance|중요성을 강조하다
-21-4|astronomy|천문학|study astronomy|천문학을 공부하다
-21-4|flood|홍수, 범람시키다|flood victims|수해 이재민
-21-4|fuel|연료, 연료를 가하다|fossil fuel|화석 연료
-21-4|manufacture|제조하다, 제조(업), 제품|manufacture cars|자동차를 제조하다
-21-4|movement|움직임, 운동|political movement|정치적 움직임(운동)
-21-4|capable|할 수 있는, 유능한|be capable of doing|~할 능력이 있다
-21-4|combine|결합시키다, 겸비하다|combine theory with practice|이론과 실제를 결합하다
-21-4|gene|유전자|gene therapy|유전자 치료
-21-4|threat|위협, 협박|pose a threat|위협을 가하다
-21-4|victim|희생, 희생자|save the victim|희생자를 구하다
-21-4|pressure|압력, 압박, 압력을 가하다|under pressure|압박감을 느끼는
-21-4|accompany|동반하다, 수반하다|accompany a friend|친구와 동행하다
-21-4|frustrate|좌절시키다|feel [frustrated] [F]|좌절감을 느끼다
-21-4|construct|건설하다|construct a building|건물을 짓다
-21-4|launch|발사하다, 시작하다, 출시하다, 발사, 개시, 출시|launch a campaign|캠페인을 시작하다
-21-4|commerce|상업, 교역|e-commerce|전자 상거래
-21-4|entertain|접대하다, 즐겁게 하다|entertain guests|손님을 즐겁게(대접)하다
-21-4|predict|예언하다, 예측하다|predict the weather|날씨를 예측하다
-21-4|apologize|사과하다|apologize for the mistake|실수에 대해 사과하다
-21-4|sight|시야, 광경, 시력|out of sight|시야에서 벗어난
-21-4|quantity|양|quality over quantity|양보다 질
+21-4|delight|(명) 기쁨 (동) 기쁘게 하다|take delight in learning|배우는 즐거움을 느끼다
+21-4|confident|(형) 자신 있는|be confident of success|성공을 확신하다
+21-4|gradually|(부) 점차, 서서히|gradually increase|점차 증가하다
+21-4|shadow|(명) 그림자 (동) 그늘지게 하다|cast a shadow|그림자를 드리우다
+21-4|access|(명) 접근, 입장, 이용 (동) 접근하다|have access to the internet|인터넷에 접속할 수 있다
+21-4|announce|(동) 발표하다, 알리다|announce the winner|우승자를 발표하다
+21-4|allow|(동) 허락하다, 인정하다|allow him to go|그가 가는 것을 허락하다
+21-4|firm|(형) 확고한, 단단한 (명) 회사|a law firm|법률 회사
+21-4|vary|(동) 바꾸다, 변하다, 다르다|Opinions vary.|의견이 다양하다.
+21-4|injure|(동) 상처를 입히다, 손상시키다|be seriously [injured] [I]|심하게 다치다
+21-4|permit|(동) 허용(허락)하다|permit entry|입장을 허용하다
+21-4|response|(명) 응답, 반응|quick response|빠른 반응
+21-4|increase|(동) 증가하다 (명) 증가, 이자|increase in population|인구 증가
+21-4|electricity|(명) 전기|generate electricity|전기를 생산하다
+21-4|disabled|(형) 장애를 가진, 무능력하게 된|facilities for the disabled|장애인용 시설
+21-4|lack|(명) 부족 (동) ~이 부족하다|lack of sleep|수면 부족
+21-4|possibility|(명) 가능성, 가망|future possibility|미래의 가능성
+21-4|concentrate|(동) 집중하다|concentrate on study|공부에 집중하다
+21-4|emphasize|(동) 강조하다|emphasize the importance|중요성을 강조하다
+21-4|astronomy|(명) 천문학|study astronomy|천문학을 공부하다
+21-4|flood|(명) 홍수 (동) 범람시키다|flood victims|수해 이재민
+21-4|fuel|(명) 연료 (동) 연료를 가하다|fossil fuel|화석 연료
+21-4|manufacture|(동) 제조하다 (명) 제조, 제품|manufacture cars|자동차를 제조하다
+21-4|movement|(명) 움직임, 운동|political movement|정치적 운동
+21-4|capable|(형) 할 수 있는, 유능한|be capable of doing|~할 능력이 있다
+21-4|combine|(동) 결합시키다, 겸비하다|combine theory with practice|이론과 실제를 결합하다
+21-4|gene|(명) 유전자|gene therapy|유전자 치료
+21-4|threat|(명) 위협, 협박|pose a threat|위협을 가하다
+21-4|victim|(명) 희생, 희생자|save the victim|희생자를 구하다
+21-4|pressure|(명) 압력, 압박 (동) 압력을 가하다|under pressure|압박감을 느끼는
+21-4|accompany|(동) 동반하다, 수반하다|accompany a friend|친구와 동행하다
+21-4|frustrate|(동) 좌절시키다|feel [frustrated] [F]|좌절감을 느끼다
+21-4|construct|(동) 건설하다|construct a building|건물을 짓다
+21-4|launch|(동) 발사하다, 시작하다, 출시하다 (명) 발사, 개시, 출시|launch a campaign|캠페인을 시작하다
+21-4|commerce|(명) 상업, 교역|e-commerce|전자 상거래
+21-4|entertain|(동) 접대하다, 즐겁게 하다|entertain guests|손님을 즐겁게 하다
+21-4|predict|(동) 예언하다, 예측하다|predict the weather|날씨를 예측하다
+21-4|apologize|(동) 사과하다|apologize for the mistake|실수에 대해 사과하다
+21-4|sight|(명) 시야, 광경, 시력|out of sight|시야에서 벗어난
+21-4|quantity|(명) 양|quality over quantity|양보다 질
+
+21-5|conclude|(동) 결론짓다, 끝내다|conclude that he is right|그가 옳다고 결론짓다
+21-5|donate|(동) 기부하다|donate to charity|자선단체에 기부하다
+21-5|personality|(명) 개성, 성격, 특색|strong personality|강한 성격
+21-5|struggle|(동) 싸우다, 노력하다 (명) 투쟁, 노력|struggle to survive|살아남으려 애쓰다
+21-5|advantage|(명) 유리한 점, 이익|take advantage of|~을 이용하다
+21-5|variety|(명) 다양성, 종류|a wide variety of|매우 다양한
+21-5|enable|(동) 가능하게 하다|enable him to walk|그가 걷는 것을 가능하게 하다
+21-5|instruction|(명) 지시, 설명서, 가르침|follow instructions|지시 사항을 따르다
+21-5|assume|(동) 추정하다, (책임을) 떠맡다|assume responsibility|책임을 떠맡다
+21-5|attempt|(동) 시도하다 (명) 시도|attempt to escape|탈출을 시도하다
+21-5|incredible|(형) 믿을 수 없는, 굉장한|incredible speed|믿을 수 없는 속도
+21-5|feature|(명) 특징, 얼굴 생김새 (동) 특징으로 하다, 주연하다|unique feature|독특한 특징
+21-5|confuse|(동) 혼동하다, 혼란시키다|confuse A with B|A와 B를 혼동하다
+21-5|electronic|(형) 전자의, 전자 공학의|electronic device|전자기기
+21-5|absorb|(동) 흡수하다, 열중시키다|absorb knowledge|지식을 흡수하다
+21-5|indicate|(동) 가리키다, 나타내다|indicate the direction|방향을 가리키다
+21-5|analyze|(동) 분석하다|analyze data|데이터를 분석하다
+21-5|stock|(명) 재고품, 저장, 가축 (동) 저장하다|out of stock|재고가 없는
+21-5|resident|(형) 거주하는 (명) 거주자, 레지던트|local residents|지역 거주민들
+21-5|labor|(명) 노동, 산고 (동) 노동하다|child labor|아동 노동
+21-5|remark|(동) 의견을 말하다, 주목하다 (명) 의견, 주목|make a rude remark|무례한 발언을 하다
+21-5|moral|(형) 도덕적인|moral duty|도덕적 의무
+21-5|embarrassed|(형) 당황한|feel embarrassed|당황스럽다
+21-5|claim|(동) 주장하다, 요구하다 (명) 주장, 요구|claim damages|손해배상을 청구하다
+21-5|reasonable|(형) 논리적인, 합리적인, 분별력이 있는|reasonable price|합리적인 가격
+21-5|interrupt|(동) 방해하다, 중단하다|Don't interrupt me.|나를 방해하지 마라.
+21-5|limit|(동) 제한하다, 한정하다 (명) 제한|speed limit|속도제한
+21-5|creature|(명) 생물, 피조물|living creatures|살아있는 생물들
+21-5|heal|(동) 치료하다, 낫게 하다|Time heals all wounds.|시간이 모든 상처를 치유한다.
+21-5|establish|(동) 설립하다, 확립하다, 제정하다|establish a theory|이론을 확립하다
+21-5|revolution|(명) 혁명, 갑작스러운 변화, 회전|Industrial Revolution|산업 혁명
+21-5|criticize|(동) 비난하다, 비평하다|criticize the policy|정책을 비판하다
+21-5|convince|(동) 확신시키다, 납득시키다|convince him of the truth|그에게 진실을 확신시키다
+21-5|efficient|(형) 효율적인, 유능한|energy efficient|에너지 효율적인
+21-5|stranger|(명) 낯선 사람, 문외한|total stranger|생판 모르는 사람
+21-5|tide|(명) 조수, 흐름|The tide turns.|형세가 역전되다.
+21-5|obtain|(동) 얻다, 획득하다|obtain permission|허락을 얻다
+21-5|assist|(동) 도움을 주다|assist in the work|일을 돕다
+21-5|disaster|(명) 재앙, 재난, 재해|natural disaster|자연재해
+21-5|terrific|(형) 굉장한, 훌륭한|a terrific idea|아주 훌륭한 아이디어
 
 
-21-5|conclude|결론짓다, 끝내다|conclude that he is right|그가 옳다고 결론짓다
-21-5|donate|기부하다|donate to charity|자선단체에 기부하다
-21-5|personality|개성, 성격, 특색|strong personality|강한 성격
-21-5|struggle|싸우다, 노력하다, 투쟁, 노력|struggle to survive|살아남으려 애쓰다
-21-5|advantage|유리한 점, 이익|take advantage of|~을 이용하다
-21-5|variety|다양, 다양성|a wide variety of|매우 다양한
-21-5|enable|가능하게 하다|enable him to walk|그가 걷는 것을 가능하게 하다
-21-5|instruction|지시, 제품 사용 설명서, 가르침|follow instructions|지시 사항을 따르다
-21-5|assume|추정하다, 취하다|assume responsibility|책임을 떠맡다(추정하다)
-21-5|attempt|시도하다, 시도|attempt to escape|탈출을 시도하다
-21-5|incredible|믿을 수 없는, 굉장한|incredible speed|믿을 수 없는 속도
-21-5|feature|특징, 얼굴 생김새, 특징으로 하다, 주연하다|unique feature|독특한 특징
-21-5|confuse|혼동하다, 혼란 시키다|confuse A with B|A와 B를 혼동하다
-21-5|electronic|전자의, 전자 공학의|electronic device|전자기기
-21-5|absorb|흡수하다, 열중시키다|absorb knowledge|지식을 흡수하다
-21-5|indicate|가리키다, 나타내다|indicate the direction|방향을 가리키다
-21-5|analyze|분석하다|analyze data|데이터를 분석하다
-21-5|stock|재고품, 저장, 가축, 저장하다, 들여놓다|out of stock|재고가 없는
-21-5|resident|거주하는, 거주자, 레지던트|local residents|지역 거주민들
-21-5|labor|노동, 산고, 노동하다|child labor|아동 노동
-21-5|remark|의견을 말하다, ~에 주목하다, 의견, 주목|make a rude remark|무례한 발언을 하다
-21-5|moral|도덕적인|moral duty|도덕적 의무
-21-5|embarrassed|당황한|feel embarrassed|당황스럽다
-21-5|claim|주장하다, 요구, 주장|claim damages|손해배상을 청구하다
-21-5|reasonable|논리적인, 분별력이 있는|reasonable price|합리적인 가격
-21-5|interrupt|방해하다, 중단하다|Don't interrupt me.|나를 방해하지(말 끊지) 마라.
-21-5|limit|제한하다, 한정하다, 제한|speed limit|속도제한
-21-5|creature|생물, 피조물|living creatures|살아있는 생물들
-21-5|heal|치료하다, 낫게 하다|Time heals all wounds.|시간이 모든 상처를 치유한다.
-21-5|establish|설립하다, 확립하다, 제정하다|establish a theory|이론을 확립하다
-21-5|revolution|혁명, 갑작스러운 변화, 회전|Industrial Revolution|산업 혁명
-21-5|criticize|비난하다, 비평하다|criticize the policy|정책을 비판하다
-21-5|convince|확신시키다, 납득시키다|convince him of the truth|그에게 진실을 확신시키다
-21-5|efficient|효율적인, 유능한|energy efficient|에너지 효율적인
-21-5|stranger|낯선 사람, 문외한|total stranger|생판 모르는 사람
-21-5|tide|조수, 흐름|The tide turns.|형세가 역전되다(조수가 바뀌다).
-21-5|obtain|얻다, 획득하다|obtain permission|허락을 얻다
-21-5|assist|도움을 주다|assist in the work|일을 돕다
-21-5|disaster|재앙, 재난, 재해|natural disaster|자연재해
-21-5|terrific|굉장한, 훌륭한|a terrific idea|아주 훌륭한 아이디어
+21-6|specific|(형) 구체적인, 특정한|specific example|구체적인 예시
+21-6|react|(동) 반응하다, 반작용하다|react quickly|빠르게 반응하다
+21-6|independent|(형) 독립적인|independent study|독립적인 연구(자습)
+21-6|theory|(명) 이론|scientific theory|과학 이론
+21-6|qualify|(동) 자격을 얻다|qualify for the job|그 일에 자격을 얻다
+21-6|consider|(동) 숙고하다, 고려하다|consider it done|그것을 된 것으로 간주하다
+21-6|recall|(동) 상기하다, 철회하다, 회수하다 (명) 상기, 철회, 회수|recall a memory|기억을 상기하다
+21-6|risk|(명) 위험 (동) 위험을 감수하다|take a risk|위험을 감수하다
+21-6|treatment|(명) 취급, 대우, 치료법|medical treatment|의학적 치료
+21-6|engage|(동) 관여하다, 약속하다, 약혼하다|engage in politics|정치에 관여하다
+21-6|motivate|(동) 동기를 부여하다|motivate students|학생들에게 동기를 부여하다
+21-6|clue|(명) 실마리, 단서|find a clue|단서를 찾다
+21-6|resource|(명) 자원, 지략|natural resource|천연자원
+21-6|probable|(형) 가용한, 개연성이 있는, 그럴싸한|probable cause|개연성 있는 원인
+21-6|depress|(동) 우울하게 하다, 의기소침하게 하다|feel [depressed]|우울함을 느끼다
+21-6|fascinate|(동) 매료시키다, 마음을 빼앗다|be [fascinated] by art|예술에 매료되다
+21-6|violent|(형) 난폭한, 폭력적인|violent crime|폭력 범죄
+21-6|alarm|(명) 놀람, 경보|sound the alarm|경보를 울리다
+21-6|edge|(명) 가장자리, 날카로움, 우위|have an edge over others|남보다 우위에 있다
+21-6|deserve|(동) 받을 만하다|deserve praise|칭찬받을 만하다
+21-6|route|(명) 길, 통로, 항로|trade route|무역로
+21-6|psychology|(명) 심리학, 심리|child psychology|아동 심리학
+21-6|passion|(명) 열정|passion for music|음악에 대한 열정
+21-6|import|(동) 수입하다, 의미하다 (명) 수입|import goods|상품을 수입하다
+21-6|purchase|(동) 구매하다 (명) 구매|purchase online|온라인으로 구매하다
+21-6|conscience|(명) 양심|clear conscience|깨끗한 양심
+21-6|pose|(동) 자세를 취하다, 제기하다 (명) 자세|pose a problem|문제를 제기하다
+21-6|length|(명) 길이|length of time|시간의 길이
+21-6|severe|(형) 심한, 엄격한|severe pain|심한 고통
+21-6|decade|(명) 10년, 10년간|over a decade|10년 넘게
+21-6|occupy|(동) 차지하다, 전념하다|occupy space|공간을 차지하다
+21-6|acquire|(동) 습득하다|acquire knowledge|지식을 습득하다
+21-6|interact|(동) 상호 작용하다|interact with peers|또래와 상호 작용하다
+21-6|brief|(형) 간단한 (명) 간단한 보고 (동) 간단히 알리다|brief summary|간단한 요약
+21-6|observe|(동) 관찰하다, 보다, 준수하다|observe the rules|규칙을 준수하다
+21-6|poetry|(명) 시, 운문|write poetry|시를 쓰다
+21-6|salary|(명) 급료, 봉급|annual salary|연봉
+21-6|grain|(명) 곡물, 낟알|grain production|곡물 생산
+21-6|skip|(동) 거르다, 깡충깡충 뛰다|skip lunch|점심을 거르다
+21-6|meaningful|(형) 의미 있는, 의미심장한|meaningful life|의미 있는 삶
 
 
-21-6|specific|구체적인, 특정한|specific example|구체적인 예시
-21-6|react|반응하다, 반작용하다|react quickly|빠르게 반응하다
-21-6|independent|독립적인|independent study|독립적인 연구(자습)
-21-6|theory|이론|scientific theory|과학 이론
-21-6|qualify|자격을 얻다|qualify for the job|그 일에 자격을 얻다
-21-6|consider|숙고하다, 고려하다|consider it done|그것을 된 것으로 간주하다
-21-6|recall|상기하다, 철회하다, 회수하다, 상기, 철회, 회수|recall a memory|기억을 상기하다
-21-6|risk|위험, 위험을 감수하다|take a risk|위험을 감수하다
-21-6|treatment|취급, 대우, 치료법|medical treatment|의학적 치료
-21-6|engage|관여하다, 약속하다, 약혼하다|engage in politics|정치에 관여하다
-21-6|motivate|동기를 부여하다|motivate students|학생들에게 동기를 부여하다
-21-6|clue|실마리, 단서|find a clue|단서를 찾다
-21-6|resource|자원, 지략|natural resource|천연자원
-21-6|probable|가용한, 개연성이 있는, 그럴싸한|probable cause|개연성 있는 원인
-21-6|depress|우울하게 하다, 의기소침하게 하다|feel [depressed]|우울함을 느끼다
-21-6|fascinate|매료시키다, 마음을 빼앗다|be [fascinated] by art|예술에 매료되다
-21-6|violent|난폭한, 폭력적인|violent crime|폭력 범죄
-21-6|alarm|놀람, 경보|sound the alarm|경보를 울리다
-21-6|edge|가장자리, 날카로움, 우위|have an edge over others|남보다 우위에 있다
-21-6|deserve|받을 만하다|deserve praise|칭찬받을 만하다
-21-6|route|길, 통로, 항로|trade route|무역로
-21-6|psychology|심리학, 심리|child psychology|아동 심리학
-21-6|passion|열정|passion for music|음악에 대한 열정
-21-6|import|수입하다, 의미하다, 수입|import goods|상품을 수입하다
-21-6|purchase|구매하다, 구매|purchase online|온라인으로 구매하다
-21-6|conscience|양심|clear conscience|깨끗한 양심
-21-6|pose|자세를 취하다, 제기하다, 자세|pose a problem|문제를 제기하다
-21-6|length|길이|length of time|시간의 길이
-21-6|severe|심한, 엄격한|severe pain|심한 고통
-21-6|decade|10년, 10년간|over a decade|10년 넘게
-21-6|occupy|차지하다, 전념하다|occupy space|공간을 차지하다
-21-6|acquire|습득하다|acquire knowledge|지식을 습득하다
-21-6|interact|상호 작용하다|interact with peers|또래와 상호 작용하다
-21-6|brief|간단한, 간단한 보고, 간단히 알리다|brief summary|간단한 요약
-21-6|observe|관찰하다, 보다, 준수하다|observe the rules|규칙을 준수하다
-21-6|poetry|시, 운문|write poetry|시를 쓰다
-21-6|salary|급료, 봉급|annual salary|연봉
-21-6|grain|곡물, 낟알|grain production|곡물 생산
-21-6|skip|거르다, 깡충깡충 뛰다|skip lunch|점심을 거르다
-21-6|meaningful|의미 있는, 의미심장한|meaningful life|의미 있는 삶
+
+21-7|survival|(명) 생존|survival of the fittest|적자생존
+21-7|comment|(명) 논평 (동) 논평하다|no comment|할 말 없음
+21-7|leap|(동) 뛰다, 도약하다 (명) 도약|leap of faith|믿음의 도약
+21-7|plain|(형) 평범한, 명백한 (명) 평원, 평야|plain truth|명백한 진실
+21-7|typical|(형) 전형적인, 대표적인|typical example|전형적인 예
+21-7|mere|(형) 단지 ~에 불과한|a mere child|단지 어린아이에 불과한
+21-7|mechanic|(명) 기계공, 정비공|car mechanic|자동차 정비공
+21-7|mood|(명) 기분, 분위기|in a good mood|기분이 좋은
+21-7|approve|(동) 찬성하다, 승인하다|approve the plan|계획을 승인하다
+21-7|rural|(형) 시골의|rural life|시골 생활
+21-7|finance|(명) 재정, 재무, 금융 (동) 자금을 조달하다|finance a project|프로젝트에 자금을 대다
+21-7|seek|(동) 찾다, 추구하다|seek advice|조언을 구하다
+21-7|operation|(명) 작업, 운영, 수술|rescue operation|구조 작업
+21-7|crime|(명) 범죄|commit a crime|범죄를 저지르다
+21-7|awful|(형) 끔찍한, 지독한|awful smell|끔찍한 냄새
+21-7|series|(명) 연속, 시리즈물|a series of choices|일련의 선택들
+21-7|exhausted|(형) 고발된, 기진맥진한|feel exhausted|기진맥진하다
+21-7|absolute|(형) 완전한, 절대적인|absolute power|절대 권력
+21-7|surround|(동) 둘러싸다|be [surrounded] by nature|자연에 둘러싸이다
+21-7|display|(동) 전시하다, 나타내다 (명) 전시|display talent|재능을 보여주다
+21-7|policy|(명) 정책, 수단, 방법|foreign policy|외교 정책
+21-7|mass|(명) 많은 양, 덩어리, 집단, 대중|mass media|대중매체
+21-7|committee|(명) 위원회|join a committee|위원회에 가입하다
+21-7|accurate|(형) 정확한|accurate data|정확한 데이터
+21-7|arrange|(동) 정리하다, 준비하다, 각색하다|arrange a meeting|회의를 마련하다
+21-7|facility|(명) 시설, 편의, 재능|sports facility|스포츠 시설
+21-7|consult|(동) 상담하다, 참고하다|consult a doctor|의사와 상담하다
+21-7|refer|(동) 언급하다, 위탁하다|refer to the map|지도를 참조하다
+21-7|attach|(동) 붙이다, 붙다, 첨부하다, 소속시키다|attach a file|파일을 첨부하다
+21-7|recover|(동) 회복하다, 되찾다|recover from illness|병에서 회복하다
+21-7|reward|(명) 보상 (동) 보답하다|reward for effort|노력에 대한 보상
+21-7|enormous|(형) 엄청난, 거대한|enormous impact|막대한 영향
+21-7|domestic|(형) 국내의, 가정의|domestic flight|국내선 비행기
+21-7|wealth|(명) 부, 재산|accumulate wealth|부를 축적하다
+21-7|elementary|(형) 초보의, 기초적인|Elementary level.|기초 수준.
+21-7|gap|(명) 격차, 틈|generation gap|세대 차이
+21-7|except|~을 제외하고는 (동) 제외하다|everyone except me|나를 제외한 모두
+21-7|journey|(명) 여행, 여정|Life is a journey.|인생은 여정이다.
+21-7|survey|(명) 설문 조사 (동) 조사하다, 둘러보다|conduct a survey|설문 조사를 실시하다
+21-7|downtown|(명) 도심 (형) 도심의 (부) 도심지에|go downtown|시내에 가다
 
 
-21-7|survival|생존|survival of the fittest|적자생존
-21-7|comment|논평, 논평하다|no comment|할 말 없음(노코멘트)
-21-7|leap|뛰다, 도약하다, 도약|leap of faith|믿음의 도약
-21-7|plain|평범한, 명백한, 평원, 평야|plain truth|명백한 진실
-21-7|typical|전형적인, 대표적인|typical example|전형적인 예
-21-7|mere|단지 ~에 불과한|a mere child|단지 어린아이에 불과한
-21-7|mechanic|기계공, 정비공|car mechanic|자동차 정비공
-21-7|mood|기분, 분위기|in a good mood|기분이 좋은
-21-7|approve|찬성하다, 승인하다|approve the plan|계획을 승인하다
-21-7|rural|시골의|rural life|시골 생활
-21-7|finance|재정, 재무, 금융, 자금을 조달하다|finance a project|프로젝트에 자금을 대다
-21-7|seek|찾다, 추구하다|seek advice|조언을 구하다
-21-7|operation|작업, 운영, 수술|rescue operation|구조 작업
-21-7|crime|범죄|commit a crime|범죄를 저지르다
-21-7|awful|끔찍한, 지독한|awful smell|끔찍한 냄새
-21-7|series|연속, 시리즈물|a series of choices|일련의 선택들(선택의 연속)
-21-7|exhausted|고갈된, 기진맥진한|feel exhausted|기진맥진하다
-21-7|absolute|완전한, 절대적인|absolute power|절대 권력
-21-7|surround|둘러싸다|be [surrounded] by nature|자연에 둘러싸이다
-21-7|display|전시하다, 나타내다, 전시|display talent|재능을 보여주다(전시하다)
-21-7|policy|정책, 수단, 방법|foreign policy|외교 정책
-21-7|mass|많은 양, 덩어리, 집단, 대중|mass media|대중매체
-21-7|committee|위원회|join a committee|위원회에 가입하다
-21-7|accurate|정확한|accurate data|정확한 데이터
-21-7|arrange|정리하다, 준비하다, 각색하다|arrange a meeting|회의를 마련하다
-21-7|facility|시설, 편의, 재능|sports facility|스포츠 시설
-21-7|consult|상담하다, 참고하다|consult a doctor|의사와 상담하다
-21-7|refer|언급하다, 위탁하다|refer to the map|지도를 참조하다
-21-7|attach|붙이다, 붙다, 첨부하다, 소속시키다|attach a file|파일을 첨부하다
-21-7|recover|회복하다, 되찾다|recover from illness|병에서 회복하다
-21-7|reward|보상, 보답하다|reward for effort|노력에 대한 보상
-21-7|enormous|엄청난, 거대한|enormous impact|막대한 영향
-21-7|domestic|국내의, 가정의|domestic flight|국내선 비행기
-21-7|wealth|부, 재산|accumulate wealth|부를 축적하다
-21-7|elementary|초보의, 기초적인|Elementary level.|기초 수준.
-21-7|gap|격차, 틈|generation gap|세대 차이
-21-7|except|~을 제외하고는, 제외하다|everyone except me|나를 제외한 모두
-21-7|journey|여행, 여정|Life is a journey.|인생은 여정이다.
-21-7|survey|설문 조사, 조사하다, 둘러보다|conduct a survey|설문 조사를 실시하다
-21-7|downtown|도심, 도심의, 도심지에|go downtown|시내에 가다
+21-8|previous|(형) 앞의, 이전의|previous experience|이전의 경험
+21-8|produce|(동) 생산하다, 제조하다|produce results|결과를 낳다
+21-8|remain|(동) 여전히 ~이다, 남다|remain silent|침묵을 지키다
+21-8|entitle|(동) 자격을 주다, 제목을 붙이다|be [entitled] to vote|투표할 자격이 있다
+21-8|slight|(형) 약간의, 경미한|slight difference|약간의 차이
+21-8|include|(동) 포함하다|include tax|세금을 포함하다
+21-8|delay|(동) 연기하다, 미루다 (명) 지연|delay departure|출발을 연기하다
+21-8|file|(명) 서류철, 파일 (동) 파일에 철하다, 제기하다|file a complaint|불만을 제기하다
+21-8|ethic|(명) 윤리|work ethic|직업 윤리
+21-8|instant|(형) 즉각의, 즉석의 (명) 순간|instant noodle|즉석면(라면)
+21-8|reveal|(동) 드러내다, 폭로하다 (명) 출현, 폭로|reveal the truth|진실을 밝히다
+21-8|suppose|(동) 가정하다, 추측하다|Suppose that it rains.|비가 온다고 가정해 보자.
+21-8|leisure|(명) 여가, 자유시간 (형) 한가한|leisure activity|여가 활동
+21-8|urban|(형) 도시의|urban area|도시 지역
+21-8|witness|(명) 목격자, 증인 (동) 목격하다|witness a crime|범죄를 목격하다
+21-8|admit|(동) 인정하다, 입장을 허락하다|admit defeat|패배를 인정하다
+21-8|muscle|(명) 근육, 힘 (동) 강제하다|build muscle|근육을 키우다
+21-8|device|(명) 장치, 고안, 방책|safety device|안전장치
+21-8|borrow|(동) 빌리다|borrow money|돈을 빌리다
+21-8|owe|(동) 빚지고 있다, ~에 돌리다|owe A to B|A는 B 덕분이다
+21-8|intend|(동) ~할 작정이다, 의도하다|intend to go|갈 작정이다
+21-8|aspect|(명) 관점, 양상, 면|positive aspect|긍정적인 측면
+21-8|potential|(형) 잠재적인 (명) 잠재력|full potential|무한한 잠재력
+21-8|award|(동) 수여하다 (명) 상|win an award|상을 받다
+21-8|preserve|(동) 보존하다, 보호하다|preserve tradition|전통을 보존하다
+21-8|spot|(명) 지점, 얼룩 (동) 발견하다, 얼룩지게 하다|spot a difference|차이점을 발견하다
+21-8|underground|(형) 지하의, 비밀의 (명) 지하|underground passage|지하 통로
+21-8|consequence|(명) 결과, 중요성|face the consequences|결과를 직면하다
+21-8|target|(명) 목표, 표적 (동) 목표로 삼다|target audience|목표 청중
+21-8|spark|(명) 불꽃, 불똥 (동) 불꽃을 일으키다, 촉발하다|spark a debate|토론을 촉발하다
+21-8|accomplish|(동) 이루다, 성취하다|accomplish a goal|목표를 성취하다
+21-8|adopt|(동) 채택하다, 입양하다|adopt a method|방법을 채택하다
+21-8|unique|(형) 독특한, 유일한|unique style|독특한 스타일
+21-8|slip|(동) 미끄러지다, 실수하다 (명) 종이조각|slip on ice|얼음판에 미끄러지다
+21-8|civilization|(명) 문명|ancient civilization|고대 문명
+21-8|row|(명) 열, 줄 (동) 배를 젓다|in a row|일렬로
+21-8|horizon|(명) 수평선, 지평선|expand one's horizon|시야를 넓히다
+21-8|atmosphere|(명) 대기, 분위기|friendly atmosphere|친근한 분위기
+21-8|label|(명) 꼬리표, 라벨 (동) 라벨을 붙이다|label the bottles|병에 라벨을 붙이다
+21-8|decorate|(동) 장식하다, ~에게 훈장을 주다|decorate the room|방을 장식하다
 
 
-21-8|previous|앞의, 이전의|previous experience|이전의 경험
-21-8|produce|생산하다, 제조하다|produce results|결과를 낳다(생산하다)
-21-8|remain|여전히 ~이다, 남다|remain silent|침묵을 지키다
-21-8|entitle|자격을 주다, 제목을 붙이다|be [entitled] to vote|투표할 자격이 있다
-21-8|slight|약간의, 경미한|slight difference|약간의 차이
-21-8|include|포함하다|include tax|세금을 포함하다
-21-8|delay|연기하다, 미루다, 지연|delay departure|출발을 연기하다
-21-8|file|서류철, 파일, 파일에 철하다, 제기하다|file a complaint|불만을 제기하다(파일에 철하다)
-21-8|ethic|윤리|work ethic|직업 윤리
-21-8|instant|즉각의, 즉석의, 순간|instant noodle|즉석면(라면)
-21-8|reveal|드러내다, 폭로하다, 출현, 폭로|reveal the truth|진실을 밝히다
-21-8|suppose|가정하다, 추측하다|Suppose that it rains.|비가 온다고 가정해 보자.
-21-8|leisure|여가, 자유시간, 한가한|leisure activity|여가 활동
-21-8|urban|도시의|urban area|도시 지역
-21-8|witness|목격자, 증인, 목격하다|witness a crime|범죄를 목격하다
-21-8|admit|인정하다, 입장을 허락하다|admit defeat|패배를 인정하다
-21-8|muscle|근육, 힘, 강제|build muscle|근육을 키우다
-21-8|device|장치, 고안, 방책|safety device|안전장치
-21-8|borrow|빌리다|borrow money|돈을 빌리다
-21-8|owe|빚지고 있다, ~에 돌리다|owe A to B|A는 B 덕분이다
-21-8|intend|~할 작정이다, 의도하다|intend to go|갈 작정이다
-21-8|aspect|관점, 양상, 면|positive aspect|긍정적인 측면
-21-8|potential|잠재적인, 잠재력|full potential|무한한 잠재력
-21-8|award|수여하다, 상|win an award|상을 받다
-21-8|preserve|보존하다, 보호하다|preserve tradition|전통을 보존하다
-21-8|spot|지점, 얼룩, 발견하다, 얼룩지게 하다|spot a difference|차이점을 발견하다
-21-8|underground|지하의, 비밀의, 지하|underground passage|지하 통로
-21-8|consequence|결과, 중요성|face the consequences|결과를 직면하다
-21-8|target|목표, 표적, 목표로 삼다|target audience|목표 청중
-21-8|spark|불꽃, 불똥, 불꽃을 일으키다, 촉발하다|spark a debate|토론을 촉발하다
-21-8|accomplish|이루다, 성취하다|accomplish a goal|목표를 성취하다
-21-8|adopt|채택하다, 입양하다|adopt a method|방법을 채택하다
-21-8|unique|독특한, 유일한|unique style|독특한 스타일
-21-8|slip|미끄러지다, 실수하다, 종이조각|slip on ice|얼음판에 미끄러지다
-21-8|civilization|문명|ancient civilization|고대 문명
-21-8|row|열, 줄, 배를 젓다|in a row|일렬로(연속으로)
-21-8|horizon|수평선, 지평선|expand one's horizon|시야(지평)를 넓히다
-21-8|atmosphere|대기, 분위기|friendly atmosphere|친근한 분위기
-21-8|label|꼬리표, 상표, 라벨을 붙이다|label the bottles|병에 라벨을 붙이다
-21-8|decorate|장식하다, ~에게 훈장을 주다|decorate the room|방을 장식하다
-
-
-21-9|identify|확인하다, 식별하다, 동일시하다|identify the problem|문제를 확인하다
-21-9|standard|기준, 표준, 기준의, 표준의|safety standard|안전 기준
-21-9|scale|규모, 저울, 비늘|large scale|대규모
-21-9|evident|명백한|self-evident|자명한(따로 증명할 필요가 없는)
-21-9|seldom|거의~ 않은|seldom seen|좀처럼 보기 드문
-21-9|secretary|비서, 서기관, 장관|private secretary|개인 비서
-21-9|basis|기초, 원리, 기준|on a daily basis|매일매일(매일을 기초로)
-21-9|automatic|자동적인, 기계적인|automatic response|자동적인 반응
-21-9|region|지역|tropical region|열대 지역
-21-9|empower|권한을 주다|empower women|여성에게 권한을 주다
-21-9|addict|중독시키다, 중독자|internet addict|인터넷 중독자
-21-9|disappoint|실망시키다|Don't disappoint me.|나를 실망시키지 마라.
-21-9|artificial|인공적인, 인조의|artificial intelligence|인공 지능
-21-9|possess|소유하다, ~의 마음을 사로잡다|possess wisdom|지혜를 소유하다
+21-9|identify|(동) 확인하다, 식별하다, 동일시하다|identify the problem|문제를 확인하다
+21-9|standard|(명) 기준, 표준 (형) 기준의, 표준의|safety standard|안전 기준
+21-9|scale|(명) 규모, 저울, 비늘|large scale|대규모
+21-9|evident|(형) 명백한|self-evident|자명한
+21-9|seldom|(부) 거의 ~ 않은|seldom seen|좀처럼 보기 드문
+21-9|secretary|(명) 비서, 서기관, 장관|private secretary|개인 비서
+21-9|basis|(명) 기초, 원리, 기준|on a daily basis|매일매일
+21-9|automatic|(형) 자동적인, 기계적인|automatic response|자동적인 반응
+21-9|region|(명) 지역|tropical region|열대 지역
+21-9|empower|(동) 권한을 주다|empower women|여성에게 권한을 주다
+21-9|addict|(동) 중독시키다 (명) 중독자|internet addict|인터넷 중독자
+21-9|disappoint|(동) 실망시키다|Don't disappoint me.|나를 실망시키지 마라.
+21-9|artificial|(형) 인공적인, 인조의|artificial intelligence|인공 지능
+21-9|possess|(동) 소유하다, ~의 마음을 사로잡다|possess wisdom|지혜를 소유하다
 21-9|get rid of|~을 제거하다|Get rid of it.|그것을 제거해라.
-21-9|realistic|현실적인, 현실주의의|realistic goal|현실적인 목표
-21-9|encounter|만나다, 마주침|encounter difficulties|어려움에 부닥치다
-21-9|differ|다르다, 의견을 달리하다|opinions differ|의견이 다르다
-21-9|principle|원칙, 원리|basic principle|기본 원칙
-21-9|memorize|기억하다, 암기하다|memorize words|단어를 암기하다
-21-9|physics|물리학|laws of physics|물리 법칙
-21-9|evaluate|평가하다|evaluate performance|성과를 평가하다
-21-9|tremendous|굉장한, 무시무시한|tremendous effort|엄청난 노력
-21-9|application|적용, 신청|job application|구직 신청
-21-9|vote|투표, 투표하다|cast a vote|표를 던지다(투표하다)
-21-9|spread|퍼짐, 확산, 퍼지다, 펼치다|spread rumors|소문을 퍼뜨리다
-21-9|impact|충격, 영향, 충격을 주다|environmental impact|환경적 영향
-21-9|cooperate|협력하다|cooperate with others|타인과 협력하다
-21-9|emit|방출하다|emit light|빛을 방출하다
-21-9|request|요청, 요청하다|on request|요청 시에
-21-9|guarantee|보증하다, 보증|satisfaction [guaranteed]|만족 보장
-21-9|resist|저항하다|resist temptation|유혹에 저항하다
-21-9|fulfill|달성하다, 이행하다, 실현하다|fulfill a dream|꿈을 이루다
-21-9|stink|역겹다, 악취를 풍기다, 악취|make a stink|소동을 피우다(악취를 풍기다)
-21-9|grant|승인하다, 수여하다|The government [granted] permission.|정부는 허가를 승인했다
-21-9|rely|의지하다, 믿다|rely on friends|친구에게 의지하다
-21-9|permanent|영원한, 영구적인|permanent job|정규직(영구적인 직업)
-21-9|emergency|비상사태|emergency room|응급실
-21-9|substance|물질, 본질, 실체|toxic substance|유독 물질
-21-9|theme|주제, 화제, 논제|main theme|주요 테마(주제)
+21-9|realistic|(형) 현실적인, 현실주의의|realistic goal|현실적인 목표
+21-9|encounter|(동) 만나다 (명) 마주침|encounter difficulties|어려움에 부닥치다
+21-9|differ|(동) 다르다, 의견을 달리하다|Opinions differ.|의견이 다르다.
+21-9|principle|(명) 원칙, 원리|basic principle|기본 원칙
+21-9|memorize|(동) 기억하다, 암기하다|memorize words|단어를 암기하다
+21-9|physics|(명) 물리학|laws of physics|물리 법칙
+21-9|evaluate|(동) 평가하다|evaluate performance|성과를 평가하다
+21-9|tremendous|(형) 굉장한, 무시무시한|tremendous effort|엄청난 노력
+21-9|application|(명) 적용, 신청|job application|구직 신청
+21-9|vote|(명) 투표 (동) 투표하다|cast a vote|표를 던지다
+21-9|spread|(명) 퍼짐, 확산 (동) 퍼지다, 펼치다|spread rumors|소문을 퍼뜨리다
+21-9|impact|(명) 충격, 영향 (동) 충격을 주다|environmental impact|환경적 영향
+21-9|cooperate|(동) 협력하다|cooperate with others|타인과 협력하다
+21-9|emit|(동) 방출하다|emit light|빛을 방출하다
+21-9|request|(명) 요청 (동) 요청하다|on request|요청 시에
+21-9|guarantee|(동) 보증하다 (명) 보증|satisfaction [guaranteed]|만족 보장
+21-9|resist|(동) 저항하다|resist temptation|유혹에 저항하다
+21-9|fulfill|(동) 달성하다, 이행하다, 실현하다|fulfill a dream|꿈을 이루다
+21-9|stink|(동) 역겹다, 악취를 풍기다 (명) 악취|make a stink|소동을 피우다
+21-9|grant|(동) 승인하다, 수여하다|The government [granted] permission.|정부는 허가를 승인했다.
+21-9|rely|(동) 의지하다, 믿다|rely on friends|친구에게 의지하다
+21-9|permanent|(형) 영원한, 영구적인|permanent job|정규직
+21-9|emergency|(명) 비상사태|emergency room|응급실
+21-9|substance|(명) 물질, 본질, 실체|toxic substance|유독 물질
+21-9|theme|(명) 주제, 화제, 논제|main theme|주요 테마
 
 
-21-10|hesitate|주저하다, 망설이다|Don't hesitate.|주저하지 마라.
-21-10|location|장소, 위치|exact location|정확한 위치
-21-10|restrict|제한하다, 한정하다|restrict access|접근을 제한하다
-21-10|organism|유기체, 생물, 생명체|micro-organism|미생물
-21-10|interpret|해석하다, 통역하다|interpret a dream|꿈을 해석하다
-21-10|offer|제공하다, 제안하다, 제공, 제안|offer help|도움을 제공하다
-21-10|distribute|분배하다, 분포시키다|distribute wealth|부를 분배하다
-21-10|rainforest|우림|tropical rainforest|열대 우림
-21-10|circumstance|상황, 환경|under no circumstances|어떤 상황에서도(~않다)
-21-10|resolve|결심하다, 해결하다, 분해하다|resolve a conflict|갈등을 해결하다
-21-10|suitable|적절한, 적합한|suitable for children|아이들에게 적합한
-21-10|curve|곡선, 속임수|learning curve|학습 곡선
-21-10|annoy|괴롭히다, 귀찮게 하다|get [annoyed]|짜증 나다
-21-10|frighten|겁먹게 하다|be [frightened] of dogs|개를 무서워하다
-21-10|estimate|견적, 평가, 평가하다|estimate the cost|비용을 추산하다
-21-10|refuse|거절하다|refuse an offer|제안을 거절하다
-21-10|adventure|모험, 위험에 빠뜨리다|spirit of adventure|모험심
-21-10|entrance|입장, 입구, 입학|entrance exam|입학 시험
-21-10|persuade|설득하다|persuade him to go|그가 가도록 설득하다
-21-10|perceive|인지하다, 인식하다|perceive danger|위험을 인지하다
-21-10|recite|암송하다|recite a poem|시를 암송하다
-21-10|rub|문질러 닦다, 문지르다|rub one's eyes|눈을 비비다
-21-10|cabin|오두막집, 객실, 선실|log cabin|통나무 오두막
-21-10|gear|장비, 기어, 맞게 조정하다|hiking gear|등산 장비
-21-10|ray|광선|x-ray|엑스선
-21-10|release|놓아주다, 방출하다, 발표하다, 석방, 발표|release stress|스트레스를 풀다
-21-10|rank|등급, 지위, 매기다|rank first|1위를 차지하다
-21-10|symphony|교향곡|symphony orchestra|교향악단
-21-10|envy|부러움, 부러워하다|green with envy|몹시 부러워하는
-21-10|corporate|회사의, 법인의|corporate culture|기업 문화
-21-10|alternative|대안, 대안의|alternative energy|대체 에너지
-21-10|retire|은퇴하다|retire from work|직장에서 은퇴하다
-21-10|appeal|호소하다, 항의하다, 관심을 끌다, 호소, 항의, 매력|appeal to emotions|감정에 호소하다
-21-10|identical|동일한, 일란성의|identical twins|일란성 쌍둥이
-21-10|investment|투자|foreign investment|외국인 투자
-21-10|autograph|서명, 사인, 서명하다|ask for an autograph|사인을 요청하다
-21-10|slave|노예|slave trade|노예 무역
-21-10|harm|손해, 손상, 해치다|do more harm than good|득보다 실이 많다
-21-10|authority|권위, 당국|authority figure|권위자
-21-10|innocence|결백, 무죄, 순진|prove innocence|결백을 증명하다
+21-10|hesitate|(동) 주저하다, 망설이다|Don't hesitate.|주저하지 마라.
+21-10|location|(명) 장소, 위치|exact location|정확한 위치
+21-10|restrict|(동) 제한하다, 한정하다|restrict access|접근을 제한하다
+21-10|organism|(명) 유기체, 생물, 생명체|micro-organism|미생물
+21-10|interpret|(동) 해석하다, 통역하다|interpret a dream|꿈을 해석하다
+21-10|offer|(동) 제공하다, 제안하다 (명) 제공, 제안|offer help|도움을 제공하다
+21-10|distribute|(동) 분배하다, 분포시키다|distribute wealth|부를 분배하다
+21-10|rainforest|(명) 우림|tropical rainforest|열대 우림
+21-10|circumstance|(명) 상황, 환경|under no circumstances|어떤 상황에서도
+21-10|resolve|(동) 결심하다, 해결하다, 분해하다|resolve a conflict|갈등을 해결하다
+21-10|suitable|(형) 적절한, 적합한|suitable for children|아이들에게 적합한
+21-10|curve|(명) 곡선, 속임수|learning curve|학습 곡선
+21-10|annoy|(동) 괴롭히다, 귀찮게 하다|get [annoyed]|짜증 나다
+21-10|frighten|(동) 겁먹게 하다|be [frightened] of dogs|개를 무서워하다
+21-10|estimate|(명) 견적, 평가 (동) 평가하다|estimate the cost|비용을 추산하다
+21-10|refuse|(동) 거절하다|refuse an offer|제안을 거절하다
+21-10|adventure|(명) 모험 (동) 위험에 빠뜨리다|spirit of adventure|모험심
+21-10|entrance|(명) 입장, 입구, 입학|entrance exam|입학 시험
+21-10|persuade|(동) 설득하다|persuade him to go|그가 가도록 설득하다
+21-10|perceive|(동) 인지하다, 인식하다|perceive danger|위험을 인지하다
+21-10|recite|(동) 암송하다|recite a poem|시를 암송하다
+21-10|rub|(동) 문질러 닦다, 문지르다|rub one's eyes|눈을 비비다
+21-10|cabin|(명) 오두막집, 객실, 선실|log cabin|통나무 오두막
+21-10|gear|(명) 장비, 기어 (동) 맞게 조정하다|hiking gear|등산 장비
+21-10|ray|(명) 광선|x-ray|엑스선
+21-10|release|(동) 놓아주다, 방출하다, 발표하다 (명) 석방, 발표|release stress|스트레스를 풀다
+21-10|rank|(명) 등급, 지위 (동) 매기다|rank first|1위를 차지하다
+21-10|symphony|(명) 교향곡|symphony orchestra|교향악단
+21-10|envy|(명) 부러움 (동) 부러워하다|green with envy|몹시 부러워하는
+21-10|corporate|(형) 회사의, 법인의|corporate culture|기업 문화
+21-10|alternative|(명) 대안 (형) 대안의|alternative energy|대체 에너지
+21-10|retire|(동) 은퇴하다|retire from work|직장에서 은퇴하다
+21-10|appeal|(동) 호소하다, 항의하다, 관심을 끌다 (명) 호소, 항의, 매력|appeal to emotions|감정에 호소하다
+21-10|identical|(형) 동일한, 일란성의|identical twins|일란성 쌍둥이
+21-10|investment|(명) 투자|foreign investment|외국인 투자
+21-10|autograph|(명) 서명, 사인 (동) 서명하다|ask for an autograph|사인을 요청하다
+21-10|slave|(명) 노예|slave trade|노예 무역
+21-10|harm|(명) 손해, 손상 (동) 해치다|do more harm than good|득보다 실이 많다
+21-10|authority|(명) 권위, 당국|authority figure|권위자
+21-10|innocence|(명) 결백, 무죄, 순진|prove innocence|결백을 증명하다
 
 
-21-11|receive|받다|receive a letter|편지를 받다
-21-11|infant|유아, 유아의, 미발달의|infant mortality|영아 사망률
-21-11|calculate|계산하다|calculate the cost|비용을 계산하다
-21-11|charity|자비, 자선 단체, 구호물자|give to charity|자선단체에 기부하다
-21-11|accept|받아들이다|accept an offer|제안을 받아들이다
-21-11|depend|의지하다|depend on parents|부모님께 의지하다
+21-11|receive|(동) 받다|receive a letter|편지를 받다
+21-11|infant|(명) 유아 (형) 유아의, 미발달의|infant mortality|영아 사망률
+21-11|calculate|(동) 계산하다|calculate the cost|비용을 계산하다
+21-11|charity|(명) 자비, 자선 단체, 구호물자|give to charity|자선단체에 기부하다
+21-11|accept|(동) 받아들이다|accept an offer|제안을 받아들이다
+21-11|depend|(동) 의지하다|depend on parents|부모님께 의지하다
 21-11|whereas|~인 반면에|poor whereas happy|가난하지만 행복한
-21-11|broad|넓은, 광범위한|broad shoulders|넓은 어깨
-21-11|treat|여기다, 대우하다, 처리하다, 치료하다|treat with respect|존중하며 대우하다
-21-11|ignorant|무식한, 모르는|ignorant of the fact|사실을 모르는
-21-11|pure|순수한|pure gold|순금
-21-11|extinct|멸종된, 꺼진|become extinct|멸종되다
-21-11|household|가정, 가족의|household chores|집안일
-21-11|refund|반환, 환불, 환불하다|get a refund|환불받다
-21-11|continue|계속하다|continue to grow|계속 성장하다
-21-11|institute|연구소, 협회, 설립하다, 제정하다|research institute|연구소
-21-11|lately|최근에|Have you seen him lately?|최근에 그를 본 적 있니?
-21-11|ashamed|부끄러워하는|be ashamed of oneself|자신을 부끄러워하다
-21-11|dense|조밀한, 밀집한|dense forest|울창한 숲
-21-11|rescue|구조하다, 구조|rescue team|구조대
-21-11|destination|목적지|final destination|최종 목적지
-21-11|expand|확장하다|expand business|사업을 확장하다
-21-11|compete|경쟁하다|compete with others|타인과 경쟁하다
-21-11|evolution|진화|Theory of Evolution|진화론
-21-11|hire|고용하다|hire new staff|새 직원을 고용하다
-21-11|genuine|진짜의, 성실한|genuine leather|진짜 가죽
-21-11|status|상태, 지위, 현상|social status|사회적 지위
-21-11|military|군대의, 군대|military service|군 복무
-21-11|logic|논리, 논리학|simple logic|단순한 논리
-21-11|gravity|중력|Law of Gravity|중력의 법칙
-21-11|isolate|고립시키다|[isolate] the patient|환자를 격리하다
-21-11|commit|저지르다, 전념하다, 맡기다|commit a crime|범죄를 저지르다
-21-11|sum|총합, 합계, 합계하다|the sum of money|돈의 합계
-21-11|conserve|보존하다|conserve energy|에너지를 보존하다(절약하다)
-21-11|concept|개념|basic concept|기본 개념
-21-11|swing|흔들다, 진동하다, 그네|swing back and forth|앞뒤로 흔들다
-21-11|sensible|분별 있는, 현명한|sensible decision|현명한 결정
-21-11|marriage|결혼, 혼인|happy marriage|행복한 결혼 생활
-21-11|reproduce|재생하다, 복제하다, 번식하다|reproduce quickly|빠르게 번식하다
-21-11|tone|어조, 말투, 음, 어떤 어조로 하다|serious tone|진지한 어조
+21-11|broad|(형) 넓은, 광범위한|broad shoulders|넓은 어깨
+21-11|treat|(동) 여기다, 대우하다, 처리하다, 치료하다|treat with respect|존중하며 대우하다
+21-11|ignorant|(형) 무식한, 모르는|ignorant of the fact|사실을 모르는
+21-11|pure|(형) 순수한|pure gold|순금
+21-11|extinct|(형) 멸종된, 꺼진|become extinct|멸종되다
+21-11|household|(명) 가정 (형) 가족의|household chores|집안일
+21-11|refund|(명) 반환, 환불 (동) 환불하다|get a refund|환불받다
+21-11|continue|(동) 계속하다|continue to grow|계속 성장하다
+21-11|institute|(명) 연구소, 협회 (동) 설립하다, 제정하다|research institute|연구소
+21-11|lately|(부) 최근에|Have you seen him lately?|최근에 그를 본 적 있니?
+21-11|ashamed|(형) 부끄러워하는|be ashamed of oneself|자신을 부끄러워하다
+21-11|dense|(형) 조밀한, 밀집한|dense forest|울창한 숲
+21-11|rescue|(동) 구조하다 (명) 구조|rescue team|구조대
+21-11|destination|(명) 목적지|final destination|최종 목적지
+21-11|expand|(동) 확장하다|expand business|사업을 확장하다
+21-11|compete|(동) 경쟁하다|compete with others|타인과 경쟁하다
+21-11|evolution|(명) 진화|Theory of Evolution|진화론
+21-11|hire|(동) 고용하다|hire new staff|새 직원을 고용하다
+21-11|genuine|(형) 진짜의, 성실한|genuine leather|진짜 가죽
+21-11|status|(명) 상태, 지위, 현상|social status|사회적 지위
+21-11|military|(형) 군대의 (명) 군대|military service|군 복무
+21-11|logic|(명) 논리, 논리학|simple logic|단순한 논리
+21-11|gravity|(명) 중력|Law of Gravity|중력의 법칙
+21-11|isolate|(동) 고립시키다|[isolate] the patient|환자를 격리하다
+21-11|commit|(동) 저지르다, 전념하다, 맡기다|commit a crime|범죄를 저지르다
+21-11|sum|(명) 총합, 합계 (동) 합계하다|the sum of money|돈의 합계
+21-11|conserve|(동) 보존하다|conserve energy|에너지를 보존하다
+21-11|concept|(명) 개념|basic concept|기본 개념
+21-11|swing|(동) 흔들다, 진동하다 (명) 그네|swing back and forth|앞뒤로 흔들다
+21-11|sensible|(형) 분별 있는, 현명한|sensible decision|현명한 결정
+21-11|marriage|(명) 결혼, 혼인|happy marriage|행복한 결혼 생활
+21-11|reproduce|(동) 재생하다, 복제하다, 번식하다|reproduce quickly|빠르게 번식하다
+21-11|tone|(명) 어조, 말투, 음 (동) 어떤 어조로 하다|serious tone|진지한 어조
 
-21-12|cancel|취소하다|cancel the meeting|회의를 취소하다
-21-12|return|돌아오다, 돌려주다, 귀환, 반납, 수익|return home|집으로 돌아오다
-21-12|invitation|초대, 초대장|accept an invitation|초대를 수락하다
-21-12|precise|정확한|precise measurement|정확한 측정
-21-12|formal|공식적인, 정식의|formal dress|정장(공식적인 복장)
-21-12|apparent|분명한, 명백한|It is apparent that|~임이 명백하다
-21-12|departure|출발|departure time|출발 시간
-21-12|visual|시각의|visual aids|시각 자료
-21-12|current|현재의, 해류, 흐름|current situation|현재 상황
-21-12|agriculture|농업|sustainable agriculture|지속 가능한 농업
-21-12|leak|새는 곳(구멍), 새다, 누설하다|gas leak|가스 누출
-21-12|portion|일부, 부분, 분할하다|a large portion|큰 부분
-21-12|trend|추세, 경향|current trend|현재의 추세
-21-12|particle|입자, 극소량|dust particles|먼지 입자들
-21-12|rite|의식, 의례|rite of passage|통과 의례
-21-12|distinct|별개의, 뚜렷한|distinct difference|뚜렷한 차이
-21-12|component|구성 요소, 구성하는|key component|핵심 구성 요소
-21-12|poverty|빈곤, 가난|live in poverty|빈곤하게 살다
-21-12|sculpture|조각, 조각하다|bronze sculpture|청동 조각상
-21-12|descend|내려오다, 물려주다|descend the stairs|계단을 내려오다
-21-12|universal|보편적인, 우주의|universal truth|보편적인 진리
-21-12|surface|표면, 수면, 지면|smooth surface|매끄러운 표면
+
+21-12|cancel|(동) 취소하다|cancel the meeting|회의를 취소하다
+21-12|return|(동) 돌아오다, 돌려주다 (명) 귀환, 반납, 수익|return home|집으로 돌아오다
+21-12|invitation|(명) 초대, 초대장|accept an invitation|초대를 수락하다
+21-12|precise|(형) 정확한|precise measurement|정확한 측정
+21-12|formal|(형) 공식적인, 정식의|formal dress|정장
+21-12|apparent|(형) 분명한, 명백한|It is apparent that|~임이 명백하다
+21-12|departure|(명) 출발|departure time|출발 시간
+21-12|visual|(형) 시각의|visual aids|시각 자료
+21-12|current|(형) 현재의 (명) 해류, 흐름|current situation|현재 상황
+21-12|agriculture|(명) 농업|sustainable agriculture|지속 가능한 농업
+21-12|leak|(명) 새는 곳, 구멍 (동) 새다, 누설하다|gas leak|가스 누출
+21-12|portion|(명) 일부, 부분 (동) 분할하다|a large portion|큰 부분
+21-12|trend|(명) 추세, 경향|current trend|현재의 추세
+21-12|particle|(명) 입자, 극소량|dust particles|먼지 입자들
+21-12|rite|(명) 의식, 의례|rite of passage|통과 의례
+21-12|distinct|(형) 별개의, 뚜렷한|distinct difference|뚜렷한 차이
+21-12|component|(명) 구성 요소 (형) 구성하는|key component|핵심 구성 요소
+21-12|poverty|(명) 빈곤, 가난|live in poverty|빈곤하게 살다
+21-12|sculpture|(명) 조각 (동) 조각하다|bronze sculpture|청동 조각상
+21-12|descend|(동) 내려오다, 물려주다|descend the stairs|계단을 내려오다
+21-12|universal|(형) 보편적인, 우주의|universal truth|보편적인 진리
+21-12|surface|(명) 표면, 수면, 지면|smooth surface|매끄러운 표면
 21-12|be eager to|간절히 ~하고 싶어 하다|He is [eager] to learn Korean.|그는 한국어를 배우기를 갈망한다.
-21-12|legal|법률의, 합법의|legal action|법적 조치
-21-12|annual|연례의, 1년의, 1년간의|annual report|연차 보고서
-21-12|trap|함정, 덫을 놓다, 막다|fall into a trap|함정에 빠지다
-21-12|demonstrate|논증하다, 설명하다, 시위하다, 보여 주다|demonstrate ability|능력을 증명하다
-21-12|companion|동료, 동반자|travel companion|여행 동료
-21-12|democracy|민주주의, 민주주의 국가|spread democracy|민주주의를 확산시키다
-21-12|mature|성숙한, 익은, 성숙해지다|mature attitude|성숙한 태도
-21-12|brilliant|훌륭한, 명석한|brilliant idea|훌륭한 아이디어
-21-12|faith|신념, 믿음|have faith in God|신에 대한 믿음을 가지다
-21-12|aim|겨냥하다, 조준|aim at success|성공을 목표로 하다
-21-12|spare|여분의, 검소한, 용서하다, 남겨주다|spare time|여가 시간
-21-12|transfer|이동하다, 옮기다, 갈아타다|transfer to another bus|다른 버스로 환승하다
-21-12|oppose|반대하다|oppose the plan|그 계획에 반대하다
-21-12|desperate|필사적인, 절망적인|desperate attempt|필사적인 시도
-21-12|remote|멀리 떨어진, 희박한, 드문|remote control|리모컨(원격 조종)
-21-12|offend|기분을 상하게 하다, 저지르다|offend others|남의 기분을 상하게 하다
-21-12|awake|깨어 있는, 깨우다, 깨다|stay awake|깨어 있다
+21-12|legal|(형) 법률의, 합법의|legal action|법적 조치
+21-12|annual|(형) 연례의, 1년의, 1년간의|annual report|연차 보고서
+21-12|trap|(명) 함정, 덫 (동) 덫을 놓다, 막다|fall into a trap|함정에 빠지다
+21-12|demonstrate|(동) 논증하다, 설명하다, 시위하다, 보여 주다|demonstrate ability|능력을 증명하다
+21-12|companion|(명) 동료, 동반자|travel companion|여행 동료
+21-12|democracy|(명) 민주주의, 민주주의 국가|spread democracy|민주주의를 확산시키다
+21-12|mature|(형) 성숙한, 익은 (동) 성숙해지다|mature attitude|성숙한 태도
+21-12|brilliant|(형) 훌륭한, 명석한|brilliant idea|훌륭한 아이디어
+21-12|faith|(명) 신념, 믿음|have faith in God|신에 대한 믿음을 가지다
+21-12|aim|(동) 겨냥하다 (명) 조준, 목표|aim at success|성공을 목표로 하다
+21-12|spare|(형) 여분의 (동) 용서하다, 남겨주다|spare time|여가 시간
+21-12|transfer|(동) 이동하다, 옮기다, 갈아타다|transfer to another bus|다른 버스로 환승하다
+21-12|oppose|(동) 반대하다|oppose the plan|그 계획에 반대하다
+21-12|desperate|(형) 필사적인, 절망적인|desperate attempt|필사적인 시도
+21-12|remote|(형) 멀리 떨어진, 희박한, 드문|remote control|리모컨
+21-12|offend|(동) 기분을 상하게 하다, 저지르다|offend others|남의 기분을 상하게 하다
+21-12|awake|(형) 깨어 있는 (동) 깨우다, 깨다|stay awake|깨어 있다
 
 
-21-13|option|선택, 선택권|no other option|다른 선택권이 없는
-21-13|insight|통찰, 통찰력|gain insight into|~에 대한 통찰력을 얻다
-21-13|achieve|이루다, 달성하다|achieve a goal|목표를 달성하다
-21-13|civil|시민의, 민간의|civil rights|시민권
-21-13|pause|중단, 중단하다, 잠시 멈추다|pause for a moment|잠시 멈추다
-21-13|prove|입증하다, 판명되다|prove to be true|사실임이 판명되다
-21-13|lecture|강의, 강의하다|give a lecture|강의를 하다
-21-13|minor|사소한, 소수의, 미성년자, 부전공, 부전공하다|minor problem|사소한 문제
-21-13|duty|의무, 관세|moral duty|도덕적 의무
-21-13|vigor|활력|youthful vigor|젊음의 활력
-21-13|organize|조직하다, 구성하다, 정리하다|organize a team|팀을 조직하다
-21-13|chief|주요한, 우두머리의, 우두머리|chief editor|편집장(우두머리 편집자)
-21-13|complicated|복잡한|complicated system|복잡한 시스템
-21-13|digest|소화하다, 이해하다, 요약|digest food|음식을 소화하다
-
-21-13|shortage|부족, 결함|food shortage|식량 부족
-21-13|laboratory|실험실, 실험의|science laboratory|과학 실험실
-21-13|stream|흐름, 경향, 개울|a steady stream|꾸준한 흐름
-21-13|forbid|금지하다|forbid smoking|흡연을 금지하다
-21-13|laundry|세탁물|do the laundry|빨래를 하다
-21-13|transform|변형시키다, 변환하다|transform A into B|A를 B로 변형시키다
-21-13|discipline|훈련, 규율, 학과, 학문 분야|strict discipline|엄격한 훈육
-21-13|generous|관대한, 넉넉한|be generous with money|돈에 후하다
-21-13|ultimate|궁극적인, 최후의|ultimate goal|궁극적인 목표
-21-13|thrive|번영하다, 발전하다|Plants thrive.|식물들이 잘 자란다(번성하다).
-21-13|fiction|허구, 소설|science fiction|공상 과학 소설
-21-13|bet|돈을 걸다, 내기를 하다, 틀림없다, 내기|I bet he will come.|그가 올 것이라고 장담한다.
-21-13|royal|왕족의, 왕의|royal family|왕족
-21-13|ruin|파멸, 파산, 망치다, 파멸시키다|ruin one's health|건강을 망치다
-21-13|worship|예배하다, 숭배하다, 예배, 숭배|worship God|신을 숭배하다
-21-13|evil|사악한, 악|evil spirit|악령
-21-13|scarce|부족한, 드문|Food is scarce.|식량이 부족하다.
-21-13|afterward|나중에, 그 후에|See you afterward.|나중에 보자.
-21-13|client|고객|meet a client|고객을 만나다
-21-13|insure|보험을 계약하다, 안전하게 하다|insure against fire|화재 보험에 들다
-21-13|fancy|공상, 기호, 공상하다, 화려한|fancy dress|화려한 드레스
-21-13|surgery|외과 수술|plastic surgery|성형 수술
-21-13|assign|할당하다, 지정하다|assign homework|숙제를 내주다(할당하다)
-21-13|regulate|규제하다, 조절하다|regulate traffic|교통을 통제하다
-21-13|mindset|마음가짐, 사고방식|positive mindset|긍정적인 사고방식
-21-13|utility|유용, 공익사업|utility bill|공과금 고지서
-
+21-13|option|(명) 선택, 선택권|no other option|다른 선택권이 없는
+21-13|insight|(명) 통찰, 통찰력|gain insight into|~에 대한 통찰력을 얻다
+21-13|achieve|(동) 이루다, 달성하다|achieve a goal|목표를 달성하다
+21-13|civil|(형) 시민의, 민간의|civil rights|시민권
+21-13|pause|(명) 중단 (동) 중단하다, 잠시 멈추다|pause for a moment|잠시 멈추다
+21-13|prove|(동) 입증하다, 판명되다|prove to be true|사실임이 판명되다
+21-13|lecture|(명) 강의 (동) 강의하다|give a lecture|강의를 하다
+21-13|minor|(형) 사소한 (명) 미성년자, 부전공 (동) 부전공하다|minor problem|사소한 문제
+21-13|duty|(명) 의무, 관세|moral duty|도덕적 의무
+21-13|vigor|(명) 활력|youthful vigor|젊음의 활력
+21-13|organize|(동) 조직하다, 구성하다, 정리하다|organize a team|팀을 조직하다
+21-13|chief|(형) 주요한, 우두머리의 (명) 우두머리, 장|chief editor|편집장
+21-13|complicated|(형) 복잡한|complicated system|복잡한 시스템
+21-13|digest|(동) 소화하다, 이해하다 (명) 요약|digest food|음식을 소화하다
+21-13|shortage|(명) 부족, 결함|food shortage|식량 부족
+21-13|laboratory|(명) 실험실 (형) 실험의|science laboratory|과학 실험실
+21-13|stream|(명) 흐름, 경향, 개울|a steady stream|꾸준한 흐름
+21-13|forbid|(동) 금지하다|forbid smoking|흡연을 금지하다
+21-13|laundry|(명) 세탁물|do the laundry|빨래를 하다
+21-13|transform|(동) 변형시키다, 변환하다|transform A into B|A를 B로 변형시키다
+21-13|discipline|(명) 훈련, 규율, 학문 분야|strict discipline|엄격한 훈육
+21-13|generous|(형) 관대한, 넉넉한|be generous with money|돈에 후하다
+21-13|ultimate|(형) 궁극적인, 최후의|ultimate goal|궁극적인 목표
+21-13|thrive|(동) 번영하다, 발전하다|Plants thrive.|식물들이 잘 자란다.
+21-13|fiction|(명) 허구, 소설|science fiction|공상 과학 소설
+21-13|bet|(동) 돈을 걸다, 장담하다 (명) 내기|I bet he will come.|그가 올 것이라고 장담한다.
+21-13|royal|(형) 왕족의, 왕의|royal family|왕족
+21-13|ruin|(명) 파멸, 파산 (동) 망치다, 파멸시키다|ruin one's health|건강을 망치다
+21-13|worship|(동) 예배하다, 숭배하다 (명) 예배, 숭배|worship God|신을 숭배하다
+21-13|evil|(형) 사악한 (명) 악|evil spirit|악령
+21-13|scarce|(형) 부족한, 드문|Food is scarce.|식량이 부족하다.
+21-13|afterward|(부) 나중에, 그 후에|See you afterward.|나중에 보자.
+21-13|client|(명) 고객|meet a client|고객을 만나다
+21-13|insure|(동) 보험에 들다, 안전하게 하다|insure against fire|화재 보험에 들다
+21-13|fancy|(명) 공상, 기호 (형) 화려한 (동) 공상하다|fancy dress|화려한 드레스
+21-13|surgery|(명) 외과 수술|plastic surgery|성형 수술
+21-13|assign|(동) 할당하다, 지정하다|assign homework|숙제를 내주다
+21-13|regulate|(동) 규제하다, 조절하다|regulate traffic|교통을 통제하다
+21-13|mindset|(명) 마음가짐, 사고방식|positive mindset|긍정적인 사고방식
+21-13|utility|(명) 유용성, 공익사업|utility bill|공과금 고지서
 
 
-21-14|necessity|필수, 필수품, 필요|daily necessity|생필품
-21-14|yield|생산하다, 양도하다, 수확|yield a profit|이익을 내다
-21-14|decline|감소, 쇠퇴, 감소하다, 쇠퇴하다, 거절하다|decline in sales|판매 감소
-21-14|apply|적용하다, 지원하다|apply for a job|일자리에 지원하다
-21-14|aside|한쪽으로, 제쳐 두고|put aside|한쪽으로 치워두다
-21-14|contemporary|동시대의, 현대의|contemporary art|현대 미술
-21-14|bless|축복하다, 감사하다|God bless you.|신의 축복이 있기를.
-21-14|explain|설명하다|explain the reason|이유를 설명하다
-21-14|prior|이전의, 우선하는|prior to departure|출발 이전에
-21-14|tolerate|참다, 용인하다|tolerate pain|고통을 참다
-21-14|measure|측정하다, 측정, 수단|measure the length|길이를 측정하다
-21-14|abstract|추상적인, 추상, 개요|abstract concept|추상적인 개념
-21-14|cottage|오두막집|summer cottage|여름 별장(오두막)
-21-14|correct|올바른, 정확한, 바로잡다, 정정하다|correct answer|정답
-21-14|confirm|입증하다, 굳게 하다|confirm a reservation|예약을 확인하다
-21-14|imitate|모방하다|imitate a voice|목소리를 흉내 내다
-21-14|prey|먹이, 희생자|birds of prey|맹금류(육식 조류)
-21-14|defeat|패배시키다, 패배|defeat the enemy|적을 물리치다
-21-14|illustrate|설명하다, 예증하다|illustrate with examples|예시로 설명하다
-21-14|fuse|퓨즈, 도화선, 융합하다|fuse together|함께 융합되다
-21-14|pupil|학생, 눈동자|bright pupil|똑똑한 학생
-21-14|intellect|지성|man of intellect|지성인
-21-14|spice|향신료, 양념|add spice|향신료를 더하다
-21-14|tempt|유혹하다, 끌다|be [tempted] to eat|먹고 싶은 유혹을 받는
-21-14|inspire|영감을 주다, 고무시키다|inspire others|타인에게 영감을 주다
-21-14|dine|만찬을 대접하다, 식사하다|dine out|외식하다
-21-14|literally|문자 그대로|literally true|말 그대로 사실인
-21-14|appropriate|적절한|appropriate action|적절한 조치
-21-14|resort|휴양지, 의지, 의지하다, 자주 가다|resort to violence|폭력에 의지하다
-21-14|grab|움켜쥐다, 움켜쥠|grab a bite|간단히 먹다
-21-14|propose|제안하다|propose a plan|계획을 제안하다
-21-14|wreck|난파선, 사고, 난파시키다|ship wreck|난파선
-21-14|document|문서, 서류, 기록하다|official document|공식 문서
-21-14|suspect|의심하다, 용의자|main suspect|유력 용의자
-21-14|alien|외국인, 외계인, 외국의, 이질적인|alien life|외계 생명체
-21-14|prohibit|금지하다|prohibit smoking|흡연을 금지하다
-21-14|install|설치하다|install software|소프트웨어를 설치하다
-21-14|triumph|승리, 승리하다|shout in triumph|승리의 함성을 지르다
-21-14|scholarship|학문, 장학금|win a scholarship|장학금을 받다
-21-14|execute|실행하다, 처형하다|execute a plan|계획을 실행하다
+21-14|necessity|(명) 필수품, 필요, 필연성|daily necessity|생필품
+21-14|yield|(동) 생산하다, 양도하다 (명) 수확|yield a profit|이익을 내다
+21-14|decline|(명) 감소, 쇠퇴 (동) 감소하다, 거절하다|decline in sales|판매 감소
+21-14|apply|(동) 적용하다, 지원하다|apply for a job|일자리에 지원하다
+21-14|aside|(부) 한쪽으로, 제쳐 두고|put aside|한쪽으로 치워두다
+21-14|contemporary|(형) 동시대의, 현대의|contemporary art|현대 미술
+21-14|bless|(동) 축복하다, 감사하다|God bless you.|신의 축복이 있기를.
+21-14|explain|(동) 설명하다|explain the reason|이유를 설명하다
+21-14|prior|(형) 이전의, 우선하는|prior to departure|출발 이전에
+21-14|tolerate|(동) 참다, 용인하다|tolerate pain|고통을 참다
+21-14|measure|(동) 측정하다 (명) 측정, 수단|measure the length|길이를 측정하다
+21-14|abstract|(형) 추상적인 (명) 추상, 개요|abstract concept|추상적인 개념
+21-14|cottage|(명) 오두막집|summer cottage|여름 별장
+21-14|correct|(형) 올바른, 정확한 (동) 바로잡다, 정정하다|correct answer|정답
+21-14|confirm|(동) 입증하다, 확인하다, 굳게 하다|confirm a reservation|예약을 확인하다
+21-14|imitate|(동) 모방하다|imitate a voice|목소리를 흉내 내다
+21-14|prey|(명) 먹이, 희생자|birds of prey|맹금류
+21-14|defeat|(동) 패배시키다 (명) 패배|defeat the enemy|적을 물리치다
+21-14|illustrate|(동) 설명하다, 예증하다, 삽화를 넣다|illustrate with examples|예시로 설명하다
+21-14|fuse|(명) 퓨즈, 도화선 (동) 융합하다|fuse together|함께 융합되다
+21-14|pupil|(명) 학생, 눈동자|bright pupil|똑똑한 학생
+21-14|intellect|(명) 지성|man of intellect|지성인
+21-14|spice|(명) 향신료, 양념|add spice|향신료를 더하다
+21-14|tempt|(동) 유혹하다, 끌다|be [tempted] to eat|먹고 싶은 유혹을 받는
+21-14|inspire|(동) 영감을 주다, 고무시키다|inspire others|타인에게 영감을 주다
+21-14|dine|(동) 만찬을 대접하다, 식사하다|dine out|외식하다
+21-14|literally|(부) 문자 그대로|literally true|말 그대로 사실인
+21-14|appropriate|(형) 적절한|appropriate action|적절한 조치
+21-14|resort|(명) 휴양지, 의지 (동) 의지하다, 자주 가다|resort to violence|폭력에 의지하다
+21-14|grab|(동) 움켜쥐다 (명) 움켜쥠|grab a bite|간단히 먹다
+21-14|propose|(동) 제안하다|propose a plan|계획을 제안하다
+21-14|wreck|(명) 난파선, 사고 (동) 난파시키다|ship wreck|난파선
+21-14|document|(명) 문서, 서류 (동) 기록하다|official document|공식 문서
+21-14|suspect|(동) 의심하다 (명) 용용의자|main suspect|유력 용의자
+21-14|alien|(명) 외국인, 외계인 (형) 외국의, 이질적인|alien life|외계 생명체
+21-14|prohibit|(동) 금지하다|prohibit smoking|흡연을 금지하다
+21-14|install|(동) 설치하다|install software|소프트웨어를 설치하다
+21-14|triumph|(명) 승리 (동) 승리하다|shout in triumph|승리의 함성을 지르다
+21-14|scholarship|(명) 학문, 장학금|win a scholarship|장학금을 받다
+21-14|execute|(동) 실행하다, 처형하다|execute a plan|계획을 실행하다
+
+21-15|ensure|(동) 확실하게 하다, 보증하다|ensure safety|안전을 보장하다
+21-15|receipt|(명) 영수증|keep the receipt|영수증을 보관하다
+21-15|defect|(명) 결점, 결함|birth defect|선천적 결함
+21-15|trait|(명) 특성, 특징|personality trait|성격적 특성
+21-15|modest|(형) 겸손한, 알맞은|Be modest.|겸손해라.
+21-15|virtual|(형) 가상의, 사실상의|virtual reality|가상 현실
+21-15|compare|(동) 비교하다|compare A with B|A와 B를 비교하다
+21-15|address|(동) 연설하다 (명) 연설, 인사말|address the audience|청중에게 연설하다
+21-15|inner|(형) 내부의|inner beauty|내면의 아름다움
+21-15|contrary|(형) 반대의, 불리한 (명) 반대의 것|on the contrary|그와는 반대로
+21-15|split|(동) 찢다, 쪼개다 (명) 틈, 분열|split the bill|각자 내다
+21-15|supervise|(동) 감독하다, 관리하다, 통제하다|supervise workers|근로자들을 감독하다
+21-15|inhabit|(동) 살다, 거주하다|inhabit the island|그 섬에 거주하다
+21-15|appear|(동) 나타나다, ~인 것 같다|appear to be happy|행복해 보인다
+21-15|commute|(명) 통근 (동) 통근하다|commute to work|직장으로 통근하다
+21-15|earthquake|(명) 지진|massive earthquake|대지진
+21-15|enroll|(동) 입학하다, 등록하다|enroll in a course|강좌에 등록하다
+21-15|debate|(명) 토론 (동) 토론하다|heated debate|열띤 토론
+21-15|abandon|(동) 버리다, 포기하다|abandon hope|희망을 버리다
+21-15|conquer|(동) 정복하다, 극복하다|conquer fear|두려움을 정복하다
+21-15|nevertheless|(부) 그럼에도 불구하고|Nevertheless, I tried.|그럼에도 불구하고 나는 시도했다.
+21-15|seal|(명) 도장, 봉인 (동) 봉인하다, 봉하다|seal the envelope|봉투를 봉하다
+21-15|greed|(명) 탐욕|driven by greed|탐욕에 눈이 먼
+21-15|contract|(동) 계약하다, 수축하다 (명) 계약서|sign a contract|계약서에 서명하다
+21-15|nutrition|(명) 영양|poor nutrition|나쁜 영양 상태
+21-15|retail|(명) 소매 (동) 소매하다|retail price|소매 가격
+21-15|prejudice|(명) 편견, 선입관|racial prejudice|인종적 편견
+21-15|register|(동) 등록하다, 기재하다 (명) 등록|register for class|수업을 신청하다
+21-15|agency|(명) 대리점, 대행사|travel agency|여행사
+21-15|nurture|(동) 양육하다, 교육하다 (명) 양육, 교육|nurture talent|재능을 키우다
+21-15|priest|(명) 성직자, 신부|parish priest|교구 신부
+21-15|elegant|(형) 고상한, 우아한|elegant dress|우아한 드레스
+21-15|impose|(동) 부과하다, 강요하다|impose a tax|세금을 부과하다
+21-15|arise|(동) 발생하다, 생겨나다|Problems arise.|문제가 발생하다.
+21-15|attack|(동) 공격하다 (명) 공격, 발작|heart attack|심장 마비
+21-15|masterpiece|(명) 명작, 대작|a true masterpiece|진정한 명작
+21-15|harsh|(형) 거친, 가혹한|harsh reality|냉혹한 현실
+21-15|drought|(명) 가뭄|severe drought|심한 가뭄
+21-15|criteria|(명) 기준, 표준|selection criteria|선발 기준
+21-15|extraordinary|(형) 비범한, 놀라운|extraordinary talent|비범한 재능
 
 
-
-21-15|ensure|확실하게 하다, 보증하다|ensure safety|안전을 보장하다
-21-15|receipt|영수증|keep the receipt|영수증을 보관하다
-21-15|defect|결점|birth defect|선천적 결함
-21-15|trait|특성, 특징|personality trait|성격적 특성
-21-15|modest|겸손한, 알맞은|Be modest.|겸손해라.
-21-15|virtual|가상의, 사실상의|virtual reality|가상 현실
-21-15|compare|비교하다|compare A with B|A와 B를 비교하다
-21-15|address|연설하다, 연설, 인사말|address the audience|청중에게 연설하다
-21-15|inner|내부의|inner beauty|내면의 아름다움
-21-15|contrary|반대의, 불리한, 반대의 것|on the contrary|그와는 반대로
-21-15|split|찢다, 쪼개다, 틈, 분열|split the bill|각자 내다(비용을 나누다)
-21-15|supervise|감독하다, 관리하다, 통제하다|supervise workers|근로자들을 감독하다
-21-15|inhabit|살다, 거주하다|inhabit the island|그 섬에 거주하다
-21-15|appear|나타나다|appear to be happy|행복해 보인다
-21-15|commute|통근, 통근하다|commute to work|직장으로 통근하다
-21-15|earthquake|지진|massive earthquake|대지진
-21-15|enroll|입학하다, 등록하다|enroll in a course|강좌에 등록하다
-21-15|debate|토론, 토론하다|heated debate|열띤 토론
-21-15|abandon|버리다, 포기하다|abandon hope|희망을 버리다
-21-15|conquer|정복하다, 극복하다|conquer fear|두려움을 정복하다(극복하다)
-21-15|nevertheless|그럼에도 불구하고|Nevertheless, I tried.|그럼에도 불구하고 나는 시도했다.
-21-15|seal|도장, 봉인, 봉인하다|seal the envelope|봉투를 봉하다
-21-15|greed|탐욕|driven by greed|탐욕에 눈이 먼
-21-15|contract|계약하다, 수축하다, 계약서|sign a contract|계약서에 서명하다
-21-15|nutrition|영양|poor nutrition|영양실조(나쁜 영양 상태)
-21-15|retail|소매, 소매하다|retail price|소매 가격
-21-15|prejudice|편견, 선입관|racial prejudice|인종적 편견
-21-15|register|등록하다, 기재하다, 등록|register for class|수업을 신청(등록)하다
-21-15|agency|대리점|travel agency|여행사
-21-15|nurture|양육하다, 교육하다, 양육, 교육|nurture talent|재능을 키우다
-21-15|priest|성직자|parish priest|교구 신부
-21-15|elegant|고상한, 우아한|elegant dress|우아한 드레스
-21-15|impose|부과하다, 강요하다|impose a tax|세금을 부과하다
-21-15|arise|발생하다, 생겨나다|Problems arise.|문제가 발생하다.
-21-15|attack|공격하다, 공격|heart attack|심장 마비
-21-15|masterpiece|명작, 대작|a true masterpiece|진정한 명작
-21-15|harsh|거친, 가혹한|harsh reality|냉혹한 현실
-21-15|drought|가뭄|severe drought|심한 가뭄
-21-15|criteria|기준, 표준|selection criteria|선발 기준
-21-15|extraordinary|비범한, 놀라운|extraordinary talent|비범한 재능
-
-
-
-21-16|general|일반적인, 대장|general opinion|일반적인 견해
-21-16|spill|엎지르다, 엎질러짐|spill the water|물을 엎지르다
-21-16|usual|보통의, 통상의|as usual|평소처럼
-21-16|routine|일상적인 일, 일과, 일상적인|daily routine|하루 일과
-21-16|eliminate|제거하다, 배제하다|eliminate waste|낭비를 제거하다
-21-16|deny|부인하다, 거절하다|deny the fact|사실을 부인하다
-21-16|scream|절규하다, 소리치다, 비명, 절규|scream for help|도와달라고 소리치다
-21-16|sensitive|민감한, 예민한|sensitive skin|민감한 피부
-21-16|swallow|삼키다, 삼킴, 제비|hard to swallow|삼키기 힘든(받아들이기 힘든)
-21-16|glare|빛나다, 눈부신 빛|glare at someone|누군가를 노려보다
-21-16|tragic|비극의, 비참한|tragic accident|비극적인 사고
-21-16|deprive|박탈하다|deprive A of B|A에게서 B를 박탈하다
-21-16|conscious|의식하고 있는, 의도적인|be conscious of|~을 의식하다
-21-16|interfere|방해하다, 간섭하다|interfere with work|일을 방해하다
-21-16|temporary|일시적인, 임시의|temporary shelter|임시 거처
-21-16|council|협의회, 회의, 의회|city council|시의회
-21-16|adolescent|청소년, 청소년기의|adolescent period|청소년기
-21-16|associate|연관 짓다, 교제하다, 동료|associate A with B|A와 B를 연관 짓다
-21-16|arctic|북극의|Arctic Ocean|북극해
-21-16|capture|붙잡다, 포획하다, 포획|capture attention|관심을 사로잡다(포획하다)
-21-16|dilute|묽은, 희석시키다|dilute with water|물로 희석하다
-21-16|figure|생각하다, 계산하다, 수치, 계산, 형체|key figure|주요 인물
-21-16|dim|흐릿한, 어두운, 흐려지다|dim light|흐릿한 불빛
-21-16|neighbor|이웃의, 근처에 사는, 이웃|next-door neighbor|옆집 이웃
-21-16|crew|승무원|flight crew|비행 승무원
-21-16|barrier|장벽, 장애물|trade barrier|무역 장벽
-21-16|tradition|전통, 관습|follow tradition|전통을 따르다
-21-16|pedestrian|보행자, 보행자의|pedestrian crossing|횡단보도
-21-16|glance|흘긋 보다, 흘긋 봄|glance at a watch|시계를 흘긋 보다
-21-16|irritate|짜증 나게 하다, 화나게 하다|irritate the skin|피부를 자극하다(짜증 나게 하다)
-21-16|cruel|잔인한, 고통을 주는|cruel treatment|잔인한 대우
-21-16|fold|접다, 포개다, 주름|fold paper|종이를 접다
-21-16|trial|재판, 실험, 시도|trial and error|시행착오
-21-16|tribe|부족, 종족|native tribe|원주민 부족
-21-16|profound|깊은, 심오한|profound effect|심오한(지대한) 영향
-21-16|distinguish|구별하다, 식별하다|distinguish A from B|A와 B를 구별하다
-21-16|errand|심부름, 잡일|run an errand|심부름을 하다
-21-16|welfare|복지|social welfare|사회 복지
-21-16|statement|진술, 성명서|official statement|공식 성명서
-21-16|prevail|우세하다, 만연하다|Justice will prevail.|정의가 승리할(우세할) 것이다.
-
+21-16|general|(형) 일반적인 (명) 장군, 대장|general opinion|일반적인 견해
+21-16|spill|(동) 엎지르다 (명) 엎질러짐|spill the water|물을 엎지르다
+21-16|usual|(형) 보통의, 통상의|as usual|평소처럼
+21-16|routine|(명) 일상적인 일, 일과 (형) 일상적인|daily routine|하루 일과
+21-16|eliminate|(동) 제거하다, 배제하다|eliminate waste|낭비를 제거하다
+21-16|deny|(동) 부인하다, 거절하다|deny the fact|사실을 부인하다
+21-16|scream|(동) 절규하다, 소리치다 (명) 비명, 절규|scream for help|도와달라고 소리치다
+21-16|sensitive|(형) 민감한, 예민한|sensitive skin|민감한 피부
+21-16|swallow|(동) 삼키다 (명) 삼킴, 제비|hard to swallow|삼키기 힘든
+21-16|glare|(동) 노려보다, 번쩍이다 (명) 눈부신 빛|glare at someone|누군가를 노려보다
+21-16|tragic|(형) 비극의, 비참한|tragic accident|비극적인 사고
+21-16|deprive|(동) 박탈하다|deprive A of B|A에게서 B를 박탈하다
+21-16|conscious|(형) 의식하고 있는, 의도적인|be conscious of|~을 의식하다
+21-16|interfere|(동) 방해하다, 간섭하다|interfere with work|일을 방해하다
+21-16|temporary|(형) 일시적인, 임시의|temporary shelter|임시 거처
+21-16|council|(명) 협의회, 회의, 의회|city council|시의회
+21-16|adolescent|(명) 청소년 (형) 청소년기의|adolescent period|청소년기
+21-16|associate|(동) 연관 짓다, 교제하다 (명) 동료|associate A with B|A와 B를 연관 짓다
+21-16|arctic|(형) 북극의|Arctic Ocean|북극해
+21-16|capture|(동) 붙잡다, 포획하다 (명) 포획|capture attention|관심을 사로잡다
+21-16|dilute|(형) 묽은 (동) 희석시키다|dilute with water|물로 희석하다
+21-16|figure|(동) 생각하다, 계산하다 (명) 수치, 형체, 인물|key figure|주요 인물
+21-16|dim|(형) 흐릿한, 어두운 (동) 흐려지다|dim light|흐릿한 불빛
+21-16|neighbor|(형) 이웃의 (명) 이웃|next-door neighbor|옆집 이웃
+21-16|crew|(명) 승무원, 선원|flight crew|비행 승무원
+21-16|barrier|(명) 장벽, 장애물|trade barrier|무역 장벽
+21-16|tradition|(명) 전통, 관습|follow tradition|전통을 따르다
+21-16|pedestrian|(명) 보행자 (형) 보행자의|pedestrian crossing|횡단보도
+21-16|glance|(동) 흘긋 보다 (명) 흘긋 봄|glance at a watch|시계를 흘긋 보다
+21-16|irritate|(동) 짜증 나게 하다, 화나게 하다, 자극하다|irritate the skin|피부를 자극하다
+21-16|cruel|(형) 잔인한, 고통을 주는|cruel treatment|잔인한 대우
+21-16|fold|(동) 접다, 포개다 (명) 주름|fold paper|종이를 접다
+21-16|trial|(명) 재판, 실험, 시도|trial and error|시행착오
+21-16|tribe|(명) 부족, 종족|native tribe|원주민 부족
+21-16|profound|(형) 깊은, 심오한|profound effect|심오한 영향
+21-16|distinguish|(동) 구별하다, 식별하다|distinguish A from B|A와 B를 구별하다
+21-16|errand|(명) 심부름, 잡일|run an errand|심부름을 하다
+21-16|welfare|(명) 복지|social welfare|사회 복지
+21-16|statement|(명) 진술, 성명서|official statement|공식 성명서
+21-16|prevail|(동) 우세하다, 만연하다, 승리하다|Justice will prevail.|정의가 승리할 것이다.
 
 21-17|widespread|널리 퍼진|widespread belief|널리 퍼진 믿음
 21-17|result|결과, 생기다|result in failure|실패를 초래하다
@@ -8908,70 +8880,69 @@
 21-17|drift|표류, 표류하다|drift apart|사이가 멀어지다(표류하다)
 
 
-21-18|solar|태양의, 태양열을 이용한|solar energy|태양 에너지
-21-18|outstanding|뛰어난, 두드러진|outstanding performance|뛰어난 성과
-21-18|mislead|잘못 인도하다, 오해하게 하다|mislead the public|대중을 호도하다(오해하게 하다)
-21-18|dedicate|헌납하다, 바치다|dedicate oneself to|~에 헌신하다
-21-18|crush|으깨다, 밀어 넣다|crush grapes|포도를 으깨다
-21-18|sink|가라앉다|sink into the sea|바다로 가라앉다
-21-18|entire|전체의, 완전한, 전부, 전체|entire world|전 세계
-21-18|confront|직면하다|confront a problem|문제에 직면하다
-21-18|beard|턱수염|grow a beard|턱수염을 기르다
-21-18|haste|급함, 서두름|make haste|서두르다
-21-18|initial|처음의, 초기의, 머리글자|initial stage|초기 단계
-21-18|destiny|운명|accept destiny|운명을 받아들이다
-21-18|hardship|고난, 어두움|overcome hardship|고난을 극복하다
-21-18|escape|탈출하다, 벗어나다, 탈출, 도망|escape from prison|감옥에서 탈출하다
-21-18|valid|타당한, 유효한|valid reason|타당한 이유
-21-18|dispose|배치하다, 처리하다|dispose of waste|쓰레기를 처리하다
-21-18|exist|존재하다, 살아가다|cease to exist|존재하지 않게 되다
-21-18|optimal|최상의, 최적의|optimal condition|최적의 조건
-21-18|hydrogen|수소|hydrogen bomb|수소 폭탄
-21-18|perspective|관점, 견해|different perspective|다른 관점
-21-18|thread|실, 실을 꿰다|needle and thread|바늘과 실
-21-18|dynasty|왕조, 왕가|Joseon Dynasty|조선 왕조
-21-18|scatter|흩뿌리다|scatter seeds|씨를 흩뿌리다
-21-18|gamble|도박하다, 모험하다, 도박, 모험|gamble with money|돈으로 도박하다
-21-18|temper|성질, 기질, 완화시키다|lose one's temper|화를 내다(성질을 못 이기다)
-21-18|undoubtedly|의심할 여지 없이, 확실히|undoubtedly true|의심할 여지 없이 사실인
-21-18|raft|뗏목, 고무보트|life raft|구명 뗏목
-21-18|minimal|최소의, 아주 적은|minimal effort|최소한의 노력
-21-18|soak|적시다, 젖다|soak in water|물에 담그다(적시다)
-21-18|craft|공예, 기술|traditional craft|전통 공예
-21-18|cease|그만두다, 중지하다|cease fire|사격 중지
-21-18|review|재검토, 논평, 재검토하다|review a book|책을 비평(검토)하다
-21-18|ceiling|천장, 상한선|glass ceiling|유리 천장(보이지 않는 장벽)
-21-18|unify|통합하다, 통일하다|unify the country|나라를 통일하다
-21-18|combat|싸우다, 전투|combat disease|질병과 싸우다
-21-18|bump|부딪치다, 충돌|bump into a friend|친구와 우연히 마주치다
-21-18|primary|주요한, 최초의|primary school|초등학교(기초 학교)
-21-18|genre|장르, 유형, 형식|music genre|음악 장르
-21-18|erase|지우다, 없애다|erase memories|기억을 지우다
-21-18|doom|운명이다, 운명|[doomed] to fail|실패할 운명인
-
+21-18|solar|(형) 태양의, 태양열을 이용한|solar energy|태양 에너지
+21-18|outstanding|(형) 뛰어난, 두드러진|outstanding performance|뛰어난 성과
+21-18|mislead|(동) 잘못 인도하다, 오해하게 하다|mislead the public|대중을 호도하다
+21-18|dedicate|(동) 헌납하다, 바치다|dedicate oneself to|~에 헌신하다
+21-18|crush|(동) 으깨다, 밀어 넣다|crush grapes|포도를 으깨다
+21-18|sink|(동) 가라앉다|sink into the sea|바다로 가라앉다
+21-18|entire|(형) 전체의, 완전한 (명) 전부, 전체|entire world|전 세계
+21-18|confront|(동) 직면하다|confront a problem|문제에 직면하다
+21-18|beard|(명) 턱수염|grow a beard|턱수염을 기르다
+21-18|haste|(명) 급함, 서두름|make haste|서두르다
+21-18|initial|(형) 처음의, 초기의 (명) 머리글자|initial stage|초기 단계
+21-18|destiny|(명) 운명|accept destiny|운명을 받아들이다
+21-18|hardship|(명) 고난, 어려움|overcome hardship|고난을 극복하다
+21-18|escape|(동) 탈출하다, 벗어나다 (명) 탈출, 도망|escape from prison|감옥에서 탈출하다
+21-18|valid|(형) 타당한, 유효한|valid reason|타당한 이유
+21-18|dispose|(동) 배치하다, 처리하다|dispose of waste|쓰레기를 처리하다
+21-18|exist|(동) 존재하다, 살아가다|cease to exist|존재하지 않게 되다
+21-18|optimal|(형) 최상의, 최적의|optimal condition|최적의 조건
+21-18|hydrogen|(명) 수소|hydrogen bomb|수소 폭탄
+21-18|perspective|(명) 관점, 견해|different perspective|다른 관점
+21-18|thread|(명) 실 (동) 실을 꿰다|needle and thread|바늘과 실
+21-18|dynasty|(명) 왕조, 왕가|Joseon Dynasty|조선 왕조
+21-18|scatter|(동) 흩뿌리다|scatter seeds|씨를 흩뿌리다
+21-18|gamble|(동) 도박하다, 모험하다 (명) 도박, 모험|gamble with money|돈으로 도박하다
+21-18|temper|(명) 성질, 기질 (동) 완화시키다|lose one's temper|화를 내다
+21-18|undoubtedly|(부) 의심할 여지 없이, 확실히|undoubtedly true|의심할 여지 없이 사실인
+21-18|raft|(명) 뗏목, 고무보트|life raft|구명 뗏목
+21-18|minimal|(형) 최소의, 아주 적은|minimal effort|최소한의 노력
+21-18|soak|(동) 적시다, 젖다|soak in water|물에 담그다
+21-18|craft|(명) 공예, 기술|traditional craft|전통 공예
+21-18|cease|(동) 그만두다, 중지하다|cease fire|사격 중지
+21-18|review|(명) 재검토, 논평 (동) 재검토하다|review a book|책을 비평하다
+21-18|ceiling|(명) 천장, 상한선|glass ceiling|유리 천장
+21-18|unify|(동) 통합하다, 통일하다|unify the country|나라를 통일하다
+21-18|combat|(동) 싸우다 (명) 전투|combat disease|질병과 싸우다
+21-18|bump|(동) 부딪치다 (명) 충돌|bump into a friend|친구와 우연히 마주치다
+21-18|primary|(형) 주요한, 최초의|primary school|초등학교
+21-18|genre|(명) 장르, 유형, 형식|music genre|음악 장르
+21-18|erase|(동) 지우다, 없애다|erase memories|기억을 지우다
+21-18|doom|(동) 운명이다 (명) 운명|[doomed] to fail|실패할 운명인
 
 
 21-19|vital|(형) 필수적인, 중요한|vital role|필수적인 역할
 21-19|incident|(명) 일어난 일, 사건 (형) 일어나기 쉬운|shooting incident|총격 사건
-21-19|session|(명) 시간, 기간, 회의|training session|훈련 시간(기간)
+21-19|session|(명) 시간, 기간, 회의|training session|훈련 시간
 21-19|obvious|(형) 명백한, 분명한|obvious mistake|명백한 실수
 21-19|moderate|(형) 온건한, 적당한|moderate exercise|적당한 운동
 21-19|budget|(명) 예산, 예산안|low budget|적은 예산
-21-19|graze|(동) 풀을 뜯다, 방목하다|cattle graze|소들이 풀을 뜯는다
+21-19|graze|(동) 풀을 뜯다, 방목하다|Cattle graze.|소들이 풀을 뜯는다.
 21-19|fragile|(형) 부서지기 쉬운|fragile glass|깨지기 쉬운 유리
-21-19|myth|(명) 신화|greek myth|그리스 신화
+21-19|myth|(명) 신화|Greek myth|그리스 신화
 21-19|ingredient|(명) 재료, 성분|key ingredient|핵심 재료
 21-19|indifferent|(형) 무관심한|indifferent to politics|정치에 무관심한
-21-19|strain|(동) 긴장시키다, 잡아당기다 (명) 긴장, 압박|muscle strain|근육통(긴장)
+21-19|strain|(동) 긴장시키다, 잡아당기다 (명) 긴장, 압박|muscle strain|근육통
 21-19|nutrient|(명) 영양소, 영양분|essential nutrients|필수 영양소
-21-19|dismiss|(동) 해고하다, 해산시키다|dismiss an idea|아이디어를 묵살하다
+21-19|dismiss|(동) 해고하다, 해산시키다, 묵살하다|dismiss an idea|아이디어를 묵살하다
 21-19|geometry|(명) 기하학|study geometry|기하학을 공부하다
 21-19|glacier|(명) 빙하|melting glaciers|녹는 빙하들
-21-19|urge|(동) 촉구하다, 강요하다|urge to eat|식욕(먹고 싶은 욕구)
-21-19|celebrity|(명) 명성, 유명 인사|tV celebrity|tV 유명 인사
+21-19|urge|(동) 촉구하다, 강요하다 (명) 충동, 욕구|urge to eat|먹고 싶은 욕구
+21-19|celebrity|(명) 명성, 유명 인사|TV celebrity|TV 유명 인사
 21-19|antique|(형) 옛날의, 고대의 (명) 골동품|antique shop|골동품 가게
 21-19|profit|(명) 이익, 이윤 (동) 이익을 얻다|make a profit|이익을 내다
-21-19|sphere|(명) 구체, 구|public sphere|공적 영역
+21-19|sphere|(명) 구체, 구, 영역|public sphere|공적 영역
 21-19|inherit|(동) 상속하다, 물려받다|inherit a fortune|재산을 상속받다
 21-19|editorial|(명) 사설, 논설 (형) 편집자의|editorial staff|편집진
 21-19|crawl|(동) 기어가다, 서행하다|crawl on hands|손으로 기어가다
@@ -8993,888 +8964,887 @@
 21-19|disgrace|(명) 불명예, 수치|social disgrace|사회적 망신
 
 
-21-20|abolish|폐지하다|abolish slavery|노예제를 폐지하다
-21-20|assure|보증하다, 확실하게 하다|assure safety|안전을 보장하다
-21-20|form|형태, 종류, 형성하다|form a habit|습관을 형성하다
-21-20|gender|성, 성별|gender equality|성 평등
-21-20|innovation|혁신|technical innovation|기술 혁신
-21-20|opponent|반대자, 상대, 반대하는|defeat an opponent|상대를 물리치다
-21-20|present|현재의, 현재, 선물, 제출하다|present a paper|논문을 제출(발표)하다
-21-20|fertile|비옥한, 기름진|fertile land|비옥한 땅
-21-20|emperor|황제|Roman Emperor|로마 황제
-21-20|dwell|살다, 거주하다|dwell in the city|도시에 거주하다
-21-20|chore|집안일, 허드렛일|household chores|집안일
-21-20|grateful|고마워하는, 감사하는|be grateful for|~에 감사하다
-21-20|fossil|화석|fossil fuel|화석 연료
-21-20|glitter|반짝이다, 반짝임|all that glitters|반짝이는 모든 것
-21-20|miserable|비참한, 불쌍한|miserable life|비참한 삶
-21-20|portray|묘사하다, 설명하다, 초상을 그리다|portray a character|인물을 묘사하다
-21-20|protein|단백질|protein source|단백질원
-21-20|backward|후방에, 뒤쪽으로, 거꾸로|look backward|뒤를 돌아보다
-21-20|translate|번역하다, 옮기다|translate into English|영어로 번역하다
-21-20|refresh|상쾌하게 하다, 새롭게 하다|refresh memory|기억을 되살리다
-21-20|tissue|조직|muscle tissue|근육 조직
-21-20|lord|군주|Lord of the Rings|반지의 제왕
-21-20|remove|제거하다|remove the cover|덮개를 제거하다
-21-20|scan|정밀 검사하다, 유심히 쳐다보다|scan the document|문서를 스캔하다(살펴보다)
-21-20|pottery|도자기, 도예|make pottery|도자기를 빚다
-21-20|layer|층, 겹|ozone layer|오존층
-21-20|property|재산, 소유물, 부동산|intellectual property|지적 재산
-21-20|justify|정당화하다|justify an action|행동을 정당화하다
-21-20|polish|닦다, 윤을 내다, 다듬다|polish shoes|구두를 닦다
-21-20|flavor|맛, 맛을 내다|artificial flavor|인공 조미료(맛)
-21-20|ceremony|의식, 식, 의례|wedding ceremony|결혼식
-21-20|relate|관련시키다, 관련이 있다|relate A to B|A와 B를 관련시키다
-21-20|strive|노력하다, 애쓰다, 투쟁하다|strive for success|성공을 위해 분투하다
-21-20|radiant|빛나는, 아주 밝은|radiant smile|환한 미소
-21-20|exclaim|외치다|exclaim in surprise|놀라서 소리치다
-21-20|asset|자산, 재산|valuable asset|귀중한 자산
-21-20|decay|부패하다, 쇠퇴하다, 부패, 쇠퇴|tooth decay|충치(이의 부패)
-21-20|administer|관리하다, 집행하다|administer the law|법을 집행하다
-21-20|wage|임금, 급료|minimum wage|최저 임금
-21-20|subscribe|구독하다, 가입하다|subscribe to a magazine|잡지를 구독하다
-
-
-21-21|merit|장점, 공로, 받을 만하다|based on merit|능력(장점)에 따라
-21-21|dwindle|점점 줄어들다, 저하되다|dwindle away|점차 사라지다(줄어들다)
-21-21|conference|회담, 회의|press conference|기자 회견
-21-21|accuse|고발하다, 비난하다|accuse A of B|A를 B라는 이유로 비난하다
-21-21|enhance|향상하다|enhance performance|성능을 향상하다
-21-21|intimate|친밀한|intimate relationship|친밀한 관계
-21-21|reception|환영회, 접수|warm reception|따뜻한 환영
-21-21|overwhelm|압도하다, 당황하게 하다|be [overwhelmed]|압도되다
-21-21|coincidence|우연의 일치, 동시에 일어난 사건|strange coincidence|기묘한 우연
-21-21|majesty|위엄, 장엄|Her Majesty|여왕 폐하
-21-21|shrug|으쓱하다|shrug one's shoulders|어깨를 으쓱하다
-21-21|vicious|사악한, 악의 있는|vicious circle|악순환(사악한 고리)
-21-21|cherish|소중히 하다|cherish a memory|추억을 소중히 하다
-21-21|eternal|영원한|eternal life|영생
-21-21|shrink|축소하다, 수축하다|shrink in size|크기가 줄어들다
-21-21|colleague|동료|work colleague|직장 동료
-21-21|transmit|전달하다|transmit a signal|신호를 전달하다
-21-21|discard|버리다, 처분하다|discard old habits|낡은 습관을 버리다
-21-21|copper|구리, 구리의, 구릿빛의|copper wire|구리선
-21-21|orbit|궤도, 궤도를 그리며 돌다|orbit the earth|지구 궤도를 돌다
-21-21|famine|굶주림, 기아|die of famine|굶어 죽다
-21-21|pill|알약|sleeping pill|수면제
-21-21|immune|면역성의, 면제된|immune system|면역 체계
-21-21|raw|날것의|raw material|원자재
-21-21|superior|우월한, 상사|superior to others|남보다 우월한
-21-21|string|끈, 줄, 일련|a string of pearls|진주 목걸이(줄)
-21-21|cope|대처하다, 잘 처리하다|cope with stress|스트레스에 대처하다
-21-21|loan|대출, 대출금, 대출하다|bank loan|은행 대출
-21-21|obedient|순종하는, 유순한|obedient child|순종적인 아이
-21-21|procedure|절차, 과정|safety procedure|안전 절차
-21-21|bond|유대, 결속, 속박|strong bond|강한 유대감
-21-21|angle|각도, 모서리|from a different angle|다른 각도(관점)에서
-21-21|subtle|미묘한, 교묘한|subtle difference|미묘한 차이
-21-21|depict|묘사하다, 그리다|depict reality|현실을 묘사하다
-21-21|radical|과격한, 급진적인, 급진주의자|radical change|급진적인 변화
-21-21|caution|조심, 주의, 주의를 주다|with caution|조심스럽게
-21-21|persist|고집하다, 지속하다|persist in doing|계속하다(고집하다)
-21-21|reverse|역, 반대, 역의, 반대의, 뒤바뀌다|in reverse order|역순으로
-21-21|stuff|것, 물건, 채워 넣다|pack one's stuff|짐을 싸다
-21-21|therapy|치료, 요법|physical therapy|물리치료
-
-
-21-22|skeleton|골격, 뼈대|human skeleton|인간의 골격
-21-22|strategy|전략|marketing strategy|마케팅 전략
-21-22|attract|끌다|attract attention|관심을 끌다
-21-22|hence|그러므로, 지금부터|Hence, the result.|그러므로 그 결과.
-21-22|architecture|건축, 건축물|modern architecture|현대 건축
-21-22|handle|다루다|handle with care|조심해서 다루다
-21-22|wilderness|황무지, 황야|in the wilderness|황야에서
-21-22|category|범주|fall into a category|범주에 속하다
-21-22|funeral|장례식, 장례의|funeral service|장례식
-21-22|prefer|선호하다|prefer A to B|B보다 A를 선호하다
-21-22|outcome|결과|final outcome|최종 결과
-21-22|humiliation|창피함, 굴욕|suffered humiliation|굴욕을 겪었다
-21-22|ban|금지하다, 금지|ban smoking|흡연을 금지하다
-21-22|flush|붉어지다|face [flushed]|얼굴이 붉어졌다
-21-22|omit|생략하다, 빼다|omit a word|단어를 생략하다
-21-22|despair|절망, 절망하다|in deep despair|깊은 절망에 빠져
-21-22|alert|기민한, 경계하는, 경계, 경계하다|Stay alert.|경계를 늦추지 마라.
-21-22|compact|소형의, 조밀한, 꽉 채우다|compact car|소형차
-21-22|likewise|마찬가지로, 게다가|Do likewise.|똑같이 해라.
-21-22|astonish|놀라게 하다|be [astonished] at|~에 놀라다
-21-22|panic|갑작스러운 공포, 공황, 공황적인|panic attack|공황 발작
-21-22|optimistic|낙관적인, 낙천적인|optimistic view|낙관적인 견해
-21-22|murder|살인, 살인하다|commit murder|살인을 저지르다
-21-22|fundamental|근본적인, 기본적인, 근본|fundamental rule|기본 규칙
-21-22|loyal|충성스러운, 성실한|loyal friend|충실한 친구
-21-22|humid|습기 있는, 눅눅한|hot and humid|덥고 습한
-21-22|pretend|~인 척하다, 주장하다|pretend to sleep|자는 척하다
-21-22|graduate|졸업하다, 졸업생, 대학원 학생|graduate from college|대학을 졸업하다
-21-22|delicate|섬세한|delicate balance|미묘한(섬세한) 균형
-21-22|inflate|부풀리다, 과장하다, 인상하다|inflate a balloon|풍선을 부풀리다
-21-22|adequate|적당한|adequate supply|충분한 공급
-21-22|physician|의사, 내과 의사|consult a physician|내과의사와 상담하다
-21-22|joint|공동의, 연합의, 이음매, 관절|joint effort|공동의 노력
-21-22|via|~을 걸쳐, ~을 통해|via email|이메일을 통해서
-21-22|passage|통로, 경과|narrow passage|좁은 통로
-21-22|vessel|용기, 배, 선박, 혈관|blood vessel|혈관
-21-22|restore|회복하다, 복구하다, 돌려주다|restore order|질서를 회복하다
-21-22|passive|수동적인, 수동형의|passive smoking|간접흡연
-21-22|marble|대리석, 대리석의|marble floor|대리석 바닥
-21-22|classify|분류하다|classify books|책을 분류하다
-
-
-21-23|prepare|준비하다|prepare for the exam|시험을 준비하다
-21-23|transaction|거래, 처리|business transaction|상거래
-21-23|sufficient|충분한|sufficient time|충분한 시간
-21-23|stable|안정된, 마구간|stable job|안정된 직업
-21-23|concern|관련되다, 걱정, 관심사|public concern|대중의 관심사(우려)
-21-23|sympathy|동정, 공감|feel sympathy for|~을 동정하다
-21-23|principal|주요한, 제1의, 장|principal reason|주된 이유
-21-23|by-product|부산물|a useless by-product|쓸모없는 부산물
-21-23|anxiety|걱정, 불안|reduce anxiety|불안을 줄이다
-21-23|edible|먹을 수 있는, 식용의|edible mushrooms|식용 버섯
-21-23|federal|연방의, 연합의|federal government|연방 정부
-21-23|suffer|고통 받다, 겪다|suffer from illness|병으로 고생하다
-21-23|casual|우연한, 무심결의, 격식을 차리지 않는|casual clothes|평상복
-21-23|tablet|정체, 알약|take a tablet|알약을 먹다
-21-23|trade|거래하다, 무역|free trade|자유 무역
-21-23|liquid|액체, 액체의|liquid state|액체 상태
-21-23|characteristic|특징, 특색, 독특한|unique characteristic|독특한 특징
-21-23|anticipate|예상하다, 기대하다|anticipate trouble|문제를 예상하다
-21-23|outlook|전망, 조망|economic outlook|경제 전망
-21-23|desert|사막, 사막의, 불모의, 버리다|Sahara Desert|사하라 사막
-21-23|infinite|무한한|infinite space|무한한 우주
-21-23|roam|배회하다, 돌아다니다|roam the streets|거리를 배회하다
-21-23|decent|제대로 된, 품위 있는|decent job|괜찮은 직업
-21-23|behalf|이익, 자기편|on behalf of|~을 대신하여
-21-23|distortion|왜곡, 찌그러뜨림|distortion of facts|사실 왜곡
-21-23|bud|싹, 싹트다|flower bud|꽃봉오리
-21-23|symbolic|상징적인|symbolic meaning|상징적 의미
-21-23|municipal|지방의, 시의|municipal library|시립 도서관
-21-23|phenomenon|현상, 사건|natural phenomenon|자연 현상
-21-23|devote|바치다|devote time to|~에 시간을 바치다
-21-23|peasant|농민, 소작농|poor peasant|가난한 소작농
-21-23|diminish|감소하다|diminish in value|가치가 떨어지다
-21-23|jealous|질투하다|be jealous of|~을 질투하다
-21-23|exclude|배제하다, 제외하다|exclude from the list|목록에서 제외하다
-21-23|flexible|융통성 있는, 유연한|flexible schedule|유동적인 일정
-21-23|tenant|세입자, 주민|finding a tenant|세입자 구하기
-21-23|worthwhile|~할 가치가 있는|worthwhile effort|가치 있는 노력
-21-23|pavement|보도, 포장도로|walk on the pavement|보도를 걷다
-21-23|nominate|지명하다, 임명하다|nominate a candidate|후보를 지명하다
-21-23|sacred|신성한, 성스러운|sacred cow|신성한 소
-
-
-21-24|support|지지하다, 받치다, 지지, 지탱함, 부양|support a family|가족을 부양하다
-21-24|revise|변경하다, 개정하다|revise a plan|계획을 수정하다
-21-24|suggest|암시하다, 넌지시 말하다|suggest an idea|아이디어를 제안하다
-21-24|control|지배하다, 제어하다, 지배, 제어|under control|통제하에 있는
-21-24|mammal|포유동물|marine mammal|해양 포유류
-21-24|internal|내부의|internal organ|내장 기관
-21-24|resent|분개하다, 화를 내다|resent being treated like a child|아이 취급받는 것에 분개하다
-21-24|abrupt|갑작스러운|abrupt change|갑작스러운 변화
-21-24|diverse|다른, 다양한|diverse culture|다양한 문화
-21-24|refine|정제하다, 개선하다|refine oil|기름을 정제하다
-21-24|dynamic|동적인, 역학의|dynamic personality|활동적인 성격
-21-24|nerve|신경|nerve cell|신경 세포
-21-24|prompt|즉각적인, 신속한, 촉구하다, 자극하다|prompt response|신속한 응답
-21-24|suspend|매달다, 중지하다|suspend judgment|판단을 유보하다
-21-24|industry|산업, 공업|auto industry|자동차 산업
-21-24|iceberg|빙산|tip of the iceberg|빙산의 일각
-21-24|monetary|화폐의|monetary policy|통화(화폐) 정책
-21-24|judge|판단하다, 재판관|Don't judge a book by its cover.|겉만 보고 판단하지 마라.
-21-24|gloom|어둠, 우울|doom and gloom|절망적인 상태
-21-24|distraction|주의 산만, 산만하게 하는 것|Avoid distractions.|주의 산만 요소를 피해라.
-21-24|collapse|무너지다, 붕괴하다, 붕괴|The building [collapsed].|건물이 붕괴했다.
-21-24|trigger|촉발하다, 유발하다, 방아쇠, 계기|trigger an allergy|알레르기를 유발하다
-21-24|martial|전쟁의, 군대의|martial arts|무술
-21-24|monologue|독백|dramatic monologue|극적 독백
-21-24|deliberate|의도적인, 신중한, 숙고하다|deliberate attempt|의도적인 시도
-21-24|plot|줄거리, 음모, 음모를 꾸미다|movie plot|영화 줄거리
-21-24|rod|막대기, 회초리|fishing rod|낚싯대
-21-24|partial|부분적인, 편파적인|partial success|부분적인 성공
-21-24|mutual|서로의, 고통의|mutual understanding|상호 이해
-21-24|priceless|대단히 귀중한|priceless treasure|귀중한 보물
-21-24|fate|운명|decide one's fate|운명을 결정하다
-21-24|pursue|추구하다, 쫓다|pursue happiness|행복을 추구하다
-21-24|Atlantic|대서양, 대서양의|Atlantic Ocean|대서양
-21-24|weird|이상한, 기묘한|weird noise|기이한 소리
-21-24|booth|칸막이한 공간, 부스, 노점|phone booth|공중전화 부스
-21-24|prescribe|규정하다, 처방하다|prescribe medicine|약을 처방하다
-21-24|erupt|분출하다, 폭발하다|Volcano [erupted].|화산이 폭발했다.
-21-24|insult|모욕하다, 모욕|insult someone|누군가를 모욕하다
-21-24|gaze|뚫어지게 보다, 응시하다|gaze at the stars|별을 응시하다
-21-24|supreme|최고의|Supreme Court|대법원
-
-
-21-25|context|전후 관계, 맥락, 문맥|in this context|이러한 맥락에서
-21-25|complete|완전한, 완료하다|complete the form|양식을 작성하다(완료하다)
-21-25|race|경주하다, 경주, 경쟁, 인종|human race|인류
-21-25|dominate|지배하다|dominate the market|시장을 지배하다
-21-25|vehicle|탈것, 수단, 매개체|electric vehicle|전기 자동차
-21-25|complain|불평하다|complain about the noise|소음에 대해 불평하다
-21-25|brochure|소책자, 브로슈어|travel brochure|여행 안내 책자
-21-25|force|힘, 영향력, 강요하다|force him to go|그가 가도록 강요하다
-21-25|nest|둥지, 둥지를 틀다|bird's nest|새 둥지
-21-25|gain|얻다, 이익|gain weight|체중이 늘다
-21-25|curriculum|교육 과정, 커리큘럼|school curriculum|학교 교육 과정
-21-25|sew|꿰매다, 바느질하다|sew a button|단추를 달다
-21-25|masculine|남자의, 남자다운|masculine voice|남성적인 목소리
-21-25|frown|눈살을 찌푸리다, 찡그린 얼굴|frown at someone|누군가에게 얼굴을 찌푸리다
-21-25|astound|놀르게 하다|astound the audience|관중을 놀라게 하다
-21-25|dictator|독재자|cruel dictator|잔인한 독재자
-21-25|assessment|평가, 판단|risk assessment|위험 평가
-21-25|crucial|중대한, 중요한|crucial role|중대한 역할
-21-25|paralysis|마비|sleep paralysis|가위눌림(수면 마비)
-21-25|deck|갑판|on deck|갑판 위에
-21-25|cheer|환호, 갈채, 환호하다|cheer up|기운 내다
-21-25|carve|조각하다, 새기다|carve wood|나무를 조각하다
-21-25|tease|괴롭히다, 약 올리다|Don't tease.|놀리지 마라.
-21-25|aggressive|공격적인, 적극적인|aggressive behavior|공격적인 행동
-21-25|cure|치료하다, 치유, 회복|cure a disease|병을 치료하다
-21-25|attribute|~의 결과로 여기다|attribute A to B|A를 B의 탓(덕분)으로 돌리다
-21-25|foster|육성하다, 촉진하다, 수양의, 위탁의|foster a child|아이를 위탁 양육하다
-21-25|psychologist|심리학자|clinical psychologist|임상 심리학자
-21-25|postpone|연기하다, 뒤로 미루다|postpone the meeting|회의를 연기하다
-21-25|rob|훔치다, 강탈하다|rob a bank|은행을 털다
-21-25|abuse|남용, 남용하다|drug abuse|약물 남용
-21-25|bystander|방관자, 행인|innocent bystander|무고한 구경꾼
-21-25|breakdown|고장, 쇠약|nervous breakdown|신경 쇠약
-21-25|disguise|변장하다, 변장|in disguise|변장하여
-21-25|blueprint|청사진|blueprint for success|성공을 위한 청사진
-21-25|rear|뒤, 뒤의, 후방의, 기르다|rear view mirror|백미러(후방 거울)
-21-25|output|생산, 산출|increase output|생산량을 늘리다
-21-25|sermon|설교|give a sermon|설교하다
-21-25|sprout|싹이 트다, 자라나다, 싹|Seeds sprout.|씨앗이 싹트다.
-21-25|tin|양철, 주석|tin can|양철 깡통
-
-
-21-26|reform|개혁, 개혁하다|reform the system|시스템을 개혁하다
-21-26|deal|다루다, 대처하다, 거래|deal with problems|문제를 다루다(대처하다)
-21-26|recruit|모집하다, 징집하다, 신병, 신입 사원|recruit new members|새 회원을 모집하다
-21-26|maintain|유지하다, 지지하다|maintain order|질서를 유지하다
-21-26|workshop|워크숍|attend a workshop|워크숍에 참석하다
-21-26|patient|환자, 인내심 있는|be patient with others|타인에게 인내심을 가져라
-21-26|convention|집회, 총회, 관습|social convention|사회적 관습
-21-26|devastate|황폐시키다|devastate the land|땅을 황폐화하다
-21-26|reap|수확하다|reap the harvest|수확물을 거두다
-21-26|overlook|간과하다, 너그럽게 봐주다, 내려다보다|overlook a mistake|실수를 눈감아주다(간과하다)
-21-26|deliver|배달하다, 전달하다|deliver a speech|연설하다
-21-26|reject|거부하다, 거절하다|reject an offer|제안을 거절하다
-21-26|nourish|영양분을 주다, 기르다|nourish the body|몸에 영양을 공급하다
-21-26|bay|만|San Francisco Bay|샌프란시스코 만
-21-26|stun|놀라게 하다, 기절시키다|be [stunned] by the news|뉴스에 깜짝 놀라다
-21-26|particular|특정한, 개개의, 사항, 상세|in particular|특히
-21-26|bulletin|게시, 게시물|bulletin board|게시판
-21-26|fluid|유동체, 유동체의, 유동적인|body fluid|체액
-21-26|affair|사건, 일|foreign affairs|외무(외국 문제)
-21-26|dawn|새벽, 이해되기 시작하다, 날이 새다|before dawn|동트기 전에
-21-26|hostile|적대적인|hostile attitude|적대적인 태도
-21-26|contend|싸우다, 주장하다, 경쟁하다|contend with difficulties|어려움과 싸우다
-21-26|respect|존중하다, 존경, 관련|in this respect|이런 측면(점)에서
-21-26|await|기다리다|await results|결과를 기다리다
-21-26|concrete|구체적인, 콘크리트|concrete evidence|구체적인 증거
-21-26|satisfy|만족시키다, 충족시키다|satisfy needs|욕구를 충족시키다
-21-26|literate|읽고 쓸 수 있는|computer literate|컴퓨터를 다룰 줄 아는
-21-26|variable|변수, 변하기 쉬운, 변덕스러운|independent variable|독립 변수
-21-26|lease|임대, 임대하다|sign a lease|임대 계약을 맺다
-21-26|rule|지배, 규칙, 지배하다, 통치하다|rule the country|나라를 통치하다
-21-26|perseverance|인내심|patience and perseverance|끈기와 인내
-21-26|fatal|치명적인|fatal error|치명적인 오류
-21-26|substitute|대리자, 대체물, 대체하다|substitute A for B|B 대신 A를 쓰다
-21-26|invert|거꾸로 하다, 뒤집다|invert the order|순서를 뒤집다
-21-26|tension|긴장, 불안, 긴장시키다|relieve tension|긴장을 풀다
-21-26|reign|통치 기간, 치세, 군림하다|during the reign of|~의 통치 기간에
-21-26|crack|갈라진 틈, 금 가다|crack in the wall|벽의 틈
-21-26|startle|깜짝 놀라게 하다|be [startled] by a noise|소리에 깜짝 놀라다
-21-26|discourage|낙담시키다|discourage him from going|그가 가는 것을 말리다(낙담시키다)
-21-26|compensate|보상하다|compensate for the loss|손실을 보상하다
+21-20|abolish|(동) 폐지하다|abolish slavery|노예제를 폐지하다
+21-20|assure|(동) 보증하다, 확실하게 하다|assure safety|안전을 보장하다
+21-20|form|(명) 형태, 종류 (동) 형성하다|form a habit|습관을 형성하다
+21-20|gender|(명) 성, 성별|gender equality|성 평등
+21-20|innovation|(명) 혁신|technical innovation|기술 혁신
+21-20|opponent|(명) 반대자, 상대 (형) 반대하는|defeat an opponent|상대를 물리치다
+21-20|present|(명) 현재, 선물 (형) 현재의 (동) 제출하다, 발표하다|present a paper|논문을 제출하다
+21-20|fertile|(형) 비옥한, 기름진|fertile land|비옥한 땅
+21-20|emperor|(명) 황제|Roman Emperor|로마 황제
+21-20|dwell|(동) 살다, 거주하다|dwell in the city|도시에 거주하다
+21-20|chore|(명) 집안일, 허드렛일|household chores|집안일
+21-20|grateful|(형) 고마워하는, 감사하는|be grateful for|~에 감사하다
+21-20|fossil|(명) 화석|fossil fuel|화석 연료
+21-20|glitter|(동) 반짝이다 (명) 반짝임|all that glitters|반짝이는 모든 것
+21-20|miserable|(형) 비참한, 불쌍한|miserable life|비참한 삶
+21-20|portray|(동) 묘사하다, 설명하다, 초상을 그리다|portray a character|인물을 묘사하다
+21-20|protein|(명) 단백질|protein source|단백질원
+21-20|backward|(부) 후방에, 뒤쪽으로, 거꾸로 (형) 뒤쪽의|look backward|뒤를 돌아보다
+21-20|translate|(동) 번역하다, 옮기다|translate into English|영어로 번역하다
+21-20|refresh|(동) 상쾌하게 하다, 새롭게 하다|refresh memory|기억을 되살리다
+21-20|tissue|(명) 조직|muscle tissue|근육 조직
+21-20|lord|(명) 군주, 주님|Lord of the Rings|반지의 제왕
+21-20|remove|(동) 제거하다|remove the cover|덮개를 제거하다
+21-20|scan|(동) 정밀 검사하다, 유심히 쳐다보다 (명) 정밀 검사|scan the document|문서를 훑어보다
+21-20|pottery|(명) 도자기, 도예|make pottery|도자기를 빚다
+21-20|layer|(명) 층, 겹|ozone layer|오존층
+21-20|property|(명) 재산, 소유물, 부동산|intellectual property|지적 재산
+21-20|justify|(동) 정당화하다|justify an action|행동을 정당화하다
+21-20|polish|(동) 닦다, 윤을 내다, 다듬다 (명) 광택제|polish shoes|구두를 닦다
+21-20|flavor|(명) 맛 (동) 맛을 내다|artificial flavor|인공 조미료
+21-20|ceremony|(명) 의식, 식, 의례|wedding ceremony|결혼식
+21-20|relate|(동) 관련시키다, 관련이 있다|relate A to B|A와 B를 관련시키다
+21-20|strive|(동) 노력하다, 애쓰다, 투쟁하다|strive for success|성공을 위해 분투하다
+21-20|radiant|(형) 빛나는, 아주 밝은|radiant smile|환한 미소
+21-20|exclaim|(동) 외치다|exclaim in surprise|놀라서 소리치다
+21-20|asset|(명) 자산, 재산|valuable asset|귀중한 자산
+21-20|decay|(동) 부패하다, 쇠퇴하다 (명) 부패, 쇠퇴|tooth decay|충치
+21-20|administer|(동) 관리하다, 집행하다|administer the law|법을 집행하다
+21-20|wage|(명) 임금, 급료|minimum wage|최저 임금
+21-20|subscribe|(동) 구독하다, 가입하다|subscribe to a magazine|잡지를 구독하다
 
 
 
-21-27|convert|전환하다, 바꾸다|convert sunlight into energy|햇빛을 에너지로 전환하다
-21-27|strike|치다, 떠오르다, 치기, 동맹 파업|go on strike|파업하다
-21-27|suppress|억압하다, 참다|suppress anger|화를 억누르다
-21-27|core|핵심, 핵심의|core value|핵심 가치
-21-27|contribute|기여하다, 기부하다|contribute to success|성공에 기여하다
-21-27|spear|창|throw a spear|창을 던지다
-21-27|renowned|유명한, 명성 있는|renowned artist|저명한 예술가
-21-27|era|시대|digital era|디지털 시대
-21-27|withdraw|철수하다, 철회하다, 인출하다|withdraw money|돈을 인출하다
-21-27|separate|분리하다, 갈라진, 개개의|separate room|별개의 방
-21-27|dignity|존엄성|human dignity|인간의 존엄성
-21-27|notify|통지하다, 알리다|notify the police|경찰에 알리다
-21-27|animate|생기 있게 하다, 살아 있는|[animated] movie|애니메이션 영화
-21-27|prevent|막다, 예방하다|prevent accidents|사고를 예방하다
-21-27|bilingual|2개 국어의|bilingual education|이중 언어 교육
-21-27|mischief|장난, 해악|make mischief|장난치다
-21-27|discriminate|구별하다, 차별하다|discriminate against minorities|소수자를 차별하다
-21-27|exemplify|예시하다|exemplify the theory|이론을 예증하다
-21-27|adhere|고수하다|adhere to the rules|규칙을 고수하다
-21-27|superb|최고의, 훌륭한|superb performance|훌륭한 공연
-21-27|peculiar|독특한|peculiar habit|독특한 습관
-21-27|sake|위함, 목적|for the sake of|~을 위하여
-21-27|choke|질식시키다, 숨이 막히다|choke on food|음식에 목이 메다
-21-27|folktale|민간 설화, 전설|Korean folktale|한국 전래 동화
-21-27|simultaneously|동시에|happen simultaneously|동시에 발생하다
-21-27|range|범위, 정렬시키다|mountain range|산맥
-21-27|groom|신랑|bride and groom|신부와 신랑
-21-27|supernatural|초자연적인|supernatural power|초자연적인 힘
-21-27|tender|부드러운, 입찰하다, 입찰|tender meat|연한 고기
-21-27|instinct|본능|survival instinct|생존 본능
-21-27|gigantic|거대한|gigantic structure|거대한 구조물
-21-27|meditate|명상하다|meditate on life|인생에 대해 명상하다
-21-27|mow|베다|mow the lawn|잔디를 깎다
-21-27|evolve|진화하다, 발전하다|evolve from apes|유인원으로부터 진화하다
-21-27|chase|쫓다, 추적하다|chase a thief|도둑을 쫓다
-21-27|afflict|괴롭히다|be [afflicted] with disease|병으로 고통받다
-21-27|empirical|경험적인, 실증적인|empirical evidence|실증적 증거
-21-27|coherent|통일성 있는, 조리 있는|coherent argument|논리 정연한 주장
-21-27|intolerable|참을 수 없는|intolerable pain|참을 수 없는 고통
-21-27|fountain|분수, 근원|fountain of youth|젊음의 샘(근원)
+21-21|merit|(명) 장점, 공로 (동) 받을 만하다|based on merit|능력에 따라
+21-21|dwindle|(동) 점점 줄어들다, 저하되다|dwindle away|점차 사라지다
+21-21|conference|(명) 회담, 회의|press conference|기자 회견
+21-21|accuse|(동) 고발하다, 비난하다|accuse A of B|A를 B라는 이유로 비난하다
+21-21|enhance|(동) 향상하다|enhance performance|성능을 향상하다
+21-21|intimate|(형) 친밀한|intimate relationship|친밀한 관계
+21-21|reception|(명) 환영회, 접수|warm reception|따뜻한 환영
+21-21|overwhelm|(동) 압도하다, 당황하게 하다|be [overwhelmed]|압도되다
+21-21|coincidence|(명) 우연의 일치, 동시에 일어난 사건|strange coincidence|기묘한 우연
+21-21|majesty|(명) 위엄, 장엄|Her Majesty|여왕 폐하
+21-21|shrug|(동) (어깨를) 으쓱하다|shrug one's shoulders|어깨를 으쓱하다
+21-21|vicious|(형) 사악한, 악의 있는|vicious circle|악순환
+21-21|cherish|(동) 소중히 하다|cherish a memory|추억을 소중히 하다
+21-21|eternal|(형) 영원한|eternal life|영생
+21-21|shrink|(동) 축소하다, 수축하다|shrink in size|크기가 줄어들다
+21-21|colleague|(명) 동료|work colleague|직장 동료
+21-21|transmit|(동) 전달하다|transmit a signal|신호를 전달하다
+21-21|discard|(동) 버리다, 처분하다|discard old habits|낡은 습관을 버리다
+21-21|copper|(명) 구리 (형) 구리의, 구릿빛의|copper wire|구리선
+21-21|orbit|(명) 궤도 (동) 궤도를 그리며 돌다|orbit the earth|지구 궤도를 돌다
+21-21|famine|(명) 굶주림, 기아|die of famine|굶어 죽다
+21-21|pill|(명) 알약|sleeping pill|수면제
+21-21|immune|(형) 면역성의, 면제된|immune system|면역 체계
+21-21|raw|(형) 날것의|raw material|원자재
+21-21|superior|(형) 우월한 (명) 상사|superior to others|남보다 우월한
+21-21|string|(명) 끈, 줄, 일련|a string of pearls|진주 목걸이
+21-21|cope|(동) 대처하다, 잘 처리하다|cope with stress|스트레스에 대처하다
+21-21|loan|(명) 대출, 대출금 (동) 대출하다|bank loan|은행 대출
+21-21|obedient|(형) 순종하는, 유순한|obedient child|순종적인 아이
+21-21|procedure|(명) 절차, 과정|safety procedure|안전 절차
+21-21|bond|(명) 유대, 결속, 속박|strong bond|강한 유대감
+21-21|angle|(명) 각도, 모서리|from a different angle|다른 관점에서
+21-21|subtle|(형) 미묘한, 교묘한|subtle difference|미묘한 차이
+21-21|depict|(동) 묘사하다, 그리다|depict reality|현실을 묘사하다
+21-21|radical|(형) 과격한, 급진적인 (명) 급진주의자|radical change|급진적인 변화
+21-21|caution|(명) 조심, 주의 (동) 주의를 주다|with caution|조심스럽게
+21-21|persist|(동) 고집하다, 지속하다|persist in doing|계속하다
+21-21|reverse|(명) 역, 반대 (형) 역의, 반대의 (동) 뒤바뀌다|in reverse order|역순으로
+21-21|stuff|(명) 것, 물건 (동) 채워 넣다|pack one's stuff|짐을 싸다
+21-21|therapy|(명) 치료, 요법|physical therapy|물리치료
 
 
-21-28|bold|대담한, 선이 굵은|bold decision|대담한 결정
-21-28|compliment|칭찬, 칭찬하다|pay a compliment|칭찬하다
-21-28|summit|꼭대기, 정상|summit meeting|정상 회담
-21-28|troop|무리, 떼|send troops|군대를 파견하다
-21-28|alter|바꾸다, 변경하다|alter the plan|계획을 변경하다
-21-28|conceive|생각해 내다, 마음속에 그리다|conceive an idea|아이디어를 구상하다
-21-28|durability|내구성|test durability|내구성을 시험하다
-21-28|destroy|파괴하다|destroy a building|건물을 파괴하다
-21-28|shallow|얇은, 얕은|shallow water|얕은 물
-21-28|face|직면하다, 얼굴, 표면|face a challenge|도전에 직면하다
-21-28|promote|증진하다, 승진시키다|promote health|건강을 증진하다
-21-28|weep|울다|weep for joy|기뻐서 울다
-21-28|grasp|붙잡다, 꽉 쥐기|grasp the meaning|의미를 파악하다
-21-28|overall|전반적인, 전체의, 작업복|overall performance|전반적인 성과
-21-28|superstition|미신|believe in superstition|미신을 믿다
-21-28|colony|식민지, 집단|ant colony|개미 군집(식민지)
-21-28|absurd|불합리한, 우스꽝스러운|absurd idea|터무니없는(우스꽝스러운) 생각
-21-28|conduct|수행하다, 실시하다, 행위, 안내|conduct a survey|설문 조사를 수행하다
-21-28|dormitory|기숙사|live in a dormitory|기숙사에 살다
-21-28|prone|~하는 경향이 있는|accident-prone|사고를 잘 내는
-21-28|conceal|숨기다|conceal the truth|진실을 숨기다
-21-28|retreat|후퇴하다, 물러서다, 퇴각, 후퇴|retreat from battle|전투에서 후퇴하다
-21-28|compulsive|강제적인, 강박의|compulsive eating|강박적 폭식
-21-28|clinic|전문 병원, 개인 병원|dental clinic|치과 의원
-21-28|banner|깃발, 현수막|hang a banner|현수막을 걸다
-21-28|formulate|만들어 내다, 공식화하다|formulate a theory|이론을 정립하다
-21-28|vow|맹세, 맹세하다|make a vow|맹세하다
-21-28|malnutrition|영양실조|suffer from malnutrition|영양실조를 겪다
-21-28|heritage|유산, 세습 재산|cultural heritage|문화 유산
-21-28|undergo|겪다|undergo surgery|수술을 받다
-21-28|boast|자랑하다, 떠벌리다|boast about wealth|부를 자랑하다
-21-28|neutral|중립의, 공평한|neutral position|중립적인 위치
-21-28|stain|얼룩, 얼룩지게 하다|remove a stain|얼룩을 제거하다
-21-28|incentive|자극, 장려책, 격려하는, 자극하는|give an incentive|인센티브를 주다
-21-28|float|뜨다, 떠다니다, 부유물|float on water|물에 뜨다
-21-28|tendency|경향, 추세|tendency to forget|잊어버리는 경향
-21-28|applause|박수갈채|round of applause|박수갈채
-21-28|wrestle|싸우다, 씨름하다|wrestle with a problem|문제와 씨름하다
-21-28|sensation|감각, 느낌|burning sensation|타는 듯한 느낌
-21-28|confucian|공자의, 유교의|Confucian tradition|유교적 전통
 
-21-29|draft|원고, 초안, 초안을 그리다|first draft|초안
-21-29|crude|가공하지 않은|crude oil|원유
-21-29|supplement|보충, 보충물, 보충하다|vitamin supplement|비타민 보충제
-21-29|velocity|속도|high velocity|빠른 속도
-21-29|tame|길들이다, 길들여진|tame a wild animal|야생 동물을 길들이다
-21-29|adapt|적응하다, 적응시키다|adapt to the environment|환경에 적응하다
-21-29|manage|잘 해내다, 다루다|manage to survive|간신히 살아남다
-21-29|dismay|실망시키다, 낙담시키다, 걱정, 실망|to my dismay|실망스럽게도
-21-29|diagnose|진단하다|diagnose a disease|병을 진단하다
-21-29|molecule|분자|water molecule|물 분자
-21-29|reservoir|저장소, 저수지|water reservoir|급수장(저수지)
-21-29|conform|순응하다, 일치하다|conform to rules|규칙에 따르다
-21-29|spacious|넓은, 훤히 트인|spacious room|널찍한 방
-21-29|weave|엮다, 짜다, 엮어 넣다|weave a basket|바구니를 짜다
-21-29|boundary|경계, 경계선|national boundary|국경
-21-29|motive|동기|ulterior motive|숨은 동기
-21-29|tangible|유형적인, 유형의, 만질 수 있는|tangible asset|유형 자산
-21-29|prominent|현저한, 저명한|prominent figure|저명인사
-21-29|rigid|엄격한, 융통성이 없는|rigid rules|엄격한 규칙
-21-29|archaeology|고고학|study archaeology|고고학을 공부하다
-21-29|subtract|빼다|subtract cost|비용을 빼다
-21-29|breed|낳다, 양육하다|breed cattle|소를 사육하다
-21-29|utmost|최대한의, 최고의, 최대한도|utmost importance|최고의 중요성
-21-29|proficient|숙달된|proficient in English|영어에 능숙한
-21-29|accumulate|모으다, 축적하다|accumulate wealth|부를 축적하다
-21-29|embody|구현하다, 구체화하다|embody an idea|아이디어를 구현하다
-21-29|equity|공평|brand equity|브랜드 자산
-21-29|violate|위반하다, 침해하다|violate the law|법을 위반하다
-21-29|ambitious|야심있는|ambitious plan|야심 찬 계획
-21-29|intact|온전한, 손상되지 않은|remain intact|온전하게 남다
-21-29|impulse|충동, 추진|on impulse|충동적으로
-21-29|attend|출석하다, 보살피다|attend to business|업무를 처리하다(주의를 기울이다)
-21-29|trim|다듬다, 잘라 내다|trim the budget|예산을 삭감하다(다듬다)
-21-29|navigate|길을 찾다, 항해하다|navigate the web|인터넷을 탐색하다
-21-29|remedy|치료, 요법|folk remedy|민간요법
-21-29|consist|이루어지다|consist of|~로 구성되다
-21-29|imprint|찍다, 감명시키다, 찍은 자국|imprint on memory|기억에 각인시키다
-21-29|modify|변형하다, 수정하다|modify the plan|계획을 수정하다
-21-29|confine|제한하다, 가두다, 한계|be [confined] to bed|침대에 갇혀 지내다(병상에 있다)
-21-29|dispatch|급파하다, 발송하다, 급파, 발송|dispatch troops|군대를 파병하다
+21-22|skeleton|(명) 골격, 뼈대|human skeleton|인간의 골격
+21-22|strategy|(명) 전략|marketing strategy|마케팅 전략
+21-22|attract|(동) 끌다, 유인하다|attract attention|관심을 끌다
+21-22|hence|(부) 그러므로, 지금부터|Hence, the result.|그러므로 그 결과.
+21-22|architecture|(명) 건축, 건축물|modern architecture|현대 건축
+21-22|handle|(동) 다루다, 취급하다 (명) 손잡이|handle with care|조심해서 다루다
+21-22|wilderness|(명) 황무지, 황야|in the wilderness|황야에서
+21-22|category|(명) 범주|fall into a category|범주에 속하다
+21-22|funeral|(명) 장례식 (형) 장례의|funeral service|장례식
+21-22|prefer|(동) 선호하다|prefer A to B|B보다 A를 선호하다
+21-22|outcome|(명) 결과|final outcome|최종 결과
+21-22|humiliation|(명) 창피함, 굴욕|suffered humiliation|굴욕을 겪었다
+21-22|ban|(동) 금지하다 (명) 금지|ban smoking|흡연을 금지하다
+21-22|flush|(동) 붉어지다, 물로 씻어 내리다 (명) 홍조|face [flushed]|얼굴이 붉어졌다
+21-22|omit|(동) 생략하다, 빼다|omit a word|단어를 생략하다
+21-22|despair|(명) 절망 (동) 절망하다|in deep despair|깊은 절망에 빠져
+21-22|alert|(형) 기민한, 경계하는 (명) 경계 (동) 경계하다|Stay alert.|경계를 늦추지 마라.
+21-22|compact|(형) 소형의, 조밀한 (동) 꽉 채우다|compact car|소형차
+21-22|likewise|(부) 마찬가지로, 게다가|Do likewise.|똑같이 해라.
+21-22|astonish|(동) 놀라게 하다|be [astonished] at|~에 놀라다
+21-22|panic|(명) 갑작스러운 공포, 공황 (형) 공황적인|panic attack|공황 발작
+21-22|optimistic|(형) 낙관적인, 낙천적인|optimistic view|낙관적인 견해
+21-22|murder|(명) 살인 (동) 살인하다|commit murder|살인을 저지르다
+21-22|fundamental|(형) 근본적인, 기본적인 (명) 근본|fundamental rule|기본 규칙
+21-22|loyal|(형) 충성스러운, 성실한|loyal friend|충실한 친구
+21-22|humid|(형) 습기 있는, 눅눅한|hot and humid|덥고 습한
+21-22|pretend|(동) ~인 척하다, 주장하다|pretend to sleep|자는 척하다
+21-22|graduate|(동) 졸업하다 (명) 졸업생, 대학원생|graduate from college|대학을 졸업하다
+21-22|delicate|(형) 섬세한, 미묘한|delicate balance|미묘한 균형
+21-22|inflate|(동) 부풀리다, 과장하다, 인상하다|inflate a balloon|풍선을 부풀리다
+21-22|adequate|(형) 적당한, 충분한|adequate supply|충분한 공급
+21-22|physician|(명) 의사, 내과 의사|consult a physician|내과의사와 상담하다
+21-22|joint|(형) 공동의, 연합의 (명) 이음매, 관절|joint effort|공동의 노력
+21-22|via|~을 거쳐, ~을 통해|via email|이메일을 통해서
+21-22|passage|(명) 통로, 구절, 경과|narrow passage|좁은 통로
+21-22|vessel|(명) 용기, 배, 선박, 혈관|blood vessel|혈관
+21-22|restore|(동) 회복하다, 복구하다, 돌려주다|restore order|질서를 회복하다
+21-22|passive|(형) 수동적인, 수동형의|passive smoking|간접흡연
+21-22|marble|(명) 대리석, 구슬 (형) 대리석의|marble floor|대리석 바닥
+21-22|classify|(동) 분류하다|classify books|책을 분류하다
 
-
-21-30|diameter|지름, 직경|measure the diameter|지름을 측정하다
-21-30|anecdote|일화, 비화|tell an anecdote|일화를 이야기하다
-21-30|spatial|공간의, 공간적인|spatial awareness|공간 지각 능력
-21-30|blame|비난하다, ~의 탓으로 돌리다, 비난, 책망|blame A for B|B에 대해 A를 비난하다
-21-30|geology|지질학|study geology|지질학을 연구하다
-21-30|pledge|약속, 맹세, 약속하다, 맹세하다|make a pledge|서약하다
-21-30|cost|들다, 비용, 대가|at all costs|무슨 수를 써서라도
-21-30|earn|얻다, 벌다|earn a living|생계를 꾸리다
-21-30|detect|발견하다, 감지하다|detect a flaw|결함을 발견하다
-21-30|temperate|온화한, 절제하는|temperate zone|온대 지방
-21-30|soar|높이 치솟다|Prices [soar].|가격이 치솟다
-21-30|mock|조롱하다, 가짜의|mock test|모의고사
-21-30|disclose|드러내다, 폭로하다|disclose information|정보를 공개하다
-21-30|exhibit|전시하다, 보여 주다, 전시, 전시품|exhibit paintings|그림을 전시하다
-21-30|symptom|증상|flu symptoms|독감 증상
-21-30|invent|발명하다|invent a device|장치를 발명하다
-21-30|awkward|어색한, 서투른|awkward silence|어색한 침묵
-21-30|grind|갈다, 빻다|grind coffee beans|커피 원두를 갈다
-21-30|expose|드러내다, 폭로하다|expose to danger|위험에 노출시키다
-21-30|closet|벽장|skeleton in the closet|숨기고 싶은 비밀
-21-30|damp|축축한, 습기|damp weather|눅눅한 날씨
-21-30|script|손으로 쓰기, 대본|movie script|영화 대본
-21-30|signify|의미하다, 중요하다|signify success|성공을 의미하다
-21-30|discuss|토론하다|discuss the matter|그 문제를 논의하다
-21-30|sibling|형제자매, 동기|sibling rivalry|형제간의 경쟁
-21-30|lay|놓다, 낳다|lay eggs|알을 낳다
-21-30|surveillance|감시|surveillance camera|감시 카메라
-21-30|discharge|배출, 내보냄, 배출하다, 내보내다|discharge from hospital|퇴원시키다
-21-30|thorough|철저한|thorough investigation|철저한 조사
-21-30|undertake|수행하다, 떠맡다, 착수하다|undertake a task|과업에 착수하다
-21-30|panel|토론자단, 패널|solar panel|태양 전지판
-21-30|linguistic|언어의, 언어학의|linguistic ability|언어 능력
-21-30|flourish|번영하다, 번창하다|business flourishes|사업이 번창하다
-21-30|feed|먹이를 주다, 부양하다|feed on grass|풀을 먹고 살다
-21-30|sophomore|2학년생|college sophomore|대학교 2학년
-21-30|remind|생각나게 하다, 상기시키다|Remind A of B.|A에게 B를 상기시키다
-21-30|sole|유일한|sole purpose|유일한 목적
-21-30|pillar|기둥|stone pillar|돌기둥
-21-30|explode|폭발하다|Bomb [exploded].|폭탄이 폭발했다
-21-30|illusion|환상, 착각|optical illusion|착시 현상
+21-23|prepare|(동) 준비하다|prepare for the exam|시험을 준비하다
+21-23|transaction|(명) 거래, 처리|business transaction|상거래
+21-23|sufficient|(형) 충분한|sufficient time|충분한 시간
+21-23|stable|(형) 안정된 (명) 마구간|stable job|안정된 직업
+21-23|concern|(동) 관련되다, 걱정시키다 (명) 걱정, 관심사|public concern|대중의 관심사
+21-23|sympathy|(명) 동정, 공감|feel sympathy for|~을 동정하다
+21-23|principal|(형) 주요한, 제1의 (명) 교장, 장|principal reason|주된 이유
+21-23|by-product|(명) 부산물|a useless by-product|쓸모없는 부산물
+21-23|anxiety|(명) 걱정, 불안|reduce anxiety|불안을 줄이다
+21-23|edible|(형) 먹을 수 있는, 식용의|edible mushrooms|식용 버섯
+21-23|federal|(형) 연방의, 연합의|federal government|연방 정부
+21-23|suffer|(동) 고통받다, 겪다|suffer from illness|병으로 고생하다
+21-23|casual|(형) 우연한, 격식을 차리지 않는, 평상시의|casual clothes|평상복
+21-23|tablet|(명) 정제, 알약, 판|take a tablet|알약을 먹다
+21-23|trade|(동) 거래하다 (명) 무역, 거래|free trade|자유 무역
+21-23|liquid|(명) 액체 (형) 액체의|liquid state|액체 상태
+21-23|characteristic|(명) 특징, 특색 (형) 독특한, 특징적인|unique characteristic|독특한 특징
+21-23|anticipate|(동) 예상하다, 기대하다|anticipate trouble|문제를 예상하다
+21-23|outlook|(명) 전망, 조망|economic outlook|경제 전망
+21-23|desert|(명) 사막 (형) 사막의, 불모의 (동) 버리다|Sahara Desert|사하라 사막
+21-23|infinite|(형) 무한한|infinite space|무한한 우주
+21-23|roam|(동) 배회하다, 돌아다니다|roam the streets|거리를 배회하다
+21-23|decent|(형) 제대로 된, 품위 있는, 괜찮은|decent job|괜찮은 직업
+21-23|behalf|(명) 이익, 자기편|on behalf of|~을 대신하여
+21-23|distortion|(명) 왜곡, 찌그러뜨림|distortion of facts|사실 왜곡
+21-23|bud|(명) 싹, 꽃봉오리 (동) 싹트다|flower bud|꽃봉오리
+21-23|symbolic|(형) 상징적인|symbolic meaning|상징적 의미
+21-23|municipal|(형) 지방의, 시의|municipal library|시립 도서관
+21-23|phenomenon|(명) 현상, 사건|natural phenomenon|자연 현상
+21-23|devote|(동) 바치다, 헌신하다|devote time to|~에 시간을 바치다
+21-23|peasant|(명) 농민, 소작농|poor peasant|가난한 소작농
+21-23|diminish|(동) 감소하다, 줄이다|diminish in value|가치가 떨어지다
+21-23|jealous|(형) 질투하는|be jealous of|~을 질투하다
+21-23|exclude|(동) 배제하다, 제외하다|exclude from the list|목록에서 제외하다
+21-23|flexible|(형) 융통성 있는, 유연한|flexible schedule|유동적인 일정
+21-23|tenant|(명) 세입자, 주민|finding a tenant|세입자 구하기
+21-23|worthwhile|(형) ~할 가치가 있는|worthwhile effort|가치 있는 노력
+21-23|pavement|(명) 보도, 포장도로|walk on the pavement|보도를 걷다
+21-23|nominate|(동) 지명하다, 임명하다|nominate a candidate|후보를 지명하다
+21-23|sacred|(형) 신성한, 성스러운|sacred cow|신성한 소
 
 
-21-31|regret|후회하다, 한탄하다, 유감, 후회|regret a decision|결정을 후회하다
-21-31|submit|복종시키다, 복종하다, 제출하다|submit a report|보고서를 제출하다
-21-31|divine|신의, 신성한|divine will|신의 뜻
-21-31|revenue|수입, 수익|tax revenue|세수(세금 수익)
-21-31|corrupt|부정한, 부패한, 타락시키다|corrupt politician|부패한 정치인
-21-31|mention|언급하다, 언급|don't mention it|천만에요
-21-31|factual|실제의|factual error|사실적 오류
-21-31|swamp|늪, 습지|drained the swamp|늪을 배수했다
-21-31|expedition|탐험|scientific expedition|과학 탐험
-21-31|abnormal|비정상적인|abnormal behavior|비정상적인 행동
-21-31|storage|저장, 저장고|data storage|데이터 저장
-21-31|revive|되살아나다|revive memories|기억을 되살리다
-21-31|equator|적도|cross the equator|적도를 지나다
-21-31|motion|운동, 움직임, 몸짓, 몸짓으로 지시하다|slow motion|슬로 모션
-21-31|patent|특허, 특허권, ~의 특허를 얻다|apply for a patent|특허를 출원하다
-21-31|virtue|미덕|virtue and vice|미덕과 악덕
-21-31|arithmetic|산수, 연산|basic arithmetic|기초 산수
-21-31|consistent|일관된, 모순이 없는|consistent effort|일관된 노력
-21-31|cognitive|인식의, 인지력 있는|cognitive development|인지 발달
-21-31|hinder|방해하다|hinder progress|발전을 저해하다
-21-31|humble|겸손한, 비천한|be humble|겸손해라
-21-31|bounce|튀다, 뛰어오르다|bounce a ball|공을 튀기다
-21-31|imprison|투옥하다|be [imprisoned]|투옥되다
-21-31|enlist|모집하다, 도움을 얻다|enlist help|도움을 요청하다
-21-31|carbon|탄소|carbon dioxide|이산화탄소
-21-31|upcoming|다가오는|upcoming event|다가오는 행사
-21-31|trace|흔적, 흔적을 쫓다|trace the origin|기원을 추적하다
-21-31|pulse|맥박|feel a pulse|맥박을 느끼다
-21-31|locate|~에 위치하다, 찾아내다|locate the store|가게 위치를 찾다
-21-31|controversy|논란, 논쟁|cause a controversy|논란을 일으키다
-21-31|flattery|아첨|empty flattery|빈말(아첨)
-21-31|regard|~으로 여기다, 관계, 고려|regard A as B|A를 B로 여기다
-21-31|convenience|편의, 편리|for your convenience|당신의 편의를 위해
-21-31|hygiene|위생, 위생학|personal hygiene|개인위생
-21-31|rush|돌진하다, 갑자기 일어나다, 돌진, 황급한 움직임|rush hour|혼잡 시간대
-21-31|contaminate|오염시키다|contaminate water|물을 오염시키다
-21-31|external|외부의, 외부|external factor|외부 요인
-21-31|herd|떼|herd of cows|소 떼
-21-31|allocate|할당하다, 분배하다|allocate resources|자원을 할당하다
-21-31|gorgeous|아주 멋진, 화려한|gorgeous dress|화려한 드레스
+21-24|support|(동) 지지하다, 받치다, 부양하다 (명) 지지, 지탱|support a family|가족을 부양하다
+21-24|revise|(동) 변경하다, 개정하다|revise a plan|계획을 수정하다
+21-24|suggest|(동) 암시하다, 제안하다|suggest an idea|아이디어를 제안하다
+21-24|control|(동) 지배하다, 제어하다 (명) 지배, 제어|under control|통제하에 있는
+21-24|mammal|(명) 포유동물|marine mammal|해양 포유류
+21-24|internal|(형) 내부의|internal organ|내장 기관
+21-24|resent|(동) 분개하다, 화를 내다|resent being treated like a child|아이 취급받는 것에 분개하다
+21-24|abrupt|(형) 갑작스러운|abrupt change|갑작스러운 변화
+21-24|diverse|(형) 다른, 다양한|diverse culture|다양한 문화
+21-24|refine|(동) 정제하다, 개선하다|refine oil|기름을 정제하다
+21-24|dynamic|(형) 동적인, 활동적인 (명) 역학|dynamic personality|활동적인 성격
+21-24|nerve|(명) 신경|nerve cell|신경 세포
+21-24|prompt|(형) 즉각적인, 신속한 (동) 촉구하다, 자극하다|prompt response|신속한 응답
+21-24|suspend|(동) 매달다, 중지하다, 유보하다|suspend judgment|판단을 유보하다
+21-24|industry|(명) 산업, 공업|auto industry|자동차 산업
+21-24|iceberg|(명) 빙산|tip of the iceberg|빙산의 일각
+21-24|monetary|(형) 화폐의, 통화의|monetary policy|통화 정책
+21-24|judge|(동) 판단하다 (명) 재판관, 판사|Don't judge a book by its cover.|겉만 보고 판단하지 마라.
+21-24|gloom|(명) 어둠, 우울|doom and gloom|절망적인 상태
+21-24|distraction|(명) 주의 산만, 산만하게 하는 것|Avoid distractions.|주의 산만 요소를 피해라.
+21-24|collapse|(동) 무너지다, 붕괴하다 (명) 붕괴|The building [collapsed].|건물이 붕괴했다.
+21-24|trigger|(동) 촉발하다, 유발하다 (명) 방아쇠, 계기|trigger an allergy|알레르기를 유발하다
+21-24|martial|(형) 전쟁의, 군대의|martial arts|무술
+21-24|monologue|(명) 독백|dramatic monologue|극적 독백
+21-24|deliberate|(형) 의도적인, 신중한 (동) 숙고하다|deliberate attempt|의도적인 시도
+21-24|plot|(명) 줄거리, 음모 (동) 음모를 꾸미다|movie plot|영화 줄거리
+21-24|rod|(명) 막대기, 회초리|fishing rod|낚싯대
+21-24|partial|(형) 부분적인, 편파적인|partial success|부분적인 성공
+21-24|mutual|(형) 서로의, 상호적인|mutual understanding|상호 이해
+21-24|priceless|(형) 대단히 귀중한|priceless treasure|귀중한 보물
+21-24|fate|(명) 운명|decide one's fate|운명을 결정하다
+21-24|pursue|(동) 추구하다, 쫓다|pursue happiness|행복을 추구하다
+21-24|Atlantic|(명) 대서양 (형) 대서양의|Atlantic Ocean|대서양
+21-24|weird|(형) 이상한, 기묘한|weird noise|기이한 소리
+21-24|booth|(명) 칸막이 부스, 노점|phone booth|공중전화 부스
+21-24|prescribe|(동) 규정하다, 처방하다|prescribe medicine|약을 처방하다
+21-24|erupt|(동) 분출하다, 폭발하다|Volcano [erupted].|화산이 폭발했다.
+21-24|insult|(동) 모욕하다 (명) 모욕|insult someone|누군가를 모욕하다
+21-24|gaze|(동) 뚫어지게 보다, 응시하다 (명) 응시|gaze at the stars|별을 응시하다
+21-24|supreme|(형) 최고의|Supreme Court|대법원
 
 
-21-32|confess|고백하다|confess a sin|죄를 고백하다
-21-32|subjective|주관적인, 주격의|subjective view|주관적인 견해
-21-32|trivial|사소한|trivial matter|사소한 문제
-21-32|acknowledge|인정하다|acknowledge defeat|패배를 인정하다
-21-32|accord|일치하다, 주다, 일치, 협정|in accord with|~와 일치하여
-21-32|immense|막대한|immense pleasure|막대한 기쁨
-21-32|extract|추출하다, 추출물|extract juice|즙을 짜내다
-21-32|sewage|하수|sewage treatment|하수 처리
-21-32|reconciliation|화해|seek reconciliation|화해를 모색하다
-21-32|explore|탐험하다, 탐구하다|explore possibilities|가능성을 탐구하다
-21-32|warrant|보증, 보증하다|search warrant|수색 영장
-21-32|complement|보완하다, 보충물|complement each other|서로 보완하다
-21-32|ceramic|도자기, 도자기의|ceramic tile|도자기 타일
-21-32|license|면허, 인가, 면허를 내주다|driver's license|운전면허증
-21-32|emerge|나타나다, 드러나다|emerge from poverty|가난에서 벗어나다
-21-32|halt|정지, 일시 멈춤, 정지하다, 정지시키다|come to a halt|멈추다
-21-32|pierce|꿰뚫다, ~에 구멍을 뚫다|pierce ears|귀를 뚫다
-21-32|ponder|심사숙고하다|ponder over a question|질문을 깊이 생각하다
-21-32|burglar|강도|catch a burglar|강도를 잡다
-21-32|stroke|뇌졸중, 강타|heat stroke|열사병
-21-32|lottery|복권, 추첨|win the lottery|복권에 당첨되다
-21-32|certificate|증명서, 자격증|birth certificate|출생 증명서
-21-32|transplant|이식, 이식하다|heart transplant|심장 이식
-21-32|cluster|무리, 송이|cluster of stars|별 무리
-21-32|plea|탄원, 간청, 변명|make a plea|탄원하다
-21-32|derive|이끌어 내다, ~에서 비롯되다|derive pleasure from|~에서 즐거움을 얻다
-21-32|plague|전염병|the plague|흑사병
-21-32|ultrasound|초음파|ultrasound image|초음파 영상
-21-32|deluxe|호화로운, 사치스러운|deluxe room|특실
-21-32|convey|전달하다, 나르다|convey meaning|의미를 전달하다
-21-32|depth|깊이|in depth|깊이 있게
-21-32|evaporate|증발하다|water [evaporates]|물이 증발하다
-21-32|lame|다리를 저는|lame excuse|서투른 변명
-21-32|intelligence|지능, 지성|artificial intelligence|인공지능
-21-32|sour|신맛이 나는|go sour|상하다
-21-32|repetitive|반복성의|repetitive task|반복적인 업무
-21-32|oppress|억압하다|oppress the weak|약자를 억압하다
-21-32|leftover|나머지의, 남은, 나머지, 남은 음식|leftover food|남은 음식
-21-32|embrace|포옹, 포옹하다|embrace change|변화를 받아들이다
-21-32|blade|칼날|sharp blade|날카로운 칼날
-
-21-33|abundant|풍부한|abundant resources|풍부한 자원
-21-33|duplicate|복제품, 이중으로 하다, 복제하다|duplicate a file|파일을 복제하다
-21-33|spoil|망치다, 상하게 하다|spoil a child|아이를 버릇없게 키우다
-21-33|altitude|고도, 높이|high altitude|높은 고도
-21-33|glimpse|흘긋 봄, 흘긋 보다|catch a glimpse of|~을 힐끗 보다
-21-33|blend|혼합, 섞다, 혼합하다|blend well|잘 섞다
-21-33|swell|부풀다, 팽창|feet [swell]|발이 붓다
-21-33|grief|큰 슬픔|overcome grief|슬픔을 극복하다
-21-33|beverage|음료|alcoholic beverage|주류
-21-33|warrior|전사, 용사|brave warrior|용감한 전사
-21-33|shrub|관목|plant a shrub|관목을 심다
-21-33|slice|얇은 조각, 얇게 썰다|slice bread|빵을 얇게 썰다
-21-33|exotic|이국적인|exotic fruit|이국적인 과일
-21-33|arrogant|거만한|arrogant attitude|거만한 태도
-21-33|vanish|사라지다|vanish into thin air|감쪽같이 사라지다
-21-33|outbreak|발발, 폭동|outbreak of war|전쟁 발발
-21-33|accommodate|수용하다, 숙박시키다|accommodate guests|손님을 수용하다
-21-33|cozy|아늑한|cozy room|아늑한 방
-21-33|recommend|추천하다|recommend a book|책을 추천하다
-21-33|auction|경매, 경매에 부치다|sell at auction|경매로 팔다
-21-33|obsess|강박 관념을 갖다|be [obsessed] with|~에 집착하다
-21-33|suitor|소송인, 구혼자|rejection of a suitor|구혼자에 대한 거절
-21-33|rational|이성적인, 합리적인|rational decision|합리적인 결정
-21-33|discreet|분별 있는, 사려 깊은|be discreet|신중해라
-21-33|pioneer|개척자, 선구자, 개척자의, 개척하다|space pioneer|우주 개척자
-21-33|assert|주장하다, 행사하다|assert oneself|자기주장을 하다
-21-33|undo|원상태로 돌리다, 풀다|undo a button|단추를 풀다
-21-33|inevitable|피할 수 없는|inevitable result|피할 수 없는 결과
-21-33|elaborate|정교한, 공들인|elaborate design|정교한 디자인
-21-33|toss|던지다|toss a coin|동전을 던지다
-21-33|retain|유지하다|retain moisture|수분을 유지하다
-21-33|maximize|최대화하다|maximize profit|이익을 극대화하다
-21-33|buildup|축적|military buildup|군비 증강
-21-33|machinery|기계|heavy machinery|중장비
-21-33|sacrifice|희생하다, 희생시키다, 희생, 제물|sacrifice for others|남을 위해 희생하다
-21-33|auditorium|강당|school auditorium|학교 강당
-21-33|linger|오래 머물다, 계속되다|linger on|계속 남아있다
-21-33|neglect|무시하다, 소홀, 무시|neglect duty|의무를 소홀히 하다
-21-33|feedback|반응, 피드백|positive feedback|긍정적인 피드백
-21-33|radioactive|방사성의|radioactive waste|방사성 폐기물
+21-25|context|(명) 전후 관계, 맥락, 문맥|in this context|이러한 맥락에서
+21-25|complete|(형) 완전한 (동) 완료하다, 작성하다|complete the form|양식을 작성하다
+21-25|race|(동) 경주하다 (명) 경주, 경쟁, 인종|human race|인류
+21-25|dominate|(동) 지배하다|dominate the market|시장을 지배하다
+21-25|vehicle|(명) 탈것, 수단, 매개체|electric vehicle|전기 자동차
+21-25|complain|(동) 불평하다|complain about the noise|소음에 대해 불평하다
+21-25|brochure|(명) 소책자, 브로슈어|travel brochure|여행 안내 책자
+21-25|force|(명) 힘, 영향력 (동) 강요하다|force him to go|그가 가도록 강요하다
+21-25|nest|(명) 둥지 (동) 둥지를 틀다|bird's nest|새 둥지
+21-25|gain|(동) 얻다 (명) 이익|gain weight|체중이 늘다
+21-25|curriculum|(명) 교육 과정, 커리큘럼|school curriculum|학교 교육 과정
+21-25|sew|(동) 꿰매다, 바느질하다|sew a button|단추를 달다
+21-25|masculine|(형) 남자의, 남자다운|masculine voice|남성적인 목소리
+21-25|frown|(동) 눈살을 찌푸리다 (명) 찡그린 얼굴|frown at someone|누군가에게 얼굴을 찌푸리다
+21-25|astound|(동) 놀라게 하다|astound the audience|관중을 놀라게 하다
+21-25|dictator|(명) 독재자|cruel dictator|잔인한 독재자
+21-25|assessment|(명) 평가, 판단|risk assessment|위험 평가
+21-25|crucial|(형) 중대한, 중요한|crucial role|중대한 역할
+21-25|paralysis|(명) 마비|sleep paralysis|가위눌림
+21-25|deck|(명) 갑판|on deck|갑판 위에
+21-25|cheer|(명) 환호, 갈채 (동) 환호하다|cheer up|기운 내다
+21-25|carve|(동) 조각하다, 새기다|carve wood|나무를 조각하다
+21-25|tease|(동) 괴롭히다, 약 올리다|Don't tease.|놀리지 마라.
+21-25|aggressive|(형) 공격적인, 적극적인|aggressive behavior|공격적인 행동
+21-25|cure|(동) 치료하다 (명) 치유, 회복|cure a disease|병을 치료하다
+21-25|attribute|(동) ~의 결과로 여기다 (명) 속성, 특성|attribute A to B|A를 B의 탓으로 돌리다
+21-25|foster|(동) 육성하다, 촉진하다 (형) 수양의, 위탁의|foster a child|아이를 위탁 양육하다
+21-25|psychologist|(명) 심리학자|clinical psychologist|임상 심리학자
+21-25|postpone|(동) 연기하다, 뒤로 미루다|postpone the meeting|회의를 연기하다
+21-25|rob|(동) 훔치다, 강탈하다|rob a bank|은행을 털다
+21-25|abuse|(명) 남용 (동) 남용하다|drug abuse|약물 남용
+21-25|bystander|(명) 방관자, 행인|innocent bystander|무고한 구경꾼
+21-25|breakdown|(명) 고장, 쇠약|nervous breakdown|신경 쇠약
+21-25|disguise|(동) 변장하다 (명) 변장|in disguise|변장하여
+21-25|blueprint|(명) 청사진|blueprint for success|성공을 위한 청사진
+21-25|rear|(명) 뒤, 후방 (형) 뒤의 (동) 기르다|rear view mirror|백미러
+21-25|output|(명) 생산, 산출|increase output|생산량을 늘리다
+21-25|sermon|(명) 설교|give a sermon|설교하다
+21-25|sprout|(동) 싹이 트다, 자라나다 (명) 싹|Seeds sprout.|씨앗이 싹트다.
+21-25|tin|(명) 양철, 주석|tin can|양철 깡통
 
 
-21-34|impair|손상하다|impair vision|시력을 손상시키다
-21-34|metaphor|은유, 은유법|use a metaphor|은유를 사용하다
-21-34|predominant|뛰어난, 우세한|predominant color|주된 색상
-21-34|bruise|타박상, 멍, 타박상을 입히다, 멍들게 하다|get a bruise|멍이 들다
-21-34|attorney|변호사|defense attorney|피고측 변호사
-21-34|sanitation|위생|sanitation facility|위생 시설
-21-34|heredity|유전, 유전 형질|influence of heredity|유전의 영향
-21-34|naive|순진한|naive belief|순진한 믿음
-21-34|shed|흘리다, 발산하다, 떨어뜨리다|shed tears|눈물을 흘리다
-21-34|metropolitan|수도권의, 대도시의|metropolitan area|대도시 지역
-21-34|shield|방패, 보호물, 보호하다|shield from sun|햇볕으로부터 보호하다
-21-34|ecology|생태학|deep ecology|심층 생태학
-21-34|coverage|범위, 보도|media coverage|언론 보도
-21-34|expel|쫓아내다|expel from school|퇴학시키다
-21-34|plow|쟁기, 쟁기질하다|plow the field|밭을 갈다
-21-34|prolong|연장하다|prolong life|수명을 연장하다
-21-34|fluent|유창한|fluent in English|영어가 유창한
-21-34|margin|가장자리|profit margin|이윤 폭
-21-34|induce|유도하다, 설득하다|induce sleep|잠을 유도하다
-21-34|interior|내부, 내부의|interior design|실내 디자인
-21-34|ornament|장식품, 장식하다|Christmas ornament|크리스마스 장식
-21-34|probe|조사하다, 탐사선|space probe|우주 탐사선
-21-34|vibrate|진동하다, 흔들다|phone [vibrates]|전화기가 진동한다
-21-34|speculate|사색하다, 투기하다|speculate on the future|미래를 추측하다
+21-26|reform|(명) 개혁 (동) 개혁하다|reform the system|시스템을 개혁하다
+21-26|deal|(동) 다루다, 대처하다 (명) 거래|deal with problems|문제를 다루다(대처하다)
+21-26|recruit|(동) 모집하다, 징집하다 (명) 신병, 신입 사원|recruit new members|새 회원을 모집하다
+21-26|maintain|(동) 유지하다, 지지하다|maintain order|질서를 유지하다
+21-26|workshop|(명) 워크숍|attend a workshop|워크숍에 참석하다
+21-26|patient|(명) 환자 (형) 인내심 있는|be patient with others|타인에게 인내심을 가져라
+21-26|convention|(명) 집회, 총회, 관습|social convention|사회적 관습
+21-26|devastate|(동) 황폐시키다|devastate the land|땅을 황폐화하다
+21-26|reap|(동) 수확하다|reap the harvest|수확물을 거두다
+21-26|overlook|(동) 간과하다, 너그럽게 봐주다, 내려다보다|overlook a mistake|실수를 눈감아주다(간과하다)
+21-26|deliver|(동) 배달하다, 전달하다|deliver a speech|연설하다
+21-26|reject|(동) 거부하다, 거절하다|reject an offer|제안을 거절하다
+21-26|nourish|(동) 영양분을 주다, 기르다|nourish the body|몸에 영양을 공급하다
+21-26|bay|(명) 만|San Francisco Bay|샌프란시스코 만
+21-26|stun|(동) 놀라게 하다, 기절시키다|be [stunned] by the news|뉴스에 깜짝 놀라다
+21-26|particular|(형) 특정한, 개개의 (명) 사항, 상세|in particular|특히
+21-26|bulletin|(명) 게시, 게시물|bulletin board|게시판
+21-26|fluid|(명) 유동체 (형) 유동체의, 유동적인|body fluid|체액
+21-26|affair|(명) 사건, 일|foreign affairs|외무(외국 문제)
+21-26|dawn|(명) 새벽 (동) 날이 새다, 이해되기 시작하다|before dawn|동트기 전에
+21-26|hostile|(형) 적대적인|hostile attitude|적대적인 태도
+21-26|contend|(동) 싸우다, 주장하다, 경쟁하다|contend with difficulties|어려움과 싸우다
+21-26|respect|(동) 존중하다 (명) 존경, 관련|in this respect|이런 측면(점)에서
+21-26|await|(동) 기다리다|await results|결과를 기다리다
+21-26|concrete|(형) 구체적인 (명) 콘크리트|concrete evidence|구체적인 증거
+21-26|satisfy|(동) 만족시키다, 충족시키다|satisfy needs|욕구를 충족시키다
+21-26|literate|(형) 읽고 쓸 수 있는|computer literate|컴퓨터를 다룰 줄 아는
+21-26|variable|(명) 변수 (형) 변하기 쉬운, 변덕스러운|independent variable|독립 변수
+21-26|lease|(명) 임대 (동) 임대하다|sign a lease|임대 계약을 맺다
+21-26|rule|(명) 지배, 규칙 (동) 지배하다, 통치하다|rule the country|나라를 통치하다
+21-26|perseverance|(명) 인내심|patience and perseverance|끈기와 인내
+21-26|fatal|(형) 치명적인|fatal error|치명적인 오류
+21-26|substitute|(명) 대리자, 대체물 (동) 대체하다|substitute A for B|B 대신 A를 쓰다
+21-26|invert|(동) 거꾸로 하다, 뒤집다|invert the order|순서를 뒤집다
+21-26|tension|(명) 긴장, 불안 (동) 긴장시키다|relieve tension|긴장을 풀다
+21-26|reign|(명) 통치 기간, 치세 (동) 군림하다|during the reign of|~의 통치 기간에
+21-26|crack|(명) 갈라진 틈 (동) 금 가다|crack in the wall|벽의 틈
+21-26|startle|(동) 깜짝 놀라게 하다|be [startled] by a noise|소리에 깜짝 놀라다
+21-26|discourage|(동) 낙담시키다|discourage him from going|그가 가는 것을 말리다(낙담시키다)
+21-26|compensate|(동) 보상하다|compensate for the loss|손실을 보상하다
+
+
+
+21-27|convert|(동) 전환하다, 바꾸다|convert sunlight into energy|햇빛을 에너지로 전환하다
+21-27|strike|(동) 치다, 떠오르다 (명) 치기, 동맹 파업|go on strike|파업하다
+21-27|suppress|(동) 억압하다, 참다|suppress anger|화를 억누르다
+21-27|core|(명) 핵심 (형) 핵심의|core value|핵심 가치
+21-27|contribute|(동) 기여하다, 기부하다|contribute to success|성공에 기여하다
+21-27|spear|(명) 창|throw a spear|창을 던지다
+21-27|renowned|(형) 유명한, 명성 있는|renowned artist|저명한 예술가
+21-27|era|(명) 시대|digital era|디지털 시대
+21-27|withdraw|(동) 철수하다, 철회하다, 인출하다|withdraw money|돈을 인출하다
+21-27|separate|(동) 분리하다 (형) 갈라진, 개개의|separate room|별개의 방
+21-27|dignity|(명) 존엄성|human dignity|인간의 존엄성
+21-27|notify|(동) 통지하다, 알리다|notify the police|경찰에 알리다
+21-27|animate|(동) 생기 있게 하다 (형) 살아 있는|[animated] movie|애니메이션 영화
+21-27|prevent|(동) 막다, 예방하다|prevent accidents|사고를 예방하다
+21-27|bilingual|(형) 2개 국어의|bilingual education|이중 언어 교육
+21-27|mischief|(명) 장난, 해악|make mischief|장난치다
+21-27|discriminate|(동) 구별하다, 차별하다|discriminate against minorities|소수자를 차별하다
+21-27|exemplify|(동) 예시하다, 예증하다|exemplify the theory|이론을 예증하다
+21-27|adhere|(동) 고수하다, 들러붙다|adhere to the rules|규칙을 고수하다
+21-27|superb|(형) 최고의, 훌륭한|superb performance|훌륭한 공연
+21-27|peculiar|(형) 독특한|peculiar habit|독특한 습관
+21-27|sake|(명) 위함, 목적|for the sake of|~을 위하여
+21-27|choke|(동) 질식시키다, 숨이 막히다|choke on food|음식에 목이 메다
+21-27|folktale|(명) 민간 설화, 전설|Korean folktale|한국 전래 동화
+21-27|simultaneously|(부) 동시에|happen simultaneously|동시에 발생하다
+21-27|range|(명) 범위 (동) 정렬시키다|mountain range|산맥
+21-27|groom|(명) 신랑 (동) 손질하다|bride and groom|신부와 신랑
+21-27|supernatural|(형) 초자연적인|supernatural power|초자연적인 힘
+21-27|tender|(형) 부드러운 (동) 입찰하다 (명) 입찰|tender meat|연한 고기
+21-27|instinct|(명) 본능|survival instinct|생존 본능
+21-27|gigantic|(형) 거대한|gigantic structure|거대한 구조물
+21-27|meditate|(동) 명상하다|meditate on life|인생에 대해 명상하다
+21-27|mow|(동) 베다|mow the lawn|잔디를 깎다
+21-27|evolve|(동) 진화하다, 발전하다|evolve from apes|유인원으로부터 진화하다
+21-27|chase|(동) 쫓다, 추적하다|chase a thief|도둑을 쫓다
+21-27|afflict|(동) 괴롭히다|be [afflicted] with disease|병으로 고통받다
+21-27|empirical|(형) 경험적인, 실증적인|empirical evidence|실증적 증거
+21-27|coherent|(형) 통일성 있는, 조리 있는|coherent argument|논리 정연한 주장
+21-27|intolerable|(형) 참을 수 없는|intolerable pain|참을 수 없는 고통
+21-27|fountain|(명) 분수, 근원|fountain of youth|젊음의 샘
+
+
+
+
+21-28|bold|(형) 대담한, 선이 굵은|bold decision|대담한 결정
+21-28|compliment|(명) 칭찬 (동) 칭찬하다|pay a compliment|칭찬하다
+21-28|summit|(명) 꼭대기, 정상|summit meeting|정상 회담
+21-28|troop|(명) 무리, 떼|send troops|군대를 파견하다
+21-28|alter|(동) 바꾸다, 변경하다|alter the plan|계획을 변경하다
+21-28|conceive|(동) 생각해 내다, 마음속에 그리다|conceive an idea|아이디어를 구상하다
+21-28|durability|(명) 내구성|test durability|내구성을 시험하다
+21-28|destroy|(동) 파괴하다|destroy a building|건물을 파괴하다
+21-28|shallow|(형) 얇은, 얕은|shallow water|얕은 물
+21-28|face|(동) 직면하다 (명) 얼굴, 표면|face a challenge|도전에 직면하다
+21-28|promote|(동) 증진하다, 승진시키다|promote health|건강을 증진하다
+21-28|weep|(동) 울다|weep for joy|기뻐서 울다
+21-28|grasp|(동) 붙잡다 (명) 꽉 쥐기|grasp the meaning|의미를 파악하다
+21-28|overall|(형) 전반적인, 전체의 (명) 작업복|overall performance|전반적인 성과
+21-28|superstition|(명) 미신|believe in superstition|미신을 믿다
+21-28|colony|(명) 식민지, 집단|ant colony|개미 군집(식민지)
+21-28|absurd|(형) 불합리한, 우스꽝스러운|absurd idea|터무니없는(우스꽝스러운) 생각
+21-28|conduct|(동) 수행하다, 실시하다 (명) 행위, 안내|conduct a survey|설문 조사를 수행하다
+21-28|dormitory|(명) 기숙사|live in a dormitory|기숙사에 살다
+21-28|prone|(형) ~하는 경향이 있는|accident-prone|사고를 잘 내는
+21-28|conceal|(동) 숨기다|conceal the truth|진실을 숨기다
+21-28|retreat|(동) 후퇴하다, 물러서다 (명) 퇴각, 후퇴|retreat from battle|전투에서 후퇴하다
+21-28|compulsive|(형) 강제적인, 강박의|compulsive eating|강박적 폭식
+21-28|clinic|(명) 전문 병원, 개인 병원|dental clinic|치과 의원
+21-28|banner|(명) 깃발, 현수막|hang a banner|현수막을 걸다
+21-28|formulate|(동) 만들어 내다, 공식화하다|formulate a theory|이론을 정립하다
+21-28|vow|(명) 맹세 (동) 맹세하다|make a vow|맹세하다
+21-28|malnutrition|(명) 영양실조|suffer from malnutrition|영양실조를 겪다
+21-28|heritage|(명) 유산, 세습 재산|cultural heritage|문화 유산
+21-28|undergo|(동) 겪다|undergo surgery|수술을 받다
+21-28|boast|(동) 자랑하다, 떠벌리다|boast about wealth|부를 자랑하다
+21-28|neutral|(형) 중립의, 공평한|neutral position|중립적인 위치
+21-28|stain|(명) 얼룩 (동) 얼룩지게 하다|remove a stain|얼룩을 제거하다
+21-28|incentive|(명) 자극, 장려책 (형) 격려하는, 자극하는|give an incentive|인센티브를 주다
+21-28|float|(동) 뜨다, 떠다니다 (명) 부유물|float on water|물에 뜨다
+21-28|tendency|(명) 경향, 추세|tendency to forget|잊어버리는 경향
+21-28|applause|(명) 박수갈채|round of applause|박수갈채
+21-28|wrestle|(동) 싸우다, 씨름하다|wrestle with a problem|문제와 씨름하다
+21-28|sensation|(명) 감각, 느낌|burning sensation|타는 듯한 느낌
+21-28|confucian|(형) 공자의, 유교의|Confucian tradition|유교적 전통
+
+
+
+21-29|draft|(명) 원고, 초안 (동) 초안을 그리다|first draft|초안
+21-29|crude|(형) 가공하지 않은|crude oil|원유
+21-29|supplement|(명) 보충, 보충물 (동) 보충하다|vitamin supplement|비타민 보충제
+21-29|velocity|(명) 속도|high velocity|빠른 속도
+21-29|tame|(동) 길들이다 (형) 길들여진|tame a wild animal|야생 동물을 길들이다
+21-29|adapt|(동) 적응하다, 적응시키다|adapt to the environment|환경에 적응하다
+21-29|manage|(동) 잘 해내다, 다루다|manage to survive|간신히 살아남다
+21-29|dismay|(동) 실망시키다, 낙담시키다 (명) 걱정, 실망|to my dismay|실망스럽게도
+21-29|diagnose|(동) 진단하다|diagnose a disease|병을 진단하다
+21-29|molecule|(명) 분자|water molecule|물 분자
+21-29|reservoir|(명) 저장소, 저수지|water reservoir|급수장
+21-29|conform|(동) 순응하다, 일치하다|conform to rules|규칙에 따르다
+21-29|spacious|(형) 넓은, 훤히 트인|spacious room|널찍한 방
+21-29|weave|(동) 엮다, 짜다, 엮어 넣다|weave a basket|바구니를 짜다
+21-29|boundary|(명) 경계, 경계선|national boundary|국경
+21-29|motive|(명) 동기|ulterior motive|숨은 동기
+21-29|tangible|(형) 유형적인, 유형의, 만질 수 있는|tangible asset|유형 자산
+21-29|prominent|(형) 현저한, 저명한|prominent figure|저명인사
+21-29|rigid|(형) 엄격한, 융통성이 없는|rigid rules|엄격한 규칙
+21-29|archaeology|(명) 고고학|study archaeology|고고학을 공부하다
+21-29|subtract|(동) 빼다|subtract cost|비용을 빼다
+21-29|breed|(동) 낳다, 양육하다|breed cattle|소를 사육하다
+21-29|utmost|(형) 최대한의, 최고의 (명) 최대한도|utmost importance|최고의 중요성
+21-29|proficient|(형) 숙달된|proficient in English|영어에 능숙한
+21-29|accumulate|(동) 모으다, 축적하다|accumulate wealth|부를 축적하다
+21-29|embody|(동) 구현하다, 구체화하다|embody an idea|아이디어를 구현하다
+21-29|equity|(명) 공평|brand equity|브랜드 자산
+21-29|violate|(동) 위반하다, 침해하다|violate the law|법을 위반하다
+21-29|ambitious|(형) 야심 있는|ambitious plan|야심 찬 계획
+21-29|intact|(형) 온전한, 손상되지 않은|remain intact|온전하게 남다
+21-29|impulse|(명) 충동, 추진|on impulse|충동적으로
+21-29|attend|(동) 출석하다, 보살피다|attend to business|업무를 처리하다
+21-29|trim|(동) 다듬다, 잘라 내다|trim the budget|예산을 삭감하다
+21-29|navigate|(동) 길을 찾다, 항해하다|navigate the web|인터넷을 탐색하다
+21-29|remedy|(명) 치료, 요법|folk remedy|민간요법
+21-29|consist|(동) 이루어지다|consist of|~로 구성되다
+21-29|imprint|(동) 찍다, 감명시키다 (명) 찍은 자국|imprint on memory|기억에 각인시키다
+21-29|modify|(동) 변형하다, 수정하다|modify the plan|계획을 수정하다
+21-29|confine|(동) 제한하다, 가두다 (명) 한계|be [confined] to bed|병상에 있다
+21-29|dispatch|(동) 급파하다, 발송하다 (명) 급파, 발송|dispatch troops|군대를 파병하다
+
+
+21-30|diameter|(명) 지름, 직경|measure the diameter|지름을 측정하다
+21-30|anecdote|(명) 일화, 비화|tell an anecdote|일화를 이야기하다
+21-30|spatial|(형) 공간의, 공간적인|spatial awareness|공간 지각 능력
+21-30|blame|(동) 비난하다, ~의 탓으로 돌리다 (명) 비난, 책망|blame A for B|B에 대해 A를 비난하다
+21-30|geology|(명) 지질학|study geology|지질학을 연구하다
+21-30|pledge|(명) 약속, 맹세 (동) 약속하다, 맹세하다|make a pledge|서약하다
+21-30|cost|(동) (비용이) 들다 (명) 비용, 대가|at all costs|무슨 수를 써서라도
+21-30|earn|(동) 얻다, 벌다|earn a living|생계를 꾸리다
+21-30|detect|(동) 발견하다, 감지하다|detect a flaw|결함을 발견하다
+21-30|temperate|(형) 온화한, 절제하는|temperate zone|온대 지방
+21-30|soar|(동) 높이 치솟다|Prices [soar].|가격이 치솟다.
+21-30|mock|(동) 조롱하다 (형) 가짜의|mock test|모의고사
+21-30|disclose|(동) 드러내다, 폭로하다|disclose information|정보를 공개하다
+21-30|exhibit|(동) 전시하다, 보여 주다 (명) 전시, 전시품|exhibit paintings|그림을 전시하다
+21-30|symptom|(명) 증상|flu symptoms|독감 증상
+21-30|invent|(동) 발명하다|invent a device|장치를 발명하다
+21-30|awkward|(형) 어색한, 서투른|awkward silence|어색한 침묵
+21-30|grind|(동) 갈다, 빻다|grind coffee beans|커피 원두를 갈다
+21-30|expose|(동) 드러내다, 폭로하다|expose to danger|위험에 노출시키다
+21-30|closet|(명) 벽장|skeleton in the closet|숨기고 싶은 비밀
+21-30|damp|(형) 축축한 (명) 습기|damp weather|눅눅한 날씨
+21-30|script|(명) 손으로 쓰기, 대본|movie script|영화 대본
+21-30|signify|(동) 의미하다, 중요하다|signify success|성공을 의미하다
+21-30|discuss|(동) 토론하다|discuss the matter|그 문제를 논의하다
+21-30|sibling|(명) 형제자매, 동기|sibling rivalry|형제간의 경쟁
+21-30|lay|(동) 놓다, (알을) 낳다|lay eggs|알을 낳다
+21-30|surveillance|(명) 감시|surveillance camera|감시 카메라
+21-30|discharge|(명) 배출, 내보냄 (동) 배출하다, 내보내다|discharge from hospital|퇴원시키다
+21-30|thorough|(형) 철저한|thorough investigation|철저한 조사
+21-30|undertake|(동) 수행하다, 떠맡다, 착수하다|undertake a task|과업에 착수하다
+21-30|panel|(명) 토론자단, 패널|solar panel|태양 전지판
+21-30|linguistic|(형) 언어의, 언어학의|linguistic ability|언어 능력
+21-30|flourish|(동) 번영하다, 번창하다|business flourishes|사업이 번창하다
+21-30|feed|(동) 먹이를 주다, 부양하다|feed on grass|풀을 먹고 살다
+21-30|sophomore|(명) 2학년생|college sophomore|대학교 2학년
+21-30|remind|(동) 생각나게 하다, 상기시키다|Remind A of B.|A에게 B를 상기시키다.
+21-30|sole|(형) 유일한|sole purpose|유일한 목적
+21-30|pillar|(명) 기둥|stone pillar|돌기둥
+21-30|explode|(동) 폭발하다|Bomb [exploded].|폭탄이 폭발했다.
+21-30|illusion|(명) 환상, 착각|optical illusion|착시 현상
+
+21-31|regret|(동) 후회하다, 한탄하다 (명) 유감, 후회|regret a decision|결정을 후회하다
+21-31|submit|(동) 복종시키다, 복종하다, 제출하다|submit a report|보고서를 제출하다
+21-31|divine|(형) 신의, 신성한|divine will|신의 뜻
+21-31|revenue|(명) 수입, 수익|tax revenue|세수
+21-31|corrupt|(형) 부정한, 부패한 (동) 타락시키다|corrupt politician|부패한 정치인
+21-31|mention|(동) 언급하다 (명) 언급|don't mention it|천만에요
+21-31|factual|(형) 실제의|factual error|사실적 오류
+21-31|swamp|(명) 늪, 습지|drained the swamp|늪을 배수했다
+21-31|expedition|(명) 탐험|scientific expedition|과학 탐험
+21-31|abnormal|(형) 비정상적인|abnormal behavior|비정상적인 행동
+21-31|storage|(명) 저장, 저장고|data storage|데이터 저장
+21-31|revive|(동) 되살아나다|revive memories|기억을 되살리다
+21-31|equator|(명) 적도|cross the equator|적도를 지나다
+21-31|motion|(명) 운동, 움직임, 몸짓 (동) 몸짓으로 지시하다|slow motion|슬로 모션
+21-31|patent|(명) 특허, 특허권 (동) ~의 특허를 얻다|apply for a patent|특허를 출원하다
+21-31|virtue|(명) 미덕|virtue and vice|미덕과 악덕
+21-31|arithmetic|(명) 산수, 연산|basic arithmetic|기초 산수
+21-31|consistent|(형) 일관된, 모순이 없는|consistent effort|일관된 노력
+21-31|cognitive|(형) 인식의, 인지력 있는|cognitive development|인지 발달
+21-31|hinder|(동) 방해하다|hinder progress|발전을 저해하다
+21-31|humble|(형) 겸손한, 비천한|be humble|겸손해라
+21-31|bounce|(동) 튀다, 뛰어오르다|bounce a ball|공을 튀기다
+21-31|imprison|(동) 투옥하다|be [imprisoned]|투옥되다
+21-31|enlist|(동) 모집하다, 도움을 얻다|enlist help|도움을 요청하다
+21-31|carbon|(명) 탄소|carbon dioxide|이산화탄소
+21-31|upcoming|(형) 다가오는|upcoming event|다가오는 행사
+21-31|trace|(명) 흔적 (동) 흔적을 쫓다|trace the origin|기원을 추적하다
+21-31|pulse|(명) 맥박|feel a pulse|맥박을 느끼다
+21-31|locate|(동) ~에 위치하다, 찾아내다|locate the store|가게 위치를 찾다
+21-31|controversy|(명) 논란, 논쟁|cause a controversy|논란을 일으키다
+21-31|flattery|(명) 아첨|empty flattery|빈말
+21-31|regard|(동) ~으로 여기다 (명) 관계, 고려|regard A as B|A를 B로 여기다
+21-31|convenience|(명) 편의, 편리|for your convenience|당신의 편의를 위해
+21-31|hygiene|(명) 위생, 위생학|personal hygiene|개인위생
+21-31|rush|(동) 돌진하다 (명) 돌진, 황급한 움직임|rush hour|혼잡 시간대
+21-31|contaminate|(동) 오염시키다|contaminate water|물을 오염시키다
+21-31|external|(형) 외부의 (명) 외부|external factor|외부 요인
+21-31|herd|(명) 떼|herd of cows|소 떼
+21-31|allocate|(동) 할당하다, 분배하다|allocate resources|자원을 할당하다
+21-31|gorgeous|(형) 아주 멋진, 화려한|gorgeous dress|화려한 드레스
+
+21-32|confess|(동) 고백하다|confess a sin|죄를 고백하다
+21-32|subjective|(형) 주관적인, 주격의|subjective view|주관적인 견해
+21-32|trivial|(형) 사소한|trivial matter|사소한 문제
+21-32|acknowledge|(동) 인정하다|acknowledge defeat|패배를 인정하다
+21-32|accord|(동) 일치하다, 주다 (명) 일치, 협정|in accord with|~와 일치하여
+21-32|immense|(형) 막대한|immense pleasure|막대한 기쁨
+21-32|extract|(동) 추출하다 (명) 추출물|extract juice|즙을 짜내다
+21-32|sewage|(명) 하수|sewage treatment|하수 처리
+21-32|reconciliation|(명) 화해|seek reconciliation|화해를 모색하다
+21-32|explore|(동) 탐험하다, 탐구하다|explore possibilities|가능성을 탐구하다
+21-32|warrant|(명) 보증 (동) 보증하다|search warrant|수색 영장
+21-32|complement|(동) 보완하다 (명) 보충물|complement each other|서로 보완하다
+21-32|ceramic|(명) 도자기 (형) 도자기의|ceramic tile|도자기 타일
+21-32|license|(명) 면허, 인가 (동) 면허를 내주다|driver's license|운전면허증
+21-32|emerge|(동) 나타나다, 드러나다|emerge from poverty|가난에서 벗어나다
+21-32|halt|(명) 정지, 일시 멈춤 (동) 정지하다, 정지시키다|come to a halt|멈추다
+21-32|pierce|(동) 꿰뚫다, 구멍을 뚫다|pierce ears|귀를 뚫다
+21-32|ponder|(동) 심사숙고하다|ponder over a question|질문을 깊이 생각하다
+21-32|burglar|(명) 강도|catch a burglar|강도를 잡다
+21-32|stroke|(명) 뇌졸중, 강타|heat stroke|열사병
+21-32|lottery|(명) 복권, 추첨|win the lottery|복권에 당첨되다
+21-32|certificate|(명) 증명서, 자격증|birth certificate|출생 증명서
+21-32|transplant|(명) 이식 (동) 이식하다|heart transplant|심장 이식
+21-32|cluster|(명) 무리, 송이|cluster of stars|별 무리
+21-32|plea|(명) 탄원, 간청, 변명|make a plea|탄원하다
+21-32|derive|(동) 이끌어 내다, 비롯되다|derive pleasure from|~에서 즐거움을 얻다
+21-32|plague|(명) 전염병|the plague|흑사병
+21-32|ultrasound|(명) 초음파|ultrasound image|초음파 영상
+21-32|deluxe|(형) 호화로운, 사치스러운|deluxe room|특실
+21-32|convey|(동) 전달하다, 나르다|convey meaning|의미를 전달하다
+21-32|depth|(명) 깊이|in depth|깊이 있게
+21-32|evaporate|(동) 증발하다|Water [evaporates].|물이 증발하다.
+21-32|lame|(형) 다리를 저는|lame excuse|서투른 변명
+21-32|intelligence|(명) 지능, 지성|artificial intelligence|인공지능
+21-32|sour|(형) 신맛이 나는|go sour|상하다
+21-32|repetitive|(형) 반복성의|repetitive task|반복적인 업무
+21-32|oppress|(동) 억압하다|oppress the weak|약자를 억압하다
+21-32|leftover|(형) 나머지의, 남은 (명) 나머지, 남은 음식|leftover food|남은 음식
+21-32|embrace|(명) 포옹 (동) 포옹하다, 받아들이다|embrace change|변화를 받아들이다
+21-32|blade|(명) 칼날|sharp blade|날카로운 칼날
+
+21-33|abundant|(형) 풍부한|abundant resources|풍부한 자원
+21-33|duplicate|(명) 복제품 (형) 이중의 (동) 이중으로 하다, 복제하다|duplicate a file|파일을 복제하다
+21-33|spoil|(동) 망치다, 상하게 하다|spoil a child|아이를 버릇없게 키우다
+21-33|altitude|(명) 고도, 높이|high altitude|높은 고도
+21-33|glimpse|(명) 흘긋 봄 (동) 흘긋 보다|catch a glimpse of|~을 힐끗 보다
+21-33|blend|(명) 혼합 (동) 섞다, 혼합하다|blend well|잘 섞다
+21-33|swell|(동) 부풀다, 팽창하다 (명) 팽창|feet [swell]|발이 붓다
+21-33|grief|(명) 큰 슬픔|overcome grief|슬픔을 극복하다
+21-33|beverage|(명) 음료|alcoholic beverage|주류
+21-33|warrior|(명) 전사, 용사|brave warrior|용감한 전사
+21-33|shrub|(명) 관목|plant a shrub|관목을 심다
+21-33|slice|(명) 얇은 조각 (동) 얇게 썰다|slice bread|빵을 얇게 썰다
+21-33|exotic|(형) 이국적인|exotic fruit|이국적인 과일
+21-33|arrogant|(형) 거만한|arrogant attitude|거만한 태도
+21-33|vanish|(동) 사라지다|vanish into thin air|감쪽같이 사라지다
+21-33|outbreak|(명) 발발, 폭동|outbreak of war|전쟁 발발
+21-33|accommodate|(동) 수용하다, 숙박시키다|accommodate guests|손님을 수용하다
+21-33|cozy|(형) 아늑한|cozy room|아늑한 방
+21-33|recommend|(동) 추천하다|recommend a book|책을 추천하다
+21-33|auction|(명) 경매 (동) 경매에 부치다|sell at auction|경매로 팔다
+21-33|obsess|(동) 강박 관념을 갖다|be [obsessed] with|~에 집착하다
+21-33|suitor|(명) 소송인, 구혼자|rejection of a suitor|구혼자에 대한 거절
+21-33|rational|(형) 이성적인, 합리적인|rational decision|합리적인 결정
+21-33|discreet|(형) 분별 있는, 사려 깊은|be discreet|신중해라
+21-33|pioneer|(명) 개척자, 선구자 (형) 개척자의 (동) 개척하다|space pioneer|우주 개척자
+21-33|assert|(동) 주장하다, 행사하다|assert oneself|자기주장을 하다
+21-33|undo|(동) 원상태로 돌리다, 풀다|undo a button|단추를 풀다
+21-33|inevitable|(형) 피할 수 없는|inevitable result|피할 수 없는 결과
+21-33|elaborate|(형) 정교한, 공들인 (동) 정교하게 만들다|elaborate design|정교한 디자인
+21-33|toss|(동) 던지다|toss a coin|동전을 던지다
+21-33|retain|(동) 유지하다|retain moisture|수분을 유지하다
+21-33|maximize|(동) 최대화하다|maximize profit|이익을 극대화하다
+21-33|buildup|(명) 축적|military buildup|군비 증강
+21-33|machinery|(명) 기계|heavy machinery|중장비
+21-33|sacrifice|(동) 희생하다, 희생시키다 (명) 희생, 제물|sacrifice for others|남을 위해 희생하다
+21-33|auditorium|(명) 강당|school auditorium|학교 강당
+21-33|linger|(동) 오래 머물다, 계속되다|linger on|계속 남아있다
+21-33|neglect|(동) 무시하다 (명) 소홀, 무시|neglect duty|의무를 소홀히 하다
+21-33|feedback|(명) 반응, 피드백|positive feedback|긍정적인 피드백
+21-33|radioactive|(형) 방사성의|radioactive waste|방사성 폐기물
+
+
+21-34|impair|(동) 손상하다|impair vision|시력을 손상시키다
+21-34|metaphor|(명) 은유, 은유법|use a metaphor|은유를 사용하다
+21-34|predominant|(형) 뛰어난, 우세한|predominant color|주된 색상
+21-34|bruise|(명) 타박상, 멍 (동) 타박상을 입히다, 멍들게 하다|get a bruise|멍이 들다
+21-34|attorney|(명) 변호사|defense attorney|피고측 변호사
+21-34|sanitation|(명) 위생|sanitation facility|위생 시설
+21-34|heredity|(명) 유전, 유전 형질|influence of heredity|유전의 영향
+21-34|naive|(형) 순진한|naive belief|순진한 믿음
+21-34|shed|(동) 흘리다, 발산하다, 떨어뜨리다|shed tears|눈물을 흘리다
+21-34|metropolitan|(형) 수도권의, 대도시의|metropolitan area|대도시 지역
+21-34|shield|(명) 방패, 보호물 (동) 보호하다|shield from sun|햇볕으로부터 보호하다
+21-34|ecology|(명) 생태학|deep ecology|심층 생태학
+21-34|coverage|(명) 범위, 보도|media coverage|언론 보도
+21-34|expel|(동) 쫓아내다|expel from school|퇴학시키다
+21-34|plow|(명) 쟁기 (동) 쟁기질하다|plow the field|밭을 갈다
+21-34|prolong|(동) 연장하다|prolong life|수명을 연장하다
+21-34|fluent|(형) 유창한|fluent in English|영어가 유창한
+21-34|margin|(명) 가장자리|profit margin|이윤 폭
+21-34|induce|(동) 유도하다, 설득하다|induce sleep|잠을 유도하다
+21-34|interior|(명) 내부 (형) 내부의|interior design|실내 디자인
+21-34|ornament|(명) 장식품 (동) 장식하다|Christmas ornament|크리스마스 장식
+21-34|probe|(동) 조사하다 (명) 탐사선|space probe|우주 탐사선
+21-34|vibrate|(동) 진동하다, 흔들다|phone [vibrates]|전화기가 진동한다
+21-34|speculate|(동) 사색하다, 투기하다|speculate on the future|미래를 추측하다
 21-34|versus|~ 대, ~과 대비하여|Korea versus Japan|한국 대 일본
-21-34|pregnant|임신한|pregnant woman|임산부
-21-34|epidemic|전염병, 유행병|flu epidemic|독감 유행
-21-34|precede|~에 앞서다, 먼저 일어나다|A precedes B|A가 B보다 앞서다
-21-34|breathtaking|아슬아슬한, 숨 막히는|breathtaking view|숨 막히는 절경
-21-34|foundation|기초, 토대, 재단|lay the foundation|기초를 놓다
-21-34|stimulate|자극하다, 고무하다|stimulate economy|경기를 부양하다
-21-34|fabric|구조, 조직, 직물|social fabric|사회 구조
-21-34|overturn|전복시키다, 전복|overturn a decision|결정을 뒤집다
-21-34|ripe|익은|ripe tomato|익은 토마토
-21-34|framework|뼈대, 틀, 체제|legal framework|법적 체제
-21-34|urgent|긴급한, 다급한|urgent matter|긴급한 문제
-21-34|settle|정착하다, 정착시키다|settle a dispute|분쟁을 해결하다
-21-34|conflict|충돌하다, 갈등, 충돌|resolve conflict|갈등을 해결하다
-21-34|vapor|증기, 증발하다|water vapor|수증기
-21-34|tuition|수업료|college tuition|대학 등록금
+21-34|pregnant|(형) 임신한|pregnant woman|임산부
+21-34|epidemic|(명) 전염병, 유행병|flu epidemic|독감 유행
+21-34|precede|(동) ~에 앞서다, 먼저 일어나다|A precedes B|A가 B보다 앞서다
+21-34|breathtaking|(형) 아슬아슬한, 숨 막히는|breathtaking view|숨 막히는 절경
+21-34|foundation|(명) 기초, 토대, 재단|lay the foundation|기초를 놓다
+21-34|stimulate|(동) 자극하다, 고무하다|stimulate economy|경기를 부양하다
+21-34|fabric|(명) 구조, 조직, 직물|social fabric|사회 구조
+21-34|overturn|(동) 전복시키다 (명) 전복|overturn a decision|결정을 뒤집다
+21-34|ripe|(형) 익은|ripe tomato|익은 토마토
+21-34|framework|(명) 뼈대, 틀, 체제|legal framework|법적 체제
+21-34|urgent|(형) 긴급한, 다급한|urgent matter|긴급한 문제
+21-34|settle|(동) 정착하다, 정착시키다|settle a dispute|분쟁을 해결하다
+21-34|conflict|(동) 충돌하다 (명) 갈등, 충돌|resolve conflict|갈등을 해결하다
+21-34|vapor|(명) 증기 (동) 증발하다|water vapor|수증기
+21-34|tuition|(명) 수업료|college tuition|대학 등록금
+
+21-35|literature|(명) 문학, 문예|english literature|영문학
+21-35|compound|(명) 화합물 (형) 합성의 (동) 혼합하다|chemical compound|화학 화합물
+21-35|quote|(동) 인용하다|quote a poem|시를 인용하다
+21-35|inhale|(동) 들이쉬다|inhale smoke|연기를 들이마시다
+21-35|prospect|(명) 가능성, 전망|job prospects|취업 전망
+21-35|anchor|(명) 뗏목, 닻, 앵커 (동) 닻을 내리다|drop anchor|닻을 내리다
+21-35|asymmetry|(명) 비대칭, 불균형|facial asymmetry|안면 비대칭
+21-35|loop|(명) 고리|endless loop|무한 루프
+21-35|withstand|(동) 견디다|withstand pressure|압력을 견디다
+21-35|implement|(명) 도구 (동) 실행하다|implement a policy|정책을 시행하다
+21-35|anonymous|(형) 익명의|anonymous donor|익명의 기부자
+21-35|collide|(동) 충돌하다|collide with a car|차와 충돌하다
+21-35|memorial|(명) 기념물, 기념관|war memorial|전쟁 기념비
+21-35|vacant|(형) 빈, 비어 있는|vacant seat|빈 좌석
+21-35|technical|(형) 기술의, 전문적인|technical term|전문 용어
+21-35|thrill|(명) 스릴, 전율 (동) 몹시 신나게 하다, 감동시키다|seek thrills|스릴을 추구하다
+21-35|wander|(동) 돌아다니다 (명) 유랑, 방랑|wander around|여기저기 돌아다니다
+21-35|proportion|(명) 비율, 부분|in proportion to|~에 비례하여
+21-35|antibiotic|(명) 항생 물질, 항생제|take antibiotics|항생제를 복용하다
+21-35|overtake|(동) 따라잡다|overtake a car|차를 추월하다
+21-35|resemble|(동) 닮다, 비슷하다|resemble parents|부모를 닮다
+21-35|orchard|(명) 과수원|apple orchard|사과 과수원
+21-35|compassion|(명) 연민, 동정|feel compassion|연민을 느끼다
+21-35|preoccupation|(명) 몰두, 집착, 선취|preoccupation with death|죽음에 대한 집착
+21-35|paste|(명) 풀, 반죽 (동) 풀칠하다, 붙이다|copy and paste|복사해서 붙이다
+21-35|provoke|(동) 선동하다, 자극하다|provoke anger|화를 돋우다
+21-35|wicked|(형) 사악한|wicked witch|사악한 마녀
+21-35|sprain|(동) 삐다|[sprain] an ankle|발목을 삐다
+21-35|sequence|(명) 순서, 결과, 연속|in sequence|순서대로
+21-35|stool|(명) 의자, 변기|sit on a stool|스툴에 앉다
+21-35|disrupt|(동) 혼란에 빠뜨리다, 방해하다|disrupt sleep|수면을 방해하다
+21-35|solitary|(형) 혼자의, 외로운, 고독한|solitary life|고독한 삶
+21-35|bury|(동) 파묻다|bury the dead|죽은 자를 매장하다
+21-35|rust|(명) 녹 (동) 녹슬다, 녹이 슬게 하다|Iron [rusts].|철은 녹슨다.
+21-35|fad|(명) 일시적 유행|passing fad|일시적인 유행
+21-35|referee|(명) 심판 (동) 심판하다|football referee|축구 심판
+21-35|sector|(명) 분야, 지역, 부채꼴|public sector|공공 부문
+21-35|boost|(명) 상승, 밀어 올림 (동) 밀어 올리다|boost morale|사기를 북돋우다
+21-35|gymnastics|(명) 체육, 체조|rhythmic gymnastics|리듬 체조
+21-35|gross|(형) 엄청난, 총합의 (명) 총합 (동) ~의 총이익을 올리다|gross profit|총이익
+
+21-36|last|(동) 계속되다|last forever|영원히 계속되다
+21-36|tariff|(명) 관세 (동) 관세를 부과하다|impose a tariff|관세를 부과하다
+21-36|beloved|(형) 사랑스러운|beloved friend|사랑하는 친구
+21-36|lyric|(명) 노래 가사, 서정시 (형) 서정적인|song lyrics|노래 가사
+21-36|yeast|(명) 효모 (동) 발효하다|baker's yeast|빵 효모
+21-36|skyscraper|(명) 마천루, 고층 건물|tall skyscraper|높은 고층 건물
+21-36|inquire|(동) 묻다, 조사하다|inquire about the price|가격을 문의하다
+21-36|spade|(명) 삽|dig with a spade|삽으로 파다
+21-36|vacuum|(명) 진공, 진공청소기 (동) 진공청소기로 청소하다|vacuum cleaner|진공청소기
+21-36|migrate|(동) 이동하다, 이주하다|Birds [migrate].|새들이 이동하다.
+21-36|spectacle|(명) 광경|grand spectacle|웅장한 광경
+21-36|surplus|(명) 과잉, 나머지 (형) 과잉의, 나머지의|budget surplus|예산 흑자
+21-36|simulate|(동) 가장하다, 모의 실험하다|simulate flight|비행을 모의 실험하다
+21-36|integration|(명) 통합, 적분|social integration|사회 통합
+21-36|hypothesis|(명) 가설|test a hypothesis|가설을 검증하다
+21-36|affirm|(동) 단언하다|affirm loyalty|충성을 맹세하다
+21-36|fortress|(명) 요새|build a fortress|요새를 짓다
+21-36|reed|(명) 갈대 (형) 갈대의|thinking reed|생각하는 갈대
+21-36|cue|(명) 단서, 신호|take a cue|단서를 얻다
+21-36|mole|(명) 사마귀, 점|mole on the face|얼굴의 점
+21-36|divide|(동) 나누다, 분리하다, 나누어지다 (명) 분할|divide into groups|그룹으로 나누다
+21-36|inborn|(형) 타고난|inborn talent|타고난 재능
+21-36|overlap|(동) 겹치다 (명) 중복|Interests [overlap].|이해관계가 겹치다.
+21-36|fatigue|(명) 피로 (동) 피곤하게 하다|chronic fatigue|만성 피로
+21-36|clone|(명) 복제 생물, 클론 (동) 복제하다|clone a sheep|양을 복제하다
+21-36|peel|(동) 껍질을 벗기다 (명) 껍질|peel an apple|사과 껍질을 벗기다
+21-36|ease|(동) 진정시키다 (명) 편함, 용이함|at ease|편안한
+21-36|overcome|(동) 극복하다, 압도하다|overcome difficulties|어려움을 극복하다
+21-36|fund|(명) 기금 (동) 자금을 제공하다|raise a fund|기금을 모으다
+21-36|bias|(명) 편견|gender bias|성차별
+21-36|vaccine|(명) 백신|flu vaccine|독감 백신
+21-36|tread|(동) 밟다, 걷다 (명) 밟음|tread lightly|발소리를 죽이다
+21-36|vomit|(동) 토하다 (명) 구토|feel like vomiting|토할 것 같다
+21-36|prophecy|(명) 예언|fulfill a prophecy|예언을 실현하다
+21-36|correspond|(동) 일치하다, 서신 왕래하다|correspond with|~와 일치하다
+21-36|cling|(동) 달라붙다, 집착하다|cling to hope|희망에 매달리다
+21-36|mutation|(명) 돌연변이, 변화|genetic mutation|유전자 돌연변이
+21-36|obscure|(형) 불분명한, 이해하기 어려운|obscure meaning|모호한 의미
+21-36|tyrant|(명) 폭군, 전제 군주|cruel tyrant|잔인한 폭군
+21-36|odd|(형) 이상한, 홀수의|odd number|홀수
 
 
-21-35|literature|문학, 문예|english literature|영문학
-21-35|compound|화합물, 합성의, 혼합하다|chemical compound|화학 화합물
-21-35|quote|인용하다|quote a poem|시를 인용하다
-21-35|inhale|들이쉬다|inhale smoke|연기를 들이마시다
-21-35|prospect|가능성, 전망|job prospects|취업 전망
-21-35|anchor|닻, 앵커, 닻을 내리다|drop anchor|닻을 내리다
-21-35|asymmetry|비대칭, 불균형|facial asymmetry|안면 비대칭
-21-35|loop|고리|endless loop|무한 루프
-21-35|withstand|견디다|withstand pressure|압력을 견디다
-21-35|implement|도구, 실행하다|implement a policy|정책을 시행하다
-21-35|anonymous|익명의|anonymous donor|익명의 기부자
-21-35|collide|충돌하다|collide with a car|차와 충돌하다
-21-35|memorial|기념물, 기념관|war memorial|전쟁 기념비
-21-35|vacant|빈, 비어 있는|vacant seat|빈 좌석
-21-35|technical|기술의, 전문적인|technical term|전문 용어
-21-35|thrill|스릴, 전율, 몹시 신나게 하다, 감동시키다|seek thrills|스릴을 추구하다
-21-35|wander|돌아다니다, 유랑, 방랑|wander around|여기저기 돌아다니다
-21-35|proportion|비율, 부분|in proportion to|~에 비례하여
-21-35|antibiotic|항생 물질, 항생제|take antibiotics|항생제를 복용하다
-21-35|overtake|따라잡다|overtake a car|차를 추월하다
-21-35|resemble|닮다, 비슷하다|resemble parents|부모를 닮다
-21-35|orchard|과수원|apple orchard|사과 과수원
-21-35|compassion|연민, 동정|feel compassion|연민을 느끼다
-21-35|preoccupation|몰두, 집착, 선취|preoccupation with death|죽음에 대한 집착
-21-35|paste|풀, 반죽, 풀칠하다, 붙이다|copy and paste|복사해서 붙이다
-21-35|provoke|선동하다, 자극하다|provoke anger|화를 돋우다
-21-35|wicked|사악한|wicked witch|사악한 마녀
-21-35|sprain|삐다|[sprain] an ankle|발목을 삐다
-21-35|sequence|순서, 결과, 연속|in sequence|순서대로
-21-35|stool|의자, 변기|sit on a stool|스툴에 앉다
-21-35|disrupt|혼란에 빠뜨리다, 방해하다|disrupt sleep|수면을 방해하다
-21-35|solitary|혼자의, 외로운, 고독한|solitary life|고독한 삶
-21-35|bury|파묻다|bury the dead|죽은 자를 매장하다
-21-35|rust|녹, 녹슬다, 녹이 슬게 하다|iron [rusts]|철은 녹슨다
-21-35|fad|일시적 유행|passing fad|일시적인 유행
-21-35|referee|심판, 심판하다|football referee|축구 심판
-21-35|sector|분야, 지역, 부채꼴|public sector|공공 부문
-21-35|boost|상승, 밀어 올림, 밀어 올리다|boost morale|사기를 북돋우다
-21-35|gymnastics|체육, 체조|rhythmic gymnastics|리듬 체조
-21-35|gross|엄청난, 총합의, 총합, ~의 총이익을 올리다|gross profit|총이익
-
-
-
-21-36|last|계속되다|last forever|영원히 계속되다
-21-36|tariff|관세, 관세를 부과하다|impose a tariff|관세를 부과하다
-21-36|beloved|사랑스러운|beloved friend|사랑하는 친구
-21-36|lyric|노래 가사, 서정시, 서정적인|song lyrics|노래 가사
-21-36|yeast|효모, 발효하다|baker's yeast|빵 효모
-21-36|skyscraper|마천루, 고층 건물|tall skyscraper|높은 고층 건물
-21-36|inquire|묻다, 조사하다|inquire about the price|가격을 문의하다
-21-36|spade|삽|dig with a spade|삽으로 파다
-21-36|vacuum|진공, 진공청소기, 진공청소기로 청소하다|vacuum cleaner|진공청소기
-21-36|migrate|이동하다, 이주하다|birds [migrate]|새들이 이동하다
-21-36|spectacle|광경|grand spectacle|웅장한 광경
-21-36|surplus|과잉, 나머지, 과잉의, 나머지의|budget surplus|예산 흑자
-21-36|simulate|가장하다, 모의 실험하다|simulate flight|비행을 모의 실험하다
-21-36|integration|통합, 적분|social integration|사회 통합
-21-36|hypothesis|가설|test a hypothesis|가설을 검증하다
-21-36|affirm|단언하다|affirm loyalty|충성을 맹세하다
-21-36|fortress|요새|build a fortress|요새를 짓다
-21-36|reed|갈대, 갈대의|thinking reed|생각하는 갈대
-21-36|cue|단서, 신호|take a cue|단서를 얻다
-21-36|mole|사마귀, 점|mole on the face|얼굴의 점
-21-36|divide|나누다, 분리하다, 나누어지다, 분할|divide into groups|그룹으로 나누다
-21-36|inborn|타고난|inborn talent|타고난 재능
-21-36|overlap|겹치다, 중복|interests [overlap]|이해관계가 겹치다
-21-36|fatigue|피로, 피곤하게 하다|chronic fatigue|만성 피로
-21-36|clone|복제 생물, 클론, 복제하다|clone a sheep|양을 복제하다
-21-36|peel|껍질을 벗기다, 껍질|peel an apple|사과 껍질을 벗기다
-21-36|ease|진정시키다, 편함, 용이함|at ease|편안한
-21-36|overcome|극복하다, 압도하다|overcome difficulties|어려움을 극복하다
-21-36|fund|기금, 자금을 제공하다|raise a fund|기금을 모으다
-21-36|bias|편견|gender bias|성차별
-21-36|vaccine|백신|flu vaccine|독감 백신
-21-36|tread|밟다, 걷다, 밟음|tread lightly|발소리를 죽이다
-21-36|vomit|토하다, 구토|feel like vomiting|토할 것 같다
-21-36|prophecy|예언|fulfill a prophecy|예언을 실현하다
-21-36|correspond|일치하다, 서신 왕래하다|correspond with|~와 일치하다
-21-36|cling|달라붙다, 집착하다|cling to hope|희망에 매달리다
-21-36|mutation|돌연변이, 변화|genetic mutation|유전자 돌연변이
-21-36|obscure|불분명한, 이해하기 어려운|obscure meaning|모호한 의미
-21-36|tyrant|폭군, 전제 군주|cruel tyrant|잔인한 폭군
-21-36|odd|이상한, 홀수의|odd number|홀수
-
-
-21-37|intriguing|아주 흥미로운|intriguing question|흥미로운 질문
-21-37|constrict|죄다, 위축시키다|blood vessels [constrict]|혈관이 수축하다
-21-37|bundle|묶음, 꾸러미|a bundle of wood|나무 한 묶음
-21-37|enclose|동봉하다, 에워싸다|enclose a check|수표를 동봉하다
-21-37|insert|삽입하다|insert a coin|동전을 넣다
-21-37|keen|날카로운, 예민한, 간절히 ~하고 싶은|keen sense of smell|예민한 후각
-21-37|restrain|억제하다, 구속하다|restrain anger|화를 억누르다
-21-37|aid|돕다, 도움, 조력|first aid|응급 처치
-21-37|reputation|평판, 명성|good reputation|좋은 평판
-21-37|measurement|측정, 측량, 치수|accurate measurement|정확한 측정
-21-37|originate|시작되다, 비롯하다|originate from|~에서 유래하다
-21-37|flour|밀가루|wheat flour|밀가루
-21-37|manipulate|조종하다, 조작하다|manipulate public opinion|여론을 조작하다
-21-37|experiment|실험, 실험하다|conduct an experiment|실험을 수행하다
-21-37|patriot|애국자|true patriot|진정한 애국자
-21-37|interchange|교환, 교차점, 교환하다|interchange ideas|아이디어를 교환하다
-21-37|intuitive|직관적인, 직관에 의한|intuitive understanding|직관적인 이해
-21-37|garment|의복|cotton garment|면 의류
-21-37|spontaneous|자발적인, 자연히 일어나는|spontaneous reaction|자발적인 반응
-21-37|vertical|수직의|vertical line|수직선
-21-37|testify|검증하다, 증명하다, 증언하다|testify in court|법정에서 증언하다
-21-37|mentor|조언자|wise mentor|현명한 멘토
-21-37|vivid|생생한|vivid memory|생생한 기억
-21-37|pasture|목초지, 목장|green pasture|푸른 목초지
-21-37|crust|껍질, 지각|earth's crust|지각
-21-37|comprehend|이해하다, 포함하다|comprehend the meaning|의미를 이해하다
-21-37|plunge|뛰어들다, 던져 넣다|plunge into water|물속으로 뛰어들다
-21-37|nasty|더러운, 불쾌한|nasty smell|고약한 냄새
-21-37|appreciate|이해하다, 감상하다, 고맙게 생각하다|appreciate help|도움에 감사하다
-21-37|strip|박탈하다, 벗기다|strip off clothes|옷을 벗다
-21-37|deed|행위, 업적|good deed|선행
-21-37|skinny|피골이 상접한, 마른|skinny jeans|딱 붙는 청바지
-21-37|grill|석쇠, 석쇠로 굽다, 심문하다|grill meat|고기를 굽다
-21-37|canal|수로, 운하|Suez Canal|수에즈 운하
-21-37|curse|저주, 저주하다|under a curse|저주에 걸린
-21-37|adverse|거스르는, 반대의, 부정적인|adverse effect|역효과
-21-37|censorship|검열|media censorship|언론 검열
-21-37|leverage|이용하다, 지레의 작용, 영향력|leverage technology|기술을 이용하다
-21-37|appetite|식욕, 욕망, 욕구|loss of appetite|식욕 부진
-21-37|flaw|결점, 흠|fatal flaw|치명적인 결점
-
-
-21-38|outgoing|외향적인|outgoing personality|외향적인 성격
-21-38|verbal|말의, 구두의|verbal communication|언어 소통
-21-38|liberate|해방하다, 자유롭게 하다|liberate slaves|노예를 해방하다
-21-38|academic|학문적인, 학구적인|academic achievement|학업 성취
-21-38|advance|나아가게 하다, 진척시키다, 전진, 증진|technological advance|기술적 진보
-21-38|contemplate|숙고하다, 응시하다|contemplate the future|미래를 숙고하다
-21-38|underlying|밑에 놓인, 근본적인|underlying cause|근본적인 원인
-21-38|segregation|인종 차별, 분리|racial segregation|인종 차별
-21-38|stem|생기다, 일어나다, 줄기, 대|stem from|~에서 기인하다
-21-38|irrigation|관개, 물 대기|irrigation system|관개 수로 시스템
-21-38|consecutive|연속적인, 일관된|consecutive days|연이은 날들
-21-38|superficial|표면상의, 피상적인|superficial knowledge|얕은 지식
-21-38|refuge|피난, 피난처|seek refuge|피난처를 찾다
-21-38|swear|맹세하다, 욕하다|swear to tell the truth|진실을 말할 것을 맹세하다
-21-38|allergy|알레르기|food allergy|식품 알레르기
-21-38|norm|규범, 기준, 표준|social norms|사회 규범
-21-38|endeavor|노력, 노력하다|endeavor to succeed|성공하려고 노력하다
-21-38|erect|세우다, 똑바로 선|erect a monument|기념비를 세우다
-21-38|feminine|여성의, 여성스러운|feminine voice|여성적인 목소리
-21-38|drowsy|졸리는|feel drowsy|졸음이 오다
-21-38|inspect|검사하다, 점검하다|inspect the car|차를 점검하다
-21-38|carriage|마차, 탈것|horse-drawn carriage|말이 끄는 마차
-21-38|primitive|원시의, 초기의, 미개의|primitive man|원시인
-21-38|compress|압축하다|compress air|공기를 압축하다
-21-38|steep|가파른, 경사가 급한|steep hill|가파른 언덕
-21-38|cemetery|공동묘지|national cemetery|국립 묘지
-21-38|transport|수송하다, 수송|public transport|대중교통
-21-38|exaggerate|과장하다, 과장해서 말하다|Don't exaggerate.|과장하지 마라.
-21-38|random|무작위의, 임의의|random choice|무작위 선택
-21-38|feast|즐겁게 하다, 축제, 잔치|wedding feast|결혼 잔치
-21-38|commemorate|기념하다|commemorate the day|그날을 기념하다
-21-38|govern|통치하다, 지배하다|govern a country|나라를 통치하다
-21-38|multitask|다중 작업을 하다|ability to multitask|멀티태스킹 능력
-21-38|toxic|유독한, 중독의|toxic waste|유독성 폐기물
-21-38|stare|응시하다, 노려보다|stare at|~을 빤히 쳐다보다
-21-38|chronic|만성적인, 장기간의|chronic disease|만성 질환
-21-38|designate|지정하다, 가리키다|designate a place|장소를 지정하다
-21-38|dramatic|연극의, 극적인|dramatic change|극적인 변화
-21-38|intense|강렬한|intense heat|강렬한 열기
-21-38|propaganda|선전 활동, 선전|political propaganda|정치 선전
+21-37|intriguing|(형) 아주 흥미로운|intriguing question|흥미로운 질문
+21-37|constrict|(동) 죄다, 위축시키다|Blood vessels [constrict].|혈관이 수축하다.
+21-37|bundle|(명) 묶음, 꾸러미|a bundle of wood|나무 한 묶음
+21-37|enclose|(동) 동봉하다, 에워싸다|enclose a check|수표를 동봉하다
+21-37|insert|(동) 삽입하다|insert a coin|동전을 넣다
+21-37|keen|(형) 날카로운, 예민한, 간절히 ~하고 싶은|keen sense of smell|예민한 후각
+21-37|restrain|(동) 억제하다, 구속하다|restrain anger|화를 억누르다
+21-37|aid|(동) 돕다 (명) 도움, 조력|first aid|응급 처치
+21-37|reputation|(명) 평판, 명성|good reputation|좋은 평판
+21-37|measurement|(명) 측정, 측량, 치수|accurate measurement|정확한 측정
+21-37|originate|(동) 시작되다, 비롯하다|originate from|~에서 유래하다
+21-37|flour|(명) 밀가루|wheat flour|밀가루
+21-37|manipulate|(동) 조종하다, 조작하다|manipulate public opinion|여론을 조작하다
+21-37|experiment|(명) 실험 (동) 실험하다|conduct an experiment|실험을 수행하다
+21-37|patriot|(명) 애국자|true patriot|진정한 애국자
+21-37|interchange|(명) 교환, 교차점 (동) 교환하다|interchange ideas|아이디어를 교환하다
+21-37|intuitive|(형) 직관적인, 직관에 의한|intuitive understanding|직관적인 이해
+21-37|garment|(명) 의복|cotton garment|면 의류
+21-37|spontaneous|(형) 자발적인, 자연히 일어나는|spontaneous reaction|자발적인 반응
+21-37|vertical|(형) 수직의|vertical line|수직선
+21-37|testify|(동) 검증하다, 증명하다, 증언하다|testify in court|법정에서 증언하다
+21-37|mentor|(명) 조언자|wise mentor|현명한 멘토
+21-37|vivid|(형) 생생한|vivid memory|생생한 기억
+21-37|pasture|(명) 목초지, 목장|green pasture|푸른 목초지
+21-37|crust|(명) 껍질, 지각|earth's crust|지각
+21-37|comprehend|(동) 이해하다, 포함하다|comprehend the meaning|의미를 이해하다
+21-37|plunge|(동) 뛰어들다, 던져 넣다|plunge into water|물속으로 뛰어들다
+21-37|nasty|(형) 더러운, 불쾌한|nasty smell|고약한 냄새
+21-37|appreciate|(동) 이해하다, 감상하다, 고맙게 생각하다|appreciate help|도움에 감사하다
+21-37|strip|(동) 박탈하다, 벗기다|strip off clothes|옷을 벗다
+21-37|deed|(명) 행위, 업적|good deed|선행
+21-37|skinny|(형) 피골이 상접한, 마른|skinny jeans|딱 붙는 청바지
+21-37|grill|(명) 석쇠 (동) 석쇠로 굽다, 심문하다|grill meat|고기를 굽다
+21-37|canal|(명) 수로, 운하|Suez Canal|수에즈 운하
+21-37|curse|(명) 저주 (동) 저주하다|under a curse|저주에 걸린
+21-37|adverse|(형) 거스르는, 반대의, 부정적인|adverse effect|역효과
+21-37|censorship|(명) 검열|media censorship|언론 검열
+21-37|leverage|(동) 이용하다 (명) 지레의 작용, 영향력|leverage technology|기술을 이용하다
+21-37|appetite|(명) 식욕, 욕망, 욕구|loss of appetite|식욕 부진
+21-37|flaw|(명) 결점, 흠|fatal flaw|치명적인 결점
 
 
 
-21-39|numerous|다수의, 수많은|numerous attempts|수많은 시도
-21-39|shiver|떨림, 떨다|shiver with cold|추위에 떨다
-21-39|retarded|발달이 뒤진|mentally retarded|지능 발달이 늦은
-21-39|belonging|소유물, 소지품|personal belongings|개인 소지품
-21-39|improvise|즉흥적으로 하다, 즉석에서 하다|improvise a speech|즉석 연설을 하다
-21-39|executive|집행의, 경영의, 임원, 경영진|chief executive officer|최고 경영자
-21-39|chaos|혼돈, 무질서|total chaos|대혼란
-21-39|microscope|현미경|electron microscope|전자 현미경
-21-39|ongoing|계속되는, 진행 중인|ongoing project|진행 중인 프로젝트
-21-39|vulnerable|취약한, 상처 입기 쉬운|vulnerable to attack|공격에 취약한
-21-39|implication|함축, 암시|political implication|정치적 함의
-21-39|alley|오솔길, 골목길|blind alley|막다른 골목
-21-39|authentic|진짜의, 진정한|authentic food|정통 음식
-21-39|compel|강요하다, ~하게 만들다|compel obedience|복종을 강요하다
-21-39|transition|변천, 과도기|transition period|과도기
-21-39|mobility|이동성, 가동성|social mobility|사회적 이동성
-21-39|incline|내키게 하다, 기울이다, 경사|incline to agree|동의하는 쪽으로 기울다
-21-39|attain|달성하다|attain a goal|목표를 달성하다
-21-39|innate|천부적인, 본질적인|innate ability|타고난 능력
-21-39|ingenuity|솜씨, 독창력|human ingenuity|인간의 독창성
-21-39|upset|마음이 상한, 당황한, 뒤엎다, 전복, 혼란|upset stomach|배탈
-21-39|stretch|늘이다, 뻗다, 신축성|stretch out|쭉 뻗다
-21-39|seize|붙잡다, 포착하다|seize the opportunity|기회를 잡다
-21-39|screw|나사, 나사로 고정하다|tighten a screw|나사를 조이다
-21-39|shelter|피난하다, 보호하다, 피난처|taking shelter|피난하다
-21-39|province|주, 분야, 영역|Gangwon Province|강원도
-21-39|coordinate|조정하다, 동등한|coordinate efforts|노력을 조정하다
-21-39|deficient|부족한, 불완전한|deficient in vitamins|비타민이 부족한
-21-39|privilege|특권, 특권을 주다|special privilege|특권
-21-39|preview|미리 보기, 예고편, 시사회|sneak preview|깜짝 시사회
-21-39|slogan|선전 문구, 슬로건|campaign slogan|선거 구호
-21-39|savage|야만적인, 잔인한, 야만인|savage beast|야수
-21-39|throughout|도처에, 처음부터 끝까지|throughout the world|전 세계 도처에
-21-39|outlaw|금지하다, 법적으로 무효화하다, 무법자|outlaw guns|총기를 불법화하다
-21-39|squeeze|짜내다|squeeze a lemon|레몬을 짜다
-21-39|breakthrough|비약적 발전, 돌파, 타개|scientific breakthrough|과학적 획기적 발견
-21-39|consent|동의, 허락, 동의하다|parental consent|부모의 동의
-21-39|orphan|고아|war orphan|전쟁 고아
-21-39|negotiate|협상하다|negotiate a deal|거래를 협상하다
-21-39|nuisance|귀찮은 사람, 성가신 것|public nuisance|공적 불법 방해
+21-38|outgoing|(형) 외향적인|outgoing personality|외향적인 성격
+21-38|verbal|(형) 말의, 구두의|verbal communication|언어 소통
+21-38|liberate|(동) 해방하다, 자유롭게 하다|liberate slaves|노예를 해방하다
+21-38|academic|(형) 학문적인, 학구적인|academic achievement|학업 성취
+21-38|advance|(동) 나아가게 하다, 진척시키다 (명) 전진, 증진|technological advance|기술적 진보
+21-38|contemplate|(동) 숙고하다, 응시하다|contemplate the future|미래를 숙고하다
+21-38|underlying|(형) 밑에 놓인, 근본적인|underlying cause|근본적인 원인
+21-38|segregation|(명) 인종 차별, 분리|racial segregation|인종 차별
+21-38|stem|(동) 생기다, 일어나다 (명) 줄기, 대|stem from|~에서 기인하다
+21-38|irrigation|(명) 관개, 물 대기|irrigation system|관개 수로 시스템
+21-38|consecutive|(형) 연속적인, 일관된|consecutive days|연이은 날들
+21-38|superficial|(형) 표면상의, 피상적인|superficial knowledge|얕은 지식
+21-38|refuge|(명) 피난, 피난처|seek refuge|피난처를 찾다
+21-38|swear|(동) 맹세하다, 욕하다|swear to tell the truth|진실을 말할 것을 맹세하다
+21-38|allergy|(명) 알레르기|food allergy|식품 알레르기
+21-38|norm|(명) 규범, 기준, 표준|social norms|사회 규범
+21-38|endeavor|(명) 노력 (동) 노력하다|endeavor to succeed|성공하려고 노력하다
+21-38|erect|(동) 세우다 (형) 똑바로 선|erect a monument|기념비를 세우다
+21-38|feminine|(형) 여성의, 여성스러운|feminine voice|여성적인 목소리
+21-38|drowsy|(형) 졸리는|feel drowsy|졸음이 오다
+21-38|inspect|(동) 검사하다, 점검하다|inspect the car|차를 점검하다
+21-38|carriage|(명) 마차, 탈것|horse-drawn carriage|말이 끄는 마차
+21-38|primitive|(형) 원시의, 초기의, 미개의|primitive man|원시인
+21-38|compress|(동) 압축하다|compress air|공기를 압축하다
+21-38|steep|(형) 가파른, 경사가 급한|steep hill|가파른 언덕
+21-38|cemetery|(명) 공동묘지|national cemetery|국립 묘지
+21-38|transport|(동) 수송하다 (명) 수송|public transport|대중교통
+21-38|exaggerate|(동) 과장하다, 과장해서 말하다|Don't exaggerate.|과장하지 마라.
+21-38|random|(형) 무작위의, 임의의|random choice|무작위 선택
+21-38|feast|(동) 즐겁게 하다 (명) 축제, 잔치|wedding feast|결혼 잔치
+21-38|commemorate|(동) 기념하다|commemorate the day|그날을 기념하다
+21-38|govern|(동) 통치하다, 지배하다|govern a country|나라를 통치하다
+21-38|multitask|(동) 다중 작업을 하다|ability to multitask|멀티태스킹 능력
+21-38|toxic|(형) 유독한, 중독의|toxic waste|유독성 폐기물
+21-38|stare|(동) 응시하다, 노려보다|stare at|~을 빤히 쳐다보다
+21-38|chronic|(형) 만성적인, 장기간의|chronic disease|만성 질환
+21-38|designate|(동) 지정하다, 가리키다|designate a place|장소를 지정하다
+21-38|dramatic|(형) 연극의, 극적인|dramatic change|극적인 변화
+21-38|intense|(형) 강렬한|intense heat|강렬한 열기
+21-38|propaganda|(명) 선전 활동, 선전|political propaganda|정치 선전
 
 
-21-40|recipe|조리법, 비법|recipe for success|성공의 비결
-21-40|deceive|속이다|deceive oneself|자신을 속이다
-21-40|sweep|휩쓸다, 청소하다|sweep the floor|바닥을 쓸다
-21-40|profile|옆모습, 인물 소개|low profile|저자세
-21-40|enterprise|기업, 사업|private enterprise|사기업
-21-40|successive|연속되는, 상속의|successive victories|연승
-21-40|paradox|역설, 패러독스|it is a paradox|그것은 역설이다
-21-40|surpass|능가하다|surpass expectations|기대를 뛰어넘다
-21-40|correlation|상관관계, 상호 관련|high correlation|높은 상관관계
-21-40|magnitude|거대함, 중요성, 진도|order of magnitude|자릿수
-21-40|aesthetics|미학|aesthetics of art|예술 미학
-21-40|earnest|진지한, 진심|earnest desire|간절한 소망
-21-40|tremble|떨다|tremble with fear|공포에 떨다
-21-40|slaughter|도살하다, 도살, 대학살|slaughter house|도살장
-21-40|surrender|넘겨주다, 포기하다, 항복하다|surrender to the enemy|적에게 항복하다
-21-40|philosophy|철학|moral philosophy|도덕 철학
-21-40|deplete|고갈시키다, 격감시키다|deplete resources|자원을 고갈시키다
-21-40|admire|감탄하다, 높이 평가하다|admire nature|자연에 감탄하다
-21-40|starvation|아사, 기아, 궁핍|die of starvation|굶어 죽다
-21-40|summon|소집하다, 소환하다|summon a witness|증인을 소환하다
-21-40|afford|~할 여유가 있다|can't afford to buy|살 여유가 없다
-21-40|blunt|무뚝뚝한, 퉁명스러운, 둔감한, 무딘|blunt knife|무딘 칼
-21-40|sprint|단거리 경주, 전력 질주, 전력 질주하다|sprint to the finish|결승선까지 전력 질주하다
-21-40|passerby|통행인, 지나가는 사람|innocent passerby|무고한 행인
-21-40|tense|팽팽한, 긴장한, 긴장시키다|tense atmosphere|긴장된 분위기
-21-40|boil|끓다, 삶다|water [boils]|물이 끓다
-21-40|timber|목재|timber industry|목재 산업
-21-40|collaborate|협력하다|collaborate with others|타인과 협력하다
-21-40|stance|서 있는 자세, 태도|political stance|정치적 입장
-21-40|blow|불다, 바람에 날리다|wind [blows]|바람이 분다
-21-40|ballot|투표, 투표용지, 투표하다|cast a ballot|투표하다
-21-40|resilience|회복력|mental resilience|정신적 회복력
-21-40|acquaintance|아는 사이, 교제|casual acquaintance|그냥 아는 사이
-21-40|amplify|확대하다, 증폭시키다|amplify sound|소리를 증폭하다
-21-40|contradict|부정하다, 반박하다, 모순하다|contradict oneself|자가당착에 빠지다
-21-40|burst|터지다, 터뜨리다, 꽉 차다, 파열, 폭발|burst into tears|왈칵 울음을 터뜨리다
-21-40|cast|내던지다, 보내다, 드리우다|cast a shadow|그림자를 드리우다
-21-40|falsify|잘못을 입증하다, 위조하다|falsify records|기록을 위조하다
-21-40|psychic|초능력이 있는, 초자연적인, 무당, 영매|psychic power|초능력
-21-40|paddle|노, 노를 젓다|paddle a canoe|카누의 노를 젓다
+21-39|numerous|(형) 다수의, 수많은|numerous attempts|수많은 시도
+21-39|shiver|(명) 떨림 (동) 떨다|shiver with cold|추위에 떨다
+21-39|retarded|(형) 발달이 뒤진|mentally retarded|지능 발달이 늦은
+21-39|belonging|(명) 소유물, 소지품|personal belongings|개인 소지품
+21-39|improvise|(동) 즉흥적으로 하다, 즉석에서 하다|improvise a speech|즉석 연설을 하다
+21-39|executive|(형) 집행의, 경영의 (명) 임원, 경영진|chief executive officer|최고 경영자
+21-39|chaos|(명) 혼돈, 무질서|total chaos|대혼란
+21-39|microscope|(명) 현미경|electron microscope|전자 현미경
+21-39|ongoing|(형) 계속되는, 진행 중인|ongoing project|진행 중인 프로젝트
+21-39|vulnerable|(형) 취약한, 상처 입기 쉬운|vulnerable to attack|공격에 취약한
+21-39|implication|(명) 함축, 암시|political implication|정치적 함의
+21-39|alley|(명) 오솔길, 골목길|blind alley|막다른 골목
+21-39|authentic|(형) 진짜의, 진정한|authentic food|정통 음식
+21-39|compel|(동) 강요하다, ~하게 만들다|compel obedience|복종을 강요하다
+21-39|transition|(명) 변천, 과도기|transition period|과도기
+21-39|mobility|(명) 이동성, 가동성|social mobility|사회적 이동성
+21-39|incline|(동) 내키게 하다, 기울이다 (명) 경사|incline to agree|동의하는 쪽으로 기울다
+21-39|attain|(동) 달성하다|attain a goal|목표를 달성하다
+21-39|innate|(형) 천부적인, 본질적인|innate ability|타고난 능력
+21-39|ingenuity|(명) 솜씨, 독창력|human ingenuity|인간의 독창성
+21-39|upset|(형) 마음이 상한, 당황한 (동) 뒤엎다 (명) 전복, 혼란|upset stomach|배탈
+21-39|stretch|(동) 늘이다, 뻗다 (명) 신축성|stretch out|쭉 뻗다
+21-39|seize|(동) 붙잡다, 포착하다|seize the opportunity|기회를 잡다
+21-39|screw|(명) 나사 (동) 나사로 고정하다|tighten a screw|나사를 조이다
+21-39|shelter|(동) 피난하다, 보호하다 (명) 피난처|taking shelter|피난하다
+21-39|province|(명) 주, 분야, 영역|Gangwon Province|강원도
+21-39|coordinate|(동) 조정하다 (형) 동등한|coordinate efforts|노력을 조정하다
+21-39|deficient|(형) 부족한, 불완전한|deficient in vitamins|비타민이 부족한
+21-39|privilege|(명) 특권 (동) 특권을 주다|special privilege|특권
+21-39|preview|(명) 미리 보기, 예고편, 시사회|sneak preview|깜짝 시사회
+21-39|slogan|(명) 선전 문구, 슬로건|campaign slogan|선거 구호
+21-39|savage|(형) 야만적인, 잔인한 (명) 야만인|savage beast|야수
+21-39|throughout|(부) 도처에, 처음부터 끝까지|throughout the world|전 세계 도처에
+21-39|outlaw|(동) 금지하다, 법적으로 무효화하다 (명) 무법자|outlaw guns|총기를 불법화하다
+21-39|squeeze|(동) 짜내다|squeeze a lemon|레몬을 짜다
+21-39|breakthrough|(명) 비약적 발전, 돌파, 타개|scientific breakthrough|과학적 획기적 발견
+21-39|consent|(명) 동의, 허락 (동) 동의하다|parental consent|부모의 동의
+21-39|orphan|(명) 고아|war orphan|전쟁 고아
+21-39|negotiate|(동) 협상하다|negotiate a deal|거래를 협상하다
+21-39|nuisance|(명) 귀찮은 사람, 성가신 것|public nuisance|공적 불법 방해
 
+
+21-40|recipe|(명) 조리법, 비법|recipe for success|성공의 비결
+21-40|deceive|(동) 속이다|deceive oneself|자신을 속이다
+21-40|sweep|(동) 휩쓸다, 청소하다|sweep the floor|바닥을 쓸다
+21-40|profile|(명) 옆모습, 인물 소개|low profile|저자세
+21-40|enterprise|(명) 기업, 사업|private enterprise|사기업
+21-40|successive|(형) 연속되는, 상속의|successive victories|연승
+21-40|paradox|(명) 역설, 패러독스|it is a paradox|그것은 역설이다
+21-40|surpass|(동) 능가하다|surpass expectations|기대를 뛰어넘다
+21-40|correlation|(명) 상관관계, 상호 관련|high correlation|높은 상관관계
+21-40|magnitude|(명) 거대함, 중요성, 진도|order of magnitude|자릿수
+21-40|aesthetics|(명) 미학|aesthetics of art|예술 미학
+21-40|earnest|(형) 진지한 (명) 진심|earnest desire|간절한 소망
+21-40|tremble|(동) 떨다|tremble with fear|공포에 떨다
+21-40|slaughter|(동) 도살하다 (명) 도살, 대학살|slaughter house|도살장
+21-40|surrender|(동) 넘겨주다, 포기하다, 항복하다|surrender to the enemy|적에게 항복하다
+21-40|philosophy|(명) 철학|moral philosophy|도덕 철학
+21-40|deplete|(동) 고갈시키다, 격감시키다|deplete resources|자원을 고갈시키다
+21-40|admire|(동) 감탄하다, 높이 평가하다|admire nature|자연에 감탄하다
+21-40|starvation|(명) 아사, 기아, 궁핍|die of starvation|굶어 죽다
+21-40|summon|(동) 소집하다, 소환하다|summon a witness|증인을 소환하다
+21-40|afford|(동) ~할 여유가 있다|can't afford to buy|살 여유가 없다
+21-40|blunt|(형) 무뚝뚝한, 퉁명스러운, 둔감한, 무딘|blunt knife|무딘 칼
+21-40|sprint|(명) 단거리 경주, 전력 질주 (동) 전력 질주하다|sprint to the finish|결승선까지 전력 질주하다
+21-40|passerby|(명) 통행인, 지나가는 사람|innocent passerby|무고한 행인
+21-40|tense|(형) 팽팽한, 긴장한 (동) 긴장시키다|tense atmosphere|긴장된 분위기
+21-40|boil|(동) 끓다, 삶다|Water [boils].|물이 끓다.
+21-40|timber|(명) 목재|timber industry|목재 산업
+21-40|collaborate|(동) 협력하다|collaborate with others|타인과 협력하다
+21-40|stance|(명) 서 있는 자세, 태도|political stance|정치적 입장
+21-40|blow|(동) 불다, 바람에 날리다|Wind [blows].|바람이 분다.
+21-40|ballot|(명) 투표, 투표용지 (동) 투표하다|cast a ballot|투표하다
+21-40|resilience|(명) 회복력|mental resilience|정신적 회복력
+21-40|acquaintance|(명) 아는 사이, 교제|casual acquaintance|그냥 아는 사이
+21-40|amplify|(동) 확대하다, 증폭시키다|amplify sound|소리를 증폭하다
+21-40|contradict|(동) 부정하다, 반박하다, 모순하다|contradict oneself|자가당착에 빠지다
+21-40|burst|(동) 터지다, 터뜨리다, 꽉 차다 (명) 파열, 폭발|burst into tears|왈칵 울음을 터뜨리다
+21-40|cast|(동) 내던지다, 보내다, 드리우다|cast a shadow|그림자를 드리우다
+21-40|falsify|(동) 잘못을 입증하다, 위조하다|falsify records|기록을 위조하다
+21-40|psychic|(형) 초능력이 있는, 초자연적인 (명) 무당, 영매|psychic power|초능력
+21-40|paddle|(명) 노 (동) 노를 젓다|paddle a canoe|카누의 노를 젓다
 
 
 23-1|evidence|(명) 증거, 흔적 (동) 입증하다|empirical evidence|실증적인 증거
@@ -9918,6 +9888,8 @@
 23-1|patience|(명) 인내, 참을성|lose one's patience|인내심을 잃다
 23-1|reveal|(동) 드러내다, 폭로하다|reveal the truth|진실을 드러내다
 
+
+
 23-2|healthcare|(명) 의료, 건강 관리 (형) 의료의|quality healthcare service|양질의 의료 서비스
 23-2|hardwired|(형) 타고나는, 내장된|hardwired human behavior|타고난 인간 행동
 23-2|self-esteem|(명) 자존감, 자부심|build high self-esteem|높은 자존감을 쌓다
@@ -9958,6 +9930,7 @@
 23-2|collaboration|(명) 협력, 공동 작업|international collaboration|국제적인 협력
 23-2|attentive|(형) 주의를 기울이는|attentive listener|경청하는 청취자
 23-2|condition|(명) 상태, 조건 (동) 조절하다|medical condition|의학적 상태
+
 
 23-3|entitle|(동) 자격을 주다, 제목을 붙이다|entitle to a refund|환불 자격을 주다
 23-3|souvenir|(명) 기념품, 선물|buy a souvenir|기념품을 사다
@@ -10000,6 +9973,7 @@
 23-3|merchant|(명) 상인|wealthy merchant|부유한 상인
 23-3|domesticate|(동) 길들이다, 가축화하다|domesticate farm animals|가축을 길들이다
 
+
 23-4|contrast|(동) 대조하다 (명) 대조|sharp contrast|뚜렷한 대조
 23-4|life expectancy|(명) 평균 수명|increase life expectancy|평균 수명을 늘리다
 23-4|relieved|(형) 안심한, 안도한|feel relieved|안도감을 느끼다
@@ -10040,6 +10014,7 @@
 23-4|takeoff|(명) 도약, 이륙|sudden takeoff|갑작스러운 이륙
 23-4|existence|(명) 존재, 실제|human existence|인간의 존재
 23-4|arrest|(동) 체포하다 (명) 체포|under arrest|체포된 상태
+
 
 23-5|time-consuming|(형) 시간이 걸리는, 시간을 낭비하는|time consuming task|시간이 많이 걸리는 과업
 23-5|simplify|(동) 단순화하다, 간단히 하다|simplify the process|과정을 단순화하다
@@ -10082,6 +10057,7 @@
 23-5|insurance|(명) 보험, 보호 수단|health insurance|의료 보험
 23-5|interpretation|(명) 해석, 해설, 통역|interpretation of text|텍스트의 해석
 
+
 23-6|economy|(명) 경제, 경제 활동|stable national economy|안정적인 국가 경제
 23-6|integrate|(동) 통합하다|integrate different cultures|서로 다른 문화를 통합하다
 23-6|emission|(명) 배출, 배기가스|carbon dioxide emission|이산화탄소 배출
@@ -10123,6 +10099,7 @@
 23-6|expenditure|(명) 지출, 경비|total annual expenditure|총 연간 지출
 23-6|academic|(형) 학업의, 학문의|academic achievement|학업 성취
 
+
 23-7|purify|(동) 정화하다, 정제하다|purify drinking water|음용수를 정화하다
 23-7|planet|(명) 행성|protect our planet|우리의 행성을 보호하다
 23-7|jury|(명) 배심원단, 심사위원단|member of the jury|배심원단의 일원
@@ -10163,11 +10140,12 @@
 23-7|solitary|(형) 혼자의, 고독한|solitary lifestyle|혼자 사는 생활 방식
 23-7|accommodation|(명) 숙박 시설, 합의|tourist accommodation|관광객 숙박 시설
 23-7|adore|(동) 흠모하다, 아주 좋아하다|adore children|아이들을 아주 좋아하다
+
 23-8|citizen|(명) 시민, 주민|good citizen|선량한 시민
 23-8|sacrifice|(동) 희생하다 (명) 희생|noble sacrifice|고귀한 희생
 23-8|crave|(동) 갈망하다, 열망하다|crave attention|관심을 갈망하다
 23-8|retailer|(명) 소매업자, 소매업|online retailer|온라인 소매업체
-23-8|behind the scenes|(부) 막후에서, 무대 뒤에서|work behind the scenes|막후에서 일하다
+23-8|behind the scenes|막후에서, 무대 뒤에서|work behind the scenes|막후에서 일하다
 23-8|starve|(동) 굶주리다, 굶어 죽다|starve for food|굶주림에 허덕이다
 23-8|confirmation|(명) 확인, 확증|booking confirmation|예약 확인
 23-8|thesis|(명) 논지, 논문|master's thesis|석사 논문
@@ -10203,6 +10181,8 @@
 23-8|crescent|(명) 초승달|crescent moon|초승달
 23-8|concrete|(형) 구체적인 (명) 콘크리트|concrete evidence|구체적인 증거
 23-8|flexibility|(명) 유연성, 융통성|psychological flexibility|심리적 유연성
+
+
 23-9|decision|(명) 결정, 판단|make a decision|결정을 내리다
 23-9|release|(동) 풀어 주다 (명) 방출|release energy|에너지를 방출하다
 23-9|mobile|(형) 이동성의, 모바일의|mobile phone|휴대전화
@@ -10243,6 +10223,8 @@
 23-9|boredom|(명) 지루함, 권태|relieve boredom|지루함을 달래다
 23-9|deliberate|(형) 고의의, 신중한|deliberate choice|신중한 선택
 23-9|temptation|(명) 유혹(물)|resist temptation|유혹에 저항하다
+
+
 23-10|tropical|(형) 열대성의, 열대 지방의|tropical rainforest|열대 우림
 23-10|preference|(명) 선호(도), 기호|consumer preference|소비자 선호
 23-10|crash|(동) 충돌하다 (명) 충돌|car crash|자동차 사고
@@ -10283,6 +10265,8 @@
 23-10|disgust|(명) 혐오 (동) 역겹게 하다|feel deep disgust|깊은 혐오를 느끼다
 23-10|luggage|(명) 짐, 수하물|carry luggage|짐을 옮기다
 23-10|deforestation|(명) 삼림 벌채, 산림 파괴|prevent deforestation|산림 파괴를 막다
+
+
 23-11|stimulate|(동) 자극하다, 활발하게 하다|stimulate growth|성장을 자극하다
 23-11|ritual|(명) 의식, 제식|daily ritual|매일의 의례
 23-11|embassy|(명) 대사관|visit the embassy|대사관을 방문하다
@@ -10311,18 +10295,21 @@
 23-11|flourish|(동) 번성하다, 성장하다|arts flourish|예술이 번창하다
 23-11|feasible|(형) 실현 가능한|feasible plan|실행 가능한 계획
 23-11|evacuation|(명) 대피, 피난|emergency evacuation|비상 대피
-23-11|duplicate|(동) 복제하다 (명) 사본|duplicate the file|ファイルを 복사하다
+23-11|duplicate|(동) 복제하다 (명) 사본|duplicate the file|파일을 복사하다
 23-11|deterioration|(명) 악화, 저하|economic deterioration|경제적 악화
 23-11|deadly|(형) 치명적인|deadly weapon|치명적인 무기
 23-11|entail|(동) 수반하다, 필요로 하다|entail risks|위험을 수반하다
 23-11|complement|(동) 보완하다 (명) 보완물|complement each other|서로 보완하다
-23-11|cause and effect|(명) 원인과 결과|law of cause and effect|원인과 결과의 법칙
+23-11|cause and effect|원인과 결과|law of cause and effect|원인과 결과의 법칙
 23-11|comprehend|(동) 이해하다, 파악하다|fully comprehend|완전히 이해하다
 23-11|acceptable|(형) 용인되는|socially acceptable|사회적으로 용인되는
 23-11|surveillance|(명) 감시, 감독|mass surveillance|대중 감시
 23-11|boost|(동) 촉진하다, 밀어 올리다|boost confidence|자신감을 높이다
 23-11|focal|(형) 초점의|focal point|초점
 23-11|Antarctica|(명) 남극 대륙|expedition to Antarctica|남극 탐험
+
+
+
 23-12|distance|(명) 거리, 간격|long distance|먼 거리
 23-12|financial|(형) 재정의, 금융의|financial crisis|금융 위기
 23-12|demonstrate|(동) 보여 주다, 입증하다|demonstrate skills|기술을 보여 주다
@@ -10334,7 +10321,7 @@
 23-12|refuge|(명) 피난처, 쉼터|seek refuge|피난처를 구하다
 23-12|ego|(명) 자아|fragile ego|연약한 자아
 23-12|criminal|(명) 범죄자 (형) 범죄의|criminal record|범죄 기록
-23-12|tug|(동) 잡아당기다|tug of war|줄다리기
+23-12|tug of war|줄다리기|tug of war|줄다리기
 23-12|debit card|(명) 직불카드|pay by debit card|직불카드로 결제하다
 23-12|mature|(형) 성숙한 (동) 성숙하다|mature behavior|성숙한 행동
 23-12|dependence|(명) 의존(성), 의지|psychological dependence|심리적 의존
@@ -10363,6 +10350,7 @@
 23-12|casual|(형) 무심한, 평상시의|casual clothes|평상복
 23-12|aviation|(명) 항공(술)|civil aviation|민간 항공
 23-12|democratic|(형) 민주적인|democratic society|민주주의 사회
+
 23-13|interaction|(명) 상호 작용[영향]|social interaction|사회적 상호작용
 23-13|eco-friendly|(형) 환경 친화적인|eco-friendly products|친환경 제품
 23-13|parliament|(명) 의회, 국회|member of parliament|국회 의원
@@ -10403,6 +10391,11 @@
 23-13|sovereign|(형) 주권이 있는 (명) 군주|sovereign nation|주권 국가
 23-13|stubborn|(형) 완고한, 고집 센|stubborn resistance|완강한 저항
 23-13|contestant|(명) 참가자, 경기자|contest contestant|대회 참가자
+
+
+
+
+
 23-14|organization|(명) 조직(체), 단체|international organization|국제 기구
 23-14|inevitable|(형) 불가피한, 필연적인|inevitable result|필연적인 결과
 23-14|disguise|(동) 변장하다, 숨기다|disguise the truth|진실을 숨기다
@@ -10443,6 +10436,9 @@
 23-14|imprint|(동) 각인시키다 (명) 각인|leave an imprint|자국을 남기다
 23-14|allocate|(동) 배당하다, 할당하다|allocate resources|자원을 할당하다
 23-14|notice|(명) 공지, 알림 (동) 깨닫다|short notice|갑작스러운 통보
+
+
+
 23-15|origin|(명) 기원, 근원|country of origin|원산지
 23-15|neglect|(동) 방치하다, 무시하다|neglect duties|의무를 소홀히 하다
 23-15|perpetual|(형) 끊임없이 계속되는|perpetual motion|무한 동력
@@ -10483,6 +10479,9 @@
 23-15|Celsius|(형) 섭씨의|degrees Celsius|섭씨 온도
 23-15|specify|(동) 구체화하다, 명시하다|specify the conditions|조건을 명시하다
 23-15|approval|(명) 승인, 허가|official approval|공식 승인
+
+
+
 
 23-16|typical|(형) 전형적인, 일반적인|typical example|전형적인 예
 23-16|circumstance|(명) 환경, 상황|under any circumstances|어떤 상황에서도
@@ -10648,6 +10647,8 @@
 23-19|blow up|(동) 폭파하다, 화내다|blow up a balloon|풍선을 불다
 23-19|break down|(동) 고장나다, 분해하다|break down food|음식을 분해하다
 23-20|slip into|(동) 들어가다|slip into the room|방으로 살짝 들어가다
+
+
 23-20|lie in|(동) ~에 있다|beauty lies in simplicity|아름다움은 단순함에 있다
 23-20|be obliged to|(동) 하는 수 없이 ~하다|be obliged to follow|따를 수밖에 없다
 23-20|take charge of|(동) ~을 떠맡다|take charge of project|프로젝트를 맡다
@@ -10687,6 +10688,8 @@
 23-20|hit upon|(동) 생각해내다|hit upon a solution|해결책을 생각해내다
 23-20|catch up with|(동) 따라잡다|catch up with trends|유행을 따라잡다
 23-20|at odds with|(부) ~와 불화하여|at odds with reality|현실과 상충하는
+
+
 23-21|derive|(동) 끌어내다, 유래하다|derive from nature|자연에서 유래하다
 23-21|depression|(명) 우울증, 불경기|economic depression|경제 불황
 23-21|definite|(형) 분명한, 확실한|definite answer|확실한 대답
@@ -10727,6 +10730,8 @@
 23-21|transaction|(명) 거래|financial transaction|금융 거래
 23-21|activate|(동) 활성화하다|activate the system|시스템을 가동하다
 23-21|colonize|(동) 식민지로 만들다|colonize Mars|화성을 식민지화하다
+
+
 23-22|cultivate|(동) 경작하다, 기르다|cultivate the soil|땅을 경작하다
 23-22|agriculture|(명) 농업, 농사|modern agriculture|현대 농업
 23-22|submit|(동) 제출하다, 복종하다|submit the paper|논문을 제출하다
@@ -10758,6 +10763,8 @@
 23-22|overflow|(동) 넘치다 (명) 범람|overflow with joy|기쁨으로 넘치다
 23-22|overstate|(동) 과장하다|overstate the facts|사실을 과장하다
 23-22|overlap|(동) 겹치다 (명) 중복|overlap in time|시간이 겹치다
+
+
 23-23|common|(형) 흔한, 공통의|common interest|공통의 관심사
 23-23|combine|(동) 결합하다|combine the forces|힘을 합치다
 23-23|commercial|(형) 상업의 (명) 광고|commercial purpose|상업적 목적
@@ -10796,6 +10803,8 @@
 23-23|infect|(동) 감염시키다|infect with virus|바이러스로 감염시키다
 23-23|invest|(동) 투자하다|invest money|돈을 투자하다
 23-23|innovate|(동) 혁신하다|innovate the industry|산업을 혁신하다
+
+
 23-24|surface|(명) 표면 (동) 나타나다|smooth surface|매끄러운 표면
 23-24|superior|(형) 우수한, 뛰어난|superior quality|우수한 품질
 23-24|superficial|(형) 피상적인|superficial knowledge|피상적인 지식
@@ -10832,6 +10841,8 @@
 23-24|geography|(명) 지리학, 지형|physical geography|자연 지리학
 23-24|geometry|(명) 기하학|basic geometry|기초 기하학
 23-24|geology|(명) 지질학|study of geology|지질학 연구
+
+
 23-25|preserve|(동) 보존하다, 지키다|preserve nature|자연을 보존하다
 23-25|predict|(동) 예언하다, 예보하다|predict the future|미래를 예측하다
 23-25|presence|(명) 존재, 출석|physical presence|실제 존재
@@ -10867,6 +10878,8 @@
 23-25|universal|(형) 보편적인|universal truth|보편적 진리
 23-25|union|(명) 결합, 조합|labor union|노동 조합
 23-25|reunion|(명) 재회, 동창회|family reunion|가족 모임
+
+
 23-26|influence|(명) 영향 (동) 영향을 미치다|under the influence|영향을 받는
 23-26|fluid|(명) 액체 (형) 유동적인|fluid motion|부드러운 움직임
 23-26|fluctuate|(동) 변동하다|fluctuate wildly|심하게 변동하다
@@ -10904,6 +10917,8 @@
 23-26|artwork|(명) 미술품|valuable artwork|가치 있는 예술품
 23-26|artistic|(형) 예술의, 예술적인|artistic talent|예술적 재능
 23-26|artifact|(명) 인공물, 인공 유물|ancient artifact|고대 유물
+
+
 23-27|share|(동) 공유하다 (명) 몫|share ideas|아이디어를 공유하다
 23-27|object|(명) 물건, 목적 (동) 반대하다|object to the plan|계획에 반대하다
 23-27|practice|(명) 연습, 관행 (동) 실행하다|common practice|일반적인 관행
@@ -10936,6 +10951,8 @@
 23-27|compliance|(명) 승낙, 준수|strict compliance|엄격한 준수
 23-27|withdraw|(동) 빼내다, 인출하다|withdraw cash|현금을 인출하다
 23-27|withstand|(동) 견디다, 저항하다|withstand heat|열을 견디다
+
+
 23-28|feature|(명) 특징 (동) 특징으로 하다|main feature|주요 특징
 23-28|direct|(동) 향하다, 지휘하다|direct flight|직항편
 23-28|matter|(명) 문제, 물질 (동) 중요하다|no matter what|무슨 일이 있어도
@@ -10968,6 +10985,8 @@
 23-28|resume|(동) 재개하다, 되찾다|resume the game|경기를 재개하다
 23-28|extrovert|(명) 외향적인 사람|extrovert personality|외향적 성격
 23-28|introvert|(명) 내성적인 사람|introvert student|내성적인 학생
+
+
 23-29|character|(명) 성질, 특성, 인물|main character|주인공
 23-29|appreciate|(동) 감사하다, 감상하다|appreciate the help|도움에 감사하다
 23-29|party|(명) 모임, 정당, 당사자|political party|정당
@@ -11000,6 +11019,8 @@
 23-29|reverse|(동) 뒤집다 (형) 반대의|reverse the decision|결정을 뒤집다
 23-29|explosion|(명) 폭발, 폭발적 증가|population explosion|인구 폭발
 23-29|expansion|(명) 팽창, 확장|business expansion|사업 확장
+
+
 23-30|save|(동) 구하다, 모으다, 저장하다|save the data|데이터를 저장하다
 23-30|figure|(명) 수치, 인물, 도표|public figure|공인
 23-30|measure|(동) 측정하다 (명) 수단, 척도|take measures|조치를 취하다
