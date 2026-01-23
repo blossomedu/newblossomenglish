@@ -651,7 +651,7 @@
     });
 
     setProgress(Math.min(quizPos + 1, wordCount), wordCount);
-    if (type === "listening") speakWordTwice(item.word, null);
+    if (type === "listening") { const u = new SpeechSynthesisUtterance(item.word); u.voice = getEnglishVoice(); window.speechSynthesis.speak(u); }
 
     answerTimer = setTimeout(function () {
       if (centerArea.dataset.answered === "false") {
@@ -824,6 +824,7 @@
 </script>
 </body>
 </html>
+
 
 
 
