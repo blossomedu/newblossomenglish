@@ -497,16 +497,15 @@
     if (!voices || !voices.length) return null;
     const enVoices = voices.filter(v => v.lang && v.lang.toLowerCase().indexOf("en") === 0);
     if (!enVoices.length) return null;
-    / ✅ 아이폰 고품질 음성 우선순위 재배치
-  const preferred = ["Samantha", "Siri", "Alex", "Google US English", "Daniel"];
-  
-  for (let name of preferred) {
-    // 'Enhanced'나 'Premium' 버전이 있다면 그것부터 선택
-    const found = enVoices.find(v => v.name.includes(name) && v.name.includes("Enhanced")) || 
-                  enVoices.find(v => v.name.includes(name));
-    if (found) return found;
-  }
-  return enVoices[0];
+    // ✅ 아이폰 고품질 음성 및 Siri 우선순위 재배치
+    const preferred = ["Samantha", "Siri", "Alex", "Google US English", "Daniel"];
+    
+    for (let name of preferred) {
+      const found = enVoices.find(v => v.name.includes(name) && (v.name.includes("Enhanced") || v.name.includes("Premium"))) || 
+                    enVoices.find(v => v.name.includes(name));
+      if (found) return found;
+    }
+    return enVoices[0];
 }
   function speakWordTwice(word, cb) {
     const synth = window.speechSynthesis;
@@ -828,6 +827,7 @@
 </script>
 </body>
 </html>
+
 
 
 
