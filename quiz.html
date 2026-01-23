@@ -548,12 +548,21 @@
       '<div class="example-ko">' + item.exampleKo + "</div>";
     setProgress(currentIndex + 1, wordCount);
 
-    speakWordTwice(item.word, function () {
+    const u = new SpeechSynthesisUtterance(item.word);
+    u.voice = getEnglishVoice(); u.rate = 0.8; u.lang = "en-US";
+
+    u.onend = function() {
       if (currentMode !== "study") return;
-      currentIndex = (currentIndex + 1) % wordCount;
-      renderStudy();
-    });
-  }
+      setTimeout(function() {
+        if (currentMode !== "study") return; 
+        currentIndex = (currentIndex + 1) % wordCount;
+        renderStudy();
+      }, 2000); // 2초 포즈
+    };
+
+    window.speechSynthesis.cancel();
+    setTimeout(() => { window.speechSynthesis.speak(u); }, 100);
+  } // 함수가 여기서 끝남
 
   function formatChoiceText(txt) {
     const MAX_LEN = 9;
@@ -805,6 +814,7 @@
 </script>
 </body>
 </html>
+
 
 
 
