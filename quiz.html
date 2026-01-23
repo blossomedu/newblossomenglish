@@ -497,18 +497,13 @@
     if (!voices || !voices.length) return null;
     const enVoices = voices.filter(v => v.lang && v.lang.toLowerCase().indexOf("en") === 0);
     if (!enVoices.length) return null;
-
-    // ✅ 아이폰 고품질 음성 및 Siri 우선순위 재배치
-    const preferred = ["Samantha", "Siri", "Alex", "Google US English", "Daniel"];
-    
-    for (let name of preferred) {
-      const found = enVoices.find(v => v.name.includes(name) && (v.name.includes("Enhanced") || v.name.includes("Premium"))) || 
-                    enVoices.find(v => v.name.includes(name));
+    const preferredNames = ["Samantha", "Alex", "Daniel", "Karen", "Moira", "Google US English"];
+    for (let i = 0; i < preferredNames.length; i++) {
+      const found = enVoices.find(v => v.name.indexOf(preferredNames[i]) !== -1);
       if (found) return found;
     }
     return enVoices[0];
-  } // 함수 끝 중괄호 확인!
-  
+  }
   function speakWordTwice(word, cb) {
     const synth = window.speechSynthesis;
     if (!synth) { if (cb) cb(); return; }
@@ -521,7 +516,7 @@
     if (voice) { u1.voice = voice; u2.voice = voice; }
     u1.rate = 0.8; u2.rate = 0.8;
 
-    u1.onend = function () { setTimeout(() => { try { synth.speak(u2); } catch (e) { if (cb) cb(); } }, 4000); };
+    u1.onend = function () { setTimeout(() => { try { synth.speak(u2); } catch (e) { if (cb) cb(); } }, 2000); };
     u2.onend = function () { if (cb) cb(); };
     try { synth.speak(u1); } catch (e) { if (cb) cb(); }
   }
@@ -553,23 +548,13 @@
       '<div class="example-ko">' + item.exampleKo + "</div>";
     setProgress(currentIndex + 1, wordCount);
 
-  // 1. 목소리 설정 및 딱 한 번 읽기 실행
-  const u = new SpeechSynthesisUtterance(item.word);
-  u.voice = getEnglishVoice(); u.rate = 0.8;
-  speechSynthesis.cancel();
-  speechSynthesis.speak(u);
-
-  // 2. 읽기가 끝나면(onend) 포즈를 취한 뒤 다음 단어로 이동
-  u.onend = function() {
-    if (currentMode !== "study") return;
-    
-    setTimeout(function() {
-      if (currentMode !== "study") return; 
+    speakWordTwice(item.word, function () {
+      if (currentMode !== "study") return;
       currentIndex = (currentIndex + 1) % wordCount;
       renderStudy();
-    }, 2000); // ◀ 이 2000이 단어 사이의 포즈(2초)입니다.
-  };
-}
+    });
+  }
+
   function formatChoiceText(txt) {
     const MAX_LEN = 9;
     if (txt.length < MAX_LEN) return txt;
@@ -647,13 +632,7 @@
     });
 
     setProgress(Math.min(quizPos + 1, wordCount), wordCount);
-    
-    if (type === "listening") {
-      const u = new SpeechSynthesisUtterance(item.word);
-      u.voice = getEnglishVoice(); u.rate = 0.8;
-      speechSynthesis.cancel();
-      speechSynthesis.speak(u);
-    }
+    if (type === "listening") speakWordTwice(item.word, null);
 
     answerTimer = setTimeout(function () {
       if (centerArea.dataset.answered === "false") {
@@ -662,7 +641,7 @@
       }
     }, 13000);
   }
-  
+
   // ▼▼▼ [수정된 함수] 자동 함수 제거하고, 오직 { } 수동 체크 + 단순 단어 체크만 수행 ▼▼▼
   function renderSentenceQuiz() {
     stopSpeech();
@@ -829,13 +808,6 @@
 </script>
 </body>
 </html>
-
-
-
-
-
-
-
 
 
 
