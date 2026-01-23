@@ -494,19 +494,17 @@
     const synth = window.speechSynthesis;
     if (!synth) return null;
     
-    // 1. 목록이 비어있다면 즉시 다시 가져오기 시도 (소리 안 나는 문제 해결)
+    // ✅ 1. 목록이 비어있다면 즉시 다시 가져오기 시도 (소리 안 나는 문제 해결 핵심)
     let voices = synth.getVoices();
     if (!voices || voices.length === 0) voices = synth.getVoices();
     
     if (!voices || !voices.length) return null;
     
-    // 2. 영어 음성 필터링
+    // ✅ 2. 영어 음성 필터링
     const enVoices = voices.filter(v => v.lang && v.lang.toLowerCase().indexOf("en") === 0);
-    
-    // 3. 만약 영어가 아직 안 불려왔다면? 아무 목소리나 리턴해서 에러 방지 (소리는 나게 함)
-    if (!enVoices.length) return voices[0]; 
+    if (!enVoices.length) return voices[0]; // 영어가 아직 안 불려왔으면 아무거나라도 리턴
 
-    // 4. 아이폰/맥 고품질 음성 및 Siri 우선순위 재배치
+    // ✅ 3. 아이폰 고품질 음성 및 Siri 우선순위 재배치
     const preferred = ["Samantha", "Siri", "Alex", "Google US English", "Daniel"];
     for (let name of preferred) {
       // 'Enhanced'나 'Premium' 버전이 있다면 그것부터, 없으면 일반 버전 선택
@@ -826,6 +824,7 @@
 </script>
 </body>
 </html>
+
 
 
 
