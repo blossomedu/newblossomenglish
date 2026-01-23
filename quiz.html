@@ -516,7 +516,7 @@
     if (voice) { u1.voice = voice; u2.voice = voice; }
     u1.rate = 0.8; u2.rate = 0.8;
 
-    u1.onend = function () { setTimeout(() => { try { synth.speak(u2); } catch (e) { if (cb) cb(); } }, 2000); };
+    u1.onend = function () { if (cb) cb(); };
     u2.onend = function () { if (cb) cb(); };
     try { synth.speak(u1); } catch (e) { if (cb) cb(); }
   }
@@ -655,29 +655,29 @@
     let displaySentence = "";
     let manualAnswer = null; 
 
-  // 1. 수동 지정 체크 ([...] 모두 감지)
-  // 대괄호 [ ]를 찾기 위해 역슬래시(\)를 붙인 정규식으로 수정했습니다.
-  const manualMatches = [...item.exampleEn.matchAll(/\[(.*?)\]/g)];
+  // 1. 수동 지정 체크 ({...} 모두 감지)
+    const manualMatches = [...item.exampleEn.matchAll(/\{(.*?)\}/g)];
 
-  if (manualMatches.length > 0) {
-    // ✅ 모든 대괄호 안의 텍스트를 공백 한 칸으로 합쳐서 하나의 정답으로 만듦
-    manualAnswer = manualMatches.map(m => m[1].trim()).join(" "); 
-    
-    // 모든 [내용]을 밑줄로 교체
-    displaySentence = item.exampleEn.replace(/\[.*?\]/g, 
-      '<span style="display:inline-block; border-bottom: 2px solid #333; min-width: 50px; text-align:center; color: transparent; user-select: none;">______</span>'
-    );
-  } else {
-    // 🤖 자동 모드 (Fallback): [ ]가 없으면 기존처럼 단어를 찾아서 빈칸 생성
-    const regex = new RegExp(item.word, "gi");
-    if (regex.test(item.exampleEn)) {
-        displaySentence = item.exampleEn.replace(regex, 
-          '<span style="border-bottom:2px solid #333;color:transparent;user-select:none;">______</span>'
-        );
+    if (manualMatches.length > 0) {
+      // ✅ 모든 중괄호 안의 텍스트를 공백 한 칸으로 합쳐서 하나의 정답으로 만듦
+      manualAnswer = manualMatches.map(m => m[1].trim()).join(" "); 
+      
+      // 모든 {내용}을 밑줄로 교체
+      displaySentence = item.exampleEn.replace(/\{.*?\}/g, 
+        '<span style="display:inline-block; border-bottom: 2px solid #333; min-width: 50px; text-align:center; color: transparent; user-select: none;">______</span>'
+      );
     } else {
-        displaySentence = item.exampleEn;
+      // 🤖 자동 모드 (Fallback): { }가 없으면 그냥 단어를 찾아서 빈칸으로 (기본 기능)
+      const regex = new RegExp(item.word, "gi");
+      if (regex.test(item.exampleEn)) {
+          displaySentence = item.exampleEn.replace(regex, 
+            '<span style="border-bottom:2px solid #333;color:transparent;user-select:none;">______</span>'
+          );
+      } else {
+          // 단어도 못 찾고 { }도 없으면 -> 그냥 문장 통째로 보여줌 (혹은 경고)
+          displaySentence = item.exampleEn;
+      }
     }
-  }
 
     centerArea.classList.add("sentence-mode");
     centerArea.innerHTML =
@@ -746,15 +746,12 @@
             renderSentenceQuiz(); 
         }, 900);
       } else {
-       input.style.borderColor = "#f97373";
-
-        // ✅ manualAnswer(수동 정답)가 있으면 그것의 첫 글자, 없으면 표제어의 첫 글자만 추출
-        const targetForHint = manualAnswer || item.word;
-        const firstChar = targetForHint.trim().charAt(0);
-        
-        // 정답(item.word) 대신 첫 글자 힌트만 보여줌
-        hint.textContent = `힌트: "${firstChar}"로 시작`;
-        
+        input.style.borderColor = "#f97373";
+        if (manualAnswer) {
+           hint.textContent = `힌트: ${item.word}`;
+        } else {
+           hint.textContent = `힌트: "${item.word.charAt(0)}"로 시작`;
+        }
         res.textContent = "다시 해보세요.";
       }
     }
@@ -808,9 +805,6 @@
 </script>
 </body>
 </html>
-
-
-
 
 
 
