@@ -1881,8 +1881,8 @@
 5-40|castle|[명] 성|old castle|오래된 성
 5-40|fasten|[동] 고정하다|fasten seatbelt|안전벨트를 매다
 5-40|Christmas|[명] 크리스마스|on Christmas|크리스마스에
-5-40|bored|[형] 지루한|feel bored|지루함을 느끼다
-5-40|boring|[형] 지루한|boring class|지루한 수업
+5-40|bored|[형] 지루한, 심심한|I feel bored|나는 심심해.
+5-40|boring|[형] 지루하게 하는|a boring class|지루한 수업
 5-40|error|[명] 오류|make an error|실수를 하다
 5-40|mirror|[명] 거울|look in the mirror|거울을 보다
 5-40|eight|[명] 8|eight apples|사과 8개
@@ -11062,6 +11062,7 @@
   window.WORD_DB = buildDB(RAW_WORDS);
 
 })();
+
 
 
 
