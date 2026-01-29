@@ -1336,21 +1336,6 @@
 5-4|carrot|[명] 당근|Rabbits like carrots.|토끼들은 당근을 좋아해.
 5-4|parrot|[명] 앵무새|a colorful parrot|알록달록한 앵무새
 
-5-4|for|[전] ~을 위한, ~로|for you|너를 위해
-5-4|fork|[명] 포크|a fork and a knife|포크와 나이프
-5-4|pork|[명] 돼지고기|pork and beef|돼지고기와 소고기
-5-4|sport|[명] 운동, 스포츠|I like sports.|나는 스포츠를 좋아해.
-5-4|short|[형] 작은, 짧은|He's short.|그는 키가 작아.
-5-4|star|[명] 별|Look at the stars!|별들을 봐!
-5-4|start|[동] 시작하다 [명] 출발|Let's start.|시작하자.
-5-4|part|[명] 부분, 부품|important parts|중요한 부분들
-5-4|party|[명] 파티|have a fun party|즐거운 파티를 하다
-5-4|park|[명] 공원|go to the park|공원에 가다
-5-4|dark|[형] 어두운|It's dark at night.|밤에는 어두워.
-5-4|mark|[명] 표시 [동] 표시하다|I marked important parts.|나는 중요한 부분을 표시했다.
-5-4|carrot|[명] 당근|Rabbits like carrots.|토끼들은 당근을 좋아해.
-5-4|parrot|[명] 앵무새|a colorful parrot|알록달록한 앵무새
-
 5-5|size|[명] 크기, 사이즈|a big size|큰 크기
 5-5|prize|[명] 상(품)|I won a prize.|나는 상을 받았다.
 5-5|wise|[형] 현명한|He's wise and kind.|그는 지혜롭고 친절해.
@@ -11062,6 +11047,7 @@
   window.WORD_DB = buildDB(RAW_WORDS);
 
 })();
+
 
 
 
