@@ -1979,6 +1979,7 @@
 5-47|remember|[동] 기억하다|remember the rule|규칙을 기억하다
 5-47|wonderful|[형] 멋진|wonderful day|멋진 하루
 5-47|beautiful|[형] 아름다운|beautiful flower|아름다운 꽃
+5-47|beauty|[명] 아름다움, 미 |the beauty and the beast|미녀와 야수
 
 5-48|twice|[부] 두 번|twice a week|일주일에 두 번
 5-48|price|[명] 가격|high price|높은 가격
@@ -11047,6 +11048,7 @@
   window.WORD_DB = buildDB(RAW_WORDS);
 
 })();
+
 
 
 
