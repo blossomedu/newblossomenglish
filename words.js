@@ -5279,7 +5279,7 @@
 13-22|pebble|조약돌, 자갈|Smooth pebble.|매끄러운 조약돌.
 13-22|expose|노출하다|Don't expose to sun.|햇볕에 노출하지 마라.
 13-22|all day long|하루 종일|Play all day long.|하루 종일 놀다.
-13-22|look forward to ing|~을 고대하다, 손꼽아 기다리다|I look forward to seeing you.|너를 보기를 고대한다.
+13-22|look forward to ing|~을 고대하다, 손꼽아 기다리다|I {look forward to} seeing you.|너를 보기를 고대한다.
 13-22|throw away|(쓰레기 등을) 버리다, (기회 등을) 놓치다, 날리다|Throw away trash.|쓰레기를 버려라.
 
 13-23|festival|축제|Music festival.|음악 축제.
