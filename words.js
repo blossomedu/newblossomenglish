@@ -11041,109 +11041,108 @@
 23-30|consequent|(형) 결과로 일어나는|consequent loss|그 결과로 생긴 손실
 
 
-잠신중 1-1	a lot	많이
-잠신중 1-1	always	(부) 항상, 언제나
-잠신중 1-1	active	(형) 활동적인
-잠신중 1-1	character	(명) (책, 영화 등의) 등장인물
-잠신중 1-1	clearly	(부) 분명히, 또렷하게
-잠신중 1-1	club	(명) 동아리, 동호회
-잠신중 1-1	common	(형) 공통의, 공동의 
-잠신중 1-1	conversation	(명) 대화
-잠신중 1-1	cotton candy	(명) 솜사탕
-잠신중 1-1	creative	(형) 창의적인 
-잠신중 1-1	draw	(동) (그림을) 그리다
-잠신중 1-1	during	(전) ~동안, ~하는 중에
-잠신중 1-1	easily	(부) 쉽게
-잠신중 1-1	enjoy	(동) 즐기다
-잠신중 1-1	everything	(대) 모든 것
-잠신중 1-1	friendly	(형) 친절한
-잠신중 1-1	glass	(명) 유리
-잠신중 1-1	honest	(형) 정직한
-잠신중 1-1	horror	(명) 공포
-잠신중 1-1	honeybee	(명) 꿀벌
-잠신중 1-1	interesting	(형) 재미있는, 흥미로운
-잠신중 1-1	introduce	(동) 소개하다
-잠신중 1-1	lie	(동) 거짓말하다 (명) 거짓말
-잠신중 1-1	liar	(명) 거짓말쟁이
-잠신중 1-1	like	(동) 좋아하다 (전) ~처럼, ~같은
-잠신중 1-1	never	(부) 결코[절대] ~않다
-잠신중 1-1	other	(대) 다른 사람[것]
-잠신중 1-1	poster	(명) 포스터
-잠신중 1-1	patient	(형) 참을성[인내심] 있는
-잠신중 1-1	perfect	(형) 완벽한
-잠신중 1-1	really	(부) 정말로, 아주
-잠신중 1-1	smart	(형) 똑똑한, 영리한
-잠신중 1-1	share	(동) 공유하다, 나누다
-잠신중 1-1	sweet	(형) 달콤한; 상냥한, (명) 단것
-잠신중 1-1	sometimes	(부) 때때로, 가끔
-잠신중 1-1	then	(부) 그러면; 그 다음에
-잠신중 1-1	thought	(명) 생각, 사고
-잠신중 1-1	together	(부) 함께, 같이
-잠신중 1-1	turtle	(명) 바다거북
-잠신중 1-1	worry	(동) 걱정하다 (명) 걱정(거리)
-잠신중 1-1	do one's best	최선을 다하다
-잠신중 1-1	in harmony with	~와 조화[협조]하여
-잠신중 1-1	characterize	(동) ~의 특징이 되다, 특징짓다
-잠신중 1-1	energetic	(형) 활기 있는, 활동적인
-잠신중 1-1	participation	(명) 참여, 참가
-잠신중 1-1	imagination	(명) 상상
-잠신중 1-1	difficulty	(명) 어려움, 고난
-잠신중 1-1	effort	(명) 노력
-잠신중 1-1	pleasure	(명) 기쁨
-잠신중 1-1	agreement	(명) 동의
-
-잠신중 2-1	beetle	(명) 딱정벌레
-잠신중 2-1	behavior	(명) 행동
-잠신중 2-1	blog	(명) 블로그
-잠신중 2-1	congress	(명) 의회, 국회
-잠신중 2-1	craft	(동) 공예품을 만들다
-잠신중 2-1	feed	(동) 먹이를 주다
-잠신중 2-1	gift	(명) 선물
-잠신중 2-1	grab	(동) 붙잡다
-잠신중 2-1	highlight	(명) 하이라이트
-잠신중 2-1	important	(형) 중요한
-잠신중 2-1	insect	(명) 곤충
-잠신중 2-1	journey	(명) 여정
-잠신중 2-1	maybe	(부) 아마도, 어쩌면
-잠신중 2-1	once	(부) 한 번
-잠신중 2-1	photo	(명) 사진
-잠신중 2-1	piece	(명) 조각
-잠신중 2-1	reach	(동) ~에 도착하다
-잠신중 2-1	relax	(동) 편하게 하다
-잠신중 2-1	sense	(명) 감각, 느낌
-잠신중 2-1	spend	(동) (시간/돈을) 보내다, 쓰다
-잠신중 2-1	stamp	(명) 우표
-잠신중 2-1	thousand	(명) 천, 1,000
-잠신중 2-1	tiny	(형) 아주 작은
-잠신중 2-1	treasure	(명) 보물
-잠신중 2-1	yoga	(명) 요가
-잠신중 2-1	hard	(형) 단단한
-잠신중 2-1	regularly	(부) 규칙적으로
-잠신중 2-1	experience	(명) 경험
-잠신중 2-1	especially	(부) 특히
-잠신중 2-1	suddenly	(부) 갑자기
-잠신중 2-1	firmly	(부) 단단하게
-잠신중 2-1	value	(명) 가치
-잠신중 2-1	effect	(명) 영향
-잠신중 2-1	distance	(명) 거리
-잠신중 2-1	occasion	(명) 상황, 경우
-잠신중 2-1	amount	(명) 총 합계
-잠신중 2-1	be separated	분리되다
-잠신중 2-1	be broken off	떨어져 나오다
-잠신중 2-1	a whole	전체
-잠신중 2-1	certain	(형) 특정한
-잠신중 2-1	point	(명) 부분, 지점
-잠신중 2-1	tense	(형) 긴장감 있는, 팽팽한
-잠신중 2-1	stick on	~에 붙이다, 부착하다
-잠신중 2-1	envelop	(명) 봉투
-잠신중 2-1	mail	(동) 메일을 보내다
-잠신중 2-1	valuable	(형) 가치 있는
-잠신중 2-1	object	(명) 물체
-잠신중 2-1	precious	(형) 귀중한
-잠신중 2-1	mental	(형) 정신의
-잠신중 2-1	physical	(형) 신체의
+잠신중 1-1|a lot|많이|thanks a lot|정말 고마워
+잠신중 1-1|always|(부) 항상, 언제나|always be kind|항상 친절해라
+잠신중 1-1|active|(형) 활동적인|be active outside|밖에서 활동적으로 지내다
+잠신중 1-1|character|(명) (책, 영화 등의) 등장인물|main character|주인공
+잠신중 1-1|clearly|(부) 분명히, 또렷하게|speak clearly|또박또박 말하다
+잠신중 1-1|club|(명) 동아리, 동호회|join a club|동아리에 가입하다
+잠신중 1-1|common|(형) 공통의, 공동의|common interest|공통 관심사
+잠신중 1-1|conversation|(명) 대화|have a conversation|대화를 나누다
+잠신중 1-1|cotton candy|(명) 솜사탕|eat cotton candy|솜사탕을 먹다
+잠신중 1-1|creative|(형) 창의적인|creative thinking|창의적인 사고
+잠신중 1-1|draw|(동) (그림을) 그리다|draw a picture|그림을 그리다
+잠신중 1-1|during|(전) ~동안, ~하는 중에|during the vacation|방학 동안
+잠신중 1-1|easily|(부) 쉽게|solve it easily|그것을 쉽게 풀다
+잠신중 1-1|enjoy|(동) 즐기다|enjoy the party|파티를 즐기다
+잠신중 1-1|everything|(대) 모든 것|everything is fine|모든 것이 괜찮다
+잠신중 1-1|friendly|(형) 친절한|friendly smile|친절한 미소
+잠신중 1-1|glass|(명) 유리|a glass bottle|유리병
+잠신중 1-1|honest|(형) 정직한|an honest answer|정직한 대답
+잠신중 1-1|horror|(명) 공포|horror movie|공포 영화
+잠신중 1-1|honeybee|(명) 꿀벌|busy honeybee|바쁜 꿀벌
+잠신중 1-1|interesting|(형) 재미있는, 흥미로운|interesting story|재미있는 이야기
+잠신중 1-1|introduce|(동) 소개하다|introduce myself|나를 소개하다
+잠신중 1-1|lie|(동) 거짓말하다 (명) 거짓말|tell a lie|거짓말을 하다
+잠신중 1-1|liar|(명) 거짓말쟁이|don't be a liar|거짓말쟁이가 되지 마라
+잠신중 1-1|like|(동) 좋아하다 (전) ~처럼, ~같은|like a dream|꿈처럼
+잠신중 1-1|never|(부) 결코[절대] ~않다|never give up|결코 포기하지 마라
+잠신중 1-1|other|(대) 다른 사람[것]|other people|다른 사람들
+잠신중 1-1|poster|(명) 포스터|put up a poster|포스터를 붙이다
+잠신중 1-1|patient|(형) 참을성[인내심] 있는|be patient|인내심을 가져라
+잠신중 1-1|perfect|(형) 완벽한|perfect score|만점
+잠신중 1-1|really|(부) 정말로, 아주|really happy|정말 행복한
+잠신중 1-1|smart|(형) 똑똑한, 영리한|smart student|똑똑한 학생
+잠신중 1-1|share|(동) 공유하다, 나누다|share ideas|생각을 나누다
+잠신중 1-1|sweet|(형) 달콤한; 상냥한, (명) 단것|sweet smell|달콤한 냄새
+잠신중 1-1|sometimes|(부) 때때로, 가끔|sometimes I cry|가끔 나는 운다
+잠신중 1-1|then|(부) 그러면; 그 다음에|and then what|그러고 나서 무엇을
+잠신중 1-1|thought|(명) 생각, 사고|deep thought|깊은 생각
+잠신중 1-1|together|(부) 함께, 같이|work together|함께 일하다
+잠신중 1-1|turtle|(명) 바다거북|slow turtle|느린 거북이
+잠신중 1-1|worry|(동) 걱정하다 (명) 걱정(거리)|don't worry|걱정하지 마라
+잠신중 1-1|do one's best|최선을 다하다|do my best|내 최선을 다하다
+잠신중 1-1|in harmony with|~와 조화[협조]하여|live in harmony with|~와 조화롭게 살다
+잠신중 1-1|characterize|(동) ~의 특징이 되다, 특징짓다|characterize the era|시대를 특징짓다
+잠신중 1-1|energetic|(형) 활기 있는, 활동적인|energetic child|활기찬 아이
+잠신중 1-1|participation|(명) 참여, 참가|active participation|적극적인 참여
+잠신중 1-1|imagination|(명) 상상|rich imagination|풍부한 상상력
+잠신중 1-1|difficulty|(명) 어려움, 고난|with difficulty|어렵게
+잠신중 1-1|effort|(명) 노력|make an effort|노력하다
+잠신중 1-1|pleasure|(명) 기쁨|with pleasure|기꺼이
+잠신중 1-1|agreement|(명) 동의|reach an agreement|합의에 도달하다
 
 
+잠신중 2-1|beetle|(명) 딱정벌레|a small beetle|작은 딱정벌레
+잠신중 2-1|behavior|(명) 행동|good behavior|착한 행동
+잠신중 2-1|blog|(명) 블로그|write a blog post|블로그 포스트를 쓰다
+잠신중 2-1|congress|(명) 의회, 국회|a member of Congress|국회의원
+잠신중 2-1|craft|(동) 공예품을 만들다|craft a wooden box|나무 상자를 만들다
+잠신중 2-1|feed|(동) 먹이를 주다|feed the dog|개에게 먹이를 주다
+잠신중 2-1|gift|(명) 선물|a birthday gift|생일 선물
+잠신중 2-1|grab|(동) 붙잡다|grab a bag|가방을 움켜쥐다
+잠신중 2-1|highlight|(명) 하이라이트|highlight of the trip|여행의 하이라이트
+잠신중 2-1|important|(형) 중요한|important information|중요한 정보
+잠신중 2-1|insect|(명) 곤충|collecting insects|곤충 채집
+잠신중 2-1|journey|(명) 여정|a long journey|긴 여정
+잠신중 2-1|maybe|(부) 아마도, 어쩌면|Maybe you are right|어쩌면 네 말이 맞을지도 몰라
+잠신중 2-1|once|(부) 한 번|once a week|일주일에 한 번
+잠신중 2-1|photo|(명) 사진|take a photo|사진을 찍다
+잠신중 2-1|piece|(명) 조각|a piece of cake|케이크 한 조각
+잠신중 2-1|reach|(동) ~에 도착하다|reach the station|역에 도착하다
+잠신중 2-1|relax|(동) 편하게 하다|relax on the sofa|소파에서 쉬다
+잠신중 2-1|sense|(명) 감각, 느낌|a sense of humor|유머 감각
+잠신중 2-1|spend|(동) (시간/돈을) 보내다, 쓰다|spend money|돈을 쓰다
+잠신중 2-1|stamp|(명) 우표|collect stamps|우표를 모으다
+잠신중 2-1|thousand|(명) 천, 1,000|a thousand years|천 년
+잠신중 2-1|tiny|(형) 아주 작은|a tiny hole|아주 작은 구멍
+잠신중 2-1|treasure|(명) 보물|hidden treasure|숨겨진 보물
+잠신중 2-1|yoga|(명) 요가|do yoga every morning|매일 아침 요가를 하다
+잠신중 2-1|hard|(형) 단단한|hard rock|단단한 바위
+잠신중 2-1|regularly|(부) 규칙적으로|exercise regularly|규칙적으로 운동하다
+잠신중 2-1|experience|(명) 경험|work experience|업무 경험
+잠신중 2-1|especially|(부) 특히|I like fruit, especially apples|나는 과일을 좋아해, 특히 사과를
+잠신중 2-1|suddenly|(부) 갑자기|suddenly it rained|갑자기 비가 왔다
+잠신중 2-1|firmly|(부) 단단하게|hold firmly|단단히 잡다
+잠신중 2-1|value|(명) 가치|the value of time|시간의 가치
+잠신중 2-1|effect|(명) 영향|side effect|부작용
+잠신중 2-1|distance|(명) 거리|long distance|먼 거리
+잠신중 2-1|occasion|(명) 상황, 경우|on a special occasion|특별한 경우에
+잠신중 2-1|amount|(명) 총 합계|a large amount of water|많은 양의 물
+잠신중 2-1|be separated|분리되다|be separated from friends|친구들과 떨어지다
+잠신중 2-1|be broken off|떨어져 나오다|be broken off from the tree|나무에서 꺾여 나오다
+잠신중 2-1|a whole|전체|as a whole|전체적으로
+잠신중 2-1|certain|(형) 특정한|a certain person|어떤 특정 인물
+잠신중 2-1|point|(명) 부분, 지점|at this point|이 지점에서
+잠신중 2-1|tense|(형) 긴장감 있는, 팽팽한|feel tense|긴장감을 느끼다
+잠신중 2-1|stick on|~에 붙이다, 부착하다|stick on the wall|벽에 붙이다
+잠신중 2-1|envelop|(명) 봉투|put in an envelop|봉투에 넣다
+잠신중 2-1|mail|(동) 메일을 보내다|mail a letter|편지를 부치다
+잠신중 2-1|valuable|(형) 가치 있는|valuable advice|가치 있는 조언
+잠신중 2-1|object|(명) 물체|a heavy object|무거운 물체
+잠신중 2-1|precious|(형) 귀중한|precious memories|소중한 기억들
+잠신중 2-1|mental|(형) 정신의|mental health|정신 건강
+잠신중 2-1|physical|(형) 신체의|physical strength|체력
 
 
   `;
