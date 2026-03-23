@@ -430,11 +430,14 @@
     if (!level) return null;
     const setNums = [];
     for (const p of parts) {
-      const [lvStr, setStr2] = p.split("-");
-      const lv = Number(lvStr);
-      const sn = Number(setStr2);
-      if (!lv || !sn || lv !== level) return null;
-      setNums.push(sn);
+      const lastHyphenIndex = p.lastIndexOf("-");
+    const lvStr = p.substring(0, lastHyphenIndex); // '잠신중-1' 추출
+    const setStr2 = p.substring(lastHyphenIndex + 1); // '1' 추출
+    const sn = Number(setStr2);
+    
+    if (!lvStr || isNaN(sn) || (prefix && lvStr !== prefix)) return null;
+    if (!prefix) prefix = lvStr; // 첫 번째 요소의 이름을 기준으로 고정
+    setNums.push(sn);
     }
     return { level, sets: setNums, raw: parts.join(", ") };
   }
@@ -562,8 +565,8 @@
     const level = parsed.level;
     const sets = parsed.sets.join(",");
     if (kind === "note") {
-      if (parsed.sets.length !== 1) { alert("단어 암기장은 한 세트만 출력할 수 있어요. 예: 1-1"); return; }
-      const unit = `${level}-${parsed.sets[0]}`;
+      if (parsed.sets.length !== 1) { alert("단어 암기장은 한 세트만 출력할 수 있어요. 예: 잠신중-1-1"); return; }
+      const unit = `${parsed.prefix}-${parsed.sets[0]}`; // '잠신중-1' + '1' 결합
       window.open(`print-vocab-note.html?unit=${encodeURIComponent(unit)}`, "_blank");
       return;
     }
