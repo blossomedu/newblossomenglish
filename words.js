@@ -11041,57 +11041,56 @@
 23-30|consequent|(형) 결과로 일어나는|consequent loss|그 결과로 생긴 손실
 
 
-잠신중 1-1|a lot|많이|thanks a lot|정말 고마워
-잠신중 1-1|always|(부) 항상, 언제나|always be kind|항상 친절해라
-잠신중 1-1|active|(형) 활동적인|be active outside|밖에서 활동적으로 지내다
-잠신중 1-1|character|(명) (책, 영화 등의) 등장인물|main character|주인공
-잠신중 1-1|clearly|(부) 분명히, 또렷하게|speak clearly|또박또박 말하다
-잠신중 1-1|club|(명) 동아리, 동호회|join a club|동아리에 가입하다
-잠신중 1-1|common|(형) 공통의, 공동의|common interest|공통 관심사
-잠신중 1-1|conversation|(명) 대화|have a conversation|대화를 나누다
-잠신중 1-1|cotton candy|(명) 솜사탕|eat cotton candy|솜사탕을 먹다
-잠신중 1-1|creative|(형) 창의적인|creative thinking|창의적인 사고
-잠신중 1-1|draw|(동) (그림을) 그리다|draw a picture|그림을 그리다
-잠신중 1-1|during|(전) ~동안, ~하는 중에|during the vacation|방학 동안
-잠신중 1-1|easily|(부) 쉽게|solve it easily|그것을 쉽게 풀다
-잠신중 1-1|enjoy|(동) 즐기다|enjoy the party|파티를 즐기다
-잠신중 1-1|everything|(대) 모든 것|everything is fine|모든 것이 괜찮다
-잠신중 1-1|friendly|(형) 친절한|friendly smile|친절한 미소
-잠신중 1-1|glass|(명) 유리|a glass bottle|유리병
-잠신중 1-1|honest|(형) 정직한|an honest answer|정직한 대답
-잠신중 1-1|horror|(명) 공포|horror movie|공포 영화
-잠신중 1-1|honeybee|(명) 꿀벌|busy honeybee|바쁜 꿀벌
-잠신중 1-1|interesting|(형) 재미있는, 흥미로운|interesting story|재미있는 이야기
-잠신중 1-1|introduce|(동) 소개하다|introduce myself|나를 소개하다
-잠신중 1-1|lie|(동) 거짓말하다 (명) 거짓말|tell a lie|거짓말을 하다
-잠신중 1-1|liar|(명) 거짓말쟁이|don't be a liar|거짓말쟁이가 되지 마라
-잠신중 1-1|like|(동) 좋아하다 (전) ~처럼, ~같은|like a dream|꿈처럼
-잠신중 1-1|never|(부) 결코[절대] ~않다|never give up|결코 포기하지 마라
-잠신중 1-1|other|(대) 다른 사람[것]|other people|다른 사람들
-잠신중 1-1|poster|(명) 포스터|put up a poster|포스터를 붙이다
-잠신중 1-1|patient|(형) 참을성[인내심] 있는|be patient|인내심을 가져라
-잠신중 1-1|perfect|(형) 완벽한|perfect score|만점
-잠신중 1-1|really|(부) 정말로, 아주|really happy|정말 행복한
-잠신중 1-1|smart|(형) 똑똑한, 영리한|smart student|똑똑한 학생
-잠신중 1-1|share|(동) 공유하다, 나누다|share ideas|생각을 나누다
-잠신중 1-1|sweet|(형) 달콤한; 상냥한, (명) 단것|sweet smell|달콤한 냄새
-잠신중 1-1|sometimes|(부) 때때로, 가끔|sometimes I cry|가끔 나는 운다
-잠신중 1-1|then|(부) 그러면; 그 다음에|and then what|그러고 나서 무엇을
-잠신중 1-1|thought|(명) 생각, 사고|deep thought|깊은 생각
-잠신중 1-1|together|(부) 함께, 같이|work together|함께 일하다
-잠신중 1-1|turtle|(명) 바다거북|slow turtle|느린 거북이
-잠신중 1-1|worry|(동) 걱정하다 (명) 걱정(거리)|don't worry|걱정하지 마라
-잠신중 1-1|do one's best|최선을 다하다|do my best|내 최선을 다하다
-잠신중 1-1|in harmony with|~와 조화[협조]하여|live in harmony with|~와 조화롭게 살다
-잠신중 1-1|characterize|(동) ~의 특징이 되다, 특징짓다|characterize the era|시대를 특징짓다
-잠신중 1-1|energetic|(형) 활기 있는, 활동적인|energetic child|활기찬 아이
-잠신중 1-1|participation|(명) 참여, 참가|active participation|적극적인 참여
-잠신중 1-1|imagination|(명) 상상|rich imagination|풍부한 상상력
-잠신중 1-1|difficulty|(명) 어려움, 고난|with difficulty|어렵게
-잠신중 1-1|effort|(명) 노력|make an effort|노력하다
-잠신중 1-1|pleasure|(명) 기쁨|with pleasure|기꺼이
-잠신중 1-1|agreement|(명) 동의|reach an agreement|합의에 도달하다
-
+잠신중-1-1|a lot|많이, 매우|thanks a lot|매우 고마워
+잠신중-1-1|always|(부) 항상, 언제나|always be kind|항상 친절하기
+잠신중-1-1|active|(형) 활동적인|be active outside|밖에서 활동적으로 지내기
+잠신중-1-1|character|(명) (책, 영화 등의) 등장인물|main character|주인공
+잠신중-1-1|clearly|(부) 분명히, 또렷하게|speak clearly|또박또박 말하기
+잠신중-1-1|club|(명) 동아리, 동호회|join a club|동아리에 가입하기
+잠신중-1-1|common|(형) 공통의, 공동의|common interest|공통 관심사
+잠신중-1-1|conversation|(명) 대화|have a conversation|대화를 나누기
+잠신중-1-1|cotton candy|(명) 솜사탕|eat cotton candy|솜사탕을 먹기
+잠신중-1-1|creative|(형) 창의적인|creative thinking|창의적인 사고
+잠신중-1-1|draw|(동) (그림을) 그리다|draw a picture|그림을 그리기
+잠신중-1-1|during|(전) ~동안, ~하는 중에|during the vacation|방학 동안
+잠신중-1-1|easily|(부) 쉽게|solve it easily|그것을 쉽게 풀기
+잠신중-1-1|enjoy|(동) 즐기다|enjoy the party|파티를 즐기기
+잠신중-1-1|everything|(대) 모든 것|everything is fine|모든 것이 괜찮음
+잠신중-1-1|friendly|(형) 친절한|friendly smile|친절한 미소
+잠신중-1-1|glass|(명) 유리|a glass bottle|유리병
+잠신중-1-1|honest|(형) 정직한|an honest answer|정직한 대답
+잠신중-1-1|horror|(명) 공포|horror movie|공포 영화
+잠신중-1-1|honeybee|(명) 꿀벌|busy honeybee|바쁜 꿀벌
+잠신중-1-1|interesting|(형) 재미있는, 흥미로운|interesting story|재미있는 이야기
+잠신중-1-1|introduce|(동) 소개하다|introduce myself|나를 소개하기
+잠신중-1-1|lie|(동) 거짓말하다 (명) 거짓말|tell a lie|거짓말을 하기
+잠신중-1-1|liar|(명) 거짓말쟁이|don't be a liar|거짓말쟁이가 되지 않기
+잠신중-1-1|like|(동) 좋아하다 (전) ~처럼, ~같은|like a dream|꿈처럼
+잠신중-1-1|never|(부) 결코[절대] ~않다|never give up|결코 포기하지 않기
+잠신중-1-1|other|(대) 다른 사람[것]|other people|다른 사람들
+잠신중-1-1|poster|(명) 포스터|put up a poster|포스터를 붙이기
+잠신중-1-1|patient|(형) 참을성[인내심] 있는|be patient|인내심을 가지기
+잠신중-1-1|perfect|(형) 완벽한|perfect score|만점
+잠신중-1-1|really|(부) 정말로, 아주|really happy|정말 행복한
+잠신중-1-1|smart|(형) 똑똑한, 영리한|smart student|똑똑한 학생
+잠신중-1-1|share|(동) 공유하다, 나누다|share ideas|생각을 나누기
+잠신중-1-1|sweet|(형) 달콤한; 상냥한, (명) 단것|sweet smell|달콤한 냄새
+잠신중-1-1|sometimes|(부) 때때로, 가끔|sometimes i cry|가끔 울기
+잠신중-1-1|then|(부) 그러면; 그 다음에|and then what|그러고 나서 무엇을
+잠신중-1-1|thought|(명) 생각, 사고|deep thought|깊은 생각
+잠신중-1-1|together|(부) 함께, 같이|work together|함께 일하기
+잠신중-1-1|turtle|(명) 바다거북|slow turtle|느린 거북이
+잠신중-1-1|worry|(동) 걱정하다 (명) 걱정(거리)|don't worry|걱정하지 않기
+잠신중-1-1|do one's best|최선을 다하다|do my best|내 최선을 다하기
+잠신중-1-1|in harmony with|~와 조화[협조]하여|live in harmony with|~와 조화롭게 살기
+잠신중-1-1|characterize|(동) ~의 특징이 되다, 특징짓다|characterize the era|시대를 특징짓기
+잠신중-1-1|energetic|(형) 활기 있는, 활동적인|energetic child|활기찬 아이
+잠신중-1-1|participation|(명) 참여, 참가|active participation|적극적인 참여
+잠신중-1-1|imagination|(명) 상상|rich imagination|풍부한 상상력
+잠신중-1-1|difficulty|(명) 어려움, 고난|with difficulty|어렵게
+잠신중-1-1|effort|(명) 노력|make an effort|노력하기
+잠신중-1-1|pleasure|(명) 기쁨|with pleasure|기꺼이
+잠신중-1-1|agreement|(명) 동의|reach an agreement|합의에 도달하기
 
 잠신중 2-1|beetle|(명) 딱정벌레|a small beetle|작은 딱정벌레
 잠신중 2-1|behavior|(명) 행동|good behavior|착한 행동
