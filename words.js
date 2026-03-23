@@ -11091,56 +11091,57 @@
 잠신중-1-1|pleasure|(명) 기쁨|pleasure|(명) 기쁨
 잠신중-1-1|agreement|(명) 동의|agreemen|(명) 동의
 
-잠신중 2-1|beetle|(명) 딱정벌레|beetle|(명) 딱정벌레
-잠신중 2-1|behavior|(명) 행동|behavior|(명) 행동
-잠신중 2-1|blog|(명) 블로그|blog|(명) 블로그
-잠신중 2-1|congress|(명) 의회, 국회|congress|(명) 의회, 국회
-잠신중 2-1|craft|(동) 공예품을 만들다|craft|(동) 공예품을 만들다
-잠신중 2-1|feed|(동) 먹이를 주다|feed|(동) 먹이를 주다
-잠신중 2-1|gift|(명) 선물|gift|(명) 선물
-잠신중 2-1|grab|(동) 붙잡다|grab|(동) 붙잡다
-잠신중 2-1|highlight|(명) 하이라이트|highlight|(명) 하이라이트
-잠신중 2-1|important|(형) 중요한|important|(형) 중요한
-잠신중 2-1|insect|(명) 곤충|insect|(명) 곤충
-잠신중 2-1|journey|(명) 여정|journey|(명) 여정
-잠신중 2-1|maybe|(부) 아마도, 어쩌면|maybe|(부) 아마도, 어쩌면
-잠신중 2-1|once|(부) 한 번|once|(부) 한 번
-잠신중 2-1|photo|(명) 사진|photo|(명) 사진
-잠신중 2-1|piece|(명) 조각|piece|(명) 조각
-잠신중 2-1|reach|(동) ~에 도착하다|reach|(동) ~에 도착하다
-잠신중 2-1|relax|(동) 편하게 하다|relax|(동) 편하게 하다
-잠신중 2-1|sense|(명) 감각, 느낌|sense|(명) 감각, 느낌
-잠신중 2-1|spend|(동) (시간/돈을) 보내다, 쓰다|spend|(동) (시간/돈을) 보내다, 쓰다
-잠신중 2-1|stamp|(명) 우표|stamp|(명) 우표
-잠신중 2-1|thousand|(명) 천, 1,000|thousand|(명) 천, 1,000
-잠신중 2-1|tiny|(형) 아주 작은|tiny|(형) 아주 작은
-잠신중 2-1|treasure|(명) 보물|treasure|(명) 보물
-잠신중 2-1|yoga|(명) 요가|yoga|(명) 요가
-잠신중 2-1|hard|(형) 단단한|hard|(형) 단단한
-잠신중 2-1|regularly|(부) 규칙적으로|regularly|(부) 규칙적으로
-잠신중 2-1|experience|(명) 경험|experience|(명) 경험
-잠신중 2-1|especially|(부) 특히|especially|(부) 특히
-잠신중 2-1|suddenly|(부) 갑자기|suddenly|(부) 갑자기
-잠신중 2-1|firmly|(부) 단단하게|firmly|(부) 단단하게
-잠신중 2-1|value|(명) 가치|value|(명) 가치
-잠신중 2-1|effect|(명) 영향|effect|(명) 영향
-잠신중 2-1|distance|(명) 거리|distance|(명) 거리
-잠신중 2-1|occasion|(명) 상황, 경우|occasion|(명) 상황, 경우
-잠신중 2-1|amount|(명) 총 합계|amount|(명) 총 합계
-잠신중 2-1|be separated|분리되다|be separat|분리되다
-잠신중 2-1|be broken off|떨어져 나오다|be broken|떨어져 나오다
-잠신중 2-1|a whole|전체|a whole|전체
-잠신중 2-1|certain|(형) 특정한|certain|(형) 특정한
-잠신중 2-1|point|(명) 부분, 지점|point|(명) 부분, 지점
-잠신중 2-1|tense|(형) 긴장감 있는, 팽팽한|tense|(형) 긴장감 있는, 팽팽한
-잠신중 2-1|stick on|~에 붙이다, 부착하다|stick on|~에 붙이다, 부착하다
-잠신중 2-1|envelop|(명) 봉투|envelop|(명) 봉투
-잠신중 2-1|mail|(동) 메일을 보내다|mail|(동) 메일을 보내다
-잠신중 2-1|valuable|(형) 가치 있는|valuable|(형) 가치 있는
-잠신중 2-1|object|(명) 물체|object|(명) 물체
-잠신중 2-1|precious|(형) 귀중한|precious|(형) 귀중한
-잠신중 2-1|mental|(형) 정신의|mental|(형) 정신의
-잠신중 2-1|physical|(형) 신체의|physical|(형) 신체의
+
+잠신중-2-1|beetle|(명) 딱정벌레|beetle|(명) 딱정벌레
+잠신중-2-1|behavior|(명) 행동|behavior|(명) 행동
+잠신중-2-1|blog|(명) 블로그|blog|(명) 블로그
+잠신중-2-1|congress|(명) 의회, 국회|congress|(명) 의회, 국회
+잠신중-2-1|craft|(동) 공예품을 만들다|craft|(동) 공예품을 만들다
+잠신중-2-1|feed|(동) 먹이를 주다|feed|(동) 먹이를 주다
+잠신중-2-1|gift|(명) 선물|gift|(명) 선물
+잠신중-2-1|grab|(동) 붙잡다|grab|(동) 붙잡다
+잠신중-2-1|highlight|(명) 하이라이트|highlight|(명) 하이라이트
+잠신중-2-1|important|(형) 중요한|important|(형) 중요한
+잠신중-2-1|insect|(명) 곤충|insect|(명) 곤충
+잠신중-2-1|journey|(명) 여정|journey|(명) 여정
+잠신중-2-1|maybe|(부) 아마도, 어쩌면|maybe|(부) 아마도, 어쩌면
+잠신중-2-1|once|(부) 한 번|once|(부) 한 번
+잠신중-2-1|photo|(명) 사진|photo|(명) 사진
+잠신중-2-1|piece|(명) 조각|piece|(명) 조각
+잠신중-2-1|reach|(동) ~에 도착하다|reach|(동) ~에 도착하다
+잠신중-2-1|relax|(동) 편하게 하다|relax|(동) 편하게 하다
+잠신중-2-1|sense|(명) 감각, 느낌|sense|(명) 감각, 느낌
+잠신중-2-1|spend|(동) (시간/돈을) 보내다, 쓰다|spend|(동) (시간/돈을) 보내다, 쓰다
+잠신중-2-1|stamp|(명) 우표|stamp|(명) 우표
+잠신중-2-1|thousand|(명) 천, 1,000|thousand|(명) 천, 1,000
+잠신중-2-1|tiny|(형) 아주 작은|tiny|(형) 아주 작은
+잠신중-2-1|treasure|(명) 보물|treasure|(명) 보물
+잠신중-2-1|yoga|(명) 요가|yoga|(명) 요가
+잠신중-2-1|hard|(형) 단단한|hard|(형) 단단한
+잠신중-2-1|regularly|(부) 규칙적으로|regularly|(부) 규칙적으로
+잠신중-2-1|experience|(명) 경험|experience|(명) 경험
+잠신중-2-1|especially|(부) 특히|especially|(부) 특히
+잠신중-2-1|suddenly|(부) 갑자기|suddenly|(부) 갑자기
+잠신중-2-1|firmly|(부) 단단하게|firmly|(부) 단단하게
+잠신중-2-1|value|(명) 가치|value|(명) 가치
+잠신중-2-1|effect|(명) 영향|effect|(명) 영향
+잠신중-2-1|distance|(명) 거리|distance|(명) 거리
+잠신중-2-1|occasion|(명) 상황, 경우|occasion|(명) 상황, 경우
+잠신중-2-1|amount|(명) 총 합계|amount|(명) 총 합계
+잠신중-2-1|be separated|분리되다|be separat|분리되다
+잠신중-2-1|be broken off|떨어져 나오다|be broken|떨어져 나오다
+잠신중-2-1|a whole|전체|a whole|전체
+잠신중-2-1|certain|(형) 특정한|certain|(형) 특정한
+잠신중-2-1|point|(명) 부분, 지점|point|(명) 부분, 지점
+잠신중-2-1|tense|(형) 긴장감 있는, 팽팽한|tense|(형) 긴장감 있는, 팽팽한
+잠신중-2-1|stick on|~에 붙이다, 부착하다|stick on|~에 붙이다, 부착하다
+잠신중-2-1|envelop|(명) 봉투|envelop|(명) 봉투
+잠신중-2-1|mail|(동) 메일을 보내다|mail|(동) 메일을 보내다
+잠신중-2-1|valuable|(형) 가치 있는|valuable|(형) 가치 있는
+잠신중-2-1|object|(명) 물체|object|(명) 물체
+잠신중-2-1|precious|(형) 귀중한|precious|(형) 귀중한
+잠신중-2-1|mental|(형) 정신의|mental|(형) 정신의
+잠신중-2-1|physical|(형) 신체의|physical|(형) 신체의
 
   `;
   // 👆 여기까지가 네가 앞으로 수정·추가할 영역
