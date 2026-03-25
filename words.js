@@ -1112,7 +1112,7 @@
 4-20|bakery|빵집|I smell bread from the bakery.|나는 빵집에서 빵 냄새를 맡는다.
 4-20|supermarket|슈퍼마켓|My mom goes to the supermarket.|나의 엄마는 슈퍼마켓에 가신다.
 4-20|restaurant|식당|We eat dinner at the restaurant.|우리는 식당에서 저녁을 먹는다.
-4-20|café|카페|I drink juice at the café.|나는 카페에서 주스를 마신다.
+4-20|cafe|카페|I drink juice at the cafe.|나는 카페에서 주스를 마신다.
 4-20|department store|백화점|I bought a shirt at the department store.|나는 백화점에서 셔츠를 샀다.
 4-21|come|오다|Come to the park with me.|나랑 같이 공원에 와라.
 4-21|jump|뛰다, 점프하다|The frog can jump high.|개구리는 높이 뛸 수 있다.
