@@ -11049,8 +11049,8 @@
 25-1|clearly|(부) 분명히, 또렷하게|clearly|(부) 분명히, 또렷하게
 25-1|club|(명) 동아리, 동호회|club|(명) 동아리, 동호회
 25-1|common|(형) 공통의, 공동의|common|(형) 공통의, 공동의
-25-1|conversation|(명) 대화|conversati|(명) 대화
-25-1|cotton candy|(명) 솜사탕|cotton car|(명) 솜사탕
+25-1|conversation|(명) 대화|conversation|(명) 대화
+25-1|cotton candy|(명) 솜사탕|cotton candy|(명) 솜사탕
 25-1|creative|(형) 창의적인|creative|(형) 창의적인
 25-1|draw|(동) (그림을) 그리다|draw|(동) (그림을) 그리다
 25-1|during|(전) ~동안, ~하는 중에|during|(전) ~동안, ~하는 중에
@@ -11082,16 +11082,17 @@
 25-1|together|(부) 함께, 같이|together|(부) 함께, 같이
 25-1|turtle|(명) 바다거북|turtle|(명) 바다거북
 25-1|worry|(동) 걱정하다 (명) 걱정(거리)|worry|(동) 걱정하다 (명) 걱정(거리)
-25-1|do one's best|최선을 다하다|do one's b|최선을 다하다
-25-1|in harmony with|~와 조화[협조]하여|in harmon|~와 조화[협조]하여
-25-1|characterize|(동) ~의 특징이 되다, 특징짓다|characteri|(동) ~의 특징이 되다, 특징짓다
+25-1|do one's best|최선을 다하다|do one's best|최선을 다하다
+25-1|in harmony with|~와 조화[협조]하여|in harmony with|~와 조화[협조]하여
+25-1|characterize|(동) ~의 특징이 되다, 특징짓다|characterize|(동) ~의 특징이 되다, 특징짓다
 25-1|energetic|(형) 활기 있는, 활동적인|energetic|(형) 활기 있는, 활동적인
-25-1|participation|(명) 참여, 참가|participati|(명) 참여, 참가
-25-1|imagination|(명) 상상|imaginatic|(명) 상상
+25-1|participation|(명) 참여, 참가|participation|(명) 참여, 참가
+25-1|imagination|(명) 상상|imagination|(명) 상상
 25-1|difficulty|(명) 어려움, 고난|difficulty|(명) 어려움, 고난
 25-1|effort|(명) 노력|effort|(명) 노력
 25-1|pleasure|(명) 기쁨|pleasure|(명) 기쁨
-25-1|agreement|(명) 동의|agreemen|(명) 동의
+25-1|agreement|(명) 동의|agreement|(명) 동의
+
 
 26-1|beetle|(명) 딱정벌레|beetle|(명) 딱정벌레
 26-1|behavior|(명) 행동|behavior|(명) 행동
@@ -11129,8 +11130,8 @@
 26-1|distance|(명) 거리|distance|(명) 거리
 26-1|occasion|(명) 상황, 경우|occasion|(명) 상황, 경우
 26-1|amount|(명) 총 합계|amount|(명) 총 합계
-26-1|be separated|분리되다|be separat|분리되다
-26-1|be broken off|떨어져 나오다|be broken|떨어져 나오다
+26-1|be separated|분리되다|be separated|분리되다
+26-1|be broken off|떨어져 나오다|be broken off|떨어져 나오다
 26-1|a whole|전체|a whole|전체
 26-1|certain|(형) 특정한|certain|(형) 특정한
 26-1|point|(명) 부분, 지점|point|(명) 부분, 지점
