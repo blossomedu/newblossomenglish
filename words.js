@@ -11094,57 +11094,113 @@
 25-1|agreement|(명) 동의|agreement|(명) 동의
 
 
-26-1|beetle|(명) 딱정벌레|beetle|(명) 딱정벌레
-26-1|behavior|(명) 행동|behavior|(명) 행동
-26-1|blog|(명) 블로그|blog|(명) 블로그
-26-1|congress|(명) 의회, 국회|congress|(명) 의회, 국회
-26-1|craft|(동) 공예품을 만들다|craft|(동) 공예품을 만들다
-26-1|feed|(동) 먹이를 주다|feed|(동) 먹이를 주다
-26-1|gift|(명) 선물|gift|(명) 선물
-26-1|grab|(동) 붙잡다|grab|(동) 붙잡다
-26-1|highlight|(명) 하이라이트|highlight|(명) 하이라이트
-26-1|important|(형) 중요한|important|(형) 중요한
-26-1|insect|(명) 곤충|insect|(명) 곤충
-26-1|journey|(명) 여정|journey|(명) 여정
-26-1|maybe|(부) 아마도, 어쩌면|maybe|(부) 아마도, 어쩌면
-26-1|once|(부) 한 번|once|(부) 한 번
-26-1|photo|(명) 사진|photo|(명) 사진
-26-1|piece|(명) 조각|piece|(명) 조각
-26-1|reach|(동) ~에 도착하다|reach|(동) ~에 도착하다
-26-1|relax|(동) 편하게 하다|relax|(동) 편하게 하다
-26-1|sense|(명) 감각, 느낌|sense|(명) 감각, 느낌
-26-1|spend|(동) (시간/돈을) 보내다, 쓰다|spend|(동) (시간/돈을) 보내다, 쓰다
-26-1|stamp|(명) 우표|stamp|(명) 우표
-26-1|thousand|(명) 천, 1,000|thousand|(명) 천, 1,000
-26-1|tiny|(형) 아주 작은|tiny|(형) 아주 작은
-26-1|treasure|(명) 보물|treasure|(명) 보물
-26-1|yoga|(명) 요가|yoga|(명) 요가
-26-1|hard|(형) 단단한|hard|(형) 단단한
-26-1|regularly|(부) 규칙적으로|regularly|(부) 규칙적으로
-26-1|experience|(명) 경험|experience|(명) 경험
-26-1|especially|(부) 특히|especially|(부) 특히
-26-1|suddenly|(부) 갑자기|suddenly|(부) 갑자기
-26-1|firmly|(부) 단단하게|firmly|(부) 단단하게
-26-1|value|(명) 가치|value|(명) 가치
-26-1|effect|(명) 영향|effect|(명) 영향
-26-1|distance|(명) 거리|distance|(명) 거리
-26-1|occasion|(명) 상황, 경우|occasion|(명) 상황, 경우
-26-1|amount|(명) 총 합계|amount|(명) 총 합계
-26-1|be separated|분리되다|be separated|분리되다
-26-1|be broken off|떨어져 나오다|be broken off|떨어져 나오다
-26-1|a whole|전체|a whole|전체
-26-1|certain|(형) 특정한|certain|(형) 특정한
-26-1|point|(명) 부분, 지점|point|(명) 부분, 지점
-26-1|tense|(형) 긴장감 있는, 팽팽한|tense|(형) 긴장감 있는, 팽팽한
-26-1|stick on|~에 붙이다, 부착하다|stick on|~에 붙이다, 부착하다
-26-1|envelop|(명) 봉투|envelop|(명) 봉투
-26-1|mail|(동) 메일을 보내다|mail|(동) 메일을 보내다
-26-1|valuable|(형) 가치 있는|valuable|(형) 가치 있는
-26-1|object|(명) 물체|object|(명) 물체
-26-1|precious|(형) 귀중한|precious|(형) 귀중한
-26-1|mental|(형) 정신의|mental|(형) 정신의
-26-1|physical|(형) 신체의|physical|(형) 신체의
+6-1|a lot|많이|a lot|많이
+26-1|always|(부) 항상, 언제나|always|(부) 항상, 언제나
+26-1|active|(형) 활동적인|active|(형) 활동적인
+26-1|character|(명) (책, 영화 등의) 등장인물|character|(명) (책, 영화 등의) 등장인물
+26-1|clearly|(부) 분명히, 또렷하게|clearly|(부) 분명히, 또렷하게
+26-1|club|(명) 동아리, 동호회|club|(명) 동아리, 동호회
+26-1|common|(형) 공통의, 공동의|common|(형) 공통의, 공동의
+26-1|conversation|(명) 대화|conversation|(명) 대화
+26-1|cotton candy|(명) 솜사탕|cotton candy|(명) 솜사탕
+26-1|creative|(형) 창의적인|creative|(형) 창의적인
+26-1|draw|(동) (그림을) 그리다|draw|(동) (그림을) 그리다
+26-1|during|(전) ~동안, ~하는 중에|during|(전) ~동안, ~하는 중에
+26-1|easily|(부) 쉽게|easily|(부) 쉽게
+26-1|enjoy|(동) 즐기다|enjoy|(동) 즐기다
+26-1|everything|(대) 모든 것|everything|(대) 모든 것
+26-1|friendly|(형) 친절한|friendly|(형) 친절한
+26-1|glass|(명) 유리|glass|(명) 유리
+26-1|honest|(형) 정직한|honest|(형) 정직한
+26-1|horror|(명) 공포|horror|(명) 공포
+26-1|honeybee|(명) 꿀벌|honeybee|(명) 꿀벌
+26-1|interesting|(형) 재미있는, 흥미로운|interesting|(형) 재미있는, 흥미로운
+26-1|introduce|(동) 소개하다|introduce|(동) 소개하다
+26-1|lie|(동) 거짓말하다 (명) 거짓말|lie|(동) 거짓말하다 (명) 거짓말
+26-1|liar|(명) 거짓말쟁이|liar|(명) 거짓말쟁이
+26-1|like|(동) 좋아하다 (전) ~처럼, ~같은|like|(동) 좋아하다 (전) ~처럼, ~같은
+26-1|never|(부) 결코[절대] ~않다|never|(부) 결코[절대] ~않다
+26-1|other|(대) 다른 사람[것]|other|(대) 다른 사람[것]
+26-1|poster|(명) 포스터|poster|(명) 포스터
+26-1|patient|(형) 참을성[인내심] 있는|patient|(형) 참을성[인내심] 있는
+26-1|perfect|(형) 완벽한|perfect|(형) 완벽한
+26-1|really|(부) 정말로, 아주|really|(부) 정말로, 아주
+26-1|smart|(형) 똑똑한, 영리한|smart|(형) 똑똑한, 영리한
+26-1|share|(동) 공유하다, 나누다|share|(동) 공유하다, 나누다
+26-1|sweet|(형) 달콤한; 상냥한, (명) 단것|sweet|(형) 달콤한; 상냥한, (명) 단것
+26-1|sometimes|(부) 때때로, 가끔|sometimes|(부) 때때로, 가끔
+26-1|then|(부) 그러면; 그 다음에|then|(부) 그러면; 그 다음에
+26-1|thought|(명) 생각, 사고|thought|(명) 생각, 사고
+26-1|together|(부) 함께, 같이|together|(부) 함께, 같이
+26-1|turtle|(명) 바다거북|turtle|(명) 바다거북
+26-1|worry|(동) 걱정하다 (명) 걱정(거리)|worry|(동) 걱정하다 (명) 걱정(거리)
+26-1|do one's best|최선을 다하다|do one's best|최선을 다하다
+26-1|in harmony with|~와 조화[협조]하여|in harmony with|~와 조화[협조]하여
+26-1|characterize|(동) ~의 특징이 되다, 특징짓다|characterize|(동) ~의 특징이 되다, 특징짓다
+26-1|energetic|(형) 활기 있는, 활동적인|energetic|(형) 활기 있는, 활동적인
+26-1|participation|(명) 참여, 참가|participation|(명) 참여, 참가
+26-1|imagination|(명) 상상|imagination|(명) 상상
+26-1|difficulty|(명) 어려움, 고난|difficulty|(명) 어려움, 고난
+26-1|effort|(명) 노력|effort|(명) 노력
+26-1|pleasure|(명) 기쁨|pleasure|(명) 기쁨
+26-1|agreement|(명) 동의|agreement|(명) 동의
+26-1|improve|(동) 개선하다|improve|(동) 개선하다
+26-1|trick|(명) 기술|trick|(명) 기술
+26-1|flat|(형) 평평한|flat|(형) 평평한
+26-1|basis|(명) 기초, 기반|basis|(명) 기초, 기반
+26-1|invent|(동) 발명하다|invent|(동) 발명하다
+26-1|experience|(동) 경험하다|experience|(동) 경험하다
+26-1|slope|(명) 경사지|slope|(명) 경사지
+26-1|on land|육지에서|on land|육지에서
 
+26-2|according to|~따르면|according to|~따르면
+26-2|advice|(명) 조언, 충고|advice|(명) 조언, 충고
+26-2|affect|(동) 영향을 미치다 (a)|affect|(동) 영향을 미치다 (a)
+26-2|be into|~에 빠져 있다|be into|~에 빠져 있다
+26-2|block out|(빛소리를)막다, 차단하다|block out|(빛소리를)막다, 차단하다
+26-2|eyesight|(명) 시력|eyesight|(명) 시력
+26-2|harm|(동) 해를 끼치다, 손상시키다(1)|harm|(동) 해를 끼치다, 손상시키다(1)
+26-2|do harm|(동) 해를 끼치다, 손상시키다(2)|do harm|(동) 해를 끼치다, 손상시키다(2)
+26-2|increase|(동) 늘리다, 증가시키다|increase|(동) 늘리다, 증가시키다
+26-2|leash|(명) 목줄 (동) 묶다|leash|(명) 목줄 (동) 묶다
+26-2|maximum|(명) 최고, 최대|maximum|(명) 최고, 최대
+26-2|negatively|(부) 부정적으로|negatively|(부) 부정적으로
+26-2|reduce|(동) 줄이다, 감소시키다|reduce|(동) 줄이다, 감소시키다
+26-2|rub|(동) 문지르다|rub|(동) 문지르다
+26-2|rule|(명) 규칙|rule|(명) 규칙
+26-2|still|(부) 아직, 여전히 (형) 고요한|still|(부) 아직, 여전히 (형) 고요한
+26-2|straight|(부) 똑바로|straight|(부) 똑바로
+26-2|stress|(명) 스트레스, 압력, 압박 (동) 강조하다|stress|(명) 스트레스, 압력, 압박 (동) 강조하다
+26-2|stretch|(동) 펴다, 뻗다|stretch|(동) 펴다, 뻗다
+26-2|tale|(명) 이야기|tale|(명) 이야기
+26-2|thundering|(형) 천둥 같은|thundering|(형) 천둥 같은
+26-2|unlock|(동) 열다|unlock|(동) 열다
+26-2|volume|(명) 볼륨, 음량, 크기, 양, 부피|volume|(명) 볼륨, 음량, 크기, 양, 부피
+26-2|suggestion|(명) 제안, 제의, 의견|suggestion|(명) 제안, 제의, 의견
+26-2|particular|(형) 특정한|particular|(형) 특정한
+26-2|influence|(동) 영향을 주다 (i)|influence|(동) 영향을 주다 (i)
+26-2|cause|(동) ~을 야기하다(초래하다)|cause|(동) ~을 야기하다(초래하다)
+26-2|chain|(명) 사슬, 쇠줄; 목걸이|chain|(명) 사슬, 쇠줄; 목걸이
+26-2|harmful|(형) 해로운, 유해한|harmful|(형) 해로운, 유해한
+26-2|repeatedly|(부) 반복적으로|repeatedly|(부) 반복적으로
+26-2|surface|(명) 표면|surface|(명) 표면
+26-2|while|(접) ~하는 동안에|while|(접) ~하는 동안에
+26-2|statement|(명) 선언, 말, 진술|statement|(명) 선언, 말, 진술
+26-2|continue|(동) 계속하다|continue|(동) 계속하다
+26-2|direction|(명) 방향|direction|(명) 방향
+26-2|bend|(동) 굽히다, 숙이다|bend|(동) 굽히다, 숙이다
+26-2|state|(명) 상태|state|(명) 상태
+26-2|mental|(형) 정신의, 마음의|mental|(형) 정신의, 마음의
+26-2|tension|(명) 긴장 상태|tension|(명) 긴장 상태
+26-2|physical|(형) 육체의|physical|(형) 육체의
+26-2|force|(명) 물리력, 힘|force|(명) 물리력, 힘
+26-2|pressure|(명) 압박|pressure|(명) 압박
+26-2|straighten|(동) 똑바르게 하다, 바로 하다|straighten|(동) 똑바르게 하다, 바로 하다
+26-2|length|(명) 길이|length|(명) 길이
+26-2|produce|(동) 제조하다|produce|(동) 제조하다
+26-2|based on|~에 근거하면|based on|~에 근거하면
+26-2|accord|(동) 일치하다|accord|(동) 일치하다
+26-2|be under stress|스트레스받다|be under stress|스트레스받다
 
   `;
   // 👆 여기까지가 네가 앞으로 수정·추가할 영역
