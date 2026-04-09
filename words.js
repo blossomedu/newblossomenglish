@@ -11201,6 +11201,71 @@
 26-2|accord|(동) 일치하다|accord|(동) 일치하다
 26-2|be under stress|스트레스받다|be under stress|스트레스받다
 
+27-1|major|전공, 주요한|major|전공, 주요한
+27-1|stable|안정적인|stable|안정적인
+27-1|blood pressure|혈압|blood pressure|혈압
+27-1|quit|그만두다|quit|그만두다
+27-1|decide|결심하다|decide|결심하다
+27-1|manage|매니저|manage|매니저
+27-1|as|~로|as|~로
+27-1|professional|전문적인|professional|전문적인
+27-1|at the age of|~의 나이에|at the age of|~의 나이에
+27-1|courage|용기|courage|용기
+27-1|pursue|추구하다|pursue|추구하다
+27-1|engineering|기술, 기량, 공학|engineering|기술, 기량, 공학
+27-1|field|분야|field|분야
+27-1|these days|요즘|these days|요즘
+27-1|skill|기술|skill|기술
+27-1|drawing|그림, 그리기|drawing|그림, 그리기
+27-1|inspire|영감을 주다, 고무시키다|inspire|영감을 주다, 고무시키다
+27-1|speech|연설|speech|연설
+27-1|realize|실현하다, 깨닫다|realize|실현하다, 깨닫다
+27-1|lead|이끌다|lead|이끌다
+27-1|beat|(심장이) 고동치다|beat|(심장이) 고동치다
+27-1|Northern Lights|북극광 (오로라)|Northern Lights|북극광 (오로라)
+27-1|trial and error|시행착오|trial and error|시행착오
+27-1|bold|용감한, 대담한|bold|용감한, 대담한
+27-1|for a living|생계 수단으로|for a living|생계 수단으로
+27-1|chance|기회|chance|기회
+27-1|discover|발견하다|discover|발견하다
+27-1|through|~을 통해서|through|~을 통해서
+27-1|put out|(불을) 끄다|put out|(불을) 끄다
+27-1|abroad|해외로|abroad|해외로
+27-1|make a decision|결심하다|make a decision|결심하다
+27-1|belong to|~에 속하다|belong to|~에 속하다
+27-1|passport|여권|passport|여권
+27-1|pollution|오염|pollution|오염
+27-1|expert|전문가|expert|전문가
+27-1|be known as|~로 알려져있다|be known as|~로 알려져있다
+27-1|economy|경제|economy|경제
+27-1|sometime|언젠가|sometime|언젠가
+27-1|sometimes|때때로|sometimes|때때로
+27-1|nature|자연|nature|자연
+27-1|photographer|사진작가|photographer|사진작가
+27-1|college|대학교|college|대학교
+27-1|mean|의미하다, 뜻하다, 비열한|mean|의미하다, 뜻하다, 비열한
+27-1|reason|이유|reason|이유
+27-1|activity|활동|activity|활동
+27-1|achieve|달성하다|achieve|달성하다
+27-1|ability|능력|ability|능력
+27-1|frighten|두렵게 하다|frighten|두렵게 하다
+27-1|confident|자신감 있는|confident|자신감 있는
+27-1|subject|과목|subject|과목
+27-1|in front of|~앞에|in front of|~앞에
+27-1|opportunity|기회|opportunity|기회
+27-1|cause|~을 야기시키다, 원인|cause|~을 야기시키다, 원인
+27-1|inspired|감명을 받은|inspired|감명을 받은
+27-1|advice|충고, 조언|advice|충고, 조언
+27-1|air pollution|대기 오염|air pollution|대기 오염
+27-1|fearless|두려움이 없는|fearless|두려움이 없는
+27-1|Spanish|스페인의, 스페인어|Spanish|스페인의, 스페인어
+27-1|recipe|요리법|recipe|요리법
+27-1|for now|우선|for now|우선
+27-1|France|프랑스|France|프랑스
+27-1|travel|여행하다|travel|여행하다
+27-1|even|훨씬|even|훨씬
+27-1|goal|목표|goal|목표
+
 27-2|comfort|위안, 위로|comfort|위안, 위로
 27-2|mushroom|버섯|mushroom|버섯
 27-2|Italian|이탈리아의, 이탈리아어|Italian|이탈리아의, 이탈리아어
