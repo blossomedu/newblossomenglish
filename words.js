@@ -234,7 +234,7 @@
 3-9|last|지난, 마지막의|last summer|지난여름
 
 3-10|bank|은행|Where is the bank?|은행이 어디에 있어?
-3-10|sink|싱크대, 가라앉다|in the bathroom|욕실에
+3-10|sink|싱크대, 가라앉다|a sink in the bathroom|욕실에
 3-10|pink|분홍색(의)|a pink pig|분홍색 돼지
 3-10|milk|우유|chocolate milk|초콜릿 우유
 3-10|wing|날개|four wings|날개 네 개
@@ -11200,6 +11200,52 @@
 26-2|based on|~에 근거하면|based on|~에 근거하면
 26-2|accord|(동) 일치하다|accord|(동) 일치하다
 26-2|be under stress|스트레스받다|be under stress|스트레스받다
+
+27-2|comfort|위안, 위로|comfort|위안, 위로
+27-2|mushroom|버섯|mushroom|버섯
+27-2|Italian|이탈리아의, 이탈리아어|Italian|이탈리아의, 이탈리아어
+27-2|quantity|양, 수량|quantity|양, 수량
+27-2|flour|밀가루|flour|밀가루
+27-2|crisp|바삭바삭한|crisp|바삭바삭한
+27-2|disappear|사라지다|disappear|사라지다
+27-2|peel|껍질|peel|껍질
+27-2|beat|휘젓다, 섞다|beat|휘젓다, 섞다
+27-2|satisfy|만족하게 하다|satisfy|만족하게 하다
+27-2|international|국제적인|international|국제적인
+27-2|stomach|위, 복부, 배|stomach|위, 복부, 배
+27-2|stressed out|스트레스에 지친|stressed out|스트레스에 지친
+27-2|differ|다르다|differ|다르다
+27-2|not only A but also B|A 뿐 아니라 B 도|not only A but also B|A 뿐 아니라 B 도
+27-2|cassava|카사바|cassava|카사바
+27-2|similar to|~와 비슷한|similar to|~와 비슷한
+27-2|madeleine|마들렌 (작은 카스텔라의 일종)|madeleine|마들렌 (작은 카스텔라의 일종)
+27-2|be filled with|~로 가득하다|be filled with|~로 가득하다
+27-2|laptop|휴대용 컴퓨터|laptop|휴대용 컴퓨터
+27-2|fortunately|다행스럽게도|fortunately|다행스럽게도
+27-2|audience|청중, 관중|audience|청중, 관중
+27-2|tropical|열대지방의|tropical|열대지방의
+27-2|manner|일하는 방식|manner|일하는 방식
+27-2|emphasize|강조하다|emphasize|강조하다
+27-2|public|대중의|public|대중의
+27-2|empty|텅 빈|empty|텅 빈
+27-2|injury|부상|injury|부상
+27-2|requirement|필수조건, 충족 요건|requirement|필수조건, 충족 요건
+27-2|based on|~를 토대로|based on|~를 토대로
+27-2|slippery|미끄러운|slippery|미끄러운
+27-2|be deemed to|~로 여기다|be deemed to|~로 여기다
+27-2|demand|요구, 수요|demand|요구, 수요
+27-2|globalized|글로벌화 된|globalized|글로벌화 된
+27-2|marvelous|놀라운|marvelous|놀라운
+27-2|soy sauce|간장|soy sauce|간장
+27-2|extremely|극도로|extremely|극도로
+27-2|analytical|분석적인|analytical|분석적인
+27-2|process|처리하다|process|처리하다
+27-2|according to|~에 따르면|according to|~에 따르면
+27-2|link|연결|link|연결
+27-2|intergovernmental|(두 나라의) 정부간의|intergovernmental|(두 나라의) 정부간의
+27-2|organization|조직|organization|조직
+27-2|promote|촉진하다|promote|촉진하다
+27-2|cooperation|협조|cooperation|협조
   `;
   // 👆 여기까지가 네가 앞으로 수정·추가할 영역
 
