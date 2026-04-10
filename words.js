@@ -11093,6 +11093,61 @@
 25-1|pleasure|(명) 기쁨|pleasure|(명) 기쁨
 25-1|agreement|(명) 동의|agreement|(명) 동의
 
+25-2|bubble|(명) 거품|bubble|(명) 거품
+25-2|cafeteria|(명) 구내식당|cafeteria|(명) 구내식당
+25-2|contest|(명) 대회|contest|(명) 대회
+25-2|dust|(명) 흙먼지|dust|(명) 흙먼지
+25-2|even|(부) ~조차|even|(부) ~조차
+25-2|event|(명) 행사|event|(명) 행사
+25-2|excited|(형) 신난, 들뜬|excited|(형) 신난, 들뜬
+25-2|follow|(동) 뒤따르다, 따라가다|follow|(동) 뒤따르다, 따라가다
+25-2|gym|(명) 체육관|gym|(명) 체육관
+25-2|lettuce|(명) 상추|lettuce|(명) 상추
+25-2|plant|(명) 식물, (동) 심다|plant|(명) 식물, (동) 심다
+25-2|poem|(명) (한 편의) 시|poem|(명) (한 편의) 시
+25-2|practice|(동) 연습하다|practice|(동) 연습하다
+25-2|prepare|(동) 준비하다|prepare|(동) 준비하다
+25-2|prize|(명) 상, 상품|prize|(명) 상, 상품
+25-2|raise|(동) (들어) 올리다|raise|(동) (들어) 올리다
+25-2|ride|(동) (자전거 등을) 타다|ride|(동) (자전거 등을) 타다
+25-2|section|(명) 구역|section|(명) 구역
+25-2|soon|(부) 곧|soon|(부) 곧
+25-2|special|(형) 특별한, 특수한|special|(형) 특별한, 특수한
+25-2|stage|(명) 무대|stage|(명) 무대
+25-2|through|(전) ~을 통해|through|(전) ~을 통해
+25-2|tour|(명) 관광|tour|(명) 관광
+25-2|tunnel|(명) 터널|tunnel|(명) 터널
+25-2|rock climbing|암벽 등반|rock climbing|암벽 등반
+25-2|look around|~을 둘러보다[구경하다]|look around|~을 둘러보다[구경하다]
+25-2|full of|~으로 가득한|full of|~으로 가득한
+25-2|turn on|(전기, 가스 등을) 켜다, (수도를) 틀다|turn on|(전기, 가스 등을) 켜다, (수도를) 틀다
+25-2|pass through|거쳐가다|pass through|거쳐가다
+25-2|activity|활동|activity|활동
+25-2|train|훈련하다|train|훈련하다
+25-2|improve|개선하다|improve|개선하다
+25-2|skill|기술|skill|기술
+25-2|behind|뒤에|behind|뒤에
+25-2|object|사물|object|사물
+25-2|be divided into|~로 나누어지다|be divided into|~로 나누어지다
+25-2|lift|들어올리다|lift|들어올리다
+25-2|position|위치|position|위치
+25-2|level|높이, 층|level|높이, 층
+25-2|competition|경쟁, 대회|competition|경쟁, 대회
+25-2|try to|~하려고 노력하다|try to|~하려고 노력하다
+25-2|visit|방문|visit|방문
+25-2|get to know|잘 알게되다|get to know|잘 알게되다
+25-2|express|표현하다|express|표현하다
+25-2|emotion|감정|emotion|감정
+25-2|experience|경험|experience|경험
+25-2|ideas|생각들|ideas|생각들
+25-2|especially|특히|especially|특히
+25-2|lines|문장들|lines|문장들
+25-2|rhyme|운, 운을 맞추다|rhyme|운, 운을 맞추다
+25-2|plan|계획|plan|계획
+25-2|arrangement|준비, 정열|arrangement|준비, 정열
+25-2|happen|일어나다, 발생하다|happen|일어나다, 발생하다
+25-2|festival|축제|festival|축제
+
 
 26-1|beetle|(명) 딱정벌레|beetle|(명) 딱정벌레
 26-1|behavior|(명) 행동|behavior|(명) 행동
