@@ -11256,6 +11256,115 @@
 26-2|accord|(동) 일치하다|accord|(동) 일치하다
 26-2|be under stress|스트레스받다|be under stress|스트레스받다
 
+26-3|among|~중에 ~사이에|among|~중에 ~사이에
+26-3|argue|언쟁하다, 다투다|argue|언쟁하다, 다투다
+26-3|communication|의사소통|communication|의사소통
+26-3|competition|대회, 시험|competition|대회, 시험
+26-3|documentary|다큐멘터리|documentary|다큐멘터리
+26-3|ever|이제까지, 언젠가|ever|이제까지, 언젠가
+26-3|foul|반칙, 파울|foul|반칙, 파울
+26-3|hop|깡총깡총 뛰다|hop|깡총깡총 뛰다
+26-3|main|가장 큰, 주된|main|가장 큰, 주된
+26-3|parade|퍼레이드|parade|퍼레이드
+26-3|performance|공연|performance|공연
+26-3|quite|꽤, 상당히|quite|꽤, 상당히
+26-3|referee|심판|referee|심판
+26-3|sack|자루, 마대|sack|자루, 마대
+26-3|several|몇몇의|several|몇몇의
+26-3|since|~부터|since|~부터
+26-3|spot|발견하다, 알아채다|spot|발견하다, 알아채다
+26-3|stadium|경기장|stadium|경기장
+26-3|standard|일반적인, 표준의|standard|일반적인, 표준의
+26-3|stance out|눈에 띄다|stance out|눈에 띄다
+26-3|thanks to|덕분에|thanks to|덕분에
+26-3|unite|결속시키다|unite|결속시키다
+26-3|particular|특정한|particular|특정한
+26-3|argue with|~와 언쟁하다|argue with|~와 언쟁하다
+26-3|argue about|~에 대해 언쟁하다|argue about|~에 대해 언쟁하다
+26-3|process|과정, 절차|process|과정, 절차
+26-3|exchange|교환하다|exchange|교환하다
+26-3|express|표현하다|express|표현하다
+26-3|compete|경쟁하다|compete|경쟁하다
+26-3|detailed|상세한|detailed|상세한
+26-3|subject|주제|subject|주제
+26-3|against|~를 반대하는|against|~를 반대하는
+26-3|commit a foul|반칙을 하다|commit a foul|반칙을 하다
+26-3|minor|가벼운, 중요하지 않은|minor|가벼운, 중요하지 않은
+26-3|major|중요한, 주된|major|중요한, 주된
+26-3|public|공공의|public|공공의
+26-3|celebration|축하, 기념|celebration|축하, 기념
+26-3|band|음악 밴드|band|음악 밴드
+26-3|decorated|장식된|decorated|장식된
+26-3|vehicle|탈 것|vehicle|탈 것
+26-3|entertain|즐겁게 해주다|entertain|즐겁게 해주다
+26-3|audience|관객|audience|관객
+26-3|extremely|극도로, 극히|extremely|극도로, 극히
+26-3|make a call|판정을 내리다|make a call|판정을 내리다
+26-3|blow the whistle|호루라기를 불다|blow the whistle|호루라기를 불다
+26-3|store|저장하다|store|저장하다
+26-3|notice|알아차리다|notice|알아차리다
+26-3|open area|열린 공간, 지역|open area|열린 공간, 지역
+26-3|seat|좌석|seat|좌석
+26-3|accepted|허락된|accepted|허락된
+26-3|normal|보통의, 일반적인|normal|보통의, 일반적인
+
+
+26-4|all of a sudden|갑자기|all of a sudden|갑자기
+26-4|appearance|외모, 외관|appearance|외모, 외관
+26-4|complex|복잡한 (7)|complex|복잡한 (7)
+26-4|expect|예상하다|expect|예상하다
+26-4|fur|(동물의) 부드러운 털|fur|(동물의) 부드러운 털
+26-4|give birth|낳다, 출산하다|give birth|낳다, 출산하다
+26-4|height|키, 신장, 높이|height|키, 신장, 높이
+26-4|ladder|사다리|ladder|사다리
+26-4|length|길이|length|길이
+26-4|magazine|잡지|magazine|잡지
+26-4|net|그물|net|그물
+26-4|particularly|특히(P)|particularly|특히(P)
+26-4|pattern|무늬, 문양|pattern|무늬, 문양
+26-4|record|기록하다, 녹음하다|record|기록하다, 녹음하다
+26-4|research|연구|research|연구
+26-4|result|결과|result|결과
+26-4|southern|남부의|southern|남부의
+26-4|splash|물보라, 물을 튀기다|splash|물보라, 물을 튀기다
+26-4|stripe|줄무늬|stripe|줄무늬
+26-4|tag|꼬리표, 태그, 꼬리표를 달다|tag|꼬리표, 태그, 꼬리표를 달다
+26-4|underwater|물속에서|underwater|물속에서
+26-4|weigh|무게가 ~이다|weigh|무게가 ~이다
+26-4|unexpected|예상치 못한|unexpected|예상치 못한
+26-4|gradually|점진적으로|gradually|점진적으로
+26-4|explain|설명하다|explain|설명하다
+26-4|certainly|틀림없이, 확실히|certainly|틀림없이, 확실히
+26-4|anticipate|예상하다, 예측하다|anticipate|예상하다, 예측하다
+26-4|probably|아마|probably|아마
+26-4|produce|생산하다|produce|생산하다
+26-4|deliver|(아이를) 출산하다|deliver|(아이를) 출산하다
+26-4|measurement|측정, 측량|measurement|측정, 측량
+26-4|equipment|장비, 설비|equipment|장비, 설비
+26-4|width|폭, 너비|width|폭, 너비
+26-4|contain|포함하다|contain|포함하다
+26-4|essay|글, 수필|essay|글, 수필
+26-4|thread|실, 실을 꿸다|thread|실, 실을 꿸다
+26-4|woven|엮은|woven|엮은
+26-4|regular|규칙적인|regular|규칙적인
+26-4|usual|보통의, 일반적인|usual|보통의, 일반적인
+26-4|repeated|반복된|repeated|반복된
+26-4|decorate|꾸미다, 장식하다|decorate|꾸미다, 장식하다
+26-4|serious study|진지한 연구|serious study|진지한 연구
+26-4|discover|발견하다|discover|발견하다
+26-4|as a result|그 결과로|as a result|그 결과로
+26-4|result in|그 결과 ~가 되다|result in|그 결과 ~가 되다
+26-4|result from|기인하다|result from|기인하다
+26-4|election|선거|election|선거
+26-4|liquid|액체|liquid|액체
+26-4|attach to|~에 붙이다, 부착하다|attach to|~에 붙이다, 부착하다
+26-4|beneath|~아래에|beneath|~아래에
+26-4|complicated|복잡한(11)|complicated|복잡한(11)
+26-4|especially|특히(E)|especially|특히(E)
+26-4|outcome|결과(O)|outcome|결과(O)
+26-4|consequence|결과(C)|consequence|결과(C)
+
+
 27-1|major|전공, 주요한|major|전공, 주요한
 27-1|stable|안정적인|stable|안정적인
 27-1|blood pressure|혈압|blood pressure|혈압
