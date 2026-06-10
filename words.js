@@ -11329,7 +11329,7 @@
 26-3|spot|발견하다, 알아채다|spot|발견하다, 알아채다
 26-3|stadium|경기장|stadium|경기장
 26-3|standard|일반적인, 표준의|standard|일반적인, 표준의
-26-3|stance out|눈에 띄다|stance out|눈에 띄다
+26-3|stand out|눈에 띄다|stand out|눈에 띄다
 26-3|thanks to|덕분에|thanks to|덕분에
 26-3|unite|결속시키다|unite|결속시키다
 26-3|particular|특정한|particular|특정한
@@ -11361,7 +11361,24 @@
 26-3|seat|좌석|seat|좌석
 26-3|accepted|허락된|accepted|허락된
 26-3|normal|보통의, 일반적인|normal|보통의, 일반적인
-
+26-3|emotion|감정|emotion|감정
+26-3|affect|영향을 주다 (A)|affect|영향을 주다 (A)
+26-3|influence|영향력, 영향을 주다|influence|영향력, 영향을 주다
+26-3|represent|대표하다, 대신하다|represent|대표하다, 대신하다
+26-3|passion|열정|passion|열정
+26-3|attract attention|주의를 끌다|attract attention|주의를 끌다
+26-3|nervous|긴장한, 신경질적인|nervous|긴장한, 신경질적인
+26-3|calm|침착한, 차분한|calm|침착한, 차분한
+26-3|trustworthy|신뢰할만한|trustworthy|신뢰할만한
+26-3|be connected with|~와 연결 되다|be connected with|~와 연결 되다
+26-3|eco-friendly|환경친화적인, 친환경의|eco-friendly|환경친화적인, 친환경의
+26-3|environmental campaigns|환경 운동, 환경 캠페인|environmental campaigns|환경 운동, 환경 캠페인
+26-3|while|~하는 반면에, ~하는 동안|while|~하는 반면에, ~하는 동안
+26-3|symbolize|상징하다|symbolize|상징하다
+26-3|purity|순수성, 순도|purity|순수성, 순도
+26-3|simplicity|간단함, 평이함|simplicity|간단함, 평이함
+26-3|modern|현대의|modern|현대의
+26-3|create|창조하다|create|창조하다
 
 26-4|all of a sudden|갑자기|all of a sudden|갑자기
 26-4|appearance|외모, 외관|appearance|외모, 외관
