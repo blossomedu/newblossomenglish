@@ -11149,6 +11149,60 @@
 25-2|festival|축제|festival|축제
 
 
+25-3|action|행동, 조치|action|행동, 조치
+25-3|both|둘 다의, 양쪽의|both|둘 다의, 양쪽의
+25-3|bottle|병|bottle|병
+25-3|cause|원인, 이유|cause|원인, 이유
+25-3|change|변화, 변화시키다, 바꾸다|change|변화, 변화시키다, 바꾸다
+25-3|chase|뒤쫓다, 추적하다|chase|뒤쫓다, 추적하다
+25-3|climate|기후|climate|기후
+25-3|cloth|천, 옷감|cloth|천, 옷감
+25-3|coral reef|산호초|coral reef|산호초
+25-3|cover|(언급된 지역에) 걸치다, 덮다|cover|(언급된 지역에) 걸치다, 덮다
+25-3|dirty|더러운|dirty|더러운
+25-3|dive|잠수하다|dive|잠수하다
+25-3|difference|차이|difference|차이
+25-3|effect|결과, 영향, 효과|effect|결과, 영향, 효과
+25-3|explore|탐험하다|explore|탐험하다
+25-3|environment|환경|environment|환경
+25-3|film|영화|film|영화
+25-3|healthy|건강한; 건강에 좋은|healthy|건강한; 건강에 좋은
+25-3|island|섬|island|섬
+25-3|information|정보|information|정보
+25-3|join|참여하다, 끼어들다|join|참여하다, 끼어들다
+25-3|jellyfish|해파리|jellyfish|해파리
+25-3|learn|배우다|learn|배우다
+25-3|mess|엉망인 상태|mess|엉망인 상태
+25-3|messy|지저분한, 엉망인|messy|지저분한, 엉망인
+25-3|online|온라인으로|online|온라인으로
+25-3|plastic bag|비닐봉지|plastic bag|비닐봉지
+25-3|post|올리다, 게시하다|post|올리다, 게시하다
+25-3|promise|약속하다|promise|약속하다
+25-3|protect|보호하다|protect|보호하다
+25-3|recycle|재활용하다|recycle|재활용하다
+25-3|save|구하다, 절약하다|save|구하다, 절약하다
+25-3|seat|자리, 좌석|seat|자리, 좌석
+25-3|solution|해결책, 해법|solution|해결책, 해법
+25-3|stairs|계단|stairs|계단
+25-3|straw|빨대|straw|빨대
+25-3|sunscreen|자외선 차단제|sunscreen|자외선 차단제
+25-3|swimwear|수영복|swimwear|수영복
+25-3|temperature|온도, 기온|temperature|온도, 기온
+25-3|title|제목|title|제목
+25-3|use|쓰다, 사용하다|use|쓰다, 사용하다
+25-3|warm|따뜻하게 하다, 따뜻한|warm|따뜻하게 하다, 따뜻한
+25-3|waste|낭비하다|waste|낭비하다
+25-3|clean up|~을 치우다(청소하다)|clean up|~을 치우다(청소하다)
+25-3|from now on|이제부터|from now on|이제부터
+25-3|in danger|위험에 처한|in danger|위험에 처한
+25-3|slow down|(속도, 진행 등을) 늦추다|slow down|(속도, 진행 등을) 늦추다
+25-3|take out|~을 가지고 나가다|take out|~을 가지고 나가다
+25-3|mess|엉망인 상태|mess|엉망인 상태
+25-3|heathy|건강한|heathy|건강한
+25-3|effect|결과, 영향|effect|결과, 영향
+25-3|climate|기후|climate|기후
+
+
 26-1|beetle|(명) 딱정벌레|beetle|(명) 딱정벌레
 26-1|behavior|(명) 행동|behavior|(명) 행동
 26-1|blog|(명) 블로그|blog|(명) 블로그
