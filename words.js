@@ -11202,6 +11202,55 @@
 25-3|effect|결과, 영향|effect|결과, 영향
 25-3|climate|기후|climate|기후
 
+25-4|action|연기|action|연기
+25-4|adventure|모험|adventure|모험
+25-4|amazing|놀라운|amazing|놀라운
+25-4|animation|만화 영화|animation|만화 영화
+25-4|bring|가져오다, 데려오다|bring|가져오다, 데려오다
+25-4|candle|양초|candle|양초
+25-4|carry|나르다, 들고 다니다|carry|나르다, 들고 다니다
+25-4|character|특징, 인물|character|특징, 인물
+25-4|collect|모으다, 수집하다|collect|모으다, 수집하다
+25-4|diary|일기|diary|일기
+25-4|double|두 배로 만들다|double|두 배로 만들다
+25-4|each|각각의|each|각각의
+25-4|empty|비어 있는, 빈|empty|비어 있는, 빈
+25-4|enough|충분한(형), 충분히(부)|enough|충분한(형), 충분히(부)
+25-4|exciting|신나는, 흥미진진한|exciting|신나는, 흥미진진한
+25-4|fantastic|환상적인|fantastic|환상적인
+25-4|fill|(가득) 채우다|fill|(가득) 채우다
+25-4|fold|접다|fold|접다
+25-4|genre|(예술 작품의) 장르|genre|(예술 작품의) 장르
+25-4|grain|낱알, 알갱이|grain|낱알, 알갱이
+25-4|greedy|욕심 많은, 탐욕스러운|greedy|욕심 많은, 탐욕스러운
+25-4|handful|한 줌, 한 움큼|handful|한 줌, 한 움큼
+25-4|hear|듣다, 들리다|hear|듣다, 들리다
+25-4|however|하지만, 그러냐|however|하지만, 그러냐
+25-4|hungry|배고픈|hungry|배고픈
+25-4|last|자막의, 지난|last|자막의, 지난
+25-4|laugh|웃다|laugh|웃다
+25-4|lesson|수업, 교훈|lesson|수업, 교훈
+25-4|millon|100만|millon|100만
+25-4|moving|감동적인|moving|감동적인
+25-4|past|과거|past|과거
+25-4|play|연극, 희곡(명), (운동, 놀이 등을) 하다|play|연극, 희곡(명), (운동, 놀이 등을) 하다
+25-4|reward|보상하다, 보답하다|reward|보상하다, 보답하다
+25-4|rice|쌀|rice|쌀
+25-4|scene|(연극의) 장, 장면|scene|(연극의) 장, 장면
+25-4|servant|하인|servant|하인
+25-4|storehouse|창고|storehouse|창고
+25-4|theater|극장|theater|극장
+25-4|trouble|문제, 골칫거리|trouble|문제, 골칫거리
+25-4|touching|감동적인|touching|감동적인
+25-4|wisdom|지혜, 현명함|wisdom|지혜, 현명함
+25-4|wise|지혜로운, 현명한|wise|지혜로운, 현명한
+25-4|ask for|요구하다, 요청하다|ask for|요구하다, 요청하다
+25-4|for a while|잠시동안|for a while|잠시동안
+25-4|in surprise|놀라서|in surprise|놀라서
+25-4|in trouble|곤경에 빠진|in trouble|곤경에 빠진
+25-4|more than|~ 이상의|more than|~ 이상의
+25-4|set up|(텐트 등을) 세우다[설치하다]|set up|(텐트 등을) 세우다[설치하다]
+
 
 26-1|beetle|(명) 딱정벌레|beetle|(명) 딱정벌레
 26-1|behavior|(명) 행동|behavior|(명) 행동
