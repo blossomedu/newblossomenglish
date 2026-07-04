@@ -11483,6 +11483,55 @@
 26-4|especially|특히(E)|especially|특히(E)
 26-4|outcome|결과(O)|outcome|결과(O)
 26-4|consequence|결과(C)|consequence|결과(C)
+26-4|watch out for|~를 조심하다|watch out for|~를 조심하다
+26-4|pull out|~를 당기다|pull out|~를 당기다
+26-4|while|~하는 동안에 (뒤에 문장이 옴)|while|~하는 동안에 (뒤에 문장이 옴)
+26-4|intelligent|지능이 있는, 총명한|intelligent|지능이 있는, 총명한
+26-4|pile up|쌓다, 쌓아 올리다|pile up|쌓다, 쌓아 올리다
+26-4|creature|생명체|creature|생명체
+26-4|brilliant|멋진, 훌륭한|brilliant|멋진, 훌륭한
+
+26-5|delighted|매우 기쁜|delighted|매우 기쁜
+26-5|thrilled|매우 신이 난|thrilled|매우 신이 난
+26-5|satisfied|만족한|satisfied|만족한
+26-5|relieved|안도한|relieved|안도한
+26-5|grateful|감사한|grateful|감사한
+26-5|confident|자신감 있는|confident|자신감 있는
+26-5|curious|궁금한|curious|궁금한
+26-5|confused|혼란스러운|confused|혼란스러운
+26-3|puzzled|이해가 안 되는, 당황한|puzzled|이해가 안 되는, 당황한
+26-5|frustrated|좌절한, 답답한|frustrated|좌절한, 답답한
+26-5|annoyed|짜증 난|annoyed|짜증 난
+26-5|irritated|짜증 난, 성가신|irritated|짜증 난, 성가신
+26-5|lonely|외로운|lonely|외로운
+26-5|depressed|우울한|depressed|우울한
+26-5|embarrassed|당황한, 창피한|embarrassed|당황한, 창피한
+26-5|ashamed|부끄러운|ashamed|부끄러운
+26-5|jealous|질투하는|jealous|질투하는
+26-5|envious|부러워하는|envious|부러워하는
+26-5|shocked|충격 받은|shocked|충격 받은
+26-5|disappointed|실망한|disappointed|실망한
+26-5|Practice makes perfect.|연습이 완벽을 만든다.|Practice makes perfect.|연습이 완벽을 만든다
+26-5|Time is money.|시간은 돈이다.|Time is money.|시간은 돈이다
+26-5|Better late than never.|안 하는 것보다 늦게라도 하는 게 낫다.|Better late than never.|안 하는 것보다 늦게라도 하는 게 낫다
+26-5|Easy come, easy go.|쉽게 얻은 것은 쉽게 잃는다.|Easy come, easy go.|쉽게 얻은 것은 쉽게 잃는다
+26-5|No pain, no gain.|노력 없이는 얻는 것도 없다.|No pain, no gain.|노력 없이는 얻는 것도 없다
+26-5|Actions speak louder than words.|말보다 행동이 중요하다.|Actions speak louder than words.|말보다 행동이 중요하다
+26-5|Where there's a will, there's a way.|뜻이 있는 곳에 길이 있다.|Where there's a will, there's a way.|뜻이 있는 곳에 길이 있다
+26-5|Two heads are better than one.|한 사람보다 두 사람이 낫다.|Two heads are better than one.|한 사람보다 두 사람이 낫다
+26-5|Seeing is believing.|백문이 불여일견.|Seeing is believing.|백문이 불여일견
+26-5|Don't judge a book by its cover.|겉모습만 보고 판단하지 마라.|Don't judge a book by its cover.|겉모습만 보고 판단하지 마라
+26-5|A friend in need is a friend indeed.|어려울 때 돕는 친구가 진정한 친구다.|A friend in need is a friend indeed.|어려울 때 돕는 친구가 진정한 친구다
+26-5|Honesty is the best policy.|정직이 최선의 정책이다.|Honesty is the best policy.|정직이 최선의 정책이다
+26-5|The early bird catches the worm.|부지런한 사람이 기회를 잡는다.|The early bird catches the worm.|부지런한 사람이 기회를 잡는다
+26-5|Look before you leap.|행동하기 전에 신중히 생각하라.|Look before you leap.|행동하기 전에 신중히 생각하라
+26-5|Many hands make light work.|여러 사람이 하면 일이 쉬워진다.|Many hands make light work.|여러 사람이 하면 일이 쉬워진다
+26-5|Rome was not built in a day.|큰일은 하루아침에 이루어지지 않는다.|Rome was not built in a day.|큰일은 하루아침에 이루어지지 않는다
+26-5|Knowledge is power.|아는 것이 힘이다.|Knowledge is power.|아는 것이 힘이다
+26-5|All that glitters is not gold.|반짝인다고 모두 금은 아니다.|All that glitters is not gold.|반짝인다고 모두 금은 아니다
+26-5|Every cloud has a silver lining.|나쁜 일에도 좋은 면이 있다.|Every cloud has a silver lining.|나쁜 일에도 좋은 면이 있다
+26-5|Birds of a feather flock together.|유유상종.|Birds of a feather flock together.|유유상종
+
 
 
 27-1|major|전공, 주요한|major|전공, 주요한
