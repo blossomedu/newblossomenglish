@@ -11532,6 +11532,69 @@
 26-5|Every cloud has a silver lining.|나쁜 일에도 좋은 면이 있다.|Every cloud has a silver lining.|나쁜 일에도 좋은 면이 있다
 26-5|Birds of a feather flock together.|유유상종.|Birds of a feather flock together.|유유상종
 
+26-6|bench|벤치|bench|벤치
+26-6|candle|양초|candle|양초
+26-6|clue|단서, 실마리|clue|단서, 실마리
+26-6|contact|연락하다|contact|연락하다
+26-6|crumb|부스러기|crumb|부스러기
+26-6|detective|탐정|detective|탐정
+26-6|disappear|사라지다|disappear|사라지다
+26-6|exact|정확한|exact|정확한
+26-6|handle|손잡이, 다루다|handle|손잡이, 다루다
+26-6|hide|숨기다, 감추다|hide|숨기다, 감추다
+26-6|item|물품|item|물품
+26-6|logically|논리적으로|logically|논리적으로
+26-6|medicine|약|medicine|약
+26-6|mud|진흙|mud|진흙
+26-6|neighbor|이웃|neighbor|이웃
+26-6|pocket|주머니|pocket|주머니
+26-6|poet|시인|poet|시인
+26-6|shadow|그림자|shadow|그림자
+26-6|steal|훔치다|steal|훔치다
+26-6|stomachache|복통|stomachache|복통
+26-6|thief|도둑|thief|도둑
+26-6|whole|전체의|whole|전체의
+26-6|seat|좌석|seat|좌석
+26-6|stick|막대기|stick|막대기
+26-6|string|줄|string|줄
+26-6|flame|불꽃|flame|불꽃
+26-6|object|사물|object|사물
+26-6|mystery|수수께끼, 신비|mystery|수수께끼, 신비
+26-6|keep in touch with|~와 연락하다|keep in touch with|~와 연락하다
+26-6|be in touch|연락을 지속하다|be in touch|연락을 지속하다
+26-6|lose touch|연락이 끊기다|lose touch|연락이 끊기다
+26-6|investigate|조사하다|investigate|조사하다
+26-6|crime|범죄|crime|범죄
+26-6|criminal|범죄자|criminal|범죄자
+26-6|impossible|불가능한|impossible|불가능한
+26-6|vanish|사라지다|vanish|사라지다
+26-6|in detail|상세하게|in detail|상세하게
+26-6|precise|정확한|precise|정확한
+26-6|completely|완전히|completely|완전히
+26-6|conceal|숨기다, 감추다|conceal|숨기다, 감추다
+26-6|reveal|드러내다, 보여주다|reveal|드러내다, 보여주다
+26-6|logic|논리, 타당성|logic|논리, 타당성
+26-6|be based on|~에 근거하다|be based on|~에 근거하다
+26-6|substance|물질|substance|물질
+26-6|treat|치료하다|treat|치료하다
+26-6|illness|질병|illness|질병
+26-6|liquid|액체|liquid|액체
+26-6|earth|땅, 흙|earth|땅, 흙
+26-6|sticky|끈적 끈적한|sticky|끈적 끈적한
+26-6|muddy|진흙투성이의|muddy|진흙투성이의
+26-6|poem|시|poem|시
+26-6|poetry|시문학|poetry|시문학
+26-6|belong to|~에 속하다|belong to|~에 속하다
+26-6|robber|강도|robber|강도
+26-6|entire|전체의|entire|전체의
+26-6|partial|부분의|partial|부분의
+26-6|describe|묘사하다|describe|묘사하다
+26-6|missing|사라진, 없어진|missing|사라진, 없어진
+26-6|spare|여분의|spare|여분의
+26-6|equipment room|장비실|equipment room|장비실
+26-6|match|알맞다, 어울리다|match|알맞다, 어울리다
+26-6|detective|탐정, 형사|detective|탐정, 형사
+26-6|if only|~라면 좋을텐데|if only|~라면 좋을텐데
 
 
 27-1|major|전공, 주요한|major|전공, 주요한
