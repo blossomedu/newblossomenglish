@@ -11596,6 +11596,84 @@
 26-6|detective|탐정, 형사|detective|탐정, 형사
 26-6|if only|~라면 좋을텐데|if only|~라면 좋을텐데
 
+26-7|bakery|빵집, 제과점|bakery|빵집, 제과점
+26-7|both|둘 다|both|둘 다
+26-7|bright|밝은|bright|밝은
+26-7|choice|선택|choice|선택
+26-7|clerk|점원|clerk|점원
+26-7|clothing|옷, 의류|clothing|옷, 의류
+26-7|cross out|(선을 그어) 지우다|cross out|(선을 그어) 지우다
+26-7|deal|거래|deal|거래
+26-7|environment|환경|environment|환경
+26-7|fat free|무지방의|fat free|무지방의
+26-7|flavor|맛|flavor|맛
+26-7|local|지역의, 현지의|local|지역의, 현지의
+26-7|mug|머그잔|mug|머그잔
+26-7|on sale|할인 중인|on sale|할인 중인
+26-7|pair|선택권|pair|선택권
+26-7|producer|생산자|producer|생산자
+26-7|product|제품, 생산물|product|제품, 생산물
+26-7|proud|자랑스러운|proud|자랑스러운
+26-7|recommend|추천하다|recommend|추천하다
+26-7|sneaker|운동화|sneaker|운동화
+26-7|suggestion|제안|suggestion|제안
+26-7|arrangement|합의, 협의|arrangement|합의, 협의
+26-7|natural|(인위적이 아닌) 자연의|natural|(인위적이 아닌) 자연의
+26-7|contain|포함하다|contain|포함하다
+26-7|low fat|저지방|low fat|저지방
+26-7|sugar free|무설탕의|sugar free|무설탕의
+26-7|relating to|~와 관련된|relating to|~와 관련된
+26-7|particular|특정한, 특별한|particular|특정한, 특별한
+26-7|handle|손잡이, 다루다|handle|손잡이, 다루다
+26-7|available|(판매가) 가능한|available|(판매가) 가능한
+26-7|for sale|판매중인|for sale|판매중인
+26-7|worn|입혀진 (wear의 과거분사)|worn|입혀진 (wear의 과거분사)
+26-7|goods|상품, 제품|goods|상품, 제품
+26-7|materials|자재|materials|자재
+26-7|grown|자라난|grown|자라난
+26-7|produced|생산된|produced|생산된
+26-7|own|소유하다|own|소유하다
+26-7|satisfied|만족한|satisfied|만족한
+26-7|suggest|제안하다|suggest|제안하다
+26-7|purpose|목적|purpose|목적
+26-7|informal|비격식의|informal|비격식의
+26-7|possibility|가능성|possibility|가능성
+26-7|mention|언급하다|mention|언급하다
+26-7|unfortunate|불행한|unfortunate|불행한
+26-7|What a shame!|유감스러워!|What a shame!|유감스러워!
+26-7|high|높은, 높게|high|높은, 높게
+26-7|highly|매우, 대단히|highly|매우, 대단히
+26-7|hard|단단한, 어려운|hard|단단한, 어려운
+26-7|hardly|거의 ~않다|hardly|거의 ~않다
+26-7|late|늦은, 늦게|late|늦은, 늦게
+26-7|lately|최근에|lately|최근에
+26-7|near|가까운|near|가까운
+26-7|nearly|거의 ~않다|nearly|거의 ~않다
+26-7|deep|깊은|deep|깊은
+26-7|deeply|깊이, 깊게|deeply|깊이, 깊게
+26-7|wide|넓은|wide|넓은
+26-7|widely|넓게|widely|넓게
+26-7|close|가까운|close|가까운
+26-7|closely|가깝게|closely|가깝게
+26-7|quality|품질|quality|품질
+26-7|comfortable|편안한|comfortable|편안한
+26-7|useful|유용한|useful|유용한
+26-7|suitable|적합한, 잘 맞는|suitable|적합한, 잘 맞는
+26-7|affordable|가격이 적당한, 부담 없는|affordable|가격이 적당한, 부담 없는
+
+26-8|It is worth the price.|가격만큼의 가치가 있습니다.|It is worth the price.|가격만큼의 가치가 있습니다.
+26-8|It's a great deal!|정말 좋은 조건/가격입니다!|It's a great deal!|정말 좋은 조건/가격입니다!
+26-8|I highly recommend this product.|이 제품을 강력히 추천합니다.|I highly recommend this product.|이 제품을 강력히 추천합니다.
+26-8|Don't miss this chance!|이 기회를 놓치지 마세요!|Don't miss this chance!|이 기회를 놓치지 마세요!
+26-8|Why not give it a try?|한번 사용해 보는 건 어떨까요?|Why not give it a try?|한번 사용해 보는 건 어떨까요?
+26-8|You won't regret it!|후회하지 않을 거예요!|You won't regret it!|후회하지 않을 거예요!
+26-8|Get yours today!|오늘 바로 하나 장만하세요!|Get yours today!|오늘 바로 하나 장만하세요!
+26-8|Don't be late or you will miss out!|늦지 마세요, 안 그러면 기회를 놓쳐요!|Don't be late or you will miss out!|늦지 마세요, 안 그러면 기회를 놓쳐요!
+26-8|Don't miss out on this limited time off|기간 한정 판매 기회를 놓치지 마세요.|Don't miss out on this limited time off|기간 한정 판매 기회를 놓치지 마세요.
+26-8|Why pay more?|왜 더 비싸게 사세요?|Why pay more?|왜 더 비싸게 사세요?
+26-8|These prices are never to be repeated.|이런 가격은 다시는 없을 거예요.|These prices are never to be repeated.|이런 가격은 다시는 없을 거예요.
+26-8|It's our once in a lifetime sale!|일생에 한 번 있을 세일입니다!|It's our once in a lifetime sale!|일생에 한 번 있을 세일입니다!
+26-8|Treat yourself! You deserve the best.|나를 위해 하나 장만하세요! 최고의 것을 누릴 자격이 있어요.|Treat yourself! You deserve the best.|나를 위해 하나 장만하세요! 최고의 것을 누릴 자격이 있어요.
 
 27-1|major|전공, 주요한|major|전공, 주요한
 27-1|stable|안정적인|stable|안정적인
@@ -11707,6 +11785,8 @@
 27-2|organization|조직|organization|조직
 27-2|promote|촉진하다|promote|촉진하다
 27-2|cooperation|협조|cooperation|협조
+
+
   `;
   // 👆 여기까지가 네가 앞으로 수정·추가할 영역
 
