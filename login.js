@@ -105,7 +105,7 @@ if (studentLoginBtn) {
       // 1. DB에서 아이디/비번 일치하는 학생 찾기
       const { data, error } = await supabaseClient
         .from("students")
-        .select("*")
+        .select("id, name, login_id, class_id, created_at")
         .eq("login_id", idVal)
         .eq("password", pwVal)
         .maybeSingle();
