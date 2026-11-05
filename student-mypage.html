@@ -1085,11 +1085,8 @@
       const { data: dbStudent, error: stError } = await client
         .from("students")
         .select(`
-          *,
-          classes (
-            id,
-            name
-          )
+          id, name, login_id, class_id, created_at,
+          classes ( id, name )
         `)
         .eq("login_id", s.login_id)
         .maybeSingle();
