@@ -11249,8 +11249,118 @@
 25-4|in surprise|놀라서|in surprise|놀라서
 25-4|in trouble|곤경에 빠진|in trouble|곤경에 빠진
 25-4|more than|~ 이상의|more than|~ 이상의
-25-4|set up|(텐트 등을) 세우다[설치하다]|set up|(텐트 등을) 세우다[설치하다]
+25-4|set up|(텐트 등을) 세우다[설치하다]|set up|(텐트 등을) 세우다[설치하다
 
+25-5|environment|환경|environment|환경
+25-5|natural|자연스러운, 자연의|natural|자연스러운, 자연의
+25-5|measurement|측정, 측량|measurement|측정, 측량
+25-5|degree|도(온도, 각도, 정도)|degree|도(온도, 각도, 정도)
+25-5|increase|증가하다, 증가시키다|increase|증가하다, 증가시키다
+25-5|amount|양, 질량|amount|양, 질량
+25-5|throw away|버리다|throw away|버리다
+25-5|reduce|줄이다|reduce|줄이다
+25-5|waste|낭비하다, 쓰레기|waste|낭비하다, 쓰레기
+25-5|prevent|예방하다, 막다|prevent|예방하다, 막다
+25-5|loss|상실, 손실|loss|상실, 손실
+25-5|any time|언제든지|any time|언제든지
+25-5|in danger|위험에 처한|in danger|위험에 처한
+25-5|because of|~ 때문에|because of|~ 때문에
+25-5|severe|엄격한, 심각한|severe|엄격한, 심각한
+25-5|in effect|사실상, 시행중인|in effect|사실상, 시행중인
+25-5|decrease|줄이다, 감소하다|decrease|줄이다, 감소하다
+25-5|create|창조하다|create|창조하다
+25-5|lack|부족, 부족하다|lack|부족, 부족하다
+25-5|crop|작물|crop|작물
+25-5|valuable|가치 있는|valuable|가치 있는
+25-5|useful|유용한|useful|유용한
+25-5|possession|소유, 보유|possession|소유, 보유
+25-5|organization|조직, 단체|organization|조직, 단체
+25-5|such as|~처럼, ~와 같이|such as|~처럼, ~와 같이
+25-5|garbage|쓰레기|garbage|쓰레기
+25-5|separate|분리된, 나뉜|separate|분리된, 나뉜
+25-5|form|형태|form|형태
+25-5|chemical process|분해하다|chemical process|분해하다
+25-5|break down|끄다|break down|끄다
+25-5|switch off|(전등)을 끄다|switch off|(전등)을 끄다
+25-5|melt|녹다, 녹이다|melt|녹다, 녹이다
+25-5|temperature|온도|temperature|온도
+25-5|rise|오르다|rise|오르다
+25-5|waste|쓰레기, 낭비하다|waste|쓰레기, 낭비하다
+25-5|save|절약하다, 아끼다|save|절약하다, 아끼다
+25-5|pollution|오염|pollution|오염
+25-5|serious|심각한|serious|심각한
+25-5|reduce|줄이다|reduce|줄이다
+25-5|recycle|재활용하다|recycle|재활용하다
+25-5|hurt|다치다|hurt|다치다
+25-5|without|~없이|without|~없이
+25-5|resource|자원|resource|자원
+25-5|turn off|끄다|turn off|끄다
+25-5|control|통제하다, 조절하다|control|통제하다, 조절하다
+25-5|flow|흐름|flow|흐름
+25-5|fill|채우다|fill|채우다
+25-5|in every way|모든 점에서|in every way|모든 점에서
+25-5|yard|마당|yard|마당
+25-5|cause|유발하다|cause|유발하다
+25-5|dirt|흙, 먼지(때)|dirt|흙, 먼지(때)
+25-5|participate|참여하다, 참가하다(1)|participate|참여하다, 참가하다(1)
+25-5|be involved in|~에 개입되다, 관련되다|be involved in|~에 개입되다, 관련되다
+25-5|take part in|참여하다, 참가하다(3)|take part in|참여하다, 참가하다(3)
+25-5|play|연극|play|연극
+25-5|tube|튜브|tube|튜브
+25-5|suck|빨아들이다|suck|빨아들이다
+25-5|liquid|액체|liquid|액체
+25-5|container|그릇, 용기|container|그릇, 용기
+25-5|effective|효과적인|effective|효과적인
+25-5|tool|도구|tool|도구
+25-5|goods|상품|goods|상품
+25-5|on time|제 시간에|on time|제 시간에
+25-5|injury|부상|injury|부상
+25-5|make sure|~하는 것을 잊지 마(명심해)|make sure|~하는 것을 잊지 마(명심해)
+
+
+25-6|library|도서관|library|도서관
+25-6|explain|설명하다|explain|설명하다
+25-6|check out|(도서관 등에서) 대출하다|check out|(도서관 등에서) 대출하다
+25-6|return|반납하다|return|반납하다
+25-6|borrow|빌리다|borrow|빌리다
+25-6|emotion|감정, 정서|emotion|감정, 정서
+25-6|opinion|의견|opinion|의견
+25-6|amount|(무엇의) 양|amount|(무엇의) 양
+25-6|neighbor|이웃|neighbor|이웃
+25-6|call|~라고 부르다|call|~라고 부르다
+25-6|mistake|실수, 잘못|mistake|실수, 잘못
+25-6|champion|챔피언|champion|챔피언
+25-6|step|걸음을 걷다|step|걸음을 걷다
+25-6|slippery|미끄러운|slippery|미끄러운
+25-6|close|가까운, 아슬아슬한|close|가까운, 아슬아슬한
+25-6|nervous|긴장한|nervous|긴장한
+25-6|available|(이용) 가능한|available|(이용) 가능한
+25-6|information|정보|information|정보
+25-6|period|기간|period|기간
+25-6|feeling|느낌|feeling|느낌
+25-6|belief|믿음|belief|믿음
+25-6|opinion|의견|opinion|의견
+25-6|relaxing|마음을 느긋하게 해주는, 편한|relaxing|마음을 느긋하게 해주는, 편한
+25-6|quantity|(무엇의) 양|quantity|(무엇의) 양
+25-6|near|근처의, 가까운|near|근처의, 가까운
+25-6|grocery store|식료품점|grocery store|식료품점
+25-6|specific|특정한|specific|특정한
+25-6|correct|올바른, 알맞은|correct|올바른, 알맞은
+25-6|competition|경쟁, 대회|competition|경쟁, 대회
+25-6|Don't forget to|~하는 것을 잊지 마|Don't forget to|~하는 것을 잊지 마
+25-6|almost|거의|almost|거의
+25-6|curious|호기심 있는|curious|호기심 있는
+25-6|lesson|교훈|lesson|교훈
+25-6|fall into sleep|잠에 빠지다|fall into sleep|잠에 빠지다
+25-6|deep|깊은|deep|깊은
+25-6|important|중요한|important|중요한
+25-6|experience|경험|experience|경험
+25-6|actor|배우|actor|배우
+25-6|stage|무대|stage|무대
+25-6|suddenly|갑자기|suddenly|갑자기
+25-6|give up|~를 포기하다|give up|~를 포기하다
+25-6|mess up|망치다|mess up|망치다
+25-6|no longer|더 이상 ~하지 않은|no longer|더 이상 ~하지 않은
 
 26-1|beetle|(명) 딱정벌레|beetle|(명) 딱정벌레
 26-1|behavior|(명) 행동|behavior|(명) 행동
